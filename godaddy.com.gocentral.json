@@ -1,0 +1,40 @@
+{
+  
+	"providerId": "godaddy.com",
+  
+	"providerName": "GoDaddy",
+  
+	"templateId": "gocentral",
+  
+	"templateName": "GoCentral (Website Builder)",
+  
+	"logoUrl": "http://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
+  
+	"description" : "Enables a domain to work with GoDaddy GoCentral and Website Builder",
+  
+	"variableDescription" : "v1 is the IP address of the server.",
+	"records": [
+      
+		{
+			"type": "A",
+			"host": "@",
+			"pointsTo": "%v1%",
+			"ttl": "600",
+			"
+		},
+		{
+
+			"type": "CNAME",
+
+			"host": "www",
+    
+			"pointsTo": "wsbdomain.com"
+,
+			"ttl": "3600"
+      
+		}
+
+      
+    ]
+
+}
