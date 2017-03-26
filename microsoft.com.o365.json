@@ -1,109 +1,99 @@
-{
-  
-	"providerId": "microsoft.com",
-  
-	"providerName": "Microsoft",
-  
-	"templateId": "O365",
-  
-	"templateName": "Microsoft Office 365",
-  
-	"logoUrl": "http://domainconnect.org/wp-content/uploads/2016/04/squarespace-logo-horizontal-white-300x109.jpg",
-  
-	"description" : "Enables a domain to work with Microsoft Office 365",
-  
-	"variableDescription": "Self explanatory in the variable names.",
-	"records": [
-  
-		{
-			"groupId" : "Outlook",
-			"type": "MX",
-			"host": "@",
-			"pointsTo": "%mx%",
-			"priority": "0",
-			"ttl": "3600"
-		},
-		{
-			"groupId" : "Outlook",
-			"type": "CNAME",
-			"host": "autodiscover",
-			"pointsTo": "%autodiscover%",
-			"ttl": "3600"
-		},
-		{
-			"groupId" : "Outlook",
-			"type": "TXT",
-			"host": "@",
-			"pointsTo": "%spftxt%",
-			"ttl": "3600"
-		}, 
-		{
-			"groupId" : "Skype",
-			"type": "CNAME",
-			"host": "sip",
-			"pointsTo": "%sip%",
-			"ttl": "3600"
-		},
-		{
-			"groupId" : "Skype",
-			"type": "CNAME",
-			"host": "lyncdiscover",
-			"pointsTo": "%lyncdiscover%",
-			"ttl": "3600"
-		},
-		{
-			"groupId" : "Skype",
-			"type": "SRV",
-			"service": "_sip",
-			"protocol": "_tls",
-			"port": "443",
-			"weight": "1",
-			"priority": "100",
-			"host": "@",
-			"pointsTo": "%sipdir%",
-			"ttl": "3600"
-		},
-		{
-			"groupId" : "Skype",
-			"type": "SRV",
-			"service": "_sipfederationtls",
-			"protocol": "_tcp",
-			"port": "5061",
-			"weight": "1",
-			"priority": "100",
-			"host": "@",
-			"pointsTo": "%sipfed%",
-			"ttl": "3600"
-		}, 
-		{
-			"groupId" : "MDM",
-			"type": "CNAME",
-			"host": "enterpriseregistration",
-			"pointsTo": "%entreg%",
-			"ttl": "3600"
-		},
-		{
-			"groupId" : "MDM",
-			"type": "CNAME",
-			"host": "enterpriseenrollment",
-			"pointsTo": "%entenroll%",
-			"ttl": "3600"
-		},
-		{
-			"groupId" : "Auth",
-			"type": "CNAME",
-			"host": "msoid",
-			"pointsTo": "%msoid%",
-			"ttl": "3600"
-		},
-		{
-			"groupId" : "Verification",
-			"type": "TXT",
-			"host": "@",
-			"pointsTo": "%verifytxt%",
-			"ttl": "3600"
-		}
-  
-    	]
-
+{  
+   "providerId":"microsoft.com",
+   "providerName":"Microsoft",
+   "templateId":"O365",
+   "templateName":"Microsoft Office 365",
+   "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/04/squarespace-logo-horizontal-white-300x109.jpg",
+   "description":"Enables a domain to work with Microsoft Office 365",
+   "variableDescription":"Self explanatory in the variable names.",
+   "records":[  
+      {  
+         "groupId":"Outlook",
+         "type":"MX",
+         "host":"@",
+         "pointsTo":"%mx%",
+         "priority":"0",
+         "ttl":"3600"
+      },
+      {  
+         "groupId":"Outlook",
+         "type":"CNAME",
+         "host":"autodiscover",
+         "pointsTo":"%autodiscover%",
+         "ttl":"3600"
+      },
+      {  
+         "groupId":"Outlook",
+         "type":"TXT",
+         "host":"@",
+         "pointsTo":"%spftxt%",
+         "ttl":"3600"
+      },
+      {  
+         "groupId":"Skype",
+         "type":"CNAME",
+         "host":"sip",
+         "pointsTo":"%sip%",
+         "ttl":"3600"
+      },
+      {  
+         "groupId":"Skype",
+         "type":"CNAME",
+         "host":"lyncdiscover",
+         "pointsTo":"%lyncdiscover%",
+         "ttl":"3600"
+      },
+      {  
+         "groupId":"Skype",
+         "type":"SRV",
+         "service":"_sip",
+         "protocol":"_tls",
+         "port":"443",
+         "weight":"1",
+         "priority":"100",
+         "host":"@",
+         "pointsTo":"%sipdir%",
+         "ttl":"3600"
+      },
+      {  
+         "groupId":"Skype",
+         "type":"SRV",
+         "service":"_sipfederationtls",
+         "protocol":"_tcp",
+         "port":"5061",
+         "weight":"1",
+         "priority":"100",
+         "host":"@",
+         "pointsTo":"%sipfed%",
+         "ttl":"3600"
+      },
+      {  
+         "groupId":"MDM",
+         "type":"CNAME",
+         "host":"enterpriseregistration",
+         "pointsTo":"%entreg%",
+         "ttl":"3600"
+      },
+      {  
+         "groupId":"MDM",
+         "type":"CNAME",
+         "host":"enterpriseenrollment",
+         "pointsTo":"%entenroll%",
+         "ttl":"3600"
+      },
+      {  
+         "groupId":"Auth",
+         "type":"CNAME",
+         "host":"msoid",
+         "pointsTo":"%msoid%",
+         "ttl":"3600"
+      },
+      {  
+         "groupId":"Verification",
+         "type":"TXT",
+         "host":"@",
+         "pointsTo":"%verifytxt%",
+         "ttl":"3600"
+      }
+   ]
 }
