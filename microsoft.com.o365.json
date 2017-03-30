@@ -92,7 +92,7 @@
          "groupId":"Verification",
          "type":"TXT",
          "host":"@",
-         "pointsTo":"%verifytxt%",
+         "data":"%verifytxt%",
          "ttl":"3600"
       }
    ]
