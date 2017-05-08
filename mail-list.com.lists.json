@@ -1,0 +1,31 @@
+{  
+   "providerId":"mail-list.com",
+   "providerName":"mail-list.com",
+   "templateId":"maillist",
+   "templateName":"Mail List",
+   "logoUrl":"",
+   "description":"Enables a domain's mail settings to work with the mail-list.com service",
+   "variableDescription":"v1 is the host. Either @ or a sub-domain.",
+   "records":[  
+      {  
+         "type":"MX",
+         "host":"%v1%",
+         "pointsTo":"transport.mail-list.com",
+         "priority": "50", 
+         "ttl":"14400"
+      },
+      {  
+         "type":"MX",
+         "host":"%v1%",
+         "pointsTo":"canon.mail-list.com",
+         "priority": "50", 
+         "ttl":"14400"
+      },
+      {  
+         "type":"MX",
+         "host":"%v1%",
+         "pointsTo":"cirrus.mail-list.com",
+         "ttl":"14400"
+      }
+   ]
+}
