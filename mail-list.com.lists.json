@@ -25,6 +25,7 @@
          "type":"MX",
          "host":"@",
          "pointsTo":"cirrus.mail-list.com",
+         "priority": "40",
          "ttl":"14400"
       }
    ]
