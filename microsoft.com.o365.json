@@ -26,7 +26,7 @@
          "groupId":"Outlook",
          "type":"TXT",
          "host":"@",
-         "pointsTo":"%spftxt%",
+         "data":"%spftxt%",
          "ttl":"3600"
       },
       {  
