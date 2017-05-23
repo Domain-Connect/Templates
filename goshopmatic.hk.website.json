@@ -1,8 +1,8 @@
 {  
    "providerId":"goshopmatic.hk",
    "providerName":"Shopmatic",
-   "templateId":"website",
-   "templateName":"Shopmatic Site",
+   "serviceId":"website",
+   "serviceName":"Shopmatic Site",
    "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/07/shopmatic-300x81.png",
    "description":"Enables a domain to work with Shopmatic",
    "variableDescription":"v1 is domain name being configured to work with shopmatic. v2 is the shopmatic hosted name",

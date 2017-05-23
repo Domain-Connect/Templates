@@ -1,21 +1,21 @@
 {  
    "providerId":"hubspot.com",
    "providerName":"HubSpot",
-   "templateId":"site",
-   "templateName":"HubSpot Site",
+   "serviceId":"site",
+   "serviceName":"HubSpot Site",
    "logoUrl":"http://domainconnect.org/wp-content/uploads/2017/02/HubSpot-768x223.png",
    "description":"Enables a domain to work with HubSpot",
-   "variableDescription":"v1 is the customer id. v2 is the host name picked by the customer.",
+   "variableDescription":"v1 is the customer id.",
    "records":[  
       {  
          "type":"CNAME",
-         "host":"%v2%",
+         "host":"@",
          "pointsTo":"%v1%.sites.hubspot.net",
          "ttl":"600"
       },
       {  
          "type":"CNAME",
-         "host":"%v2%",
+         "host":"@",
          "pointsTo":"%v1%.hubspot.net",
          "ttl":"600"
       }

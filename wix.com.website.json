@@ -1,8 +1,8 @@
 {  
    "providerId":"wix.com",
    "providerName":"Wix",
-   "templateId":"wixsites",
-   "templateName":"Wix Websites",
+   "serviceId":"wixsites",
+   "serviceName":"Wix Websites",
    "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/06/wix-300x103.png",
    "description":"Enables a domain to work with Wix Websites",
    "variableDescription":"v1 is the numeric cluster within wix for hosting the site.",

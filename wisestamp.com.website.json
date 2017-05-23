@@ -1,8 +1,8 @@
 {  
    "providerId":"wisestamp.com",
    "providerName":"WiseStamp",
-   "templateId":"website",
-   "templateName":"WiseStamp Website",
+   "serviceId":"website",
+   "serviceName":"WiseStamp Website",
    "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/06/wisestamp_logo-help.png",
    "description":"Enables a domain to work with WiseStamp",
    "variableDescription":"No variables. Static template.",

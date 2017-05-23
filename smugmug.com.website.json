@@ -1,8 +1,8 @@
 {  
    "providerId":"smugmug.com",
    "providerName":"Smugmug",
-   "templateId":"website",
-   "templateName":"Smugmug Site",
+   "serviceId":"website",
+   "serviceName":"Smugmug Site",
    "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/02/smugmug-300x80.png",
    "description":"Enables a domain to work with Smugmug",
    "variableDescription":"v1 is domain name being configured to work with smugmug.",

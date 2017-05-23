@@ -1,8 +1,8 @@
 {  
    "providerId":"webflow.com",
    "providerName":"Webflow",
-   "templateId":"website",
-   "templateName":"Webflow Site",
+   "serviceId":"website",
+   "serviceName":"Webflow Site",
    "logoUrl":"http://domainconnect.org/wp-content/uploads/2017/01/webflow-logo-blue-300x113.jpg",
    "description":"Enables a domain to work with Webflow",
    "variableDescription":"No variables. Static template.",
