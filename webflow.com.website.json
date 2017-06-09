@@ -1,7 +1,7 @@
 {  
    "providerId":"webflow.com",
    "providerName":"Webflow",
-   "serviceId":"website",
+   "serviceId":"webflow-basic",
    "serviceName":"Webflow Site",
    "logoUrl":"http://domainconnect.org/wp-content/uploads/2017/01/webflow-logo-blue-300x113.jpg",
    "description":"Enables a domain to work with Webflow",
