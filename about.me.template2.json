@@ -1,0 +1,33 @@
+{  
+   "providerId":"about.me",
+   "providerName":"About Me",
+   "serviceId":"template2",
+   "serviceName":"Mail",
+   "logoUrl":"",
+   "description":"Enables mail for about me domain.",
+   "variableDescription":"",
+   "records":[  
+      {  
+         "type":"MX",
+         "host":"@",
+         "pointsTo":"ASPMX.L.GOOGLE.COM",
+         "priority":"1",
+         "ttl":"3600"
+      },
+      {  
+         "type":"MX",
+         "host":"@",
+         "pointsTo":"ALT1.ASPMX.L.GOOGLE.COM",
+         "priority":"5",
+         "ttl":"3600"
+      },
+      {  
+         "type":"TXT",
+         "host":"@",
+         "data":"v=spf1 include:_spf.google.com ~all",
+         "ttl":"3600"
+      }
+   ]
+}
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
