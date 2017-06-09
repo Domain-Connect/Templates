@@ -1,0 +1,23 @@
+{  
+   "providerId":"about.me",
+   "providerName":"About Me",
+   "serviceId":"template1",
+   "serviceName":"Hosting",
+   "logoUrl":"",
+   "description":"Enables web hosting for about me domains.",
+   "variableDescription":"",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"54.214.5.242",
+         "ttl":"3600"
+      },
+      {  
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"@",
+         "ttl":"3600"
+      }
+   ]
+}
