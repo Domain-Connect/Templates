@@ -3,7 +3,7 @@
    "providerName":"About Me",
    "serviceId":"template2",
    "serviceName":"Mail",
-   "logoUrl":"",
+   "logoUrl":"http://domainconnect.org/wp-content/uploads/2017/06/about.me_-300x53.png",
    "description":"Enables mail for about me domain.",
    "variableDescription":"",
    "records":[  
