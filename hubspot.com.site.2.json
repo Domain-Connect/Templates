@@ -10,13 +10,13 @@
     {
       "type": "CNAME",
       "host": "hs1",
-      "pointsTo": "%cname0targetprefix.dkim.hubspotemail.net%",
+      "pointsTo": "%cname0targetprefix%.dkim.hubspotemail.net",
       "ttl": "3600"
      },
      {
        "type": "CNAME",
        "host": "hs2",
-       "pointsTo": "%cname1targetprefix.dkim.hubspotemail.net%",
+       "pointsTo": "%cname1targetprefix%.dkim.hubspotemail.net",
        "ttl": "3600"
      },
      {
