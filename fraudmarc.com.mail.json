@@ -1,0 +1,53 @@
+{
+  "providerId": "fraudmarc.com",
+  "providerName": "Fraudmarc",
+  "templateId": "mail",
+  "templateName": "Fraudmarc Email Security",
+  "logoUrl": "",
+  "description": "Enables Fraudmarc security and ESP Authentication Flow on a domain",
+  "variableDescription": "id is the customer id, spftxt is the spf record",
+  "records": [
+    {
+      "type": "NS",
+      "host": "_domainkey",
+      "pointsTo": "ns%id%.fdmarc.net.",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "_d%id%.fdmarc.net.",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "host": "_mta-sts",
+      "pointsTo": "_ms%id%.fdmarc.net.",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "ms%id%.fdmarc.net.",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "host": "_smtp-tlsrpt",
+      "pointsTo": "_st%id%.fdmarc.net.",
+      "ttl": "3600"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spftxt%",
+      "ttl": "3600"
+    },
+    {
+      "type": "NS",
+      "host": "fraudmarc",
+      "pointsTo": "fm%id%.fdmarc.net.",
+      "ttl": "3600"
+    }
+  ]
+}
