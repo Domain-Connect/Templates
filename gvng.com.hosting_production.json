@@ -1,16 +1,16 @@
 {  
    "providerId":"gvng.com",
    "providerName":"GVNG",
-   "serviceId":"website",
+   "serviceId": "hosting_production",
    "serviceName":"Hosting",
    "logoUrl":"http://domainconnect.org/wp-content/uploads/2017/09/gvng-300x115.png",
    "description":"Enables web hosting for GVNG sites",
-   "variableDescription":"IP is the IP Address of the hosted site.",
+   "variableDescription":"",
    "records":[  
       {  
          "type":"A",
          "host":"@",
-         "pointsTo":"%IP%",
+         "pointsTo": "34.234.12.185",
          "ttl":"1800"
       },
       {  
