@@ -1,0 +1,29 @@
+{  
+   "providerId":"exampleservice.domainconnect.org",
+   "providerName":"Example Domain Connect Service",
+   "serviceId":"template2",
+   "serviceName":"Stateless Hosting Secondary",
+   "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/03/cropped-Domain_Connect3.png",
+   "description":"Example service for stateless hosting, alternative template",
+   "variableDescription":"IP is the IP address of the service A record. RANDOMTEXT is the value for a TXT record in DNS. Should be prefixed with shm:.",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%IP%",
+         "ttl":"1800"
+      },
+      {  
+         "type":"TXT",
+         "host":"@",
+         "data":"%RANDOMTEXT%",
+         "ttl":"1800"
+      },
+      {
+        "type": "CNAME",
+        "host": "whd",
+        "pointsTo": "@",
+        "ttl": "600"
+       }
+   ]
+}
