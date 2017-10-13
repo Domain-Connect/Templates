@@ -1,0 +1,18 @@
+{  
+   "providerId":"godaddy.com",
+   "providerName":"GoDaddy",
+   "serviceId":"mwp2",
+   "serviceName":"Managed WordPress",
+   "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
+   "description":"Enables a domain to work with GoDaddy MWP2",
+   "variableDescription":"v1 is the IP address of the server.",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%v1%",
+         "ttl":"600"
+      }
+   ]
+}
+
