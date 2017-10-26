@@ -1,0 +1,21 @@
+{  
+   "providerId":"secureserver.net",
+   "providerName":"Secure Server",
+   "serviceId":"mwp2",
+   "serviceName":"Managed WordPress",
+   "logoUrl":"",
+   "description":"Enables a domain to work with MWP2",
+   "variableDescription":"v1 is the IP address of the server.",
+   "syncPubKeyDomain": "mwp2.secureserver.net",
+   "syncRedirectDomain": "secureserver.net",
+   "shared": true,
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%v1%",
+         "ttl":"600"
+      }
+   ]
+}
+
