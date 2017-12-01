@@ -20,6 +20,12 @@
          "priority":"0",
          "ttl":"3600"
       },
+      {
+         "type" : "TXT",
+         "host" : "_outlook",
+         "data" : "%mxRecordValue%,
+         "ttl": "3600"
+      },
       {  
          "type":"TXT",
          "host":"@",
