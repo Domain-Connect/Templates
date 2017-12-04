@@ -16,7 +16,7 @@
       {  
          "type":"MX",
          "host":"@",
-         "pointsTo":"%mxRecordValue%",
+         "pointsTo":"%mxRecordValue%.pamx1.hotmail.com",
          "priority":"0",
          "ttl":"3600"
       },
