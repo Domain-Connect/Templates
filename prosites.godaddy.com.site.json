@@ -1,0 +1,23 @@
+{  
+   "providerId":"prosites.godaddy.com",
+   "providerName":"Pro Sites",
+   "serviceId":"website",
+   "serviceName":"Pro Sites Site",
+   "logoUrl":"",
+   "description":"Enables a domain to work with Pro Sites One Click Migration Feature",
+   "variableDescription":"IP is the the ip of the newely created server for the One Click Migration",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%IP%",
+         "ttl":"600"
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"@",
+         "ttl":"3600"
+      }
+   ]
+}
