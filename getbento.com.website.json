@@ -1,0 +1,22 @@
+{
+   "providerId": "getbento.com",
+   "providerName": "BentoBox",
+   "serviceId": "website",
+   "serviceName": "BentoBox Site",
+   "logoUrl": "http://getbento.com/static/bento_frontend/images/logo.svg",
+   "description": "Configures a domain for use with BentoBox",
+   "records": [
+      {
+         "type": "A",
+         "host": "@",
+         "pointsTo": "174.129.25.170",
+         "ttl": "3600"
+      },
+      {
+         "type": "CNAME",
+         "host": "www",
+         "pointsTo": "app.getbento.com",
+         "ttl": "3600"
+      }
+   ]
+}
