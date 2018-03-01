@@ -1,0 +1,23 @@
+{
+   "providerId":"mailjet.com",
+   "providerName":"Mailjet",
+   "serviceId":"domain-auth",
+   "serviceName":"Mailjet Email Service",
+   "logoUrl":"http://staging-public.mailjet.com/_assets/Mailjet-logo-yellow.png",
+   "description":"Configure Mailjet's SPF and DKIM records to improve sender reputation and deliverability",
+   "variableDescription":"",
+   "records":[
+      {
+         "type": "TXT",
+         "host": "@",
+         "data": "v=spf1 include:spf.mailjet.com ?all",
+         "ttl": "3600"
+       },
+      {
+         "type": "TXT",
+         "host": "mailjet._domainkey",
+         "data": "%dkimtxt%",
+         "ttl": "3600"
+       }
+   ]
+}
