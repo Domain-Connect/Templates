@@ -8,37 +8,37 @@
    "variableDescription":"v1 is the IP address of the server.",
    "records":[  
       {
-        “type”: “MX”,
-        “priority”: “1”,
-        “target”: “ASPMX.L.GOOGLE.COM”
+        "type": "MX",
+        "priority": "1",
+        "target": "ASPMX.L.GOOGLE.COM"
       },
       {
-        “type”: “MX”,
-        “priority”:  5,
-        “target”: “ALT1.ASPMX.L.GOOGLE.COM”
+        "type": "MX",
+        "priority":  5,
+        "target": "ALT1.ASPMX.L.GOOGLE.COM"
       },
       {
-        “type”: “MX”,
-        “priority”:  5,
-        “target”: “ALT2.ASPMX.L.GOOGLE.COM”
+        "type": "MX",
+        "priority":  5,
+        "target": "ALT2.ASPMX.L.GOOGLE.COM"
       },
       {
-        “type”: “MX”,
-        “priority”:  10,
-        “target”: “ALT3.ASPMX.L.GOOGLE.COM”
+        "type": "MX",
+        "priority":  10,
+        "target": "ALT3.ASPMX.L.GOOGLE.COM"
       },
       {
-        “type”: “MX”,
-        “priority”:  10,
-        “target”: “ALT4.ASPMX.L.GOOGLE.COM”
+        "type": "MX",
+        "priority":  10,
+        "target": "ALT4.ASPMX.L.GOOGLE.COM"
       },
       {
-        “type”: “TXT”,
-        “target”: “%verify%”
+        "type": "TXT",
+        "target": "%verify%"
       },
       {
-        “type”: “TXT”,
-        “target”: “%spftxt%”
+        "type": "TXT",
+        "target": "%spftxt%"
       }
    ]
 }
