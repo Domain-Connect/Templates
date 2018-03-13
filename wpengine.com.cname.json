@@ -1,0 +1,19 @@
+{
+   "providerId":"WPEngine.com",
+   "providerName":"WPEngine.com",
+   "serviceId":"cname",
+   "serviceName":"WP Engine Digital Experience Platform",
+   "logoUrl":"https://wpengine.com/logo.png",
+   "description":"Configure domain record for CNAME entry.",
+   "syncBlock":false,
+   "syncPubKeyDomain": "landmark.wpengine.io",
+   "syncRedirectDomain": "my.wpengine.com",
+   "records":[
+      {
+         "type":"CNAME",
+         "host":"@",
+         "pointsTo":"%site%.wpengine.com",
+         "ttl":"3600"
+      }
+   ]
+}
