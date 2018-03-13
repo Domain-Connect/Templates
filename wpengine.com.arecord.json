@@ -1,7 +1,7 @@
 {
    "providerId":"WPEngine.com",
    "providerName":"WPEngine.com",
-   "serviceId":"dxp",
+   "serviceId":"arecord",
    "serviceName":"WP Engine Digital Experience Platform",
    "logoUrl":"https://wpengine.com/logo.png",
    "description":"Configure ip address for the domain A record.",
