@@ -1,0 +1,18 @@
+{  
+   "providerId":"domainconnect.org",
+   "providerName":"Domain Connect",
+   "serviceId":"dynamicdns",
+   "serviceName":"Dynamic DNS",
+   "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/03/cropped-Domain_Connect3.png",
+   "description":"Template for Domain Connect Dynamic DNS Service",
+   "syncBlock": true,
+   "variableDescription":"",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"%host%",
+         "pointsTo":"%IP%",
+         "ttl":"600"
+      }
+   ]
+}
