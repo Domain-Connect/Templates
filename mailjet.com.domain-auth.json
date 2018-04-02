@@ -10,7 +10,7 @@
       {
          "type": "TXT",
          "host": "@",
-         "data": "v=spf1 include:spf.mailjet.com ?all",
+         "data": "v=spf1%spftxt%",
          "ttl": "3600"
        },
       {
