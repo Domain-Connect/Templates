@@ -1,52 +1,59 @@
 {
   "providerId": "fraudmarc.com",
   "providerName": "Fraudmarc",
-  "templateId": "mail",
-  "templateName": "Fraudmarc Email Security",
+  "serviceId": "mail",
+  "serviceName": "Fraudmarc Email ID Protection",
   "logoUrl": "http://domainconnect.org/wp-content/uploads/2017/08/fraudmarc-logo-onLight-300x55.png",
   "description": "Enables Fraudmarc security and ESP Authentication Flow on a domain",
-  "variableDescription": "id is the customer id, spftxt is the spf record",
+  "variableDescription": "Self explanatory in the variable names.",
   "records": [
     {
+      "groupId": "Dkim",
       "type": "NS",
       "host": "_domainkey",
-      "pointsTo": "ns%id%.fdmarc.net.",
+      "pointsTo": "%dkim%",
       "ttl": "3600"
     },
     {
+      "groupId": "Dmarc",
       "type": "CNAME",
       "host": "_dmarc",
-      "pointsTo": "_d%id%.fdmarc.net.",
+      "pointsTo": "%dmarc%",
       "ttl": "3600"
     },
     {
+      "groupId": "Sts",
       "type": "CNAME",
       "host": "_mta-sts",
-      "pointsTo": "_ms%id%.fdmarc.net.",
+      "pointsTo": "%sts1%",
       "ttl": "3600"
     },
     {
+      "groupId": "Sts",
       "type": "CNAME",
       "host": "mta-sts",
-      "pointsTo": "ms%id%.fdmarc.net.",
+      "pointsTo": "%sts2%",
       "ttl": "3600"
     },
     {
+      "groupId": "Tlsrpt",
       "type": "CNAME",
       "host": "_smtp-tlsrpt",
-      "pointsTo": "_st%id%.fdmarc.net.",
+      "pointsTo": "%tlsrpt%",
       "ttl": "3600"
     },
     {
+      "groupId": "Spf",
       "type": "TXT",
       "host": "@",
-      "data": "%spftxt%",
+      "data": "%spf%",
       "ttl": "3600"
     },
     {
+      "groupId": "Fm",
       "type": "NS",
       "host": "fraudmarc",
-      "pointsTo": "fm%id%.fdmarc.net.",
+      "pointsTo": "%fm%",
       "ttl": "3600"
     }
   ]
