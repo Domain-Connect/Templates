@@ -4,8 +4,9 @@
    "serviceId":"dynamicdns",
    "serviceName":"Dynamic DNS",
    "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/03/cropped-Domain_Connect3.png",
-   "description":"Template for Domain Connect Dynamic DNS Service",
+   "description":"Template for Domain Connect Dynamic DNS Service. See https://github.com/DomainConnectDDNS for onboarding instructions.",
    "syncBlock": true,
+   "warnPhising": true,
    "variableDescription":"",
    "records":[  
       {  
