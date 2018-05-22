@@ -3,7 +3,7 @@
    "providerName":"Shopify",
    "serviceId":"website",
    "serviceName":"Shopify Site",
-   "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/08/shopify.png",
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/08/shopify.png",
    "description":"Enables a domain to work with Shopify",
    "variableDescription":"v1 is the shopify hosted domain name and verification is the verification code for the site",
    "records":[  
