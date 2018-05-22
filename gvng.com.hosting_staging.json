@@ -3,7 +3,7 @@
    "providerName":"GVNG",
    "serviceId": "hosting_staging",
    "serviceName":"Hosting",
-   "logoUrl":"http://domainconnect.org/wp-content/uploads/2017/09/gvng-300x115.png",
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2017/09/gvng-300x115.png",
    "description":"Enables web hosting for GVNG sites",
    "variableDescription":"",
    "records":[  

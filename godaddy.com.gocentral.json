@@ -3,7 +3,7 @@
    "providerName":"GoDaddy",
    "serviceId":"gocentral",
    "serviceName":"GoCentral (Website Builder)",
-   "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
    "description":"Enables a domain to work with GoDaddy GoCentral and Website Builder",
    "variableDescription":"v1 is the IP address of the server.",
    "records":[  

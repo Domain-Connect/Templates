@@ -3,7 +3,7 @@
    "providerName":"mail-list.com",
    "serviceId":"maillist",
    "serviceName":"Mail List",
-   "logoUrl":"http://domainconnect.org/wp-content/uploads/2017/05/mail-list.com_-300x190.png",
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2017/05/mail-list.com_-300x190.png",
    "description":"Enables a domain's mail settings to work with the mail-list.com service",
    "variableDescription":"",
    "records":[  

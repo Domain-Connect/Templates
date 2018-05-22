@@ -3,7 +3,7 @@
    "providerName":"WiseStamp",
    "serviceId":"website",
    "serviceName":"WiseStamp Website",
-   "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/06/wisestamp_logo-help.png",
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/06/wisestamp_logo-help.png",
    "description":"Enables a domain to work with WiseStamp",
    "variableDescription":"No variables. Static template.",
    "records":[  

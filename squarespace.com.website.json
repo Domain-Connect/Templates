@@ -3,7 +3,7 @@
    "providerName":"Squarespace",
    "serviceId":"website",
    "serviceName":"Squarespace Site",
-   "logoUrl":"http://domainconnect.org/wp-content/uploads/2016/04/squarespace-logo-horizontal-white-300x109.jpg",
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/04/squarespace-logo-horizontal-white-300x109.jpg",
    "description":"Enables a domain to work with Squarespace",
    "variableDescription":"v1 is the verification code for the site",
    "records":[  

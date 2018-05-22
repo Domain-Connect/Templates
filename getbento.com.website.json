@@ -3,7 +3,7 @@
    "providerName": "BentoBox",
    "serviceId": "website",
    "serviceName": "BentoBox Site",
-   "logoUrl": "http://domainconnect.org/wp-content/uploads/2018/02/Color_Horizontalcopy-high-res-01-768x242.png",
+   "logoUrl": "https://domainconnect.org/wp-content/uploads/2018/02/Color_Horizontalcopy-high-res-01-768x242.png",
    "description": "Configures a domain for use with BentoBox",
    "records": [
       {

@@ -3,7 +3,7 @@
    "providerName":"About Me",
    "serviceId":"website_and_email",
    "serviceName":"Website and Mail",
-   "logoUrl":"http://domainconnect.org/wp-content/uploads/2017/06/about.me_-300x53.png",
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2017/06/about.me_-300x53.png",
    "description":"Enables mail for about me domain.",
    "variableDescription":"",
    "records":[  
