@@ -9,8 +9,6 @@
 	"syncBlock": false,
 	"shared": false,
 	"warnPhishing": false,
-	"syncPubKeyDomain": "",
-	"syncRedirectDomain": "",
 	"records":[
 		{
 			"groupId":"email-forwarding-mx",
