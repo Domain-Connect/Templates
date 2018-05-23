@@ -1,45 +1,34 @@
 {
-   "providerId":"WordPress.com",
-   "providerName":"WordPress.com",
-   "serviceId":"hosting",
-   "serviceName":"WordPress services",
-   "logoUrl":"https://automattic.files.wordpress.com/2005/12/wpcom-horiz.png",
-   "description":"This can be used to set up website hosting at WordPress.com",
-   "syncBlock":true,
-   "records":[
-      {
-         "groupId":"mapping-apexcname",
-         "type":"APEXCNAME",
-         "pointsTo":"%sitename%.wordpress.com.",
-         "ttl":"3600"
-      },
-      {
-         "groupId":"mapping-a",
-         "type":"A",
-         "host":"@",
-         "pointsTo":"192.0.78.24",
-         "ttl":"3600"
-      },
-      {
-         "groupId":"mapping-a",
-         "type":"A",
-         "host":"www",
-         "pointsTo":"192.0.78.24",
-         "ttl":"3600"
-      },
-      {
-         "groupId":"mapping-a",
-         "type":"A",
-         "host":"@",
-         "pointsTo":"192.0.78.25",
-         "ttl":"3600"
-      },
-      {
-         "groupId":"mapping-a",
-         "type":"A",
-         "host":"www",
-         "pointsTo":"192.0.78.25",
-         "ttl":"3600"
-      }
-   ]
+	"providerId":"WordPress.com",
+	"providerName":"WordPress.com",
+	"serviceId":"hosting",
+	"serviceName":"WordPress services",
+	"logoUrl":"https://automattic.files.wordpress.com/2005/12/wpcom-horiz.png",
+	"description":"This can be used to set up website hosting at WordPress.com",
+	"syncBlock": false,
+	"shared": false,
+	"warnPhishing": false,
+	"records":[
+		{
+			"groupId": "mapping",
+			"type": "CNAME",
+			"host": "www",
+			"pointsTo": "@",
+			"ttl": "3600"
+		},
+		{
+			"groupId":"mapping",
+			"type":"A",
+			"host":"@",
+			"pointsTo":"192.0.78.24",
+			"ttl":"3600"
+		},
+		{
+			"groupId":"mapping",
+			"type":"A",
+			"host":"@",
+			"pointsTo":"192.0.78.25",
+			"ttl":"3600"
+		}
+	]
 }
