@@ -8,8 +8,6 @@
 	"syncBlock": false,
 	"shared": false,
 	"warnPhishing": false,
-	"syncPubKeyDomain": "",
-	"syncRedirectDomain": "",
 	"records":[
 		{
 			"groupId": "mapping",
