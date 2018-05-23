@@ -5,7 +5,7 @@
 	"serviceName": "WordPress services",
 	"logoUrl":"https://automattic.files.wordpress.com/2005/12/wpcom-horiz.png",
 	"description":"This can be used to set up email forwarding at WordPress.com",
-	"variableDescription": "Self explanatory in the variable names.",
+	"variableDescription": "No variables included.",
 	"syncBlock": false,
 	"shared": false,
 	"warnPhishing": false,
