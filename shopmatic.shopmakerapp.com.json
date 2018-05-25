@@ -1,0 +1,16 @@
+{
+  "providerId": "shopmatic",
+  "providerName": "shopmatic",
+  "serviceId": "shopmakerapp.com",
+  "serviceName": "shopmakerapp.com",
+  "logoUrl": "",
+  "description": "Configures shopmakerapp.com service",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%INPUTDOMAIN%"
+    }
+  ]
+}
+

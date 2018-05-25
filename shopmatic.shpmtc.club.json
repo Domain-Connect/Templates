@@ -1,0 +1,16 @@
+{
+  "providerId": "shopmatic",
+  "providerName": "shopmatic",
+  "serviceId": "shpmtc.club",
+  "serviceName": "shpmtc.club",
+  "logoUrl": "",
+  "description": "Configures shpmtc.club service",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%INPUTDOMAIN%"
+    }
+  ]
+}
+

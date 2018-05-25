@@ -1,0 +1,77 @@
+{
+  "providerId": "skykick.com",
+  "providerName": "Skykick",
+  "serviceId": "o365",
+  "serviceName": "Microsoft Office 365",
+  "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2017/03/skykick-logo-300-300x100.jpg",
+  "description": "Enables a domain to work with Microsoft Office 365",
+  "variableDescription": "",
+  "records": [
+    {
+      "type": "MX",
+      "host": "",
+      "pointsTo": "%MX%",
+      "priority": "0"
+    },
+    {
+      "type": "TXT",
+      "host": "",
+      "data": "%SPFTXT%"
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "%AUTODISCOVER%"
+    },
+    {
+      "type": "CNAME",
+      "host": "sip",
+      "pointsTo": "%SIP%"
+    },
+    {
+      "type": "CNAME",
+      "host": "lyncdiscover",
+      "pointsTo": "%LYNCDISCOVER%"
+    },
+    {
+      "type": "SRV",
+      "service": "_sip",
+      "protocol": "_tls",
+      "port": "443",
+      "weight": "1",
+      "priority": "100",
+      "name": "",
+      "target": "%SIPDIR%"
+    },
+    {
+      "type": "SRV",
+      "service": "_sipfederationtls",
+      "protocol": "_tcp",
+      "port": "5061",
+      "weight": "1",
+      "priority": "100",
+      "name": "",
+      "target": "%SIPFED%"
+    },
+    {
+      "type": "CNAME",
+      "host": "enterpriseregistration",
+      "pointsTo": "%ENTREG%"
+    },
+    {
+      "type": "CNAME",
+      "host": "enterpriseenrollment",
+      "pointsTo": "%ENTENROLL%"
+    },
+    {
+      "type": "CNAME",
+      "host": "msoid",
+      "pointsTo": "%MSOID%"
+    },
+    {
+      "type": "TXT",
+      "host": "",
+      "data": "%VERIFYTXT%"
+    }
+  ]
+}
