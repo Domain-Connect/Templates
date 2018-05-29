@@ -23,7 +23,7 @@
       {
          "type" : "TXT",
          "host" : "_outlook",
-         "data" : "%mxRecordValue%,
+         "data" : "%mxRecordValue%",
          "ttl": "3600"
       },
       {  
