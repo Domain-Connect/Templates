@@ -1,19 +1,18 @@
 {
-   "providerId":"wpengine.com",
+   "providerId":"WPEngine.com",
    "providerName":"WPEngine.com",
-   "serviceId":"cname",
+   "serviceId":"dxp",
    "serviceName":"WP Engine Digital Experience Platform",
    "logoUrl":"https://wpengine.com/logo.png",
-   "description":"Configure domain record for CNAME entry.",
+   "description":"Configure ip address for the domain A record.",
    "syncBlock":false,
    "syncPubKeyDomain": "landmark.wpengine.io",
    "syncRedirectDomain": "my.wpengine.com",
    "records":[
       {
-         "type":"CNAME",
+         "type":"A",
          "host":"@",
-         "pointsTo":"%site%.wpengine.com",
-         "ttl":"3600"
+         "pointsTo":"%IP%"
       }
    ]
 }

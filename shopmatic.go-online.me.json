@@ -1,0 +1,16 @@
+{
+  "providerId": "shopmatic",
+  "providerName": "shopmatic",
+  "serviceId": "go-online.me",
+  "serviceName": "go-online.me",
+  "logoUrl": "",
+  "description": "Configures go-online.me service",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%INPUTDOMAIN%"
+    }
+  ]
+}
+
