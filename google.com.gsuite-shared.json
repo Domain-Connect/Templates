@@ -9,6 +9,7 @@
    "variableDescription":"Verfiy is the TXT record value for suite verification.",
    "records":[  
       {
+        "groupId":"g-suite-mx",
         "type": "MX",
         "host": "@",
         "priority": "1",
@@ -16,6 +17,7 @@
         "ttl": "3600"
       },
       {
+        "groupId":"g-suite-mx",
         "type": "MX",
         "host": "@",
         "priority":  5,
@@ -23,6 +25,7 @@
         "ttl": "3600"
       },
       {
+        "groupId":"g-suite-mx",
         "type": "MX",
         "host": "@",
         "priority":  5,
@@ -30,6 +33,7 @@
         "ttl": "3600"
       },
       {
+        "groupId":"g-suite-mx",
         "type": "MX",
         "host": "@",
         "priority":  10,
@@ -37,6 +41,7 @@
         "ttl": "3600"
       },
       {
+        "groupId":"g-suite-mx",
         "type": "MX",
         "host": "@",
         "priority":  10,
@@ -44,12 +49,14 @@
         "ttl": "3600"
       },
       {
+        "groupId":"g-suite-verification",
         "type": "TXT",
         "host": "@",
         "data": "google-site-verification=%verify%",
         "ttl": 3600
       },
       {
+        "groupId":"g-suite-spf",
         "type": "TXT",
         "host": "@",
         "data": "v=spf1 include:_spf.google.com ~all",
