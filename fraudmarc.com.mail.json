@@ -1,8 +1,8 @@
 {
   "providerId": "fraudmarc.com",
   "providerName": "Fraudmarc",
-  "templateId": "mail",
-  "templateName": "Fraudmarc Email Security",
+  "serviceId": "mail",
+  "serviceName": "Fraudmarc Email Security",
   "logoUrl": "https://domainconnect.org/wp-content/uploads/2017/08/fraudmarc-logo-onLight-300x55.png",
   "description": "Enables Fraudmarc security and ESP Authentication Flow on a domain",
   "variableDescription": "id is the customer id, spftxt is the spf record",
