@@ -41,7 +41,7 @@
         "ttl": "3600"
       },
       {
-        "groupId":"g-suite-mx",
+        "groupId":"g-suite-mx", 
         "type": "MX",
         "host": "@",
         "priority":  10,
