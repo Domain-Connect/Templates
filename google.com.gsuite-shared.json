@@ -1,0 +1,59 @@
+{  
+   "providerId":"google.com",
+   "providerName":"Google",
+   "serviceId":"gsuite-shared",
+   "serviceName":"Google G Suite",
+   "shared": true,
+   "logoUrl":"",
+   "description":"This is a shared template that multiple companies can use to enable gsuite",
+   "variableDescription":"Verfiy is the TXT record value for suite verification.",
+   "records":[  
+      {
+        "type": "MX",
+        "host": "@",
+        "priority": "1",
+        "pointsTo": "ASPMX.L.GOOGLE.COM",
+        "ttl": "3600"
+      },
+      {
+        "type": "MX",
+        "host": "@",
+        "priority":  5,
+        "pointsTo": "ALT1.ASPMX.L.GOOGLE.COM",
+        "ttl": "3600"
+      },
+      {
+        "type": "MX",
+        "host": "@",
+        "priority":  5,
+        "pointsTo": "ALT2.ASPMX.L.GOOGLE.COM",
+        "ttl": "3600"
+      },
+      {
+        "type": "MX",
+        "host": "@",
+        "priority":  10,
+        "pointsTo": "ALT3.ASPMX.L.GOOGLE.COM",
+        "ttl": "3600"
+      },
+      {
+        "type": "MX",
+        "host": "@",
+        "priority":  10,
+        "pointsTo": "ALT4.ASPMX.L.GOOGLE.COM",
+        "ttl": "3600"
+      },
+      {
+        "type": "TXT",
+        "host": "@",
+        "data": "google-site-verification=%verify%",
+        "ttl": 3600
+      },
+      {
+        "type": "TXT",
+        "host": "@",
+        "data": "v=spf1 include:_spf.google.com ~all",
+        "ttl": "3600"
+      }
+   ]
+}
