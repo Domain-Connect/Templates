@@ -9,36 +9,50 @@
    "records":[  
       {
         "type": "MX",
+        "host": "@",
         "priority": "1",
-        "target": "ASPMX.L.GOOGLE.COM"
+        "pointsTo": "ASPMX.L.GOOGLE.COM",
+        "ttl": "3600"
       },
       {
         "type": "MX",
+        "host": "@",
         "priority":  5,
-        "target": "ALT1.ASPMX.L.GOOGLE.COM"
+        "pointsTo": "ALT1.ASPMX.L.GOOGLE.COM",
+        "ttl": "3600"
       },
       {
         "type": "MX",
+        "host": "@",
         "priority":  5,
-        "target": "ALT2.ASPMX.L.GOOGLE.COM"
+        "pointsTo": "ALT2.ASPMX.L.GOOGLE.COM",
+        "ttl": "3600"
       },
       {
         "type": "MX",
+        "host": "@",
         "priority":  10,
-        "target": "ALT3.ASPMX.L.GOOGLE.COM"
+        "pointsTo": "ALT3.ASPMX.L.GOOGLE.COM",
+        "ttl": "3600"
       },
       {
         "type": "MX",
+        "host": "@",
         "priority":  10,
-        "target": "ALT4.ASPMX.L.GOOGLE.COM"
+        "pointsTo": "ALT4.ASPMX.L.GOOGLE.COM",
+        "ttl": "3600"
       },
       {
         "type": "TXT",
-        "target": "%verify%"
+        "host": "@",
+        "data": "%verify%",
+        "ttl": 3600
       },
       {
         "type": "TXT",
-        "target": "%spftxt%"
+        "host": "@",
+        "data": "%spftxt%",
+        "ttl": "3600"
       }
    ]
 }
