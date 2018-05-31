@@ -4,7 +4,7 @@
    "serviceId":"helpdesk",
    "serviceName":"Jitbit Helpdesk Support Site",
    "logoUrl":"https://domainconnect.org/wp-content/uploads/2017/10/jitbit.png",
-   "description":"Enables wdomain to work with Jitbit Helpdesk.",
+   "description":"Enables wdomain to work with Jitbit Helpdesk. Requires a host.",
    "variableDescription":"",
    "records":[        
       {  
