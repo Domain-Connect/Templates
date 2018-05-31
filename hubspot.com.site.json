@@ -5,7 +5,7 @@
    "serviceName":"HubSpot Site",
    "logoUrl":"https://domainconnect.org/wp-content/uploads/2017/02/HubSpot-768x223.png",
    "description":"Enables a domain to work with HubSpot",
-   "variableDescription":"v1 is the customer id.",
+   "variableDescription":"v1 is the customer id. Requires a host.",
    "records":[  
       {  
          "type":"CNAME",
