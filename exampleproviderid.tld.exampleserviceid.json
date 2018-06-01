@@ -1,0 +1,93 @@
+// For detailed explanation of each of the supported fields, refer to section 5.2 and 5.3 fo the Domain Connect Spec
+// https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Draft.adoc#template-definition
+// https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Draft.adoc#template-record
+
+{
+  "providerId": "<Enter providerId>",
+  "providerName": "<Enter providerName>",
+  "serviceId": "<Enter serviceId>",
+  "serviceName": "<Enter serviceName>",
+  "logoUrl": "<Enter logoUrl>",
+  "description": "<Enter description>",
+  "variableDescription": "<Enter variableDescription>",
+  "syncBlock": true|false,
+  "shared": true|false,
+  "syncPubKeyDomain": "<Enter syncPubKeyDomain>",
+  "syncRedirectDomain": "<Enter syncRedirectDomain>",
+  "warnPhishing": true|false,
+  "hostRequired": true|false,
+  // The following DNS records are given as examples of some typical template applications, 
+  // using the standard Domain Connect syntax.
+  "records": [
+    // A record with a fixed ip address
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "1.1.1.1",
+      "ttl": "3600"
+    },
+    // A record with a variable ip address
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%a%",
+      "ttl": "3600"
+    },
+    // CNAME for host "www" pointing to apex
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": "3600"
+    },
+    // CNAME for host "sub" pointing to variable subdomain
+    {
+      "type": "CNAME",
+      "host": "sub",
+      "pointsTo": "%sub%.mydomain.com",
+      "ttl": "3600"
+    },
+    // CNAME for variable host pointing to variable subdomain
+    {
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "%sub%.mydomain.com",
+      "ttl": "3600"
+    },
+    // TXT record with variable data string
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%txt%",
+      "ttl": "3600"
+    },
+    // MX record with a fixed ip address
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "1.1.1.2",
+      "priority": "0",
+      "ttl": "3600"
+    },
+    // MX record with a variable ip address
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx%",
+      "priority": "0",
+      "ttl": "3600"
+    },
+    // SRV record with a variable target
+    {
+      "type": "SRV",
+      "service": "_sip",
+      "protocol": "_tls",
+      "port": "443",
+      "weight": "20",
+      "priority": "10",
+      "name": "@",
+      "target": "%target%",
+      "ttl": "3600"
+    }
+  ]
+}
