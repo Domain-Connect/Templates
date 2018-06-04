@@ -18,7 +18,7 @@ For example: **myprovider.com.website.json**
 
 Following is an example of a complete Domain Connect template, with examples of various DNS records included:
 
-'''
+```
 {
   "providerId": "<Enter providerId>",
   "providerName": "<Enter providerName>",
@@ -97,4 +97,4 @@ Following is an example of a complete Domain Connect template, with examples of 
     }
   ]
 }
-'''
+```
