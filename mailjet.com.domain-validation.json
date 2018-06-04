@@ -3,6 +3,7 @@
    "providerName":"Mailjet",
    "serviceId":"domain-validation",
    "serviceName":"Mailjet Email Service",
+   "version": 1,
    "logoUrl":"http://staging-public.mailjet.com/_assets/Mailjet-logo-yellow.png",
    "description":"Validate a sending domain with Mailjet",
    "variableDescription":"",

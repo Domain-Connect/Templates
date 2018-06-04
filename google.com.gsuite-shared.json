@@ -3,6 +3,7 @@
    "providerName":"Google",
    "serviceId":"gsuite-shared",
    "serviceName":"Google G Suite",
+   "version": 1,
    "shared": true,
    "logoUrl":"",
    "description":"This is a shared template that multiple companies can use to enable gsuite",

@@ -3,6 +3,7 @@
    "providerName":"WordPress.com",
    "serviceId":"wordpress-services",
    "serviceName":"G-Suite",
+   "version": 1,
    "logoUrl":"https://automattic.files.wordpress.com/2005/12/wpcom-horiz.png",
    "description":"This can be used to set up G-Suite at WordPress.com",
    "syncBlock":true,

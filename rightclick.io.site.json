@@ -3,6 +3,7 @@
    "providerName":"RightClick",
    "serviceId":"site",
    "serviceName":"RightClick Website",
+   "version": 1,
    "logoUrl":"https://domainconnect.org/wp-content/uploads/2017/03/rightclick.png",
    "description":"Enables a domain to work with RightClick.io Websites",
    "variableDescription":"v1 is the numeric cluster within wix for hosting the site.",
