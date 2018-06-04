@@ -3,18 +3,22 @@ Templates for use in the Domain Connect Protocol
 
 These map to the individual service providers for domain connect. See https://domainconnect.org
 
-# Example Template Format
-
-For details on how to constuct a Domain Connect template, refer to section 5.2 and 5.3 fo the Domain Connect Spec:
+For details on how to constuct a Domain Connect template, refer to section 5.2 and 5.3 of the Domain Connect Spec:
 
 https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Draft.adoc#template-definition
 https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Draft.adoc#template-record
 
-Templates should be named according the following pattern: <providerId>.<serviceId>.json
-For example: myprovider.com.website.json
+## Template Naming Format
+
+Templates should be named according the following pattern: **providerId.serviceId.json**
+
+For example: **myprovider.com.website.json**
+
+## Example Template Format
 
 Following is an example of a complete Domain Connect template, with examples of various DNS records included:
 
+'''
 {
   "providerId": "<Enter providerId>",
   "providerName": "<Enter providerName>",
@@ -93,3 +97,4 @@ Following is an example of a complete Domain Connect template, with examples of 
     }
   ]
 }
+'''
