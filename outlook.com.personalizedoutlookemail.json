@@ -3,6 +3,7 @@
    "providerName":"Outlook",
    "serviceId":"personalizedoutlookemail",
    "serviceName":"Personalized Outlook Email",
+   "version": 1,
    "logoUrl":"",
    "description":"Enables a domain to work with Microsoft Outlook",
    "variableDescription":"",

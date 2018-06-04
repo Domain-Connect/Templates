@@ -3,6 +3,7 @@
 	"providerName": "WordPress.com",
 	"serviceId": "email-forwarding",
 	"serviceName": "WordPress services",
+	"version": 1,
 	"logoUrl":"https://automattic.files.wordpress.com/2005/12/wpcom-horiz.png",
 	"description":"This can be used to set up email forwarding at WordPress.com",
 	"syncBlock": false,
