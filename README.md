@@ -10,6 +10,9 @@ For details on how to constuct a Domain Connect template, refer to section 5.2 a
 https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Draft.adoc#template-definition
 https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Draft.adoc#template-record
 
+Templates should be named according the following pattern: <providerId>.<serviceId>.json
+For example: myprovider.com.website.json
+
 Following is an example of a complete Domain Connect template, with examples of various DNS records included:
 
 {
