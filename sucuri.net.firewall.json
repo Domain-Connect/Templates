@@ -1,0 +1,20 @@
+{  
+   "providerId":"sucuri.net",
+   "providerName":"Sucuri",
+   "serviceId":"waf",
+   "serviceName":"Web Application Firewall",
+   "version": 1,
+   "logoUrl":"",
+   "description":"Enables web application firewall for Sucuri protection product.",
+   "variableDescription":"",
+   "syncPubKeyDomain": "sucuri.net",
+   "shared": true,
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%ip%",
+         "ttl":"3600"
+      }
+   ]
+}
