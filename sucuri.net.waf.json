@@ -4,7 +4,7 @@
    "serviceId":"waf",
    "serviceName":"Web Application Firewall",
    "version": 1,
-   "logoUrl":"",
+   "logoUrl":"https://www.domainconnect.org/wp-content/uploads/2018/06/17BmtOhm_400x400.jpg",
    "description":"Enables web application firewall for Sucuri protection product.",
    "variableDescription":"",
    "syncPubKeyDomain": "sucuri.net",
