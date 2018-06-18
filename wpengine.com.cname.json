@@ -12,6 +12,7 @@
    "records":[
       {
          "type":"CNAME",
+         "host":"@",
          "pointsTo":"%site%.wpengine.com",
          "ttl":"3600"
       }

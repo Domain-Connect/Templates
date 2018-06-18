@@ -12,6 +12,7 @@
    "records":[
       {
          "type":"A",
+         "host":"@",
          "pointsTo":"%ip%",
          "ttl":"3600"
       }
