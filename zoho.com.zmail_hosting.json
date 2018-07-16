@@ -1,0 +1,59 @@
+{
+    "providerId": "zoho.com",
+    "providerName": "Zoho",
+    "serviceId": "zmail_hosting",
+    "serviceName": "Zoho Mail Hosting",
+    "logoUrl": "https://mailadmin.zoho.com/cpanel/mailimage?filename=zoho-logo.png",
+    "description": "This is a template to enable mail hosting with zoho",
+    "variableDescription": "",
+    "syncBlock": true,
+    "shared": false,
+    "hostRequired": false,
+    "records": [
+    {
+        "groupId":"zoho-verification",
+        "type": "CNAME",
+        "host": "%cname_host%",
+        "pointsTo": "%cname_points%",
+        "ttl": "3600"
+    },
+    {
+        "groupId":"zoho-mx",
+        "type": "MX",
+        "host": "@",
+        "pointsTo": "%mx_points%",
+        "priority": "10",
+        "ttl": "3600"
+    },
+    {
+        "groupId":"zoho-mx2",
+        "type": "MX",
+        "host": "@",
+        "pointsTo": "%mx2_points%",
+        "priority": "20",
+        "ttl": "3600"
+    },
+    {
+        "groupId":"zoho-mx3",
+        "type": "MX",
+        "host": "@",
+        "pointsTo": "%mx3_points%",
+        "priority": "50",
+        "ttl": "3600"
+    },
+    {
+        "groupId":"zoho-spf",
+        "type": "TXT",
+        "host": "@",
+        "data": "v=spf1 %spf_data% -all",
+        "ttl": "3600"
+    },
+    {
+        "groupId":"zoho-dkim",
+        "type": "TXT",
+        "host": "%dkim_host%._domainkey",
+        "data": "%dkim_data%",
+        "ttl": "3600"
+    }
+    ]
+}
