@@ -9,6 +9,7 @@
     "syncBlock": true,
     "shared": false,
     "hostRequired": false,
+    "version": 1,
     "records": [
     {
         "groupId":"zoho-verification",
