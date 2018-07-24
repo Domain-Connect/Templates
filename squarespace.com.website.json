@@ -3,10 +3,11 @@
    "providerName":"Squarespace",
    "serviceId":"website",
    "serviceName":"Squarespace Site",
-   "version": 1,
+   "version": 2,
    "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/04/squarespace-logo-horizontal-white-300x109.jpg",
    "description":"Enables a domain to work with Squarespace",
    "variableDescription":"v1 is the verification code for the site",
+   "syncRedirectDomain":"oauth.squarespace.com,oauth.stage.sqsp.net,oauth.qa1.sqsp.net,oauth.qa2.sqsp.net,oauth.qa10.sqsp.net,oauth.qa11.sqsp.net,oauth.qa15.sqsp.net,oauth.dev.squarespace.net",
    "records":[  
       {  
          "type":"CNAME",
