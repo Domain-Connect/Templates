@@ -1,14 +1,16 @@
 {  
    "providerId":"google.com",
    "providerName":"Google",
-   "serviceId":"gsuite",
-   "serviceName":"Google GSuite",
+   "serviceId":"gsuite-shared",
+   "serviceName":"Google G Suite",
    "version": 1,
+   "shared": true,
    "logoUrl":"",
-   "description":"Enables a domain to work with Google GSuite",
-   "variableDescription":"v1 is the IP address of the server.",
+   "description":"This is a shared template that multiple companies can use to enable gsuite",
+   "variableDescription":"Verfiy is the TXT record value for suite verification.",
    "records":[  
       {
+        "groupId":"g-suite-mx",
         "type": "MX",
         "host": "@",
         "priority": "1",
@@ -16,6 +18,7 @@
         "ttl": "3600"
       },
       {
+        "groupId":"g-suite-mx",
         "type": "MX",
         "host": "@",
         "priority":  5,
@@ -23,6 +26,7 @@
         "ttl": "3600"
       },
       {
+        "groupId":"g-suite-mx",
         "type": "MX",
         "host": "@",
         "priority":  5,
@@ -30,6 +34,7 @@
         "ttl": "3600"
       },
       {
+        "groupId":"g-suite-mx",
         "type": "MX",
         "host": "@",
         "priority":  10,
@@ -37,6 +42,7 @@
         "ttl": "3600"
       },
       {
+        "groupId":"g-suite-mx", 
         "type": "MX",
         "host": "@",
         "priority":  10,
@@ -44,15 +50,17 @@
         "ttl": "3600"
       },
       {
+        "groupId":"g-suite-verification",
         "type": "TXT",
         "host": "@",
-        "data": "%verify%",
+        "data": "google-site-verification=%verify%",
         "ttl": 3600
       },
       {
+        "groupId":"g-suite-spf",
         "type": "TXT",
         "host": "@",
-        "data": "%spftxt%",
+        "data": "v=spf1 include:_spf.google.com ~all",
         "ttl": "3600"
       }
    ]

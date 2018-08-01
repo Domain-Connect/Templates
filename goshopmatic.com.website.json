@@ -10,6 +10,7 @@
    "shared":true,
    "warnPhishing":true,
    "hostRequired":false,
+   "version": 1,
    "records":[  
       {  
          "type":"CNAME",

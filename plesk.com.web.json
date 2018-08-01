@@ -1,8 +1,10 @@
 {
-  "providerId":"plesk",
+  "providerId":"plesk.com",
   "providerName":"Plesk",
   "serviceId":"web",
   "serviceName":"Web Hosting on Plesk",
+  "version": 1,
+  "warnPhishing": true,
   "logoUrl":"https://www.plesk.com/wp-content/themes/plesk/images/plesk_logo_144x144_black.png",
   "description":"Enables a web hosting on the server powered by Plesk.",
   "variableDescription":"ip is the IP address of the server.",

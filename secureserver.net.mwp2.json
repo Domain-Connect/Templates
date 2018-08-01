@@ -3,6 +3,7 @@
    "providerName":"Secure Server",
    "serviceId":"mwp2",
    "serviceName":"Managed WordPress",
+   "version": 1,
    "logoUrl":"",
    "description":"Enables a domain to work with MWP2",
    "variableDescription":"v1 is the IP address of the server.",
