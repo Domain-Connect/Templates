@@ -59,7 +59,7 @@
         "groupId": "setup",
         "type": "TXT",
         "host": "@",
-        "data": "data": "v=spf1 %spfrule% -all",
+        "data": "v=spf1 %spfrule% -all",
         "ttl": 3600
       }
    ]
