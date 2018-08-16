@@ -24,6 +24,7 @@ Following is an example of a complete Domain Connect template, with examples of 
   "providerName": "<Enter providerName>",
   "serviceId": "<Enter serviceId>",
   "serviceName": "<Enter serviceName>",
+  "version": 1,
   "logoUrl": "<Enter logoUrl>",
   "description": "<Enter description>",
   "variableDescription": "<Enter variableDescription>",
