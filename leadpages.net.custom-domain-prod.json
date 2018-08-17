@@ -1,16 +1,16 @@
 {
-   "providerId": "leadpages.net-prod",
+   "providerId": "leadpages.net",
    "providerName": "Leadpages",
-   "serviceId": "custom-domain",
+   "serviceId": "custom-domain-prod",
    "serviceName": "Leadpages Custom Domain",
    "version": 1,
    "logoUrl": "https://my.leadpages.net/static/current/img/logos/logo_icon.svg",
    "description": "Enables a domain to work with Leadpages",
-   "variableDescription": "DESTINATION: The subdomain for the domain.",
-   "destinationRequired": true,
+   "variableDescription": "HOST: The subdomain for the domain.",
+   "hostRequired": true,
    "records": [{
       "type": "CNAME",
-      "host": "%DESTINATION%",
+      "host": "%HOST%",
       "pointsTo": "custom-proxy.leadpages.net",
       "ttl": "600"
    }]
