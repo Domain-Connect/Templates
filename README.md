@@ -72,6 +72,11 @@ Following is an example of a complete Domain Connect template, with examples of 
       "ttl": "3600"
     },
     {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.mydomain.com"
+    },
+    {
       "type": "MX",
       "host": "@",
       "pointsTo": "1.1.1.2",
