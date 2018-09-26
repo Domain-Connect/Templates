@@ -11,7 +11,7 @@
    "records":[
       {
         "type": "CNAME",
-        "host": "%HOST%",
+        "host": "@",
         "pointsTo": "unbouncepages.com",
         "ttl": "600"
        }
