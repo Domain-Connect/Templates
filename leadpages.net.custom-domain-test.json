@@ -10,7 +10,7 @@
    "hostRequired": true,
    "records": [{
       "type": "CNAME",
-      "host": "%HOST%",
+      "host": "@",
       "pointsTo": "custom-proxy.leadpagestest.net",
       "ttl": "600"
    }]
