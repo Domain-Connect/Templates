@@ -1,0 +1,117 @@
+{
+    "providerId": "godaddy.com",
+    "providerName": "GoDaddy",
+    "serviceId": "businessemail",
+    "serviceName": "Business Email",
+    "version": 1,
+    "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
+    "description": "Enables a domain to work with GoDaddy Business Email",
+    "variableDescription": "Self explanatory in the variable names.",
+    "records": [
+        {
+          "groupId": "Login",
+          "type": "CNAME",
+          "host": "mobilemail",
+          "pointsTo": "%mobilemail%",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Login",
+          "type": "CNAME",
+          "host": "pda",
+          "pointsTo": "%pda%",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Login",
+          "type": "CNAME",
+          "host": "webmail",
+          "pointsTo": "%webmail%",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Login",
+          "type": "CNAME",
+          "host": "email",
+          "pointsTo": "%email%",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Login",
+          "type": "CNAME",
+          "host": "e",
+          "pointsTo": "%email%",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Fetch",
+          "type": "CNAME",
+          "host": "mail",
+          "pointsTo": "%mail%",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Fetch",
+          "type": "CNAME",
+          "host": "pop",
+          "pointsTo": "%pop%",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Fetch",
+          "type": "CNAME",
+          "host": "imap",
+          "pointsTo": "%imap%",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Send",
+          "type": "CNAME",
+          "host": "smtp",
+          "pointsTo": "%smtp%",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Delivery",
+          "type": "MX",
+          "host": "@",
+          "pointsTo": "%mx%",
+          "priority": "0",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Delivery",
+          "type": "MX",
+          "host": "@",
+          "pointsTo": "%mxtwo%",
+          "priority": "10",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Configuration",
+          "type": "SRV",
+          "service": "_autodiscover",
+          "protocol": "_tcp",
+          "port": "443",
+          "weight": "1",
+          "priority": "100",
+          "name": "@",
+          "target": "%autodiscover%",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Verification",
+          "type": "TXT",
+          "host": "@",
+          "data": "%verifytxt%",
+          "ttl": "3600"
+        },
+        {
+          "groupId": "Verification",
+          "type": "TXT",
+          "host": "@",
+          "data": "%spftxt%",
+          "ttl": "3600"
+        }
+    ]
+}
