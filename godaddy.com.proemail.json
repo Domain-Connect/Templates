@@ -11,64 +11,8 @@
         {
           "groupId": "Login",
           "type": "CNAME",
-          "host": "mobilemail",
-          "pointsTo": "%mobilemail%",
-          "ttl": "3600"
-        },
-        {
-          "groupId": "Login",
-          "type": "CNAME",
-          "host": "pda",
-          "pointsTo": "%pda%",
-          "ttl": "3600"
-        },
-        {
-          "groupId": "Login",
-          "type": "CNAME",
-          "host": "webmail",
-          "pointsTo": "%webmail%",
-          "ttl": "3600"
-        },
-        {
-          "groupId": "Login",
-          "type": "CNAME",
           "host": "email",
           "pointsTo": "%email%",
-          "ttl": "3600"
-        },
-        {
-          "groupId": "Login",
-          "type": "CNAME",
-          "host": "e",
-          "pointsTo": "%email%",
-          "ttl": "3600"
-        },
-        {
-          "groupId": "Fetch",
-          "type": "CNAME",
-          "host": "mail",
-          "pointsTo": "%mail%",
-          "ttl": "3600"
-        },
-        {
-          "groupId": "Fetch",
-          "type": "CNAME",
-          "host": "pop",
-          "pointsTo": "%pop%",
-          "ttl": "3600"
-        },
-        {
-          "groupId": "Fetch",
-          "type": "CNAME",
-          "host": "imap",
-          "pointsTo": "%imap%",
-          "ttl": "3600"
-        },
-        {
-          "groupId": "Send",
-          "type": "CNAME",
-          "host": "smtp",
-          "pointsTo": "%smtp%",
           "ttl": "3600"
         },
         {
