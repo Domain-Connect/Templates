@@ -9,7 +9,7 @@
   "variableDescription": "Self explanatory in the variable names.",
   "syncBlock": false,
   "shared": false,
-  "warnPhishing": false,
+  "warnPhishing": true,
   "syncPubKeyDomain": "portal.office.com",
   "syncRedirectDomain": "",
   "records": [
