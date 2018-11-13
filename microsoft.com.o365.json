@@ -3,16 +3,23 @@
   "providerName": "Microsoft",
   "serviceId": "O365",
   "serviceName": "Microsoft Office 365",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/07/microsoft-300x89.jpg",
   "description": "Enables a domain to work with Microsoft Office 365",
   "variableDescription": "Self explanatory in the variable names.",
   "syncBlock": false,
   "shared": false,
-  "warnPhishing": false,
+  "warnPhishing": true,
   "syncPubKeyDomain": "portal.office.com",
   "syncRedirectDomain": "",
   "records": [
+    { 
+      "groupId": "Login", 
+      "type": "CNAME", 
+      "host": "email", 
+      "pointsTo": "%loginhost%", 
+      "ttl": "3600" 
+    },
     {
       "groupId": "Outlook",
       "type": "MX",
