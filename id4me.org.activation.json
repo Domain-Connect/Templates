@@ -1,7 +1,7 @@
 {  
    "providerId":"id4me.org",
    "shared": true,
-   "warnPhishing": true,	
+   "warnPhishing": true,    
    "providerName":"ID4me Identity Agent",
    "serviceId":"activation",
    "serviceName":"Identity Registration",
@@ -20,7 +20,8 @@
          "type":"TXT",
          "host":"_acme-challenge",
          "data":"%ACME%",
-         "ttl":"3600"
+         "ttl":"3600",
+         "essential":"OnApply",
       }
    ]
 }
