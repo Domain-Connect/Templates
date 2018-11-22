@@ -21,7 +21,7 @@
          "host":"_acme-challenge",
          "data":"%ACME%",
          "ttl":"3600",
-         "essential":"OnApply",
+         "essential":"OnApply"
       }
    ]
 }
