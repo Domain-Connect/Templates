@@ -112,9 +112,9 @@
         },
         {
           "groupId": "Verification",
-          "type": "SPFM",
+          "type": "TXT",
           "host": "@",
-          "spfRules": "%spfrules%",
+          "data": "%spftxt%",
           "ttl": "3600"
         },
     ]
