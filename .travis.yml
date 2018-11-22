@@ -1,0 +1,7 @@
+language: python
+python:
+    - "3.6"
+install:
+    - pip install jsonschema
+script:
+    - jsonschema $(find . -name '*.json' -printf ' -i %f') template.schema
