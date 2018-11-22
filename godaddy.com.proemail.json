@@ -116,6 +116,6 @@
           "host": "@",
           "spfRules": "%spfrules%",
           "ttl": "3600"
-        },
+        }
     ]
 }
