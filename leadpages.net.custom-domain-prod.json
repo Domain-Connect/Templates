@@ -6,6 +6,7 @@
    "version": 1,
    "logoUrl": "https://my.leadpages.net/static/current/img/logos/logo_icon.svg",
    "description": "Enables a domain to work with Leadpages",
+   "syncRedirectDomain": "my.leadpages.net",
    "variableDescription": "HOST: The subdomain for the domain.",
    "hostRequired": true,
    "records": [{
