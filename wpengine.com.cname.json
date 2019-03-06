@@ -13,7 +13,7 @@
          "type":"CNAME",
          "host":"@",
          "pointsTo":"%site%.wpengine.com",
-         "ttl":"3600"
+         "ttl":3600
       }
    ]
 }

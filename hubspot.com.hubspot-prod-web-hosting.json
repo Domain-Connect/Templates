@@ -11,6 +11,6 @@
         "type": "CNAME",
         "host": "@",
         "pointsTo": "%DESTINATION%.sites.hubspot.net",
-        "ttl": "600"
+        "ttl": 600
     }]
 }

@@ -11,13 +11,13 @@
          "type": "A",
          "host": "@",
          "pointsTo": "174.129.25.170",
-         "ttl": "3600"
+         "ttl": 3600
       },
       {
          "type": "CNAME",
          "host": "www",
          "pointsTo": "app.getbento.com",
-         "ttl": "3600"
+         "ttl": 3600
       }
    ]
 }

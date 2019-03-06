@@ -13,6 +13,6 @@
       "type": "CNAME",
       "host": "@",
       "pointsTo": "custom-proxy.leadpagestest.net",
-      "ttl": "600"
+      "ttl": 600
    }]
 }

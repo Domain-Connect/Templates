@@ -18,95 +18,94 @@
       "type": "CNAME", 
       "host": "email", 
       "pointsTo": "%loginhost%", 
-      "ttl": "3600" 
+      "ttl": 3600 
     },
     {
       "groupId": "Outlook",
       "type": "MX",
       "host": "@",
       "pointsTo": "%mx%",
-      "priority": "0",
-      "ttl": "3600"
+      "priority": 0,
+      "ttl": 3600
     },
     {
       "groupId": "Outlook",
       "type": "CNAME",
       "host": "autodiscover",
       "pointsTo": "%autodiscover%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "groupId": "Outlook",
       "type": "SPFM",
       "host": "@",
-      "spfRules": "%spfrules%",
-      "ttl": "3600"
+      "spfRules": "%spfrules%"
     },
     {
       "groupId": "Skype",
       "type": "CNAME",
       "host": "sip",
       "pointsTo": "%sip%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "groupId": "Skype",
       "type": "CNAME",
       "host": "lyncdiscover",
       "pointsTo": "%lyncdiscover%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "groupId": "Skype",
       "type": "SRV",
       "service": "_sip",
       "protocol": "_tls",
-      "port": "443",
-      "weight": "1",
-      "priority": "100",
+      "port": 443,
+      "weight": 1,
+      "priority": 100,
       "name": "@",
       "target": "%sipdir%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "groupId": "Skype",
       "type": "SRV",
       "service": "_sipfederationtls",
       "protocol": "_tcp",
-      "port": "5061",
-      "weight": "1",
-      "priority": "100",
+      "port": 5061,
+      "weight": 1,
+      "priority": 100,
       "name": "@",
       "target": "%sipfed%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "groupId": "MDM",
       "type": "CNAME",
       "host": "enterpriseregistration",
       "pointsTo": "%entreg%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "groupId": "MDM",
       "type": "CNAME",
       "host": "enterpriseenrollment",
       "pointsTo": "%entenroll%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "groupId": "Auth",
       "type": "CNAME",
       "host": "msoid",
       "pointsTo": "%msoid%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "groupId": "Verification",
       "type": "TXT",
       "host": "@",
       "data": "%verifytxt%",
-      "ttl": "3600"
+      "ttl": 3600
     }
   ]
 }

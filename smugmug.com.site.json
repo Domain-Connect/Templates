@@ -16,7 +16,7 @@
          "type":"CNAME",
          "host":"www",
          "pointsTo":"domains.smugmug.com",
-         "ttl":"600"
+         "ttl":600
       }
    ]
 }

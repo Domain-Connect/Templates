@@ -14,13 +14,13 @@
          "type":"TXT",
          "host":"_openid",
          "data":"%OPENID%",
-         "ttl":"3600"
+         "ttl":3600
       },
       {  
          "type":"TXT",
          "host":"_acme-challenge",
          "data":"%ACME%",
-         "ttl":"3600",
+         "ttl":3600,
          "essential":"OnApply"
       }
    ]

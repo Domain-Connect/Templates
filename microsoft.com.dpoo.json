@@ -18,7 +18,7 @@
       "type": "TXT",
       "host": "@",
       "data": "%verifytxt%",
-      "ttl": "3600"
+      "ttl": 3600
     }
   ]
 }

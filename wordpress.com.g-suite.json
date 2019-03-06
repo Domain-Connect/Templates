@@ -13,54 +13,54 @@
          "type":"TXT",
          "host":"@",
          "data":"%g-suite-token%",
-         "ttl":"3600"
+         "ttl":3600
       },
       {
          "groupId":"g-suite-spf",
          "type":"TXT",
          "host":"@",
          "data":"v=spf1 include:_spf.google.com ~all",
-         "ttl":"3600"
+         "ttl":3600
       },
       {
          "groupId":"g-suite-mx",
          "type":"MX",
          "host":"@",
          "pointsTo":"ASPMX.L.GOOGLE.COM.",
-         "priority":"1",
-         "ttl":"3600"
+         "priority":1,
+         "ttl":3600
       },
       {
          "groupId":"g-suite-mx",
          "type":"MX",
          "host":"@",
          "pointsTo":"ALT1.ASPMX.L.GOOGLE.COM.",
-         "priority":"5",
-         "ttl":"3600"
+         "priority":5,
+         "ttl":3600
       },
       {
          "groupId":"g-suite-mx",
          "type":"MX",
          "host":"@",
          "pointsTo":"ALT2.ASPMX.L.GOOGLE.COM.",
-         "priority":"5",
-         "ttl":"3600"
+         "priority":5,
+         "ttl":3600
       },
       {
          "groupId":"g-suite-mx",
          "type":"MX",
          "host":"@",
          "pointsTo":"ALT3.ASPMX.L.GOOGLE.COM.",
-         "priority":"10",
-         "ttl":"3600"
+         "priority":10,
+         "ttl":3600
       },
       {
          "groupId":"g-suite-mx",
          "type":"MX",
          "host":"@",
          "pointsTo":"ALT4.ASPMX.L.GOOGLE.COM.",
-         "priority":"10",
-         "ttl":"3600"
+         "priority":10,
+         "ttl":3600
       }
    ]
 }

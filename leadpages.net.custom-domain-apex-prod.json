@@ -13,13 +13,13 @@
          "type": "A",
          "host": "@",
          "pointsTo": "35.202.21.90",
-         "ttl": "600"
+         "ttl": 600
       },
       {
          "type": "CNAME",
          "host": "www",
          "pointsTo": "custom-proxy.leadpages.net",
-         "ttl": "600"
+         "ttl": 600
       }
    ]
 }

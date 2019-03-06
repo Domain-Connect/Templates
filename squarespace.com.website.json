@@ -13,37 +13,37 @@
          "type":"CNAME",
          "host":"%v1%",
          "pointsTo":"verify.squarespace.com",
-         "ttl":"3600"
+         "ttl":3600
       },
       {  
          "type":"CNAME",
          "host":"www",
          "pointsTo":"ext-cust.squarespace.com",
-         "ttl":"3600"
+         "ttl":3600
       },
       {  
          "type":"A",
          "host":"@",
          "pointsTo":"198.185.159.144",
-         "ttl":"3600"
+         "ttl":3600
       },
       {  
          "type":"A",
          "host":"@",
          "pointsTo":"198.185.159.145",
-         "ttl":"3600"
+         "ttl":3600
       },
       {  
          "type":"A",
          "host":"@",
          "pointsTo":"198.49.23.144",
-         "ttl":"3600"
+         "ttl":3600
       },
       {  
          "type":"A",
          "host":"@",
          "pointsTo":"198.49.23.145",
-         "ttl":"3600"
+         "ttl":3600
       }
    ]
 }

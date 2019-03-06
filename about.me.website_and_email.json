@@ -12,33 +12,33 @@
          "type":"MX",
          "host":"@",
          "pointsTo":"ASPMX.L.GOOGLE.COM",
-         "priority":"1",
-         "ttl":"3600"
+         "priority":1,
+         "ttl":3600
       },
       {  
          "type":"MX",
          "host":"@",
          "pointsTo":"ALT1.ASPMX.L.GOOGLE.COM",
-         "priority":"5",
-         "ttl":"3600"
+         "priority":5,
+         "ttl":3600
       },
       {  
          "type":"TXT",
          "host":"@",
          "data":"v=spf1 include:_spf.google.com ~all",
-         "ttl":"3600"
+         "ttl":3600
       },
       {  
          "type":"A",
          "host":"@",
          "pointsTo":"52.2.64.1",
-         "ttl":"3600"
+         "ttl":3600
       },
       {  
          "type":"CNAME",
          "host":"www",
          "pointsTo":"@",
-         "ttl":"3600"
+         "ttl":3600
       }
    ]
 }
