@@ -11,31 +11,31 @@
     {
       "type": "NS",
       "host": "_domainkey",
-      "pointsTo": "ns%id%.fdmarc.net.",
+      "pointsTo": "ns%id%.fdmarc.net",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "_dmarc",
-      "pointsTo": "_d%id%.fdmarc.net.",
+      "pointsTo": "_d%id%.fdmarc.net",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "_mta-sts",
-      "pointsTo": "_ms%id%.fdmarc.net.",
+      "pointsTo": "_ms%id%.fdmarc.net",
       "ttl": 600
     },
     {
       "type": "CNAME",
       "host": "mta-sts",
-      "pointsTo": "ms%id%.fdmarc.net.",
+      "pointsTo": "ms%id%.fdmarc.net",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "_smtp-tlsrpt",
-      "pointsTo": "_st%id%.fdmarc.net.",
+      "pointsTo": "_st%id%.fdmarc.net",
       "ttl": 3600
     },
     {
@@ -47,7 +47,7 @@
     {
       "type": "NS",
       "host": "fraudmarc",
-      "pointsTo": "fm%id%.fdmarc.net.",
+      "pointsTo": "fm%id%.fdmarc.net",
       "ttl": 3600
     }
   ]
