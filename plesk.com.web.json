@@ -10,12 +10,14 @@
   "variableDescription":"ip is the IP address of the server.",
   "records":[  
     {
+      "groupId": "web",
       "type":"A",
       "host":"@",
       "pointsTo":"%ip%",
       "ttl":"600"
     },
     {
+      "groupId": "www",
       "type":"CNAME",
       "host":"www",
       "pointsTo":"@",
