@@ -44,10 +44,9 @@
     },
     {
         "groupId":"zoho-spf",
-        "type": "TXT",
+        "type": "SPFM",
         "host": "@",
-        "data": "v=spf1 %spf_data% -all",
-        "ttl": 3600
+        "spfRules": "%spf_data%"
     },
     {
         "groupId":"zoho-dkim",
