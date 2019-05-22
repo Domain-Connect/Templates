@@ -1,0 +1,22 @@
+{
+  "providerId": "bing.com",
+  "providerName": "Microsoft Bing",
+  "serviceId": "BingWebMasterDPOOV2",
+  "serviceName": "Domain proof of ownership with Bing Webmaster services",
+  "version": 1,
+  "logoUrl": "https://domainconnect.org/wp-content/uploads/<<bing logo>> link",
+  "description": "Verifies domain ownership for further configuration of Microsoft Bing Services",
+  "variableDescription": "Guid of webmaster for verification of domain ownership with Bing webmaster enables quick and easy SEO on Bing.",
+  "syncBlock": false,
+  "shared": false,
+  "warnPhishing": false,
+  "syncRedirectDomain": "bing.com/webmaster/configure/verify/ownership",
+  "records": [
+      {  
+         "type":"CNAME",
+         "host":"%WEBMASTERGUID%",
+         "pointsTo":"verify.bing.com",
+         "ttl":"604800"
+      }
+  ]
+}
