@@ -1,7 +1,7 @@
 {
   "providerId": "bing.com",
   "providerName": "Microsoft Bing",
-  "serviceId": "BingWebMasterDPOOV2",
+  "serviceId": "BingWebMasterDPOO",
   "serviceName": "Domain proof of ownership with Bing Webmaster services",
   "version": 1,
   "logoUrl": "https://domainconnect.org/wp-content/uploads/<<bing logo>> link",
@@ -10,13 +10,13 @@
   "syncBlock": false,
   "shared": false,
   "warnPhishing": false,
-  "syncRedirectDomain": "bing.com/webmaster/configure/verify/ownership",
+  "syncRedirectDomain": "bing.com",
   "records": [
       {  
          "type":"CNAME",
          "host":"%WEBMASTERGUID%",
          "pointsTo":"verify.bing.com",
-         "ttl":"604800"
+         "ttl":"172800"
       }
   ]
 }
