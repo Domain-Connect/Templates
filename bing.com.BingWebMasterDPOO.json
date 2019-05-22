@@ -10,13 +10,13 @@
   "syncBlock": false,
   "shared": false,
   "warnPhishing": false,
-  "syncRedirectDomain": "bing.com",
+  "syncRedirectDomain": "www.bing.com",
   "records": [
       {  
          "type":"CNAME",
          "host":"%WEBMASTERGUID%",
          "pointsTo":"verify.bing.com",
-         "ttl":"172800"
+         "ttl":"3600"
       }
   ]
 }
