@@ -1,15 +1,14 @@
 {
   "providerId": "bing.com",
   "providerName": "Microsoft Bing",
-  "serviceId": "BingWebMasterDPOO",
+  "serviceId": "bingwebmasterdpoo",
   "serviceName": "Domain proof of ownership with Bing Webmaster services",
   "version": 2,
-  "logoUrl": "https://domainconnect.org/wp-content/uploads/<<bing logo>> link",
   "description": "Verifies domain ownership for further configuration of Microsoft Bing Services",
   "variableDescription": "Guid of webmaster for verification of domain ownership with Bing webmaster enables quick and easy SEO on Bing.",
   "syncBlock": false,
   "shared": false,
-  "warnPhishing": false,
+  "warnPhishing": true,
   "syncRedirectDomain": "www.bing.com",
   "records": [
       {  
