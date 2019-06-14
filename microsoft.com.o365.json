@@ -8,7 +8,7 @@
   "description": "Enables a domain to work with Microsoft Office 365",
   "variableDescription": "Self explanatory in the variable names.",
   "syncBlock": false,
-  "shared": false,
+  "shared": true,
   "warnPhishing": true,
   "syncPubKeyDomain": "portal.office.com",
   "syncRedirectDomain": "",
@@ -17,14 +17,14 @@
       "groupId": "Login", 
       "type": "CNAME", 
       "host": "email", 
-      "pointsTo": "%loginhost%", 
+      "pointsTo": "%LOGINHOST%", 
       "ttl": 3600 
     },
     {
       "groupId": "Outlook",
       "type": "MX",
       "host": "@",
-      "pointsTo": "%mx%",
+      "pointsTo": "%MX%",
       "priority": 0,
       "ttl": 3600
     },
@@ -32,27 +32,27 @@
       "groupId": "Outlook",
       "type": "CNAME",
       "host": "autodiscover",
-      "pointsTo": "%autodiscover%",
+      "pointsTo": "%AUTODISCOVER%",
       "ttl": 3600
     },
     {
       "groupId": "Outlook",
       "type": "SPFM",
       "host": "@",
-      "spfRules": "%spfrules%"
+      "spfRules": "%SPFRULES%"
     },
     {
       "groupId": "Skype",
       "type": "CNAME",
       "host": "sip",
-      "pointsTo": "%sip%",
+      "pointsTo": "%SIP%",
       "ttl": 3600
     },
     {
       "groupId": "Skype",
       "type": "CNAME",
       "host": "lyncdiscover",
-      "pointsTo": "%lyncdiscover%",
+      "pointsTo": "%LYNCDISCOVER%",
       "ttl": 3600
     },
     {
@@ -64,7 +64,7 @@
       "weight": 1,
       "priority": 100,
       "name": "@",
-      "target": "%sipdir%",
+      "target": "%SIPDIR%",
       "ttl": 3600
     },
     {
@@ -76,35 +76,35 @@
       "weight": 1,
       "priority": 100,
       "name": "@",
-      "target": "%sipfed%",
+      "target": "%SIPFED%",
       "ttl": 3600
     },
     {
       "groupId": "MDM",
       "type": "CNAME",
       "host": "enterpriseregistration",
-      "pointsTo": "%entreg%",
+      "pointsTo": "%ENTREG%",
       "ttl": 3600
     },
     {
       "groupId": "MDM",
       "type": "CNAME",
       "host": "enterpriseenrollment",
-      "pointsTo": "%entenroll%",
+      "pointsTo": "%ENTENROLL%",
       "ttl": 3600
     },
     {
       "groupId": "Auth",
       "type": "CNAME",
       "host": "msoid",
-      "pointsTo": "%msoid%",
+      "pointsTo": "%MSOID%",
       "ttl": 3600
     },
     {
       "groupId": "Verification",
       "type": "TXT",
       "host": "@",
-      "data": "%verifytxt%",
+      "data": "%VERIFYTXT%",
       "ttl": 3600
     }
   ]
