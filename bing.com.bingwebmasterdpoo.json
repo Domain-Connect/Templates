@@ -2,7 +2,7 @@
   "providerId": "bing.com",
   "providerName": "Microsoft Bing",
   "serviceId": "BingWebMasterDPOO",
-  "serviceName": "domain ownership with Bing Webmaster services",
+  "serviceName": "Bing Webmaster services",
   "version": 2,
   "description": "Verifies domain ownership for further configuration of Microsoft Bing Services",
   "variableDescription": "Guid of webmaster for verification of domain ownership with Bing webmaster enables quick and easy SEO on Bing.",
