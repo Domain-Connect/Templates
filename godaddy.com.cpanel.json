@@ -1,0 +1,58 @@
+{
+  "providerId": "godaddy.com",
+  "providerName": "GoDaddy",
+  "serviceId": "cpanel",
+  "serviceName": "cPanel",
+  "version": 1,
+  "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
+  "description": "Enables a domain to work with GoDaddy cPanel",
+  "variableDescription": "v1 is the IP address of the server.",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "data": "%v1%",
+      "type": "A",
+      "name": ""
+    },
+    {
+      "data": "%v1%",
+      "type": "A",
+      "name": "admin"
+    },
+    {
+      "data": "%v1%",
+      "type": "A",
+      "name": "mail"
+    },
+    {
+      "data": "@",
+      "type": "CNAME",
+      "name": "www"
+    },
+    {
+      "data": "@",
+      "type": "CNAME",
+      "name": "cpanel"
+    },
+    {
+      "data": "@",
+      "type": "CNAME",
+      "name": "webdisk"
+    },
+    {
+      "data": "@",
+      "type": "CNAME",
+      "name": "whm"
+    },
+    {
+      "data": "@",
+      "type": "CNAME",
+      "name": "www.admin"
+    },
+    {
+      "data": "@",
+      "type": "CNAME",
+      "name": "webdisk.admin"
+    }
+  ]
+}
