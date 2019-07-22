@@ -6,7 +6,7 @@ install:
 script:
     - |
       for filename in *.json; do
-        echo 'Checking schema for ' $filename || exit
+        echo 'Checking schema for ' $filename || exit 1
         jsonschema -i $filename template.schema
       done
     - |
