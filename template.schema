@@ -39,22 +39,10 @@
                 "variableDescription": {
                     "type": "string"
                 },
-                "records": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Record"
-                    }
-                },
-                "hostRequired": {
-                    "type": "boolean"
-                },
                 "syncBlock": {
                     "type": "boolean"
                 },
                 "shared": {
-                    "type": "boolean"
-                },
-                "warnPhishing": {
                     "type": "boolean"
                 },
                 "syncRedirectDomain": {
@@ -62,79 +50,376 @@
                 },
                 "syncPubKeyDomain": {
                     "type": "string"
+                },
+                "multiInstance": {
+                    "type": "boolean"
+                },
+                "warnPhishing": {
+                    "type": "boolean"
+                },				
+                "hostRequired": {
+                    "type": "boolean"
+                },
+                "records": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Record"
+                    }
                 }
             },
             "required": [
-                "description",
                 "providerId",
                 "providerName",
-                "records",
                 "serviceId",
                 "serviceName",
-                "version"
+                "records"
             ],
             "title": "DomainConnectTemplate"
         },
         "Record": {
+			"anyOf": [
+				{ 
+					"$ref": "#/definitions/Record-A"					
+				},
+				{ 
+					"$ref": "#/definitions/Record-AAAA"
+				},
+				{ 
+					"$ref": "#/definitions/Record-CNAME"
+				},
+				{ 
+					"$ref": "#/definitions/Record-NS"
+				},
+				{ 
+					"$ref": "#/definitions/Record-TXT"
+				},
+				{ 
+					"$ref": "#/definitions/Record-MX"
+				},
+				{ 
+					"$ref": "#/definitions/Record-SPFM"
+				},
+				{ 
+					"$ref": "#/definitions/Record-SRV"
+				},
+				{ 
+					"$ref": "#/definitions/Record-REDIR301"
+				},
+				{ 
+					"$ref": "#/definitions/Record-REDIR302"
+				}
+			]
+		},
+        "Record-All": {
             "type": "object",
-            "additionalProperties": false,
             "properties": {
-                "type": {
-                    "$ref": "#/definitions/Type"
-                },
-                "host": {
-                    "type": "string"
-                },
-                "pointsTo": {
-                    "type": "string"
-                },
-                "ttl": {
-                    "$ref": "#/definitions/TTL"
-                },
-                "priority": {
-                    "type": "integer"
-                },
-                "data": {
-                    "type": "string"
-                },
-                "txtConflictMatchingMode": {
-                    "type": "string"
-                },
-                "txtConflictMatchingPrefix": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
                 "groupId": {
-                    "type": "string"
-                },
-                "service": {
-                    "type": "string"
-                },
-                "protocol": {
-                    "type": "string"
-                },
-                "port": {
-                    "type": "integer"
-                },
-                "weight": {
-                    "type": "integer"
-                },
-                "target": {
-                    "type": "string"
-                },
-                "spfRules": {
                     "type": "string"
                 },
                 "essential": {
                     "type": "string"
                 }
             },
-            "required": [
-                "type"
-            ],
-            "title": "Record"
+            "title": "All Records"
+        },
+        "Record-A": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "A"
+						},
+						"host": {
+							"type": "string"
+						},
+						"pointsTo": {
+							"type": "string"
+						},
+						"ttl": {
+							"$ref": "#/definitions/TTL"
+						}
+					},
+					"required": [
+						"type",
+						"host",
+						"pointsTo"				
+					],
+					"title": "A Record"
+				}
+			]
+        },
+        "Record-AAAA": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "AAAA"
+						},
+						"host": {
+							"type": "string"
+						},
+						"pointsTo": {
+							"type": "string"
+						},
+						"ttl": {
+							"$ref": "#/definitions/TTL"
+						}
+					},
+					"required": [
+						"type",
+						"host",
+						"pointsTo"				
+					],
+					"title": "AAAA Record"
+				}
+			]
+        },
+        "Record-CNAME": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "CNAME"
+						},
+						"host": {
+							"type": "string"
+						},
+						"pointsTo": {
+							"type": "string"
+						},
+						"ttl": {
+							"$ref": "#/definitions/TTL"
+						}
+					},
+					"required": [
+						"type",
+						"host",
+						"pointsTo"				
+					],
+					"title": "CNAME Record"
+				}
+			]
+        },
+        "Record-NS": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "NS"
+						},
+						"host": {
+							"type": "string"
+						},
+						"pointsTo": {
+							"type": "string"
+						},
+						"ttl": {
+							"$ref": "#/definitions/TTL"
+						}
+					},
+					"required": [
+						"type",
+						"host",
+						"pointsTo"				
+					],
+					"title": "NS Record"
+				}
+			]
+        },
+        "Record-TXT": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "TXT"
+						},
+						"host": {
+							"type": "string"
+						},
+						"ttl": {
+							"$ref": "#/definitions/TTL"
+						},
+						"data": {
+							"type": "string"
+						},
+						"txtConflictMatchingMode": {
+							"type": "string"
+						},
+						"txtConflictMatchingPrefix": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"type",
+						"host",
+						"data"				
+					],
+					"title": "TXT Record"
+				}
+			]
+        },
+        "Record-MX": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "MX"
+						},
+						"host": {
+							"type": "string"
+						},
+						"pointsTo": {
+							"type": "string"
+						},
+						"ttl": {
+							"$ref": "#/definitions/TTL"
+						},
+						"priority": {
+							"type": "integer"
+						}
+					},
+					"required": [
+						"type",
+						"host",
+						"pointsTo",
+						"priority"
+					],
+					"title": "MX Record"
+				}
+			]
+        },
+        "Record-SPFM": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "SPFM"
+						},
+						"host": {
+							"type": "string"
+						},
+						"spfRules": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"type",
+						"host",
+						"spfRules"
+					],
+					"title": "SPFM Record"
+				}
+			]
+        },
+        "Record-SRV": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "SRV"
+						},
+						"name": {
+							"type": "string"
+						},
+						"target": {
+							"type": "string"
+						},
+						"ttl": {
+							"$ref": "#/definitions/TTL"
+						},
+						"priority": {
+							"type": "integer"
+						},
+						"protocol": {
+							"type": "string"
+						},
+						"service": {
+							"type": "string"
+						},
+						"weight": {
+							"type": "integer"
+						},
+						"port": {
+							"type": "integer"
+						}
+					},
+					"required": [
+						"type",
+						"name",
+						"target",
+						"priority",
+						"protocol",
+						"service",
+						"weight",
+						"port"						
+					],
+					"title": "SRV Record"
+				}
+			]
+        },
+        "Record-REDIR301": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "REDIR301"
+						},
+						"host": {
+							"type": "string"
+						},
+						"target": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"type",
+						"target"
+					],
+					"title": "REDIR301 Record"
+				}
+			]
+        },
+        "Record-REDIR302": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "REDIR302"
+						},
+						"host": {
+							"type": "string"
+						},
+						"target": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"type",
+						"target"
+					],
+					"title": "REDIR302 Record"
+				}
+			]
         },
         "TTL": {
             "anyOf": [
@@ -147,22 +432,6 @@
                 }
             ],
             "title": "TTL"
-        },
-        "Type": {
-            "type": "string",
-            "enum": [
-                "A",
-                "AAAA",
-                "CNAME",
-                "MX",
-                "TXT",
-                "NS",
-                "SRV",
-                "SPFM",
-                "REDIR301",
-                "REDIR302"
-            ],
-            "title": "Type"
         }
     }
 }
