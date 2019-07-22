@@ -101,6 +101,12 @@
 				},
 				{ 
 					"$ref": "#/definitions/Record-SRV"
+				},
+				{ 
+					"$ref": "#/definitions/Record-REDIR301"
+				},
+				{ 
+					"$ref": "#/definitions/Record-REDIR302"
 				}
 			]
 		},
@@ -364,6 +370,54 @@
 						"port"						
 					],
 					"title": "SRV Record"
+				}
+			]
+        },
+        "Record-REDIR301": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "REDIR301"
+						},
+						"host": {
+							"type": "string"
+						},
+						"target": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"type",
+						"target"
+					],
+					"title": "REDIR301 Record"
+				}
+			]
+        },
+        "Record-REDIR302": {
+			"allOf": [
+				{ "$ref": "#/definitions/Record-All" },
+				{
+					"properties": {
+						"type": {
+							"type": "string",
+							"const": "REDIR302"
+						},
+						"host": {
+							"type": "string"
+						},
+						"target": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"type",
+						"target"
+					],
+					"title": "REDIR302 Record"
 				}
 			]
         },

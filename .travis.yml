@@ -6,8 +6,8 @@ install:
 script:
     - |
       for filename in *.json; do
-        echo 'Checking schema for ' $filename || exit 1
-        jsonschema -i $filename template.schema
+        echo 'Checking schema for ' $filename 
+        jsonschema -i $filename template.schema || exit 1
       done
     - |
       python -c "import json
