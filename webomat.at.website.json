@@ -1,7 +1,7 @@
 {
    "providerId": "Webomat.at",
    "providerName": "Webomat Test",
-   "serviceId": "website",
+   "serviceId": "website-test",
    "serviceName": "Webomat Site (Test)",
    "version": 1,
    "logoUrl": "https://www.webomat.at/assets/web/img/logo-colorized.svg",
