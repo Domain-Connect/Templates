@@ -10,49 +10,49 @@
   "syncPubKeyDomain": "domain-attach.api.godaddy.com",
   "records": [
     {
-      "data": "%v1%",
+      "pointsTo": "%v1%",
       "type": "A",
-      "name": ""
+      "host": "@"
     },
     {
-      "data": "%v1%",
+      "pointsTo": "%v1%",
       "type": "A",
-      "name": "admin"
+      "host": "admin"
     },
     {
-      "data": "%v1%",
+      "pointsTo": "%v1%",
       "type": "A",
-      "name": "mail"
+      "host": "mail"
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "www"
+      "host": "www"
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "cpanel"
+      "host": "cpanel"
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "webdisk"
+      "host": "webdisk"
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "whm"
+      "host": "whm"
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "www.admin"
+      "host": "www.admin"
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "webdisk.admin"
+      "host": "webdisk.admin"
     }
   ]
 }
