@@ -12,47 +12,56 @@
     {
       "pointsTo": "%v1%",
       "type": "A",
-      "host": "@"
+      "host": "@",
+      "ttl": 3600
     },
     {
       "pointsTo": "%v1%",
       "type": "A",
-      "host": "admin"
+      "host": "admin",
+      "ttl": 3600
     },
     {
       "pointsTo": "%v1%",
       "type": "A",
-      "host": "mail"
+      "host": "mail",
+      "ttl": 3600
     },
     {
       "pointsTo": "@",
       "type": "CNAME",
-      "host": "www"
+      "host": "www",
+      "ttl": 3600
     },
     {
       "pointsTo": "@",
       "type": "CNAME",
-      "host": "cpanel"
+      "host": "cpanel",
+      "ttl": 3600
     },
     {
       "pointsTo": "@",
       "type": "CNAME",
-      "host": "webdisk"
+      "host": "webdisk",
+      "ttl": 3600
     },
     {
       "pointsTo": "@",
       "type": "CNAME",
-      "host": "whm"
+      "host": "whm",
+      "ttl": 3600
     },
     {
       "pointsTo": "@",
       "type": "CNAME",
-      "host": "www.admin"
+      "host": "www.admin",
+      "ttl": 3600
     },
     {
       "pointsTo": "@",
       "type": "CNAME",
-      "host": "webdisk.admin"
+      "host": "webdisk.admin",
+      "ttl": 3600
     }
   ]
 }
