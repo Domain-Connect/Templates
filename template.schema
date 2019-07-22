@@ -182,11 +182,11 @@
 							"const": "CNAME"
 						},
 						"host": {
-							"type": "string"
-						},
-						"pointsTo": {
 							"type": "string",
 							"pattern": "[^@]"
+						},
+						"pointsTo": {
+							"type": "string"
 						},
 						"ttl": {
 							"$ref": "#/definitions/TTL"
@@ -211,11 +211,11 @@
 							"const": "NS"
 						},
 						"host": {
-							"type": "string"
-						},
-						"pointsTo": {
 							"type": "string",
 							"pattern": "[^@]"
+						},
+						"pointsTo": {
+							"type": "string"
 						},
 						"ttl": {
 							"$ref": "#/definitions/TTL"
