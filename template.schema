@@ -1,1 +1,168 @@
-{}
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/DomainConnectTemplate",
+    "definitions": {
+        "DomainConnectTemplate": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "providerId": {
+                    "type": "string"
+                },
+                "providerName": {
+                    "type": "string"
+                },
+                "serviceId": {
+                    "type": "string"
+                },
+                "serviceName": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                },
+                "logoUrl": {
+                    "type": "string",
+                    "qt-uri-protocols": [
+                        "http",
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".jpg",
+                        ".png",
+                        ".svg"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                },
+                "variableDescription": {
+                    "type": "string"
+                },
+                "records": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Record"
+                    }
+                },
+                "hostRequired": {
+                    "type": "boolean"
+                },
+                "syncBlock": {
+                    "type": "boolean"
+                },
+                "shared": {
+                    "type": "boolean"
+                },
+                "warnPhishing": {
+                    "type": "boolean"
+                },
+                "syncRedirectDomain": {
+                    "type": "string"
+                },
+                "syncPubKeyDomain": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "description",
+                "providerId",
+                "providerName",
+                "records",
+                "serviceId",
+                "serviceName",
+                "version"
+            ],
+            "title": "DomainConnectTemplate"
+        },
+        "Record": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "$ref": "#/definitions/Type"
+                },
+                "host": {
+                    "type": "string"
+                },
+                "pointsTo": {
+                    "type": "string"
+                },
+                "ttl": {
+                    "$ref": "#/definitions/TTL"
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "string"
+                },
+                "txtConflictMatchingMode": {
+                    "type": "string"
+                },
+                "txtConflictMatchingPrefix": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "groupId": {
+                    "type": "string"
+                },
+                "service": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "weight": {
+                    "type": "integer"
+                },
+                "target": {
+                    "type": "string"
+                },
+                "spfRules": {
+                    "type": "string"
+                },
+                "essential": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "title": "Record"
+        },
+        "TTL": {
+            "anyOf": [
+                {
+                    "type": "integer"
+                },
+                {
+                    "type": "string",
+                    "format": "integer"
+                }
+            ],
+            "title": "TTL"
+        },
+        "Type": {
+            "type": "string",
+            "enum": [
+                "A",
+                "AAAA",
+                "CNAME",
+                "MX",
+                "TXT",
+                "NS",
+                "SRV",
+                "SPFM",
+                "REDIR301",
+                "REDIR302"
+            ],
+            "title": "Type"
+        }
+    }
+}
