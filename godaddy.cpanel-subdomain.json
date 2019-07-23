@@ -1,0 +1,19 @@
+{
+  "providerId": "godaddy.com",
+  "providerName": "GoDaddy",
+  "serviceId": "cpanel-subdomain",
+  "serviceName": "cPanel Subdomain",
+  "version": 1,
+  "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
+  "description": "Enables a sub-domain to work with GoDaddy cPanel",
+  "variableDescription": "v1 is the IP address of the server.",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "pointsTo": "%v1%",
+      "type": "A",
+      "host": "@",
+      "ttl": 3600
+    }
+  ]
+}
