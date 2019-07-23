@@ -10,49 +10,58 @@
   "syncPubKeyDomain": "domain-attach.api.godaddy.com",
   "records": [
     {
-      "data": "%v1%",
+      "pointsTo": "%v1%",
       "type": "A",
-      "name": ""
+      "host": "@",
+      "ttl": 3600
     },
     {
-      "data": "%v1%",
+      "pointsTo": "%v1%",
       "type": "A",
-      "name": "admin"
+      "host": "admin",
+      "ttl": 3600
     },
     {
-      "data": "%v1%",
+      "pointsTo": "%v1%",
       "type": "A",
-      "name": "mail"
+      "host": "mail",
+      "ttl": 3600
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "www"
+      "host": "www",
+      "ttl": 3600
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "cpanel"
+      "host": "cpanel",
+      "ttl": 3600
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "webdisk"
+      "host": "webdisk",
+      "ttl": 3600
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "whm"
+      "host": "whm",
+      "ttl": 3600
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "www.admin"
+      "host": "www.admin",
+      "ttl": 3600
     },
     {
-      "data": "@",
+      "pointsTo": "@",
       "type": "CNAME",
-      "name": "webdisk.admin"
+      "host": "webdisk.admin",
+      "ttl": 3600
     }
   ]
 }
