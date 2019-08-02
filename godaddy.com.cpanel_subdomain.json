@@ -1,7 +1,7 @@
 {
   "providerId": "godaddy.com",
   "providerName": "GoDaddy",
-  "serviceId": "cpanel-subdomain",
+  "serviceId": "cpanel_subdomain",
   "serviceName": "cPanel Subdomain",
   "version": 1,
   "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
