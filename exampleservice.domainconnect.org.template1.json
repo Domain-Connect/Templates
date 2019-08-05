@@ -14,15 +14,15 @@
          "type":"A",
          "host":"@",
          "pointsTo":"%IP%",
-         "ttl":"1800"
+         "ttl":1800
       },
       {  
          "type":"TXT",
          "host":"@",
          "data":"%RANDOMTEXT%",
-         "ttl":"1800",
+         "ttl":1800,
          "txtConflictMatchingMode": "Prefix",
-         "txtConfictMatchingPrefix" : "shm:"
+         "txtConflictMatchingPrefix" : "shm:"
       }
    ]
 }

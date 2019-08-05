@@ -16,7 +16,7 @@
          "type":"CNAME",
          "host":"www",
          "pointsTo":"%INPUTDOMAIN%",
-         "ttl":"3600"
+         "ttl":3600
       }
    ]
 }

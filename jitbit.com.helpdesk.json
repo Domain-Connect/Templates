@@ -13,7 +13,7 @@
          "type":"CNAME",
          "host":"@",
          "pointsTo":"jitbit.com",
-         "ttl":"1800"
+         "ttl":1800
       }
    ]
 }

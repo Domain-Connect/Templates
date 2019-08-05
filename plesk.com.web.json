@@ -14,14 +14,14 @@
       "type":"A",
       "host":"@",
       "pointsTo":"%ip%",
-      "ttl":"600"
+      "ttl":600
     },
     {
       "groupId": "www",
       "type":"CNAME",
       "host":"www",
       "pointsTo":"@",
-      "ttl":"600"
+      "ttl":600
     }
   ]
 }

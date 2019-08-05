@@ -13,9 +13,9 @@
         "groupId":"g-suite-mx",
         "type": "MX",
         "host": "@",
-        "priority": "1",
+        "priority": 1,
         "pointsTo": "ASPMX.L.GOOGLE.COM",
-        "ttl": "3600"
+        "ttl": 3600
       },
       {
         "groupId":"g-suite-mx",
@@ -23,7 +23,7 @@
         "host": "@",
         "priority":  5,
         "pointsTo": "ALT1.ASPMX.L.GOOGLE.COM",
-        "ttl": "3600"
+        "ttl": 3600
       },
       {
         "groupId":"g-suite-mx",
@@ -31,7 +31,7 @@
         "host": "@",
         "priority":  5,
         "pointsTo": "ALT2.ASPMX.L.GOOGLE.COM",
-        "ttl": "3600"
+        "ttl": 3600
       },
       {
         "groupId":"g-suite-mx",
@@ -39,7 +39,7 @@
         "host": "@",
         "priority":  10,
         "pointsTo": "ALT3.ASPMX.L.GOOGLE.COM",
-        "ttl": "3600"
+        "ttl": 3600
       },
       {
         "groupId":"g-suite-mx", 
@@ -47,7 +47,7 @@
         "host": "@",
         "priority":  10,
         "pointsTo": "ALT4.ASPMX.L.GOOGLE.COM",
-        "ttl": "3600"
+        "ttl": 3600
       },
       {
         "groupId":"g-suite-verification",
@@ -61,7 +61,7 @@
         "type": "TXT",
         "host": "@",
         "data": "v=spf1 include:_spf.google.com ~all",
-        "ttl": "3600"
+        "ttl": 3600
       }
    ]
 }
