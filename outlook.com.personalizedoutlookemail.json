@@ -12,26 +12,26 @@
          "type":"CNAME",
          "host":"autodiscover",
          "pointsTo":"autodiscover.outlook.com",
-         "ttl":"3600"
+         "ttl":3600
       },
       {  
          "type":"MX",
          "host":"@",
          "pointsTo":"%mxRecordValue%.pamx1.hotmail.com",
-         "priority":"0",
-         "ttl":"3600"
+         "priority":0,
+         "ttl":3600
       },
       {
          "type" : "TXT",
          "host" : "_outlook",
          "data" : "%mxRecordValue%",
-         "ttl": "3600"
+         "ttl": 3600
       },
       {  
          "type":"TXT",
          "host":"@",
          "data":"v=spf1 include:outlook.com -all",
-         "ttl":"3600"
+         "ttl":3600
       }
    ]
 }

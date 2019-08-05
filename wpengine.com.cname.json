@@ -8,12 +8,13 @@
    "description":"Configure domain record for CNAME entry.",
    "syncBlock":false,
    "syncPubKeyDomain": "landmark.wpesvc.net",
+   "hostRequired": true,
    "records":[
       {
          "type":"CNAME",
          "host":"@",
          "pointsTo":"%site%.wpengine.com",
-         "ttl":"3600"
+         "ttl":3600
       }
    ]
 }

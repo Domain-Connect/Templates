@@ -12,19 +12,19 @@
          "type":"A",
          "host":"@",
          "pointsTo":"23.235.33.229",
-         "ttl":"300"
+         "ttl":300
       },
       {  
          "type":"A",
          "host":"@",
          "pointsTo":"104.156.81.229",
-         "ttl":"300"
+         "ttl":300
       },
       {  
          "type":"CNAME",
          "host":"www",
          "pointsTo":"proxy.webflow.com",
-         "ttl":"300"
+         "ttl":300
       }
    ]
 }

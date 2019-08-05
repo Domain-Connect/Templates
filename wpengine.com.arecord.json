@@ -13,7 +13,7 @@
          "type":"A",
          "host":"@",
          "pointsTo":"%ip%",
-         "ttl":"3600"
+         "ttl":3600
       }
    ]
 }
