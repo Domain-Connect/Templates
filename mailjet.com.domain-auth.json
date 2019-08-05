@@ -17,7 +17,7 @@
          "type": "TXT",
          "host": "mailjet._domainkey",
          "data": "%dkimtxt%",
-         "ttl": "3600"
+         "ttl": 3600
        }
    ]
 }

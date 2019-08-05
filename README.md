@@ -1,5 +1,5 @@
 # Templates
-[![Build Status](https://travis-ci.com/plesk/domain-connect-templates.svg?branch=master)](https://travis-ci.com/plesk/domain-connect-templates)
+[![Build Status](https://travis-ci.com/Domain-Connect/Templates.svg?branch=master)](https://travis-ci.com/Domain-Connect/Templates)
 
 Templates for use in the Domain Connect Protocol
 

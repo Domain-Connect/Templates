@@ -14,13 +14,13 @@
          "type":"A",
          "host":"@",
          "pointsTo":"%ip%",
-         "ttl":"3600"
+         "ttl":3600
       },
       {  
          "type":"CNAME",
          "host":"www",
          "pointsTo":"@",
-         "ttl":"3600"
+         "ttl":3600
       }
    ]
 }

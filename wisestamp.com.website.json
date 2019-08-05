@@ -12,13 +12,13 @@
          "type":"A",
          "host":"@",
          "pointsTo":"130.211.27.66",
-         "ttl":"600"
+         "ttl":600
       },
       {  
          "type":"CNAME",
          "host":"www",
          "pointsTo":"@",
-         "ttl":"600"
+         "ttl":600
       }
    ]
 }
