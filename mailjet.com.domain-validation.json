@@ -12,7 +12,7 @@
          "type": "TXT",
          "host": "mailjet._%hostvalue%",
          "data": "%value%",
-         "ttl": "300"
+         "ttl": 300
        }
    ]
 }

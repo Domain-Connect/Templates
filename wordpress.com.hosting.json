@@ -16,21 +16,21 @@
 			"type": "CNAME",
 			"host": "www",
 			"pointsTo": "@",
-			"ttl": "3600"
+			"ttl": 3600
 		},
 		{
 			"groupId":"mapping",
 			"type":"A",
 			"host":"@",
 			"pointsTo":"192.0.78.24",
-			"ttl":"3600"
+			"ttl":3600
 		},
 		{
 			"groupId":"mapping",
 			"type":"A",
 			"host":"@",
 			"pointsTo":"192.0.78.25",
-			"ttl":"3600"
+			"ttl":3600
 		}
 	]
 }

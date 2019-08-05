@@ -16,8 +16,8 @@
 			"type":"MX",
 			"host":"@",
 			"pointsTo":"smtp-fwd.wordpress.com",
-			"priority":"1",
-			"ttl":"3600"
+			"priority":1,
+			"ttl":3600
 		}
 	]
 }
