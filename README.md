@@ -16,6 +16,11 @@ Templates should be named according the following pattern: **providerId.serviceI
 
 For example: **myprovider.com.website.json**
 
+## Template verification
+
+Template can verify for correctness using JSON Schema [template.schema](template.schema).
+Passing the schema check is required for the Pull Request to be accepted into the repository.
+
 ## Example Template Format
 
 Following is an example of a complete Domain Connect template, with examples of various DNS records included:
@@ -41,37 +46,37 @@ Following is an example of a complete Domain Connect template, with examples of 
       "type": "A",
       "host": "@",
       "pointsTo": "1.1.1.1",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "A",
       "host": "@",
       "pointsTo": "%a%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "www",
       "pointsTo": "@",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "sub",
       "pointsTo": "%sub%.mydomain.com",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "%host%",
       "pointsTo": "%sub%.mydomain.com",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "@",
       "data": "%txt%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "SPFM",
@@ -83,14 +88,14 @@ Following is an example of a complete Domain Connect template, with examples of 
       "host": "@",
       "pointsTo": "1.1.1.2",
       "priority": "0",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "MX",
       "host": "@",
       "pointsTo": "%mx%",
       "priority": "0",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "SRV",
@@ -101,7 +106,7 @@ Following is an example of a complete Domain Connect template, with examples of 
       "priority": "10",
       "name": "@",
       "target": "%target%",
-      "ttl": "3600"
+      "ttl": 3600
     }
   ]
 }
