@@ -13,12 +13,12 @@
   "syncPubKeyDomain": "portal.office.com",
   "syncRedirectDomain": "",
   "records": [
-    { 
-      "groupId": "Login", 
-      "type": "CNAME", 
-      "host": "email", 
-      "pointsTo": "%LOGINHOST%", 
-      "ttl": 3600 
+    {
+      "groupId": "Login",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "%LOGINHOST%",
+      "ttl": 3600
     },
     {
       "groupId": "Outlook",
