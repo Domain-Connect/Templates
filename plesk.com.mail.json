@@ -32,6 +32,12 @@
       "type": "SPFM",
       "host": "@",
       "spfRules": "%spfrules%"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 600
     }
   ]
 }
