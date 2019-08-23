@@ -5,7 +5,7 @@
   "serviceName": "cPanel",
   "version": 1,
   "description": "Enables a domain to work with GoDaddy Whitelabel cPanel",
-  "shared": True,  
+  "shared": true,  
   "variableDescription": "v1 is the IP address of the server.",
   "syncPubKeyDomain": "domain-attach.api.godaddy.com",
   "records": [
