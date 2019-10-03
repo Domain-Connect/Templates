@@ -1,0 +1,40 @@
+{
+  "providerId":"portfolio.adobe.com",
+  "providerName":"Adobe Portfolio",
+  "serviceId":"prod",
+  "serviceName":"Adobe Portfolio Websites",
+  "version":1,
+  "description":"Enables a domain to work with Adobe Portfolio",
+  "records":[
+    {
+      "type":"CNAME",
+      "host": "www",
+      "pointsTo":"@",
+      "ttl":3600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.0.119",
+      "ttl":3600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.64.119",
+      "ttl":3600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.128.119",
+      "ttl":3600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.192.119",
+      "ttl":3600
+    }
+  ]
+}
