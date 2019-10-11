@@ -2,7 +2,7 @@
   "providerId":"portfolio.adobe.com",
   "providerName":"Adobe Portfolio",
   "serviceId":"stage",
-  "serviceName":"Adobe Portfolio Stage Websites",
+  "serviceName":"Portfolio Stage Site",
   "version":1,
   "description":"Enables a domain to work with Adobe Portfolio",
   "records":[

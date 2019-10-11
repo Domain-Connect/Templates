@@ -2,7 +2,7 @@
   "providerId":"portfolio.adobe.com",
   "providerName":"Adobe Portfolio",
   "serviceId":"prod",
-  "serviceName":"Adobe Portfolio Websites",
+  "serviceName":"Portfolio Site",
   "version":1,
   "description":"Enables a domain to work with Adobe Portfolio",
   "records":[
