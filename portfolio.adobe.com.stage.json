@@ -1,0 +1,40 @@
+{
+  "providerId":"portfolio.adobe.com",
+  "providerName":"Adobe Portfolio",
+  "serviceId":"stage",
+  "serviceName":"Portfolio Stage Site",
+  "version":1,
+  "description":"Enables a domain to work with Adobe Portfolio",
+  "records":[
+    {
+      "type":"CNAME",
+      "host": "www",
+      "pointsTo":"@",
+      "ttl":600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.0.118",
+      "ttl":600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.64.118",
+      "ttl":600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.128.118",
+      "ttl":600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.192.118",
+      "ttl":600
+    }
+  ]
+}
