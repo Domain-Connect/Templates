@@ -5,11 +5,18 @@
   "serviceName":"Portfolio Site",
   "version":1,
   "description":"Enables a domain to work with Adobe Portfolio",
+  "warnPhishing": true,
   "records":[
     {
       "type":"CNAME",
       "host": "www",
       "pointsTo":"@",
+      "ttl":3600
+    },
+    {
+      "type":"TXT",
+      "host":"@",
+      "data": "%uuid%",
       "ttl":3600
     },
     {
