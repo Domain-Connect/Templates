@@ -4,8 +4,8 @@
   "serviceId":"prod",
   "serviceName":"Portfolio Site",
   "version":1,
+  "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2019/10/adobe-portfolio-logo-300x54.png",
   "description":"Enables a domain to work with Adobe Portfolio",
-  "warnPhishing": true,
   "records":[
     {
       "type":"CNAME",
@@ -15,8 +15,8 @@
     },
     {
       "type":"TXT",
-      "host":"@",
-      "data": "%uuid%",
+      "host":"_portfolio",
+      "data": "verify=%uuid%",
       "ttl":3600
     },
     {
