@@ -6,7 +6,7 @@
   "version":1,
   "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2019/10/adobe-portfolio-logo-300x54.png",
   "description":"Enables a domain to work with Adobe Portfolio",
-  "syncRedirectDomain":"portfolio.ccpsx.com,pro2.dev0.be.lan",
+  "syncRedirectDomain":"portfolio.ccpsx.com,www.pro2.dev0.be.lan",
   "records":[
     {
       "type":"CNAME",
