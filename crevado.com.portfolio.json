@@ -6,7 +6,7 @@
    "version": 1,
    "logoUrl":"https://cdn.crevado.com/images/domain_connect.png",
    "description":"Enables a custom domain to work with Crevado Portfolios",
-   "variableDescription":"HOST is the subdomain for the domain, IP is the root domain IP address, PROXY is our endpoint host for use with CNAME records.",
+   "variableDescription":"HOST is the subdomain for the domain, IP is the root domain IP address, ENDPOINT is our endpoint host for use with CNAME records.",
    "syncRedirectDomain": "crevado.com",
    "warnPhishing": false,
    "records":[
@@ -19,7 +19,7 @@
       {
         "type": "CNAME",
         "host": "%HOST%",
-        "pointsTo": "%PROXY%",
+        "pointsTo": "%ENDPOINT%",
         "ttl": 3600
        }
    ]
