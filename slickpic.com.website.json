@@ -3,7 +3,9 @@
   "providerName": "SlickPic",
   "serviceId": "website",
   "serviceName": "SlickPic Custom Domain",
-  "version": 1,
+  "version": 2,
+  "syncRedirectDomain": "slickpic.com",
+  "logoUrl": "https://assets-edge.slickpic.com/slickpic-logo.png",
   "description": "Enables a Custom Domain to work with SlickPic",
   "variableDescription": "",
   "records":[
