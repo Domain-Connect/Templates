@@ -47,6 +47,13 @@
         "priority": 10,
         "pointsTo": "ALT4.ASPMX.L.GOOGLE.COM",
         "ttl": 3600
-      }
+      },
+     {
+       "groupId": "setup",
+       "type": "TXT",
+       "host": "@",
+       "data": "v=spf1 %spfrule% -all",
+       "ttl": 3600
+     }
    ]
 }
