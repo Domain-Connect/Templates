@@ -9,6 +9,7 @@
   "variableDescription": "Self explanatory in the variable names.",
   "syncBlock": false,
   "shared": true,
+  "sharedProviderName": true,    
   "warnPhishing": false,
   "syncPubKeyDomain": "portal.office.com",
   "syncRedirectDomain": "",

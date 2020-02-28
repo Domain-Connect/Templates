@@ -1,6 +1,7 @@
 {  
    "providerId":"id4me.org",
    "shared": true,
+   "sharedProviderName": true,
    "warnPhishing": true,    
    "providerName":"ID4me Identity Agent",
    "serviceId":"activation",
