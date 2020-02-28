@@ -45,6 +45,12 @@
             "shared":{
                "type":"boolean"
             },
+            "sharedProviderName":{
+               "type":"boolean"
+            },
+            "sharedServiceName":{
+               "type":"boolean"
+            },
             "syncRedirectDomain":{
                "type":"string"
             },

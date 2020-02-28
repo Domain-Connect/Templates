@@ -4,6 +4,7 @@
   "serviceId": "cpanel_subdomain",
   "serviceName": "cPanel Subdomain",
   "shared": true,
+  "sharedProviderName": true,    
   "version": 1,
   "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
   "description": "Enables a sub-domain to work with GoDaddy White Labeled cPanel",
