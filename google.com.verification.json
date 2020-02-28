@@ -1,7 +1,7 @@
 {
   "providerId":"google.com",
   "providerName":"Google",
-  "serviceId":"gsuite-setup",
+  "serviceId":"verification",
   "serviceName":"Google GSuite Setup",
   "version": 1,
   "logoUrl":"",
