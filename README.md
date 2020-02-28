@@ -36,7 +36,6 @@ Following is an example of a complete Domain Connect template, with examples of 
   "description": "<Enter description>",
   "variableDescription": "<Enter variableDescription>",
   "syncBlock": false,
-  "shared": true,
   "syncPubKeyDomain": "<Enter syncPubKeyDomain>",
   "syncRedirectDomain": "<Enter syncRedirectDomain>",
   "warnPhishing": true,

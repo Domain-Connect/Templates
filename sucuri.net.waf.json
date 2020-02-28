@@ -9,6 +9,7 @@
    "variableDescription":"",
    "syncPubKeyDomain": "sucuri.net",
    "shared": true,
+   "sharedProviderName": true,
    "records":[  
       {  
          "type":"A",
