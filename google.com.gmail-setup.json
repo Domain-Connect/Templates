@@ -6,7 +6,7 @@
   "version":1,
   "logoUrl":"",
   "description":"Setup the MX records to enable Gmail",
-  "variableDescription":"v1 is the IP address of the server.",
+  "variableDescription":"Unique SPF rule",
   "records":[
     {
       "groupId":"setup",
