@@ -8,6 +8,7 @@
   "description":"Enables a domain to work with Google",
   "variableDescription":"Unique verification code provided for purpose of verification",
   "multiInstance": true,
+  "syncBlock": true,
   "records":[
     {
       "groupId": "verification",
