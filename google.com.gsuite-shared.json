@@ -5,6 +5,7 @@
    "serviceName":"Google G Suite",
    "version": 1,
    "shared": true,
+   "sharedProviderName": true,
    "logoUrl":"",
    "description":"This is a shared template that multiple companies can use to enable gsuite",
    "variableDescription":"Verfiy is the TXT record value for suite verification.",

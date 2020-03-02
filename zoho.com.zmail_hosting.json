@@ -7,7 +7,6 @@
     "description": "This is a template to enable mail hosting with zoho",
     "variableDescription": "",
     "syncBlock": true,
-    "shared": false,
     "hostRequired": false,
     "version": 1,
     "records": [

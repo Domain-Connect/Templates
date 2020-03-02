@@ -8,7 +8,6 @@
 	"description":"This can be used to set up website hosting at WordPress.com",
 	"syncBlock": false,
 	"syncRedirectDomain":"wordpress.com",
-	"shared": false,
 	"warnPhishing": false,
 	"records":[
 		{
