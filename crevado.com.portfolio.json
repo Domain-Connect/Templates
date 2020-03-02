@@ -1,0 +1,26 @@
+{
+   "providerId":"crevado.com",
+   "providerName": "Crevado.com",
+   "serviceId":"portfolio",
+   "serviceName":"Crevado Online Portfolio",
+   "version": 1,
+   "logoUrl":"https://cdn.crevado.com/images/domain_connect.png",
+   "description":"Enables a custom domain to work with Crevado Portfolios",
+   "variableDescription":"IP is the root domain IP address, ENDPOINT is our endpoint host for use with CNAME records.",
+   "syncRedirectDomain": "crevado.com",
+   "warnPhishing": false,
+   "records":[
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "%IP%",
+        "ttl": 3600
+       },
+      {
+        "type": "CNAME",
+        "host": "www",
+        "pointsTo": "%ENDPOINT%",
+        "ttl": 3600
+       }
+   ]
+}
