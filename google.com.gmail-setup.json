@@ -3,6 +3,7 @@
   "providerName":"Google",
   "serviceId":"gmail-setup",
   "serviceName":"Gmail Setup",
+  "sharedServiceName": true,
   "version":1,
   "logoUrl":"",
   "description":"Setup the MX records to enable Gmail",
