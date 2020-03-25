@@ -2,8 +2,7 @@
 [![Build Status](https://travis-ci.com/Domain-Connect/Templates.svg?branch=master)](https://travis-ci.com/Domain-Connect/Templates)
 
 Templates for use in the Domain Connect Protocol
-
-These map to the individual service providers for domain connect. See https://domainconnect.org
+These map to the individual service providers for domain connect. See https://www.domainconnect.org/getting-started/
 
 For details on how to constuct a Domain Connect template, refer to section 5.2 and 5.3 of the Domain Connect Spec:
 
