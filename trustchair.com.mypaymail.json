@@ -15,7 +15,7 @@
       "protocol": "_tcp",
       "port": 443,
       "weight": 10,
-      "priority": 100,
+      "priority": 10,
       "name": "@",
       "target": "%DISCOVERYHOST%",
       "ttl": 3600
