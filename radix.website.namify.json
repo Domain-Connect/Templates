@@ -4,7 +4,7 @@
    "serviceId":"namify",
    "serviceName":"Namify",
    "version": 1,
-   "logoUrl":"",
+   "logoUrl":"https://assets.host/namify/logo.png",
    "description":"Namify Brand Service",
    "syncRedirectDomain": "",
    "warnPhishing": true,
