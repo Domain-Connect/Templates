@@ -1,0 +1,20 @@
+{
+  "providerId": "bing.com",
+  "providerName": "Microsoft Bing",
+  "serviceId": "BingWebMasterDPOOStaging",
+  "serviceName": "Bing Webmaster services - Staging",
+  "version": 1,
+  "description": "Verifies domain ownership for further configuration of Microsoft Bing Services",
+  "variableDescription": "Guid of webmaster for verification of domain ownership with Bing webmaster enables quick and easy SEO on Bing.",
+  "syncBlock": false,
+  "warnPhishing": true,
+  "syncRedirectDomain": "www.staging-bing-int.com",
+  "records": [
+      {  
+         "type":"CNAME",
+         "host":"%WEBMASTERGUID%",
+         "pointsTo":"verify.bing.com",
+         "ttl":"3600"
+      }
+  ]
+}

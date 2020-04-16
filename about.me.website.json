@@ -3,7 +3,7 @@
    "providerName":"About Me",
    "serviceId":"website",
    "serviceName":"Hosting",
-   "version": 1,
+   "version": 2,
    "logoUrl":"https://domainconnect.org/wp-content/uploads/2017/06/about.me_-300x53.png",
    "description":"Enables web hosting for about me domains.",
    "variableDescription":"",
@@ -11,14 +11,14 @@
       {  
          "type":"A",
          "host":"@",
-         "pointsTo":"54.214.5.242",
-         "ttl":"3600"
+         "pointsTo":"52.2.64.1",
+         "ttl":3600
       },
       {  
          "type":"CNAME",
          "host":"www",
          "pointsTo":"@",
-         "ttl":"3600"
+         "ttl":3600
       }
    ]
 }

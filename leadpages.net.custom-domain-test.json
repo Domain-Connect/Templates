@@ -1,0 +1,18 @@
+{
+   "providerId": "leadpages.net",
+   "providerName": "Leadpages Test",
+   "serviceId": "custom-domain-test",
+   "serviceName": "Leadpages Custom Domain (Test)",
+   "version": 1,
+   "logoUrl": "https://my.leadpagestest.net/static/current/img/logos/logo_icon.svg",
+   "description": "Enables a domain to work with Leadpages",
+   "syncRedirectDomain": "my.leadpagestest.net",
+   "variableDescription": "HOST: The subdomain for the domain.",
+   "hostRequired": true,
+   "records": [{
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom-proxy.leadpagestest.net",
+      "ttl": 600
+   }]
+}

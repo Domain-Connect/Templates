@@ -1,0 +1,48 @@
+{
+  "providerId":"portfolio.adobe.com",
+  "providerName":"Adobe Portfolio",
+  "serviceId":"stage",
+  "serviceName":"Portfolio Stage Site",
+  "version":1,
+  "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2019/10/adobe-portfolio-logo-300x54.png",
+  "description":"Enables a domain to work with Adobe Portfolio",
+  "syncRedirectDomain":"portfolio.ccpsx.com,www.pro2.dev0.be.lan",
+  "records":[
+    {
+      "type":"CNAME",
+      "host": "www",
+      "pointsTo":"@",
+      "ttl":600
+    },
+    {
+      "type":"TXT",
+      "host":"_portfolio",
+      "data": "verify=%uuid%",
+      "ttl":600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.0.118",
+      "ttl":600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.64.118",
+      "ttl":600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.128.118",
+      "ttl":600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.101.192.118",
+      "ttl":600
+    }
+  ]
+}

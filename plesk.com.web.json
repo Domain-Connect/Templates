@@ -3,23 +3,25 @@
   "providerName":"Plesk",
   "serviceId":"web",
   "serviceName":"Web Hosting on Plesk",
-  "version": 1,
+  "version": 2,
   "warnPhishing": true,
   "logoUrl":"https://www.plesk.com/wp-content/themes/plesk/images/plesk_logo_144x144_black.png",
   "description":"Enables a web hosting on the server powered by Plesk.",
   "variableDescription":"ip is the IP address of the server.",
-  "records":[  
+  "records":[
     {
+      "groupId": "WebService",
       "type":"A",
       "host":"@",
       "pointsTo":"%ip%",
-      "ttl":"600"
+      "ttl":600
     },
     {
+      "groupId": "www",
       "type":"CNAME",
       "host":"www",
       "pointsTo":"@",
-      "ttl":"600"
+      "ttl":600
     }
   ]
 }

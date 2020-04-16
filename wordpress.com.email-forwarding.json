@@ -8,7 +8,6 @@
 	"description":"This can be used to set up email forwarding at WordPress.com",
 	"syncBlock": false,
 	"syncRedirectDomain":"wordpress.com",
-	"shared": false,
 	"warnPhishing": false,
 	"records":[
 		{
@@ -16,8 +15,8 @@
 			"type":"MX",
 			"host":"@",
 			"pointsTo":"smtp-fwd.wordpress.com",
-			"priority":"1",
-			"ttl":"3600"
+			"priority":1,
+			"ttl":3600
 		}
 	]
 }

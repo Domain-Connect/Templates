@@ -8,6 +8,7 @@
    "variableDescription":"INPUTDOMAIN is domain name being configured to work with shopmatic.",
    "syncBlock":false,
    "shared":true,
+   "sharedProviderName":true,    
    "warnPhishing":true,
    "hostRequired":false,
    "version": 1,
@@ -16,7 +17,7 @@
          "type":"CNAME",
          "host":"www",
          "pointsTo":"%INPUTDOMAIN%",
-         "ttl":"3600"
+         "ttl":3600
       }
    ]
 }

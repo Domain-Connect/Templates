@@ -1,0 +1,43 @@
+{
+  "providerId": "plesk.com",
+  "providerName": "Plesk",
+  "serviceId": "mail",
+  "serviceName": "E-mail Hosting on Plesk",
+  "version": 1,
+  "warnPhishing": true,
+  "logoUrl": "https://www.plesk.com/wp-content/themes/plesk/images/plesk_logo_144x144_black.png",
+  "description": "Enables a mail hosting on the server powered by Plesk.",
+  "variableDescription": "ip is the IP address of the server.",
+  "records": [
+    {
+      "type": "MX",
+      "pointsTo": "mail.@",
+      "host": "@",
+      "priority": 10,
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "mail",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "webmail",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spfrules%"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 600
+    }
+  ]
+}

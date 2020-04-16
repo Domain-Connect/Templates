@@ -8,7 +8,8 @@
   "description": "Verifies domain ownership for further configuration of Microsoft services",
   "variableDescription": "Self explanatory in the variable names.",
   "syncBlock": false,
-  "shared": false,
+  "shared": true,
+  "sharedProviderName": true,    
   "warnPhishing": false,
   "syncPubKeyDomain": "portal.office.com",
   "syncRedirectDomain": "",
@@ -17,8 +18,8 @@
       "groupId": "Verification",
       "type": "TXT",
       "host": "@",
-      "data": "%verifytxt%",
-      "ttl": "3600"
+      "data": "%VERIFYTXT%",
+      "ttl": 3600
     }
   ]
 }

@@ -3,18 +3,18 @@
    "providerName":"Domain Connect",
    "serviceId":"dynamicdns",
    "serviceName":"Dynamic DNS",
-   "version": 1,
-   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/03/cropped-Domain_Connect3.png",
+   "version": 2,
+   "logoUrl":"https://www.domainconnect.org/wp-content/uploads/2018/11/DomainConnectSquareBlack.png",
    "description":"Template for Domain Connect Dynamic DNS Service. See https://github.com/Domain-Connect/DomainConnectDDNS for onboarding instructions.",
    "syncBlock": true,
-   "warnPhising": true,
+   "warnPhishing": true,
    "variableDescription":"",
    "records":[  
       {  
          "type":"A",
          "host":"@",
          "pointsTo":"%IP%",
-         "ttl":"600"
+         "ttl":600
       }
    ]
 }

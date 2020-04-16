@@ -3,30 +3,32 @@
    "providerName":"Example Domain Connect Service",
    "serviceId":"template2",
    "serviceName":"Stateless Hosting Secondary",
-   "version": 1,
+   "version": 3,
    "syncPubKeyDomain" : "exampleservice.domainconnect.org",
    "syncRedirectDomain": "exampleservice.domainconnect.org",
-   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/03/cropped-Domain_Connect3.png",
+   "logoUrl":"https://www.domainconnect.org/wp-content/uploads/2018/11/DomainConnectSquareBlack.png",
    "description":"Example service for stateless hosting, alternative template",
-   "variableDescription":"IP is the IP address of the service A record. RANDOMTEXT is the value for a TXT record in DNS. Should be prefixed with shm:.",
+   "variableDescription":"IP is the IP address of the service A record. RANDOMTEXT is the value for a TXT record in DNS. Should be prefixed with shm:",
    "records":[  
       {  
          "type":"A",
          "host":"@",
          "pointsTo":"%IP%",
-         "ttl":"1800"
+         "ttl":1800
       },
       {  
          "type":"TXT",
          "host":"@",
          "data":"%RANDOMTEXT%",
-         "ttl":"1800"
+         "ttl":1800,
+         "txtConflictMatchingMode": "Prefix",
+         "txtConflictMatchingPrefix" : "shm:"
       },
       {
         "type": "CNAME",
         "host": "whd",
         "pointsTo": "@",
-        "ttl": "600"
+        "ttl": 600
        }
    ]
 }

@@ -1,0 +1,22 @@
+{  
+   "providerId":"smugmug.com",
+   "providerName":"SmugMug",
+   "serviceId":"site",
+   "serviceName":"SmugMug Site",
+   "version": 1,
+   "logoUrl":"https://www.domainconnect.org/wp-content/uploads/2016/02/smugmug-300x80.png",
+   "description":"Enables a domain to work with SmugMug",
+   "variableDescription":"v1 is the numeric cluster within wix for hosting the site.",
+   "records":[  
+      {  
+         "type": "REDIR302",
+         "target": "www.%fqdn%"
+      },
+      {  
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"domains.smugmug.com",
+         "ttl":600
+      }
+   ]
+}

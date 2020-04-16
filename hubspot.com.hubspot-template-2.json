@@ -12,19 +12,19 @@
       "type": "CNAME",
       "host": "hs1",
       "pointsTo": "%cname0targetprefix%.dkim.hubspotemail.net",
-      "ttl": "3600"
+      "ttl": 3600
      },
      {
        "type": "CNAME",
        "host": "hs2",
        "pointsTo": "%cname1targetprefix%.dkim.hubspotemail.net",
-       "ttl": "3600"
+       "ttl": 3600
      },
      {
        "type": "TXT",
        "host": "smtpapi",
        "data": "%txtdata%",
-       "ttl": "3600"
+       "ttl": 3600
      }
   ]
 }

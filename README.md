@@ -1,7 +1,8 @@
 # Templates
-Templates for use in the Domain Connect Protocol
+[![Build Status](https://travis-ci.com/Domain-Connect/Templates.svg?branch=master)](https://travis-ci.com/Domain-Connect/Templates)
 
-These map to the individual service providers for domain connect. See https://domainconnect.org
+Templates for use in the Domain Connect Protocol
+These map to the individual service providers for domain connect. See https://www.domainconnect.org/getting-started/
 
 For details on how to constuct a Domain Connect template, refer to section 5.2 and 5.3 of the Domain Connect Spec:
 
@@ -14,6 +15,11 @@ Templates should be named according the following pattern: **providerId.serviceI
 
 For example: **myprovider.com.website.json**
 
+## Template verification
+
+Template can verify for correctness using JSON Schema [template.schema](template.schema).
+Passing the schema check is required for the Pull Request to be accepted into the repository.
+
 ## Example Template Format
 
 Following is an example of a complete Domain Connect template, with examples of various DNS records included:
@@ -24,11 +30,11 @@ Following is an example of a complete Domain Connect template, with examples of 
   "providerName": "<Enter providerName>",
   "serviceId": "<Enter serviceId>",
   "serviceName": "<Enter serviceName>",
+  "version": 1,
   "logoUrl": "<Enter logoUrl>",
   "description": "<Enter description>",
   "variableDescription": "<Enter variableDescription>",
   "syncBlock": false,
-  "shared": true,
   "syncPubKeyDomain": "<Enter syncPubKeyDomain>",
   "syncRedirectDomain": "<Enter syncRedirectDomain>",
   "warnPhishing": true,
@@ -38,51 +44,56 @@ Following is an example of a complete Domain Connect template, with examples of 
       "type": "A",
       "host": "@",
       "pointsTo": "1.1.1.1",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "A",
       "host": "@",
       "pointsTo": "%a%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "www",
       "pointsTo": "@",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "sub",
       "pointsTo": "%sub%.mydomain.com",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "%host%",
       "pointsTo": "%sub%.mydomain.com",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "@",
       "data": "%txt%",
-      "ttl": "3600"
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.mydomain.com"
     },
     {
       "type": "MX",
       "host": "@",
       "pointsTo": "1.1.1.2",
       "priority": "0",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "MX",
       "host": "@",
       "pointsTo": "%mx%",
       "priority": "0",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "type": "SRV",
@@ -93,7 +104,7 @@ Following is an example of a complete Domain Connect template, with examples of 
       "priority": "10",
       "name": "@",
       "target": "%target%",
-      "ttl": "3600"
+      "ttl": 3600
     }
   ]
 }

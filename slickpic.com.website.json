@@ -1,0 +1,25 @@
+{
+  "providerId": "slickpic.com",
+  "providerName": "SlickPic",
+  "serviceId": "website",
+  "serviceName": "SlickPic Custom Domain",
+  "version": 2,
+  "syncRedirectDomain": "slickpic.com",
+  "logoUrl": "https://assets-edge.slickpic.com/slickpic-logo.png",
+  "description": "Enables a Custom Domain to work with SlickPic",
+  "variableDescription": "",
+  "records":[
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"148.251.125.112",
+      "ttl":600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "org.slickpic.com",
+      "ttl":600
+    }
+  ]
+}
