@@ -1,0 +1,26 @@
+{  
+   "providerId":"radix.website",
+   "providerName":"Radix Domain Solutions",
+   "serviceId":"namify",
+   "serviceName":"Namify",
+   "version": 1,
+   "logoUrl":"https://assets.host/namify/logo.png",
+   "description":"Namify Brand Service",
+   "syncRedirectDomain": "",
+   "warnPhishing": true,
+   "variableDescription":"%ip% is the IP address to resolve the domain",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%ip%",
+         "ttl":1800
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"@",
+         "ttl":1800
+      }
+   ]
+}
