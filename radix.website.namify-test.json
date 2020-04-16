@@ -8,11 +8,18 @@
    "description":"Namify Brand Service",
    "syncRedirectDomain": "",
    "warnPhishing": true,
+   "variableDescription":"%ip% is the IP address to resolve the domain",
    "records":[  
       {  
          "type":"A",
          "host":"@",
-         "pointsTo":"192.81.217.85",
+         "pointsTo":"%ip%",
+         "ttl":1800
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"@",
          "ttl":1800
       }
    ]
