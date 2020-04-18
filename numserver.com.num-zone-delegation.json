@@ -1,0 +1,38 @@
+{
+   "providerId":"numserver.com",
+   "providerName":"NUM Server",
+   "serviceId":"delegate-num-zone",
+   "serviceName":"NUM Zone Delegation",
+   "version": 1,
+   "shared": true,
+   "sharedProviderName": true,
+   "logoUrl":"",
+   "description":"Delegate your independent NUM Zone to the NUM Server.",
+   "variableDescription":"The ns1-ns4 variables are nameserver IDs",   
+   "records":[
+   {
+      "type": "NS",
+      "host": "_num",
+      "pointsTo": "%ns1%.numservers.com",
+      "ttl": 3600
+    },
+   {
+      "type": "NS",
+      "host": "_num",
+      "pointsTo": "%ns2%.numservers.org",
+      "ttl": 3600
+    },
+   {
+      "type": "NS",
+      "host": "_num",
+      "pointsTo": "%ns3%.numservers.uk",
+      "ttl": 3600
+    },
+   {
+      "type": "NS",
+      "host": "_num",
+      "pointsTo": "%ns4%.numservers.net",
+      "ttl": 3600
+    },
+   ]
+}
