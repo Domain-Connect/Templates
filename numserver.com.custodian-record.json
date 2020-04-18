@@ -1,0 +1,20 @@
+{
+   "providerId":"numserver.com",
+   "providerName":"NUM Server",
+   "serviceId":"custodian-record",
+   "serviceName":"Custodian Record",
+   "version": 1,
+   "shared": true,
+   "sharedProviderName": true,
+   "logoUrl":"",
+   "description":"Configure a custodian record for your domain name.",
+   "variableDescription":"The user_hash variable is a SHA-1 hash of an identifier, e.g. email, domain or telephone number",   
+   "records":[
+      {
+         "type":"TXT",
+         "host":"4._num",
+         "data":"_n=1;c[%user_hash%:[*]];b=true",
+         "ttl":3600
+      }
+   ]
+}
