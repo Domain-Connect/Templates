@@ -33,6 +33,6 @@
       "host": "_num",
       "pointsTo": "%ns4%.numservers.net",
       "ttl": 3600
-    },
+    }
    ]
 }
