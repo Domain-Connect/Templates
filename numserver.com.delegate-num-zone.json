@@ -3,6 +3,7 @@
    "providerName":"NUM Server",
    "serviceId":"delegate-num-zone",
    "serviceName":"NUM Zone Delegation",
+   "logoUrl": "http://numserver.com/images/logo-black.png",
    "version": 1,
    "shared": true,
    "sharedProviderName": true,
