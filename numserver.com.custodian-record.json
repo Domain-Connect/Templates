@@ -9,6 +9,7 @@
    "logoUrl":"",
    "description":"Configure a NUM custodian record for your domain name to prove that you are an administrator of the domain, for more info see: https://num.uk/modules/4",
    "variableDescription":"The user_hash variable is a SHA-1 hash of an identifier, e.g. email, domain or telephone number",   
+   "syncPubKeyDomain":"numserver.com",
    "records":[
       {
          "type":"TXT",

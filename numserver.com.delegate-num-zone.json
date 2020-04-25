@@ -8,7 +8,8 @@
    "sharedProviderName": true,
    "logoUrl":"",
    "description":"Delegate your Independent NUM Zone to the NUM Server. All DNS queries to '_num.example.com' will be answered by the NUM Server. Find out more about the NUM protocol at https://num.uk.",
-   "variableDescription":"The ns1-ns4 variables are nameserver IDs",   
+   "variableDescription":"The ns1-ns4 variables are nameserver IDs",
+   "syncPubKeyDomain":"numserver.com",
    "records":[
    {
       "type": "NS",
