@@ -28,8 +28,7 @@
       "groupId":"spf-setup",
       "type":"SPFM",
       "host":"@",
-      "spfRules":"include:spf.flockmail.com",
-      "ttl":3600
+      "spfRules":"include:spf.flockmail.com"
     }
   ]
 }

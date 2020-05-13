@@ -28,8 +28,7 @@
       "groupId":"spf-setup",
       "type":"SPFM",
       "host":"@",
-      "spfRules":"include:spf.titan.email",
-      "ttl":3600
+      "spfRules":"include:spf.titan.email"
     }
   ]
 }
