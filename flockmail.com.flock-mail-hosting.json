@@ -1,8 +1,8 @@
 {
   "providerId":"flockmail.com",
   "providerName":"Flock Mail",
-  "serviceId":"flock-mail-setup",
-  "serviceName":"Flock Mail Setup",
+  "serviceId":"flock-mail-hosting",
+  "serviceName":"Flock Mail Hosting",
   "logoUrl":"https://web.flockmail.com/images/logo/flockmail-logo-dark.svg",
   "description":"Setup the MX and SPF records to enable Flock Mail",
   "variableDescription":"",

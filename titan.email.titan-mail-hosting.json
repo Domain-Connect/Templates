@@ -1,8 +1,8 @@
 {
   "providerId":"titan.email",
   "providerName":"Titan Mail",
-  "serviceId":"titan-mail-setup",
-  "serviceName":"Titan Mail Setup",
+  "serviceId":"titan-mail-hosting",
+  "serviceName":"Titan Mail Hosting",
   "logoUrl":"https://titan.email/wp-content/uploads/2020/01/titan-logo.svg",
   "description":"Setup the MX and SPF records to enable Titan Mail",
   "variableDescription":"",
