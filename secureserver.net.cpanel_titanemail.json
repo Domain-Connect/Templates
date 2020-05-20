@@ -1,0 +1,38 @@
+{
+  "providerId": "secureserver.net",
+  "providerName": "SecureServer",
+  "serviceId": "cpanel_titanemail",
+  "serviceName": "cPanel TitanEmail",
+  "version": 1,
+  "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
+  "description": "Enables a domain to work with TitanEmail",
+  "variableDescription": "",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.titan.email",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.titan.email",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "spfRules": "include:spf.titan.email",
+      "host": "@"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1;p=none;sp=none;adkim=r;aspf=r;pct=100",
+      "ttl": 3600
+    }
+  ]
+}
