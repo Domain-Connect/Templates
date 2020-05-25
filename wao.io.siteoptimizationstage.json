@@ -1,0 +1,24 @@
+{
+  "providerId": "wao.io",
+  "providerName": "wao.io",
+  "serviceId": "siteoptimizationstage",
+  "serviceName": "Site Optimization Stage",
+  "version": 1,
+  "description": "Enables wao.io site optimization for a domain.",
+  "syncBlock": false,
+  "syncRedirectDomain": "stage.wao.io",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "81.173.210.88",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "81.173.210.100",
+      "ttl": 600
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "providerId": "wao.io",
+  "providerName": "wao.io",
+  "serviceId": "siteoptimizationsubdomainstage",
+  "serviceName": "Site Optimization Sub Domain Stage",
+  "version": 1,
+  "description": "Enables wao.io site optimization for a sub domain.",
+  "hostRequired": true,
+  "syncBlock": false,
+  "syncRedirectDomain": "stage.wao.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "test.stage.wao.io",
+      "ttl": 600
+    }
+  ]
+}
