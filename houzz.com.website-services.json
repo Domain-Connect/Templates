@@ -6,6 +6,7 @@
 	"version": 1,
 	"logoUrl":"https://st.hzcdn.com/res/can/4231/pic/houzz_logo.svg",
 	"description":"Set up website hosting at houzz.com",
+	"syncRedirectDomain": "houzz.com",
 	"syncBlock": false,
 	"records":[
 		{
