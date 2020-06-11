@@ -1,11 +1,11 @@
 {
-	"providerId":"WordPress.com",
-	"providerName":"WordPress.com",
-	"serviceId":"hosting",
-	"serviceName":"WordPress services",
+	"providerId":"houzz.com",
+	"providerName":"houzz.com",
+	"serviceId":"website-services",
+	"serviceName":"Houzz Website Services",
 	"version": 1,
-	"logoUrl":"https://automattic.files.wordpress.com/2005/12/wpcom-horiz.png",
-	"description":"This can be used to set up website hosting at WordPress.com",
+	"logoUrl":"TODO houzz logo",
+	"description":"Set up website hosting at houzz.com",
 	"syncBlock": false,
 	"syncRedirectDomain":"wordpress.com",
 	"warnPhishing": false,
@@ -21,14 +21,14 @@
 			"groupId":"mapping",
 			"type":"A",
 			"host":"@",
-			"pointsTo":"192.0.78.24",
+			"pointsTo":"52.37.217.244",
 			"ttl":3600
 		},
 		{
 			"groupId":"mapping",
 			"type":"A",
 			"host":"@",
-			"pointsTo":"192.0.78.25",
+			"pointsTo":"52.37.218.59",
 			"ttl":3600
 		}
 	]
