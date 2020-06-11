@@ -7,8 +7,6 @@
 	"logoUrl":"TODO houzz logo",
 	"description":"Set up website hosting at houzz.com",
 	"syncBlock": false,
-	"syncRedirectDomain":"wordpress.com",
-	"warnPhishing": false,
 	"records":[
 		{
 			"groupId": "mapping",
