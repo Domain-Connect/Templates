@@ -1,10 +1,10 @@
 {
-	"providerId":"houzz.com",
-	"providerName":"houzz.com",
+	"providerId":"Houzz.com",
+	"providerName":"Houzz.com",
 	"serviceId":"website-services",
 	"serviceName":"Houzz Website Services",
 	"version": 1,
-	"logoUrl":"TODO houzz logo",
+	"logoUrl":"https://st.hzcdn.com/res/can/4231/pic/houzz_logo.svg",
 	"description":"Set up website hosting at houzz.com",
 	"syncBlock": false,
 	"records":[
