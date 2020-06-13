@@ -1,0 +1,26 @@
+{
+  "providerId": "secureserver.net",
+  "providerName": "SecureServer",
+  "serviceId": "wsb",
+  "serviceName": "Website Builder",
+  "version": 1,
+  "description": "Enables a domain to work with GoDaddy Whitelabel Website Builder",
+  "shared": true,
+  "sharedProviderName": true,
+  "variableDescription": "v1 is the IP address of the server.",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "pointsTo": "%v1%",
+      "type": "A",
+      "host": "@",
+      "ttl": 3600
+    },
+    {
+      "pointsTo": "@",
+      "type": "CNAME",
+      "host": "www",
+      "ttl": 3600
+    }
+  ]
+}
