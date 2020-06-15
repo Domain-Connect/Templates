@@ -1,5 +1,5 @@
 {
-	"providerId":"Houzz.com",
+	"providerId":"houzz.com",
 	"providerName":"Houzz.com",
 	"serviceId":"website-services",
 	"serviceName":"Houzz Website Services",
@@ -10,21 +10,18 @@
 	"syncBlock": false,
 	"records":[
 		{
-			"groupId": "mapping",
 			"type": "CNAME",
 			"host": "www",
 			"pointsTo": "@",
 			"ttl": 3600
 		},
 		{
-			"groupId":"mapping",
 			"type":"A",
 			"host":"@",
 			"pointsTo":"52.37.217.244",
 			"ttl":3600
 		},
 		{
-			"groupId":"mapping",
 			"type":"A",
 			"host":"@",
 			"pointsTo":"52.37.218.59",
