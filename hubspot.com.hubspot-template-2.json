@@ -10,14 +10,14 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "hs1",
-      "pointsTo": "%cname0targetprefix%.dkim.hubspotemail.net",
+      "host": "%cname0host%",
+      "pointsTo": "%cname0targetprefix%.dkim.hubspotemail%envsuffix%",
       "ttl": 3600
      },
      {
        "type": "CNAME",
-       "host": "hs2",
-       "pointsTo": "%cname1targetprefix%.dkim.hubspotemail.net",
+       "host": "%cname1host%",
+       "pointsTo": "%cname1targetprefix%.dkim.hubspotemail%envsuffix%",
        "ttl": 3600
      },
      {
