@@ -10,13 +10,13 @@
     {
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "%DESTINATION0%",
+      "pointsTo": "%cnamedestination0%",
       "ttl": 3600
      },
      {
        "type": "CNAME",
        "host": "@",
-       "pointsTo": "%DESTINATION1%",
+       "pointsTo": "%cnamedestination1%",
        "ttl": 3600
      },
      {
