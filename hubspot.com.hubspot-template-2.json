@@ -6,18 +6,17 @@
   "version": 1,
   "logoUrl":"https://domainconnect.org/wp-content/uploads/2017/02/HubSpot-768x223.png",
   "description":"Enables a domain to work with HubSpot",
-  "variableDescription":"v1 is the customer id.",
   "records": [
     {
       "type": "CNAME",
-      "host": "%cname0host%",
-      "pointsTo": "%cname0targetprefix%.dkim.hubspotemail%envsuffix%",
+      "host": "@",
+      "pointsTo": "%DESTINATION0%",
       "ttl": 3600
      },
      {
        "type": "CNAME",
-       "host": "%cname1host%",
-       "pointsTo": "%cname1targetprefix%.dkim.hubspotemail%envsuffix%",
+       "host": "@",
+       "pointsTo": "%DESTINATION1%",
        "ttl": 3600
      },
      {
