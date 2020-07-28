@@ -153,10 +153,15 @@
             },
             {
                "$ref":"#/definitions/Record-REDIR302"
-            }
+            },
+            {
+               "$ref":"#/definitions/Record-APEXCNAME"
+            }            
          ]
       },
-      "Record-All":{
+      "
+      
+      ":{
          "type":"object",
          "properties":{
             "groupId":{
@@ -491,6 +496,33 @@
                   "target"
                ],
                "title":"REDIR302 Record"
+            }
+         ]
+      },
+      "Record-APEXCNAME":{
+         "allOf":[
+            {
+               "$ref":"#/definitions/Record-All"
+            },
+            {
+               "properties":{
+                  "type":{
+                     "type":"string",
+                     "const":"APEXCNAME"
+                  },
+                  "pointsTo":{
+                     "type":"string"
+                  },
+                  "ttl":{
+                     "$ref":"#/definitions/TTL"
+                  }
+               },
+               "required":[
+                  "type",
+                  "pointsTo",
+                  "ttl"
+               ],
+               "title":"APEXCNAME Record"
             }
          ]
       },
