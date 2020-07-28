@@ -159,9 +159,7 @@
             }            
          ]
       },
-      "
-      
-      ":{
+      "Record-All":{
          "type":"object",
          "properties":{
             "groupId":{
