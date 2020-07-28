@@ -1,0 +1,70 @@
+{
+  "providerId": "realgeeks.com",
+  "providerName": "Real Geeks",
+  "serviceId": "website_and_crm",
+  "serviceName": "Real Geeks Real Estate Websites",
+  "version": 1,
+  "logoUrl": "https://www.realgeeks.com/static/img/logo_2x.png",
+  "description": "Enables a domain to be used for a Real Geeks website and CRM",
+  "variableDescription": "Self explanatory in the variable names.",
+  "syncPubKeyDomain": "domainconnect.realgeeks.com",
+  "records": [
+    {
+      "groupId": "Website",
+      "type": "APEXCNAME",
+      "host": "@",
+      "pointsTo": "%prodhost%",
+      "ttl": 600
+    },
+    {
+      "groupId": "Website",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "ssl.realgeeks.com",
+      "ttl": 600
+    },
+    {
+      "groupId": "CRM",
+      "type": "MX",
+      "host": "rg-mail.www",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "groupId": "CRM",
+      "type": "MX",
+      "host": "rg-mail.www",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "groupId": "CRM",
+      "type": "SPFM",
+      "host": "rg-mail.www",
+      "spfRules": "include:mailgun.org"
+    },
+    {
+      "groupId": "CRM",
+      "type": "CNAME",
+      "host": "email.rg-mail.www",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "groupId": "CRM",
+      "type": "TXT",
+      "host": "%smtpkeyprefix%._domainkey.rg-mail.www",
+      "data": "%smtpkey%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "CRM",
+      "type": "TXT",
+      "host": "_dmarc.rg-mail.www",
+      "data": "%dmarc%",
+      "ttl": 3600
+    }
+  ]
+}
