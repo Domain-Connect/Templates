@@ -1,0 +1,34 @@
+{
+  "providerId":"flockmail.com",
+  "providerName":"Flock Mail",
+  "serviceId":"flock-mail-hosting",
+  "serviceName":"Flock Mail Hosting",
+  "logoUrl":"https://web.flockmail.com/images/logo/flockmail-logo-dark.svg",
+  "description":"Setup the MX and SPF records to enable Flock Mail",
+  "variableDescription":"",
+  "version":1,
+  "records":[
+    {
+      "groupId":"mx-setup",
+      "type":"MX",
+      "host":"@",
+      "priority":10,
+      "pointsTo":"mx1.flockmail.com",
+      "ttl":3600
+    },
+    {
+      "groupId":"mx-setup",
+      "type":"MX",
+      "host":"@",
+      "priority":20,
+      "pointsTo":"mx2.flockmail.com",
+      "ttl":3600
+    },
+    {
+      "groupId":"spf-setup",
+      "type":"SPFM",
+      "host":"@",
+      "spfRules":"include:spf.flockmail.com"
+    }
+  ]
+}
