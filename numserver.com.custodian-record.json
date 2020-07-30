@@ -14,7 +14,7 @@
       {
          "type":"TXT",
          "host":"4._num",
-         "data":"_n=1;c[%user_hash%:[%user_permissions%]];b=true",
+         "data":"@n=1;c[%user_hash%:[%user_permissions%]];b=true",
          "ttl":3600
       }
    ]
