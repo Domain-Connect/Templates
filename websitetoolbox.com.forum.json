@@ -16,9 +16,9 @@
       "ttl":3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "v=spf1 a mx a:mailers.websitetoolbox.com ~all",
+      "spfRules": "a:mailers.websitetoolbox.com",
       "ttl": 3600
     },
     {
