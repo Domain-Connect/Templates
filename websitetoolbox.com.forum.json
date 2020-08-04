@@ -1,0 +1,31 @@
+{
+  "providerId":"WebsiteToolbox.com",
+  "providerName":"Website Toolbox",
+  "serviceId":"forum",
+  "serviceName":"Website Toolbox Forum",
+  "version": 1,
+  "syncPubKeyDomain" : "websitetoolbox.com",
+  "logoUrl":"https://cdn.websitetoolbox.com/images/logos/wt_logo_transparent.png",
+  "description":"Enables a subdomain to work with Website Toolbox.",
+  "variableDescription":"v1 is the subdomain that wants to be used. ie: 'forum' for forum.mydomain.com.",
+  "records":[
+    {
+      "type":"CNAME",
+      "host":"%v1%",
+      "pointsTo":"custom.websitetoolbox.com",
+      "ttl":3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 a mx a:mailers.websitetoolbox.com ~all",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "websitetoolbox._domainkey",
+      "pointsTo": "websitetoolbox._domainkey.websitetoolbox.com",
+      "ttl": 3600
+    }
+  ]
+}
