@@ -4,7 +4,6 @@
   "serviceId":"forum",
   "serviceName":"Website Toolbox Forum",
   "version": 1,
-  "syncPubKeyDomain" : "websitetoolbox.com",
   "logoUrl":"https://cdn.websitetoolbox.com/images/logos/wt_logo_transparent.png",
   "description":"Enables a subdomain to work with Website Toolbox.",
   "variableDescription":"v1 is the subdomain that wants to be used. ie: 'forum' for forum.mydomain.com.",
