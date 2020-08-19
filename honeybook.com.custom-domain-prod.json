@@ -6,6 +6,7 @@
    "version": 1,
    "logoUrl":"https://www.honeybook.com/images/logo-white-background.png",
    "description":"Allows HoneyBook's customers to connect their domain for white labeling.",
+   "syncPubKeyDomain": "dcon.honeybook.com",
    "syncRedirectDomain": "www.honeybook.com",
    "hostRequired": true,
    "records":[
