@@ -23,8 +23,7 @@
     {
       "type": "SPFM",
       "host": "@",
-      "spfRules": "a:mailers.websitetoolbox.com",
-      "ttl": 3600
+      "spfRules": "a:mailers.websitetoolbox.com"
     },
     {
       "type": "CNAME",
