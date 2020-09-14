@@ -1,0 +1,20 @@
+{
+   "providerId":"honeybook.com",
+   "providerName":"HoneyBook",
+   "serviceId":"custom-domain-prod",
+   "serviceName":"HoneyBook White-label Client Experience",
+   "version": 2,
+   "logoUrl":"https://www.honeybook.com/images/logo-white-background.png",
+   "description":"Allows HoneyBook's customers to connect their domain for white labeling.",
+   "syncPubKeyDomain": "dcon.honeybook.com",
+   "syncRedirectDomain": "www.honeybook.com",
+   "hostRequired": true,
+   "records":[
+      {
+         "type":"CNAME",
+         "host":"@",
+         "pointsTo":"ssl.honeybook.com",
+         "ttl":600
+      }
+   ]
+}
