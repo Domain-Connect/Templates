@@ -17,13 +17,13 @@
     },
     {
       "type": "SPFM",
-      "host": "%domain%.",
+      "host": "%spdomain%.",
       "spfRules": "a:mailers.websitetoolbox.com",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "websitetoolbox._domainkey.%domain%.",
+      "host": "websitetoolbox._domainkey.%spdomain%.",
       "pointsTo": "websitetoolbox._domainkey.websitetoolbox.com",
       "ttl": 3600
     }
