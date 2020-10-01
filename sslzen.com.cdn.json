@@ -1,8 +1,8 @@
 {
   "providerId":"sslzen.com",
-  "providerName":"SSL Zen",
-  "serviceId":"dns",
-  "serviceName":"SSL Certificate for WordPress websites",
+  "providerName":"sslzen.com",
+  "serviceId":"cdn",
+  "serviceName":"SSL for WP websites",
   "version": 1,
   "logoUrl":"https://sslzen.com/wp-content/uploads/2019/01/ssl-zen-logo-new-v@2x.png",
   "description":"Setup A and CNAME record for StackPath CDN",
