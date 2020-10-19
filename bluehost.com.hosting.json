@@ -72,12 +72,9 @@
       "priority": 0
     },
     {
-      "data": "v=spf1 a mx include:websitewelcome.com ~all",
-      "type": "TXT",
+      "spfRules": "a mx include:websitewelcome.com ~all",
+      "type": "SPFM",
       "host": "@",
-      "ttl": 14400,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1"
     },
     {
       "data": "path=/",
