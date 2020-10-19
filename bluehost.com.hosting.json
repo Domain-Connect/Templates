@@ -72,7 +72,7 @@
       "priority": 0
     },
     {
-      "spfRules": "a mx include:websitewelcome.com ~all",
+      "spfRules": "a mx include:websitewelcome.com",
       "type": "SPFM",
       "host": "@",
     },
