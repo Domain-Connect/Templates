@@ -1,0 +1,25 @@
+{
+  "providerId":"sslzen.com",
+  "providerName":"sslzen.com",
+  "serviceId":"cdn",
+  "serviceName":"SSL for WP websites",
+  "version": 1,
+  "logoUrl":"https://sslzen.com/wp-content/uploads/2019/01/ssl-zen-logo-new-v@2x.png",
+  "description":"Setup A and CNAME record for StackPath CDN",
+  "variableDescription": "edge is an unique edge url assigned to every website",
+  "warnPhishing": false,
+  "records":[
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%edge%.stackpathcdn.com",
+      "ttl": 3600
+    },
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"151.139.128.10",
+      "ttl":3600
+    }
+  ]
+}
