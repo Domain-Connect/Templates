@@ -8,6 +8,7 @@
 	"description":"Set up website hosting at houzz.com",
 	"syncRedirectDomain": "houzz.com",
 	"syncBlock": false,
+	"syncPubKeyDomain": "houzz.com",
 	"records":[
 		{
 			"type": "CNAME",
