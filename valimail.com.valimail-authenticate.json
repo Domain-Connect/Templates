@@ -4,7 +4,7 @@
   "serviceId": "valimail-authenticate",
   "serviceName": "Valimail Authenticate",
   "version": 1,
-  "logoUrl": "https://docs.valimail.com/css/image/portal-logo.png",
+  "logoUrl": "https://valimail-logos.s3.amazonaws.com/valimail-logo-primary.svg",
   "description": "Enable Valimail Authenticate on a domain",
   "variableDescription": "%spftxt% is the SPF record",
   "records": [
