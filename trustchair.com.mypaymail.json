@@ -1,0 +1,31 @@
+{
+  "providerId": "trustchair.com",
+  "providerName": "Trustchair Ltd",
+  "serviceId": "myPaymail",
+  "serviceName": "myPaymail",
+  "version": 1,
+  "logoUrl": "https://mypaymail.co/images/DomainConnectLogo.png",
+  "description": "Enables a domain to work with myPaymail",
+  "warnPhishing": true,
+  "records": [
+    {
+      "groupId": "bsvalias",
+      "type": "SRV",
+      "service": "_bsvalias",
+      "protocol": "_tcp",
+      "port": 443,
+      "weight": 10,
+      "priority": 10,
+      "name": "@",
+      "target": "%DISCOVERYHOST%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verification",
+      "type":"TXT",
+      "host":"_mypaymail",
+      "data": "verify=%VERIFYTXT%",
+      "ttl": 3600
+    }
+  ]
+}

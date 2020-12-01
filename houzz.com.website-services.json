@@ -1,0 +1,32 @@
+{
+	"providerId":"houzz.com",
+	"providerName":"Houzz.com",
+	"serviceId":"website-services",
+	"serviceName":"Houzz Website Services",
+	"version": 1,
+	"logoUrl":"https://st.hzcdn.com/res/can/4231/pic/houzz_logo.svg",
+	"description":"Set up website hosting at houzz.com",
+	"syncRedirectDomain": "houzz.com",
+	"syncBlock": false,
+	"syncPubKeyDomain": "houzz.com",
+	"records":[
+		{
+			"type": "CNAME",
+			"host": "www",
+			"pointsTo": "@",
+			"ttl": 3600
+		},
+		{
+			"type":"A",
+			"host":"@",
+			"pointsTo":"52.37.217.244",
+			"ttl":3600
+		},
+		{
+			"type":"A",
+			"host":"@",
+			"pointsTo":"52.37.218.59",
+			"ttl":3600
+		}
+	]
+}

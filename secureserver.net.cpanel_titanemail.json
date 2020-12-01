@@ -1,0 +1,39 @@
+{
+  "providerId": "secureserver.net",
+  "providerName": "SecureServer",
+  "serviceId": "cpanel_titanemail",
+  "serviceName": "cPanel Titan Mail",
+  "version": 1,
+  "shared": true,
+  "sharedProviderName": true,
+  "description": "Enables a domain to work with GoDaddy Whitelabel Titan Mail",
+  "variableDescription": "",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.titan.email",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.titan.email",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "spfRules": "include:spf.titan.email",
+      "host": "@"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1;p=none;sp=none;adkim=r;aspf=r;pct=100",
+      "ttl": 3600
+    }
+  ]
+}

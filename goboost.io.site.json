@@ -1,0 +1,23 @@
+{
+  "providerId": "goboost.io",
+  "providerName": "GoBoost Sites",
+  "serviceId": "site",
+  "serviceName": "GoBoost Sites",
+  "version": 1,
+  "logoUrl": "https://goboost.io/static/goboost-logo-42b49c5bc8bf013be2276dfc95ead3b9.png",
+  "description": "Enables a domain to work with GoBoost sites",
+  "records": [
+     {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "35.192.111.250",
+        "ttl": 3600
+     },
+     {
+        "type": "CNAME",
+        "host": "www",
+        "pointsTo": "@",
+        "ttl": 3600
+     }
+  ]
+}

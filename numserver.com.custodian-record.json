@@ -1,0 +1,21 @@
+{
+   "providerId":"numserver.com",
+   "providerName":"NUM Server",
+   "serviceId":"custodian-record",
+   "serviceName":"Custodian Record",
+   "logoUrl": "http://numserver.com/images/logo-black.png",
+   "version": 1,
+   "shared": true,
+   "sharedProviderName": true,
+   "description":"Configure a NUM custodian record for your domain name to prove that you are an administrator of the domain, for more info see: https://num.uk/modules/4",
+   "variableDescription":"The user_hash variable is a SHA-1 hash of an identifier, e.g. email, domain or telephone number. The %user_permissions% variable sets the permissions this user has.",   
+   "syncPubKeyDomain":"numserver.com",
+   "records":[
+      {
+         "type":"TXT",
+         "host":"4._num",
+         "data":"@n=1;c[%user_hash%:[%user_permissions%]];b=true",
+         "ttl":3600
+      }
+   ]
+}

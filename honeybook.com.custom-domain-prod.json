@@ -1,0 +1,20 @@
+{
+   "providerId":"honeybook.com",
+   "providerName":"HoneyBook Inc.",
+   "serviceId":"custom-domain-prod",
+   "serviceName":"HoneyBook",
+   "version": 3,
+   "logoUrl":"https://www.honeybook.com/images/logo-white-background.png",
+   "description":"Allows businesses using HoneyBook to use their domain for all client facing communications",
+   "syncPubKeyDomain": "dcon.honeybook.com",
+   "syncRedirectDomain": "www.honeybook.com",
+   "hostRequired": true,
+   "records":[
+      {
+         "type":"CNAME",
+         "host":"@",
+         "pointsTo":"ssl.honeybook.com",
+         "ttl":600
+      }
+   ]
+}
