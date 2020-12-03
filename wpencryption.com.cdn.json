@@ -4,7 +4,7 @@
   "serviceId": "cdn",
   "serviceName": "SSL for WordPress sites",
   "version": 1,
-  "logoUrl": "https://r7z2p6u4.stackpathcdn.com/wp-content/uploads/2020/04/wple-logo.png",
+  "logoUrl": "https://wpencryption.com/wp-content/uploads/2020/04/wple-logo.png",
   "description": "Setup A and CNAME record for StackPath CDN",
   "variableDescription": "edge is an unique url slug assigned to every website",
   "warnPhishing": false,
