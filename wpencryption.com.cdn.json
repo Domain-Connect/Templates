@@ -1,0 +1,24 @@
+{
+  "providerId": "wpencryption.com",
+  "providerName": "wpencryption.com",
+  "serviceId": "cdn",
+  "serviceName": "SSL for WordPress sites",
+  "version": 1,
+  "logoUrl": "https://wpencryption.com/wp-content/uploads/2020/04/wple-logo.png",
+  "description": "Setup A and CNAME record for StackPath CDN",
+  "variableDescription": "edge is an unique url slug assigned to every website",
+  "warnPhishing": false,
+  "records": [{
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%edge%.stackpathcdn.com",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "151.139.128.10",
+      "ttl": 3600
+    }
+  ]
+}
