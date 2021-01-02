@@ -4,10 +4,11 @@
   "serviceId":"gmail-setup",
   "serviceName":"Gmail Setup",
   "sharedServiceName": true,
-  "version":1,
+  "version":2,
   "logoUrl":"",
   "description":"Setup the MX records to enable Gmail",
   "variableDescription":"Unique SPF rule",
+  "syncBlock": false,
   "records":[
     {
       "groupId":"setup",
