@@ -9,6 +9,7 @@
   "description":"Setup the MX records to enable Gmail",
   "variableDescription":"Unique SPF rule",
   "syncBlock": false,
+  "syncPubKeyDomain": "google.com",
   "records":[
     {
       "groupId":"setup",
