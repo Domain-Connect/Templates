@@ -4,12 +4,13 @@
   "serviceId":"domain-verification",
   "serviceName":"Domain Verification",
   "sharedServiceName": true,
-  "version": 2,
+  "version": 3,
   "logoUrl":"",
   "description":"Enables a domain to work with Google",
   "variableDescription":"Unique verification code provided for purpose of verification",
   "multiInstance": true,
   "syncBlock": false,
+  "syncPubKeyDomain": "google.com",
   "records":[
     {
       "groupId": "verification",
