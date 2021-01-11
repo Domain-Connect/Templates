@@ -12,7 +12,7 @@
     {
       "type": "TXT",
       "host": "@",
-      "pointsTo": "%data%",
+      "data": "%data%",
       "ttl": 600
     }
   ]
