@@ -6,42 +6,49 @@
   "version": 1,
   "logoUrl": "https://domainconnect.org/wp-content/uploads/2017/02/HubSpot-768x223.png",
   "description": "Enables a domain to work with HubSpot",
-  "variableDescription": "txtData: txt data; a1, a2: destination for A records; cnameDestination1, cnameDestination2: destination for CNAME record; cNameHost: host for CNAME record",
+  "variableDescription": "txt1Data, txt2Data: txt data; a1PointsTo, a1PointsTo, cname1PointsTo, cname2PointsTo: destinations",
   "hostRequired": true,
   "records": [
     {
       "groupId": "a1",
       "type": "A",
       "host": "@",
-      "pointsTo": "%IP1%",
+      "pointsTo": "%a1PointsTo%",
       "ttl": 600
     },
     {
       "groupId": "a2",
       "type": "A",
       "host": "@",
-      "pointsTo": "%IP2%",
+      "pointsTo": "%a2PointsTo%",
       "ttl": 600
     },
     {
-      "groupId": "txt",
+      "groupId": "txt1",
       "type": "TXT",
       "host": "@",
-      "data": "%txtData%",
+      "data": "%txt1Data%",
+      "ttl": 600
+    },
+    {
+      "groupId": "txt2",
+      "type": "TXT",
+      "host": "@",
+      "data": "%txt2Data%",
       "ttl": 600
     },
     {
       "groupId": "cname1",
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "%cnameDestination1%",
+      "pointsTo": "%cname1PointsTo%",
       "ttl": 600
     },
     {
       "groupId": "cname2",
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "%cnameDestination2%",
+      "pointsTo": "%cname2PointsTo%",
       "ttl": 600
     }
   ]
