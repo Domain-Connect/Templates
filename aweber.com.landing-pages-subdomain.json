@@ -1,0 +1,18 @@
+{
+   "providerId":"aweber.com",
+   "providerName":"AWeber",
+   "serviceId":"lanfing-pages-default",
+   "serviceName":"AWeber Landing Pages",
+   "version": 1,
+   "logoUrl":"https://assets.aweber-static.com/page-templates/assets/img/powered_by.png",
+   "description":"Configure a domain to AWeber Landing Pages",
+   "variableDescription":"",
+   "records":[
+       {
+         "type": "A",
+         "host": "{%host%}",
+         "pointsTo": "hosted-content.aweber.com",
+         "ttl": 3600
+       }
+   ]
+}
