@@ -1,7 +1,7 @@
 {
    "providerId":"aweber.com",
    "providerName":"AWeber",
-   "serviceId":"lanfing-pages-default",
+   "serviceId":"landing-pages-subdomain",
    "serviceName":"AWeber Landing Pages",
    "version": 1,
    "logoUrl":"https://assets.aweber-static.com/page-templates/assets/img/powered_by.png",
