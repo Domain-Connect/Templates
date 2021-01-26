@@ -10,7 +10,7 @@
    "records":[
        {
          "type": "A",
-         "host": "{%host%}",
+         "host": "@",
          "pointsTo": "hosted-content.aweber.com",
          "ttl": 3600
        }
