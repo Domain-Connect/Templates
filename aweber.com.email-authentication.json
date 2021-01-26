@@ -10,8 +10,8 @@
    "records":[
       {
          "type": "SPFM",
-         "host": "%host%",
-         "spfRules": "v=spf1 include:send.aweber.com ~all"
+         "host": "@",
+         "spfRules": "include:send.aweber.com"
       },
       {
          "type": "CNAME",
