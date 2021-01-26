@@ -6,14 +6,14 @@
   "version": 1,
   "logoUrl": "https://domainconnect.org/wp-content/uploads/2017/02/HubSpot-768x223.png",
   "description": "Enables a domain to work with HubSpot",
-  "variableDescription": "cname - pointsTo value",
+  "variableDescription": "cnameValue - cname record pointsTo value",
   "hostRequired": true,
   "records": [
     {
       "groupId": "cname",
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "%cname%",
+      "pointsTo": "%cnameValue%",
       "ttl": 3600
     }
   ]
