@@ -11,7 +11,7 @@
       {
          "type": "SPFM",
          "host": "@",
-         "spfRules": "v=spf1 include:{%account-subdomain%}.optin.com ~all"
+         "spfRules": "include:{%account-subdomain%}.optin.com"
       },
       {
          "type": "CNAME",
