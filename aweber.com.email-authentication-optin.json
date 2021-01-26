@@ -10,7 +10,7 @@
    "records":[
       {
          "type": "SPFM",
-         "host": "%host%",
+         "host": "@",
          "spfRules": "v=spf1 include:{%account-subdomain%}.optin.com ~all"
       },
       {
