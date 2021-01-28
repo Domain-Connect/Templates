@@ -6,11 +6,12 @@
    "version": 1,
    "logoUrl":"https://assets.aweber-static.com/page-templates/assets/img/powered_by.png",
    "description":"Configure a domain to AWeber Landing Pages",
-   "variableDescription":"%subdomain such as www or go%",
+   "variableDescription":"",
+   "hostRequired": true,
    "records":[
        {
          "type": "CNAME",
-         "host": "%subdomain%",
+         "host": "@",
          "pointsTo": "hosted-content.aweber.com",
          "ttl": 3600
        }
