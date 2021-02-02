@@ -15,20 +15,20 @@
       },
       {
          "type": "CNAME",
-         "host":"optin_key_a._domainkey",
-         "pointsTo": "optin_key_a.%account-subdomain%.optin.com",
+         "host":"k1._domainkey",
+         "pointsTo": "k1.%account-subdomain%.optin.com",
          "ttl": 3600
        },
        {
          "type": "CNAME",
-         "host": "aweber_key_b._domainkey",
-         "pointsTo": "aweber_key_b.%account-subdomain%.optin.com",
+         "host": "k2._domainkey",
+         "pointsTo": "k2.%account-subdomain%.optin.com",
          "ttl": 3600
        },
        {
          "type": "CNAME",
-         "host": "aweber_key_c._domainkey",
-         "pointsTo": "aweber_key_c.%account-subdomain%.optin.com",
+         "host": "k3._domainkey",
+         "pointsTo": "k3.%account-subdomain%.optin.com",
          "ttl": 3600
        }
    ]
