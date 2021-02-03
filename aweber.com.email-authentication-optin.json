@@ -16,19 +16,19 @@
       {
          "type": "CNAME",
          "host":"k1._domainkey",
-         "pointsTo": "k1.%account-subdomain%.optin.com",
+         "pointsTo": "k1.optin.com",
          "ttl": 3600
        },
        {
          "type": "CNAME",
          "host": "k2._domainkey",
-         "pointsTo": "k2.%account-subdomain%.optin.com",
+         "pointsTo": "k2.optin.com",
          "ttl": 3600
        },
        {
          "type": "CNAME",
          "host": "k3._domainkey",
-         "pointsTo": "k3.%account-subdomain%.optin.com",
+         "pointsTo": "k3.optin.com",
          "ttl": 3600
        }
    ]
