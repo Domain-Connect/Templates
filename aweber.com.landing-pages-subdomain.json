@@ -3,6 +3,8 @@
    "providerName":"AWeber",
    "serviceId":"landing-pages-subdomain",
    "serviceName":"AWeber Landing Pages",
+   "syncRedirectDomain": "aweber.com",
+   "syncPubKeyDomain": "aweber.com",
    "version": 1,
    "logoUrl":"https://assets.aweber-static.com/page-templates/assets/img/powered_by.png",
    "description":"Configure a domain to AWeber Landing Pages",
