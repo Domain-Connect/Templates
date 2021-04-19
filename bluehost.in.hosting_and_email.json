@@ -1,13 +1,13 @@
 {
-  "providerId": "fastdomain.com",
-  "providerName": "Fastdomain",
+  "providerId": "bluehost.in",
+  "providerName": "Bluehost India",
   "serviceId": "hosting",
   "serviceName": "hosting",
   "version": 1,
   "syncPubKeyDomain": "domainconnect.bluehost.com",
-  "syncRedirectDomain": "my.fastdomain.com",
-  "logoUrl": "https://fastdomain-cdn.com/media/app/fastdomain/live/static/media/src/common/assets/images/brand/fd/logo.png",
-  "description": "Enables a domain to work with Fastdomain hosting",
+  "syncRedirectDomain": "my.bluehost.in",
+  "logoUrl": "https://bluehost-cdn.in/media/app/bluehost/live/static/media/src/common/assets/images/brand/bh/logo.svg",
+  "description": "Enables a domain to work with Bluehost India hosting and email",
   "variableDescription": "ip is the IP address of the server, and box is the hostname of the server.",
   "records": [
     {
@@ -22,6 +22,13 @@
       "type": "A",
       "host": "whm",
       "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "%ip%",
+      "type": "A",
+      "host": "mail",
+      "essential": "OnApply",
       "ttl": 14400
     },
     {
@@ -51,6 +58,34 @@
       "host": "cpanel",
       "essential": "Always",
       "ttl": 14400
+    },
+    {
+      "pointsTo": "@",
+      "type": "CNAME",
+      "host": "webmail",
+      "essential": "OnApply",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "mail.%domain%",
+      "type": "CNAME",
+      "host": "imap",
+      "essential": "OnApply",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "mail.%domain%",
+      "type": "MX",
+      "host": "@",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0
+    },
+    {
+      "spfRules": "a mx include:websitewelcome.com",
+      "type": "SPFM",
+      "host": "@",
+      "essential": "OnApply"
     },
     {
       "data": "path=/",
@@ -83,6 +118,18 @@
       "essential": "OnApply",
       "ttl": 14400,
       "txtConflictMatchingMode": "None"
+    },
+    {
+      "target": "emaildiscovery.cpanel.net",
+      "type": "SRV",
+      "service": "_autodiscover",
+      "protocol": "_tcp",
+      "name": "",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0,
+      "weight": 0,
+      "port": 443
     },
     {
       "target": "%box%",

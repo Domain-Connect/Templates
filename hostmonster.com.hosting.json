@@ -27,13 +27,6 @@
     {
       "pointsTo": "%ip%",
       "type": "A",
-      "host": "mail",
-      "essential": "OnApply",
-      "ttl": 14400
-    },
-    {
-      "pointsTo": "%ip%",
-      "type": "A",
       "host": "cpcalendars",
       "essential": "OnApply",
       "ttl": 14400
@@ -58,34 +51,6 @@
       "host": "cpanel",
       "essential": "Always",
       "ttl": 14400
-    },
-    {
-      "pointsTo": "@",
-      "type": "CNAME",
-      "host": "webmail",
-      "essential": "OnApply",
-      "ttl": 14400
-    },
-    {
-      "pointsTo": "mail.%domain%",
-      "type": "CNAME",
-      "host": "imap",
-      "essential": "OnApply",
-      "ttl": 14400
-    },
-    {
-      "pointsTo": "mail.%domain%",
-      "type": "MX",
-      "host": "@",
-      "essential": "OnApply",
-      "ttl": 14400,
-      "priority": 0
-    },
-    {
-      "spfRules": "a mx include:websitewelcome.com",
-      "type": "SPFM",
-      "host": "@",
-      "essential": "OnApply"
     },
     {
       "data": "path=/",
@@ -118,18 +83,6 @@
       "essential": "OnApply",
       "ttl": 14400,
       "txtConflictMatchingMode": "None"
-    },
-    {
-      "target": "emaildiscovery.cpanel.net",
-      "type": "SRV",
-      "service": "_autodiscover",
-      "protocol": "_tcp",
-      "name": "",
-      "essential": "OnApply",
-      "ttl": 14400,
-      "priority": 0,
-      "weight": 0,
-      "port": 443
     },
     {
       "target": "%box%",
