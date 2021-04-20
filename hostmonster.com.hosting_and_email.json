@@ -1,8 +1,8 @@
 {
   "providerId": "hostmonster.com",
   "providerName": "Hostmonster",
-  "serviceId": "hosting",
-  "serviceName": "hosting",
+  "serviceId": "hosting_and_email",
+  "serviceName": "Hosting and Mail",
   "version": 1,
   "syncPubKeyDomain": "domainconnect.bluehost.com",
   "syncRedirectDomain": "my.hostmonster.com",

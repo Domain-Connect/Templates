@@ -1,8 +1,8 @@
 {
   "providerId": "justhost.com",
   "providerName": "Just Host",
-  "serviceId": "hosting",
-  "serviceName": "hosting",
+  "serviceId": "email",
+  "serviceName": "Mail",
   "version": 1,
   "syncPubKeyDomain": "domainconnect.bluehost.com",
   "syncRedirectDomain": "my.justhost.com",
