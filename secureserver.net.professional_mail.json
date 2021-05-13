@@ -1,0 +1,49 @@
+{
+  "providerId": "secureserver.net",
+  "providerName": "SecureServer",
+  "serviceId": "professional_mail",
+  "serviceName": "Professional Mail",
+  "version": 1,
+  "description": "Enables a domain to work with Whitelabel Professional Mail",
+  "shared": true,
+  "sharedProviderName": true,
+  "variableDescription": "",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "smtp.secureserver.net",
+      "priority": 0,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mailstore1.secureserver.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:secureserver.net"
+    },
+    {
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "email.secureserver.net",
+      "ttl": 3600
+    },
+    {
+      "protocol": "_tcp",
+      "name": "@",
+      "weight": 0,
+      "target": "autodiscover.secureserver.net",
+      "priority": 0,
+      "service": "_autodiscover",
+      "type": "SRV",
+      "port": 443,
+      "ttl": 3600
+    }
+  ]
+}
