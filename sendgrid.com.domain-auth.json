@@ -10,7 +10,7 @@
   "records":[
     {
       "type": "CNAME",
-      "host": "%SUBDOMAIN%",
+      "host": "%host%",
       "pointsTo": "%POINTS_TO%",
       "ttl": 1800
     },
