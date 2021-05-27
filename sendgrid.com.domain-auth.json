@@ -10,19 +10,19 @@
   "records":[
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "%POINTS_TO%",
       "ttl": 1800
     },
     {
       "type": "CNAME",
-      "host": "%SUBDOMAIN_DKIM1%",
+      "host": "%SUBDOMAIN_DKIM1%.%domain%.",
       "pointsTo": "%POINTS_TO_DKIM1%",
       "ttl": 1800
     },
     {
       "type": "CNAME",
-      "host": "%SUBDOMAIN_DKIM2%",
+      "host": "%SUBDOMAIN_DKIM2%.%domain%.",
       "pointsTo": "%POINTS_TO_DKIM2%",
       "ttl": 1800
     }
