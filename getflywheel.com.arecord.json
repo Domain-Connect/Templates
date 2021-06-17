@@ -1,0 +1,19 @@
+{
+   "providerId":"getflywheel.com",
+   "providerName":"Flywheel",
+   "serviceId":"arecord",
+   "serviceName":"Delightfully Managed WordPress Hosting",
+   "version": 1,
+   "logoUrl":"https://need-image-url.org",
+   "description":"Configure ip address for the domain A record.",
+   "syncBlock":false,
+   "syncPubKeyDomain":"domainconnect.getflywheel.com",
+   "records":[
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%ip%",
+         "ttl":3600
+      }
+   ]
+}
