@@ -2,7 +2,7 @@
    "providerId":"getflywheel.com",
    "providerName":"Flywheel",
    "serviceId":"arecord",
-   "serviceName":"Delightfully Managed WordPress Hosting",
+   "serviceName":"Managed WordPress Hosting",
    "version": 1,
    "description":"Configure ip address for the domain A record.",
    "syncBlock":false,
