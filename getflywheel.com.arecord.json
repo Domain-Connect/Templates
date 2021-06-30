@@ -1,0 +1,19 @@
+{
+   "providerId":"getflywheel.com",
+   "providerName":"Flywheel",
+   "serviceId":"arecord",
+   "serviceName":"Managed WordPress Hosting",
+   "version": 1,
+   "logoUrl":"https://www.domainconnect.org/wp-content/uploads/2021/06/flywheel-logo.png",
+   "description":"Configure ip address for the domain A record.",
+   "syncBlock":false,
+   "syncPubKeyDomain":"domainconnect.getflywheel.com",
+   "records":[
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%ip%",
+         "ttl":3600
+      }
+   ]
+}
