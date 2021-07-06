@@ -1,13 +1,14 @@
 {
    "providerId":"aweber.com",
    "providerName":"AWeber",
-   "serviceId":"email-web",
-   "serviceName":"AWeber Email Authentication and Landing Pages",
+   "serviceId":"email-web-subdomain",
+   "serviceName":"AWeber Email Authentication and Landing Pages for Subdomains",
    "version": 1,
    "syncRedirectDomain": "aweber.com, optin.com",
    "syncPubKeyDomain": "optin.com",
    "logoUrl":"https://assets.aweber-static.com/page-templates/assets/img/powered_by.png",
-   "description":"Configure AWeber's SPF and DKIM records to improve sender reputation and deliverability. Connect AWeber landing pages to your domain",
+   "description":"Configure AWeber's SPF and DKIM records to improve sender reputation and deliverability. Connect AWeber landing pages to your subdomain",
+   "hostRequired": "true",
    "variableDescription":"account-subdomain refers to an AWeber account subdomain.",
    "records":[
       {
@@ -64,6 +65,13 @@
          "type": "CNAME",
          "host": "k3._domainkey",
          "pointsTo": "k3.optin.com",
+         "ttl": 3600
+       },
+       {
+         "groupId": "web-subdomain",
+         "type": "CNAME",
+         "host": "@",
+         "pointsTo": "hosted-content.aweber.com",
          "ttl": 3600
        }
    ]
