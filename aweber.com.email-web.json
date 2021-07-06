@@ -65,6 +65,20 @@
          "host": "k3._domainkey",
          "pointsTo": "k3.optin.com",
          "ttl": 3600
+       },
+       {
+         "groupId": "web",
+         "type": "A",
+         "host": "@",
+         "pointsTo": "204.194.222.116",
+         "ttl": 3600
+       },
+       {
+         "groupId": "web",
+         "type": "CNAME",
+         "host": "www",
+         "pointsTo": "hosted-content.aweber.com",
+         "ttl": 3600
        }
    ]
 }
