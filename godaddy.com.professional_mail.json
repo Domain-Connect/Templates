@@ -10,6 +10,7 @@
   "syncPubKeyDomain": "domain-attach.api.godaddy.com",
   "records": [
     {
+      "groupId": "service",
       "type": "MX",
       "host": "@",
       "pointsTo": "smtp.secureserver.net",
@@ -17,6 +18,7 @@
       "ttl": 3600
     },
     {
+      "groupId": "service",
       "type": "MX",
       "host": "@",
       "pointsTo": "mailstore1.secureserver.net",
@@ -24,17 +26,20 @@
       "ttl": 3600
     },
     {
+      "groupId": "service",
       "type": "SPFM",
       "host": "@",
       "spfRules": "include:secureserver.net"
     },
     {
+      "groupId": "service",
       "type": "CNAME",
       "host": "email",
       "pointsTo": "email.secureserver.net",
       "ttl": 3600
     },
     {
+      "groupId": "service",
       "protocol": "_tcp",
       "name": "@",
       "weight": 0,
@@ -46,7 +51,7 @@
       "ttl": 3600
     },
     {
-      "groupId": "txt",
+      "groupId": "verification",
       "type": "TXT",
       "host": "@",
       "data": "%txtValue%",
