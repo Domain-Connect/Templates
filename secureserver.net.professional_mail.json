@@ -3,11 +3,12 @@
   "providerName": "SecureServer",
   "serviceId": "professional_mail",
   "serviceName": "Professional Mail",
-  "version": 1,
+  "version": 2,
   "description": "Enables a domain to work with Whitelabel Professional Mail",
   "shared": true,
   "sharedProviderName": true,
-  "variableDescription": "",
+  "variableDescription": "txtValue - txt record data value",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
   "records": [
     {
       "type": "MX",
@@ -43,6 +44,13 @@
       "service": "_autodiscover",
       "type": "SRV",
       "port": 443,
+      "ttl": 3600
+    },
+    {
+      "groupId": "txt",
+      "type": "TXT",
+      "host": "@",
+      "data": "%txtValue%",
       "ttl": 3600
     }
   ]
