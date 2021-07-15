@@ -2,7 +2,7 @@
    "providerId":"aweber.com",
    "providerName":"AWeber",
    "serviceId":"web-subdomain",
-   "serviceName":"AWeber Email Authentication and Landing Pages for Subdomains",
+   "serviceName":"AWeber Landing Pages for Subdomains",
    "version": 1,
    "syncRedirectDomain": "aweber.com, optin.com",
    "syncPubKeyDomain": "optin.com",
