@@ -3,12 +3,14 @@
   "providerName": "GoDaddy",
   "serviceId": "professional_mail",
   "serviceName": "Professional Mail",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2020/02/godaddy_logo_new.png",
   "description": "Enables a domain to work with GoDaddy Professional Mail",
-  "variableDescription": "",
+  "variableDescription": "txtValue - txt record data value",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
   "records": [
     {
+      "groupId": "service",
       "type": "MX",
       "host": "@",
       "pointsTo": "smtp.secureserver.net",
@@ -16,6 +18,7 @@
       "ttl": 3600
     },
     {
+      "groupId": "service",
       "type": "MX",
       "host": "@",
       "pointsTo": "mailstore1.secureserver.net",
@@ -23,17 +26,20 @@
       "ttl": 3600
     },
     {
+      "groupId": "service",
       "type": "SPFM",
       "host": "@",
       "spfRules": "include:secureserver.net"
     },
     {
+      "groupId": "service",
       "type": "CNAME",
       "host": "email",
       "pointsTo": "email.secureserver.net",
       "ttl": 3600
     },
     {
+      "groupId": "service",
       "protocol": "_tcp",
       "name": "@",
       "weight": 0,
@@ -42,6 +48,13 @@
       "service": "_autodiscover",
       "type": "SRV",
       "port": 443,
+      "ttl": 3600
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "%txtValue%",
       "ttl": 3600
     }
   ]
