@@ -1,0 +1,45 @@
+{
+  "providerId": "bareconnect.com",
+  "providerName": "Bareconnect",
+  "serviceId": "website",
+  "serviceName": "Bareconnect Site",
+  "version": 1,
+  "syncPubKeyDomain": "bareconnect.com",
+  "logoUrl": "https://bareconnect.com/main-site/static/images/logo/bareconnect.png",
+  "description": "Enables a domain to work with Bareconnect",
+  "variableDescription": "verification is the verification code for the site and emailverification is the custom email verification for the site",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "78.141.232.163",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_bareconnect",
+      "data": "%verification%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.forwardemail.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.forwardemail.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%emailverification%",
+      "ttl": 3600
+    }
+  ]
+}
