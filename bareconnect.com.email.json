@@ -1,0 +1,33 @@
+{
+  "providerId": "bareconnect.com",
+  "providerName": "Bareconnect",
+  "serviceId": "email",
+  "serviceName": "Bareconnect Email",
+  "version": 1,
+  "syncPubKeyDomain": "bareconnect.com",
+  "logoUrl": "https://bareconnect.com/main-site/static/images/logo/bareconnect.png",
+  "description": "Enables you to create a professional email",
+  "variableDescription": "emailverification is the verification code for the email service",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.forwardemail.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.forwardemail.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%emailverification%",
+      "ttl": 3600
+    }
+  ]
+}

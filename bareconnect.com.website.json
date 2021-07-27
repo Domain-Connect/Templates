@@ -1,0 +1,31 @@
+{
+  "providerId": "bareconnect.com",
+  "providerName": "Bareconnect",
+  "serviceId": "website",
+  "serviceName": "Bareconnect Site",
+  "version": 1,
+  "syncPubKeyDomain": "bareconnect.com",
+  "logoUrl": "https://bareconnect.com/main-site/static/images/logo/bareconnect.png",
+  "description": "Enables a domain to work with Bareconnect",
+  "variableDescription": "bareconnectdomain is the generated bareconnect domain and verification is the verification code for the site",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "78.141.232.163",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%bareconnectdomain%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_bareconnect",
+      "data": "%verification%",
+      "ttl": 3600
+    }
+  ]
+}
