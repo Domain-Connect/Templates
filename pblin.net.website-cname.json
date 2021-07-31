@@ -16,7 +16,7 @@
         },
         {
             "type": "SPFM",
-            "host": "@",
+            "host": "%domain%",
             "spfRules": "include:_spf.pblin.net",
             "ttl": 86400
         },
