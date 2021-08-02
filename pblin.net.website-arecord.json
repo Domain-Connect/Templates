@@ -5,6 +5,7 @@
     "serviceName": "Public Internet Website Hosting",
     "version": 1,
     "syncPubKeyDomain": "pblin.net",
+    "syncRedirectDomain": "public-internet.co.uk,pblin.net",
     "logoUrl": "https://www.public-internet.co.uk/images/site-logo-2020.svg",
     "description": "Enables a domain to work with Public Internet website hosting where apexrecord is not supported",
     "records": [{
