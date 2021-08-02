@@ -13,7 +13,8 @@
       "pointsTo": "mx01.mail.pblin.net",
       "priority": 10,
       "ttl": 86400
-    } {
+    },
+    {
       "type": "MX",
       "host": "@",
       "pointsTo": "mx02.mail.pblin.net",
