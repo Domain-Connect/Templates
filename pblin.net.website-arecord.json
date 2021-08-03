@@ -1,0 +1,54 @@
+{
+    "providerId": "pblin.net",
+    "providerName": "Public Internet",
+    "serviceId": "website-arecord",
+    "serviceName": "Public Internet Website Hosting",
+    "version": 1,
+    "syncPubKeyDomain": "pblin.net",
+    "syncRedirectDomain": "public-internet.co.uk,pblin.net",
+    "logoUrl": "https://www.public-internet.co.uk/images/site-logo-2020.svg",
+    "description": "Enables a domain to work with Public Internet website hosting where apexrecord is not supported",
+    "records": [{
+            "type": "A",
+            "host": "@",
+            "pointsTo": "80.82.244.101",
+            "ttl": 86400
+        },
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "80.82.244.102",
+            "ttl": 86400
+        },
+        {
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "2a01:248:c400::101",
+            "ttl": 86400
+        },
+        {
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "2a01:248:c400::102",
+            "ttl": 86400
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:_spf.pblin.net",
+            "ttl": 86400
+        },
+        {
+            "type": "CNAME",
+            "host": "pblin1._domainkey",
+            "pointsTo": "pblin1.dkim.mail.pblin.net",
+            "ttl": 86400
+        },
+        {
+            "type": "CNAME",
+            "host": "pblin2._domainkey",
+            "pointsTo": "pblin2.dkim.mail.pblin.net",
+            "ttl": 86400
+        }
+    ]
+}
