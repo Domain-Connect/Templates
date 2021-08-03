@@ -1,7 +1,7 @@
 {
     "providerId": "pblin.net",
     "providerName": "Public Internet",
-    "serviceId": "website-cname",
+    "serviceId": "website-arecord",
     "serviceName": "Public Internet Website Hosting",
     "version": 1,
     "syncPubKeyDomain": "pblin.net",
