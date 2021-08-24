@@ -13,18 +13,19 @@
       "type": "MX",
       "host": "@",
       "pointsTo": "mx.sendgrid.net.",
+      "priority": 20,
       "ttl": 1800
     },
     {
       "type": "TXT",
       "host": "@",
-      "pointsTo": "%SPF%",
+      "data": "%SPF%",
       "ttl": 1800
     },
     {
       "type": "TXT",
       "host": "%SUBDOMAIN_DKIM%.%domain%.",
-      "pointsTo": "%DKIM%",
+      "data": "%DKIM%",
       "ttl": 1800
     }
   ]
