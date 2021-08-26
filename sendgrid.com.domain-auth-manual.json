@@ -19,7 +19,7 @@
     {
       "type": "TXT",
       "host": "@",
-      "data": "%SPF%",
+      "data": "%DATA%",
       "ttl": 1800
     },
     {
