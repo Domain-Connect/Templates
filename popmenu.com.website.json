@@ -2,9 +2,9 @@
     "providerId": "popmenu.com",
     "providerName": "Popmenu",
     "serviceId": "website",
-    "serviceName": "Popmenu Site",
+    "serviceName": "Popmenu Web Hosting",
     "version": 1,
-    "logoUrl": "https://assets.website-files.com/5a6f337e3f25150001fa6f4a/5e9de1c910cbe8186fd1f492_Popmenu-Logo-2020.svg",
+    "logoUrl": "https://popmenucloud.com/assets/popmenu.png",
     "description": "Enables a domain to work with Popmenu",
     "syncRedirectDomain": "my.popmenu.com",
     "records": [
