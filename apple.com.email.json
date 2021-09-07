@@ -44,7 +44,6 @@
          "type":"CNAME",
          "host":"%dkim_host%",
          "pointsTo":"%dkim_data%",
-         "priority":10,
          "ttl":3600
       }
    ]
