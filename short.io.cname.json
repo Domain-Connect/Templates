@@ -1,7 +1,7 @@
 {
    "providerId":"short.io",
    "providerName":"Short.io",
-   "serviceId":"arecord",
+   "serviceId":"cname",
    "serviceName":"White label link shortener",
    "version": 2,
    "logoUrl":"",
