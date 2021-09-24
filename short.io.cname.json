@@ -5,9 +5,10 @@
    "serviceName":"White label link shortener",
    "version": 2,
    "logoUrl":"",
-   "description":"Configure ip address for the domain A record.",
+   "description":"Configure ip address for the domain CNAME record.",
    "syncBlock":false,
-   "syncPubKeyDomain": "pubkey.short.io",
+   "hostRequired":true,
+   "syncPubKeyDomain":"pubkey.short.io",
    "records":[
       {
          "type":"CNAME",
