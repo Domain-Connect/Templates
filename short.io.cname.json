@@ -1,0 +1,19 @@
+{
+   "providerId":"short.io",
+   "providerName":"Short.io",
+   "serviceId":"arecord",
+   "serviceName":"White label link shortener",
+   "version": 2,
+   "logoUrl":"",
+   "description":"Configure ip address for the domain A record.",
+   "syncBlock":false,
+   "syncPubKeyDomain": "pubkey.short.io",
+   "records":[
+      {
+         "type":"CNAME",
+         "host":"@",
+         "pointsTo":"%cname%",
+         "ttl":3600
+      }
+   ]
+}
