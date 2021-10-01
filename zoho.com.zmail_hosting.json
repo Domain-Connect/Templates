@@ -53,6 +53,13 @@
         "host": "%dkim_host%._domainkey",
         "data": "%dkim_data%",
         "ttl": 3600
+    },
+    {
+        "groupId":"zoho-dmarc",
+        "type": "TXT",
+        "host": "_dmarc",
+        "data": "%dmarc_data%",
+        "ttl": 3600
     }
     ]
 }
