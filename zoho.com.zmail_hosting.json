@@ -59,6 +59,8 @@
         "type": "TXT",
         "host": "_dmarc",
         "data": "%dmarc_data%",
+        "txtConflictMatchingMode":"All",
+        "essential":"OnApply",
         "ttl": 3600
     }
     ]
