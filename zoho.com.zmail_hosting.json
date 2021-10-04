@@ -8,7 +8,7 @@
     "variableDescription": "",
     "syncBlock": true,
     "hostRequired": false,
-    "version": 1,
+    "version": 2,
     "records": [
     {
         "groupId":"zoho-verification",
