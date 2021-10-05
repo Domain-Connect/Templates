@@ -1,0 +1,27 @@
+{
+  "providerId": "godaddy.com",
+  "providerName": "GoDaddy",
+  "serviceId": "waf",
+  "serviceName": "Web Application Firewall",
+  "version": 2,
+  "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2020/02/godaddy_logo_new.png",
+  "description": "Enables web application firewall for GoDaddy protection product.",
+  "variableDescription": "ip is the IP address of the WAF.",
+  "syncPubKeyDomain": "sucuri.net",
+  "shared": true,
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}
