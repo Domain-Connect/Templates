@@ -1,0 +1,31 @@
+
+ {
+     "providerId": "popmenu.com",
+     "providerName": "Popmenu",
+     "serviceId": "website",
+     "serviceName": "Popmenu Web Hosting",
+     "version": 1,
+     "logoUrl": "https://popmenucloud.com/assets/popmenu.png",
+     "description": "Enables a domain to work with Popmenu",
+     "syncRedirectDomain": "my.popmenu.com",
+     "records": [
+       {
+         "type": "A",
+         "host": "@",
+         "pointsTo": "104.19.152.75",
+         "ttl": 3600
+       },
+       {
+         "type": "A",
+         "host": "@",
+         "pointsTo": "104.19.153.75",
+         "ttl": 3600
+       },
+       {
+         "type": "CNAME",
+         "host": "www",
+         "pointsTo": "ssl.popmenu.com",
+         "ttl": 3600
+       }      
+     ]
+   }
