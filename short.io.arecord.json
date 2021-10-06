@@ -1,0 +1,25 @@
+{
+   "providerId":"short.io",
+   "providerName":"Short.io",
+   "serviceId":"arecord",
+   "serviceName":"White label link shortener",
+   "version": 2,
+   "logoUrl":"",
+   "description":"Configure ip address for the domain A record.",
+   "syncBlock":false,
+   "syncPubKeyDomain": "pubkey.short.io",
+   "records":[
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%ip%",
+         "ttl":3600
+      },
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%fallbackip%",
+         "ttl":3600
+      }
+   ]
+}

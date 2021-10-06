@@ -8,7 +8,7 @@
     "variableDescription": "",
     "syncBlock": true,
     "hostRequired": false,
-    "version": 1,
+    "version": 2,
     "records": [
     {
         "groupId":"zoho-verification",
@@ -52,6 +52,15 @@
         "type": "TXT",
         "host": "%dkim_host%._domainkey",
         "data": "%dkim_data%",
+        "ttl": 3600
+    },
+    {
+        "groupId":"zoho-dmarc",
+        "type": "TXT",
+        "host": "_dmarc",
+        "data": "%dmarc_data%",
+        "txtConflictMatchingMode":"All",
+        "essential":"OnApply",
         "ttl": 3600
     }
     ]
