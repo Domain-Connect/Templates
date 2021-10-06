@@ -21,21 +21,21 @@
          "groupId": "email-aweber",
          "type": "CNAME",
          "host":"aweber_key_a._domainkey",
-         "pointsTo": "aweber_key_a.send.aweber.com",
+         "pointsTo": "aweber_key_a.send.aweber.com.",
          "ttl": 3600
        },
        {
          "groupId": "email-aweber",
          "type": "CNAME",
          "host": "aweber_key_b._domainkey",
-         "pointsTo": "aweber_key_b.send.aweber.com",
+         "pointsTo": "aweber_key_b.send.aweber.com.",
          "ttl": 3600
        },
        {
          "groupId": "email-aweber",
          "type": "CNAME",
          "host": "aweber_key_c._domainkey",
-         "pointsTo": "aweber_key_c.send.aweber.com",
+         "pointsTo": "aweber_key_c.send.aweber.com.",
          "ttl": 3600
        },
        {
@@ -49,21 +49,21 @@
          "groupId": "email-optin",
          "type": "CNAME",
          "host":"k1._domainkey",
-         "pointsTo": "k1.optin.com",
+         "pointsTo": "k1.optin.com.",
          "ttl": 3600
        },
        {
          "groupId": "email-optin",
          "type": "CNAME",
          "host": "k2._domainkey",
-         "pointsTo": "k2.optin.com",
+         "pointsTo": "k2.optin.com.",
          "ttl": 3600
        },
        {
          "groupId": "email-optin",
          "type": "CNAME",
          "host": "k3._domainkey",
-         "pointsTo": "k3.optin.com",
+         "pointsTo": "k3.optin.com.",
          "ttl": 3600
        },
        {
@@ -77,7 +77,7 @@
          "groupId": "web",
          "type": "CNAME",
          "host": "www",
-         "pointsTo": "hosted-content.aweber.com",
+         "pointsTo": "hosted-content.aweber.com.",
          "ttl": 3600
        }
    ]

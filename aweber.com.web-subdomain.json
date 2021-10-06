@@ -14,7 +14,7 @@
          "groupId": "web-subdomain",
          "type": "CNAME",
          "host": "@",
-         "pointsTo": "hosted-content.aweber.com",
+         "pointsTo": "hosted-content.aweber.com.",
          "ttl": 3600
        }
    ]
