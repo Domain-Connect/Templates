@@ -4,6 +4,7 @@
    "serviceId":"website",
    "serviceName":"Gearlaunch Site",
    "version": 1,
+   "warnPhishing": true,
    "description":"Enables a domain to work with Gearlaunch",
    "variableDescription":"v1 is the Gearlaunch hosted domain name on cloudfront and ssl_verification is the ssl verification to validate the certificate",
    "records":[  
