@@ -1,0 +1,24 @@
+{  
+   "providerId":"gearlaunch.com",
+   "providerName":"gearlaunch",
+   "serviceId":"website",
+   "serviceName":"Gearlaunch Site",
+   "version": 1,
+   "warnPhishing": true,
+   "description":"Enables a domain to work with Gearlaunch",
+   "variableDescription":"v1 is the Gearlaunch hosted domain name on cloudfront and ssl_verification is the ssl verification to validate the certificate",
+   "records":[  
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"%v1%",
+         "ttl":3600
+      },
+      {  
+         "type":"CNAME",
+         "host":"%ssl_name_verification%",
+         "pointsTo":"%ssl_value_verification%",
+         "ttl":3600
+      }
+   ]
+}
