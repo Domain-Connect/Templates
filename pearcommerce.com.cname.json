@@ -15,7 +15,7 @@
          "type":"CNAME",
          "host":"@",
          "pointsTo":"%cname%.pearcommerce.com",
-         "ttl":3600
+         "ttl":60
       }
    ]
 }
