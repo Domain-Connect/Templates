@@ -9,6 +9,7 @@
    "syncBlock":false,
    "syncPubKeyDomain": "pearcommerce.com",
    "hostRequired": true,
+   "syncRedirectDomain": "admin.pearcommerce.com",
    "records":[
       {
          "type":"CNAME",
