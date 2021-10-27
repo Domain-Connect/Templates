@@ -7,7 +7,7 @@
    "logoUrl":"",
    "description":"This is a template to enable iCloud Custom Email Domain",
    "syncPubKeyDomain": "icloudmailadmin.com",
-   "multiInstance": true,
+   "syncRedirectDomain": "icloud.com",
    "records":[
       {
          "groupId":"icloud-verification",
