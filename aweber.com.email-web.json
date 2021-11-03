@@ -2,13 +2,12 @@
    "providerId":"aweber.com",
    "providerName":"AWeber",
    "serviceId":"email-web",
-   "serviceName":"AWeber Email Authentication and Landing Pages",
+   "serviceName":"Email Authentication and Landing Pages",
    "version": 2,
    "syncRedirectDomain": "aweber.com, optin.com",
    "syncPubKeyDomain": "optin.com",
    "logoUrl":"https://assets.aweber-static.com/page-templates/assets/img/powered_by.png",
    "description":"Configure AWeber's DKIM records to improve sender reputation and deliverability. Connect AWeber landing pages to your domain",
-   "variableDescription":"account-subdomain refers to an AWeber account subdomain.",
    "records":[
       {
          "groupId": "email-aweber",
