@@ -1,0 +1,32 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "the-com",
+  "serviceName": "The.com",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com",
+  "variableDescription": "v1 is the customer hosted domain name, sslNameVerification and sslValueVerification are to validate the certificate.",
+  "hostRequired": true,
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%v1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sslNameVerification%",
+      "pointsTo": "%sslValueVerification%",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "target": "%target%"
+    }
+  ]
+}
