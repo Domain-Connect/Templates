@@ -73,7 +73,7 @@
     },
     {
       "type": "CNAME",
-      "host": "zendepsk4.support",
+      "host": "zendesk4.support",
       "pointsTo": "mail4.zendesk.com.",
       "ttl": 3600
     },
