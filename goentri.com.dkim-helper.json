@@ -13,7 +13,7 @@
   "records": [
     {
       "type": "TXT",
-      "host": "%dkimHost%",
+      "host": "%dkimHost%._domainkey",
       "data": "%dkimValue%",
       "ttl": 14400
     }
