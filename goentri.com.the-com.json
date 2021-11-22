@@ -8,25 +8,25 @@
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com",
-  "variableDescription": "v1 is the customer hosted domain name, sslNameVerification and sslValueVerification are to validate the certificate.",
-  "hostRequired": true,
+  "variableDescription": "webSiteHost is the customer website host, webSitePointsTo is the customer hosted domain name, sslNameVerification and sslValueVerification are to validate the certificate.",
   "sharedProviderName": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "@",
-      "pointsTo": "%v1%",
+      "host": "%webSiteHost%",
+      "pointsTo": "%webSitePointsTo%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "%sslNameVerification%",
+      "host": "%sslNameVerification%.%webSiteHost%",
       "pointsTo": "%sslValueVerification%",
       "ttl": 3600
     },
     {
       "type": "REDIR301",
-      "target": "%target%"
+      "target": "%target%",
+      "host": "@"
     }
   ]
 }
