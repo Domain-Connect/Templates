@@ -1,0 +1,53 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "crisp-email",
+  "serviceName": "Crisp",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com",
+  "variableDescription": "txt is the text domain verification.",
+  "hostRequired": true,
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_crisp",
+      "data": "%txt%",
+      "ttl": 14400
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound.crisp.email.",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 redirect=_spf.crisp.email",
+      "ttl": 14400
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "_dmarc.crisp.email.",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "crisp._domainkey",
+      "pointsTo": "crisp._domainkey.crisp.email.",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "links",
+      "pointsTo": "links.custom.crisp.email.",
+      "ttl": 3600
+    }
+  ]
+}
