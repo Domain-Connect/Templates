@@ -26,10 +26,9 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "v=spf1 redirect=_spf.crisp.email",
-      "ttl": 14400
+      "spfRules": "redirect=_spf.crisp.email"
     },
     {
       "type": "CNAME",
