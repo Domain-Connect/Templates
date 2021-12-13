@@ -32,7 +32,7 @@
     {
       "type": "CNAME",
       "host": "s1._domainkey.support",
-      "pointsTo": "u10250786.wl037.sendgrid.net.",
+      "pointsTo": "s1._domainkey.u10250786.wl037.sendgrid.net.",
       "ttl": 3600
     },
     {
