@@ -1,0 +1,22 @@
+{
+   "providerId":"getflywheel.com",
+   "providerName":"Flywheel",
+   "serviceId":"cname",
+   "serviceName":"Managed WordPress Hosting",
+   "version": 1,
+   "logoUrl":"https://www.domainconnect.org/wp-content/uploads/2021/06/flywheel-logo.png",
+   "description":"Configure target domain for CNAME record.",
+   "variableDescription":"site is the primary domain for a Flywheel managed site",
+   "syncBlock":false,
+   "syncPubKeyDomain":"domainconnect.getflywheel.com",
+   "syncRedirectDomain":"getflywheel.com,staging.getflywheel.com,flywheel.localhost",
+   "hostRequired": true,
+   "records":[
+      {
+         "type":"CNAME",
+         "host":"@",
+         "pointsTo":"%site%",
+         "ttl":3600
+      }
+   ]
+}
