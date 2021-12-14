@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "fourthwall",
   "serviceName": "Fourthwall",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -32,7 +32,7 @@
     {
       "type": "CNAME",
       "host": "s1._domainkey.support",
-      "pointsTo": "u10250786.wl037.sendgrid.net.",
+      "pointsTo": "s1._domainkey.u10250786.wl037.sendgrid.net.",
       "ttl": 3600
     },
     {
