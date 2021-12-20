@@ -1,0 +1,18 @@
+{
+    "providerId": "Zenfolio",
+    "providerName": "Zenfolio Custom Subdomain-only Web Hosting",
+    "serviceId": "CustomSubDomain",
+    "serviceName": "Zenfolio Custom Subdomain-only Web Hosting",
+    "version": 2021111901,
+    "logoUrl": "https://zenfolio.com/resources/zenfolio-logo.gif",
+    "description": "This template is used for photographers to set up their custom subdomain to work with Zenfolio for web-hosting (only)",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%host%",
+            "pointsTo": "custom.zenfoliosite.com",
+            "ttl": "3600"
+        }
+    ]
+}
