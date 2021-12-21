@@ -3,7 +3,7 @@
     "providerName": "Zenfolio Custom Domain Web Hosting",
     "serviceId": "CustomDomain",
     "serviceName": "Zenfolio Custom Domain Web Hosting",
-    "version": 2021111901,
+    "version": 2021122101,
     "logoUrl": "https://zenfolio.com/resources/zenfolio-logo.gif",
     "description": "This template is used for photographers to set up their custom domain to work with Zenfolio for web-hosting (only)",
     "records": [
