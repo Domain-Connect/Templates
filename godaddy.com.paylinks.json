@@ -10,7 +10,7 @@
     {
       "pointsTo": "%payLinksHost%",
       "type": "CNAME",
-      "host": "@",
+      "host": "%subdomain%",
       "ttl": 3600
     }
   ]
