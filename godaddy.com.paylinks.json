@@ -1,0 +1,17 @@
+{
+  "providerId": "godaddy.com",
+  "providerName": "GoDaddy",
+  "serviceId": "paylinks",
+  "serviceName": "Pay Links",
+  "version": 1,
+  "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2020/02/godaddy_logo_new.png",
+  "description": "Enables a domain to work with GoDaddy Pay Links",
+  "records": [
+    {
+      "pointsTo": "%payLinksHost%",
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "ttl": 3600
+    }
+  ]
+}
