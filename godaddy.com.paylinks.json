@@ -8,9 +8,9 @@
   "description": "Enables a domain to work with GoDaddy Pay Links",
   "records": [
     {
-      "pointsTo": "paylinks.commerce.godaddy.com.",
+      "pointsTo": "%payLinksHost%",
       "type": "CNAME",
-      "host": "pay",
+      "host": "@",
       "ttl": 3600
     }
   ]
