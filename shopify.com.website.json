@@ -3,7 +3,7 @@
    "providerName":"Shopify",
    "serviceId":"website",
    "serviceName":"Shopify Site",
-   "version": 2,
+   "version": 3,
    "syncPubKeyDomain" : "shopify.com",
    "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/08/shopify.png",
    "description":"Enables a domain to work with Shopify",
@@ -12,7 +12,7 @@
       {  
          "type":"A",
          "host":"@",
-         "pointsTo":"23.227.38.32",
+         "pointsTo":"23.227.38.65",
          "ttl":3600
       },
       {
