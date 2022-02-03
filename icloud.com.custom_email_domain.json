@@ -3,7 +3,7 @@
    "providerName":"iCloud",
    "serviceId":"custom_email_domain",
    "serviceName":"Custom Email Domain",
-   "version": 1,
+   "version": 2,
    "logoUrl":"",
    "description":"This is a template to enable iCloud Custom Email Domain",
    "syncPubKeyDomain": "icloudmailadmin.com",
@@ -18,10 +18,9 @@
       },
       {
          "groupId":"icloud-spf",
-         "type":"TXT",
+         "type":"SPFM",
          "host":"@",
-         "data":"%spf_data%",
-         "ttl":3600
+         "spfRules":"%spfm_data%"
       },
       {
          "groupId":"icloud-mx1",
