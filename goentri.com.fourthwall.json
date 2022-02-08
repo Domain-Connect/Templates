@@ -8,104 +8,19 @@
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com",
-  "variableDescription": "ip is the website server ip, zendeskverification is the text verification value for zendesk, sendgridHost is sendgrid dynamic host.",
+  "variableDescription": "ip is the website server ip, fourthwallHost is the fourthwall host name to be added",
   "sharedProviderName": true,
   "records": [
     {
       "type": "A",
-      "host": "@",
+      "host": "%fourthwallHost%",
       "pointsTo": "%ip%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "www",
-      "pointsTo": "@",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "%sendgridHost%.support",
-      "pointsTo": "u10250786.wl037.sendgrid.net.",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "s1._domainkey.support",
-      "pointsTo": "s1.domainkey.u10250786.wl037.sendgrid.net.",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "s2._domainkey.support",
-      "pointsTo": "s2.domainkey.u10250786.wl037.sendgrid.net.",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "zendesk1._domainkey.support",
-      "pointsTo": "zendesk1._domainkey.zendesk.com.",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "zendesk2._domainkey.support",
-      "pointsTo": "zendesk2._domainkey.zendesk.com.",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "zendesk1.support",
-      "pointsTo": "mail1.zendesk.com.",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "zendesk2.support",
-      "pointsTo": "mail2.zendesk.com.",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "zendesk3.support",
-      "pointsTo": "mail3.zendesk.com.",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "zendesk4.support",
-      "pointsTo": "mail4.zendesk.com.",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "zendeskverification.support",
-      "data": "%zendeskverification%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "_dmarc.support",
-      "data": "v=DMARC1; p=reject; pct=100; rua=mailto:dmarc@fourthwall.com",
-      "ttl": 3600
-    },
-    {
-      "type": "SPFM",
-      "host": "support",
-      "spfRules": "include:_spf.google.com include:mail.zendesk.com include:spf.improvmx.com include:sendgrid.net"
-    },
-    {
-      "type": "MX",
-      "host": "support",
-      "pointsTo": "mx1.improvmx.com.",
-      "priority": 10,
-      "ttl": 3600
-    },
-    {
-      "type": "MX",
-      "host": "support",
-      "pointsTo": "mx2.improvmx.com.",
-      "priority": 10,
+      "host": "%redirectValue%",
+      "pointsTo": "%fourthwallHost%",
       "ttl": 3600
     }
   ]
