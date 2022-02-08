@@ -12,7 +12,7 @@
   "sharedServiceName": false,
   "syncPubKeyDomain": "helpdesk.com",
   "syncRedirectDomain": "app.helpdesk.com,app.labs.helpdesk.com",
-  "multiInstance": true,
+  "multiInstance": false,
   "records": [
     {
       "type": "CNAME",
