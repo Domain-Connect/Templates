@@ -1,0 +1,39 @@
+{
+  "providerId": "helpdesk.com",
+  "providerName": "HelpDesk",
+  "serviceId": "custom-domain",
+  "serviceName": "HelpDesk custom domain setup",
+  "version": 1,
+  "logoUrl": "https://helpdesk.design/images/helpdesk/DIGITAL%20%28RGB%29/PNG/Logo_RGB_Green.png",
+  "description": "Verifies domain ownership and adds records to allow using the domain in HelpDesk",
+  "variableDescription": "helpdeskId: customer's ID in HelpDesk; dkimKeyName: DKIM key name; dkimKeyValue: DKIM key value",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "syncPubKeyDomain": "helpdesk.com",
+  "syncRedirectDomain": "app.helpdesk.com,app.labs.helpdesk.com",
+  "multiInstance": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "ownershipVerification",
+      "host": "hd-%helpdeskId%",
+      "pointsTo": "helpdesk.com",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "emailAuth",
+      "host": "pm-bounces",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": "3600"
+    },
+    {
+      "type": "TXT",
+      "groupId": "emailAuth",
+      "host": "%dkimKeyName%._domainkey",
+      "data": "%dkimKeyValue%",
+      "ttl": "3600"
+    }
+  ]
+}
