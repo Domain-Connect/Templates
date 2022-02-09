@@ -1,0 +1,49 @@
+{
+   "providerId":"icloud.com",
+   "providerName":"iCloud",
+   "serviceId":"custom_email_domain",
+   "serviceName":"Custom Email Domain",
+   "version": 2,
+   "logoUrl":"",
+   "description":"This is a template to enable iCloud Custom Email Domain",
+   "syncPubKeyDomain": "icloudmailadmin.com",
+   "syncRedirectDomain": "icloud.com",
+   "records":[
+      {
+         "groupId":"icloud-verification",
+         "type":"TXT",
+         "host":"@",
+         "data":"%icloud_token%",
+         "ttl":3600
+      },
+      {
+         "groupId":"icloud-spf",
+         "type":"SPFM",
+         "host":"@",
+         "spfRules":"%spfm_data%"
+      },
+      {
+         "groupId":"icloud-mx1",
+         "type":"MX",
+         "host":"@",
+         "pointsTo":"%mx1_data%",
+         "priority":10,
+         "ttl":3600
+      },
+      {
+         "groupId":"icloud-mx2",
+         "type":"MX",
+         "host":"@",
+         "pointsTo":"%mx2_data%",
+         "priority":10,
+         "ttl":3600
+      },
+      {
+         "groupId":"icloud-dkim-cname",
+         "type":"CNAME",
+         "host":"%dkim_host%",
+         "pointsTo":"%dkim_data%",
+         "ttl":3600
+      }
+   ]
+}
