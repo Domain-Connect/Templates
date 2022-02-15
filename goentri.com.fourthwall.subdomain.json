@@ -1,7 +1,7 @@
 {
   "providerId": "goentri.com",
   "providerName": "Entri",
-  "serviceId": "fourthwall",
+  "serviceId": "fourthwall.subdomain",
   "serviceName": "Fourthwall",
   "version": 3,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
@@ -10,17 +10,12 @@
   "syncRedirectDomain": "api.goentri.com, goentri.com",
   "variableDescription": "ip is the website server ip, zendeskverification is the text verification value for zendesk, sendgridHost is sendgrid dynamic host.",
   "sharedProviderName": true,
+  "hostRequired": true,
   "records": [
     {
       "type": "A",
       "host": "@",
       "pointsTo": "%ip%",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "www",
-      "pointsTo": "@",
       "ttl": 3600
     },
     {
