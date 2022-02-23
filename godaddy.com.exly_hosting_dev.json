@@ -1,0 +1,27 @@
+{
+    "providerId": "godaddy.com",
+    "providerName": "GoDaddy",
+    "serviceId": "exly",
+    "serviceName": "exly",
+    "version": 1,
+    "logoUrl": "https://myscoot-images.s3.ap-south-1.amazonaws.com/misc/exly_icon.png",
+    "description": "Enables a domain to work with GoDaddy Exly",
+    "variableDescription": "%exlyHost% is the IP address of the server.",
+    "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+    "records": [
+      {
+        "pointsTo": "%exlyHost%",
+        "type": "A",
+        "host": "@",
+        "ttl": 3600
+      },
+
+      {
+        "pointsTo": "@",
+        "type": "CNAME",
+        "host": "www",
+        "ttl": 3600
+      }
+    ]
+  }
+  
