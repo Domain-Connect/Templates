@@ -1,0 +1,32 @@
+{
+  "providerId": "nicesite.so",
+  "providerName": "nicesite",
+  "serviceId": "website",
+  "serviceName": "nicesite",
+  "version": 1,
+  "logoUrl": "https://ucarecdn.com/541766e8-3c80-41b2-b3ad-5a3c3da88806/nicesite_logo_circlecrop.png",
+  "description": "Enables web hosting for nicesite domains.",
+  "variableDescription": "The ns1-ns4 variables are nameservers",
+  "records": [
+    {
+      "type": "NS",
+      "pointsTo": "%ns1%",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "pointsTo": "%ns2%",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "pointsTo": "%ns3%",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "pointsTo": "%ns4%",
+      "ttl": 3600
+    }
+  ]
+}
