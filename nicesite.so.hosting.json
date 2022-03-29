@@ -11,13 +11,13 @@
       "type":"A",
       "host":"@",
       "pointsTo":"75.2.60.5",
-      "ttl": 60
+      "ttl": 300
     },
     {
       "type":"CNAME",
       "host":"www",
       "pointsTo": "@",
-      "ttl": 60
+      "ttl": 300
     }
   ]
 }
