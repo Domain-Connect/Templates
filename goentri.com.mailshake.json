@@ -19,7 +19,7 @@
     },
     {
       "type": "SPFM",
-      "host": "@",
+      "host": "spf",
       "spfRules": "include:%thirdPartyDomain%"
     }
   ]
