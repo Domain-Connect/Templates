@@ -1,0 +1,34 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "duda",
+    "serviceName": "Duda",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com,entri.com",
+    "variableDescription": "webSiteHost is the customer website host",
+    "sharedProviderName": true,
+    "hostRequired": true,
+    "records": [
+      {
+        "type": "CNAME",
+        "host": "%webSiteHost%",
+        "pointsTo": "s.multiscreensite.com",
+        "ttl": 3600
+      },
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "100.24.208.97",
+        "ttl": 3600
+      },
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "35.172.94.1",
+        "ttl": 3600
+      }
+    ]
+  }
