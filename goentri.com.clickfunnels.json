@@ -15,7 +15,7 @@
       {
         "type": "TXT",
         "host": "%domain%",
-        "pointsTo": "clickfunnels-domain-verification=%verificationValue%",
+        "data": "clickfunnels-domain-verification=%verificationValue%",
         "ttl": 3600
       },
       {
@@ -27,7 +27,7 @@
       {
         "type": "TXT",
         "host": "%websiteId%._domainkey",
-        "pointsTo": "%keyValue%",
+        "data": "%keyValue%",
         "ttl": 3600
       }
     ]
