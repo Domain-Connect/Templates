@@ -8,7 +8,7 @@
     "description": "Allows user to easily set up domain using Entri",
     "syncPubKeyDomain": "goentri.com",
     "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
-    "variableDescription": "verificationValue is the value that is used to verify domain ownership,clusterValue is the cluster assigned to the domain,domainId is the id of domain, keyValue is the generated key value",
+    "variableDescription": "verificationValue is the value that is used to verify domain ownership,clusterValue is the cluster assigned to the domain,websiteId is the id of website, keyValue is the generated key value",
     "sharedProviderName": true,
     "hostRequired":true,
     "records": [
@@ -21,7 +21,7 @@
       {
         "type": "CNAME",
         "host": "@",
-        "pointsTo": "%clusterValue",
+        "pointsTo": "%clusterValue%",
         "ttl": 3600
       },
       {
