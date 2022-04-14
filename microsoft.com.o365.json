@@ -13,12 +13,12 @@
   "syncPubKeyDomain": "portal.office.com",
   "syncRedirectDomain": "",
   "records": [
-    { 
-      "groupId": "Login", 
-      "type": "CNAME", 
-      "host": "email", 
-      "pointsTo": "%LOGINHOST%", 
-      "ttl": 3600 
+    {
+      "groupId": "Login",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "%LOGINHOST%",
+      "ttl": 3600
     },
     {
       "groupId": "Outlook",
@@ -105,6 +105,20 @@
       "type": "TXT",
       "host": "@",
       "data": "%VERIFYTXT%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "DKIM",
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%DKIMSEL1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "DKIM",
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%DKIMSEL2%",
       "ttl": 3600
     }
   ]
