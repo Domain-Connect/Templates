@@ -11,7 +11,7 @@
     "sharedProviderName": true,
     "records": [
       {
-        "type": "CNAME",
+        "type": "TXT",
         "host": "entri",
         "data": "entri-sample-txt-record",
         "ttl": 3600
