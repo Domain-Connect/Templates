@@ -3,7 +3,7 @@
   "providerName": "nicesite",
   "serviceId": "hosting",
   "serviceName": "nicesite",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://ucarecdn.com/541766e8-3c80-41b2-b3ad-5a3c3da88806/nicesite_logo_circlecrop.png",
   "description": "Enables custom domain connection for hosting nicesite websites.",
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
