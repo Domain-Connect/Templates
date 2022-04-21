@@ -3,10 +3,11 @@
    "providerName":"Beswifty",
    "serviceId":"website",
    "serviceName":"Swifty Site",
-   "version": 4,
+   "version": 1,
    "logoUrl":"https://beswifty.com/wp-content/uploads/2019/12/Swifty-Logo_Tagline.svg",
    "description":"Enables a domain to work with Swifty Sites",
-   "syncRedirectDomain":"*.beswifty.com",
+   "syncRedirectDomain":"manage.beswifty.com,beswifty.com",
+   "warnPhishing":true,
    "records":[
       {
          "type":"CNAME",
