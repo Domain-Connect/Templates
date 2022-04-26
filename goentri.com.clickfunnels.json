@@ -10,11 +10,11 @@
     "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
     "variableDescription": "verificationValue is the value that is used to verify domain ownership,clusterValue is the cluster assigned to the domain,websiteId is the id of website, keyValue is the generated key value",
     "sharedProviderName": true,
-    "hostRequired":true,
+    "hostRequired": true,
     "records": [
       {
         "type": "TXT",
-        "host": "%domain%",
+        "host": "%domain%.",
         "data": "clickfunnels-domain-verification=%verificationValue%",
         "ttl": 3600
       },
