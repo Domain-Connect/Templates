@@ -10,6 +10,7 @@
   "syncRedirectDomain": "api.goentri.com, goentri.com",
   "variableDescription": "ip is the website server ip, zendeskverification is the text verification value for zendesk, sendgridHost is sendgrid dynamic host.",
   "sharedProviderName": true,
+  "hostRequired": true,
   "records": [
     {
       "type": "A",

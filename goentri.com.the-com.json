@@ -10,6 +10,7 @@
   "syncRedirectDomain": "api.goentri.com, goentri.com",
   "variableDescription": "webSiteHost is the customer website host, webSitePointsTo is the customer hosted domain name, sslNameVerification and sslValueVerification are to validate the certificate.",
   "sharedProviderName": true,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
