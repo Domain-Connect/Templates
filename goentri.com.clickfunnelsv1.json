@@ -1,0 +1,25 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "clickfunnelsv1",
+    "serviceName": "ClickFunnels",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
+    "sharedProviderName": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "target.clickfunnels.com",
+            "ttl": 3600
+        },
+        {
+            "type": "REDIR301",
+            "target": "%target%",
+            "host": "@"
+        }
+    ]
+}
