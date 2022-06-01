@@ -8,7 +8,7 @@
    "description":"Enables a domain to work with Swifty Sites",
    "syncRedirectDomain":"manage.beswifty.com,beswifty.com",
    "syncPubKeyDomain":"beswifty.com",
-   "variableDescription": "ip is the IP address of the server",
+   "variableDescription": "IP is the IP address of the server",
   
    "records":[
       {
