@@ -7,6 +7,7 @@
    "logoUrl":"https://elementor.com/marketing/wp-content/uploads/2021/10/Elementor-Logo-Full-Red.png",
    "description":"Enables a domain to work with Elementor",
    "syncPubKeyDomain": "domainconnect.elementor.com",
+   "hostRequired":true,
    "records":[  
       {  
          "type":"A",
@@ -23,7 +24,7 @@
       {  
          "type":"CNAME",
          "host":"www",
-         "pointsTo":"%cname%.elementor.cloud",
+         "pointsTo":"%cname%",
          "ttl":300
       }
    ]
