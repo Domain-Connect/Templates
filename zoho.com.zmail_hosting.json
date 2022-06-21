@@ -6,7 +6,7 @@
     "logoUrl": "https://mailadmin.zoho.com/cpanel/mailimage?filename=zoho-logo.png",
     "description": "This is a template to enable mail hosting with zoho",
     "variableDescription": "",
-    "syncBlock": true,
+    "syncBlock": false,
     "hostRequired": false,
     "version": 3,
     "syncPubKeyDomain": "zoho.com",
