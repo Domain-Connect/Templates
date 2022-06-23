@@ -12,12 +12,14 @@
     "sharedProviderName": true,
     "records": [
         {
+            "groupId": "g1",
             "type": "CNAME",
             "host": "%webSiteHost%",
             "pointsTo": "target.clickfunnels.com",
             "ttl": 3600
         },
         {
+            "groupId": "g2",
             "type": "REDIR301",
             "target": "%target%",
             "host": "@"
