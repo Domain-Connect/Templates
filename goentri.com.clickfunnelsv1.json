@@ -8,15 +8,18 @@
     "description": "Allows user to easily set up domain using Entri",
     "syncPubKeyDomain": "goentri.com",
     "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
+    "variableDescription": "webSiteHost is the customer website host",
     "sharedProviderName": true,
     "records": [
         {
+            "groupId": "a1",
             "type": "CNAME",
-            "host": "www",
+            "host": "%webSiteHost%",
             "pointsTo": "target.clickfunnels.com",
             "ttl": 3600
         },
         {
+            "groupId": "a2",
             "type": "REDIR301",
             "target": "%target%",
             "host": "@"
