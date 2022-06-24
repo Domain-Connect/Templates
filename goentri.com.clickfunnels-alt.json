@@ -33,7 +33,7 @@
     },
     {
       "type": "TXT",
-      "host": "%websiteId%._domainkey",
+      "host": "%websiteId%._domainkey.%websitehost%",
       "data": "%keyValue2%",
       "ttl": 3600
     }
