@@ -9,15 +9,9 @@
    "syncRedirectDomain":"chime.me",
    "records":[
       {
-         "type":"A",
+         "type":"CNAME",
          "host":"@",
-         "pointsTo": "52.52.24.52",
-         "ttl":3600
-      },
-      {
-         "type":"A",
-         "host":"@",
-         "pointsTo": "52.9.101.47",
+         "pointsTo": "site-dns.chime.me",
          "ttl":3600
       },
       {
