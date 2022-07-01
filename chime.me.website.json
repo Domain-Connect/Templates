@@ -6,6 +6,8 @@
    "version": 1,
    "logoUrl":"https://static.chimeroi.com/home_pictures/Chime-Logo.svg",
    "description":"Enables a domain to work with Chime Site",
+   "variableDescription":"HOST is the subdomain for the domain.",
+   "hostRequired": true,
    "syncRedirectDomain":"chime.me",
    "records":[
       {
