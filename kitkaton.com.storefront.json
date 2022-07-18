@@ -8,7 +8,7 @@
    "description":"Enables a custom store domain to work with Kitkaton Storefront",
    "syncRedirectDomain": "kitkaton.com,kitkaton-admin.com,kitkaton.dev",
    "syncPubKeyDomain": "kitkaton.com",
-   "variableDescription":"vfyhost is the verification hostname, vfyv is the amplify verification value to point to, hostname is the subdomain and hostnamev is the amplify value to point to",
+   "variableDescription":"vfyhost is the verification hostname, vfyv is the amplify verification value to point to and hostnamev is the amplify value to point to",
    "records":[
       {
          "type":"CNAME",
@@ -18,7 +18,7 @@
       },
       {
          "type":"CNAME",
-         "host":"%hostname%",
+         "host":"@",
          "pointsTo":"%hostnamev%.cloudfront.net",
          "ttl":3600
       }
