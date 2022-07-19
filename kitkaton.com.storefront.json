@@ -6,6 +6,7 @@
    "version": 1,
    "logoUrl":"https://i.ibb.co/ngJWr5Y/kitkaton.png",
    "description":"Enables a custom store domain to work with Kitkaton Storefront",
+   "hostRequired": true,
    "syncRedirectDomain": "kitkaton.com,kitkaton-admin.com,kitkaton.dev",
    "syncPubKeyDomain": "kitkaton.com",
    "variableDescription":"vfyhost is the verification hostname, vfyv is the amplify verification value to point to and hostnamev is the amplify value to point to",
