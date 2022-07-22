@@ -2,13 +2,14 @@
     "providerId": "zoho.com",
     "providerName": "Zoho",
     "serviceId": "zmail_hosting",
-    "serviceName": "Zoho Mail Hosting",
+    "serviceName": "Zoho",
+    "sharedServiceName": true,
     "logoUrl": "https://mailadmin.zoho.com/cpanel/mailimage?filename=zoho-logo.png",
     "description": "This is a template to enable mail hosting with zoho",
     "variableDescription": "",
     "syncBlock": false,
     "hostRequired": false,
-    "version": 3,
+    "version": 4,
     "syncPubKeyDomain": "zoho.com",
     "records": [
     {
