@@ -1,0 +1,24 @@
+{
+  "providerId": "jerseywatch.com",
+  "providerName": "Jersey Watch",
+  "serviceId": "website",
+  "serviceName": "Jersey Watch Site",
+  "version": 1,
+  "logoUrl": "https://jerseywatch-assets.s3.amazonaws.com/global/jw-logo-uctitle-1row-cropped.png",
+  "description": "Enables a domain to work with Jersey Watch",
+  "variableDescription": "",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "52.21.250.168",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "us-east-1.jerseywatch.com",
+      "ttl": 3600
+    }
+  ]
+}
