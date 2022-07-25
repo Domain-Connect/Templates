@@ -8,6 +8,7 @@
   "description":"Enables a subdomain to work with Website Toolbox.",
   "variableDescription":"host is the subdomain that wants to be used. ie: 'forum' for forum.mydomain.com.",
   "hostRequired": true,
+  "syncRedirectDomain": "websitetoolbox.com, www.websitetoolbox.com, beta.websitetoolbox.com",
   "records":[
     {
       "type":"CNAME",
