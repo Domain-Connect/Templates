@@ -1,0 +1,31 @@
+{  
+   "providerId":"elementor.com",
+   "providerName":"Elementor",
+   "serviceId":"website",
+   "serviceName":"Elementor Website",
+   "version": 1,
+   "logoUrl":"https://elementor.com/marketing/wp-content/uploads/2021/10/Elementor-Logo-Full-Red.png",
+   "description":"Enables a domain to work with Elementor",
+   "variableDescription": "cname is the hostname of the server",
+   "syncPubKeyDomain": "domainconnect.elementor.com",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"162.159.137.9",
+         "ttl":300
+      },
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"162.159.138.9",
+         "ttl":300
+      },
+      {  
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"%cname%",
+         "ttl":300
+      }
+   ]
+}
