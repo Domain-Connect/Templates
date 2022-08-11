@@ -19,7 +19,7 @@
     },
     {
       "type": "CNAME",
-      "host": "websiteHost",
+      "host": "%websiteHost%",
       "pointsTo": "%clusterValue%",
       "ttl": 3600
     },
