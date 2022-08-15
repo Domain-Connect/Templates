@@ -13,7 +13,7 @@
   "records": [
     {
       "type": "TXT",
-      "host": "%domainapex%.",
+      "host": "@",
       "data": "clickfunnels-domain-verification=%verificationValue%",
       "ttl": 3600
     },
