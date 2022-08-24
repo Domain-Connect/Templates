@@ -2,7 +2,7 @@
    "providerId":"Shopify.com",
    "providerName":"Shopify",
    "serviceId":"verification",
-   "serviceName":"Shopify Site",
+   "serviceName":"Shopify Site and Domain Verification",
    "version": 1,
    "syncPubKeyDomain" : "shopify.com",
    "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/08/shopify.png",
