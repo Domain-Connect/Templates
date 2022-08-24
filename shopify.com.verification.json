@@ -30,7 +30,7 @@
       {
          "type":"TXT",
          "host":"shopify_verification",
-         "data":"shopify_verification_%uuid%",
+         "data":"shopify_verification=%uuid%",
          "ttl":3600
       }
    ]
