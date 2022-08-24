@@ -7,7 +7,7 @@
    "syncPubKeyDomain" : "shopify.com",
    "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/08/shopify.png",
    "description":"Verifies the proof of domain ownership to work with Shopify",
-   "variableDescription":"v1 is the shopify hosted domain name, verification is the verification code for the site and uuid is the unique verification code for proof of domain ownership",
+   "variableDescription":"v1 is the shopify hosted domain name, verification is the verification code for the site and ulid is the unique verification code for proof of domain ownership",
    "records":[  
       {  
          "type":"A",
@@ -30,7 +30,7 @@
       {
          "type":"TXT",
          "host":"shopify_verification",
-         "data":"shopify_verification=%uuid%",
+         "data":"%ulid%",
          "ttl":3600
       }
    ]
