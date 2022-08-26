@@ -1,0 +1,44 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "the-com-v2",
+    "serviceName": "The.com",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "variableDescription": "hostValue is the dynamic host value assigned to the domain,verificationValue is the text verification value,customValue is the dynamic value generated for the domain",
+    "sharedProviderName": true,
+    "records": [
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "104.18.216.36",
+        "ttl": 3600
+      },
+      {
+        "type": "CNAME",
+        "host": "www",
+        "pointsTo": "fallback.testingthe.com",
+        "ttl": 3600
+      },
+      {
+        "type": "TXT",
+        "host": "_cf-custom-hostname.%hostValue%",
+        "data": "%customValue%",
+        "ttl": 3600
+      },
+      {
+        "type": "TXT",
+        "host": "@",
+        "data": "%verificationValue%",
+        "ttl": 3600
+      },
+      {
+        "type": "REDIR301",
+        "target": "%target%",
+        "host": "@"
+      }
+    ]
+}
