@@ -34,11 +34,6 @@
         "host": "@",
         "data": "%verificationValue%",
         "ttl": 3600
-      },
-      {
-        "type": "REDIR301",
-        "target": "%target%",
-        "host": "@"
       }
     ]
 }
