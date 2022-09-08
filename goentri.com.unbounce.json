@@ -3,10 +3,10 @@
     "providerName": "Entri",
     "serviceId": "unbounce",
     "serviceName": "Unbounce",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://cdn.goentri.com/logo.svg",
     "description": "Allows user to easily set up domain using Entri",
-    "variableDescription":"HOST is the subdomain for the domain.",
+    "variableDescription":"mappingValue is the value assigned to the domain",
     "hostRequired": true,
     "syncPubKeyDomain": "goentri.com",
     "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com", 
@@ -15,7 +15,7 @@
        {
          "type": "CNAME",
          "host": "@",
-         "pointsTo": "unbouncepages.com",
+         "pointsTo": "%mappingValue%",
          "ttl": 600
         }
     ]
