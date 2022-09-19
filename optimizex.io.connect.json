@@ -1,0 +1,19 @@
+{
+  "providerId": "optimizex.io",
+  "providerName": "Optimizex",
+  "serviceId": "ox-connect",
+  "serviceName": "Optimizex Public Web Application",
+  "version": 1,
+  "logoUrl": "",
+  "description": "Enables a Domain to work with Optimizex",
+  "variableDescription": "HOST is the subdomain for the domain.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%ox-cname-host%",
+      "pointsTo": "%ox-cname-point%",
+      "ttl": 300
+    }
+  ]
+}
