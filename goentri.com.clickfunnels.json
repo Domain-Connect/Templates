@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "clickfunnels",
   "serviceName": "ClickFunnels",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -25,7 +25,7 @@
     },
     {
       "type": "TXT",
-      "host": "%websiteId%._domainkey",
+      "host": "%websiteId%",
       "data": "%keyValue%",
       "ttl": 3600
     }
