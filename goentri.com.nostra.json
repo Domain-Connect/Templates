@@ -10,7 +10,7 @@
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
   "variableDescription": "mappingValue is the nostra's target domain",
   "sharedProviderName": true,
-  "hostRequired": false,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
