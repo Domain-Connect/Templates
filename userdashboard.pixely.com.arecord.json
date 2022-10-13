@@ -1,0 +1,20 @@
+{
+    "providerId": "userdashboard.pixely.com",
+    "providerName": "Pixely",
+    "serviceId": "arecord",
+    "serviceName": "Managed WordPress Hosting",
+    "version": 1,
+    "logoUrl": "https://userdashboard.pixely.com/wp-content/plugins/admin-2020/admin/assets/img/LOGO-BLUE.png",
+    "description": "Configure ip address for the domain A record.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.userdashboard.pixely.com",
+    "syncRedirectDomain": "userdashboard.pixely.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 3600
+        }
+    ]
+}
