@@ -1,0 +1,16 @@
+{
+"providerId": "neo-fin.com",
+"providerName": "NeoFin",
+"serviceId": "control-panel",
+"serviceName": "Control Panel",
+"version": 1,
+"logoUrl": "https://neo-fin.com/static/dist/img/new_logo.svg",
+"description": "Enables a domain to work with application created in Neofin Control Panel",
+"variableDescription": "appIp is ip address of the application created in Neofin Control Panel, appHost is host of the application",
+"syncPubKeyDomain": "neo-fin.com",
+"records": [
+	{"type": "A", "host": "@", "pointsTo": "%appIp%", "ttl": 600},
+	{"type": "A", "host": "%appHost%", "pointsTo": "%appIp%", "ttl": 600},
+	{"type": "CNAME", "host": "www", "pointsTo": "@", "ttl": 600}
+]
+}
