@@ -7,18 +7,17 @@
   "logoUrl":"https://sendgrid.com/brand/sg-twilio/SG_Twilio_Lockup_RGBx1.png",
   "syncPubKeyDomain": "domainconnect.sendgrid.net",
   "syncRedirectDomain": "sendgrid.com",
-  "hostRequired": true,
   "records":[
     {
       "type": "MX",
-      "host": "@",
+      "host": "%SUBDOMAIN%.%domain%.",
       "pointsTo": "mx.sendgrid.net.",
       "priority": 20,
       "ttl": 1800
     },
     {
       "type": "TXT",
-      "host": "@",
+      "host": "%SUBDOMAIN%.%domain%.",
       "data": "%DATA%",
       "ttl": 1800
     },
