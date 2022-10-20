@@ -12,22 +12,31 @@
   "sharedProviderName": true,
   "records": [
     {
+      "groupId": "a1",
       "type": "TXT",
       "host": "@",
       "data": "clickfunnels-domain-verification=%verificationValue%",
       "ttl": 3600
     },
     {
+      "groupId": "a1",
       "type": "CNAME",
       "host": "%websiteHost%",
       "pointsTo": "%clusterValue%",
       "ttl": 3600
     },
     {
+      "groupId": "a1",
       "type": "TXT",
       "host": "%websiteId%",
       "data": "%keyValue%",
       "ttl": 3600
+    },
+    {
+      "groupId": "a2",
+      "type": "REDIR301",
+      "target": "%target%",
+      "host": "@"
     }
   ]
 }
