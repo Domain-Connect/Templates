@@ -2,7 +2,7 @@
   "providerId": "goentri.com",
   "providerName": "Entri",
   "serviceId": "jersey-watch",
-  "serviceName": "Jersey Watch",
+  "serviceName": "JerseyWatch",
   "version": 1,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
