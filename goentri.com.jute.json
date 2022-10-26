@@ -1,0 +1,22 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "jute",
+  "serviceName": "Jute",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "mappingValue is the value assigned to the domain",
+  "sharedProviderName": true,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%mappingValue%",
+      "ttl": 300
+    }
+  ]
+}
