@@ -22,12 +22,6 @@
       },
       {
          "type":"CNAME",
-         "host":"*",
-         "pointsTo": "@",
-         "ttl":3600
-      },
-      {
-         "type":"CNAME",
          "host":"www",
          "pointsTo": "@",
          "ttl":3600
