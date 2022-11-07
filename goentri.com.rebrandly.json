@@ -1,15 +1,16 @@
 {
   "providerId": "goentri.com",
   "providerName": "Entri",
-  "serviceId": "go-site",
-  "serviceName": "GoSite",
+  "serviceId": "rebrandly",
+  "serviceName": "Rebrandly",
   "version": 1,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
-  "variableDescription": "ip is the address of the server hosting the domain.",
+  "variableDescription": "ip is the rebrandly's ip",
   "sharedProviderName": true,
+  "hostRequired": false,
   "records": [
     {
       "type": "A",
@@ -18,9 +19,9 @@
       "ttl": 3600
     },
     {
-      "type": "CNAME",
+      "type": "A",
       "host": "www",
-      "pointsTo": "@",
+      "pointsTo": "%ip%",
       "ttl": 3600
     }
   ]

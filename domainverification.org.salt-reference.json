@@ -1,0 +1,21 @@
+{
+    "providerId": "domainverification.org",
+    "providerName": "Domain Verification Protocol",
+    "serviceId": "salt-reference",
+    "serviceName": "Salt Reference",
+    "logoUrl": "https://www.domainverification.org/images/dv-logo.png",
+    "version": 1,
+    "shared": true,
+    "sharedProviderName": true,
+    "description": "Enable automatic domain verification for authorised parties. More information at https://www.domainverification.org",
+    "variableDescription": "The variable %saltdata% includes references to salts used in the hashing process.",
+    "syncPubKeyDomain": "domainverification.org",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dv",
+            "data": "@dv=1;%saltdata%",
+            "ttl": 300
+        }
+    ]
+}

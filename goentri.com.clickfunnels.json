@@ -3,32 +3,40 @@
   "providerName": "Entri",
   "serviceId": "clickfunnels",
   "serviceName": "ClickFunnels",
-  "version": 1,
+  "version": 3,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
-  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
-  "variableDescription": "verificationValue is the value that is used to verify domain ownership,clusterValue is the cluster assigned to the domain,websiteId is the id of website, keyValue is the generated key value",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "verificationValue is the value that is used to verify domain ownership,clusterValue is the cluster assigned to the domain,websiteId is the id of website, keyValue is the generated key value, websiteHost is the host value",
   "sharedProviderName": true,
-  "hostRequired": true,
   "records": [
     {
+      "groupId": "a1",
       "type": "TXT",
-      "host": "%domainapex%.",
+      "host": "@",
       "data": "clickfunnels-domain-verification=%verificationValue%",
       "ttl": 3600
     },
     {
+      "groupId": "a1",
       "type": "CNAME",
-      "host": "@",
+      "host": "%websiteHost%",
       "pointsTo": "%clusterValue%",
       "ttl": 3600
     },
     {
+      "groupId": "a1",
       "type": "TXT",
-      "host": "%websiteId%._domainkey",
+      "host": "%websiteId%",
       "data": "%keyValue%",
       "ttl": 3600
+    },
+    {
+      "groupId": "a2",
+      "type": "REDIR301",
+      "target": "%target%",
+      "host": "@"
     }
   ]
 }

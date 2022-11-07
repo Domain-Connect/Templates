@@ -1,21 +1,22 @@
 {
   "providerId": "goentri.com",
   "providerName": "Entri",
-  "serviceId": "dkim-helper",
-  "serviceName": "DKIM Helper",
+  "serviceId": "nostra",
+  "serviceName": "Nostra",
   "version": 1,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
-  "description": "Allows user to easily set up dkim record using Entri",
+  "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
-  "variableDescription": "dkimHost is dkim host and dkimValue is dkim value.",
+  "variableDescription": "mappingValue is the nostra's target domain",
   "sharedProviderName": true,
+  "hostRequired": true,
   "records": [
     {
-      "type": "TXT",
-      "host": "%dkimHost%._domainkey",
-      "data": "%dkimValue%",
-      "ttl": 14400
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%mappingValue%",
+      "ttl": 3600
     }
   ]
 }
