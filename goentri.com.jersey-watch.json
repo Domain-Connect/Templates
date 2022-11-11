@@ -2,12 +2,13 @@
   "providerId": "goentri.com",
   "providerName": "Entri",
   "serviceId": "jersey-watch",
-  "serviceName": "Jersey Watch",
-  "version": 1,
+  "serviceName": "JerseyWatch",
+  "version": 2,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "webSiteHost is the customer website host, webSitePointsTo is the customer hosted domain name.",
   "sharedProviderName": true,
   "records": [
     {
@@ -18,8 +19,8 @@
     },
     {
       "type": "CNAME",
-      "host": "www",
-      "pointsTo": "us-east-1.jerseywatch.com",
+      "host": "%webSiteHost%",
+      "pointsTo": "%webSitePointsTo%",
       "ttl": 3600
     }
   ]
