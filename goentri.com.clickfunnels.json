@@ -26,7 +26,7 @@
       "ttl": 3600
     },
     {
-      "groupId": "a1",
+      "groupId": "a3",
       "type": "TXT",
       "host": "%websiteId%",
       "data": "%keyValue%",
