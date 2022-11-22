@@ -20,10 +20,9 @@
     },
     {
       "groupId": "spf",
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "%spf%",
-      "ttl": 3600
+      "data": "%spfm_data%"
     },
     {
       "groupId": "sts",
