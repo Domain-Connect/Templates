@@ -22,7 +22,7 @@
       "groupId": "spf",
       "type": "SPFM",
       "host": "@",
-      "data": "%spfm_data%"
+      "spfRules": "$spf_rules%"
     },
     {
       "groupId": "sts",
