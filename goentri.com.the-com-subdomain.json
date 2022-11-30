@@ -8,14 +8,14 @@
     "description": "Allows user to easily set up domain using Entri",
     "syncPubKeyDomain": "goentri.com",
     "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com, app.goentri.com",
-    "variableDescription": "hostValue is the dynamic host value assigned to the domain,verificationValue is the text verification value,customValue is the dynamic value generated for the domain,customHost is host value used for the domain",
+    "variableDescription": "hostValue is the dynamic host value assigned to the domain,verificationValue is the text verification value,customValue is the dynamic value generated for the domain,customHost is host value used for the domain,websitePointsTo is the application cluster value",
     "sharedProviderName": true,
     "records": [
         {
             "type": "CNAME",
             "host": "www",
             "groupId": "a1",
-            "pointsTo": "fallback.testingthe.com",
+            "pointsTo": "%websitePointsTo%",
             "ttl": 3600
         },
         {
@@ -36,14 +36,14 @@
             "type": "CNAME",
             "host": "www",
             "groupId": "a2",
-            "pointsTo": "fallback.testingthe.com",
+            "pointsTo": "%websitePointsTo%",
             "ttl": 3600
         },
         {
             "type": "CNAME",
             "host": "www",
             "groupId": "a3",
-            "pointsTo": "fallback.testingthe.com",
+            "pointsTo": "%websitePointsTo%",
             "ttl": 3600
         },
         {
