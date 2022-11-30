@@ -13,16 +13,49 @@
   "records": [
     {
       "groupId": "a1",
+      "type": "CNAME",
+      "host": "%websiteHost%",
+      "pointsTo": "%clusterValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a1",
+      "type": "REDIR301",
+      "target": "%target%",
+      "host": "@"
+    },
+    {
+      "groupId": "a1",
       "type": "TXT",
       "host": "@",
       "data": "clickfunnels-domain-verification=%verificationValue%",
       "ttl": 3600
     },
     {
-      "groupId": "a1",
+      "groupId": "a2",
+      "type": "TXT",
+      "host": "%websiteId%",
+      "data": "%keyValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a3",
       "type": "CNAME",
       "host": "%websiteHost%",
       "pointsTo": "%clusterValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a3",
+      "type": "REDIR301",
+      "target": "%target%",
+      "host": "@"
+    },
+    {
+      "groupId": "a3",
+      "type": "TXT",
+      "host": "@",
+      "data": "clickfunnels-domain-verification=%verificationValue%",
       "ttl": 3600
     },
     {
@@ -31,12 +64,6 @@
       "host": "%websiteId%",
       "data": "%keyValue%",
       "ttl": 3600
-    },
-    {
-      "groupId": "a2",
-      "type": "REDIR301",
-      "target": "%target%",
-      "host": "@"
     }
   ]
 }
