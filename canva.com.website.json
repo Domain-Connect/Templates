@@ -7,7 +7,7 @@
    "version": 1,
    "logoUrl": "https://static.canva.com/static/images/canva_logo_100x100@2x.png",
    "description":"Enables a domain to work with Canva",
-   "variableDescription":"verify is the verification value for the site and ssl is the certificate verification value",
+   "variableDescription":"verify is the verification value for the site",
    "records":[  
       {  
          "type":"A",
@@ -25,12 +25,6 @@
          "type":"TXT",
          "host": "_canva-domain-verify",
          "data": "%verify%",
-         "ttl":300
-      },
-      {
-         "type":"TXT",
-         "host": "@",
-         "data": "%ssl%",
          "ttl":300
       }
    ]
