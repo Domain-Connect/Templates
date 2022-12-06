@@ -4,7 +4,7 @@
    "serviceId":"website",
    "serviceName":"Canva Websites",
    "syncPubKeyDomain":"domainconnect.canva.com",
-   "version": 1,
+   "version": 2,
    "logoUrl": "https://static.canva.com/static/images/canva_logo_100x100@2x.png",
    "description":"Enables a domain to work with Canva",
    "variableDescription":"verify is the verification value for the site",
