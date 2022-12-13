@@ -1,0 +1,24 @@
+{  
+   "providerId":"Trady.com",
+   "providerName":"Trady",
+   "serviceId":"website",
+   "serviceName":"Trady Site",
+   "version": 1,
+   "syncPubKeyDomain" : "trady.com",
+   "logoUrl":"https://logos.trady.com/logo.png",
+   "description":"Enables a domain to work with Trady",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"104.248.56.174",
+         "ttl":3600
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"ssl.trady.com",
+         "ttl":3600
+      }
+   ]
+}
