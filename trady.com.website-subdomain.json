@@ -1,7 +1,7 @@
 {  
    "providerId":"Trady.com",
    "providerName":"Trady",
-   "serviceId":"website",
+   "serviceId":"website-subdomain",
    "serviceName":"Trady Subdomain",
    "version": 1,
    "syncPubKeyDomain" : "trady.com",
