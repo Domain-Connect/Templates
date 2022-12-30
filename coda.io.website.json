@@ -1,0 +1,32 @@
+{  
+    "providerId":"coda.io",
+    "providerName":"Coda",
+    "serviceId":"website",
+    "serviceName":"Coda Site",
+    "version": 1,
+    "syncPubKeyDomain" : "coda.io",
+    "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/06/wix-300x103.png",
+    "description":"Enables a custom domain to work with Coda",
+    "variableDescription":"`host` refers to the subdomain that the user wishes to use (not just limited to 'www'). `subdomain` refers to the subdomain for Coda's custom domain server. `docId` refers to the coda document used for custom domain. `verification` refers to the TXT host for doc ownership verification, differs based on A or CNAME. `ipAddress` refers to the proper IP for an apex domain to point to.",
+    "records":[  
+       {  
+          "type":"CNAME",
+          "host":"%host%",
+          "pointsTo":"%subdomain%.coda.io",
+          "ttl":3600
+       },
+       {
+           "type": "TXT",
+           "host": "%verification%",
+           "data": "Doc:%docId%",
+           "ttl":3600
+       },
+       {
+           "type": "A",
+           "host": "@",
+           "pointsTo": "%ipAddress",
+           "ttl":3600
+       }
+    ]
+ }
+ 
