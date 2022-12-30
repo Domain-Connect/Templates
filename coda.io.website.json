@@ -6,7 +6,7 @@
     "version": 1,
     "syncPubKeyDomain" : "coda.io",
     "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/06/wix-300x103.png",
-    "description":"Enables a custom domain to work with Coda",
+    "description":"Allows serving Coda documents from your own domain",
     "variableDescription":"`host` refers to the subdomain that the user wishes to use (not just limited to 'www'). `subdomain` refers to the subdomain for Coda's custom domain server. `docId` refers to the coda document used for custom domain. `verification` refers to the TXT host for doc ownership verification, differs based on A or CNAME. `ipAddress` refers to the proper IP for an apex domain to point to.",
     "records":[  
        {  
