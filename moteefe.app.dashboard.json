@@ -46,7 +46,7 @@
       },
       {
          "type": "SPFM",
-         "spfRules": "a mx include:spf.improvmx.com include:mail.zendesk.com",
+         "spfRules": "mx include:spf.improvmx.com include:mail.zendesk.com",
          "host": "@"
       },
       {
