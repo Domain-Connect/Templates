@@ -5,7 +5,7 @@
    "serviceName": "Seller Dashboard",
    "version": 1,
    "syncPubKeyDomain": "moteefe.app",
-   "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/08/shopify.png",
+   "logoUrl": "https://res.cloudinary.com/athena-mockups-prod/image/upload/v1672850447/static/moteefe-logo.png",
    "description": "Connects a domain to a Moteefe Store",
    "records": [
       {
