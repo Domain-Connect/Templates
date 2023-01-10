@@ -4,10 +4,10 @@
     "serviceId":"subdomain",
     "serviceName":"Coda Site",
     "version": 1,
-    "syncPubKeyDomain" : "coda.io",
+    "syncPubKeyDomain" : "domainconnect.coda.io",
     "logoUrl":"https://cdn.coda.io/icons/png/color/coda-192.png",
     "description":"Allows serving Coda documents from your own domain (subdomain only)",
-    "variableDescription":"`subdomain` refers to the subdomain that the user wishes to use (not just limited to 'www'). `environment` refers to the environment for Coda's custom domain server. `docId` refers to the coda document used for custom domain. `verification` refers to the TXT verification of doc ownership",
+    "variableDescription":"`subdomain` refers to the subdomain that the user wishes to use (not just limited to 'www'). `environment` refers to the environment for Coda's custom domain server. `verification` refers to the TXT verification of doc ownership",
     "records":[  
        {  
           "type":"CNAME",

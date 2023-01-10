@@ -4,10 +4,10 @@
     "serviceId":"apexdomain",
     "serviceName":"Coda Site",
     "version": 1,
-    "syncPubKeyDomain" : "coda.io",
+    "syncPubKeyDomain" : "domainconnect.coda.io",
     "logoUrl":"https://cdn.coda.io/icons/png/color/coda-192.png",
     "description":"Allows serving Coda documents from your own domain (apex only).",
-    "variableDescription":"`ipAddress[1, 2, 3]` refers to the IP addresses of Coda's custom domain server. `docId` refers to the coda document. `environment` refers to the environment for Coda's custom domain server. `docId` refers to the coda document used for custom domain. `verification` refers to the TXT verification of doc ownership",
+    "variableDescription":"`ipAddress[1, 2, 3]` refers to the IP addresses of Coda's custom domain server. `environment` refers to the environment for Coda's custom domain server. `verification` refers to the TXT verification of doc ownership",
     "records":[  
        {  
           "type":"A",
