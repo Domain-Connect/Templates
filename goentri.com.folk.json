@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "folk",
   "serviceName": "Folk",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
