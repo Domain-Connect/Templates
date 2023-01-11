@@ -7,17 +7,17 @@
     "syncPubKeyDomain" : "domainconnect.coda.io",
     "logoUrl":"https://cdn.coda.io/icons/png/color/coda-192.png",
     "description":"Allows serving Coda documents from your own domain (subdomain only)",
-    "variableDescription":"`subdomain` refers to the subdomain that the user wishes to use (not just limited to 'www'). `environment` refers to the environment for Coda's custom domain server. `verification` refers to the TXT verification of doc ownership",
+    "variableDescription":"`environment` refers to the environment for Coda's custom domain server. `verification` refers to the TXT verification of doc ownership",
     "records":[  
        {  
           "type":"CNAME",
-          "host":"%subdomain%",
+          "host":"@",
           "pointsTo":"%environment%.coda.io",
           "ttl":3600
        },
        {
            "type": "TXT",
-           "host": "_coda.%subdomain%",
+           "host": "_coda",
            "data": "%verification%",
            "ttl":3600
        }
