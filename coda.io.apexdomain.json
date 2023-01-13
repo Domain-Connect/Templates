@@ -13,25 +13,25 @@
           "type":"A",
           "host":"@",
           "pointsTo":"%ipAddress1",
-          "ttl":3600
+          "ttl":600
        },
        {  
           "type":"A",
           "host":"@",
           "pointsTo":"%ipAddress2",
-          "ttl":3600
+          "ttl":600
        },
        {  
           "type":"A",
           "host":"@",
           "pointsTo":"%ipAddress3",
-          "ttl":3600
+          "ttl":600
        },
        {
           "type": "TXT",
           "host": "_coda",
           "data": "%verification%",
-          "ttl":3600
+          "ttl":600
        }
     ]
  }

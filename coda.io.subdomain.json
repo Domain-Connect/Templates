@@ -14,13 +14,13 @@
           "type":"CNAME",
           "host":"@",
           "pointsTo":"%environment%.coda.io",
-          "ttl":3600
+          "ttl":600
        },
        {
            "type": "TXT",
            "host": "_coda",
            "data": "%verification%",
-           "ttl":3600
+           "ttl":600
        }
     ]
  }
