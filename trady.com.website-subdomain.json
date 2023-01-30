@@ -7,8 +7,7 @@
    "syncPubKeyDomain" : "trady.com",
    "logoUrl":"https://logos.trady.com/logo.png",
    "description":"Enables a subdomain to work with Trady",
-   "hostRequired": true,
-   "variableDescription": "hostValue is the dynamic host value assigned to the domain",    
+   "hostRequired": true,  
    "records":[  
       {  
          "type":"CNAME",
