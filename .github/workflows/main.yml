@@ -1,6 +1,6 @@
 name: JSON Schema Validation
 
-on: [push]
+on: [push, pull_request]
 
 env:
   PYTHON_VERSION: '3.10'
