@@ -1,0 +1,43 @@
+name: JSON Schema Validation
+
+on: [push]
+
+env:
+  PYTHON_VERSION: '3.10'
+
+jobs:
+  validate_json_schema:
+    name: Validate JSON Schema
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ env.PYTHON_VERSION }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+
+    - name: Install dependencies
+      run: |
+        pip install jsonschema check-jsonschema
+
+    - name: Validate JSON files against schema
+      run: |
+        for filename in *.json; do
+          echo 'Checking schema for ' $filename 
+          check-jsonschema --schemafile template.schema $filename  || exit 1
+        done
+
+    - name: Validate JSON filenames
+      run: |
+        python -c "import json
+        import os
+        errors = []
+        for file_to_check in [r for r in os.listdir(os.curdir) if r.endswith('.json')]:
+            with open(file_to_check) as f:
+              template_json = json.load(f)
+              expected_filename = '{}.{}.json'.format(template_json['providerId'].lower(), template_json['serviceId'].lower())
+              if expected_filename != file_to_check:
+                  errors += ['File name {} not matching the pattern. Expected {}'.format(file_to_check, expected_filename)]
+        if len(errors) > 0:
+            assert False, '\n'.join(errors)"
