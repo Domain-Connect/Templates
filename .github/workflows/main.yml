@@ -3,7 +3,7 @@ name: JSON Schema Validation
 on: [push]
 
 env:
-  PYTHON_VERSION: 3.6
+  PYTHON_VERSION: 3.6.7
 
 jobs:
   validate_json_schema:
