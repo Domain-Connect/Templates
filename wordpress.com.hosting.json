@@ -7,6 +7,7 @@
 	"logoUrl":"https://automattic.files.wordpress.com/2005/12/wpcom-horiz.png",
 	"description":"This can be used to set up website hosting at WordPress.com",
 	"syncBlock": false,
+	"syncPubKeyDomain": "wordpress.com",
 	"syncRedirectDomain":"wordpress.com",
 	"warnPhishing": false,
 	"records":[
