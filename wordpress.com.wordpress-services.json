@@ -7,7 +7,7 @@
    "logoUrl":"https://automattic.files.wordpress.com/2005/12/wpcom-horiz.png",
    "description":"This can be used to set up G-Suite at WordPress.com",
    "syncBlock":true,
-	"syncPubKeyDomain": "wordpress.com",
+   "syncPubKeyDomain": "wordpress.com",
    "records":[
       {
          "groupId":"g-suite-verification",
