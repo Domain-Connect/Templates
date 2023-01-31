@@ -3,7 +3,7 @@ name: JSON Schema Validation
 on: [push]
 
 env:
-  PYTHON_VERSION: '3.9'
+  PYTHON_VERSION: '3.10'
 
 jobs:
   validate_json_schema:
@@ -19,13 +19,13 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install jsonschema
+        pip install jsonschema check-jsonschema
 
     - name: Validate JSON files against schema
       run: |
         for filename in *.json; do
           echo 'Checking schema for ' $filename 
-          jsonschema -i $filename template.schema || exit 1
+          check-jsonschema --schemafile template.schema $filename  || exit 1
         done
 
     - name: Validate JSON filenames
