@@ -2,7 +2,7 @@
   "providerId": "goentri.com",
   "providerName": "Entri",
   "serviceId": "mighty-sites",
-  "serviceName": "Mighty Sites",
+  "serviceName": "MightySites",
   "version": 1,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
