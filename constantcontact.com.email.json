@@ -14,14 +14,12 @@
       "type": "CNAME",
       "host": "%sel1%._domainkey",
       "pointsTo": "%ctctsel1%._domainkey.dkim1.%domain_prefix%send.com",
-      "priority": 10,
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "%sel2%._domainkey",
       "pointsTo": "%ctctsel2%._domainkey.dkim2.%domain_prefix%send.com",
-      "priority": 10,
       "ttl": 3600
     }
   ]
