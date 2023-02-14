@@ -28,6 +28,6 @@
       "host": "%websiteHost1%",
       "pointsTo": "%mappingValue1%",
       "ttl": 3600
-    },
+    }
     ]
 }
