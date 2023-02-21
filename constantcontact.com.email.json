@@ -1,0 +1,26 @@
+{
+  "providerId": "constantcontact.com",
+  "providerName": "ConstantContact",
+  "serviceId": "email",
+  "serviceName": "ConstantContact Email",
+  "version": 1,
+  "syncPubKeyDomain": "constantcontact.com",
+  "syncRedirectDomain": "app.constantcontact.com",
+  "logoUrl": "https://static.ctctcdn.com/lp/images/standard/logos/ctct_logo_full-color.svg",
+  "description": "Enables you to setup DKIM email authentication for emails sent from your domain",
+  "variableDescription": "sel1/sel2 and ctctsel1/ctctsel2 are selector values; domain_prefix identifies the target CTCT domain",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%sel1%._domainkey",
+      "pointsTo": "%ctctsel1%._domainkey.dkim1.%domain_prefix%send.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sel2%._domainkey",
+      "pointsTo": "%ctctsel2%._domainkey.dkim2.%domain_prefix%send.com",
+      "ttl": 3600
+    }
+  ]
+}
