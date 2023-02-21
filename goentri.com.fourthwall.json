@@ -8,7 +8,7 @@
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
-  "variableDescription": "ip is the website server ip, zendeskverification is the text verification value for zendesk, sendgridHost is sendgrid dynamic host, sendgridHostDomainKey1 and sendgridHostDomainKey1 are the dynamic host for Sendgrid CNAME, sendgridValue is the dynamic value for SendgridHost, sendgridHostDomainKeyValue1 and sendgridHostDomainKeyValue2 are the value for sendgridHostDomainKey ",
+  "variableDescription": "ip is the website server ip, zendeskverification is the text verification value for zendesk, sendgridHost is sendgrid dynamic host, sendgridHostDomainKey1 and sendgridHostDomainKey1 are the dynamic host for Sendgrid CNAME, sendgridValue is the dynamic value for SendgridHost, sendgridHostDomainKeyValue1 and sendgridHostDomainKeyValue2 are the value for sendgridHostDomainKey",
   "sharedProviderName": true,
   "hostRequired": true,
   "records": [
