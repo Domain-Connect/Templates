@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "fourthwall",
   "serviceName": "Fourthwall",
-  "version": 4,
+  "version": 5,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
