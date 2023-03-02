@@ -13,13 +13,13 @@
          "type":"CNAME",
          "host":"%verify%",
          "pointsTo":"%cert%",
-         "ttl":300
+         "ttl":600
       },
       {  
          "type":"CNAME",
          "host":"www",
          "pointsTo":"%id%.cdn.jamfeed.com.",
-         "ttl":300
+         "ttl":600
       }
    ]
 }
