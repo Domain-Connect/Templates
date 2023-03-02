@@ -1,7 +1,7 @@
 {
     "providerId": "goentri.com",
     "providerName": "Entri",
-    "serviceId": "tiiny-host",
+    "serviceId": "tiiny-host-wwwRedirect",
     "serviceName": "Tiiny.host",
     "version": 1,
     "logoUrl": "https://cdn.goentri.com/logo.svg",
