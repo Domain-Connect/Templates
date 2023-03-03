@@ -3,17 +3,13 @@
     "providerName": "Entri",
     "serviceId": "tiiny-host",
     "serviceName": "Tiiny.host",
-<<<<<<< Updated upstream
-    "version": 1,
-    "logoUrl": "https://cdn.goentri.com/logo.svg",
-    "description": "Allows user to easily set up domain using Entri",
-    "variableDescription": "webSitePointsTo1, webSitePointsTo2 is to where the website is pointed to, CnameHost1, CnameHost2, is the host for each CNAME and mappingValue1 is the value assigned to host websiteHost1",
-=======
     "version": 2,
     "logoUrl": "https://cdn.goentri.com/logo.svg",
     "description": "Allows user to easily set up domain using Entri",
+    "variableDescription": "webSitePointsTo1, webSitePointsTo2 is to where the website is pointed to, CnameHost1, CnameHost2, is the host for each CNAME and mappingValue1 is the value assigned to host websiteHost1",
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
     "variableDescription": "webSitePointsTo1, webSitePointsTo2 is to where the website is pointed to, CnameHost1, CnameHost2, is the host for each CNAME and mappingValue1 is the value assigned to host websiteHost1, target is to where it's redirected, ip is the ip address, target is to where it's redirected",
->>>>>>> Stashed changes
     "syncPubKeyDomain": "goentri.com",
     "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
     "sharedProviderName": true,
@@ -21,18 +17,13 @@
     {
       "type": "CNAME",
       "host": "%CnameHost1%",
-<<<<<<< Updated upstream
-=======
       "groupId": "a1",
->>>>>>> Stashed changes
       "pointsTo": "%webSitePointsTo1%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "%CnameHost2%",
-<<<<<<< Updated upstream
-=======
       "groupId": "a1",
       "pointsTo": "%webSitePointsTo2%",
       "ttl": 3600
@@ -54,20 +45,16 @@
       "type": "CNAME",
       "host": "%CnameHost2%",
       "groupId": "a2",
->>>>>>> Stashed changes
       "pointsTo": "%webSitePointsTo2%",
       "ttl": 3600
     },
     {
       "type": "A",
-<<<<<<< Updated upstream
       "host": "%websiteHost1%",
       "pointsTo": "%mappingValue1%",
-=======
       "host": "@",
       "groupId": "a2",
       "pointsTo": "%ip%",
->>>>>>> Stashed changes
       "ttl": 3600
     }
     ]
