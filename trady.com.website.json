@@ -5,6 +5,7 @@
    "serviceName":"Trady Site",
    "version": 1,
    "syncPubKeyDomain" : "trady.com",
+   "syncRedirectDomain": "trady.com, trady.dev",
    "logoUrl":"https://logos.trady.com/logo.png",
    "description":"Enables a domain to work with Trady",
    "records":[  

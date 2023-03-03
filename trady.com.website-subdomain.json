@@ -5,6 +5,7 @@
    "serviceName":"Trady Subdomain",
    "version": 1,
    "syncPubKeyDomain" : "trady.com",
+   "syncRedirectDomain": "trady.com, trady.dev",
    "logoUrl":"https://logos.trady.com/logo.png",
    "description":"Enables a subdomain to work with Trady",
    "hostRequired": true,  
