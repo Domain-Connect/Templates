@@ -15,7 +15,7 @@
       "type": "A",
       "host": "@",
       "pointsTo": "%ip%",
-      "ttl": 300
+      "ttl": 3600
     },
     {
       "type": "CNAME",
