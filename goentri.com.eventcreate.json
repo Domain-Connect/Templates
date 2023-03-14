@@ -52,8 +52,7 @@
             "host": "%dkimHost%",
             "data": "%dkimValue%",
             "ttl": 3600
-        },
-       
+        }       
     ]
 }
 
