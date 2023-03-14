@@ -21,13 +21,6 @@
         {
             "groupId": "a2",
             "type": "CNAME",
-            "host": "www",
-            "pointsTo": "domainsecure.eventcreate.com",
-            "ttl": 3600
-        },
-        {
-            "groupId": "a2",
-            "type": "CNAME",
             "host": "%returnPathHost%",
             "pointsTo": "%returnPathPointsTo%",
             "ttl": 3600
@@ -38,7 +31,29 @@
             "host": "%dkimHost%",
             "data": "%dkimValue%",
             "ttl": 3600
-        }
+        },
+        {
+            "groupId": "a3",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "domainsecure.eventcreate.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "a3",
+            "type": "CNAME",
+            "host": "%returnPathHost%",
+            "pointsTo": "%returnPathPointsTo%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "a3",
+            "type": "TXT",
+            "host": "%dkimHost%",
+            "data": "%dkimValue%",
+            "ttl": 3600
+        },
+       
     ]
 }
 
