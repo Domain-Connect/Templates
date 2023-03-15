@@ -88,7 +88,7 @@
         "groupId": "general-text",
         "type": "TXT",
         "host": "%txt_host%",
-        "pointsTo": "%txt_points%",
+        "data": "%txt_points%",
         "ttl": 600
     }
     ]
