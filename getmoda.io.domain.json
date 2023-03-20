@@ -3,7 +3,7 @@
     "providerName": "Moda",
     "serviceId": "domain",
     "serviceName": "Moda Domain",
-    "logoUrl": "{{logo}}",
+    "logoUrl": "https://userconfig.getmoda.io/moda-logo/moda-icon.svg",
     "description": "This is a template to enable domain verification on Moda",
     "variableDescription": "cname_host is the mail CNAME, cname_points is the value to which mail CNAME points, dkim_points is the ",
     "syncBlock": true,
