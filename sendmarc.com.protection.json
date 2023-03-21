@@ -4,7 +4,7 @@
   "serviceId": "protection",
   "serviceName": "Sendmarc Email Security",
   "version": 1,
-  "syncRedirectDomain": "sendmarc.com",
+  "syncRedirectDomain": "sendmarc.com, portal.sendmarc.com",
   "logoUrl": "https://portal.sendmarc.com/img/light-bg-transparent.svg",
   "syncPubKeyDomain": "domainconnect.sendmarc.com",
   "warnPhishing": true,
