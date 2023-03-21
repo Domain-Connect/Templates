@@ -1,9 +1,9 @@
 {
   "providerId": "goentri.com",
   "providerName": "Entri",
-  "serviceId": "folk",
-  "serviceName": "Folk",
-  "version": 3,
+  "serviceId": "hostinger",
+  "serviceName": "Hostinger",
+  "version": 1,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -12,13 +12,13 @@
   "sharedProviderName": true,
   "records": [
     {
-      "type": "CNAME",
+      "type": "A",
       "host": "%websiteHost1%",
       "pointsTo": "%mappingValue1%",
       "ttl": 3600
     },
     {
-      "type": "CNAME",
+      "type": "A",
       "host": "%websiteHost2%",
       "pointsTo": "%mappingValue2%",
       "ttl": 3600

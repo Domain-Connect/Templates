@@ -4,10 +4,11 @@
   "serviceId": "hubspot-cname-txt",
   "serviceName": "HubSpot Site",
   "syncPubKeyDomain": "domainconnect.hubspot.com",
-  "version": 1,
+  "syncRedirectDomain": "app.hubspot.com, app.hubspotqa.com, api.hubspot.com, api.hubspotqa.com",
+  "version": 2,
   "logoUrl": "https://domainconnect.org/wp-content/uploads/2017/02/HubSpot-768x223.png",
   "description": "Template for for domain verification workflow",
-  "variableDescription": "txtValue - txt data value, cNameHostValue - cname host value",
+  "variableDescription": "txtValue - txt data value, sslTxtValue - ssl txt validation value",
   "hostRequired": false,
   "records": [
     {
@@ -18,10 +19,10 @@
       "ttl": 3600
     },
     {
-      "groupId": "cname",
-      "type": "CNAME",
-      "host": "%cNameHostValue%",
-      "pointsTo": "dcv.digicert.com",
+      "groupId": "ssl-txt",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%sslTxtValue%",
       "ttl": 3600
     }
   ]
