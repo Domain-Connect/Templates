@@ -25,14 +25,14 @@
       "spfRules": "%spf_rules%"
     },
     {
-      "groupId": "sts",
+      "groupId": "_mta-sts",
       "type": "CNAME",
       "host": "_mta-sts",
       "pointsTo": "%_mta_sts%",
       "ttl": 600
     },
     {
-      "groupId": "sts",
+      "groupId": "mta-sts",
       "type": "CNAME",
       "host": "mta-sts",
       "pointsTo": "%mta_sts%",
