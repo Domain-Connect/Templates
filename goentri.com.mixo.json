@@ -8,7 +8,7 @@
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
-  "variableDescription": "host_txt1 and ost_txt2 are the host for each TXT record,txt1 and txt2 are the value for TXT record, host_cname is the host for the CNAME record and value_cname is the value for the CNAME",
+  "variableDescription": "host_txt1 and ost_txt2 are the host for each TXT record,txt1 and txt2 are the value for TXT record, host_cname is the host for the CNAME record and value_cname is the value to point CNAME",
   "sharedProviderName": true,
   "records": [
     {
