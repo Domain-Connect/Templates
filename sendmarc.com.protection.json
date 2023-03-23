@@ -3,7 +3,7 @@
   "providerName": "Sendmarc",
   "serviceId": "protection",
   "serviceName": "Sendmarc Email Security",
-  "version": 1,
+  "version": 2,
   "syncRedirectDomain": "sendmarc.com, portal.sendmarc.com",
   "logoUrl": "https://portal.sendmarc.com/img/light-bg-transparent.svg",
   "syncPubKeyDomain": "domainconnect.sendmarc.com",
@@ -97,6 +97,13 @@
       "type": "NS",
       "host": "_bimi",
       "pointsTo": "%bimi_4%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tlsrpt",
+      "type": "CNAME",
+      "host": "_smtp._tls",
+      "pointsTo": "%tlsrpt%",
       "ttl": 3600
     }
   ]
