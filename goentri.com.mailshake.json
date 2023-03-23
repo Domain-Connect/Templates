@@ -7,7 +7,7 @@
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
-  "syncRedirectDomain": "api.goentri.com, goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
   "variableDescription": "thirdPartyDomain is the third party domain to include in spf rules.",
   "sharedProviderName": true,
   "records": [

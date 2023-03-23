@@ -1,0 +1,25 @@
+{  
+   "providerId":"jamfeed.com",
+   "providerName":"Jamfeed",
+   "serviceId":"jfsites",
+   "serviceName":"Jamfeed Site",
+   "version": 1,
+   "syncPubKeyDomain": "jamfeed.com",
+   "logoUrl":"https://www.jamfeed.com/images/JamFeed-Logo--Text-on-Side--MEDIUM---black--green-799x163-1-p-500.png",
+   "description":"Enables a domain to be verified and work with user created Jamfeed websites",
+   "variableDescription":"verify is the verification code for the site. cert is certificate route. id is the id for the cdn distribution of the site.",
+   "records":[  
+      {  
+         "type":"CNAME",
+         "host":"%verify%",
+         "pointsTo":"%cert%",
+         "ttl":600
+      },
+      {  
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"%id%.cdn.jamfeed.com.",
+         "ttl":600
+      }
+   ]
+}

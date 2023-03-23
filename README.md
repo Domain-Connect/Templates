@@ -66,7 +66,7 @@ Following is an example of a complete Domain Connect template, with examples of 
     },
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "%cnamehost%",
       "pointsTo": "%sub%.mydomain.com",
       "ttl": 3600
     },

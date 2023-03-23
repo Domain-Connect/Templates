@@ -2,66 +2,87 @@
     "providerId": "zoho.com",
     "providerName": "Zoho",
     "serviceId": "zmail_hosting",
-    "serviceName": "Zoho Mail Hosting",
+    "serviceName": "Zoho",
+    "sharedServiceName": true,
     "logoUrl": "https://mailadmin.zoho.com/cpanel/mailimage?filename=zoho-logo.png",
     "description": "This is a template to enable mail hosting with zoho",
     "variableDescription": "",
-    "syncBlock": true,
+    "syncBlock": false,
     "hostRequired": false,
-    "version": 2,
+    "version": 4,
+    "syncPubKeyDomain": "zoho.com",
     "records": [
     {
-        "groupId":"zoho-verification",
+        "groupId": "zoho-verification",
         "type": "CNAME",
         "host": "%cname_host%",
         "pointsTo": "%cname_points%",
-        "ttl": 3600
+        "ttl": 600
     },
     {
-        "groupId":"zoho-mx",
+        "groupId": "website-redirection",
+        "type": "CNAME",
+        "host": "%website_host%",
+        "pointsTo": "%website_points%",
+        "ttl": 600
+    },
+    {
+        "groupId": "zoho-mx",
         "type": "MX",
         "host": "@",
         "pointsTo": "%mx_points%",
         "priority": 10,
-        "ttl": 3600
+        "ttl": 600
     },
     {
-        "groupId":"zoho-mx2",
+        "groupId": "zoho-mx2",
         "type": "MX",
         "host": "@",
         "pointsTo": "%mx2_points%",
         "priority": 20,
-        "ttl": 3600
+        "ttl": 600
     },
     {
-        "groupId":"zoho-mx3",
+        "groupId": "zoho-mx3",
         "type": "MX",
         "host": "@",
         "pointsTo": "%mx3_points%",
         "priority": 50,
-        "ttl": 3600
+        "ttl": 600
     },
     {
-        "groupId":"zoho-spf",
+        "groupId": "zoho-spf",
         "type": "SPFM",
         "host": "@",
         "spfRules": "%spf_data%"
     },
     {
-        "groupId":"zoho-dkim",
+        "groupId": "zoho-dkim",
         "type": "TXT",
         "host": "%dkim_host%._domainkey",
         "data": "%dkim_data%",
-        "ttl": 3600
+        "ttl": 600
     },
     {
-        "groupId":"zoho-dmarc",
+        "groupId": "zoho-dmarc",
         "type": "TXT",
         "host": "_dmarc",
         "data": "%dmarc_data%",
-        "txtConflictMatchingMode":"All",
-        "essential":"OnApply",
-        "ttl": 3600
+        "txtConflictMatchingMode": "All",
+        "essential": "OnApply",
+        "ttl": 600
+    },
+    {
+        "groupId": "zoho-redir301",
+        "type": "REDIR301",
+        "target": "%target%",
+        "host": "@"
+    },
+    {
+        "groupId": "zoho-redir302",
+        "type": "REDIR302",
+        "target": "%target%",
+        "host": "@"
     }
     ]
 }

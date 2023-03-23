@@ -1,0 +1,67 @@
+{
+   "providerId": "moteefe.app",
+   "providerName": "Moteefe",
+   "serviceId": "dashboard",
+   "serviceName": "Seller Dashboard",
+   "version": 1,
+   "syncPubKeyDomain": "moteefe.app",
+   "logoUrl": "https://res.cloudinary.com/athena-mockups-prod/image/upload/v1672850447/static/moteefe-logo.png",
+   "description": "Connects a domain to a Moteefe Store",
+   "records": [
+      {
+         "type": "A",
+         "host": "@",
+         "pointsTo": "%shop_ip%",
+         "ttl": 600
+      },
+      {
+         "type": "CNAME",
+         "host": "www",
+         "pointsTo": "%shop_domain%",
+         "ttl": 3600
+      },
+      {
+         "type": "CNAME",
+         "host": "s1._domainkey",
+         "pointsTo": "%s1_domain_key%",
+         "ttl": 3600
+      },
+      {
+         "type": "CNAME",
+         "host": "s2._domainkey",
+         "pointsTo": "%s2_domain_key%",
+         "ttl": 3600
+      },
+      {
+         "type": "CNAME",
+         "host": "%em_domain_host%",
+         "pointsTo": "%em_domain_value%",
+         "ttl": 3600
+      },
+      {
+         "type": "TXT",
+         "host": "zendeskverification",
+         "data": "%zendeskverification_key%",
+         "ttl": 3600
+      },
+      {
+         "type": "SPFM",
+         "spfRules": "mx include:spf.improvmx.com include:mail.zendesk.com",
+         "host": "@"
+      },
+      {
+         "type": "MX",
+         "host": "@",
+         "pointsTo": "mx1.improvmx.com",
+         "ttl": 3600,
+         "priority": 10
+      },
+      {
+         "type": "MX",
+         "host": "@",
+         "pointsTo": "mx2.improvmx.com",
+         "ttl": 3600,
+         "priority": 20
+      }
+   ]
+}

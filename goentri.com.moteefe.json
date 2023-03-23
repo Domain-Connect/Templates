@@ -1,0 +1,70 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "moteefe",
+  "serviceName": "Moteefe",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "shopIp is the IP to be poited, shopDomain is the domain to point the CNAME, s1DomainKey is sendgrid value 1, s2DomainKey is sendgrid value 2, emDomainHost is the host for sendgrid CNAME, emDomainValue is the value for sendgrid CNAME, zendeskverificationKey is the zendesk verification value and zendeskverificationKey is the host for zendesk verification key",
+  "sharedProviderName": true,
+  "records": [
+      {
+         "type": "A",
+         "host": "@",
+         "pointsTo": "%shopIp%",
+         "ttl": 600
+      },
+      {
+         "type": "CNAME",
+         "host": "www",
+         "pointsTo": "%shopDomain%",
+         "ttl": 3600
+      },
+      {
+         "type": "CNAME",
+         "host": "s1._domainkey",
+         "pointsTo": "%s1DomainKey%",
+         "ttl": 3600
+      },
+      {
+         "type": "CNAME",
+         "host": "s2._domainkey",
+         "pointsTo": "%s2DomainKey%",
+         "ttl": 3600
+      },
+      {
+         "type": "CNAME",
+         "host": "%emDomainHost%",
+         "pointsTo": "%emDomainValue%",
+         "ttl": 3600
+      },
+      {
+         "type": "TXT",
+         "host": "zendeskverification",
+         "data": "%zendeskverificationKey%",
+         "ttl": 3600
+      },
+      {
+         "type": "SPFM",
+         "spfRules": "mx include:spf.improvmx.com include:mail.zendesk.com",
+         "host": "@"
+      },
+      {
+         "type": "MX",
+         "host": "@",
+         "pointsTo": "mx1.improvmx.com",
+         "ttl": 3600,
+         "priority": 10
+      },
+      {
+         "type": "MX",
+         "host": "@",
+         "pointsTo": "mx2.improvmx.com",
+         "ttl": 3600,
+         "priority": 20
+      }
+   ]
+}

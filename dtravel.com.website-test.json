@@ -1,0 +1,31 @@
+{  
+   "providerId":"dtravel.com",
+   "providerName":"Dtravel test",
+   "serviceId":"website-test",
+   "serviceName":"Dtravel Websites test",
+   "syncRedirectDomain":"dataismist.com",
+   "version": 1,
+   "logoUrl": "https://static.dtravel.com/dtravel-direct/logo/logo.dtravel.svg",
+   "description":"This is DEVELOPMENT template. Enables a domain to work with Dtravel",
+   "variableDescription":"verify is the verification value for the site",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"18.139.59.247",
+         "ttl": 600
+      },
+      {  
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"connect.dataismist.com",
+         "ttl":600
+      },
+      {
+         "type":"TXT",
+         "host": "dtravel_verification",
+         "data": "%verify%",
+         "ttl":600
+      }
+   ]
+}

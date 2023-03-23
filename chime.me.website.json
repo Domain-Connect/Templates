@@ -1,0 +1,30 @@
+{
+   "providerId":"chime.me",
+   "providerName":"Chime",
+   "serviceId":"website",
+   "serviceName":"Chime Realestate Site",
+   "version": 1,
+   "logoUrl":"https://static.chimeroi.com/home_pictures/Chime-Logo.svg",
+   "description":"Enables a domain to work with Chime Site",
+   "syncRedirectDomain":"chime.me",
+   "records":[
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo": "52.52.24.52",
+         "ttl":3600
+      },
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo": "52.9.101.47",
+         "ttl":3600
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo": "@",
+         "ttl":3600
+      }
+   ]
+}

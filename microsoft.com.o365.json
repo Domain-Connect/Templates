@@ -3,7 +3,7 @@
   "providerName": "Microsoft",
   "serviceId": "O365",
   "serviceName": "Microsoft Office 365",
-  "version": 3,
+  "version": 4,
   "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/07/microsoft-300x89.jpg",
   "description": "Enables a domain to work with Microsoft Office 365",
   "variableDescription": "Self explanatory in the variable names.",
@@ -13,12 +13,12 @@
   "syncPubKeyDomain": "portal.office.com",
   "syncRedirectDomain": "",
   "records": [
-    { 
-      "groupId": "Login", 
-      "type": "CNAME", 
-      "host": "email", 
-      "pointsTo": "%LOGINHOST%", 
-      "ttl": 3600 
+    {
+      "groupId": "Login",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "%LOGINHOST%",
+      "ttl": 3600
     },
     {
       "groupId": "Outlook",
@@ -106,6 +106,21 @@
       "host": "@",
       "data": "%VERIFYTXT%",
       "ttl": 3600
+    },
+    {
+      "groupId": "DKIM",
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%DKIMSEL1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "DKIM",
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%DKIMSEL2%",
+      "ttl": 3600
     }
   ]
 }
+ 
