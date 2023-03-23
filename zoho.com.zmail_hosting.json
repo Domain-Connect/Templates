@@ -9,7 +9,7 @@
     "variableDescription": "",
     "syncBlock": false,
     "hostRequired": false,
-    "version": 4,
+    "version": 5,
     "syncPubKeyDomain": "zoho.com",
     "records": [
     {
@@ -83,6 +83,13 @@
         "type": "REDIR302",
         "target": "%target%",
         "host": "@"
+    },
+    {
+        "groupId": "general-text",
+        "type": "TXT",
+        "host": "%txt_host%",
+        "data": "%txt_points%",
+        "ttl": 600
     }
     ]
 }

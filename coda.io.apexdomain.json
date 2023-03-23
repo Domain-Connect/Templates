@@ -12,19 +12,19 @@
        {  
           "type":"A",
           "host":"@",
-          "pointsTo":"%ipAddress1",
+          "pointsTo":"%ipAddress1%",
           "ttl":600
        },
        {  
           "type":"A",
           "host":"@",
-          "pointsTo":"%ipAddress2",
+          "pointsTo":"%ipAddress2%",
           "ttl":600
        },
        {  
           "type":"A",
           "host":"@",
-          "pointsTo":"%ipAddress3",
+          "pointsTo":"%ipAddress3%",
           "ttl":600
        },
        {
