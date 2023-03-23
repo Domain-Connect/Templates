@@ -6,7 +6,6 @@
     "logoUrl": "https://userconfig.getmoda.io/moda-logo/moda-icon.svg",
     "description": "This is a template to enable domain verification on Moda",
     "variableDescription": "cname_host is the mail CNAME. cname_points is the value to which mail CNAME points to. dkim_points and dkim2_points are for the DKIM records ",
-    "syncBlock": true,
     "syncRedirectDomain": "app.getmoda.io, moda-ui-dev.getmoda.io, moda-ui-stg.getmoda.io",
     "syncPubKeyDomain": "getmoda.io",
     "version": 1,
@@ -37,7 +36,7 @@
             "groupId": "moda-dmarc",
             "type": "TXT",
             "host": "_dmarc",
-            "pointsTo": "v=DMARC1; p=none; rua=mailto:dmarc@getmoda.io",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc@getmoda.io",
             "ttl": 600
         }
     ]
