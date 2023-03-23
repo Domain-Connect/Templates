@@ -1,0 +1,20 @@
+{  
+   "providerId":"Trady.com",
+   "providerName":"Trady",
+   "serviceId":"website-subdomain",
+   "serviceName":"Trady Subdomain",
+   "version": 1,
+   "syncPubKeyDomain" : "trady.com",
+   "syncRedirectDomain": "trady.com, trady.dev",
+   "logoUrl":"https://logos.trady.com/logo.png",
+   "description":"Enables a subdomain to work with Trady",
+   "hostRequired": true,  
+   "records":[  
+      {  
+         "type":"CNAME",
+         "host":"@",
+         "pointsTo":"ssl.trady.com",
+         "ttl":3600
+      }      
+   ]
+}

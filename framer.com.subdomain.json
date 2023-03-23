@@ -1,0 +1,19 @@
+{
+  "providerId": "framer.com",
+  "providerName": "Framer",
+  "serviceId": "subdomain",
+  "serviceName": "Custom Domain",
+  "syncPubKeyDomain": "framer.com",
+  "syncRedirectDomain": "framer.com, api.framer.com",
+  "hostRequired": true,
+  "version": 1,
+  "logoUrl": "https://misc.framerstatic.com/domainconnect/logo.svg",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%prefix%.framer.app",
+      "ttl": "300"
+    }
+  ]
+}
