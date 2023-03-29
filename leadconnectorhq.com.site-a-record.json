@@ -9,7 +9,6 @@
    "description": "Enable domain to work with the LeadConnector",
    "variableDescription": "IPs: LeadConnector connection",
    "records": [{
-         "groupId": "a1",
         "type":"A",
         "host":"@",
         "pointsTo":"%IP1%",

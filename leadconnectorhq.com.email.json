@@ -1,20 +1,20 @@
 {
-   "providerId": "leadconnectorhq.com",
-   "providerName": "LeadConnector",
-   "serviceId": "email",
-   "serviceName": "LeadConnector Email records",
-   "syncRedirectDomain":"domainconnect.leadconnectorhq.com,leadconnectorhq.com",
-   "version": 1,
-   "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
-   "description": "Enable domain domain to work with the LeadConnector",
-   "variableDescription": "IPs: LeadConnector connection",
-   "records": [{
-        "groupId": "mx",
-        "type":"MX",
-        "host":"%host%",
-        "pointsTo": "%mxValue%",
-        "priority": "0",
-        "ttl":600
-   }
-]
+  "providerId": "leadconnectorhq.com",
+  "providerName": "LeadConnector",
+  "serviceId": "email",
+  "serviceName": "LeadConnector Email records",
+  "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
+  "version": 1,
+  "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
+  "description": "Enable domain domain to work with the LeadConnector",
+  "variableDescription": "IPs: LeadConnector connection",
+  "records": [
+    {
+      "type": "MX",
+      "host": "%host%",
+      "pointsTo": "%mxValue%",
+      "priority": "0",
+      "ttl": 600
+    }
+  ]
 }
