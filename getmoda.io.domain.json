@@ -37,6 +37,8 @@
             "type": "TXT",
             "host": "_dmarc",
             "data": "v=DMARC1; p=none; rua=mailto:dmarc@getmoda.io",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConfictMatchingPrefix": "v=DMARC1",
             "ttl": 600
         }
     ]
