@@ -13,7 +13,7 @@
       "type": "MX",
       "host": "%host%",
       "pointsTo": "%mxValue%",
-      "priority": "0",
+      "priority": 0,
       "ttl": 600
     }
   ]
