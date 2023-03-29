@@ -85,14 +85,14 @@ Following is an example of a complete Domain Connect template, with examples of 
       "type": "MX",
       "host": "@",
       "pointsTo": "1.1.1.2",
-      "priority": "0",
+      "priority": 0,
       "ttl": 3600
     },
     {
       "type": "MX",
       "host": "@",
       "pointsTo": "%mx%",
-      "priority": "0",
+      "priority": 0,
       "ttl": 3600
     },
     {
@@ -101,7 +101,7 @@ Following is an example of a complete Domain Connect template, with examples of 
       "protocol": "_tls",
       "port": "443",
       "weight": "20",
-      "priority": "10",
+      "priority": 10,
       "name": "@",
       "target": "%target%",
       "ttl": 3600
