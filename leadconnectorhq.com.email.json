@@ -2,7 +2,7 @@
    "providerId": "leadconnectorhq.com",
    "providerName": "LeadConnector",
    "serviceId": "email",
-   "serviceName": "LeadConnector Text records",
+   "serviceName": "LeadConnector Email records",
    "syncRedirectDomain":"domainconnect.leadconnectorhq.com,leadconnectorhq.com",
    "version": 1,
    "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",

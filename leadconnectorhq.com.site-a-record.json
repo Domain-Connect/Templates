@@ -2,7 +2,7 @@
    "providerId": "leadconnectorhq.com",
    "providerName": "LeadConnector",
    "serviceId": "site-a-record",
-   "serviceName": "LeadConnector Site",
+   "serviceName": "LeadConnector Site A records",
    "version": 1,
    "syncRedirectDomain":"domainconnect.leadconnectorhq.com,leadconnectorhq.com",
    "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
