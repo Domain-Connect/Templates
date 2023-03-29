@@ -12,7 +12,7 @@
         "groupId": "mx",
         "type":"MX",
         "host":"%host%",
-        "pointsTo": "%IP1%",
+        "pointsTo": "%mxValue%",
         "priority": "0",
         "ttl":600
    }
