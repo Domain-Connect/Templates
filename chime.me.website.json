@@ -3,7 +3,7 @@
    "providerName":"Chime",
    "serviceId":"website",
    "serviceName":"Chime Real Estate Site",
-   "version": 1,
+   "version": 2,
    "logoUrl":"https://static.chimeroi.com/home_pictures/Chime-Logo.svg",
    "description":"Chime customers can use their own domain name or subdomain to access their website built on chime",
    "syncRedirectDomain":"chime.me",
@@ -22,7 +22,7 @@
       },
       {
          "type":"CNAME",
-         "host":"www",
+         "host":"%cnamehost%",
          "pointsTo": "@",
          "ttl":3600
       }
