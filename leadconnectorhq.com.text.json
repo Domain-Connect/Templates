@@ -8,10 +8,19 @@
   "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
   "description": "Enable domain domain to work with the LeadConnector",
   "variableDescription": "IPs: LeadConnector connection",
+  "syncPubKeyDomain":"leadconnectorhq.com",
   "records": [
     {
+      "groupId": "txt",
       "type": "TXT",
-      "host": "%host%",
+      "host": "@",
+      "data": "%txtValue%",
+      "ttl": 600
+    },
+    {
+      "groupId": "ssl-txt",
+      "type": "TXT",
+      "host": "_acme-challenge",
       "data": "%txtValue%",
       "ttl": 600
     }

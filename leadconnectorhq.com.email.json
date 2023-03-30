@@ -8,12 +8,27 @@
   "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
   "description": "Enable domain domain to work with the LeadConnector",
   "variableDescription": "IPs: LeadConnector connection",
+  "syncPubKeyDomain":"leadconnectorhq.com",
   "records": [
     {
       "type": "MX",
-      "host": "%host%",
+      "host": "mg",
       "pointsTo": "%mxValue%",
-      "priority": 0,
+      "priority": 10,
+      "ttl": 600
+    },
+    {
+      "type": "MX",
+      "host": "replies",
+      "pointsTo": "%mxValue%",
+      "priority": 10,
+      "ttl": 600
+    },
+    {
+      "type": "MX",
+      "host": "support",
+      "pointsTo": "%mxValue%",
+      "priority": 10,
       "ttl": 600
     }
   ]
