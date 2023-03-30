@@ -3,8 +3,8 @@
   "providerName": "Sendmarc",
   "serviceId": "protection",
   "serviceName": "Sendmarc Email Security",
-  "version": 1,
-  "syncRedirectDomain": "sendmarc.com",
+  "version": 2,
+  "syncRedirectDomain": "sendmarc.com, portal.sendmarc.com",
   "logoUrl": "https://portal.sendmarc.com/img/light-bg-transparent.svg",
   "syncPubKeyDomain": "domainconnect.sendmarc.com",
   "warnPhishing": true,
@@ -25,14 +25,14 @@
       "spfRules": "%spf_rules%"
     },
     {
-      "groupId": "sts",
+      "groupId": "_mta-sts",
       "type": "CNAME",
       "host": "_mta-sts",
       "pointsTo": "%_mta_sts%",
       "ttl": 600
     },
     {
-      "groupId": "sts",
+      "groupId": "mta-sts",
       "type": "CNAME",
       "host": "mta-sts",
       "pointsTo": "%mta_sts%",
@@ -97,6 +97,13 @@
       "type": "NS",
       "host": "_bimi",
       "pointsTo": "%bimi_4%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tlsrpt",
+      "type": "CNAME",
+      "host": "_smtp._tls",
+      "pointsTo": "%tlsrpt%",
       "ttl": 3600
     }
   ]
