@@ -18,7 +18,7 @@
       {
          "type": "CNAME",
          "host": "www",
-         "pointsTo": "44.205.197.127",
+         "pointsTo": "@",
          "ttl": 300
       }
    ]
