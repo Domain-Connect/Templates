@@ -1,0 +1,27 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "squareup_subdomains",
+    "serviceName": "SquareupSubdomains",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "variableDescription":"ip is the ip to point the domain, subdomain is the subdomain sent",
+    "sharedProviderName": true,
+    "records": [
+      {
+        "type":"A",
+        "host":"%subdomain%",
+        "pointsTo":"%ip%",
+        "ttl": 300
+      },
+      {
+         "type": "CNAME",
+         "host": "www.%subdomain%",
+         "pointsTo": "%subdomain%.%domain%",
+         "ttl": 3600
+      }
+    ]
+  }
