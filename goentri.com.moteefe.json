@@ -3,48 +3,48 @@
   "providerName": "Entri",
   "serviceId": "moteefe",
   "serviceName": "Moteefe",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
-  "variableDescription": "shop_ip is the IP to be poited, shop_domain is the domain to point the CNAME, s1_domain_key is sendgrid value 1, s1._domainkey is the host for s1_domain_key,  s2_domain_key is sendgrid value 2, s2._domainkey is the host for s2_domain_key, em_domain_host is the host for sendgrid CNAME, em_domain_value is the value for sendgrid CNAME, zendeskverification_key is the zendesk verification value and zendeskverification is the host for zendesk verification key",
+  "variableDescription": "shopIp is the IP to be poited, shopDomain is the domain to point the CNAME, s1DomainKey is sendgrid value 1, s2DomainKey is sendgrid value 2, emDomainHost is the host for sendgrid CNAME, emDomainValue is the value for sendgrid CNAME, zendeskverificationKey is the zendesk verification value and zendeskverificationKey is the host for zendesk verification key",
   "sharedProviderName": true,
   "records": [
       {
          "type": "A",
          "host": "@",
-         "pointsTo": "%shop_ip%",
+         "pointsTo": "%shopIp%",
          "ttl": 600
       },
       {
          "type": "CNAME",
          "host": "www",
-         "pointsTo": "%shop_domain%",
+         "pointsTo": "%shopDomain%",
          "ttl": 3600
       },
       {
          "type": "CNAME",
          "host": "s1._domainkey",
-         "pointsTo": "%s1_domain_key%",
+         "pointsTo": "%s1DomainKey%",
          "ttl": 3600
       },
       {
          "type": "CNAME",
          "host": "s2._domainkey",
-         "pointsTo": "%s2_domain_key%",
+         "pointsTo": "%s2DomainKey%",
          "ttl": 3600
       },
       {
          "type": "CNAME",
-         "host": "%em_domain_host%",
-         "pointsTo": "%em_domain_value%",
+         "host": "%emDomainHost%",
+         "pointsTo": "%emDomainValue%",
          "ttl": 3600
       },
       {
          "type": "TXT",
          "host": "zendeskverification",
-         "data": "%zendeskverification_key%",
+         "data": "%zendeskverificationKey%",
          "ttl": 3600
       },
       {
