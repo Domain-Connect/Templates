@@ -21,7 +21,6 @@
       {
          "type": "CNAME",
          "host": "%cnameHost%",
-         "host": "%subdomain%",
          "pointsTo": "%cnamePointsTo%",
          "ttl": 600
       }
