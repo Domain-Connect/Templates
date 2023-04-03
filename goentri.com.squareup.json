@@ -10,18 +10,22 @@
     "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
     "variableDescription":"ip is the ip to point the domain and domain is the domain to be pointed",
     "hostRequired": false,
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com, Host is to where domain is pointed",
+    "variableDescription":"ip is the ip to point the domain, aHost is whe A record is pointed, cnameHost is the host for the CNAME record and cnamePointsTo is where the CNAME is pointed ",
+    "hostRequired": true,
     "sharedProviderName": true,
     "records": [
       {
         "type":"A",
-        "host":"@",
+        "host":"%aHost%",
         "pointsTo":"%ip%",
         "ttl": 600
       },
       {
          "type": "CNAME",
-         "host": "www",
-         "pointsTo": "%domain%",
+         "host": "%cnameHost%",
+         "host": "%subdomain%",
+         "pointsTo": "%cnamePointsTo%",
          "ttl": 600
       }
     ]
