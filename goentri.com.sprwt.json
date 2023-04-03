@@ -26,7 +26,7 @@
     {
       "type": "TXT",
       "host": "@",
-      "pointsTo": "v=spf1 include:amazonses.com include:_spf.google.com ~all",
+      "data": "v=spf1 include:amazonses.com include:_spf.google.com ~all",
       "ttl": 3600
     }
   ]
