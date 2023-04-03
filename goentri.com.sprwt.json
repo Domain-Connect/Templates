@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "sprwt",
   "serviceName": "Sprwt.io",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -25,8 +25,8 @@
     },
     {
       "type": "TXT",
-      "host": "%hostValue%",
-      "data": "%customValue%",
+      "host": "@",
+      "data": "v=spf1 include:amazonses.com include:_spf.google.com ~all",
       "ttl": 3600
     }
   ]
