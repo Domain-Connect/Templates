@@ -1,0 +1,21 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "pitchlane",
+    "serviceName": "Pitchlane",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com, app.goentri.com",
+    "variableDescription":"ip is to where A record is pointed",
+    "sharedProviderName": true,
+    "records": [
+      {
+        "type":"A",
+        "host":"@",
+        "pointsTo":"%ip%",
+        "ttl": 600
+      }
+    ]
+  }
