@@ -8,12 +8,13 @@
     "description": "Allows user to easily set up domain using Entri",
     "syncPubKeyDomain": "goentri.com",
     "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com, app.goentri.com",
-    "variableDescription":"cnameHost is the subdomain name and cnamePointsto is to where the subdodoain is pointed",
+    "variableDescription":"cnamePointsto is to where the subdodoain is pointed",
+    "hostRequired": true,
     "sharedProviderName": true,
     "records": [
       {
         "type":"CNAME",
-        "host":"%cnameHost%",
+        "host":"@",
         "pointsTo":"%cnamePointsto%",
         "ttl": 600
       }
