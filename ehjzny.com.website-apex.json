@@ -1,7 +1,7 @@
 {
    "providerId":"ehjzny.com",
    "providerName":"Ehjzny",
-   "serviceId":"website",
+   "serviceId":"website-apex",
    "serviceName":"Website",
    "version": 1,
    "logoUrl":"https://ehjzny.com/img/logo/full.png",
@@ -11,14 +11,9 @@
    "hostRequired": true,
    "records":[
       {
-         "type": "REDIR301",
-         "target": "%target%",
-         "host": "@"
-      },
-      {
-         "type":"CNAME",
-         "host":"www",
-         "pointsTo":"customdomain.ehjzny.com",
+         "type":"A",
+         "host":"@",
+         "pointsTo":"34.110.236.117",
          "ttl":600
       }
    ]

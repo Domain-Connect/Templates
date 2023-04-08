@@ -1,7 +1,7 @@
 {
    "providerId":"ehjzny.com",
    "providerName":"Ehjzny",
-   "serviceId":"website-subdomain",
+   "serviceId":"website-apex-cname",
    "serviceName":"Website",
    "version": 1,
    "logoUrl":"https://ehjzny.com/img/logo/full.png",
@@ -11,8 +11,8 @@
    "hostRequired": true,
    "records":[
       {
-         "type":"CNAME",
-         "host":"@",
+         "type": "APEXCNAME",
+         "host": "@",
          "pointsTo":"customdomain.ehjzny.com",
          "ttl":600
       }
