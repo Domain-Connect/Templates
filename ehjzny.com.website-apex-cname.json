@@ -8,7 +8,7 @@
    "description":"Allows businesses using Ehjzny to use their domain for customers booking portal",
    "syncPubKeyDomain": "domainconnect.ehjzny.com",
    "syncRedirectDomain": "ehjzny.com",
-   "hostRequired": true,
+   "hostRequired": false,
    "records":[
       {
          "type": "APEXCNAME",
