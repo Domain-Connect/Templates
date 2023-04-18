@@ -3,7 +3,7 @@
     "providerName": "Entri",
     "serviceId": "eventcreate",
     "serviceName": "EventCreate",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://cdn.goentri.com/logo.svg",
     "description": "Allows user to easily set up domain using Entri",
     "syncPubKeyDomain": "goentri.com",
@@ -19,6 +19,12 @@
             "ttl": 3600
         },
         {
+          "groupId": "a1",
+          "type": "REDIR301",
+          "target": "%target%",
+          "host": "@"
+        },
+        {
             "groupId": "a2",
             "type": "CNAME",
             "host": "%returnPathHost%",
@@ -31,6 +37,12 @@
             "host": "%dkimHost%",
             "data": "%dkimValue%",
             "ttl": 3600
+        },
+        {
+          "groupId": "a2",
+          "type": "REDIR301",
+          "target": "%target%",
+          "host": "@"
         },
         {
             "groupId": "a3",
@@ -52,6 +64,12 @@
             "host": "%dkimHost%",
             "data": "%dkimValue%",
             "ttl": 3600
+        },
+        {
+          "groupId": "a3",
+          "type": "REDIR301",
+          "target": "%target%",
+          "host": "@"
         }       
     ]
 }
