@@ -6,7 +6,7 @@
   "version": 1,
   "syncPubKeyDomain": "seguno.com",
   "logoUrl": "https://cdn.seguno.com/images/seguno-logo.png",
-  "description": "Places SPF and DKIM records to authenticate email sent by Seguno Software on behalf of the user",
+  "description": "Places Return-Path/bounce domain and DKIM records to authenticate email sent by Seguno Software on behalf of the user",
   "variableDescription": "dkim_selector is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated. dkim_public_key is the DKIM public key.",
   "records": [
     {
