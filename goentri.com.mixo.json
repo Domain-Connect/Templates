@@ -28,6 +28,11 @@
       "host": "%host_cname%",
       "pointsTo": "%value_cname%",
       "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "target": "%target%",
+      "host": "@"
     }
   ]
 }
