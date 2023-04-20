@@ -17,12 +17,6 @@
       "ttl": 3600
     },
     {
-      "pointsTo": "%v1%",
-      "type": "A",
-      "host": "mssql",
-      "ttl": 3600
-    },
-    {
       "pointsTo": "@",
       "type": "CNAME",
       "host": "www",
