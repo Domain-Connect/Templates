@@ -1,0 +1,20 @@
+{
+   "providerId":"ehjzny.com",
+   "providerName":"Ehjzny",
+   "serviceId":"website-subdomain",
+   "serviceName":"Website",
+   "version": 1,
+   "logoUrl":"https://ehjzny.com/img/logo/full.png",
+   "description":"Allows businesses using Ehjzny to use their domain for customers booking portal",
+   "syncPubKeyDomain": "domainconnect.ehjzny.com",
+   "syncRedirectDomain": "ehjzny.com",
+   "hostRequired": true,
+   "records":[
+      {
+         "type":"CNAME",
+         "host":"@",
+         "pointsTo":"customdomain.ehjzny.com",
+         "ttl":600
+      }
+   ]
+}
