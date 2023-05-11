@@ -9,6 +9,7 @@
   "logoUrl": "https://domainconnect.org/wp-content/uploads/2017/02/HubSpot-768x223.png",
   "description": "Enables an email domain to work with HubSpot",
   "variableDescription": "hs1, hs2 - hostnames for email domains. cname0target, cname1target - CNAMEs required for email domains",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
