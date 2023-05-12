@@ -1,0 +1,27 @@
+{
+  "providerId": "hubspot.com",
+  "providerName": "HubSpot",
+  "serviceId": "hubspot-email-domain",
+  "serviceName": "HubSpot CMS Site",
+  "syncPubKeyDomain": "domainconnect.hubspot.com",
+  "syncRedirectDomain": "app.hubspot.com, app.hubspotqa.com, api.hubspot.com, api.hubspotqa.com",
+  "version": 1,
+  "logoUrl": "https://domainconnect.org/wp-content/uploads/2017/02/HubSpot-768x223.png",
+  "description": "Enables an email domain to work with HubSpot",
+  "variableDescription": "hs1, hs2 - hostnames for email domains. cname0target, cname1target - CNAMEs required for email domains",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%hs1%",
+      "pointsTo": "%cname0target%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%hs2%",
+      "pointsTo": "%cname1target%",
+      "ttl": 3600
+    }
+  ]
+}
