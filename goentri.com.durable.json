@@ -17,7 +17,7 @@
       "type": "TXT",
       "host": "%dkimHost%",
       "data": "%dkimValue%",
-      "ttl": 14400
+      "ttl": 3600
     },
     {
       "groupId": "a1",
