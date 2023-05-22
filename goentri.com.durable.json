@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "durable",
   "serviceName": "Durable",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up dkim record using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -13,21 +13,38 @@
   "hostRequired": false,
   "records": [
     {
+     "groupId": "a1",
       "type": "TXT",
       "host": "%dkimHost%",
       "data": "%dkimValue%",
       "ttl": 14400
     },
     {
+      "groupId": "a1",
       "type": "CNAME",
       "host": "www",
       "pointsTo": "%mappingValue%",
       "ttl": 3600
     },
     {
+      "groupId": "a1",
       "type": "A",
       "host": "@",
       "pointsTo": "%primaryIp%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a2",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%mappingValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a2",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%mappingValue%",
       "ttl": 3600
     }
   ]
