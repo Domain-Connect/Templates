@@ -42,9 +42,9 @@
     },
     {
       "groupId": "a2",
-      "type": "CNAME",
-      "host": "www",
-      "pointsTo": "%mappingValue%",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%primaryIp%",
       "ttl": 3600
     }
   ]
