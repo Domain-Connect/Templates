@@ -1,0 +1,22 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "pitchlane_subdomains",
+    "serviceName": "PitchlaneSubdomains",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com, app.goentri.com",
+    "variableDescription":"cnamePointsto is to where the subdodoain is pointed",
+    "hostRequired": true,
+    "sharedProviderName": true,
+    "records": [
+      {
+        "type":"CNAME",
+        "host":"@",
+        "pointsTo":"%cnamePointsto%",
+        "ttl": 600
+      }
+    ]
+  }

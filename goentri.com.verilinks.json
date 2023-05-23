@@ -1,0 +1,22 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "verilinks",
+  "serviceName": "Verilinks",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "txt is the text domain verification.",
+  "hostRequired": false,
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%txt%",
+      "ttl": 3600
+    }
+  ]
+}

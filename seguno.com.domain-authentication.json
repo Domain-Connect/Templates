@@ -1,0 +1,25 @@
+{
+  "providerId": "Seguno.com",
+  "providerName": "Seguno",
+  "serviceId": "domain-authentication",
+  "serviceName": "Seguno Domain Authentication",
+  "version": 1,
+  "syncPubKeyDomain": "seguno.com",
+  "logoUrl": "https://cdn.seguno.com/images/seguno-logo.png",
+  "description": "Places Return-Path/bounce domain and DKIM records to authenticate email sent by Seguno Software on behalf of the user",
+  "variableDescription": "dkim_selector is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated. dkim_public_key is the DKIM public key.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "bounces",
+      "pointsTo": "bounces.seguno-mail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkim_selector%._domainkey",
+      "data": "%dkim_public_key%",
+      "ttl": 3600
+    }
+  ]
+}
