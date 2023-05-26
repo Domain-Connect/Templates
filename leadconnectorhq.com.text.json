@@ -21,7 +21,7 @@
       "groupId": "ssl-txt",
       "type": "TXT",
       "host": "_acme-challenge",
-      "data": "%txtValue%",
+      "data": "%txtAcmeValue%",
       "ttl": 600
     }
   ]
