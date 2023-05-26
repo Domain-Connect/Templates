@@ -1,7 +1,7 @@
 {
   "providerId": "leadconnectorhq.com",
   "providerName": "LeadConnector",
-  "serviceId": "text",
+  "serviceId": "text-dynamic-record",
   "serviceName": "LeadConnector Text records",
   "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
   "version": 1,
