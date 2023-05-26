@@ -12,7 +12,7 @@
   "records": [
     {
       "type": "A",
-      "host": "www",
+      "host": "%SUB1%",
       "pointsTo": "%IP1%",
       "ttl": 600
     }

@@ -6,21 +6,14 @@
   "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
   "version": 1,
   "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
-  "description": "Enable domain domain to work with the LeadConnector",
-  "variableDescription": "TXT SSL: LeadConnector connection",
+  "description": "Enable  domain to work with the LeadConnector",
+  "variableDescription": "TXTs: LeadConnector connection",
   "syncPubKeyDomain":"leadconnectorhq.com",
   "records": [
     {
       "groupId": "txt",
       "type": "TXT",
-      "host": "@",
-      "data": "%txtValue%",
-      "ttl": 600
-    },
-    {
-      "groupId": "ssl-txt",
-      "type": "TXT",
-      "host": "_acme-challenge",
+      "host": "%txtHost%",
       "data": "%txtValue%",
       "ttl": 600
     }
