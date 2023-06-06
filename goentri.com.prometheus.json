@@ -10,7 +10,7 @@
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com, app.goentri.com",
   "variableDescription": "customDomain1, customDomain2, customDomain3 and customDomain4 are the subdomain to point to websitePointsTo1 websitePointsTo2, websitePointsTo3, websitePointsTo4 respectively. hostValue and customValue is the dynamic host value assigned to the domain",
   "sharedProviderName": true,
-  "hostRequired":true,
+  "hostRequired":false,
   "records": [
     {
       "type": "CNAME",
