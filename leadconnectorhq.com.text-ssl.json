@@ -1,19 +1,20 @@
 {
   "providerId": "leadconnectorhq.com",
   "providerName": "LeadConnector",
-  "serviceId": "site-dynamic-record",
-  "serviceName": "LeadConnector Site Dynamic records",
-  "version": 1,
+  "serviceId": "text-ssl",
+  "serviceName": "LeadConnector Text records",
   "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
+  "version": 1,
   "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
-  "description": "Enable domain to work with the LeadConnector",
-  "variableDescription": "IPs: LeadConnector connection",
+  "description": "Enable domain domain to work with the LeadConnector",
+  "variableDescription": "TXT SSL: LeadConnector connection",
   "syncPubKeyDomain":"leadconnectorhq.com",
   "records": [
     {
-      "type": "A",
-      "host": "www",
-      "pointsTo": "%IP1%",
+      "groupId": "ssl-txt",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%txtAcmeValue%",
       "ttl": 600
     }
   ]
