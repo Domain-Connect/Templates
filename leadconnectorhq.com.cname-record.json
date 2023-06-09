@@ -9,11 +9,12 @@
   "description": "Enable  domain to work with the LeadConnector",
   "variableDescription": "CNAMEs: LeadConnector connection",
   "syncPubKeyDomain":"leadconnectorhq.com",
+  "hostRequired": true,
   "records": [
     {
       "groupId": "cname",
       "type": "CNAME",
-      "host": "%cnameHost%",
+      "host": "@",
       "pointsTo": "%cnameValue%",
       "ttl": 3600
     }

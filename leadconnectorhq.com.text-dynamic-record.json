@@ -9,11 +9,12 @@
   "description": "Enable  domain to work with the LeadConnector",
   "variableDescription": "TXTs: LeadConnector connection",
   "syncPubKeyDomain":"leadconnectorhq.com",
+  "hostRequired": true,
   "records": [
     {
       "groupId": "txt",
       "type": "TXT",
-      "host": "%txtHost%",
+      "host": "@",
       "data": "%txtValue%",
       "ttl": 600
     }

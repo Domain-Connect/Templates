@@ -1,7 +1,7 @@
 {
   "providerId": "leadconnectorhq.com",
   "providerName": "LeadConnector",
-  "serviceId": "text",
+  "serviceId": "text-ssl",
   "serviceName": "LeadConnector Text records",
   "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
   "version": 1,
@@ -10,13 +10,6 @@
   "variableDescription": "TXT SSL: LeadConnector connection",
   "syncPubKeyDomain":"leadconnectorhq.com",
   "records": [
-    {
-      "groupId": "txt",
-      "type": "TXT",
-      "host": "@",
-      "data": "%txtValue%",
-      "ttl": 600
-    },
     {
       "groupId": "ssl-txt",
       "type": "TXT",
