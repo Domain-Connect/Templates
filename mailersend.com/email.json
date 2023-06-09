@@ -4,8 +4,7 @@
     "serviceId":"mailersend-email",
     "serviceName":"MailerSend Email Service",
     "version": 1,
-    "logoUrl":"",
-    "syncPubKeyDomain": "",
+    "syncPubKeyDomain": "mailersend.com",
     "syncRedirectDomain": "mailersend.com",
     "records":[
       {
