@@ -9,6 +9,7 @@
    "description": "Enable domain to work with the LeadConnector",
    "variableDescription": "IPs: LeadConnector connection",
    "syncPubKeyDomain":"leadconnectorhq.com",
+   "hostRequired": true,
    "records": [{
         "type":"A",
         "host":"@",
