@@ -2,7 +2,7 @@
     "providerId": "goentri.com",
     "providerName": "Entri",
     "serviceId": "duda-subdomains",
-    "serviceName": "DudaSubdomains",
+    "serviceName": "Duda Subdomains",
     "version": 2,
     "logoUrl": "https://cdn.goentri.com/logo.svg",
     "description": "Allows user to easily set up domain using Entri",

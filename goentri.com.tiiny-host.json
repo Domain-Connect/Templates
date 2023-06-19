@@ -63,7 +63,7 @@
       "type": "CNAME",
       "host": "%CnameHost2%",
       "groupId": "a3",
-      "pointsTo": "webSitePointsTo2%",
+      "pointsTo": "%webSitePointsTo2%",
       "ttl": 3600
     },
     {
