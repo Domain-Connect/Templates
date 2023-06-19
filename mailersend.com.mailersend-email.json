@@ -34,7 +34,7 @@
       {
         "type": "MX",
         "host": "%inbound_host%",
-        "pointsTo": "%inbound_value%",
+        "pointsTo": "inbound.mailersend.net",
         "ttl": 3600,
         "priority": 10
       }
