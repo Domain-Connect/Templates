@@ -1,0 +1,79 @@
+{
+  "providerId": "easydmarc.com",
+  "providerName": "EasyDMARC",
+  "serviceId": "setup",
+  "serviceName": "EasyDMARC setup",
+  "version": 1,
+  "syncRedirectDomain": "easydmarc.com, app.easydmarc.com",
+  "logoUrl": "https://easydmarc.com/img/wordmark.svg",
+  "syncPubKeyDomain": "domainconnect.easydmarc.com",
+  "description": "Your smart DMARC reporting and monitoring platform. Ensure domain-level security and email deliverability with EasyDMARC's DMARC, SPF, DKIM, and BIMI services",
+  "variableDescription": "Self explanatory in the variable names",
+  "records": [
+    {
+      "groupId": "spf",
+      "type": "TXT",
+      "host": "@",
+      "data": "%spftxt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%dmarc%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc_raw",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarctxt%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "bimi",
+      "type": "CNAME",
+      "host": "default._bimi",
+      "pointsTo": "%bimi%",
+      "ttl": 3600
+    },
+    { 
+      "groupId": "bimi_raw",
+      "type": "TXT",
+      "host": "default._bimi",
+      "data": "%bimitxt%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mta-sts_underscore",
+      "type": "CNAME",
+      "host": "_mta-sts",
+      "pointsTo": "%mta_sts_underscore%",
+      "ttl": 600
+    },
+    {
+      "groupId": "mta-sts",
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "%mta_sts%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sts",
+      "type": "CNAME",
+      "host": "_smtp-tlsrpt",
+      "pointsTo": "%smtp_tls%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tlsrpt",
+      "type": "CNAME",
+      "host": "_smtp._tls",
+      "pointsTo": "%tlsrpt%",
+      "ttl": 3600
+    }
+  ]
+}
