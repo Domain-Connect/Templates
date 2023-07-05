@@ -3,7 +3,7 @@
   "providerName": "Leadpages",
   "serviceId": "custom-domain-prod",
   "serviceName": "Leadpages Custom Domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://my.leadpages.net/static/current/img/logos/logo_icon.svg",
   "description": "Enables a domain to work with Leadpages",
   "syncRedirectDomain": "my.leadpages.net, my.leadpages.com",

@@ -3,7 +3,7 @@
   "providerName": "Leadpages Test",
   "serviceId": "custom-domain-test",
   "serviceName": "Leadpages Custom Domain (Test)",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://my.leadpagestest.net/static/current/img/logos/logo_icon.svg",
   "description": "Enables a domain to work with Leadpages",
   "syncRedirectDomain": "my.leadpagestest.net, my.leadpagestest.com",
