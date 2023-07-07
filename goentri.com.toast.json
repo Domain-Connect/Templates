@@ -29,13 +29,6 @@
     {
       "type": "TXT",
       "host": "%txtHost%",
-      "groupId": "a1",
-      "data": "%txt%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost%",
       "groupId": "a2",
       "data": "%txt%",
       "ttl": 3600
