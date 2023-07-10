@@ -1,0 +1,36 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "bigcartel",
+  "serviceName": "Bigcartel",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up dkim record using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "subdomain is the subdomain the user will create, webSitePointsTo is to where the www subdomain is pointed ",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%webSitePointsTo%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a1",
+      "type": "REDIR301",
+      "target": "%target%",
+      "host": "@"
+    },
+    {
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "groupId": "a2",
+      "pointsTo": "%webSitePointsTo%",
+      "ttl": 3600
+    }
+  ]
+}
