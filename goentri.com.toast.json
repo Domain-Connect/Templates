@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "toast",
   "serviceName": "Toast",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -412,17 +412,18 @@
       "ttl": 3600
     },
     {
-      "type": "A",
-      "host": "@",
-      "groupId": "a4",
-      "pointsTo": "%ipaddress00%",
+      "type": "TXT",
+      "host": "%txtHost00%",
+      "groupId": "a12",
+      "data": "%txt00%",
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "@",
-      "data": "%txt00%",
-      "ttl": 3600
+        "value": "%ipaddress00%",
+        "host": "@",
+        "ttl": 3600,
+        "type": "A",
+        "groupId": "a13"
     }
   ]
 }
