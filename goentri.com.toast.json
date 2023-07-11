@@ -410,6 +410,19 @@
       "groupId": "a11",
       "pointsTo": "%cnamePointsToSubdomain119%",
       "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "groupId": "a4",
+      "pointsTo": "%ipaddress00%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%txt00%",
+      "ttl": 3600
     }
   ]
 }
