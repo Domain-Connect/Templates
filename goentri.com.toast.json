@@ -419,7 +419,7 @@
       "ttl": 3600
     },
     {
-        "value": "%ipaddress00%",
+        "pointsTo": "%ipaddress00%",
         "host": "@",
         "ttl": 3600,
         "type": "A",
