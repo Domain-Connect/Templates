@@ -13,13 +13,6 @@
   "records": [
     {
       "type": "TXT",
-      "host": "%hosttxt1%",
-      "groupId": "a1",
-      "data": "%txt1%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
       "host": "%hosttxt2%",
       "groupId": "a1",
       "data": "%txt2%",
