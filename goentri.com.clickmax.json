@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "clickmax",
   "serviceName": "ClickMax",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up dkim record using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -17,6 +17,11 @@
       "host": "@",
       "pointsTo": "%cnamePointsTo%",
       "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "target": "%target%",
+      "host": "@"
     }
   ]
 }
