@@ -3,16 +3,19 @@
     "providerName": "Maileon Email Marketing",
     "serviceId": "hosting_and_email",
     "serviceName": "Email Marketing by Maileon",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://maileon.com/app/themes/maileon/assets/img/logo.svg",
     "description": "Configure Hosting and Email Records for use with Maileon Plattform",
     "syncPubKeyDomain": "maileon.com",
+    "sharedProviderName": true,
+    "sharedServiceName": true,
+    "variableDescription": "cnamehost is CNAME host name for webhosting",
     "hostRequired": true,
     "records": [
         {
             "type": "CNAME",
             "host": "@",
-            "pointsTo": "cname.maileon.com",
+            "pointsTo": "%cnamehost%.maileon.com",
             "ttl": "600"
         },
         {
