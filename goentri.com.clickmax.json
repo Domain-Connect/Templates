@@ -14,7 +14,7 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "@",
+      "host": "www",
       "pointsTo": "%cnamePointsTo%",
       "ttl": 3600
     },
