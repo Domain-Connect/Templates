@@ -39,14 +39,14 @@
       "type": "MX",
       "host": "%mxHost2%",
       "pointsTo": "%mxValue2%",
-      "priority": 10,
+      "priority": 20,
       "ttl": 600
     },
     {
       "type": "MX",
       "host": "%mxHost3%",
       "pointsTo": "%mxValue3%",
-      "priority": 10,
+      "priority": 30,
       "ttl": 600
     }
   ]
