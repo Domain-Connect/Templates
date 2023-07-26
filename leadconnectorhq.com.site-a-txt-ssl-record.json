@@ -1,15 +1,21 @@
 {
   "providerId": "leadconnectorhq.com",
   "providerName": "LeadConnector",
-  "serviceId": "text-ssl",
-  "serviceName": "LeadConnector Text records",
+  "serviceId": "site-a-txt-ssl-record",
+  "serviceName": "LeadConnector Site A and TXT ssl records",
+  "version": 1,
   "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
-  "version": 2,
   "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
-  "description": "Enable domain domain to work with the LeadConnector",
-  "variableDescription": "txtAcmeValue: Value for _acme-challenge TXT record, txtCfValue: Value for _cf-custom-hostname TXT record",
+  "description": "Enable domain to work with the LeadConnector by configuring the necessary A and TXT SSL records.",
+  "variableDescription": "P1: LeadConnector connection, txtAcmeValue: Value for _acme-challenge TXT record, txtCfValue: Value for _cf-custom-hostname TXT record",
   "syncPubKeyDomain": "leadconnectorhq.com",
   "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP1%",
+      "ttl": 600
+    },
     {
       "type": "TXT",
       "host": "_acme-challenge",
