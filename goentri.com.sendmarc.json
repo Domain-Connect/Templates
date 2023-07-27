@@ -19,11 +19,14 @@
       "pointsTo": "%cnamePointsTo%",
       "ttl": 3600
     },
-    {
-      "type": "SPFM",
+     {
+      "data": "v=spf1 redirect=%thirdPartyDomain%",
       "host": "@",
-      "groupId": "a2",
-      "spfRules": "redirect=%thirdPartyDomain%"
+      "ttl": 3600,
+      "type": "TXT",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1",
+      "essential": "OnApply"
     }
   ]
 }
