@@ -23,7 +23,7 @@
       "type": "SPFM",
       "host": "@",
       "groupId": "a2",
-      "spfRules": "include:%thirdPartyDomain%"
+      "spfRules": "redirect=%thirdPartyDomain%"
     }
   ]
 }
