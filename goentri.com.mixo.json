@@ -51,6 +51,6 @@
       "groupId": "a3",
       "pointsTo": "%valuecname3%",
       "ttl": 3600
-    },
+    }
   ]
 }
