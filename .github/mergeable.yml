@@ -1,0 +1,17 @@
+version: 2
+mergeable:
+  - when: pull_request.*, pull_request_review.*
+    name: 'Approval check'
+    validate:
+    - do: approvals
+      min:
+        count: 1
+      required:
+        reviewers: [ pawel-kow ]
+        message: 'Review needed from Domain Connect admins'
+    - do: approvals
+      min:
+        count: 1 
+      required:
+        owners: true
+        message: 'Review needed from code owners'
