@@ -1,0 +1,43 @@
+name: codeowners
+
+on:
+  pull_request_target:
+    paths-ignore:
+      - '**/CODEOWNERS'
+      - 'LICENSE'
+    branches:
+      - master
+    types:
+      - ready_for_review
+      - review_request_removed
+      - reopened
+      - labeled
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    # only apply on unmerged pull requests
+    if: github.event.pull_request.merged_by == ''
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v2.3.4
+      with:
+        # this only makes sure that forks are built as well
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
+        ref: ${{ github.head_ref }}
+        # the fetch depth 0 (=all) is important
+        fetch-depth: 0
+        # the token is necessary for checks to rerun after auto commit
+        token: ${{ secrets.PAT }}
+    - name: update code owners
+      uses: gofunky/update-codeowners@v0.3.1
+      with:
+        distribution: 25
+        username: true
+    - name: commit changed files
+      id: committed
+      if: ${{ steps.committed.outputs.changes_detected == 'true' }}
+      uses: stefanzweifel/git-auto-commit-action@v4.7.2
+      with:
+        commit_message: 'chore(meta): update code owners'
+        file_pattern: .github/CODEOWNERS
