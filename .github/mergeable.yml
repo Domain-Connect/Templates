@@ -8,12 +8,6 @@ mergeable:
         count: 1
       required:
         reviewers: [ pawel-kow ]
-        message: 'Review needed from Domain Connect admins'
-      block:
-        changes_requested: true
-    - do: approvals
-      required:
         owners: true
-        message: 'Review needed from code owners'
       block:
         changes_requested: true
