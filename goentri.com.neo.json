@@ -8,7 +8,7 @@
   "description": "Allows the user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
-  "variableDescription": "domainkeyHost is the Dkim host and keyValue is the dkim value, mxPointsto is to where the email is pointed, domainVaerifcation is the domain verification value",
+  "variableDescription": "domainkeyHost is the Dkim host and keyValue is the dkim value, mxPointsto is to where the email is pointed, domainVerifcation is the domain verification value",
   "sharedProviderName": true,
   "hostRequired": false,
   "records": [
