@@ -3,12 +3,12 @@
   "providerName": "Entri",
   "serviceId": "mixo",
   "serviceName": "Mixo",
-  "version": 4,
+  "version": 5,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
-  "variableDescription": "host_txt is the host for each TXT record,txt is the value for TXT record, host_cname is the host for the CNAME record and value_cname is the value to point CNAME",
+  "variableDescription":"hosttxt is the host for each TXT record,txt is the value for TXT record, hostcname is the host for the CNAME record and valuecname is the value to point CNAME",
   "sharedProviderName": true,
   "records": [
     {
@@ -42,12 +42,12 @@
       "type": "TXT",
       "host": "%hosttxt3%",
       "groupId": "a3",
-      "data": "%txt2%",
+      "data": "%txt3%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "%hostcname%",
+      "host": "%hostcname3%",
       "groupId": "a3",
       "pointsTo": "%valuecname3%",
       "ttl": 3600
