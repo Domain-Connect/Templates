@@ -16,7 +16,6 @@
       "type": "TXT",
       "host": "%domainkeyHost%",
       "data": "%keyValue%",
-
       "groupId": "a1",
       "ttl": 3600
     },
