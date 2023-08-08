@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "neo",
   "serviceName": "Neo",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows the user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -16,6 +16,7 @@
       "type": "TXT",
       "host": "%domainkeyHost%",
       "data": "%keyValue%",
+
       "groupId": "a1",
       "ttl": 3600
     },
@@ -40,12 +41,14 @@
       "host": "@",
       "spfRules": "include:spf0001.neo.space",
       "groupId": "a3"
+      "spfRules": "include:spf0001.neo.space"
     },
     {
       "type": "TXT",
       "host": "@",
       "data": "%domainVerifcation%",
       "groupId": "a4",
+      "data": "%domainVerification%",
       "ttl": 3600
     }
   ]
