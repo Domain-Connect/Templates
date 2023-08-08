@@ -39,7 +39,7 @@
       "type": "SPFM",
       "host": "@",
       "spfRules": "include:spf0001.neo.space",
-      "groupId": "a3"
+      "groupId": "a3",
       "spfRules": "include:spf0001.neo.space"
     },
     {
