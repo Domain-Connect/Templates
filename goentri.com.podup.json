@@ -1,0 +1,43 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "podup",
+  "serviceName": "Podup",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
+  "variableDescription": "ipAdress is the IP to where the domain is pointed, Cnamehost is the host of the CNAME and Cnamevalue is the value to the CNAME",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipAdress%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "target": "%target%",
+      "groupId": "a2",
+      "host": "@"
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%ipAdress%",
+      "groupId": "a3",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%Cnamehost%",
+      "pointsTo": "%Cnamevalue%",
+      "groupId": "a4",
+      "ttl": 3600
+    }
+  ]
+}
