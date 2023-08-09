@@ -4,15 +4,13 @@
   "serviceId": "text-dynamic-record",
   "serviceName": "LeadConnector Text records",
   "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
   "description": "Enable  domain to work with the LeadConnector",
   "variableDescription": "TXTs: LeadConnector connection",
-  "syncPubKeyDomain":"leadconnectorhq.com",
-  "hostRequired": true,
+  "syncPubKeyDomain": "leadconnectorhq.com",
   "records": [
     {
-      "groupId": "txt",
       "type": "TXT",
       "host": "@",
       "data": "%txtValue%",
