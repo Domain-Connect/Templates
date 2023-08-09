@@ -39,13 +39,11 @@
       "type": "SPFM",
       "host": "@",
       "spfRules": "include:spf0001.neo.space",
-      "groupId": "a3",
-      "spfRules": "include:spf0001.neo.space"
+      "groupId": "a3"
     },
     {
       "type": "TXT",
       "host": "@",
-      "data": "%domainVerifcation%",
       "groupId": "a4",
       "data": "%domainVerification%",
       "ttl": 3600
