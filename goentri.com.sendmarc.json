@@ -29,5 +29,6 @@
       "txtConflictMatchingPrefix": "v=spf1",
       "essential": "OnApply",
       "groupId": "a2"
+     }
   ]
 }
