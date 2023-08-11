@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "sendmarc",
   "serviceName": "Sendmarc",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up dkim record using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -19,6 +19,7 @@
       "pointsTo": "%cnamePointsTo%",
       "ttl": 3600
     },
+
      {
       "data": "v=spf1 redirect=%thirdPartyDomain%",
       "host": "@",
@@ -26,7 +27,8 @@
       "type": "TXT",
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=spf1",
-      "essential": "OnApply"
-    }
+      "essential": "OnApply",
+      "groupId": "a2"
+     }
   ]
 }
