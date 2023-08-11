@@ -19,7 +19,8 @@
       "pointsTo": "%cnamePointsTo%",
       "ttl": 3600
     },
-    {
+
+     {
       "data": "v=spf1 redirect=%thirdPartyDomain%",
       "host": "@",
       "ttl": 3600,
@@ -28,6 +29,5 @@
       "txtConflictMatchingPrefix": "v=spf1",
       "essential": "OnApply",
       "groupId": "a2"
-    }
   ]
 }
