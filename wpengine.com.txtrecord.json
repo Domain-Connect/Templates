@@ -1,0 +1,21 @@
+{
+    "providerId":"wpengine.com",
+    "providerName":"WPEngine.com",
+    "serviceId":"txtrecord",
+    "serviceName":"WP Engine Digital Experience Platform",
+    "version": 1,
+    "logoUrl":"https://www.domainconnect.org/wp-content/uploads/2018/03/LGO-WPEngine-Horiz-reg-RGB-768x146.png",
+    "description":"Configure data for the domain TXT record.",
+    "syncBlock":false,
+    "syncPubKeyDomain": "landmark.wpesvc.net",
+    "hostRequired": true,
+    "variableDescription": "Variable data is the data for TXT record",
+    "records":[
+        {
+            "type":"TXT",
+            "host":"@",
+            "data":"%data%",
+            "ttl":3600
+        }
+    ]
+}

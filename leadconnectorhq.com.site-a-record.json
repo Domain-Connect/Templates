@@ -1,20 +1,20 @@
 {
-   "providerId": "leadconnectorhq.com",
-   "providerName": "LeadConnector",
-   "serviceId": "site-a-record",
-   "serviceName": "LeadConnector Site A records",
-   "version": 1,
-   "syncRedirectDomain":"domainconnect.leadconnectorhq.com,leadconnectorhq.com",
-   "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
-   "description": "Enable domain to work with the LeadConnector",
-   "variableDescription": "IPs: LeadConnector connection",
-   "syncPubKeyDomain":"leadconnectorhq.com",
-   "hostRequired": true,
-   "records": [{
-        "type":"A",
-        "host":"@",
-        "pointsTo":"%IP1%",
-        "ttl":600
-   }
-]
+  "providerId": "leadconnectorhq.com",
+  "providerName": "LeadConnector",
+  "serviceId": "site-a-record",
+  "serviceName": "LeadConnector Site A records",
+  "version": 2,
+  "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
+  "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
+  "description": "Enable domain to work with the LeadConnector",
+  "variableDescription": "IPs: LeadConnector connection",
+  "syncPubKeyDomain": "leadconnectorhq.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP1%",
+      "ttl": 600
+    }
+  ]
 }

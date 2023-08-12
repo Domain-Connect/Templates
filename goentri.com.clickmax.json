@@ -1,0 +1,27 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "clickmax",
+  "serviceName": "ClickMax",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up dkim record using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+   "variableDescription": "cnamePointsTo is the URL to where the subdomain is pointed ",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cnamePointsTo%",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "target": "%target%",
+      "host": "@"
+    }
+  ]
+}

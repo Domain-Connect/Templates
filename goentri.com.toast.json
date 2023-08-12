@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "toast",
   "serviceName": "Toast",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -27,31 +27,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost%",
-      "groupId": "a1",
-      "data": "%txt%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost%",
-      "groupId": "a2",
-      "data": "%txt%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain2%",
       "groupId": "a2",
       "pointsTo": "%cnamePointsToSubdomain2%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost3%",
-      "groupId": "a3",
-      "data": "%txt3%",
       "ttl": 3600
     },
     {
@@ -62,24 +41,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost31%",
-      "groupId": "a3",
-      "data": "%txt31%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain31%",
       "groupId": "a3",
       "pointsTo": "%cnamePointsToSubdomain31%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost%",
-      "groupId": "a4",
-      "data": "%txt%",
       "ttl": 3600
     },
     {
@@ -90,24 +55,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost41%",
-      "groupId": "a4",
-      "data": "%txt41%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain41%",
       "groupId": "a4",
       "pointsTo": "%cnamePointsToSubdomain41%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost42%",
-      "groupId": "a4",
-      "data": "%txt42%",
       "ttl": 3600
     },
     {
@@ -118,24 +69,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost%",
-      "groupId": "a5",
-      "data": "%txt%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain5%",
       "groupId": "a5",
       "pointsTo": "%cnamePointsToSubdomain5%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost51%",
-      "groupId": "a5",
-      "data": "%txt51%",
       "ttl": 3600
     },
     {
@@ -146,24 +83,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost52%",
-      "groupId": "a5",
-      "data": "%txt52%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain52%",
       "groupId": "a5",
       "pointsTo": "%cnamePointsToSubdomain52%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost53%",
-      "groupId": "a5",
-      "data": "%txt53%",
       "ttl": 3600
     },
     {
@@ -174,24 +97,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost%",
-      "groupId": "a6",
-      "data": "%txt%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain6%",
       "groupId": "a6",
       "pointsTo": "%cnamePointsToSubdomain6%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost61%",
-      "groupId": "a6",
-      "data": "%txt61%",
       "ttl": 3600
     },
     {
@@ -202,24 +111,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost62%",
-      "groupId": "a6",
-      "data": "%txt62%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain62%",
       "groupId": "a6",
       "pointsTo": "%cnamePointsToSubdomain62%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost63%",
-      "groupId": "a6",
-      "data": "%txt62%",
       "ttl": 3600
     },
     {
@@ -230,24 +125,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost64%",
-      "groupId": "a6",
-      "data": "%txt64%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain64%",
       "groupId": "a6",
       "pointsTo": "%cnamePointsToSubdomain64%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost%",
-      "groupId": "a7",
-      "data": "%txt%",
       "ttl": 3600
     },
     {
@@ -258,24 +139,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost71%",
-      "groupId": "a7",
-      "data": "%txt71%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain71%",
       "groupId": "a7",
       "pointsTo": "%cnamePointsToSubdomain71%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost72%",
-      "groupId": "a7",
-      "data": "%txt72%",
       "ttl": 3600
     },
     {
@@ -286,24 +153,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost73%",
-      "groupId": "a7",
-      "data": "%txt73%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain73%",
       "groupId": "a7",
       "pointsTo": "%cnamePointsToSubdomain73%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost74%",
-      "groupId": "a7",
-      "data": "%txt74%",
       "ttl": 3600
     },
     {
@@ -314,24 +167,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost75%",
-      "groupId": "a7",
-      "data": "%txt75%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain75%",
       "groupId": "a7",
       "pointsTo": "%cnamePointsToSubdomain75%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost%",
-      "groupId": "a8",
-      "data": "%txt%",
       "ttl": 3600
     },
     {
@@ -342,24 +181,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost81%",
-      "groupId": "a8",
-      "data": "%txt81%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain81%",
       "groupId": "a8",
       "pointsTo": "%cnamePointsToSubdomain81%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost82%",
-      "groupId": "a8",
-      "data": "%txt82%",
       "ttl": 3600
     },
     {
@@ -370,24 +195,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost83%",
-      "groupId": "a8",
-      "data": "%txt83%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain83%",
       "groupId": "a8",
       "pointsTo": "%cnamePointsToSubdomain83%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost84%",
-      "groupId": "a8",
-      "data": "%txt84%",
       "ttl": 3600
     },
     {
@@ -398,24 +209,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost85%",
-      "groupId": "a8",
-      "data": "%txt85%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain85%",
       "groupId": "a8",
       "pointsTo": "%cnamePointsToSubdomain85%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost86%",
-      "groupId": "a8",
-      "data": "%txt86%",
       "ttl": 3600
     },
     {
@@ -426,24 +223,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost%",
-      "groupId": "a9",
-      "data": "%txt%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain9%",
       "groupId": "a9",
       "pointsTo": "%cnamePointsToSubdomain9%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost91%",
-      "groupId": "a9",
-      "data": "%txt91%",
       "ttl": 3600
     },
     {
@@ -454,24 +237,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost92%",
-      "groupId": "a9",
-      "data": "%txt92%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain92%",
       "groupId": "a9",
       "pointsTo": "%cnamePointsToSubdomain92%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost93%",
-      "groupId": "a9",
-      "data": "%txt93%",
       "ttl": 3600
     },
     {
@@ -482,24 +251,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost94%",
-      "groupId": "a9",
-      "data": "%txt94%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain94%",
       "groupId": "a9",
       "pointsTo": "%cnamePointsToSubdomain94%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost95%",
-      "groupId": "a9",
-      "data": "%txt95%",
       "ttl": 3600
     },
     {
@@ -510,13 +265,6 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost96%",
-      "groupId": "a9",
-      "data": "%txt96%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain96%",
       "groupId": "a9",
@@ -524,24 +272,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost97%",
-      "groupId": "a9",
-      "data": "%txt97%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain97%",
-      "groupId": "9",
+      "groupId": "a9",
       "pointsTo": "%cnamePointsToSubdomain97%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost%",
-      "groupId": "a10",
-      "data": "%txt%",
       "ttl": 3600
     },
     {
@@ -552,24 +286,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost101%",
-      "groupId": "a10",
-      "data": "%txt101%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain101%",
       "groupId": "a10",
       "pointsTo": "%cnamePointsToSubdomain101%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost102%",
-      "groupId": "a10",
-      "data": "%txt102%",
       "ttl": 3600
     },
     {
@@ -580,24 +300,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost103%",
-      "groupId": "a10",
-      "data": "%txt103%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain103%",
       "groupId": "a10",
       "pointsTo": "%cnamePointsToSubdomain103%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost104%",
-      "groupId": "a10",
-      "data": "%txt104%",
       "ttl": 3600
     },
     {
@@ -608,24 +314,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost105%",
-      "groupId": "a10",
-      "data": "%txt105%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain105%",
       "groupId": "a10",
       "pointsTo": "%cnamePointsToSubdomain105%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost106%",
-      "groupId": "a10",
-      "data": "%txt106%",
       "ttl": 3600
     },
     {
@@ -636,24 +328,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost107%",
-      "groupId": "a10",
-      "data": "%txt107%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain107%",
       "groupId": "a10",
       "pointsTo": "%cnamePointsToSubdomain107%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost108%",
-      "groupId": "a10",
-      "data": "%txt108%",
       "ttl": 3600
     },
     {
@@ -664,24 +342,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost%",
-      "groupId": "a11",
-      "data": "%txt%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain11%",
       "groupId": "a11",
       "pointsTo": "%cnamePointsToSubdomain11%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost111%",
-      "groupId": "a11",
-      "data": "%txt111%",
       "ttl": 3600
     },
     {
@@ -692,24 +356,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost112%",
-      "groupId": "a11",
-      "data": "%txt112%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain112%",
       "groupId": "a11",
       "pointsTo": "%cnamePointsToSubdomain112%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost113%",
-      "groupId": "a11",
-      "data": "%txt113%",
       "ttl": 3600
     },
     {
@@ -720,24 +370,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost114%",
-      "groupId": "a11",
-      "data": "%txt114%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain114%",
       "groupId": "a11",
       "pointsTo": "%cnamePointsToSubdomain114%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost115%",
-      "groupId": "a11",
-      "data": "%txt115%",
       "ttl": 3600
     },
     {
@@ -748,24 +384,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost116%",
-      "groupId": "a11",
-      "data": "%txt116%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain116%",
       "groupId": "a11",
       "pointsTo": "%cnamePointsToSubdomain116%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost117%",
-      "groupId": "a11",
-      "data": "%txt117%",
       "ttl": 3600
     },
     {
@@ -776,24 +398,10 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%txtHost118%",
-      "groupId": "a11",
-      "data": "%txt118%",
-      "ttl": 3600
-    },
-    {
       "type": "CNAME",
       "host": "%subdomain118%",
       "groupId": "a11",
       "pointsTo": "%cnamePointsToSubdomain118%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "%txtHost119%",
-      "groupId": "a11",
-      "data": "%txt119%",
       "ttl": 3600
     },
     {
@@ -802,6 +410,20 @@
       "groupId": "a11",
       "pointsTo": "%cnamePointsToSubdomain119%",
       "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%txtHost00%",
+      "groupId": "a12",
+      "data": "%txt00%",
+      "ttl": 3600
+    },
+    {
+        "pointsTo": "%ipaddress00%",
+        "host": "@",
+        "ttl": 3600,
+        "type": "A",
+        "groupId": "a13"
     }
   ]
 }
