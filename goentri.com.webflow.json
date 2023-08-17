@@ -29,15 +29,22 @@
     {
       "type": "CNAME",
       "host": "www",
-      "pointsTo": "%cnamePointsTo%",
+      "pointsTo": "%proxySslUrl%",
       "groupId": "a1",
       "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "@",
-      "data": "%txt%",
+      "data": "%proxySslUrl%",
       "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "%proxySslUrl%",
+      "groupId": "a3",
       "ttl": 3600
     }
   ]
