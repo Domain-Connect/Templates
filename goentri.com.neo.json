@@ -23,7 +23,7 @@
       "type": "MX",
       "host": "@",
       "pointsTo": "%mxPointsto1%",
-      "groupId": "a2",
+      "groupId": "a1",
       "priority": 10,
       "ttl": 3600
     },
@@ -31,7 +31,7 @@
       "type": "MX",
       "host": "@",
       "pointsTo": "%mxPointsto2%",
-      "groupId": "a2",
+      "groupId": "a1",
       "priority": 20,
       "ttl": 3600
     },
@@ -39,12 +39,12 @@
       "type": "SPFM",
       "host": "@",
       "spfRules": "include:spf0001.neo.space",
-      "groupId": "a3"
+      "groupId": "a1"
     },
     {
       "type": "TXT",
       "host": "@",
-      "groupId": "a4",
+      "groupId": "a2",
       "data": "%domainVerification%",
       "ttl": 3600
     }
