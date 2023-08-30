@@ -36,7 +36,7 @@
     {
       "type": "TXT",
       "host": "@",
-      "data": "%proxySslUrl%",
+      "data": "%txt%",
       "groupId": "a2",
       "ttl": 3600
     },
