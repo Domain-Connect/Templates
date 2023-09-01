@@ -6,7 +6,7 @@
   "version": 1,
   "syncRedirectDomain": "domainconnect.getreadydigital.com,getreadydigital.com",
   "logoUrl": "https://getreadydigital.com/wp-content/uploads/2023/04/cropped-GR-Logo-Favicon-192x192.png",
-  "description": "Enable domain to work with the GetReadyDigital by configuring the necessary A and CNAME records.",
+  "description": "Enable root domain to work with the GetReadyDigital by configuring the necessary A and CNAME records.",
   "variableDescription": "IP1: GetReadyDigital server connection,cnameValue: Custom CNAME value”",
   "syncPubKeyDomain": "getreadydigital.com",
   "records": [

@@ -6,7 +6,7 @@
   "version": 1,
   "syncRedirectDomain": "domainconnect.getreadydigital.com,getreadydigital.com",
   "logoUrl": "https://getreadydigital.com/wp-content/uploads/2023/04/cropped-GR-Logo-Favicon-192x192.png",
-  "description": "Enable domain to work with the GetReadyDigital by configuring the necessary A and TXT SSL records.",
+  "description": "Enable root domain to work with the GetReadyDigital by configuring the necessary A and TXT SSL records.",
   "variableDescription": "IP1: GetReadyDigital server connection, txtAcmeValue: Value for _acme-challenge TXT record, txtCfValue: Value for _cf-custom-hostname TXT record",
   "syncPubKeyDomain": "getreadydigital.com",
   "records": [
