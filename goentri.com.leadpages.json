@@ -26,10 +26,10 @@
       "ttl": 3600
     },
     {
-        "type": "CNAME",
-        "host": "%hostCname%",
-        "groupId": "a2",
-       "pointsTo": "%pointstoDomain2%",
+      "type": "CNAME",
+      "host": "%hostCname%",
+      "groupId": "a2",
+      "pointsTo": "%pointstoDomain2%",
       "ttl": 3600
     }
   ]
