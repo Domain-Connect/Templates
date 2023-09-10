@@ -21,6 +21,7 @@ import (
 	"time"
 
 	"github.com/go-playground/validator/v10"
+	"github.com/mattn/go-isatty"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 )
@@ -118,12 +119,16 @@ func main() {
 		flag.PrintDefaults()
 		fmt.Fprintf(os.Stderr, "Warning. -inplace and -pretty will remove zero priority MX and SRV fields\n")
 	}
-	log.Logger = log.Output(
-		zerolog.ConsoleWriter{
-			Out:        os.Stderr,
-			TimeFormat: time.RFC3339,
-		},
-	)
+	if isatty.IsTerminal(os.Stderr.Fd()) {
+		log.Logger = log.Output(
+			zerolog.ConsoleWriter{
+				Out:        os.Stderr,
+				TimeFormat: time.RFC3339,
+			},
+		)
+	} else {
+		zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
+	}
 	Cloudflare = flag.Bool("cloudflare", false, "use Cloudflare specific template rules")
 	PrettyPrint = flag.Bool("pretty", false, "pretty-print template json")
 	Inplace = flag.Bool("inplace", false, "inplace write back pretty-print")
