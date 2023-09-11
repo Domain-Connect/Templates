@@ -216,8 +216,9 @@ func checkTemplate(templatePath string) {
 		CloudflareTemplateChecks(template)
 	}
 
+	conflictingTypes := make(map[string]string)
 	for rnum, record := range template.Records {
-		checkRecord(rnum, record)
+		checkRecord(rnum, record, conflictingTypes)
 	}
 
 	if *PrettyPrint || *Inplace {
@@ -268,8 +269,21 @@ func writeBack(templatePath string, out bytes.Buffer) {
 	tlog.Debug().Str("tmpfile", f.Name()).Msg("updated")
 }
 
-func checkRecord(rnum int, record Record) {
+func checkRecord(rnum int, record Record, conflictingTypes map[string]string) {
 	rlog := tlog.With().Int("record", rnum).Logger()
+	rlog.Debug().Str("type", record.Type).Str("groupid", record.GroupID).Str("host", record.Host).Msg("check record")
+
+	if t, ok := conflictingTypes[record.GroupID+"/"+record.Host]; ok && (t == "CNAME" || record.Type == "CNAME") {
+		rlog.Error().
+			Str("groupid", record.GroupID).
+			Str("host", record.Host).
+			Str("type", record.Type).
+			Str("othertype", t).
+			Msg("CNAME cannot be mixed with other record types")
+		exitVal = 1
+	}
+	conflictingTypes[record.GroupID+"/"+record.Host] = record.Type
+
 	switch record.Type {
 	case "CNAME", "NS":
 		if record.Host == "@" {
