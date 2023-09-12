@@ -14,6 +14,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"net/http"
 	"os"
 	"path"
 	"strconv"
@@ -28,9 +29,10 @@ import (
 
 // Command-line options
 var (
+	CheckLogos  *bool
 	Cloudflare  *bool
-	PrettyPrint *bool
 	Inplace     *bool
+	PrettyPrint *bool
 )
 
 const (
@@ -129,9 +131,10 @@ func main() {
 	} else {
 		zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
 	}
+	CheckLogos = flag.Bool("logos", false, "check logo urls are reachable (requires network)")
 	Cloudflare = flag.Bool("cloudflare", false, "use Cloudflare specific template rules")
-	PrettyPrint = flag.Bool("pretty", false, "pretty-print template json")
 	Inplace = flag.Bool("inplace", false, "inplace write back pretty-print")
+	PrettyPrint = flag.Bool("pretty", false, "pretty-print template json")
 	loglevel := flag.String("loglevel", "info", "loglevel can be one of: panic fatal error warn info debug trace")
 	flag.Parse()
 
@@ -212,6 +215,10 @@ func checkTemplate(templatePath string) {
 		template.SharedProviderName = true
 	}
 
+	if err := isUnreachable(template.Logo); err != nil {
+		tlog.Warn().Err(err).Str("logoUrl", template.Logo).Msg("logo check failed")
+	}
+
 	if *Cloudflare {
 		CloudflareTemplateChecks(template)
 	}
@@ -246,6 +253,20 @@ func checkInvalidChars(s string) bool {
 		}
 	}
 	return false
+}
+
+func isUnreachable(logoUrl string) error {
+	if !*CheckLogos || logoUrl == "" {
+		return nil
+	}
+	resp, err := http.Get(logoUrl)
+	if err != nil {
+		return err
+	}
+	if resp.StatusCode != http.StatusOK {
+		return fmt.Errorf("unexpected http status %d", resp.StatusCode)
+	}
+	return nil
 }
 
 func writeBack(templatePath string, out bytes.Buffer) {
