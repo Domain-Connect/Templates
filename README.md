@@ -26,86 +26,89 @@ Following is an example of a complete Domain Connect template, with examples of 
 
 ```
 {
-  "providerId": "<Enter providerId>",
-  "providerName": "<Enter providerName>",
-  "serviceId": "<Enter serviceId>",
-  "serviceName": "<Enter serviceName>",
-  "version": 1,
-  "logoUrl": "<Enter logoUrl>",
-  "description": "<Enter description>",
-  "variableDescription": "<Enter variableDescription>",
-  "syncBlock": false,
-  "syncPubKeyDomain": "<Enter syncPubKeyDomain>",
-  "syncRedirectDomain": "<Enter syncRedirectDomain>",
-  "warnPhishing": true,
-  "hostRequired": false,
-  "records": [
-    {
-      "type": "A",
-      "host": "@",
-      "pointsTo": "1.1.1.1",
-      "ttl": 3600
-    },
-    {
-      "type": "A",
-      "host": "@",
-      "pointsTo": "%a%",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "www",
-      "pointsTo": "@",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "sub",
-      "pointsTo": "%sub%.mydomain.com",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "%cnamehost%",
-      "pointsTo": "%sub%.mydomain.com",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "@",
-      "data": "%txt%",
-      "ttl": 3600
-    },
-    {
-      "type": "SPFM",
-      "host": "@",
-      "spfRules": "include:spf.mydomain.com"
-    },
-    {
-      "type": "MX",
-      "host": "@",
-      "pointsTo": "1.1.1.2",
-      "priority": 0,
-      "ttl": 3600
-    },
-    {
-      "type": "MX",
-      "host": "@",
-      "pointsTo": "%mx%",
-      "priority": 0,
-      "ttl": 3600
-    },
-    {
-      "type": "SRV",
-      "service": "_sip",
-      "protocol": "_tls",
-      "port": "443",
-      "weight": "20",
-      "priority": 10,
-      "name": "@",
-      "target": "%target%",
-      "ttl": 3600
-    }
-  ]
+    "providerId": "<Enter providerId>",
+    "providerName": "<Enter providerName>",
+    "serviceId": "<Enter serviceId>",
+    "serviceName": "<Enter serviceName>",
+    "version": 1,
+    "logoUrl": "<Enter logoUrl>",
+    "description": "<Enter description>",
+    "variableDescription": "<Enter variableDescription>",
+    "syncPubKeyDomain": "<Enter syncPubKeyDomain>",
+    "syncRedirectDomain": "<Enter syncRedirectDomain>",
+    "warnPhishing": true,
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "192.0.2.1",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%a%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "@",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "sub",
+            "pointsTo": "%sub%.mydomain.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%cnamehost%",
+            "pointsTo": "%sub%.mydomain.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "@",
+            "ttl": 3600,
+            "data": "%txt%"
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "ttl": 0,
+            "spfRules": "include:spf.mydomain.com"
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "%mx%",
+            "ttl": 3600,
+            "priority": 5
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "192.0.2.2",
+            "ttl": 3600,
+            "priority": 10
+        },
+        {
+            "type": "SRV",
+            "name": "@",
+            "ttl": 3600,
+            "priority": 10,
+            "weight": 20,
+            "port": 443,
+            "protocol": "_tls",
+            "service": "_sip",
+            "target": "%target%"
+        }
+    ]
 }
 ```
+
+## Template validation tool
+
+Please see https://github.com/Domain-Connect/dc-template-linter
