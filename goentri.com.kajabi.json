@@ -1,0 +1,37 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "gamma",
+  "serviceName": "Gamma",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up dkim record using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+   "variableDescription": "primaryIp and primaryIp2 are the IP, cnamehost is the host for the CNAME and cnamePointsTo is the URL to where the subdomain is pointed ",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "groupId": "a1",
+      "pointsTo": "%primaryIp%",
+      "ttl": 3600
+    },
+     {
+      "type": "A",
+      "host": "@",
+      "groupId": "a1",
+      "pointsTo": "%primaryIp2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnamehost%",
+      "groupId": "a2",
+      "pointsTo": "%cnamePointsTo%",
+      "ttl": 3600
+    }
+  ]
+}
