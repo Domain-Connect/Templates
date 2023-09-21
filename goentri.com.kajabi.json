@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "kajabi",
   "serviceName": "Kajabi",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "variableDescription": "cnameHost1 is the subdomain, cnameValue is to where the subdomain is pointed, dkimHost is the host value for the dkim, dkimValue is the dkim value, cnameRootDomain is to where the www cname is pointed  ",
@@ -49,7 +49,7 @@
     },
     {
       "type": "MX",
-      "host": "mxb.mailgun.org",
+      "host": "kjbm",
       "pointsTo": "mxb.mailgun.org",
       "priority": 10,
       "groupId": "a1",
