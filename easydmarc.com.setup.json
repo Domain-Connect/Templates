@@ -6,7 +6,7 @@
   "version": 1,
   "syncRedirectDomain": "easydmarc.com, app.easydmarc.com",
   "logoUrl": "https://easydmarc.com/img/wordmark.svg",
-  "syncPubKeyDomain": "domainconnect.easydmarc.com",
+  "syncPubKeyDomain": "easydmarc.com",
   "description": "Your smart DMARC reporting and monitoring platform. Ensure domain-level security and email deliverability with EasyDMARC's DMARC, SPF, DKIM, and BIMI services",
   "variableDescription": "Self explanatory in the variable names",
   "records": [
