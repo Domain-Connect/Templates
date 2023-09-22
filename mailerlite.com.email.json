@@ -1,0 +1,11 @@
+{  
+   "providerId":"mailerlite.com",
+   "providerName":"MailerLite",
+   "serviceId":"email",
+   "serviceName":"MailerLite Email Service",
+   "version": 1,
+   "description":"Authenticate your domain",
+   "syncPubKeyDomain": "domainconnect.mailerlite.com",
+   "records":[
+   ]
+}
