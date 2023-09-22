@@ -1,0 +1,23 @@
+{  
+   "providerId":"mailerlite.com",
+   "providerName":"MailerLite",
+   "serviceId":"domain-authentication",
+   "serviceName":"MailerLite Domain Authentication",
+   "version": 1,
+   "description":"Authenticate your domain to improve deliverability.",
+   "syncPubKeyDomain": "mlsend.com",
+   "records":[
+      {
+         "type": "CNAME",
+         "host": "litesrv._domainkey",
+         "pointsTo": "litesrv._domainkey.mlsend.com",
+         "ttl": 3600
+      },
+      {
+         "type":"TXT",
+         "host":"@",
+         "data":"v=spf1 include:_spf.mlsend.com -all",
+         "ttl":3600
+      }
+   ]
+}
