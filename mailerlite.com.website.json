@@ -1,23 +1,26 @@
 {  
-   "providerId":"mailerlite.com",
-   "providerName":"MailerLite",
-   "serviceId":"website",
-   "serviceName":"MailerLite Sites",
+   "providerId": "mailerlite.com",
+   "providerName": "MailerLite",
+   "serviceId": "website",
+   "serviceName": "MailerLite Sites",
    "version": 1,
-   "description":"Create websites or landing pages using your own domain.",
+   "description": "Create websites or landing pages using your own domain.",
    "syncPubKeyDomain": "mlsend.com",
+   "variableDescription": "subHost is the subdomain.",
    "records":[
       {
-         "type":"A",
-         "host":"@",
-         "pointsTo":"35.204.112.174",
-         "ttl":3600
+         "groupId": "domain",
+         "type": "A",
+         "host": "@",
+         "pointsTo": "35.204.112.174",
+         "ttl": 3600
       },
       {
-         "type":"CNAME",
-         "host":"www",
-         "pointsTo":"pages.mailerlite.com",
-         "ttl":3600
+         "groupId": "subdomain",
+         "type": "CNAME",
+         "host": "%subHost%",
+         "pointsTo": "pages.mailerlite.com",
+         "ttl": 3600
       }
    ]
 }
