@@ -6,11 +6,12 @@
    "version": 1,
    "description": "Control your sender reputation with your own domain.",
    "syncPubKeyDomain": "mlsend.com",
+   "variableDescription": "ip is the IP address of the server.",
    "records": [
       {
          "type": "A",
          "host": "@",
-         "pointsTo": "34.91.249.129",
+         "pointsTo": "%ip%",
          "ttl": 3600
       },
       {

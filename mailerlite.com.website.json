@@ -6,13 +6,13 @@
    "version": 1,
    "description": "Create websites or landing pages using your own domain.",
    "syncPubKeyDomain": "mlsend.com",
-   "variableDescription": "subHost is the subdomain.",
-   "records":[
+   "variableDescription": "subHost is the subdomain and ip is the IP address of the server.",
+   "records": [
       {
          "groupId": "domain",
          "type": "A",
          "host": "@",
-         "pointsTo": "35.204.112.174",
+         "pointsTo": "%ip%",
          "ttl": 3600
       },
       {
