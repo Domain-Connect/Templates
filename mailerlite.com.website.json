@@ -6,7 +6,7 @@
    "version": 1,
    "description": "Create websites or landing pages using your own domain.",
    "syncPubKeyDomain": "mlsend.com",
-   "variableDescription": "subHost is the subdomain and ip is the IP address of the server.",
+   "variableDescription": "cnamehost is the subdomain and ip is the IP address of the server.",
    "records": [
       {
          "groupId": "domain",
@@ -25,7 +25,7 @@
       {
          "groupId": "subdomain",
          "type": "CNAME",
-         "host": "%subHost%",
+         "host": "%cnamehost%",
          "pointsTo": "pages.mailerlite.com",
          "ttl": 3600
       }
