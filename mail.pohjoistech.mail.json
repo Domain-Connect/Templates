@@ -41,12 +41,16 @@
     {
       "type": "TXT",
       "host": "@",
-      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%domain%; ruf=mailto:dmarc-forensics@%domain%; sp=reject; fo=1; adkim=s; aspf=s"
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%domain%; ruf=mailto:dmarc-forensics@%domain%; sp=reject; fo=1; adkim=s; aspf=s",
+      "essential": "OnApply",
+      "ttl": 14400
     },
     {
       "type": "TXT",
       "host": "@",
-      "data": "v=DKIM1; k=rsa; p=%key%"
+      "data": "v=DKIM1; k=rsa; p=%key%",
+      "essential": "OnApply",
+      "ttl": 14400
     }
   ]
 }
