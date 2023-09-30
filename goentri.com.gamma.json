@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "gamma",
   "serviceName": "Gamma",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up dkim record using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -31,6 +31,13 @@
       "host": "%cnamehost%",
       "groupId": "a2",
       "pointsTo": "%cnamePointsTo%",
+      "ttl": 3600
+    },
+     {
+      "type": "A",
+      "host": "@",
+      "groupId": "a3",
+      "pointsTo": "%primaryIp%",
       "ttl": 3600
     }
   ]
