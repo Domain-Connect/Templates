@@ -18,7 +18,7 @@
       "ttl": 14400
     },
     {
-      "pointsTo": "pohjoismail.%domain%",
+      "pointsTo": "pohjoismail.%fqdn%",
       "type": "CNAME",
       "host": "autodiscover",
       "essential": "OnApply",
