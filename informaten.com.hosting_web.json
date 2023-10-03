@@ -27,6 +27,6 @@
       "pointsTo": "@",
       "essential": "Always",
       "ttl": 3600
-    },
+    }
   ]
 }
