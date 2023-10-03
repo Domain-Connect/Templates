@@ -5,7 +5,7 @@
    "serviceName": "MailerLite Domain Authentication",
    "version": 1,
    "description": "Authenticate your domain to improve deliverability.",
-   "syncPubKeyDomain": "mlsend.com",
+   "syncPubKeyDomain": "mailerlite.com",
    "records": [
       {
          "type": "CNAME",

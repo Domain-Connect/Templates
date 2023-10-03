@@ -5,7 +5,7 @@
    "serviceName": "MailerLite Sites",
    "version": 1,
    "description": "Create websites or landing pages using your own domain.",
-   "syncPubKeyDomain": "mlsend.com",
+   "syncPubKeyDomain": "mailerlite.com",
    "variableDescription": "cnamehost is the subdomain and ip is the IP address of the server.",
    "records": [
       {
