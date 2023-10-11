@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "podup",
   "serviceName": "Podup",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -16,6 +16,13 @@
       "type": "A",
       "host": "@",
       "pointsTo": "%ipAdress%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipAdress2%",
       "groupId": "a1",
       "ttl": 3600
     },
