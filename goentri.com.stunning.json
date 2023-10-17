@@ -25,6 +25,13 @@
       "groupId": "a2",
       "pointsTo": "%primaryIp%",
       "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "groupId": "a2",
+      "pointsTo": "%primaryIp2%",
+      "ttl": 3600
     }
   ]
 }
