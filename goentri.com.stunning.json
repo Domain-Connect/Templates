@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "stunning",
   "serviceName": "Stunning",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up dkim record using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -24,6 +24,13 @@
       "host": "@",
       "groupId": "a2",
       "pointsTo": "%primaryIp%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "groupId": "a2",
+      "pointsTo": "%primaryIp2%",
       "ttl": 3600
     }
   ]
