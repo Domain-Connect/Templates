@@ -6,7 +6,7 @@
    "version": 1,
    "description": "Control your sender reputation with your own domain.",
    "syncPubKeyDomain": "mailerlite.com",
-   "variableDescription": "ip is the IP address of the server.",
+   "variableDescription": "Self explanatory in the variable names.",
    "records": [
       {
          "type": "A",
