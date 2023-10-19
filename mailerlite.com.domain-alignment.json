@@ -16,7 +16,7 @@
       },
       {
          "type": "MX",
-         "host": "@",
+         "host": "%inbound_host%",
          "pointsTo": "mail.litesrv.io",
          "priority": 10,
          "ttl": 3600
