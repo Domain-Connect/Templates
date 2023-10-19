@@ -6,6 +6,7 @@
    "version": 1,
    "description": "Authenticate your domain to improve deliverability.",
    "syncPubKeyDomain": "mailerlite.com",
+   "variableDescription": "Self explanatory in the variable names.",
    "records": [
       {
          "type": "CNAME",
