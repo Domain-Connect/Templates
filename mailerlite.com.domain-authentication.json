@@ -14,9 +14,9 @@
          "ttl": 3600
       },
       {
-         "type": "TXT",
-         "host": "@",
-         "data": "v=spf1 include:_spf.mlsend.com -all",
+         "type": "SPFM",
+         "host": "%spf_host%",
+         "spfRules": "%spf_value%",
          "ttl": 3600
       }
    ]
