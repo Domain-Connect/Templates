@@ -3,7 +3,7 @@
     "providerName": "Intuit Mailchimp",
     "serviceId": "email-signing",
     "serviceName": "Intuit Mailchimp Email Signing",
-    "version": "1",
+    "version": 1,
     "logoUrl": "https://cdn-images.mailchimp.com/product/brand_assets/logos/mc-freddie-dark.svg",
     "syncPubKeyDomain": "mailchimp.com",
     "description": "Configures DNS records for Mailchimp email signing",
