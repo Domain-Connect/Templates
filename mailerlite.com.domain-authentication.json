@@ -10,8 +10,8 @@
    "records": [
       {
          "type": "CNAME",
-         "host": "litesrv._domainkey",
-         "pointsTo": "litesrv._domainkey.mlsend.com",
+         "host": "%dkim_host%._domainkey",
+         "pointsTo": "%dkim_value%",
          "ttl": 3600
       },
       {

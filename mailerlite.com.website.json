@@ -19,14 +19,14 @@
          "groupId": "redirect",
          "type": "CNAME",
          "host": "www",
-         "pointsTo": "pages.mailerlite.com",
+         "pointsTo": "%www_points_to%",
          "ttl": 3600
       },
       {
          "groupId": "subdomain",
          "type": "CNAME",
-         "host": "%cnamehost%",
-         "pointsTo": "pages.mailerlite.com",
+         "host": "%subdomain_host%",
+         "pointsTo": "%subdomain_points_to%",
          "ttl": 3600
       }
    ]
