@@ -1,0 +1,23 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "caa-test",
+    "serviceName": "Caa-test",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "variableDescription": "caaPointsTo is specify which certificate authorities  are allowed to issue certificates and tag can be wild or issuer",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "sharedProviderName": true,
+    "records": [
+         {
+     "type": "CAA",
+      "host": "@",
+      "pointsTo": "%caaPointsTo%",
+      "ttl": 3600,
+      "tag": "%tag%",
+      "flags": 0
+    }
+    ]
+  }
