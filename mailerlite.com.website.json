@@ -21,13 +21,6 @@
          "host": "www",
          "pointsTo": "%www_points_to%",
          "ttl": 3600
-      },
-      {
-         "groupId": "subdomain",
-         "type": "CNAME",
-         "host": "%subdomain_host%",
-         "pointsTo": "%subdomain_points_to%",
-         "ttl": 3600
       }
    ]
 }
