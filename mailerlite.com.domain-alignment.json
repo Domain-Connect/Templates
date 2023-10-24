@@ -23,7 +23,7 @@
       },
       {
          "type": "SPFM",
-         "host": "%spf_host%",
+         "host": "@",
          "spfRules": "%spf_value%",
          "ttl": 3600
       }
