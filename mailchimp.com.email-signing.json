@@ -1,0 +1,35 @@
+{
+    "providerId": "mailchimp.com",
+    "providerName": "Intuit Mailchimp",
+    "serviceId": "email-signing",
+    "serviceName": "Intuit Mailchimp Email Signing",
+    "version": 1,
+    "logoUrl": "https://cdn-images.mailchimp.com/product/brand_assets/logos/mc-freddie-dark.svg",
+    "syncPubKeyDomain": "mailchimp.com",
+    "description": "Configures DNS records for Mailchimp email signing",
+    "variableDescription": "sel1/sel2 are selector values; host1/host2 are the hosts we want the CNAMEs to point to. data is what the DMARC TXT is set to.",
+    "records": [
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%sel1%._domainkey",
+            "pointsTo": "%host1%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%sel2%._domainkey",
+            "pointsTo": "%host2%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "%data%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}
