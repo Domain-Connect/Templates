@@ -1,7 +1,7 @@
 {  
    "providerId": "mailerlite.com",
    "providerName": "MailerLite",
-   "serviceId": "website",
+   "serviceId": "website-subdomain",
    "serviceName": "MailerLite Sites",
    "version": 1,
    "description": "Create websites or landing pages using your own domain.",
