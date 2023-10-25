@@ -7,10 +7,11 @@
    "description": "Create websites or landing pages using your own domain.",
    "syncPubKeyDomain": "mailerlite.com",
    "variableDescription": "Self explanatory in the variable names.",
+   "hostRequired": true,
    "records": [
       {
          "type": "CNAME",
-         "host": "%subdomain_host%",
+         "host": "@",
          "pointsTo": "%subdomain_points_to%",
          "ttl": 3600
       }
