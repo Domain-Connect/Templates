@@ -15,14 +15,12 @@
       "type": "CNAME",
       "host": "%cnameHost1%",
       "pointsTo": "%cnamePointsto1%",
-      "groupId": "a1",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "%cnameHost2%",
       "pointsTo": "%cnamePointsto2%",
-      "groupId": "a1",
       "ttl": 3600
     }
   ]
