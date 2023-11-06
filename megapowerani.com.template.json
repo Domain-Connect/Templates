@@ -1,0 +1,70 @@
+{
+    "providerId": "megapowerani.com",
+    "providerName": "Freshsales Test",
+    "serviceId": "template",
+    "serviceName": "Domain verification",
+    "version": 1,
+    "logoUrl": "https://avatars.slack-edge.com/2021-08-02/2349087959585_442632783598439baea4_512.png",
+    "description": "Freshsales Domain Verification Test",
+    "variableDescription": "This is  atest for Freshsales domain verification using Domain Connect",
+    "syncPubKeyDomain": "megapowerani.com",
+    "syncRedirectDomain": "megapowerani.com",
+    "warnPhishing": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "1zYBv._domainkey",
+            "pointsTo": "wl407835s1.domainkey.myfreshworks.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "1zYBv2._domainkey",
+            "pointsTo": "wl407835s2.domainkey.myfreshworks.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "cZSeC3._domainkey",
+            "pointsTo": "wl407835s3.domainkey.myfreshworks.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "cZSeC4._domainkey",
+            "pointsTo": "wl407835s4.domainkey.myfreshworks.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "fwdkim",
+            "pointsTo": "spfmx7.domainkey.myfreshworks.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "23551006",
+            "ttl": 3600,
+            "pointsTo": "sendgrid.net"
+        },
+        {
+            "type": "CNAME",
+            "host": "fwtrack1",
+            "pointsTo": "sendgrid.net",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "fwtrack",
+            "pointsTo": "e65e4b04472d0331a4757253236cdbf4.fmsendcrmclick.in",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "fslink",
+            "pointsTo": "fslink.fwclick.io",
+            "ttl": 3600
+        }
+        
+    ]
+}
