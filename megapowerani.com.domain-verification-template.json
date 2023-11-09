@@ -1,7 +1,7 @@
 {
     "providerId": "megapowerani.com",
     "providerName": "Freshsales",
-    "serviceId": "domain.verification.template",
+    "serviceId": "domain-verification-template",
     "serviceName": "Domain verification",
     "version": 1,
     "logoUrl": "https://avatars.slack-edge.com/2021-08-02/2349087959585_442632783598439baea4_512.png",
