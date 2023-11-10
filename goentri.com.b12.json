@@ -3,7 +3,7 @@
     "providerName": "Entri",
     "serviceId": "b12",
     "serviceName": "B12",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://cdn.goentri.com/logo.svg",
     "description": "Allows user to easily set up domain using Entri",
     "syncPubKeyDomain": "goentri.com",
@@ -22,21 +22,21 @@
         "type": "CNAME",
         "host": "%cnameHost1%",
         "pointsTo": "%cnamePointsto1%",
-        "groupId": "a1",
+        "groupId": "a2",
         "ttl": 3600
       },
       {
         "type": "SPFM",
         "host": "@",
         "spfRules": "include:mailgun.org",
-        "groupId": "a2",
+        "groupId": "a3",
         "ttl": 3600
       },
       {
         "type": "TXT",
         "host": "%dkimhost%",
         "data": "%dkimhostpointsto%",
-        "groupId": "a2",
+        "groupId": "a4",
         "ttl": 3600
       },
       {
@@ -44,7 +44,7 @@
         "host": "@",
         "pointsTo": "mxa.mailgun.org",
         "priority": 10,
-        "groupId": "a3",
+        "groupId": "a5",
         "ttl": 3600
       },
       {
@@ -52,9 +52,8 @@
         "host": "@",
         "pointsTo": "mxb.mailgun.org",
         "priority": 10,
-        "groupId": "a3",
+        "groupId": "a5",
         "ttl": 3600
       }
     ]
 }
-
