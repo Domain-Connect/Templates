@@ -9,6 +9,10 @@ For details on how to constuct a Domain Connect template, refer to section 5.2 a
 https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Draft.adoc#template-definition
 https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Draft.adoc#template-record
 
+## Online Editor
+
+An [Online Editor](https://pdnsadmin.revproxy.short-lived.de/dc/free/templateedit) is available, with features like syntax check, testing of variables replacement and groups.
+
 ## Template Naming Format
 
 Templates should be named according the following pattern: **providerId.serviceId.json**
