@@ -3,23 +3,24 @@
     "providerName": "Entri",
     "serviceId": "realnice",
     "serviceName": "Realnice",
-    "version": 2,
+    "version": 3,
     "logoUrl": "https://cdn.goentri.com/logo.svg",
     "description": "Allows user to easily set up domain using Entri",
     "syncPubKeyDomain": "goentri.com",
     "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "variableDescription": "ipAdress is the IP A record is pointed to, cnamePointsTo is the cname value ",
     "sharedProviderName": true,
     "records": [
       {
         "type":"A",
         "host":"@",
-        "pointsTo":"75.2.60.5",
+        "pointsTo":"%ipAdress%",
         "ttl": 300
       },
       {
         "type":"CNAME",
         "host":"www",
-        "pointsTo": "@",
+        "pointsTo": "%cnamePointsTo%",
         "ttl": 300
       }
     ]
