@@ -1,0 +1,86 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "showit",
+  "serviceName": "Showit",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up dkim record using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "cnamePointsTo is the URL to where the www CNAME is pointed, ipAdress is the IP required for the A record,  and host is the host name ",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "groupId": "a1",
+      "pointsTo": "%ipAdress%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "%aRecordhost%",
+      "groupId": "a1",
+      "pointsTo": "%ipAdress%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "groupId": "a1",
+      "pointsTo": "@",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "groupId": "a2",
+      "pointsTo": "%ipAdress%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "groupId": "a2",
+      "pointsTo": "%ipAdress%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "%aRecordhost%",
+      "groupId": "a2",
+      "pointsTo": "%ipAdress2%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "groupId": "a3",
+      "pointsTo": "%ipAdress%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "groupId": "a3",
+      "pointsTo": "%ipAdress2%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "%aRecordhost%",
+      "groupId": "a3",
+      "pointsTo": "%ipAdress3%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "groupId": "a3",
+      "pointsTo": "%cnamePointsTo%",
+      "ttl": 3600
+    }
+  ]
+}

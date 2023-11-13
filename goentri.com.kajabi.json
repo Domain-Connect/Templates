@@ -1,0 +1,79 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "kajabi",
+  "serviceName": "Kajabi",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "variableDescription": "cnameHost1 is the subdomain, cnameValue is to where the subdomain is pointed, dkimHost is the host value for the dkim, dkimValue is the dkim value, cnameRootDomain is to where the www cname is pointed  ",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%cnameHost1%",
+      "pointsTo": "%cnameValue1%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnameHost2%",
+      "pointsTo": "%cnameValue2%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimHost%",
+      "data": "%dkimValue%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "kjbm",
+      "spfRules": "include:mailgun.org",
+      "groupId": "a1"
+    },
+    {
+      "type": "MX",
+      "host": "kjbm",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "kjbm",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a2",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cnameRootDomain%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a2",
+      "type": "REDIR301",
+      "target": "%target%",
+      "host": "@"
+     },
+     {
+      "type": "CNAME",
+      "host": "%cnameHost3%",
+      "pointsTo": "%cnameValue3%",
+      "groupId": "a3",
+      "ttl": 3600
+    }
+  ]
+}

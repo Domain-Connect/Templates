@@ -1,14 +1,14 @@
 {
-  "providerId": "leadconnectorhq.com",
-  "providerName": "LeadConnector",
+  "providerId": "getreadydigital.com",
+  "providerName": "GetReadyDigital",
   "serviceId": "email",
-  "serviceName": "LeadConnector Email records",
-  "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
+  "serviceName": "GetReadyDigital Email records",
+  "syncRedirectDomain": "domainconnect.getreadydigital.com,getreadydigital.com",
   "version": 2,
-  "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
-  "description": "Enable domain domain to work with the LeadConnector",
-  "variableDescription": "TXT, CNAME, and MX Records: LeadConnector connection",
-  "syncPubKeyDomain": "leadconnectorhq.com",
+  "logoUrl": "https://getreadydigital.com/wp-content/uploads/2023/04/cropped-GR-Logo-Favicon-192x192.png",
+  "description": "Enable domain to work with the GetReadyDigital web and mail",
+  "variableDescription": "TXT, CNAME, and MX Records: GetReadyDigital connection",
+  "syncPubKeyDomain": "getreadydigital.com",
   "records": [
     {
       "type": "TXT",

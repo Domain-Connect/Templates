@@ -1,15 +1,15 @@
 {
     "providerId": "goentri.com",
     "providerName": "Entri",
-    "serviceId": "duda-subdomains",
-    "serviceName": "Duda Subdomains",
-    "version": 2,
+    "serviceId": "optimizing",
+    "serviceName": "Optimizing",
+    "version": 1,
     "logoUrl": "https://cdn.goentri.com/logo.svg",
     "description": "Allows user to easily set up domain using Entri",
     "syncPubKeyDomain": "goentri.com",
     "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
-    "sharedProviderName": true,
     "variableDescription":"mappingValue is the value assigned to the domain",
+    "sharedProviderName": true,
     "hostRequired": true,
     "records": [
       {

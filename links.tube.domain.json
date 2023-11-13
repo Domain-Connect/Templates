@@ -1,0 +1,23 @@
+{  
+   "providerId":"links.tube",
+   "providerName":"Links.tube",
+   "serviceId":"domain",
+   "serviceName":"Links.tube Domain",
+   "version": 1,
+   "logoUrl":"https://links.tube/images/logo.png",
+   "description":"Enables creating links with your own domain",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"34.162.137.165",
+         "ttl":3600
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"@",
+         "ttl":3600
+      }
+   ]
+}

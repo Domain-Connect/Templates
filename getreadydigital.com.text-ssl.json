@@ -1,0 +1,26 @@
+{
+  "providerId": "getreadydigital.com",
+  "providerName": "GetReadyDigital",
+  "serviceId": "text-ssl",
+  "serviceName": "GetReadyDigital Text records",
+  "syncRedirectDomain": "domainconnect.getreadydigital.com,getreadydigital.com",
+  "version": 2,
+  "logoUrl": "https://getreadydigital.com/wp-content/uploads/2023/04/cropped-GR-Logo-Favicon-192x192.png",
+  "description": "Enable domain domain to work with the GetReadyDigital",
+  "variableDescription": "txtAcmeValue: Value for _acme-challenge TXT record, txtCfValue: Value for _cf-custom-hostname TXT record",
+  "syncPubKeyDomain": "getreadydigital.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%txtAcmeValue%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%txtCfValue%",
+      "ttl": 600
+    }
+  ]
+}

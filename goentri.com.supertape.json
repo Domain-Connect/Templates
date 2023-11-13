@@ -1,0 +1,43 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "supertape",
+  "serviceName": "Supertape",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "subdomain is the subdomain user is creating and subdomainPointsTo is to where this subdomain is pointed, hostValidation is the host for the domain validation and txtData is the validation key",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%subdomainPointsTo1%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "target": "%target%",
+      "groupId": "a1",
+      "host": "@"
+    },
+    {
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "%subdomainPointsTo2%",
+      "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%hostValidation%",
+      "data": "%txtData%",
+      "groupId": "a3",
+      "ttl": 3600
+    }
+  ]
+}

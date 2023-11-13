@@ -1,0 +1,27 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "lodgea",
+  "serviceName": "Lodgea",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription":"cnamePointsto is the value for the CNAME, cnameHost1 is the host for CNAME",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%cnameHost1%",
+      "pointsTo": "%cnamePointsto1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnameHost2%",
+      "pointsTo": "%cnamePointsto2%",
+      "ttl": 3600
+    }
+  ]
+}

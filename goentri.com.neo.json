@@ -1,0 +1,73 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "neo",
+  "serviceName": "Neo",
+  "version": 4,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows the user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
+  "variableDescription": "domainkeyHost is the Dkim host and keyValue is the dkim value, mxPointsto is to where the email is pointed, domainVerifcation is the domain verification value, thirdPartyDomain is the third party domain to include in spf rules.",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%domainkeyHost%",
+      "data": "%keyValue%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxPointsto1%",
+      "groupId": "a1",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxPointsto2%",
+      "groupId": "a1",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%thirdPartyDomain%",
+      "groupId": "a1"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "groupId": "a2",
+      "data": "%domainVerification%",
+      "ttl": 3600
+    },
+    {  "type": "TXT",
+      "host": "%domainkeyHost%",
+      "data": "%keyValue%",
+      "groupId": "a3",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxPointsto1%",
+      "groupId": "a3",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%thirdPartyDomain%",
+      "groupId": "a3"
+    }
+  ]
+}
+
