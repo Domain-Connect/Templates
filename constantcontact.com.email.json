@@ -3,7 +3,7 @@
   "providerName": "ConstantContact",
   "serviceId": "email",
   "serviceName": "ConstantContact Email",
-  "version": 1,
+  "version": 2,
   "syncPubKeyDomain": "constantcontact.com",
   "syncRedirectDomain": "app.constantcontact.com",
   "logoUrl": "https://static.ctctcdn.com/lp/images/standard/logos/ctct_logo_full-color.svg",
@@ -29,6 +29,7 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "%dmarc%",
+      "txtConflictMatchingMode": "All",
       "ttl": 3600
     }
   ]
