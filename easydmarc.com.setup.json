@@ -3,7 +3,7 @@
   "providerName": "EasyDMARC",
   "serviceId": "setup",
   "serviceName": "EasyDMARC setup",
-  "version": 1,
+  "version": 2,
   "syncRedirectDomain": "easydmarc.com, app.easydmarc.com",
   "logoUrl": "https://easydmarc.com/img/wordmark.svg",
   "syncPubKeyDomain": "easydmarc.com",
@@ -31,7 +31,9 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "%dmarctxt%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC"
     },
     {
       "groupId": "bimi",
@@ -45,7 +47,9 @@
       "type": "TXT",
       "host": "default._bimi",
       "data": "%bimitxt%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=BIMI"
     },
     {
       "groupId": "mta-sts_underscore",
