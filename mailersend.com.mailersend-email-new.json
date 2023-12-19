@@ -16,7 +16,7 @@
       {
         "type": "CNAME",
         "host": "%dkim_host%",
-        "data": "%dkim_value%",
+        "pointsTo": "%dkim_value%",
         "ttl": 3600
       },
       {
