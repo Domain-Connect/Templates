@@ -1,7 +1,7 @@
 {
     "providerId":"mailersend.com",
     "providerName":"MailerSend",
-    "serviceId":"mailersend-email",
+    "serviceId":"mailersend-email-new",
     "serviceName":"MailerSend Email Service",
     "version": 1,
     "syncPubKeyDomain": "mailersend.com",
