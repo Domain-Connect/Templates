@@ -4,8 +4,8 @@
    "serviceId":"website",
    "serviceName":"Canva Websites",
    "syncPubKeyDomain":"domainconnect.canva.com",
-   "version": 2,
-   "logoUrl": "https://static.canva.com/static/images/canva_logo_100x100@2x.png",
+   "version":3,
+   "logoUrl":"https://static.canva.com/static/images/canva_logo_100x100@2x.png",
    "description":"Enables a domain to work with Canva",
    "variableDescription":"verify is the verification value for the site",
    "records":[  
@@ -23,7 +23,7 @@
       },
       {
          "type":"TXT",
-         "host": "_canva-domain-verify",
+         "host": "@",
          "data": "%verify%",
          "ttl":300
       }
