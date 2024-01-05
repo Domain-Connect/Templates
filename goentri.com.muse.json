@@ -1,0 +1,36 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "muse",
+    "serviceName": "Muse",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "variableDescription":"n/a",
+    "sharedProviderName": true,
+    "records": [
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "76.76.21.21",
+        "groupId": "a1",
+        "ttl": 300
+      },
+      {
+        "type": "CNAME",
+        "host": "www",
+        "pointsTo": "foo.muse.io",
+        "groupId": "a2",
+        "ttl": 300
+      },
+      {
+        "type": "CNAME",
+        "host": "foo",
+        "pointsTo": "foo.muse.io",
+        "groupId": "a3",
+        "ttl": 300
+      }
+    ]
+}
