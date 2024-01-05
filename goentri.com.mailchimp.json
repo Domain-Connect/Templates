@@ -1,0 +1,36 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "mailchimp",
+    "serviceName": "Mailchimp",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com, app.goentri.com",
+    "variableDescription":"sel1/sel2 are selector values;host1/host2 are the hosts we want the CNAMEs to point to. data is what the DMARC TXT is set to.",
+    "sharedProviderName": true,
+    "records": [
+      {
+        "type": "CNAME",
+        "host": "%sel1%._domainkey",
+        "pointsTo": "%host1%",
+        "groupId": "a1",
+        "ttl": 3600
+      },
+      {
+        "type": "CNAME",
+        "host": "%sel2%._domainkey",
+        "pointsTo": "%host2%",
+        "groupId": "a2",
+        "ttl": 3600
+      },
+      {
+        "type": "TXT",
+        "host": "_dmarc",
+        "data": "%data%",
+        "groupId": "a3",
+        "ttl": 3600
+      }
+    ]
+}
