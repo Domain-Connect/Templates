@@ -56,7 +56,6 @@
          "type": "TXT",
          "host": "_dmarc",
          "data": "%dmarc%",
-         "txtConflictMatchingMode": "All",
          "ttl": 3600
        },
        {
