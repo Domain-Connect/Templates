@@ -52,6 +52,14 @@
          "ttl": 3600
        },
        {
+         "groupId": "email-dmarc",
+         "type": "TXT",
+         "host": "_dmarc",
+         "data": "%dmarc%",
+         "txtConflictMatchingMode": "All",
+         "ttl": 3600
+       },
+       {
          "groupId": "web",
          "type": "A",
          "host": "@",
