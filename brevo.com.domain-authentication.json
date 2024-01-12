@@ -1,0 +1,25 @@
+{
+  "providerId": "brevo.com",
+  "providerName": "Brevo",
+  "serviceId": "domain-authentication",
+  "serviceName": "Brevo Domain Authentication",
+  "version": 1,
+  "syncRedirectDomain": "app.brevo.com",
+  "logoUrl": "https://static.brevo.com/meetings/assets/brevo_logo.png",
+  "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by Brevo on behalf of the user",
+  "variableDescription": "The variable %hash% represents a MD5 hash. %dkim_selector% is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated. %dkim_public_key% is the DKIM public key.",
+  "records": [
+    {
+        "type": "TXT",
+        "host": "@",
+        "data": "brevo-code:%hash%",
+        "ttl": 3600
+    },
+    {
+        "type": "TXT",
+        "host": "%dkim_selector%._domainkey",
+        "data": "%dkim_public_key%",
+        "ttl": 3600
+    }
+  ]
+}
