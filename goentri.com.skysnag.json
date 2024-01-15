@@ -1,21 +1,27 @@
 {
   "providerId": "goentri.com",
   "providerName": "Entri",
-  "serviceId": "letsmobility",
-  "serviceName": "Letsmobility",
+  "serviceId": "skysnag",
+  "serviceName": "Skysnag",
   "version": 1,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up dkim record using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
-   "variableDescription": "primaryIp is the IP",
+   "variableDescription": "txtHost is the host for the TXT, v is the value, cnameHotst is the CNAME host and cnameValue is to whete the CNAME is pointed to",
   "sharedProviderName": true,
   "hostRequired": true,
   "records": [
+     {
+      "type": "CNAME",
+      "host": "%cnameHotst%",
+      "pointsTo": "%cnameValue%",
+      "ttl": 3600
+    },
     {
-      "type": "A",
-      "host": "@",
-      "pointsTo": "%primaryIp%",
+      "type": "TXT",
+      "host": "%txtHost%",
+      "data": "%txt%",
       "ttl": 3600
     }
   ]
