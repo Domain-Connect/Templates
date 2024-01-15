@@ -1,0 +1,28 @@
+{
+ "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "skysnag",
+  "serviceName": "Sky_snag",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up dkim record using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+   "variableDescription": "hostCname is the host for the CNAME, valueCname is to where the CNAME is pointed, hostTxt os the host for the TXT and valueTxt is the TXT value",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%hostCname%",
+      "pointsTo": "%valueCname%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%hostTxt%",
+      "data": "%valueTxt%",
+      "ttl": 3600
+    }
+  ]
+}
