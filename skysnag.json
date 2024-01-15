@@ -8,7 +8,7 @@
   "description": "Allows user to easily set up dkim record using Entri",
   "syncPubKeyDomain": "goentri.com",
   "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
-   "variableDescription": "primaryIp is the IP",
+   "variableDescription": "hostCname is the host for the CNAME, valueCname is to where the CNAME is pointed, hostTxt os the host for the TXT and valueTxt is the TXT value",
   "sharedProviderName": true,
   "hostRequired": false,
   "records": [
