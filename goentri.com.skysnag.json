@@ -2,7 +2,7 @@
  "providerId": "goentri.com",
   "providerName": "Entri",
   "serviceId": "skysnag",
-  "serviceName": "Sky_snag",
+  "serviceName": "Skysnag",
   "version": 1,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up dkim record using Entri",
