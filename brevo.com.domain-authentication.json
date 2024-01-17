@@ -7,7 +7,7 @@
   "syncRedirectDomain": "app.brevo.com",
   "logoUrl": "https://static.brevo.com/meetings/assets/brevo_logo.png",
   "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by Brevo on behalf of the user",
-  "variableDescription": "The variable %hash% represents a MD5 hash. %dkim_selector% is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated. %dkim_public_key% is the DKIM public key.",
+  "variableDescription": "The variable %hash% represents a MD5 hash. %dkim_selector% is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated.",
   "records": [
     {
         "type": "TXT",
