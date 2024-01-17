@@ -30,7 +30,8 @@
         "host": "_dmarc",
         "data": "%data%",
         "groupId": "a3",
-        "ttl": 3600
+        "ttl": 3600,
+        "txtConflictMatchingMode": "All"
       }
     ]
 }
