@@ -10,18 +10,21 @@
    "variableDescription":"verify is the verification value for the site",
    "records":[  
       {  
+         "groupId":"hosting",
          "type":"A",
          "host":"@",
          "pointsTo":"103.169.142.0",
          "ttl":300
       },
       {  
+         "groupId":"hosting",
          "type":"A",
          "host":"www",
          "pointsTo":"103.169.142.0",
          "ttl":300
       },
       {
+         "groupId":"verification",
          "type":"TXT",
          "host": "@",
          "data": "%verify%",
