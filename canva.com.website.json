@@ -24,10 +24,17 @@
          "ttl":300
       },
       {
-         "groupId":"verification",
+         "groupId":"verificationTxt",
          "type":"TXT",
          "host": "@",
          "data": "%verify%",
+         "ttl":300
+      },
+      {
+         "groupId":"verificationCname",
+         "type":"CNAME",
+         "host": "canva-domain-verify",
+         "data": "%verify%.ownership.canva.site",
          "ttl":300
       }
    ]
