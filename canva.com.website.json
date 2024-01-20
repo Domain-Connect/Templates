@@ -34,7 +34,7 @@
          "groupId":"verificationCname",
          "type":"CNAME",
          "host": "canva-domain-verify",
-         "data": "%verify%.ownership.canva.site",
+         "data": "%verify%",
          "ttl":300
       }
    ]
