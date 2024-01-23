@@ -64,21 +64,22 @@
       "groupId": "email",
       "host": "_dmarc",
       "ttl": 3600,
-      "data": "v=DMARC1; p=none"
+      "data": "v=DMARC1; p=none",
+      "txtConflictMatchingMode": "ALL"
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "groupId": "email",
       "host": "@",
       "ttl": 3600,
-      "data": "v=spf1 include:amazonses.com ~all"
+      "spfRules": "include:amazonses.com"
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "groupId": "email",
       "host": "mail",
       "ttl": 3600,
-      "data": "v=spf1 include:amazonses.com ~all"
+      "spfRules": "include:amazonses.com"
     }
   ]
 }
