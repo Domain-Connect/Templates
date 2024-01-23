@@ -8,15 +8,15 @@
    "logoUrl":"https://static.canva.com/static/images/canva_logo.svg",
    "description":"Enables a domain to work with Canva",
    "variableDescription":"verify is the verification value for the site",
-   "records":[  
-      {  
+   "records":[
+      {
          "groupId":"hosting",
          "type":"A",
          "host":"@",
          "pointsTo":"103.169.142.0",
          "ttl":300
       },
-      {  
+      {
          "groupId":"hosting",
          "type":"A",
          "host":"www",
@@ -34,7 +34,7 @@
          "groupId":"verificationCname",
          "type":"CNAME",
          "host":"canva-domain-verify",
-         "data":"%verify%",
+         "pointsTo":"%verify%",
          "ttl":300
       }
    ]
