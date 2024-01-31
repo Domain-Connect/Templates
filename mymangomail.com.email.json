@@ -1,7 +1,7 @@
 {
   "providerId":"mymangomail.com",
   "providerName":"Mango Mail",
-  "serviceId":"email-setup",
+  "serviceId":"email",
   "serviceName":"Email Setup",
   "sharedServiceName": true,
   "version":1,
