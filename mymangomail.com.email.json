@@ -24,7 +24,7 @@
       "groupId":"setup",
       "type":"SPFM",
       "host":"@",
-      "spfRules":"v=spf1 include:spf.mymangomail.com -all",
+      "spfRules":"include:spf.mymangomail.com",
       "ttl":3600
     },
 
@@ -33,7 +33,8 @@
       "type":"TXT",
       "host":"_dmarc",
       "data":"v=DMARC1; p=quarantine;",
-      "ttl":3600
+      "ttl":3600,
+      "txtConflictMatchingMode":"All"
     },
 
     {
