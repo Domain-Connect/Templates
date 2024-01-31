@@ -5,7 +5,7 @@
   "serviceName":"Email Setup",
   "sharedServiceName": true,
   "version":1,
-  "logoUrl":"https://mymangomail.com/assets/mango.svg",
+  "logoUrl":"https://mymangomail.com/assets/mango-domain-connect-logo.png",
   "description":"Set up the necessary records to enable Mango Mail email hosting",
   "variableDescription":"verification: Unique identifier to validate domain ownership",
   "syncBlock": false,
