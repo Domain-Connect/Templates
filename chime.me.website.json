@@ -65,7 +65,7 @@
       "host": "_dmarc",
       "ttl": 3600,
       "data": "v=DMARC1; p=none",
-      "txtConflictMatchingMode": "ALL"
+      "txtConflictMatchingMode": "All"
     },
     {
       "type": "SPFM",
