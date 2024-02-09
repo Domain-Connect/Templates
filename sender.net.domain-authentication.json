@@ -28,7 +28,7 @@
              "groupId": "dmarc",
              "type": "TXT",
              "host": "_dmarc",
-             "data": "%dmarc_policy%;",
+             "data": "%dmarc_policy%",
              "ttl": 3600,
              "txtConflictMatchingMode": "All"
          }
