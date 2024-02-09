@@ -1,0 +1,36 @@
+{
+   "providerId": "sender.net",
+   "providerName": "Sender",
+   "serviceId": "domain-authentication",
+   "serviceName": "Sender.net Domain Authentication",
+   "version": 1,
+   "syncRedirectDomain": "app.sender.net",
+   "logoUrl": "https://www.sender.net/assets/brand-assets/sender-logo-default.svg",
+   "description": "Creates SPF, DKIM and DMARC records to authenticate email sent by Sender.net on behalf of the user",
+   "variableDescription": "dmarc_policy contains DMARC policy string, with either p=quarantine or p=none",
+   "syncPubKeyDomain" : "sender.net",
+   "records": [
+        {
+            "groupId": "spf_dkim",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:sendersrv.com",
+            "ttl": 3600
+        },
+        {
+             "groupId": "spf_dkim",
+             "type": "CNAME",
+             "host": "sender._domainkey",
+             "pointsTo": "dkim.sendersrv.com",
+             "ttl": 3600
+         },
+         {
+             "groupId": "dmarc",
+             "type": "TXT",
+             "host": "_dmarc",
+             "data": "%dmarc_policy%",
+             "ttl": 3600,
+             "txtConflictMatchingMode": "All"
+         }
+   ]
+ }
