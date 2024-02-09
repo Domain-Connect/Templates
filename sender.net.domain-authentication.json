@@ -8,7 +8,7 @@
    "logoUrl": "https://www.sender.net/assets/brand-assets/sender-logo-default.svg",
    "description": "Creates SPF, DKIM and DMARC records to authenticate email sent by Sender.net on behalf of the user",
    "variableDescription": "dmarc_policy contains DMARC policy string, with either p=quarantine or p=none",
-   "syncPubKeyDomain" : "sender.net"
+   "syncPubKeyDomain" : "sender.net",
    "records": [
         {
             "groupId": "spf_dkim",
