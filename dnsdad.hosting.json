@@ -32,12 +32,6 @@
             "host": "@",
             "ttl": 3600,
             "data": "%txt%"
-        },
-        {
-            "type": "MX",
-            "host": "@",
-            "pointsTo": "%mx%",
-            "ttl": 3600
         }
     ]
 }
