@@ -42,7 +42,7 @@
       "type": "AAAA",
       "host": "webmail",
       "pointsTo": "%ip6%",
-     7 "ttl": 3600,
+      "ttl": 3600,
       "essential": "OnApply"
     },
     {
