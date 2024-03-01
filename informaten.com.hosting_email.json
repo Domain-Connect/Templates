@@ -12,7 +12,7 @@
     {
       "type": "MX",
       "host": "@",
-      "pointsTo": "mail.%domain%",
+      "pointsTo": "mail",
       "priority": 10,
       "ttl": 3600,
       "essential": "OnApply"
@@ -56,7 +56,7 @@
     {
       "type": "SPFM",
       "host": "@",
-      "spfRules": "v=spf1 +a +mx +a:<hostname> -all",
+      "spfRules": "+a +mx +a:<hostname>",
       "ttl": 3600,
       "essential": "OnApply"
     }
