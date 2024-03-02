@@ -33,7 +33,7 @@
     {
       "type": "MX",
       "host": "@",
-      "pointsTo": "mail",
+      "pointsTo": "mail.%fqdn%.",
       "priority": 10,
       "ttl": 3600,
       "essential": "OnApply"
