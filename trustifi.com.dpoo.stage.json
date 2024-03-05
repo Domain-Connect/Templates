@@ -3,7 +3,7 @@
     "providerName": "Trustifi",
     "serviceId": "dpoo.stage",
     "serviceName": "Domain proof of ownership for configuring Trustifi Email Services - Staging",
-    "version": 2,
+    "version": 1,
     "syncPubKeyDomain": "trustifi.com",
     "logoUrl": "https://stagebe.trustifi.com/api/o/v1/assets/logo-transparent.png",
     "description": "Verifies domain ownership for Trustifi services. See https://trustifi.com for onboarding instructions.",
