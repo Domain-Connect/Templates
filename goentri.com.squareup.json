@@ -1,0 +1,28 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "squareup",
+    "serviceName": "Squareup",
+    "version": 2,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "variableDescription":"ip is the ip to point the domain ",
+    "hostRequired": false,
+    "sharedProviderName": true,
+    "records": [
+      {
+        "type":"A",
+        "host":"@",
+        "pointsTo":"%ip%",
+        "ttl": 600
+      },
+      {
+        "type":"CNAME",
+        "host":"www",
+        "pointsTo":"@",
+        "ttl": 600
+      }
+    ]
+  }

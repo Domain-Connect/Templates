@@ -3,14 +3,13 @@
   "providerName": "Entri",
   "serviceId": "fourthwall",
   "serviceName": "Fourthwall",
-  "version": 3,
+  "version": 5,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up domain using Entri",
   "syncPubKeyDomain": "goentri.com",
-  "syncRedirectDomain": "api.goentri.com, goentri.com",
-  "variableDescription": "ip is the website server ip, zendeskverification is the text verification value for zendesk, sendgridHost is sendgrid dynamic host.",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "ip is the website server ip, zendeskverification is the text verification value for zendesk, sendgridHost is sendgrid dynamic host, sendgridHostDomainKey1 and sendgridHostDomainKey1 are the dynamic host for Sendgrid CNAME, sendgridValue is the dynamic value for SendgridHost, sendgridHostDomainKeyValue1 and sendgridHostDomainKeyValue2 are the value for sendgridHostDomainKey ",
   "sharedProviderName": true,
-  "hostRequired": true,
   "records": [
     {
       "type": "A",
@@ -26,20 +25,20 @@
     },
     {
       "type": "CNAME",
-      "host": "%sendgridHost%.support",
-      "pointsTo": "u10250786.wl037.sendgrid.net.",
+      "host": "%sendgridHost%",
+      "pointsTo": "%sendgridValue%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "s1._domainkey.support",
-      "pointsTo": "s1.domainkey.u10250786.wl037.sendgrid.net.",
+      "host": "%sendgridHostDomainKey1%",
+      "pointsTo": "%sendgridHostDomainKeyValue1%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "s2._domainkey.support",
-      "pointsTo": "s2.domainkey.u10250786.wl037.sendgrid.net.",
+      "host": "%sendgridHostDomainKey2%",
+      "pointsTo": "%sendgridHostDomainKeyValue2%",
       "ttl": 3600
     },
     {

@@ -3,15 +3,16 @@
   "providerName":"Website Toolbox",
   "serviceId":"apexforum",
   "serviceName":"Website Toolbox Forum",
-  "version": 1,
+  "version": 2,
   "logoUrl":"https://cdn.websitetoolbox.com/images/logos/wt_logo_transparent.png",
   "description":"Enables the root of a domain to work with Website Toolbox.",
+  "syncRedirectDomain": "websitetoolbox.com, www.websitetoolbox.com, beta.websitetoolbox.com",
   "variableDescription":"",
   "records":[
     {
       "type":"A",
       "host": "@",
-      "pointsTo":"75.2.71.176",
+      "pointsTo":"107.21.35.214",
       "ttl":3600
     },
     {

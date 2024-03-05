@@ -1,0 +1,43 @@
+{
+    "providerId":"mailersend.com",
+    "providerName":"MailerSend",
+    "serviceId":"mailersend-email",
+    "serviceName":"MailerSend Email Service",
+    "version": 1,
+    "syncPubKeyDomain": "mailersend.com",
+    "syncRedirectDomain": "mailersend.com",
+    "records":[
+      {
+        "type": "SPFM",
+        "host": "%spf_host%",
+        "spfRules": "%spf_value%",
+        "ttl": 3600
+      },
+      {
+        "type": "TXT",
+        "host": "%dkim_host%._domainkey",
+        "data": "%dkim_value%",
+        "ttl": 3600
+      },
+      {
+        "type": "CNAME",
+        "host": "%return_path_host%",
+        "pointsTo": "%return_path_value%",
+        "ttl": 3600
+      },
+      {
+        "type": "CNAME",
+        "host": "%tracking_host%",
+        "pointsTo": "%tracking_value%",
+        "ttl": 3600
+      },
+      {
+        "type": "MX",
+        "host": "%inbound_host%",
+        "pointsTo": "inbound.mailersend.net",
+        "ttl": 3600,
+        "priority": 10
+      }
+    ]
+  }
+  

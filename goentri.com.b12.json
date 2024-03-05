@@ -1,0 +1,59 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "b12",
+    "serviceName": "B12",
+    "version": 2,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "variableDescription":"pointstoIp is the IP number, cnamePointsto1 is the value for the CNAME, cnameHost1 is the host for CNAME, dkimhost is the host for DKIM, dkimhostpointsto is the value for DKIM",
+    "sharedProviderName": true,
+    "records": [
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "%pointstoIp%",
+        "groupId": "a1",
+        "ttl": 3600
+      },
+      {
+        "type": "CNAME",
+        "host": "%cnameHost1%",
+        "pointsTo": "%cnamePointsto1%",
+        "groupId": "a2",
+        "ttl": 3600
+      },
+      {
+        "type": "SPFM",
+        "host": "@",
+        "spfRules": "include:mailgun.org",
+        "groupId": "a3",
+        "ttl": 3600
+      },
+      {
+        "type": "TXT",
+        "host": "%dkimhost%",
+        "data": "%dkimhostpointsto%",
+        "groupId": "a4",
+        "ttl": 3600
+      },
+      {
+        "type": "MX",
+        "host": "@",
+        "pointsTo": "mxa.mailgun.org",
+        "priority": 10,
+        "groupId": "a5",
+        "ttl": 3600
+      },
+      {
+        "type": "MX",
+        "host": "@",
+        "pointsTo": "mxb.mailgun.org",
+        "priority": 10,
+        "groupId": "a5",
+        "ttl": 3600
+      }
+    ]
+}

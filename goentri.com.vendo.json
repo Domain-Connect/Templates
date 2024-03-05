@@ -1,0 +1,43 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "vendo",
+  "serviceName": "Vendo",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "ip is the address of the server hosting the domain. sendgridAliasHost, sendgridDomainKeyHost1 and sendgridDomainKeyHost2 are Sendgrids domain configurations",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sendgridAliasHost%",
+      "pointsTo": "%sendgridAliasPointsTo%",
+      "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sendgridDomainKeyHost1%",
+      "pointsTo": "%sendgridDomainKeyPointsTo1%",
+      "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sendgridDomainKeyHost2%",
+      "pointsTo": "%sendgridDomainKeyPointsTo2%",
+      "groupId": "a2",
+      "ttl": 3600
+    }
+  ]
+}

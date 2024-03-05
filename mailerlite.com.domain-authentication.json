@@ -1,0 +1,24 @@
+{  
+   "providerId": "mailerlite.com",
+   "providerName": "MailerLite",
+   "serviceId": "domain-authentication",
+   "serviceName": "MailerLite Domain Authentication",
+   "version": 1,
+   "description": "Authenticate your domain to improve deliverability.",
+   "syncPubKeyDomain": "mailerlite.com",
+   "variableDescription": "Self explanatory in the variable names.",
+   "records": [
+      {
+         "type": "CNAME",
+         "host": "%dkim_host%._domainkey",
+         "pointsTo": "%dkim_value%",
+         "ttl": 3600
+      },
+      {
+         "type": "SPFM",
+         "host": "@",
+         "spfRules": "%spf_value%",
+         "ttl": 3600
+      }
+   ]
+}

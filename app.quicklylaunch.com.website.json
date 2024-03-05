@@ -1,0 +1,25 @@
+{  
+   "providerId": "app.quicklylaunch.com",
+   "providerName": "QuicklyLaunch",
+   "serviceId": "website",
+   "serviceName": "QuicklyLaunch Sites",
+   "version": 1,
+   "logoUrl": "https://www.straightarrow.com.ph/hubfs/QuicklyLaunch%202.0/Dark%20QL.png",
+   "description": "Enables a domain to work with QuicklyLaunch",
+   "variableDescription": "",
+   "syncPubKeyDomain": "app.quicklylaunch.com",   
+   "records": [  
+      {  
+         "type": "A",
+         "host": "@",
+         "pointsTo": "44.205.197.127",
+         "ttl": 300
+      },
+      {
+         "type": "CNAME",
+         "host": "www",
+         "pointsTo": "@",
+         "ttl": 300
+      }
+   ]
+}

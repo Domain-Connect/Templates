@@ -3,23 +3,25 @@
    "providerName":"Beswifty",
    "serviceId":"website",
    "serviceName":"Swifty Site",
-   "version": 1,
+   "version": 2,
    "logoUrl":"https://beswifty.com/wp-content/uploads/2019/12/Swifty-Logo_Tagline.svg",
    "description":"Enables a domain to work with Swifty Sites",
    "syncRedirectDomain":"manage.beswifty.com,beswifty.com",
-   "warnPhishing":true,
+   "syncPubKeyDomain":"beswifty.com",
+   "variableDescription": "IP is the IP address of the server",
+  
    "records":[
       {
          "type":"CNAME",
          "host":"www",
          "pointsTo":"@",
-         "ttl":600
+         "ttl":3600
       },
       {
          "type":"A",
          "host":"@",
-         "pointsTo":"%host%",
-         "ttl":600
+         "pointsTo":"%IP%",
+         "ttl":3600
       }
    ]
 }

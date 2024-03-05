@@ -1,0 +1,31 @@
+{  
+   "providerId":"canva.com",
+   "providerName":"Canva",
+   "serviceId":"website",
+   "serviceName":"Canva Websites",
+   "syncPubKeyDomain":"domainconnect.canva.com",
+   "version": 2,
+   "logoUrl": "https://static.canva.com/static/images/canva_logo_100x100@2x.png",
+   "description":"Enables a domain to work with Canva",
+   "variableDescription":"verify is the verification value for the site",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"103.169.142.0",
+         "ttl":300
+      },
+      {  
+         "type":"A",
+         "host":"www",
+         "pointsTo":"103.169.142.0",
+         "ttl":300
+      },
+      {
+         "type":"TXT",
+         "host": "_canva-domain-verify",
+         "data": "%verify%",
+         "ttl":300
+      }
+   ]
+}
