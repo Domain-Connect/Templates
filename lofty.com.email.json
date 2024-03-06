@@ -1,0 +1,75 @@
+{
+  "providerId": "lofty.com",
+  "providerName": "Lofty",
+  "serviceId": "email",
+  "serviceName": "Lofty Real Estate Website",
+  "version": 1,
+  "logoUrl": "https://static.chimeroi.com/servicetool-temp/2023910/17/crm/lofty-Logo.svg",
+  "description": "Lofty customers can use their own domain name to send email",
+  "syncRedirectDomain": "lofty.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%loftyIpA1%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%loftyIpA2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cNameRecordName1%",
+      "pointsTo": "%cNameRecordValue1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cNameRecordName2%",
+      "pointsTo": "%cNameRecordValue2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cNameRecordName3%",
+      "pointsTo": "%cNameRecordValue3%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "%mxMail%",
+      "pointsTo": "feedback-smtp.us-west-2.amazonses.com",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.us-west-2.amazonaws.com",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "%dmarcValue%",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "SPFM",
+      "host": "%mxMail%",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

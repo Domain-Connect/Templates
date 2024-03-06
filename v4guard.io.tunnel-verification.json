@@ -1,0 +1,21 @@
+{
+  "providerId": "v4guard.io",
+  "providerName": "v4Guard",
+  "serviceId": "tunnel-verification",
+  "serviceName": "Tunnel Domain Verification",
+  "version": 2,
+  "logoUrl": "https://cdn.v4guard.io/logos/domainconnect.svg",
+  "description": "Verifies a domain ownership in order to continue adding a protected virtual host on v4Guard Tunnel.",
+  "variableDescription": "A unique customer CNAME is supplied for the purpose of domain verification, and customized-routing. Aditionally, a tunnel type is provided.",
+  "syncPubKeyDomain": "v4guard.io",
+  "syncRedirectDomain": "v4guard.io,dashboard.v4guard.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%custId%.%tunnelType%.tunnel.v4guard.io",
+      "ttl": 60
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{  
+   "providerId": "mailerlite.com",
+   "providerName": "MailerLite",
+   "serviceId": "domain-alignment",
+   "serviceName": "MailerLite Domain Alignment",
+   "version": 1,
+   "description": "Control your sender reputation with your own domain.",
+   "syncPubKeyDomain": "mailerlite.com",
+   "variableDescription": "Self explanatory in the variable names.",
+   "records": [
+      {
+         "type": "A",
+         "host": "@",
+         "pointsTo": "%ip%",
+         "ttl": 3600
+      },
+      {
+         "type": "MX",
+         "host": "@",
+         "pointsTo": "%mx_points_to%",
+         "priority": 10,
+         "ttl": 3600
+      },
+      {
+         "type": "SPFM",
+         "host": "@",
+         "spfRules": "%spf_value%",
+         "ttl": 3600
+      }
+   ]
+}

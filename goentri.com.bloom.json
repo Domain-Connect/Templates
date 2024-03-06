@@ -1,0 +1,29 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "bloom",
+  "serviceName": "Bloom",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to point domain to the website",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "hostDomain is the host for the CNAME, pointstoDomain is the value for the CNAME, primaryIp is the IP the A record is pointed to",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%hostDomain%",
+      "groupId": "a1",
+      "pointsTo": "%pointstoDomain%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%primaryIp%",
+      "groupId": "a2",
+      "ttl": 3600
+    }
+  ]
+}

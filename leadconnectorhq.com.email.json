@@ -1,0 +1,53 @@
+{
+  "providerId": "leadconnectorhq.com",
+  "providerName": "LeadConnector",
+  "serviceId": "email",
+  "serviceName": "LeadConnector Email records",
+  "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
+  "version": 2,
+  "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
+  "description": "Enable domain domain to work with the LeadConnector",
+  "variableDescription": "TXT, CNAME, and MX Records: LeadConnector connection",
+  "syncPubKeyDomain": "leadconnectorhq.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%txtHost1%",
+      "data": "%txtValue1%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%txtValue2%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "%cnameValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "%mxHost1%",
+      "pointsTo": "%mxValue1%",
+      "priority": 10,
+      "ttl": 600
+    },
+    {
+      "type": "MX",
+      "host": "%mxHost2%",
+      "pointsTo": "%mxValue2%",
+      "priority": 20,
+      "ttl": 600
+    },
+    {
+      "type": "MX",
+      "host": "%mxHost3%",
+      "pointsTo": "%mxValue3%",
+      "priority": 30,
+      "ttl": 600
+    }
+  ]
+}

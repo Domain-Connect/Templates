@@ -1,0 +1,84 @@
+{
+  "providerId":"mymangomail.com",
+  "providerName":"Mango Mail",
+  "serviceId":"email",
+  "serviceName":"Email Setup",
+  "sharedServiceName": true,
+  "version":1,
+  "logoUrl":"https://mymangomail.com/assets/mango-domain-connect-logo.png",
+  "description":"Set up the necessary records to enable Mango Mail email hosting",
+  "variableDescription":"verification: Unique identifier to validate domain ownership",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mymangomail.com",
+  "records":[
+
+    {
+      "groupId":"setup",
+      "type":"TXT",
+      "host":"@",
+      "data":"mail-host-verify=%verification%",
+      "ttl":3600
+    },
+
+    {
+      "groupId":"setup",
+      "type":"SPFM",
+      "host":"@",
+      "spfRules":"include:spf.mymangomail.com",
+      "ttl":3600
+    },
+
+    {
+      "groupId":"setup",
+      "type":"TXT",
+      "host":"_dmarc",
+      "data":"v=DMARC1; p=quarantine;",
+      "ttl":3600,
+      "txtConflictMatchingMode":"All"
+    },
+
+    {
+      "groupId":"setup",
+      "type":"CNAME",
+      "host":"mail._domainkey",
+      "pointsTo":"mail._domainkey.mymangomail.com",
+      "ttl":3600
+    },
+
+    {
+      "groupId":"setup",
+      "type":"CNAME",
+      "host":"mta-sts",
+      "pointsTo":"smtp.mymangomail.com",
+      "ttl":3600
+    },
+
+    {
+      "groupId":"setup",
+      "type":"CNAME",
+      "host":"autoconfig",
+      "pointsTo":"autoconfig.mymangomail.com",
+      "ttl":3600,
+      "essential":"OnApply"
+    },
+
+    {
+      "groupId":"setup",
+      "type":"CNAME",
+      "host":"autodiscover",
+      "pointsTo":"autodiscover.mymangomail.com",
+      "ttl":3600,
+      "essential":"OnApply"
+    },
+
+    {
+      "groupId":"setup",
+      "type":"MX",
+      "host":"@",
+      "priority":0,
+      "pointsTo":"mx1.mymangomail.com",
+      "ttl":3600
+    }
+
+  ]
+}

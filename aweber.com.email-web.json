@@ -3,7 +3,7 @@
    "providerName":"AWeber",
    "serviceId":"email-web",
    "serviceName":"Email Authentication and Landing Pages",
-   "version": 2,
+   "version": 3,
    "syncRedirectDomain": "aweber.com, optin.com",
    "syncPubKeyDomain": "optin.com",
    "logoUrl":"https://assets.aweber-static.com/page-templates/assets/img/powered_by.png",
@@ -49,6 +49,13 @@
          "type": "CNAME",
          "host": "k3._domainkey",
          "pointsTo": "k3.optin.com.",
+         "ttl": 3600
+       },
+       {
+         "groupId": "email-dmarc",
+         "type": "TXT",
+         "host": "_dmarc",
+         "data": "%dmarc%",
          "ttl": 3600
        },
        {

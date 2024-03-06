@@ -1,0 +1,22 @@
+{
+  "providerId": "leadconnectorhq.com",
+  "providerName": "LeadConnector",
+  "serviceId": "cname-record",
+  "serviceName": "LeadConnector Text records",
+  "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
+  "version": 1,
+  "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
+  "description": "Enable  domain to work with the LeadConnector",
+  "variableDescription": "CNAMEs: LeadConnector connection",
+  "syncPubKeyDomain":"leadconnectorhq.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "cname",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameValue%",
+      "ttl": 3600
+    }
+  ]
+}

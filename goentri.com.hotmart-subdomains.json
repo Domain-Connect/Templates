@@ -1,0 +1,23 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "hotmart-subdomains",
+  "serviceName": "Hotmart Subdomains",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up dkim record using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "cnamePointsTo is the URL to where the subdomain is pointed",
+  "sharedProviderName": true,
+  "hostRequired": true,
+  "records": [
+    
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnamePointsTo%",
+      "ttl": 3600
+    }
+  ]
+}

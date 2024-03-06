@@ -97,6 +97,13 @@
         "type": "REDIR302",
         "target": "%target%",
         "host": "@"
+    },
+    {
+        "groupId": "general-text",
+        "type": "TXT",
+        "host": "%txt_host%",
+        "data": "%txt_points%",
+        "ttl": 600
     }
     ]
 }

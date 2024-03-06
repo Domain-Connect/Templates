@@ -1,0 +1,24 @@
+{
+   "providerId":"getbento.com",
+   "providerName":"BentoBox",
+   "serviceId":"website",
+   "serviceName":"BentoBox Restaurant Websites",
+   "version":3,
+   "logoUrl":"https://images.getbento.com/accounts/72eb533b9727d26b9e4de27a4f09dba5/media/images/bentobox-logo-soy-white-bg_1.png",
+   "description":"Connects your domain to BentoBox",
+   "syncRedirectDomain":"getbento.com,bentosandbox.com",
+   "records":[
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo":"151.101.1.75",
+         "ttl":3600
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"fast.getbento.com",
+         "ttl":3600
+      }
+   ]
+}

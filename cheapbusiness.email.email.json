@@ -1,0 +1,44 @@
+{
+    "providerId": "cheapbusiness.email",
+    "providerName": "Cheap Business Email",
+    "serviceId": "email",
+    "serviceName": "Email",
+    "version": 1,
+    "description": "Enables a domain to work with Cheap Business Email",
+    "variableDescription": "cbeValue - Domain Ownership Verification Code",
+    "syncRedirectDomain": "cheapbusiness.email",
+    "syncPubKeyDomain": "cheapbusiness.email",
+    "records": [
+      {
+        "type": "MX",
+        "host": "@",
+        "pointsTo": "cheapbusiness.email",
+        "priority": 10,
+        "ttl": 3600
+      },
+      {
+        "type": "SPFM",
+        "spfRules": "include:cheapbusiness.email",
+        "host": "@"
+      },
+      {
+        "type": "TXT",
+        "host": "@",
+        "data": "cbev=%cbeValue%",
+        "ttl": 3600
+      },
+      {
+        "type": "TXT",
+        "host": "_dmarc",
+        "txtConflictMatchingMode": "All",
+        "data": "v=DMARC1; p=none; rua=mailto:dmarc@cheapbusiness.email; ruf=mailto:dmarc@cheapbusiness.email; fo=1",
+        "ttl": 3600
+      },
+      {
+        "type": "TXT",
+        "host": "cbe._domainkey",
+        "data": "v=DKIM1;h=sha256;k=rsa;t=y;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAojIbdb149vKwuasNv+TQOoWQVGFS0Gr1M+C+722vW1DP7H+/TOs+DA/Truz4iNC1JsT5/O9XfTq8ghQYVmfkxYosY2QC0l3x86YpdX5yy4b2UnbxkCLlJzFqbIksw2eNSBTHV29OO5ywnjq8Tc/ilAdHQoNmmZQTd1nyV2jOivuDeiM9hYHizIx7R20HSoB2VL51BbzM9LUxWlfeaN+rfIgEcLcltYbQKpJPPRIMobvYP99lNUGL+6ACIwFqbIvSP0aNxXh6IrynVeCXIdUrEKughPMplnEHOqKQRZEoGY9DgwkxHp2Ct0QjqPzWYEg+hUewIuH+EZgnfuA7ZdhQnwIDAQAB",
+        "ttl": 3600
+      }
+    ]
+  }

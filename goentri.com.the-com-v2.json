@@ -1,0 +1,78 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "the-com-v2",
+  "serviceName": "The.com",
+  "version": 3,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com, app.goentri.com",
+  "variableDescription": "hostValue is the dynamic host value assigned to the domain,verificationValue is the text verification value,customValue is the dynamic value generated for the domain,customHost is host value used for the domain,,websitePointsTo is the application cluster value,ipValue is the ip address value",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipValue%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "groupId": "a1",
+      "pointsTo": "%websitePointsTo%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "a1",
+      "host": "%hostValue%",
+      "data": "%customValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%customHost%",
+      "groupId": "a1",
+      "data": "%verificationValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipValue%",
+      "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "groupId": "a2",
+      "pointsTo": "%websitePointsTo%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipValue%",
+      "groupId": "a3",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "groupId": "a3",
+      "pointsTo": "%websitePointsTo%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "a3",
+      "host": "%hostValue%",
+      "data": "%customValue%",
+      "ttl": 3600
+    }
+  ]
+}

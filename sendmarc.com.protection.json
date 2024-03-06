@@ -1,0 +1,110 @@
+{
+  "providerId": "sendmarc.com",
+  "providerName": "Sendmarc",
+  "serviceId": "protection",
+  "serviceName": "Sendmarc Email Security",
+  "version": 2,
+  "syncRedirectDomain": "sendmarc.com, portal.sendmarc.com",
+  "logoUrl": "https://portal.sendmarc.com/img/light-bg-transparent.svg",
+  "syncPubKeyDomain": "domainconnect.sendmarc.com",
+  "warnPhishing": true,
+  "description": "Stop cyber-criminals from sending email using your domain and protect your customers, suppliers and employees from attacks.",
+  "variableDescription": "Self explanatory in the variable names",
+  "records": [
+    {
+      "groupId": "dmarc",
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%dmarc%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spf_rules%"
+    },
+    {
+      "groupId": "_mta-sts",
+      "type": "CNAME",
+      "host": "_mta-sts",
+      "pointsTo": "%_mta_sts%",
+      "ttl": 600
+    },
+    {
+      "groupId": "mta-sts",
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "%mta_sts%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sts",
+      "type": "CNAME",
+      "host": "_smtp-tlsrpt",
+      "pointsTo": "%smtp_tls%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "NS",
+      "host": "_domainkey",
+      "pointsTo": "%domainkey_1%",
+      "ttl": 3600
+    },{
+      "groupId": "dkim",
+      "type": "NS",
+      "host": "_domainkey",
+      "pointsTo": "%domainkey_2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "NS",
+      "host": "_domainkey",
+      "pointsTo": "%domainkey_3%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "NS",
+      "host": "_domainkey",
+      "pointsTo": "%domainkey_4%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "bimi",
+      "type": "NS",
+      "host": "_bimi",
+      "pointsTo": "%bimi_1%",
+      "ttl": 3600
+    },{
+      "groupId": "bimi",
+      "type": "NS",
+      "host": "_bimi",
+      "pointsTo": "%bimi_2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "bimi",
+      "type": "NS",
+      "host": "_bimi",
+      "pointsTo": "%bimi_3%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "bimi",
+      "type": "NS",
+      "host": "_bimi",
+      "pointsTo": "%bimi_4%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tlsrpt",
+      "type": "CNAME",
+      "host": "_smtp._tls",
+      "pointsTo": "%tlsrpt%",
+      "ttl": 3600
+    }
+  ]
+}
