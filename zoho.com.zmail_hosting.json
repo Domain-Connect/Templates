@@ -9,7 +9,7 @@
     "variableDescription": "",
     "syncBlock": false,
     "hostRequired": false,
-    "version": 4,
+    "version": 5,
     "syncPubKeyDomain": "zoho.com",
     "records": [
     {
@@ -58,6 +58,20 @@
     },
     {
         "groupId": "zoho-dkim",
+        "type": "TXT",
+        "host": "%dkim_host%._domainkey",
+        "data": "%dkim_data%",
+        "ttl": 600
+    },
+    {
+        "groupId": "zoho-dkim1",
+        "type": "TXT",
+        "host": "%dkim_host%._domainkey",
+        "data": "%dkim_data%",
+        "ttl": 600
+    },
+    {
+        "groupId": "zoho-dkim2",
         "type": "TXT",
         "host": "%dkim_host%._domainkey",
         "data": "%dkim_data%",
