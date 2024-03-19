@@ -1,0 +1,64 @@
+{
+  "providerId": "informaten.com",
+  "providerName": "Informaten",
+  "serviceId": "hosting_email",
+  "serviceName": "Webhosting on Informaten.com",
+  "version": 1,
+  "syncPubKeyDomain": "informaten.com",
+  "logoUrl": "https://informaten.com/assets/logo_dark.png",
+  "description": "Enables a domain to work with Informaten webhosting",
+  "variableDescription": "ip and ip6 are the v4/v6 address of the webspace server, domain is the domain this template is applied to and hostname is the hostname of the webspace server",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.%fqdn%.",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "A",
+      "host": "mail",
+      "pointsTo": "%ip%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "AAAA",
+      "host": "mail",
+      "pointsTo": "%ip6%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "A",
+      "host": "webmail",
+      "pointsTo": "%ip%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "AAAA",
+      "host": "webmail",
+      "pointsTo": "%ip6%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; adkim=s; aspf=s",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "+a +mx +a:%hostname%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
