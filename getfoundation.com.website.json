@@ -1,0 +1,25 @@
+{
+  "providerId": "getfoundation.com",
+  "providerName": "Foundation Domain Configuration",
+  "serviceId": "foundation-template",
+  "serviceName": "Domain configuration",
+  "version": 1,
+  "logoUrl":"https://getfoundation.com/wp-content/uploads/2023/07/Foundation_logo.png",
+  "description": "Enables a domain to work with GoDaddy Whitelabel",
+  "variableDescription": "v1 is the IP address of the server.",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "pointsTo": "%v1%",
+      "type": "A",
+      "host": "@",
+      "ttl": 3600
+    },
+    {
+      "pointsTo": "@",
+      "type": "CNAME",
+      "host": "www",
+      "ttl": 3600
+    }
+  ]
+}
