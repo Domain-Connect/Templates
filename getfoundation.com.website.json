@@ -1,24 +1,19 @@
 {
   "providerId": "getfoundation.com",
-  "providerName": "Foundation Domain Configuration",
-  "serviceId": "foundation-template",
-  "serviceName": "Domain configuration",
+  "providerName": "Foundation Commerce Inc",
+  "serviceId": "foundation-wholesale",
+  "serviceName": "Foundation Domain Configuration",
   "version": 1,
   "logoUrl":"https://getfoundation.com/wp-content/uploads/2023/07/Foundation_logo.png",
-  "description": "Enables a domain to work with GoDaddy Whitelabel",
-  "variableDescription": "v1 is the IP address of the server.",
-  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "description": "Enables the wholesale eCommerce site to work with Foundation",
+  "variableDescription":"sub is the subdomain for the domain.",
+  "syncPubKeyDomain": "getfoundation.com",
+  "syncRedirectDomain":"app.getfoundation.com",
   "records": [
     {
-      "pointsTo": "%v1%",
-      "type": "A",
-      "host": "@",
-      "ttl": 3600
-    },
-    {
-      "pointsTo": "@",
       "type": "CNAME",
-      "host": "www",
+      "host": "%sub%",
+      "pointsTo": "%sub%.getfoundation.store",
       "ttl": 3600
     }
   ]
