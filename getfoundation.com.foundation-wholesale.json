@@ -13,7 +13,7 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "sub",
+      "host": "@",
       "pointsTo": "%sub%.getfoundation.store",
       "ttl": 3600
     }
