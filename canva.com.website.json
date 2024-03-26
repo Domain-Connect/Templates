@@ -4,27 +4,37 @@
    "serviceId":"website",
    "serviceName":"Canva Websites",
    "syncPubKeyDomain":"domainconnect.canva.com",
-   "version": 2,
-   "logoUrl": "https://static.canva.com/static/images/canva_logo_100x100@2x.png",
+   "version":3,
+   "logoUrl":"https://static.canva.com/static/images/canva_logo.svg",
    "description":"Enables a domain to work with Canva",
    "variableDescription":"verify is the verification value for the site",
-   "records":[  
-      {  
+   "records":[
+      {
+         "groupId":"hosting",
          "type":"A",
          "host":"@",
          "pointsTo":"103.169.142.0",
          "ttl":300
       },
-      {  
+      {
+         "groupId":"hosting",
          "type":"A",
          "host":"www",
          "pointsTo":"103.169.142.0",
          "ttl":300
       },
       {
+         "groupId":"verificationTxt",
          "type":"TXT",
-         "host": "_canva-domain-verify",
-         "data": "%verify%",
+         "host":"@",
+         "data":"%verify%",
+         "ttl":300
+      },
+      {
+         "groupId":"verificationCname",
+         "type":"CNAME",
+         "host":"canva-domain-verify",
+         "pointsTo":"%verify%",
          "ttl":300
       }
    ]
