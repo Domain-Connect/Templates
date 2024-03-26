@@ -6,7 +6,7 @@
   "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
   "version": 1,
   "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
-  "description": "Enable domain domain to work with the LeadConnector",
+  "description": "Enable domain to work with the LeadConnector",
   "variableDescription": "TXT, CNAME, DMARC and MX Records: LeadConnector connection",
   "syncPubKeyDomain": "leadconnectorhq.com",
   "records": [
