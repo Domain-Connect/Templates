@@ -9,10 +9,11 @@
   "variableDescription":"sub is the subdomain for the domain.",
   "syncPubKeyDomain": "getfoundation.com",
   "syncRedirectDomain":"app.getfoundation.com",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "%sub%",
+      "host": "sub",
       "pointsTo": "%sub%.getfoundation.store",
       "ttl": 3600
     }
