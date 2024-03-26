@@ -1,13 +1,13 @@
 {
   "providerId": "leadconnectorhq.com",
   "providerName": "LeadConnector",
-  "serviceId": "email",
+  "serviceId": "email-isv",
   "serviceName": "LeadConnector Isv Email records",
   "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
   "version": 1,
   "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
   "description": "Enable domain domain to work with the LeadConnector",
-  "variableDescription": "TXT, CNAME, and MX Records: LeadConnector connection",
+  "variableDescription": "TXT, CNAME, DMARC and MX Records: LeadConnector connection",
   "syncPubKeyDomain": "leadconnectorhq.com",
   "records": [
     {
