@@ -17,9 +17,9 @@
       "ttl": 600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "%txtValue2%",
+      "data": "%spf_value%",
       "ttl": 600
     },
     {
