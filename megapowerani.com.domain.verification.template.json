@@ -1,0 +1,40 @@
+{
+    "providerId": "megapowerani.com",
+    "providerName": "Freshsales",
+    "serviceId": "domain.verification.template",
+    "serviceName": "Domain verification",
+    "version": 1,
+    "logoUrl": "https://avatars.slack-edge.com/2021-08-02/2349087959585_442632783598439baea4_512.png",
+    "description": "This is a test template created for temporary testing purpose",
+    "variableDescription": "",
+    "syncPubKeyDomain": "megapowerani.com",
+    "syncRedirectDomain": "megapowerani.com",
+    "warnPhishing": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "fwdkim",
+            "pointsTo": "spfmx7.domainkey.myfreshworks.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "fwtrack1",
+            "pointsTo": "sendgrid.net",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "fwtrack",
+            "pointsTo": "e65e4b04472d0331a4757253236cdbf4.fmsendcrmclick.in",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "fslink",
+            "pointsTo": "fslink.fwclick.io",
+            "ttl": 3600
+        }
+        
+    ]
+}

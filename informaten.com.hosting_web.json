@@ -1,0 +1,32 @@
+{
+  "providerId": "informaten.com",
+  "providerName": "Informaten",
+  "serviceId": "hosting_web",
+  "serviceName": "Webhosting on Informaten.com",
+  "version": 1,
+  "syncPubKeyDomain": "informaten.com",
+  "logoUrl": "https://informaten.com/assets/logo_dark.png",
+  "description": "Enables a domain to work with Informaten webhosting",
+  "variableDescription": "ip is the IPv4 address of the webserver and ip6 is the IPv6 address of the webserver",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "essential": "Always",
+      "ttl": 3600
+    }, {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "%ip6%",
+      "essential": "Always",
+      "ttl": 3600
+    }, {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "essential": "Always",
+      "ttl": 3600
+    }
+  ]
+}

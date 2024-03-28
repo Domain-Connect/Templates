@@ -1,0 +1,19 @@
+{  
+   "providerId": "mailerlite.com",
+   "providerName": "MailerLite",
+   "serviceId": "website-subdomain",
+   "serviceName": "MailerLite Sites",
+   "version": 1,
+   "description": "Create websites or landing pages using your own domain.",
+   "syncPubKeyDomain": "mailerlite.com",
+   "variableDescription": "Self explanatory in the variable names.",
+   "hostRequired": true,
+   "records": [
+      {
+         "type": "CNAME",
+         "host": "@",
+         "pointsTo": "%subdomain_points_to%",
+         "ttl": 3600
+      }
+   ]
+}

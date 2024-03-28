@@ -3,7 +3,7 @@
   "providerName": "Entri",
   "serviceId": "webflow",
   "serviceName": "Webflow",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://cdn.goentri.com/logo.svg",
   "description": "Allows user to easily set up dkim record using Entri",
   "syncPubKeyDomain": "goentri.com",
@@ -29,7 +29,7 @@
     {
       "type": "CNAME",
       "host": "www",
-      "pointsTo": "%cnamePointsTo%",
+      "pointsTo": "%proxySslUrl%",
       "groupId": "a1",
       "ttl": 3600
     },
@@ -38,6 +38,13 @@
       "host": "@",
       "data": "%txt%",
       "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "%proxySslUrl%",
+      "groupId": "a3",
       "ttl": 3600
     }
   ]

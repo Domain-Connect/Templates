@@ -1,0 +1,29 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "bily_ai",
+  "serviceName": "Bily_ai",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to point domain to the website",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "hostDomain is the host for the CNAME, pointstoDomain is the value for the CNAME, hostTxt the host for TXT and verificationTxt is the verification code",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%hostDomain%",
+      "groupId": "a1",
+      "pointsTo": "%pointstoDomain%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%hostTxt%",
+      "groupId": "a2",
+      "data": "%verificationTxt%",
+      "ttl": 3600
+    }
+  ]
+}
