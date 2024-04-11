@@ -1,0 +1,24 @@
+{
+  "providerId": "supertape.com",
+  "providerName": "Supertape",
+  "serviceId": "website",
+  "serviceName": "Supertape site",
+  "version": 1,
+  "logoUrl": "https://svgshare.com/i/15HY.svg",
+  "description": "Enables a domain to work with Supertape",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.supertape.site",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.supertape.site",
+      "ttl": 3600
+    }
+  ]
+}
