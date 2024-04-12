@@ -3,6 +3,7 @@
   "providerName": "Supertape",
   "serviceId": "website",
   "serviceName": "Supertape site",
+  "syncPubKeyDomain": "supertape.com",
   "version": 1,
   "logoUrl": "https://svgshare.com/i/15HY.svg",
   "description": "Enables a domain to work with Supertape",
