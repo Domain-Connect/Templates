@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://beta.edificecms.com/builder/elements/images/uploads/project576/17089491464566.png",
   "description": "Enables web hosting for edificecms domains.",
-  "variableDescription": "IP address for the domain A",
+  "variableDescription": "",
   "records": [
     {
       "type": "A",
