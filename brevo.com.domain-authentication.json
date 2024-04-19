@@ -23,7 +23,7 @@
       "host": "%dkim_selector%._domainkey",
       "data": "%dkim_public_key%",
       "ttl": 3600
-    }
+    },
     {
       "groupId": "dmarc",
       "type": "TXT",
