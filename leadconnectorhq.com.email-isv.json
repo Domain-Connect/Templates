@@ -14,12 +14,14 @@
       "type": "TXT",
       "host": "%txt_host1%",
       "data": "%txt_value1%",
+      "essential": "OnApply",
       "ttl": 600
     },
     {
       "type": "SPFM",
       "host": "@",
       "spfRules": "%spf_value%",
+      "essential": "OnApply",
       "ttl": 600
     },
     {
@@ -27,18 +29,21 @@
       "host": "_dmarc",
       "data": "%dmarc_value%",
       "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
       "ttl": 600
     },
     {
       "type": "CNAME",
       "host": "email",
       "pointsTo": "%cname_value%",
+      "essential": "OnApply",
       "ttl": 3600
     },
     {
       "type": "MX",
       "host": "@",
       "pointsTo": "%mx_value1%",
+      "essential": "OnApply",
       "priority": 10,
       "ttl": 600
     },
@@ -46,6 +51,7 @@
       "type": "MX",
       "host": "@",
       "pointsTo": "%mx_value2%",
+      "essential": "OnApply",
       "priority": 20,
       "ttl": 600
     }
