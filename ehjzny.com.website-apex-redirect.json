@@ -18,7 +18,7 @@
       {
          "type":"CNAME",
          "host":"www",
-         "pointsTo":"customdomain.ehjzny.com",
+         "pointsTo":"booking-website.com",
          "ttl":600
       }
    ]
