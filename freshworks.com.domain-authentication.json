@@ -1,0 +1,77 @@
+{
+  "providerId": "freshworks.com",
+  "providerName": "Freshworks",
+  "serviceId": "domain-authentication",
+  "serviceName": "Freshworks",
+  "logoUrl": "https://dam.freshworks.com/m/1d230ee78c07681a/original/headerLogoLight.webp",
+  "version": 1,
+  "syncPubKeyDomain": "freshworks.com",
+  "variableDescription": "Self explanatory in the variable names",
+  "description": "CNAME records are utilized for domain verification, enabling Freshworks to authenticate emails sent on behalf of customers. Additionally, DKIM records are employed to further authenticate these emails.",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "dkim1",
+      "host": "@",
+      "type": "CNAME",
+      "pointsTo": "%cname_pointsTo%",
+      "ttl": 900
+    },
+    {
+      "groupId": "dkim2",
+      "host": "@",
+      "type": "CNAME",
+      "pointsTo": "%cname_pointsTo%",
+      "ttl": 900
+    },
+    {
+      "groupId": "dkim3",
+      "host": "@",
+      "type": "CNAME",
+      "pointsTo": "%cname_pointsTo%",
+      "ttl": 900
+    },
+    {
+      "groupId": "dkim4",
+      "host": "@",
+      "type": "CNAME",
+      "pointsTo": "%cname_pointsTo%",
+      "ttl": 900
+    },
+    {
+      "groupId": "spfmx",
+      "host": "@",
+      "type": "CNAME",
+      "pointsTo": "%cname_pointsTo%",
+      "ttl": 900
+    },
+    {
+      "groupId": "tracking1",
+      "host": "@",
+      "type": "CNAME",
+      "pointsTo": "%cname_pointsTo%",
+      "ttl": 900
+    },
+    {
+      "groupId": "tracking2",
+      "host": "@",
+      "type": "CNAME",
+      "pointsTo": "%cname_pointsTo%",
+      "ttl": 900
+    },
+    {
+      "groupId": "tracking3",
+      "host": "@",
+      "type": "CNAME",
+      "pointsTo": "%cname_pointsTo%",
+      "ttl": 900
+    },
+    {
+      "groupId": "tracking4",
+      "host": "@",
+      "type": "CNAME",
+      "pointsTo": "%cname_pointsTo%",
+      "ttl": 900
+    }
+  ]
+}
