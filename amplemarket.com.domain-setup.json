@@ -1,0 +1,58 @@
+{
+  "providerId": "amplemarket.com",
+  "providerName": "Amplemarket",
+  "serviceId": "domain-setup",
+  "serviceName": "Amplemarket Domain Setup",
+  "version": 1,
+  "logoUrl": "https://assets.amplemarket.com/assets/images/amplemarket-a-logo-72x72-blue.svg",
+  "description": "Allows users to easily setup DKIM, DMARC, SPF, and tracking pixel for their domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "amplemarket.com",
+  "syncRedirectDomain": "app.amplemarket.com,staging.amplemarket.com",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "base",
+      "type": "CNAME",
+      "host": "t",
+      "pointsTo": "%pixel_tracker_domain%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "base",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "google",
+      "type": "TXT",
+      "host": "%google_dkim_selector%._domainkey",
+      "data": "%google_dkim_value%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "microsoft",
+      "type": "CNAME",
+      "host": "%microsoft_dkim_selector1%._domainkey",
+      "pointsTo": "%microsoft_dkim_value1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "microsoft",
+      "type": "CNAME",
+      "host": "%microsoft_dkim_selector2%._domainkey",
+      "pointsTo": "%microsoft_dkim_value2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "base",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spf_value%"
+    }
+  ]
+}

@@ -3,9 +3,10 @@
    "providerName":"Links.tube",
    "serviceId":"domain",
    "serviceName":"Links.tube Domain",
-   "version": 1,
+   "version": 2,
    "logoUrl":"https://links.tube/images/logo.png",
    "description":"Enables creating links with your own domain",
+   "syncPubKeyDomain":"links.tube",
    "records":[  
       {  
          "type":"A",

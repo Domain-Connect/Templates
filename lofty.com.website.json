@@ -1,0 +1,24 @@
+{
+  "providerId": "lofty.com",
+  "providerName": "Lofty",
+  "serviceId": "website",
+  "serviceName": "Lofty Real Estate Website",
+  "version": 1,
+  "logoUrl": "https://static.chimeroi.com/servicetool-temp/2023910/17/crm/lofty-Logo.svg",
+  "description": "Lofty customers can use their own domain name or subdomain to access their website built on lofty",
+  "syncRedirectDomain": "lofty.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "52.52.24.52",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "52.9.101.47",
+      "ttl": 3600
+    }
+  ]
+}
