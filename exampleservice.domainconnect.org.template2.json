@@ -5,7 +5,7 @@
     "serviceName": "Stateless Hosting Secondary",
     "version": 3,
     "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2018/11/DomainConnectSquareBlack.png",
-    "description": "Example service for stateless hosting, alternative template",
+    "description": "Test linter change. Expected errors: no version bump, invalid variable in TXT record, string in TTL field",
     "variableDescription": "IP is the IP address of the service A record. RANDOMTEXT is the value for a TXT record in DNS. Should be prefixed with shm:",
     "syncPubKeyDomain": "exampleservice.domainconnect.org",
     "syncRedirectDomain": "exampleservice.domainconnect.org",
@@ -29,6 +29,12 @@
             "host": "whd",
             "pointsTo": "@",
             "ttl": 600
+        },
+        {
+            "type": "TXT",
+            "host": "@",
+            "data": "%invalidvariable",
+            "ttl": "600"
         }
     ]
 }
