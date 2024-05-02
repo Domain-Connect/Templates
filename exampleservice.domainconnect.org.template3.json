@@ -1,0 +1,20 @@
+{
+    "providerId": "exampleservice.domainconnect.org",
+    "providerName": "Example Domain Connect Service",
+    "serviceId": "template3",
+    "serviceName": "Stateless Hosting Secondary",
+    "version": 1,
+    "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2018/11/DomainConnectSquareBlack.png",
+    "description": "Test linter new file. Expected errors: unterminated variable",
+    "variableDescription": "IP is the IP address of the service A record.",
+    "syncPubKeyDomain": "exampleservice.domainconnect.org",
+    "syncRedirectDomain": "exampleservice.domainconnect.org",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%IP",
+            "ttl": 1800
+        }
+    ]
+}
