@@ -15,7 +15,7 @@
             "host": "@",
             "pointsTo": "%IP%",
             "ttl": 1800
-        },
+        }
         {
             "type": "TXT",
             "host": "@",
