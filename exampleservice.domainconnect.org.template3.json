@@ -5,7 +5,7 @@
     "serviceName": "Stateless Hosting Secondary",
     "version": 1,
     "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2018/11/DomainConnectSquareBlack.png",
-    "description": "Test linter new file. Expected errors: unterminated variable",
+    "description": "Test linter new file. Expected errors: none",
     "variableDescription": "IP is the IP address of the service A record.",
     "syncPubKeyDomain": "exampleservice.domainconnect.org",
     "syncRedirectDomain": "exampleservice.domainconnect.org",
@@ -13,7 +13,7 @@
         {
             "type": "A",
             "host": "@",
-            "pointsTo": "%IP",
+            "pointsTo": "%IP%",
             "ttl": 1800
         }
     ]
