@@ -15,7 +15,7 @@
             "host": "@",
             "pointsTo": "%IP%",
             "ttl": 1800
-        }
+        },
         {
             "type": "TXT",
             "host": "@",
@@ -26,14 +26,14 @@
         },
         {
             "type": "CNAME",
-            "host": "whd",
+            "host": "@",
             "pointsTo": "@",
             "ttl": 600
         },
         {
             "type": "TXT",
             "host": "@",
-            "data": "%invalidvariable%",
+            "pointsTo": "%invalidvariable%",
             "ttl": "600"
         }
     ]
