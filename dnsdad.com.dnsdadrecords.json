@@ -1,5 +1,6 @@
 
 {
+    //comment out file
     "providerId": "dnsdad.com",
     "providerName": "dnsdad.com",
     "serviceId": "dnsdadrecords",
