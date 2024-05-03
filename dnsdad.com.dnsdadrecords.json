@@ -1,6 +1,5 @@
 
 {
-    //"_comment": "DNS template",
     "providerId": "dnsdad.com",
     "providerName": "dnsdad.com",
     "serviceId": "dnsdadrecords",
