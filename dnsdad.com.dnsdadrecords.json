@@ -1,6 +1,5 @@
 
 {
-    //"_comment": "DNS template",
     "providerId": "dnsdad.com",
     "providerName": "dnsdad.com",
     "serviceId": "dnsdadrecords",
@@ -9,6 +8,7 @@
     "logoUrl": "https://dnsdad.com/logo.svg",
     "description": "Configure DNS records using DNSDAD",
     "variableDescription": "IP address for the domain A, CNAME. Domain for TXT",
+    "syncPubKeyDomain":"dnsdad.com",
     "syncRedirectDomain": "dnsdad.com, api.dnsdad.com",
     "records": [
         {
