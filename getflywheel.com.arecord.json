@@ -3,7 +3,7 @@
    "providerName":"Flywheel",
    "serviceId":"arecord",
    "serviceName":"Managed WordPress Hosting",
-   "version": 3,
+   "version": 4,
    "logoUrl":"https://www.domainconnect.org/wp-content/uploads/2021/06/flywheel-logo.png",
    "description":"Configure ip address for the domain A record.",
    "variableDescription":"ip is the IP address of the server, verification is the domain ownership verification code",
@@ -21,7 +21,7 @@
       {
          "groupId":"verify",
          "type":"TXT",
-         "host":"flywheel-domain-verification",
+         "host":"domain-verification",
          "data":"%verification%",
          "ttl":3600,
          "txtConflictMatchingMode": "All"
