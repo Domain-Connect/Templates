@@ -3,22 +3,36 @@
   "providerName": "Lofty",
   "serviceId": "website",
   "serviceName": "Lofty Real Estate Website",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://static.chimeroi.com/servicetool-temp/2023910/17/crm/lofty-Logo.svg",
   "description": "Lofty customers can use their own domain name or subdomain to access their website built on lofty",
   "syncRedirectDomain": "lofty.com",
   "records": [
     {
       "type": "A",
-      "groupId": "website",
+      "groupId": "hosting",
       "host": "@",
       "pointsTo": "52.52.24.52",
       "ttl": 3600
     },
     {
       "type": "A",
-      "groupId": "website",
+      "groupId": "hosting",
       "host": "@",
+      "pointsTo": "52.9.101.47",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "website",
+      "host": "%sub%",
+      "pointsTo": "52.52.24.52",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "website",
+      "host": "%sub%",
       "pointsTo": "52.9.101.47",
       "ttl": 3600
     },
@@ -46,7 +60,7 @@
     {
       "type": "MX",
       "groupId": "email",
-      "host": "mail",
+      "host": "%mailVar%",
       "pointsTo": "feedback-smtp.us-west-2.amazonses.com",
       "ttl": 3600,
       "priority": 10
@@ -62,7 +76,7 @@
     {
       "type": "TXT",
       "groupId": "email",
-      "host": "_dmarc",
+      "host": "%dmarcVar%",
       "ttl": 3600,
       "data": "v=DMARC1; p=none",
       "txtConflictMatchingMode": "All"
@@ -77,7 +91,7 @@
     {
       "type": "SPFM",
       "groupId": "email",
-      "host": "mail",
+      "host": "%mailVar%",
       "ttl": 3600,
       "spfRules": "include:amazonses.com"
     }
