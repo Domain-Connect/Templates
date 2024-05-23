@@ -60,7 +60,7 @@
     {
       "type": "MX",
       "groupId": "email",
-      "host": "%mailVar%",
+      "host": "mail",
       "pointsTo": "feedback-smtp.us-west-2.amazonses.com",
       "ttl": 3600,
       "priority": 10
@@ -76,7 +76,7 @@
     {
       "type": "TXT",
       "groupId": "email",
-      "host": "%dmarcVar%",
+      "host": "_dmarc",
       "ttl": 3600,
       "data": "v=DMARC1; p=none",
       "txtConflictMatchingMode": "All"
@@ -91,7 +91,7 @@
     {
       "type": "SPFM",
       "groupId": "email",
-      "host": "%mailVar%",
+      "host": "mail",
       "ttl": 3600,
       "spfRules": "include:amazonses.com"
     }
