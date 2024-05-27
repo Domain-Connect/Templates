@@ -3,7 +3,7 @@
   "providerName": "Lofty",
   "serviceId": "website",
   "serviceName": "Lofty Real Estate Website",
-  "version": 3,
+  "version": 4,
   "logoUrl": "https://static.chimeroi.com/servicetool-temp/2023910/17/crm/lofty-Logo.svg",
   "description": "Lofty customers can use their own domain name or subdomain to access their website built on lofty",
   "syncRedirectDomain": "lofty.com",
@@ -23,18 +23,11 @@
       "ttl": 3600
     },
     {
-      "type": "A",
+      "type":"CNAME",
       "groupId": "website",
-      "host": "%sub%",
-      "pointsTo": "52.52.24.52",
-      "ttl": 3600
-    },
-    {
-      "type": "A",
-      "groupId": "website",
-      "host": "%sub%",
-      "pointsTo": "52.9.101.47",
-      "ttl": 3600
+      "host":"%sub%",
+      "pointsTo": "site-dns.chime.me",
+      "ttl":3600
     },
     {
       "type": "CNAME",
@@ -82,16 +75,17 @@
       "txtConflictMatchingMode": "All"
     },
     {
-      "type": "SPFM",
+      "type": "TXT",
       "groupId": "email",
-      "host": "@",
+      "host": "mail",
       "ttl": 3600,
-      "spfRules": "include:amazonses.com"
+      "data": "v=spf1 include:amazonses.com ~all",
+      "txtConflictMatchingMode": "All"
     },
     {
       "type": "SPFM",
       "groupId": "email",
-      "host": "mail",
+      "host": "@",
       "ttl": 3600,
       "spfRules": "include:amazonses.com"
     }
