@@ -23,11 +23,11 @@
       "ttl": 3600
     },
     {
-      "type":"CNAME",
+      "type": "CNAME",
       "groupId": "website",
-      "host":"%sub%",
+      "host": "%sub%",
       "pointsTo": "site-dns.chime.me",
-      "ttl":3600
+      "ttl": 3600
     },
     {
       "type": "CNAME",
@@ -79,15 +79,16 @@
       "groupId": "email",
       "host": "mail",
       "ttl": 3600,
-      "data": "v=spf1 include:amazonses.com ~all",
-      "txtConflictMatchingMode": "All"
+      "data": "v=spf1 %spfRules% ~all",
+      "essential": "OnApply"
     },
     {
-      "type": "SPFM",
+      "type": "TXT",
       "groupId": "email",
       "host": "@",
       "ttl": 3600,
-      "spfRules": "include:amazonses.com"
+      "data": "v=spf1 %spfRules% ~all",
+      "essential": "OnApply"
     }
   ]
 }
