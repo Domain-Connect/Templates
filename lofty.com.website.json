@@ -83,12 +83,11 @@
       "essential": "OnApply"
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "groupId": "email",
       "host": "@",
       "ttl": 3600,
-      "data": "v=spf1 %spfRules% ~all",
-      "essential": "OnApply"
+      "spfRules": "include:amazonses.com"
     }
   ]
 }
