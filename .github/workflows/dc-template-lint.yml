@@ -1,19 +1,29 @@
 name: Lint Domain Connect Templates
+#version: 2024-05-10 v1
 
 on:
   pull_request_target:
     branches:
       - master
+  merge_group:
+    branches:
+      - master    
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup refs
+        id: setup-refs
+        run: |
+          echo "base_sha=${{ github.event.pull_request.base.sha }}${{ github.event.merge_group.base_sha }}" >> "$GITHUB_OUTPUT"
+          echo "head_sha=${{ github.event.pull_request.head.sha }}${{ github.event.merge_group.head_sha }}" >> "$GITHUB_OUTPUT"
+        
       - name: Check out code
         uses: actions/checkout@v3
         with:
             fetch-depth: 2
-            ref: ${{ github.event.pull_request.head.sha }}
+            ref: ${{ steps.setup-refs.outputs.head_sha }}
 
       - name: Dump GitHub context
         env:
@@ -44,14 +54,14 @@ jobs:
         run: |
             echo "version_bump_check<<EOF" >> $GITHUB_ENV
             echo "version_bump_check=0" >> "$GITHUB_OUTPUT"
-            echo "Base: ${{ github.event.pull_request.base.sha }}"
-            echo "Head: ${{ github.event.pull_request.head.sha }}"
+            echo "Base: ${{ steps.setup-refs.outputs.base_sha }}"
+            echo "Head: ${{ steps.setup-refs.outputs.head_sha }}"
             for file in ${ALL_MODIFIED_FILES}; do
                 echo "$file was modified"
                 echo "File diff $file:"
-                git diff -U0 ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- $file
+                git diff -U0 ${{ steps.setup-refs.outputs.base_sha }}..${{ steps.setup-refs.outputs.head_sha }} -- $file
                 echo "Check version field diff:"
-                if ! git diff -U0 ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- $file | grep "version"; then
+                if ! git diff -U0 ${{ steps.setup-refs.outputs.base_sha }}..${{ steps.setup-refs.outputs.head_sha }} -- $file | grep "version"; then
                     echo "No version update detected!"
                     echo "$file" >> $GITHUB_ENV
                     echo "version_bump_check=1" >> "$GITHUB_OUTPUT"
@@ -60,7 +70,7 @@ jobs:
             echo "EOF" >> $GITHUB_ENV
 
       - name: Comment PR with version check result
-        if: steps.check-version-bump-needed.outputs.version_bump_check == 1
+        if: steps.check-version-bump-needed.outputs.version_bump_check == 1 && github.event_name == 'pull_request_target'
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
@@ -71,7 +81,7 @@ jobs:
           comment_tag: version_bump
 
       - name: Remove comment PR with version check result if not needed
-        if: steps.check-version-bump-needed.outputs.version_bump_check != 1
+        if: steps.check-version-bump-needed.outputs.version_bump_check != 1 && github.event_name == 'pull_request_target'
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: "Version bump not needed"
@@ -95,12 +105,10 @@ jobs:
         env:
             ALL_CHANGED_FILES: ${{ steps.changed-json-files.outputs.all_changed_files }}
         run: |
-          git status
-          ls -al
           echo "linter_error=0" >> "$GITHUB_OUTPUT"
           echo "linter_output<<EOF" >> $GITHUB_ENV
-          echo "Linter result for $file" >> $GITHUB_ENV
           for file in ${ALL_CHANGED_FILES}; do
+            echo "Linter result for $file" >> $GITHUB_ENV
             `go env GOPATH`/bin/dc-template-linter -loglevel info $file 2>> $GITHUB_ENV || true
             if ! `go env GOPATH`/bin/dc-template-linter -tolerate warn $file; then
                 echo "linter_error=1" >> "$GITHUB_OUTPUT"
@@ -111,7 +119,7 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
       - name: Comment PR with linter error result
-        if: steps.linter-output.outputs.linter_error == 1
+        if: steps.linter-output.outputs.linter_error == 1 && github.event_name == 'pull_request_target'
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
@@ -122,7 +130,7 @@ jobs:
           comment_tag: linter
 
       - name: Comment PR with linter OK result
-        if: steps.linter-output.outputs.linter_error != 1
+        if: steps.linter-output.outputs.linter_error != 1 && github.event_name == 'pull_request_target'
         uses: thollander/actions-comment-pull-request@v2
         with:
             message: |
