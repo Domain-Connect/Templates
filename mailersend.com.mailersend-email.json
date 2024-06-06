@@ -3,7 +3,7 @@
     "providerName":"MailerSend",
     "serviceId":"mailersend-email",
     "serviceName":"MailerSend Email Service",
-    "version": 1,
+    "version": 2,
     "syncPubKeyDomain": "mailersend.com",
     "syncRedirectDomain": "mailersend.com",
     "records":[
@@ -15,7 +15,7 @@
       },
       {
         "type": "TXT",
-        "host": "%dkim_host%._domainkey",
+        "host": "%dkim_host%",
         "data": "%dkim_value%",
         "ttl": 3600
       },
