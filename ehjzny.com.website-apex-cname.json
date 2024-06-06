@@ -13,7 +13,7 @@
       {
          "type": "APEXCNAME",
          "host": "@",
-         "pointsTo":"customdomain.ehjzny.com",
+         "pointsTo":"booking-website.com",
          "ttl":600
       }
    ]

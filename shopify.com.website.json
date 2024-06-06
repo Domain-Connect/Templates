@@ -1,18 +1,24 @@
-{  
+{
    "providerId":"Shopify.com",
    "providerName":"Shopify",
    "serviceId":"website",
    "serviceName":"Shopify Site",
-   "version": 3,
+   "version": 4,
    "syncPubKeyDomain" : "shopify.com",
    "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/08/shopify.png",
    "description":"Enables a domain to work with Shopify",
    "variableDescription":"v1 is the shopify hosted domain name and verification is the verification code for the site",
-   "records":[  
-      {  
+   "records":[
+      {
          "type":"A",
          "host":"@",
          "pointsTo":"23.227.38.65",
+         "ttl":3600
+      },
+      {
+         "type":"AAAA",
+         "host":"@",
+         "pointsTo":"2620:0127:f00f:5::",
          "ttl":3600
       },
       {
@@ -21,7 +27,7 @@
          "pointsTo":"%v1%",
          "ttl":3600
       },
-      {  
+      {
          "type":"CNAME",
          "host":"%verification%",
          "pointsTo":"dns-verification.shopify.com",

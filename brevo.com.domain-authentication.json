@@ -1,0 +1,51 @@
+{
+  "providerId": "brevo.com",
+  "providerName": "Brevo",
+  "serviceId": "domain-authentication",
+  "serviceName": "Brevo Domain Authentication",
+  "version": 4,
+  "syncPubKeyDomain": "brevo.com",
+  "syncRedirectDomain": "app.brevo.com",
+  "logoUrl": "https://static.brevo.com/meetings/assets/brevo_logo.png",
+  "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by Brevo on behalf of the user",
+  "variableDescription": "The variable %verfication_code% represents a combination of prefix string and a MD5 hash. %dkim_selector% and %dkim_selector2% is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated. %dkim_public_key% is the DKIM public key. %dmarc_value% is dmarc value. %dkimcname% and %dkimcname2% is cname value where DKIM will point",
+  "records": [
+    {
+      "groupId": "code",
+      "type": "TXT",
+      "host": "@",
+      "data": "%verfication_code%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim_raw",
+      "type": "TXT",
+      "host": "%dkim_selector%._domainkey",
+      "data": "%dkim_public_key%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_selector%._domainkey",
+      "pointsTo": "%dkimcname%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_selector2%._domainkey",
+      "pointsTo": "%dkimcname2%",
+      "ttl": 3600
+    }
+  ]
+}

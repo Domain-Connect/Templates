@@ -1,46 +1,53 @@
 {
-  "providerId": "chime.me",
+  "providerId": "lofty.com",
   "providerName": "Lofty",
   "serviceId": "website",
-  "serviceName": "Lofty Real Estate Site",
-  "version": 3,
+  "serviceName": "Lofty Real Estate Website",
+  "version": 4,
   "logoUrl": "https://static.chimeroi.com/servicetool-temp/2023910/17/crm/lofty-Logo.svg",
   "description": "Lofty customers can use their own domain name or subdomain to access their website built on lofty",
   "syncRedirectDomain": "lofty.com",
   "records": [
     {
       "type": "A",
-      "groupId": "website",
+      "groupId": "hosting",
       "host": "@",
       "pointsTo": "52.52.24.52",
       "ttl": 3600
     },
     {
       "type": "A",
-      "groupId": "website",
+      "groupId": "hosting",
       "host": "@",
       "pointsTo": "52.9.101.47",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "groupId": "email",
-      "host": "rkm6vewmvsxmiamzzwjmudzzv3na6wfy._domainkey",
-      "pointsTo": "rkm6vewmvsxmiamzzwjmudzzv3na6wfy.dkim.amazonses.com",
+      "groupId": "website",
+      "host": "%sub%",
+      "pointsTo": "site-dns.chime.me",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "groupId": "email",
-      "host": "zsb4wstt72sog45rybxq4pze3dxk7b34._domainkey",
-      "pointsTo": "zsb4wstt72sog45rybxq4pze3dxk7b34.dkim.amazonses.com",
+      "host": "%cnameK1%",
+      "pointsTo": "%cnameV1%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "groupId": "email",
-      "host": "cmqy7iaagy7f4r2dt22inmpmfgikyju2._domainkey",
-      "pointsTo": "cmqy7iaagy7f4r2dt22inmpmfgikyju2.dkim.amazonses.com",
+      "host": "%cnameK2%",
+      "pointsTo": "%cnameV2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "email",
+      "host": "%cnameK3%",
+      "pointsTo": "%cnameV3%",
       "ttl": 3600
     },
     {
@@ -68,16 +75,17 @@
       "txtConflictMatchingMode": "All"
     },
     {
-      "type": "SPFM",
+      "type": "TXT",
       "groupId": "email",
-      "host": "@",
+      "host": "mail",
       "ttl": 3600,
-      "spfRules": "include:amazonses.com"
+      "data": "v=spf1 %spfRules% ~all",
+      "essential": "OnApply"
     },
     {
       "type": "SPFM",
       "groupId": "email",
-      "host": "mail",
+      "host": "@",
       "ttl": 3600,
       "spfRules": "include:amazonses.com"
     }
