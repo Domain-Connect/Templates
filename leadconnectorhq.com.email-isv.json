@@ -1,0 +1,55 @@
+{
+  "providerId": "leadconnectorhq.com",
+  "providerName": "LeadConnector",
+  "serviceId": "email-isv",
+  "serviceName": "LeadConnector Isv Email records",
+  "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
+  "version": 1,
+  "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
+  "description": "Enable domain to work with the LeadConnector",
+  "variableDescription": "TXT, CNAME, DMARC and MX Records: LeadConnector connection",
+  "syncPubKeyDomain": "leadconnectorhq.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%txt_host1%",
+      "data": "%txt_value1%",
+      "ttl": 600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spf_value%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_value%",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "%cname_value%",
+      "essential": "OnApply",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx_value1%",
+      "priority": 10,
+      "ttl": 600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx_value2%",
+      "priority": 20,
+      "ttl": 600
+    }
+  ]
+}
