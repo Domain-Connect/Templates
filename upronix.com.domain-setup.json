@@ -2,16 +2,16 @@
   "providerId": "upronix.com",
   "providerName": "Upronix",
   "serviceId": "domain-setup",
+  "version": 1,
   "serviceName": "Domain Setup",
   "logoUrl": "https://upronix.com/domain-connect/logo.png",
   "description": "Setup an Domain to use Custom Domains",
   "records": [
     {
-      "groupId": "setup",
       "type": "CNAME",
-      "host": "%setuphost%",
+      "host": "%domain%",
       "pointsTo": "dns.upronix.page",
-      "ttl": 3600
+      "ttl": 1800
     }
   ]
 }
