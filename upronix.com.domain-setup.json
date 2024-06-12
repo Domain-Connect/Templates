@@ -10,7 +10,7 @@
       "groupId": "setup",
       "type": "CNAME",
       "host": "%setuphost%",
-      "data": "dns.upronix.page",
+      "pointsTo": "dns.upronix.page",
       "ttl": 3600
     }
   ]
