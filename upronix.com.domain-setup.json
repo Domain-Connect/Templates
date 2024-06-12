@@ -12,4 +12,6 @@
       "host": "%setuphost%",
       "data": "dns.upronix.page",
       "ttl": 3600
+    }
+  ]
 }
