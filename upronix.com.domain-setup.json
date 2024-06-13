@@ -6,10 +6,11 @@
   "serviceName": "Domain Setup",
   "logoUrl": "https://upronix.com/domain-connect/logo.png",
   "description": "Setup an Domain to use Custom Domains",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "%domain%",
+      "host": "@",
       "pointsTo": "dns.upronix.page",
       "ttl": 1800
     }
