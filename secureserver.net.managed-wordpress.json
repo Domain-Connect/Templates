@@ -3,7 +3,7 @@
   "providerName": "SecureServer",
   "serviceId": "managed-wordpress",
   "serviceName": "Managed WordPress",
-  "version": 1,
+  "version": 2,
   "description": "Enables a domain to work with Whitelabel Managed WordPress",
   "shared": true,
   "sharedProviderName": true,
