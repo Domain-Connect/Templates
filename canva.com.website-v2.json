@@ -6,50 +6,50 @@
    "syncPubKeyDomain":"domainconnect.canva.com",
    "version":1,
    "logoUrl":"https://static.canva.com/static/images/canva_logo.svg",
-   "description":"Enables a domain to work with Canva",
-   "variableDescription":"verify-* variables are used to set verification records. ipv* are IP addresses.",
+   "description":"Integrates a domain with Canva",
+   "variableDescription":"",
    "records":[
       {
          "groupId":"hostingA",
          "type":"A",
          "host":"@",
          "pointsTo":"%ipv4%",
-         "ttl":300
+         "ttl":3600
       },
       {
          "groupId":"hostingA",
          "type":"A",
          "host":"www",
          "pointsTo":"%ipv4%",
-         "ttl":300
+         "ttl":3600
       },
       {
          "groupId":"hostingAAAA",
          "type":"AAAA",
          "host":"@",
          "pointsTo":"%ipv6%",
-         "ttl":300
+         "ttl":3600
       },
       {
          "groupId":"hostingAAAA",
          "type":"AAAA",
          "host":"www",
          "pointsTo":"%ipv6%",
-         "ttl":300
+         "ttl":3600
       },
       {
          "groupId":"verificationTxt",
          "type":"TXT",
          "host":"%verify-txt-name%",
          "data":"%verify-txt-value%",
-         "ttl":300
+         "ttl":3600
       },
       {
          "groupId":"verificationCname",
          "type":"CNAME",
          "host":"%verify-cname-name%",
          "pointsTo":"%verify-cname-value%",
-         "ttl":300
+         "ttl":3600
       }
    ]
 }
