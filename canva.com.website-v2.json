@@ -7,34 +7,34 @@
    "version":1,
    "logoUrl":"https://static.canva.com/static/images/canva_logo.svg",
    "description":"Enables a domain to work with Canva",
-   "variableDescription":"verify-name and verify-value are used for the name and value of a verification record",
+   "variableDescription":"verify-* variables are used to set verification records. ipv4 is the IP address.",
    "records":[
       {
          "groupId":"hosting",
          "type":"A",
          "host":"@",
-         "pointsTo":"103.169.142.0",
+         "pointsTo":"%ipv4%",
          "ttl":300
       },
       {
          "groupId":"hosting",
          "type":"A",
          "host":"www",
-         "pointsTo":"103.169.142.0",
+         "pointsTo":"%ipv4%",
          "ttl":300
       },
       {
          "groupId":"verificationTxt",
          "type":"TXT",
-         "host":"%verify-name%",
-         "data":"%verify-value%",
+         "host":"%verify-txt-name%",
+         "data":"%verify-txt-value%",
          "ttl":300
       },
       {
          "groupId":"verificationCname",
          "type":"CNAME",
-         "host":"%verify-name%",
-         "pointsTo":"%verify-value%",
+         "host":"%verify-cname-name%",
+         "pointsTo":"%verify-cname-value%",
          "ttl":300
       }
    ]
