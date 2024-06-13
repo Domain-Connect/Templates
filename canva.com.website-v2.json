@@ -7,20 +7,34 @@
    "version":1,
    "logoUrl":"https://static.canva.com/static/images/canva_logo.svg",
    "description":"Enables a domain to work with Canva",
-   "variableDescription":"verify-* variables are used to set verification records. ipv4 is the IP address.",
+   "variableDescription":"verify-* variables are used to set verification records. ipv* are IP addresses.",
    "records":[
       {
-         "groupId":"hosting",
+         "groupId":"hostingA",
          "type":"A",
          "host":"@",
          "pointsTo":"%ipv4%",
          "ttl":300
       },
       {
-         "groupId":"hosting",
+         "groupId":"hostingA",
          "type":"A",
          "host":"www",
          "pointsTo":"%ipv4%",
+         "ttl":300
+      },
+      {
+         "groupId":"hostingAAAA",
+         "type":"AAAA",
+         "host":"@",
+         "pointsTo":"%ipv6%",
+         "ttl":300
+      },
+      {
+         "groupId":"hostingAAAA",
+         "type":"AAAA",
+         "host":"www",
+         "pointsTo":"%ipv6%",
          "ttl":300
       },
       {
