@@ -3,16 +3,18 @@
   "providerName": "Upronix",
   "serviceId": "domain-setup",
   "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "upronix.com",
   "serviceName": "Domain Setup",
   "logoUrl": "https://upronix.com/domain-connect/logo.png",
-  "description": "Setup an Domain to use Custom Domains",
-  "hostRequired": true,
+  "description": "Setup a Domain to use Custom Domains",
   "records": [
     {
+      "groupId": "setup",
       "type": "CNAME",
-      "host": "@",
+      "host": "%setuphost%",
       "pointsTo": "dns.upronix.page",
-      "ttl": 1800
+      "ttl": 3600
     }
   ]
 }
