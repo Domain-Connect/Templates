@@ -2,7 +2,7 @@
   "providerId": "upronix.com",
   "providerName": "Upronix",
   "serviceId": "domain-setup",
-  "version": 1,
+  "version": 2,
   "syncBlock": false,
   "syncPubKeyDomain": "upronix.com",
   "serviceName": "Domain Setup",
