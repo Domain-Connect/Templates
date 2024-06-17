@@ -50,6 +50,13 @@
          "host":"%verify-cname-name%",
          "pointsTo":"%verify-cname-value%",
          "ttl":3600
+      },
+      {
+         "groupId":"dcv",
+         "type":"CNAME",
+         "host":"%dcv-name%",
+         "pointsTo":"%dcv-value%",
+         "ttl":3600
       }
    ]
 }
