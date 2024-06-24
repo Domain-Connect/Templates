@@ -5,7 +5,6 @@
     "serviceName":"A Record",
     "version": 1,
     "syncPubKeyDomain" : "domainconnect.approximated.app",
-    "logoUrl":"https://approximated.app/img/logo-icon.png",
     "description":"Connect a domain or subdomain by an A record to a dynamic IP address.",
     "variableDescription":"`ipAddress` refers to the IP address provided by the user.",
     "records":[  
