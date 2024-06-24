@@ -1,0 +1,19 @@
+{  
+    "providerId":"approximated.app",
+    "providerName":"Approximated",
+    "serviceId":"subdomain-cname",
+    "serviceName":"Subdomain CNAME",
+    "version": 1,
+    "syncPubKeyDomain" : "domainconnect.approximated.app",
+    "logoUrl":"https://approximated.app/img/logo-icon.png",
+    "description":"Connect a subdomain by a CNAME record to a dynamic domain.",
+    "variableDescription":"`targetDomain` refers to the domain the CNAME should point to, provided by the user.",
+    "records":[  
+       {  
+          "type":"CNAME",
+          "host":"@",
+          "pointsTo":"%targetDomain%",
+          "ttl":3600
+       }
+    ]
+ }
