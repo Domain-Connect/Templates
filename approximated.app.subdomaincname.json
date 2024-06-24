@@ -1,7 +1,7 @@
 {  
     "providerId":"approximated.app",
     "providerName":"Approximated",
-    "serviceId":"subdomain-cname",
+    "serviceId":"subdomaincname",
     "serviceName":"Subdomain CNAME",
     "version": 1,
     "syncPubKeyDomain" : "domainconnect.approximated.app",
