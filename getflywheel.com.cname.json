@@ -3,7 +3,7 @@
    "providerName":"Flywheel",
    "serviceId":"cname",
    "serviceName":"Managed WordPress Hosting",
-   "version": 2,
+   "version": 3,
    "logoUrl":"https://www.domainconnect.org/wp-content/uploads/2021/06/flywheel-logo.png",
    "description":"Configure target domain for CNAME record.",
    "variableDescription":"site is the primary domain for a Flywheel managed site, verification is the domain ownership verification code",
@@ -22,7 +22,7 @@
       {
          "groupId":"verify",
          "type":"TXT",
-         "host":"flywheel-domain-verification",
+         "host":"domain-verification",
          "data":"%verification%",
          "ttl":3600,
          "txtConflictMatchingMode": "All"
