@@ -3,7 +3,7 @@
     "providerName": "dnsdad.com",
     "serviceId": "dnsdadrecords",
     "serviceName": "Dnsdad Records",
-    "version": 2,
+    "version": 3,
     "logoUrl": "https://dnsdad.com/static/images/mini-logo.svg",
     "description": "Configure DNS records using DNSDAD",
     "variableDescription": "IP address for the domain A, CNAME. Domain for TXT",
