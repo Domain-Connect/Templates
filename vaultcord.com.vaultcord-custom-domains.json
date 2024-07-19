@@ -11,7 +11,7 @@
     {
       "type": "CNAME",
       "host": "%cnamehost%",
-      "pointsTo": "%domain%",
+      "pointsTo": "customers.vaultcord.com",
       "ttl": 3600
     },
     {
