@@ -4,7 +4,7 @@
   "serviceId": "th-customDomain",
   "serviceName": "TinkerHost Hosting",
   "version": 1,
-  "syncPubKeyDomain": "domainConnect.tinkerhost.net",
+  "syncPubKeyDomain": "domainconnect.tinkerhost.net",
   "syncRedirectDomain": "app.tinkerhost.net",
   "logoUrl": "https://app.tinkerhost.net/assets/image/th.svg",
   "description": "Connects a domain to the TinkerHost hosting network, and configures required DNS entries",
