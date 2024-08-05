@@ -1,0 +1,28 @@
+{
+  "providerId": "tinkerhost.net",
+  "providerName": "TinkerHost",
+  "serviceId": "th-customDomain",
+  "serviceName": "TinkerHost Hosting",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.tinkerhost.net",
+  "syncRedirectDomain": "app.tinkerhost.net",
+  "logoUrl": "https://app.tinkerhost.net/assets/image/th.svg",
+  "description": "Connects a domain to the TinkerHost hosting network, and configures required DNS entries",
+  "variableDescription": "ip is the IP address of the hosting server.",
+  "records": [
+    {
+      "pointsTo": "%ip%",
+      "type": "A",
+      "host": "@",
+      "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "%ip%",
+      "type": "A",
+      "host": "www",
+      "essential": "Always",
+      "ttl": 14400
+    }
+  ]
+}
