@@ -1,0 +1,66 @@
+{
+  "providerId": "leed.ai",
+  "providerName": "Leed, Inc.",
+  "serviceId": "generative-cms",
+  "serviceName": "Leed Generative CMS",
+  "version": 1,
+  "logoUrl": "https://leed.ai/static/images/logo/leed-light.svg",
+  "description": "Configure your company domain to run on Leed",
+  "syncBlock": false,
+  "syncPubKeyDomain": "app.leed.ai",
+  "syncRedirectDomain": "app.leed.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "website",
+      "host": "@",
+      "pointsTo": "%PUBLIC_PAGES_PROJECT%.pages.dev",
+      "ttl": 1
+    },
+    {
+      "type": "CNAME",
+      "groupId": "website",
+      "host": "%PREVIEW_SUBDOMAIN%",
+      "pointsTo": "%PREVIEW_PAGES_PROJECT%.pages.dev",
+      "ttl": 1
+    },
+
+    {
+      "type": "CNAME",
+      "groupId": "mail",
+      "host": "%DKIM_ONE%._domainkey",
+      "pointsTo": "%DKIM_ONE%.dkim.amazonses.com",
+      "ttl": 1
+    },
+    {
+      "type": "CNAME",
+      "groupId": "mail",
+      "host": "%DKIM_TWO%._domainkey",
+      "pointsTo": "%DKIM_TWO%.dkim.amazonses.com",
+      "ttl": 1
+    },
+    {
+      "type": "CNAME",
+      "groupId": "mail",
+      "host": "%DKIM_THREE%._domainkey",
+      "pointsTo": "%DKIM_THREE%.dkim.amazonses.com",
+      "ttl": 1
+    },
+    {
+      "type": "MX",
+      "groupId": "mail",
+      "host": "leed-mail",
+      "pointsTo": "feedback-smtp.us-east-2.amazonses.com",
+      "priority": 10,
+      "ttl": 1
+    },
+    {
+      "type": "SPFM",
+      "groupId": "mail",
+      "host": "leed-mail",
+      "spfRules": "include:amazonses.com",
+      "ttl": 1
+    }
+  ]
+}
