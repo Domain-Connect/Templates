@@ -56,10 +56,10 @@
       "ttl": 1
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "groupId": "mail",
       "host": "leed-mail",
-      "data": "\"v=spf1 include:amazonses.com ~all\"",
+      "spfRules": "include:amazonses.com",
       "ttl": 1
     }
   ]
