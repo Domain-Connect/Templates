@@ -9,6 +9,7 @@
   "syncBlock": false,
   "syncPubKeyDomain": "app.leed.ai",
   "syncRedirectDomain": "app.leed.ai",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
