@@ -1,0 +1,53 @@
+{
+    "providerId": "hauberk.app",
+    "providerName": "Hauberk",
+    "serviceId": "domain-email-verification",
+    "serviceName": "Hauberk Domain Email Verification",
+    "version": 1,
+    "logoUrl": "https://assets.hauberk.app/hauberkLogo.svg",
+    "syncPubKeyDomain": "hauberk.app",
+    "description": "Configures DNS records for Hauberk domain email verification",
+    "variableDescription": "sel1 is the hostname/subdomain to verify; host1/host2 are the hosts we want the CNAMEs to point to. data is what the DMARC TXT is set to.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "hauberk.app",
+    "records": [
+        {
+            "groupId": "mx",
+            "type": "MX",
+            "host": "send.%sel1%",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": "auto"
+        },
+        {
+            "groupId": "txt",
+            "type": "SPFM",
+            "host": "send.%sel1%",
+            "pointsTo": "v=spf1 include:amazonses.com ~all",
+            "ttl": "auto"
+        },
+        {
+            "groupId": "txt",
+            "type": "TXT",
+            "host": "hauberk._domainkey.%sel1%",
+            "data": "%publicKey%",
+            "ttl": "auto",
+            "txtConflictMatchingMode": "All"
+        },
+       {
+            "groupId": "txt",
+            "type": "TXT",
+            "host": "%sel1%",
+            "pointsTo": "v=DMARC1;p=none;",
+            "ttl": "auto"
+       },
+       {
+            "groupId": "mx",
+            "type": "MX",
+            "host": "%sel1%",
+            "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+            "priority": 10,
+            "ttl": "auto"
+       }
+    ]
+}
