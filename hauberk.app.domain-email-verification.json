@@ -1,48 +1,48 @@
 {
     "providerId": "hauberk.app",
     "providerName": "Hauberk",
-    "serviceId": "hauberk-domain-verification",
+    "serviceId": "domain-email-verification",
     "serviceName": "Hauberk Domain Verification",
     "version": 1,
     "logoUrl": "https://assets.hauberk.app/hauberkLogo.svg",
     "syncPubKeyDomain": "hauberk.app",
     "description": "Configures DNS records for Hauberk domain verification",
-    "variableDescription": "unique is randomly generated for use in the username part of the dmarc rua email address; publicKey is a cryptographic signature for signing DKIM.",
+    "variableDescription": "domain is a a FQDN; unique is randomly generated for use in the username part of the dmarc rua email address; publicKey is a cryptographic signature for signing DKIM.",
     "syncBlock": false,
     "syncRedirectDomain": "hauberk.app",
     "records": [
         {
-            "groupId": "mx",
+            "groupId": "outbound",
             "type": "MX",
-            "host": "send.%fqdn%",
+            "host": "send.%domain%",
             "pointsTo": "feedback-smtp.%region%.amazonses.com",
             "priority": 10,
             "ttl": "auto"
         },
         {
-            "groupId": "txt",
+            "groupId": "outbound",
             "type": "SPFM",
-            "host": "send.%fqdn%",
+            "host": "send.%domain%",
             "spfRules": "include:amazonses.com",
             "ttl": "auto"
         },
         {
-            "groupId": "txt",
+            "groupId": "outbound",
             "type": "TXT",
-            "host": "hauberk._domainkey.%fqdn%",
+            "host": "hauberk._domainkey.%domain%",
             "data": "%publicKey%",
             "ttl": "auto",
             "txtConflictMatchingMode": "All"
         },
        {
-            "groupId": "txt",
+            "groupId": "outbound",
             "type": "TXT",
             "host": "@",
             "pointsTo": "v=DMARC1; p=none; rua=mailto:%unique%@dmarc-reports.hauberk.app%",
             "ttl": "auto"
        },
        {
-            "groupId": "mx",
+            "groupId": "inbound",
             "type": "MX",
             "host": "@",
             "pointsTo": "inbound-smtp.%region%.amazonaws.com",
