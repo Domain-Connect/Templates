@@ -38,7 +38,7 @@
             "groupId": "outbound",
             "type": "TXT",
             "host": "@",
-            "pointsTo": "v=DMARC1; p=none; rua=mailto:%unique%@dmarc-reports.hauberk.app%",
+            "data": "v=DMARC1; p=%policy%; rua=mailto:%unique%@dmarc-reports.hauberk.app%",
             "ttl": "auto"
        },
        {
