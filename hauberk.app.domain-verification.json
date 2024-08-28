@@ -1,20 +1,20 @@
 {
     "providerId": "hauberk.app",
     "providerName": "Hauberk",
-    "serviceId": "domain-email-verification",
+    "serviceId": "domain-verification",
     "serviceName": "Hauberk Domain Verification",
     "version": 1,
     "logoUrl": "https://assets.hauberk.app/hauberkLogo.svg",
     "syncPubKeyDomain": "hauberk.app",
     "description": "Configures DNS records for Hauberk domain verification",
-    "variableDescription": "domain is a a FQDN; unique is randomly generated for use in the username part of the dmarc rua email address; publicKey is a cryptographic signature for signing DKIM.",
+    "variableDescription": "unique is randomly generated for use in the username part of the dmarc rua email address; publicKey is a cryptographic signature for signing DKIM; region is an AWS region.",
     "syncBlock": false,
     "syncRedirectDomain": "hauberk.app",
     "records": [
         {
             "groupId": "outbound",
             "type": "MX",
-            "host": "send.%domain%",
+            "host": "send.%fqdn%",
             "pointsTo": "feedback-smtp.%region%.amazonses.com",
             "priority": 10,
             "ttl": "auto"
@@ -22,14 +22,14 @@
         {
             "groupId": "outbound",
             "type": "SPFM",
-            "host": "send.%domain%",
+            "host": "send.%fqdn%",
             "spfRules": "include:amazonses.com",
             "ttl": "auto"
         },
         {
             "groupId": "outbound",
             "type": "TXT",
-            "host": "hauberk._domainkey.%domain%",
+            "host": "hauberk._domainkey.%fqdn%",
             "data": "%publicKey%",
             "ttl": "auto",
             "txtConflictMatchingMode": "All"
