@@ -37,14 +37,14 @@
        {
             "groupId": "txt",
             "type": "TXT",
-            "host": "%fqdn%",
+            "host": "@",
             "pointsTo": "v=DMARC1; p=none; rua=mailto:%unique%@dmarc-reports.hauberk.app%",
             "ttl": "auto"
        },
        {
             "groupId": "mx",
             "type": "MX",
-            "host": "%fqdn%",
+            "host": "@",
             "pointsTo": "inbound-smtp.%region%.amazonaws.com",
             "priority": 10,
             "ttl": "auto"
