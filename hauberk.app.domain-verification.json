@@ -14,7 +14,7 @@
         {
             "groupId": "outbound",
             "type": "MX",
-            "host": "send.%fqdn%",
+            "host": "send",
             "pointsTo": "feedback-smtp.%region%.amazonses.com",
             "priority": 10,
             "ttl": 300
@@ -22,21 +22,20 @@
         {
             "groupId": "outbound",
             "type": "SPFM",
-            "host": "send.%fqdn%",
-            "spfRules": "include:amazonses.com",
-            "ttl": 300
+            "host": "send",
+            "spfRules": "include:amazonses.com"
         },
         {
             "groupId": "outbound",
             "type": "TXT",
-            "host": "hauberk._domainkey.%fqdn%",
+            "host": "hauberk._domainkey",
             "data": "%publicKey%",
             "ttl": 300
         },
        {
             "groupId": "outbound",
             "type": "TXT",
-            "host": "_dmarc.%domain%",
+            "host": "_dmarc.%domain%.",
             "data": "v=DMARC1; p=%policy%; rua=mailto:%unique%@dmarc-reports.hauberk.app",
             "ttl": 300,
             "txtConflictMatchingMode": "Prefix",
@@ -45,7 +44,7 @@
        {
             "groupId": "inbound",
             "type": "MX",
-            "host": "%fqdn%",
+            "host": "@",
             "pointsTo": "inbound-smtp.%region%.amazonaws.com",
             "priority": 10,
             "ttl": 300
