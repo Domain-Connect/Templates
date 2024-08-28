@@ -17,29 +17,30 @@
             "host": "send.%fqdn%",
             "pointsTo": "feedback-smtp.%region%.amazonses.com",
             "priority": 10,
-            "ttl": "auto"
+            "ttl": 300
         },
         {
             "groupId": "outbound",
             "type": "SPFM",
             "host": "send.%fqdn%",
             "spfRules": "include:amazonses.com",
-            "ttl": "auto"
+            "ttl": 300
         },
         {
             "groupId": "outbound",
             "type": "TXT",
             "host": "hauberk._domainkey.%fqdn%",
             "data": "%publicKey%",
-            "ttl": "auto",
-            "txtConflictMatchingMode": "All"
+            "ttl": 300
         },
        {
             "groupId": "outbound",
             "type": "TXT",
             "host": "_dmarc.%domain%",
             "data": "v=DMARC1; p=%policy%; rua=mailto:%unique%@dmarc-reports.hauberk.app",
-            "ttl": "auto"
+            "ttl": 300,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
        },
        {
             "groupId": "inbound",
@@ -47,7 +48,7 @@
             "host": "%fqdn%",
             "pointsTo": "inbound-smtp.%region%.amazonaws.com",
             "priority": 10,
-            "ttl": "auto"
+            "ttl": 300
        }
     ]
 }
