@@ -1,0 +1,55 @@
+{
+    "providerId": "hauberk.app",
+    "providerName": "Hauberk",
+    "serviceId": "domain-verification",
+    "serviceName": "Hauberk Domain Verification",
+    "version": 1,
+    "logoUrl": "https://assets.hauberk.app/hauberkLogo.svg",
+    "syncPubKeyDomain": "hauberk.app",
+    "description": "Configures DNS records for Hauberk domain verification",
+    "variableDescription": "unique is randomly generated for use in the username part of the dmarc rua email address; publicKey is a cryptographic signature for signing DKIM; region is an AWS region.",
+    "syncBlock": false,
+    "syncRedirectDomain": "hauberk.app",
+    "records": [
+        {
+            "groupId": "outbound",
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 300
+        },
+        {
+            "groupId": "outbound",
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "outbound",
+            "type": "TXT",
+            "host": "hauberk._domainkey",
+            "data": "%publicKey%",
+            "ttl": 300
+        },
+       {
+            "groupId": "outbound",
+            "type": "TXT",
+            "host": "_dmarc.%domain%.",
+            "data": "v=DMARC1; p=%policy%; rua=mailto:%unique%@dmarc-reports.hauberk.app",
+            "ttl": 300,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+       },
+       {
+            "groupId": "inbound",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+            "priority": 10,
+            "ttl": 300,
+            "essential": "OnApply"
+       }
+    ]
+}
