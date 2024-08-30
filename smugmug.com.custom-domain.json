@@ -3,14 +3,14 @@
    "providerName": "SmugMug",
    "serviceId": "custom-domain",
    "serviceName": "SmugMug Custom Domain",
-   "version": 3,
+   "version": 4,
    "logoUrl": "https://cdn.smugmug.com/img/domain-connect/smugmug-logo.png",
    "description": "Enables a domain to work with SmugMug",
    "syncRedirectDomain": "smugmug.com, smugmug.net",
    "records": [
       {
          "type": "REDIR301",
-         "target": "www.%domain%",
+         "target": "https://www.%domain%",
          "host": "%domain%."
       },
       {
