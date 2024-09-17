@@ -1,0 +1,22 @@
+{
+  "providerId": "domchekr.com",
+  "providerName": "DomChekr",
+  "serviceId": "domaincheck",
+  "serviceName": "Domain Check",
+  "version": 1,
+  "logoUrl": "https://www.domchekr.com/logo.png",
+  "description": "Enables a domain to be verified with DomChekr",
+  "variableDescription": "Unique verification code provided for purpose of verification",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.domchekr.com",
+  "syncRedirectDomain": "dc.domchekr.com",
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "domchekr-verification=%verifytxt%",
+      "ttl": 3600
+    }
+  ]
+}
