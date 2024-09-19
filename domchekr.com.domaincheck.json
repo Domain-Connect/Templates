@@ -10,6 +10,7 @@
   "syncBlock": false,
   "syncPubKeyDomain": "dc.domchekr.com",
   "syncRedirectDomain": "dc.domchekr.com",
+  "multiInstance": true,
   "records": [
     {
       "groupId": "verification",
