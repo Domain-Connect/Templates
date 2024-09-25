@@ -1,0 +1,63 @@
+{
+  "providerId": "secureserver.net",
+  "providerName": "SecureServer",
+  "serviceId": "O365",
+  "serviceName": "Microsoft 365",
+  "version": 2,
+  "description": "Enables a domain to work with Whitelabel Microsoft 365",
+  "shared": true,
+  "sharedProviderName": true,
+  "variableDescription": "MX - mx record data value. txtValue - txt record data value",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "groupId": "service",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%MX%",
+      "priority": 0,
+      "ttl": 3600
+    },
+    {
+      "groupId": "service",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:secureserver.net"
+    },
+    {
+      "groupId": "service",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "email.secureserver.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "service",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "autodiscover.outlook.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "%txtValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "DKIM",
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%DKIMSEL1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "DKIM",
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%DKIMSEL2%",
+      "ttl": 3600
+    }
+  ]
+}
