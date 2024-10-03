@@ -3,7 +3,7 @@
   "providerName": "SecureServer",
   "serviceId": "O365",
   "serviceName": "Microsoft 365",
-  "version": 2,
+  "version": 3,
   "description": "Enables a domain to work with Whitelabel Microsoft 365",
   "shared": true,
   "sharedProviderName": true,
