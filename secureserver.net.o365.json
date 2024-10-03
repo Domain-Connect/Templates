@@ -14,7 +14,7 @@
       "groupId": "service",
       "type": "MX",
       "host": "@",
-      "pointsTo": "%MX%",
+      "pointsTo": "%mxValue%",
       "priority": 0,
       "ttl": 3600
     },
