@@ -29,6 +29,12 @@
       "ttl": 3600
     },
     {
+      "type": "CNAME",
+      "host": "click",
+      "pointsTo": "redirect.tinkermail.tinkerhost.net",
+      "ttl": 3600
+    },
+    {
       "type": "SPFM",
       "host": "mail",
       "spfRules": "include:amazonses.com"
