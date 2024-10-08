@@ -1,0 +1,56 @@
+{
+  "providerId": "tinkerhost.net",
+  "providerName": "TinkerHost",
+  "serviceId": "tinkermail",
+  "serviceName": "TinkerHost TinkerMail",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.tinkerhost.net",
+  "syncRedirectDomain": "app.tinkerhost.net",
+  "logoUrl": "https://app.tinkerhost.net/assets/image/th.svg",
+  "description": "Configures required DNS records for domains using the TinkerMail service",
+  "variableDescription": "cname1-3 are DKIM records required by AWS SES. txtverif is the TinkerMail domain verification ID",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%cname1%._domainkey",
+      "pointsTo": "%cname1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cname2%._domainkey",
+      "pointsTo": "%cname2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cname3%._domainkey",
+      "pointsTo": "%cname3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "click",
+      "pointsTo": "redirect.tinkermail.tinkerhost.net",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "tinkermail_verify",
+      "ttl": 3600,
+      "data": "tmv_%txtverif%"
+    }
+  ]
+}
