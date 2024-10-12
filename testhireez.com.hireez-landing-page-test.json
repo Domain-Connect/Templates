@@ -1,0 +1,22 @@
+{
+    "providerId": "testhireez.com",
+    "providerName": "HireEZ Test",
+    "serviceId": "hireez-landing-page-test",
+    "serviceName": "HireEZ Landing Pages",
+    "syncPubKeyDomain": "dc.testhireez.com",
+    "version": 1,
+    "logoUrl": "https://cdn.hireez.com/logo/hireez/hireez-logo.svg",
+    "description": "Connect hireEZ landing pages to your subdomain",
+    "variableDescription": "cnameValue - cname record pointsTo value",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+      {
+        "groupId": "cname",
+        "type": "CNAME",
+        "host": "@",
+        "pointsTo": "%cnameValue%",
+        "ttl": 3600
+      }
+    ]
+  }
