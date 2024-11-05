@@ -61,9 +61,10 @@
     {
       "groupId": "dmarc",
       "type": "TXT",
+      "txtConflictMatchingMode": "prefix",
       "txtConflictMatchingPrefix": "v=DMARC1;",
       "host": "_dmarc",
-      "data": "v=DMARC1; p=~dmarcPolicy~; rua=mailto:dmarc_rua@onsecureserver.net;",
+      "data": "v=DMARC1; p=%dmarcPolicy%; rua=mailto:dmarc_rua@onsecureserver.net;",
       "ttl": 3600
     },
     {
