@@ -3,7 +3,7 @@
   "providerName": "TinkerHost",
   "serviceId": "tinkermail",
   "serviceName": "TinkerHost TinkerMail",
-  "version": 1,
+  "version": 2,
   "syncPubKeyDomain": "domainconnect.tinkerhost.net",
   "syncRedirectDomain": "app.tinkerhost.net",
   "logoUrl": "https://app.tinkerhost.net/assets/image/th.svg",
@@ -51,6 +51,14 @@
       "host": "tinkermail_verify",
       "ttl": 3600,
       "data": "tmv_%txtverif%"
-    }
+    },
+    {
+      "type": "TXT",
+      "essential": "onApply",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "v=DMARC1;p=none",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;"
   ]
 }
