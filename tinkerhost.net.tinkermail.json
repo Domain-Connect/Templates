@@ -54,12 +54,6 @@
     },
     {
       "type": "TXT",
-      "host": "_dmarc",
-      "ttl": 3600,
-      "data": "v=DMARC1;p=none"
-    },
-    {
-      "type": "TXT",
       "essential": "onApply",
       "host": "_dmarc",
       "ttl": 3600,
