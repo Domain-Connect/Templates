@@ -6,7 +6,7 @@
   "version": 2,
   "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2020/02/godaddy_logo_new.png",
   "description": "Enables a domain to work with GoDaddy Professional Mail",
-  "variableDescription": "txtValue - txt record data value",
+  "variableDescription": "txtValue - txt verification record data value, dmarcPolicy - the dmarc policy definition, dkimCname1/2 - the target zone for dkim key",
   "syncPubKeyDomain": "domain-attach.api.godaddy.com",
   "records": [
     {
@@ -55,6 +55,29 @@
       "type": "TXT",
       "host": "@",
       "data": "%txtValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;",
+      "host": "_dmarc",
+      "data": "%dmarcPolicy%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "secureserver_s1._domainkey",
+      "pointsTo": "%dkimCname1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "secureserver_s2._domainkey",
+      "pointsTo": "%dkimCname2%",
       "ttl": 3600
     }
   ]
