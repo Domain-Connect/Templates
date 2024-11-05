@@ -7,7 +7,7 @@
   "description": "Enables a domain to work with Whitelabel Professional Mail",
   "shared": true,
   "sharedProviderName": true,
-  "variableDescription": "txtValue - txt record data value",
+  "variableDescription": "txtValue - txt record data value, dmarcPolicy - the policy for handling dmarc failures, dkimSelector1/2 - the hosted zone which stores the public keys",
   "syncPubKeyDomain": "domain-attach.api.godaddy.com",
   "records": [
     {
@@ -53,10 +53,30 @@
     },
     {
       "groupId": "verification",
-      "groupId": "txt",
       "type": "TXT",
       "host": "@",
       "data": "%txtValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=~dmarcPolicy~; rua=mailto:dmarc_rua@onsecureserver.net;",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "secureserver_s1._domainkey",
+      "pointsTo": "%dkimSelector1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "secureserver_s2._domainkey",
+      "pointsTo": "%dkimSelector2%",
       "ttl": 3600
     }
   ]
