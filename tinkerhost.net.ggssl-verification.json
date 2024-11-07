@@ -8,11 +8,11 @@
   "syncRedirectDomain": "app.tinkerhost.net",
   "logoUrl": "https://app.tinkerhost.net/assets/image/th.svg",
   "description": "Verifies a domain name with our SSL provider, GoGetSSL",
-  "variableDescription": "host describes the subdomain at which the verification key is avaiable. destination describes the second part of the verification key",
+  "variableDescription": "verif describes the subdomain at which the verification key is avaiable. destination describes the second part of the verification key",
   "records": [
     {
       "type": "CNAME",
-      "host": "_%host%",
+      "host": "_%verif%",
       "pointsTo": "%destination%.sectigo.com",
       "ttl": 3600
     }
