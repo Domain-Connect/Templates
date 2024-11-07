@@ -60,6 +60,7 @@
     {
       "groupId": "dmarc",
       "type": "TXT",
+      "essential": "OnApply",
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1;",
       "host": "_dmarc",
