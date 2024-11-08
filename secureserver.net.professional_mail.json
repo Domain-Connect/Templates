@@ -3,7 +3,7 @@
   "providerName": "SecureServer",
   "serviceId": "professional_mail",
   "serviceName": "Professional Mail",
-  "version": 2,
+  "version": 3,
   "description": "Enables a domain to work with Whitelabel Professional Mail",
   "shared": true,
   "sharedProviderName": true,
