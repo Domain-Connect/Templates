@@ -34,12 +34,7 @@ jobs:
         id: changed-json-files
         uses: tj-actions/changed-files@v45
         with:
-          alltemplates: |
-            template:
-               - '**'
-               - '!README.md',
-               - '!template.schema'
-               -  '!.github/**
+          files: '*.json'
       - name: Print all changed json files
         if: steps.changed-json-files.outputs.any_changed == 'true'
         env:
