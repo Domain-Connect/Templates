@@ -32,12 +32,9 @@ jobs:
 
       - name: Get all changed json files
         id: changed-json-files
-        uses: tj-actions/changed-files@v42
+        uses: tj-actions/changed-files@v45
         with:
-          files: |
-             '**',
-             '!README.md',
-             '!template.schema'
+          files: '*.json'
       - name: Print all changed json files
         if: steps.changed-json-files.outputs.any_changed == 'true'
         env:
