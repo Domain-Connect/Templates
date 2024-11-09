@@ -3,10 +3,10 @@
   "providerName": "GoDaddy",
   "serviceId": "professional_mail",
   "serviceName": "Professional Mail",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2020/02/godaddy_logo_new.png",
   "description": "Enables a domain to work with GoDaddy Professional Mail",
-  "variableDescription": "txtValue - txt record data value",
+  "variableDescription": "txtValue - txt verification record data value, dmarcPolicy - the dmarc policy definition, sel1/2 - the selector name. dkimCname1/2 - the target zone for dkim selector",
   "syncPubKeyDomain": "domain-attach.api.godaddy.com",
   "records": [
     {
@@ -55,6 +55,30 @@
       "type": "TXT",
       "host": "@",
       "data": "%txtValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;",
+      "host": "_dmarc",
+      "data": "%dmarcPolicy%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%sel1%._domainkey",
+      "pointsTo": "%dkimCname1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%sel2%._domainkey",
+      "pointsTo": "%dkimCname2%",
       "ttl": 3600
     }
   ]
