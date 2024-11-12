@@ -1,0 +1,24 @@
+{
+  "providerId": "lightfunnels.com",
+  "providerName": "LightFunnels",
+  "serviceId": "website",
+  "serviceName": "LightFunnels",
+  "version": 1,
+  "logoUrl": "https://www.lightfunnels.com/images/lightfunnels-logo.svg",
+  "description": "Enables a domain to work with LightFunnels",
+  "variableDescription": "v1 is the subdomain prefix",
+  "records": [
+      {
+        "type": "CNAME",
+        "host": "www",
+        "pointsTo": "shop.mylightfunnels.com",
+        "ttl": 3600
+      },
+      {
+        "type": "CNAME",
+        "host": "%v1%",
+        "pointsTo": "shop.mylightfunnels.com",
+        "ttl": 3600
+      }
+    ]
+}
