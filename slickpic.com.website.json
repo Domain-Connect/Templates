@@ -3,7 +3,7 @@
   "providerName": "SlickPic",
   "serviceId": "website",
   "serviceName": "SlickPic Custom Domain",
-  "version": 2,
+  "version": 3,
   "syncRedirectDomain": "slickpic.com",
   "logoUrl": "https://assets-edge.slickpic.com/slickpic-logo.png",
   "description": "Enables a Custom Domain to work with SlickPic",
@@ -12,7 +12,7 @@
     {
       "type":"A",
       "host":"@",
-      "pointsTo":"148.251.125.112",
+      "pointsTo":"78.47.223.29",
       "ttl":600
     },
     {
