@@ -1,0 +1,23 @@
+{
+    "providerId": "publinker.com",
+    "providerName": "Publinker",
+    "serviceId": "google-domain-verification",
+    "serviceName": "Google Domain Verification",
+    "sharedServiceName": true,
+    "version": 1,
+    "logoUrl": "https://publinker.com/assets/logo/publinker-low-resolution-logo-color-on-transparent-background.png",
+    "description": "Enables a domain to be authorized and verified by Google",
+    "variableDescription": "Unique verification code provided by Google for purpose of verification",
+    "multiInstance": true,
+    "syncBlock": false,
+    "syncPubKeyDomain": "publinker.com",
+    "records": [
+        {
+            "groupId": "verification",
+            "type": "TXT",
+            "host": "@",
+            "data": "%verifytxt%",
+            "ttl": 3600
+        }
+    ]
+}
