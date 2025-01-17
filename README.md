@@ -11,7 +11,7 @@ https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Dra
 
 ## Online Editor
 
-An [Online Editor](https://pdnsadmin.revproxy.short-lived.de/dc/free/templateedit) is available, with features like syntax check, testing of variables replacement and groups.
+An [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit) is available, with features like syntax check, testing of variables replacement and groups.
 
 ## Template Naming Format
 
