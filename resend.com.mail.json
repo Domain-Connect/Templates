@@ -1,0 +1,32 @@
+{
+	"providerId": "resend.com",
+	"providerName": "Resend",
+	"serviceId": "mail",
+	"serviceName": "Mail",
+	"version": 1,
+	"syncPubKeyDomain": "resend.com",
+	"syncRedirectDomain": "resend.com",
+	"description": "Enable email signing and specify authorized senders.",
+	"logoUrl": "https://resend.com/static/brand/resend-wordmark-black.svg",
+	"records": [
+		{
+			"type": "MX",
+			"host": "send",
+			"pointsTo": "feedback-smtp.%region%.amazonses.com",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"type": "SPFM",
+			"host": "send",
+			"ttl": 3600,
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"type": "TXT",
+			"host": "send",
+			"ttl": 3600,
+			"data": "p=%domainKey%"
+		}
+	]
+}
