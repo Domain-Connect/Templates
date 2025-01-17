@@ -29,7 +29,7 @@ var1: aaa
 var2: foo.com
 ```
 
-<-- Or provide the whole `testData` object from the [Online Editor](https://pdnsadmin.revproxy.short-lived.de/dc/free/templateedit) after testing and using "Add as test" button -->
+<-- Or provide the whole `testData` object from the [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit) after testing and using "Add as test" button -->
 ```
 "testData": {
     "testset": {
