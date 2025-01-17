@@ -15,7 +15,7 @@ Please mark options that are relevant.
 
 Please mark the following checks done
 - [ ] Schema validated using JSON Schema [template.schema](./template.schema)
-- [ ] Template functionality checked using [Online Editor](https://pdnsadmin.revproxy.short-lived.de/dc/free/templateedit)
+- [ ] Template functionality checked using [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit)
 - [ ] Template is checked using [template linter](https://github.com/Domain-Connect/dc-template-linter)
 - [ ] Template file name follows the pattern `<providerId>.<serviceId>.json`
 
