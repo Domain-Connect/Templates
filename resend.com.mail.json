@@ -17,15 +17,15 @@
 			"priority": 10
 		},
 		{
-			"type": "TXT",
+			"type": "SPFM",
 			"host": "send",
 			"ttl": 3600,
-			"data": "v=spf1 include:amazonses.com ~all"
+			"spfRules": "include:amazonses.com"
 		},
 		{
 			"type": "TXT",
 			"host": "send",
-			"ttl": 0,
+			"ttl": 3600,
 			"data": "p=%domainKey%"
 		}
 	]
