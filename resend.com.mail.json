@@ -24,7 +24,7 @@
 		},
 		{
 			"type": "TXT",
-			"host": "send",
+			"host": "resend._domainkey",
 			"ttl": 3600,
 			"data": "p=%domainKey%"
 		}
