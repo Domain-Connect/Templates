@@ -1,0 +1,31 @@
+{
+  "providerId": "vercel.com",
+  "providerName": "Vercel",
+  "serviceId": "website",
+  "serviceName": "Vercel Websites",
+  "version": 1,
+  "logoUrl": "https://vercel.com/favicon.ico",
+  "description": "Enables a domain to work with Vercel",
+  "variableDescription": "Required variables: \n- verification_token: Domain verification token\n- subdomain: The subdomain to configure",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%verification_token%",
+      "ttl": 300,
+      "essential": "OnApply"
+    },
+    {
+      "type":"CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl":3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    }
+  ]
+}
