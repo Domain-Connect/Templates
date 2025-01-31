@@ -9,18 +9,21 @@
   "records": [
     {
       "type": "TXT",
+      "groupId": "verification",
       "host": "_vercel",
       "data": "vc-domain-verify=%verification%",
       "ttl": 3600
     },
     {
       "type":"CNAME",
+      "groupId": "subdomain",
       "host": "%subdomain%",
       "pointsTo": "cname.vercel-dns.com",
       "ttl":3600
     },
     {
       "type": "A",
+      "groupId": "apex",
       "host": "@",
       "pointsTo": "76.76.21.21",
       "ttl": 3600
