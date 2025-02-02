@@ -3,9 +3,10 @@
   "providerName": "Vercel",
   "serviceId": "website",
   "serviceName": "Vercel Websites",
-  "version": 1,
+  "version": 2,
   "description": "Enables a domain to work with Vercel",
   "syncPubKeyDomain": "domainconnect.vercel.com",
+  "syncRedirectDomain": "vercel.com",
   "records": [
     {
       "type": "TXT",
