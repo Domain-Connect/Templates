@@ -30,16 +30,16 @@ Following is an example of a complete Domain Connect template, with examples of 
 
 ```
 {
-    "providerId": "<Enter providerId>",
-    "providerName": "<Enter providerName>",
-    "serviceId": "<Enter serviceId>",
-    "serviceName": "<Enter serviceName>",
+    "providerId": "exampleProvider",
+    "providerName": "Example Provider Name",
+    "serviceId": "exampleService",
+    "serviceName": "Example Service Name",
     "version": 1,
-    "logoUrl": "<Enter logoUrl>",
-    "description": "<Enter description>",
-    "variableDescription": "<Enter variableDescription>",
-    "syncPubKeyDomain": "<Enter syncPubKeyDomain>",
-    "syncRedirectDomain": "<Enter syncRedirectDomain>",
+    "logoUrl": "https://example.com/logo.svg",
+    "description": "Example description explaining overall purpose of the record updates",
+    "variableDescription": "%a%: domain apex IP; %sub%: sub record destination; %cnamehost%: host pointing to sub destination; %txt%: domain apex text; %mx%: domain apex mail destination; %target%: domain apex service record target; %ttlvar%: variable TTL for SRV record; %srvport%: variable port for SRV record; %srvproto%: variable ptotocol of SRV record; %srvservice%: variable service of SRV record",
+    "syncPubKeyDomain": "syncPubKeyDomain",
+    "syncRedirectDomain": "syncRedirectDomain",
     "warnPhishing": true,
     "records": [
         {
@@ -96,7 +96,7 @@ Following is an example of a complete Domain Connect template, with examples of 
             "host": "@",
             "pointsTo": "192.0.2.2",
             "ttl": 3600,
-            "priority": 10
+            "priority": "%mxprio%"
         },
         {
             "type": "SRV",
@@ -108,6 +108,23 @@ Following is an example of a complete Domain Connect template, with examples of 
             "protocol": "_tls",
             "service": "_sip",
             "target": "%target%"
+        },
+        {
+            "type": "CAA",
+            "host": "@",
+            "data": "0 issuewild \"ca2.example.\"",
+            "ttl": 1800
+        },
+        {
+            "type": "SRV",
+            "name": "@",
+            "ttl": "%ttlvar%",
+            "priority": "0",
+            "weight": "20",
+            "port": "%srvport%",
+            "protocol": "%srvproto%",
+            "service": "_%srvservice%",
+            "target": "srv.example.com"
         }
     ]
 }
