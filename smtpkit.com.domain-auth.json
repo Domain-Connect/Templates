@@ -18,10 +18,10 @@
         "ttl": 3600
       },
       {
-        "groupId": "spf",
-        "type": "TXT",
+        "groupId": "spfm",
+        "type": "SPFM",
+        "spfRules": "v=spf1 a mx include:smtpkit.com  include:*.smtpkit.com -all",
         "host": "@",
-        "data": "%spf_value%",
         "ttl": 3600
       },
       {
