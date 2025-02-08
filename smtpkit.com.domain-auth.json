@@ -20,7 +20,7 @@
       {
         "groupId": "spfm",
         "type": "SPFM",
-        "spfRules": "v=spf1 a mx include:smtpkit.com  include:*.smtpkit.com -all",
+        "spfRules": "v=spf1 a mx include:smtpkit.com include:smtp.smtpkit.com -all",
         "host": "@",
         "ttl": 3600
       },
