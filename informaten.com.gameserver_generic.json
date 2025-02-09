@@ -7,11 +7,11 @@
   "syncPubKeyDomain": "informaten.com",
   "logoUrl": "https://informaten.com/assets/logo_dark.png",
   "description": "Connect a domain to a gameserver running on informaten.com",
-  "variableDescription": "randomnumber is a positive int to allow multiple services, The other variables for SRV and ttl should be self-explanatory.",
+  "variableDescription": "servicesubdomain is the host of the A record. In the most cases, this is equal to %service% but there are some cases, there the need a different host. The other variables for SRV and ttl should be self-explanatory.",
   "records": [
     {
       "type": "A",
-      "host": "%service%-%randomnumber%",
+      "host": "%servicesubdomain%",
       "pointsTo": "%ip%",
       "essential": "Always",
      "ttl": "%ttl%"
@@ -23,7 +23,7 @@
       "priority": "%priority%",
       "weight": "%weight%",
       "port": "%port%",
-      "target": "@",
+      "target": "%servicesubdomain%.%fqdn%.",
       "essential": "Always",
       "ttl": "%ttl%"
     }
