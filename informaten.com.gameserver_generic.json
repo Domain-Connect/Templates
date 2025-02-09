@@ -7,11 +7,11 @@
   "syncPubKeyDomain": "informaten.com",
   "logoUrl": "https://informaten.com/assets/logo_dark.png",
   "description": "Connect a domain to a gameserver running on informaten.com",
-  "variableDescription": "host and ip are used to create an A record for the service which is required as the target for the SRV record, The other variables for SRV and ttl should be self-explanatory.",
+  "variableDescription": "randomnumber is a positive int to allow multiple services, The other variables for SRV and ttl should be self-explanatory.",
   "records": [
     {
       "type": "A",
-      "host": "%host%",
+      "host": "%service%-%randomnumber%",
       "pointsTo": "%ip%",
       "essential": "Always",
      "ttl": "%ttl%"
@@ -23,7 +23,7 @@
       "priority": "%priority%",
       "weight": "%weight%",
       "port": "%port%",
-      "target": "%host%.%fqdn%.",
+      "target": "@",
       "essential": "Always",
       "ttl": "%ttl%"
     }
