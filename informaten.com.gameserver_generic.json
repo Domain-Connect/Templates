@@ -1,0 +1,31 @@
+{
+  "providerId": "informaten.com",
+  "providerName": "Informaten",
+  "serviceId": "gameserver_generic",
+  "serviceName": "Gameserver on Informaten.com",
+  "version": 1,
+  "syncPubKeyDomain": "informaten.com",
+  "logoUrl": "https://informaten.com/assets/logo_dark.png",
+  "description": "Connect a domain to a gameserver running on informaten.com",
+  "variableDescription": "host and ip are used to create an A record for the service which is required as the target for the SRV record, The other variables for SRV and ttl should be self-explanatory.",
+  "records": [
+    {
+      "type": "A",
+      "host": "%host%",
+      "pointsTo": "%ip%",
+      "essential": "Always",
+     "ttl": "%ttl%"
+    }, {
+      "type": "SRV",
+      "name": "@",
+      "service": "%service%",
+      "protocol": "%protocol%",
+      "priority": "%priority%",
+      "weight": "%weight%",
+      "port": "%port%",
+      "target": "%host%.%fqdn%.",
+      "essential": "Always",
+      "ttl": "%ttl%"
+    }
+  ]
+}
