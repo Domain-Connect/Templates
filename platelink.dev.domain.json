@@ -1,8 +1,8 @@
 {
-  "providerId": "platelink.ai",
+  "providerId": "platelink.dev",
   "providerName": "Platelink",
   "serviceId": "domain",
-  "serviceName": "Platelink Website",
+  "serviceName": "Custom Domain [DEV]",
   "version": 1,
   "logoUrl": "https://stage-hub.platelink.ai/logo.svg",
   "description": "Enables a domain to work with Platelink",
