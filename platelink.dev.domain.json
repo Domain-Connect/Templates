@@ -13,13 +13,13 @@
       "type": "A",
       "host": "@",
       "pointsTo": "%ip1%",
-      "ttl": 3600
+      "ttl": 300
     },
     {
       "type": "CNAME",
       "host": "www",
       "pointsTo": "%prefix%.platelink.ai",
-      "ttl": 3600
+      "ttl": 300
     },
     {
       "type": "TXT",
