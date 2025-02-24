@@ -2,28 +2,45 @@
   "providerId": "platelink.dev",
   "providerName": "Platelink",
   "serviceId": "domain",
-  "serviceName": "Custom Domain [DEV]",
+  "serviceName": "Platelink Custom Domain [DEV]",
   "version": 1,
   "logoUrl": "https://stage-hub.platelink.ai/logo.svg",
-  "description": "Enables a domain to work with Platelink",
+  "description": "Enables domains and subdomains to work with Platelink",
   "syncPubKeyDomain": "signingkey.platelink.ai",
   "syncRedirectDomain": "dev-customer.platelink.ai, stage-customer.platelink.ai, live-customer.platelink.ai, dev-hub.platelink.ai, stage-hub.platelink.ai",
   "records": [
     {
+      "groupId": "root-domain",
       "type": "A",
       "host": "@",
       "pointsTo": "%ip1%",
       "ttl": 300
     },
     {
+      "groupId": "root-domain",
       "type": "CNAME",
-      "host": "www",
+      "host": "www.%domain%",
       "pointsTo": "%prefix%.platelink.ai",
       "ttl": 300
     },
     {
+      "groupId": "root-domain",
       "type": "TXT",
-      "host": "_platelink",
+      "host": "_platelink.%domain%",
+      "data": "%verification_token%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "subdomain",
+      "type": "CNAME",
+      "host": "%customSubdomain%.%domain%",
+      "pointsTo": "%prefix%.platelink.ai",
+      "ttl": 300
+    },
+    {
+      "groupId": "subdomain",
+      "type": "TXT",
+      "host": "_platelink.%customSubdomain%.%domain%",
       "data": "%verification_token%",
       "ttl": 3600
     }
