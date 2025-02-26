@@ -22,7 +22,7 @@
       "groupId":"spf",
       "type":"SPFM",
       "host":"@",
-      "spfRules":"include:amazonses.com ~all",
+      "spfRules":"include:amazonses.com",
       "txtConflictMatchingMode": "All",
       "ttl":300
     },
@@ -79,7 +79,7 @@
       "groupId":"mailfrom",
       "type":"SPFM",
       "host":"%mailfrom_host%",
-      "spfRules":"include:amazonses.com ~all",
+      "spfRules":"include:amazonses.com",
       "txtConflictMatchingMode": "All",
       "ttl":300
     },
