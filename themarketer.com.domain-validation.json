@@ -23,7 +23,6 @@
       "type":"SPFM",
       "host":"@",
       "spfRules":"include:amazonses.com",
-      "txtConflictMatchingMode": "All",
       "ttl":300
     },
     {
@@ -80,7 +79,6 @@
       "type":"SPFM",
       "host":"%mailfrom_host%",
       "spfRules":"include:amazonses.com",
-      "txtConflictMatchingMode": "All",
       "ttl":300
     },
     {
@@ -89,7 +87,7 @@
       "host":"%mailfrom_mx_host%",
       "priority":10,
       "pointsTo":"%mailfrom_mx_value%",
-      "ttl":3600
+      "ttl":300
     }
   ]
 }
