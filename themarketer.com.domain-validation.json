@@ -16,7 +16,7 @@
       "host": "_dmarc",
       "data": "v=DMARC1; p=none; adkim=r; aspf=r; pct=0;",
       "ttl": 300,
-      "txtConflictMatchingMode": "All",
+      "txtConflictMatchingMode": "All"
     },
     {
       "groupId":"spf",
