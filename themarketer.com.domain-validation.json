@@ -1,0 +1,95 @@
+{
+  "providerId": "themarketer.com",
+  "providerName": "theMarketer",
+  "serviceId": "domain-validation",
+  "serviceName": "theMarketer Domain Validation",
+  "syncPubKeyDomain": "themarketer.com",
+  "syncRedirectDomain": "app.themarketer.com",
+  "variableDescription": "",
+  "version": 1,
+  "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by theMarketer.com on behalf of the user",
+  "logoUrl": "https://app.themarketer.com/_nuxt/img/logo.cad7c7f.svg",
+  "records": [
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; adkim=r; aspf=r; pct=0;",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+    },
+    {
+      "groupId":"spf",
+      "type":"SPFM",
+      "host":"@",
+      "spfRules":"include:amazonses.com ~all",
+      "txtConflictMatchingMode": "All",
+      "ttl":300
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_selector%._domainkey",
+      "pointsTo": "%dkim_value%",
+      "ttl": 300
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_selector2%._domainkey",
+      "pointsTo": "%dkim_value2%",
+      "ttl": 300
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_selector3%._domainkey",
+      "pointsTo": "%dkim_value3%",
+      "ttl": 300
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_selector4%._domainkey",
+      "pointsTo": "%dkim_value4%",
+      "ttl": 300
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_selector5%._domainkey",
+      "pointsTo": "%dkim_value5%",
+      "ttl": 300
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_selector6%._domainkey",
+      "pointsTo": "%dkim_value6%",
+      "ttl": 300
+    },
+    {
+      "groupId": "redirect",
+      "type": "CNAME",
+      "host": "%redirect_host%",
+      "pointsTo": "%redirect_value%",
+      "ttl": 300
+    },
+    {
+      "groupId":"mailfrom",
+      "type":"SPFM",
+      "host":"%mailfrom_host%",
+      "spfRules":"include:amazonses.com ~all",
+      "txtConflictMatchingMode": "All",
+      "ttl":300
+    },
+    {
+      "groupId":"mailfrom",
+      "type":"MX",
+      "host":"%mailfrom_mx_host%",
+      "priority":10,
+      "pointsTo":"%mailfrom_mx_value%",
+      "ttl":3600
+    }
+  ]
+}
