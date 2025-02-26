@@ -7,16 +7,15 @@
   "version": 1,
   "logoUrl": "https://storage.googleapis.com/msgsndr/lki4VEKAMpGqEj4vMQnl/media/67bcb0180202315b9df96e22.png",
   "description": "Enable domain to work with the Phantom",
-  "variableDescription": "CNAMEs: Phantom connection",
-  "syncPubKeyDomain":"gophantom.io",
+  "variableDescription": "cnameValue: Phantom connection",
+  "syncPubKeyDomain": "gophantom.io",
   "hostRequired": true,
   "records": [
     {
-      "groupId": "cname",
       "type": "CNAME",
-      "host": "@",
+      "host": "www",
       "pointsTo": "%cnameValue%",
       "ttl": 3600
     }
-  ]
+  ],
 }
