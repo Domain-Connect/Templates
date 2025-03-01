@@ -3,7 +3,7 @@
   "providerName": "TinkerHost",
   "serviceId": "tinkermail",
   "serviceName": "TinkerHost TinkerMail",
-  "version": 2,
+  "version": 3,
   "syncPubKeyDomain": "domainconnect.tinkerhost.net",
   "syncRedirectDomain": "app.tinkerhost.net",
   "logoUrl": "https://app.tinkerhost.net/assets/image/th.svg",
@@ -43,6 +43,13 @@
       "type": "MX",
       "host": "mail",
       "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mailmx.tinkerhost.net",
       "priority": 10,
       "ttl": 3600
     },
