@@ -9,11 +9,10 @@
   "description": "Enable domain to work with the Phantom",
   "variableDescription": "cnameValue: Phantom connection",
   "syncPubKeyDomain": "gophantom.io",
-  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "www",
+      "host": "@",
       "pointsTo": "%cnameValue%",
       "ttl": 3600
     }
