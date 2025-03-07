@@ -1,0 +1,26 @@
+{
+  "providerId": "moodiycloud.com",
+  "providerName": "MooDIYCloud.com",
+  "serviceId": "lms-domain-cname",
+  "serviceName": "MooDIYCloud Hosting",
+  "version": 1,
+  "logoUrl":"https://moodiycloud.com/logo-bg-wh.svg",
+  "description": "Enables custom domain to point to MooDIYCloud.com via CNAME for LMS hosting.",
+  "syncPubKeyDomain": "domainconnect.moodiycloud.com",
+  "variableDescription": "prefix completes the fully qualified domain name that the record will point to.",
+  "hostRequired": true,
+  "records":[
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo":"%prefix%.moodiycloud.com",
+      "ttl":600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 600
+    }
+  ]
+}
