@@ -50,9 +50,9 @@
       "ttl": 3600
     },
     {
-      "type": "SPFM",
+      "type": "TXT",
       "host": "@",
-      "ttl": 0,
+      "ttl": 3600,
       "spfRules": "v=spf1 mx a -all"
     },
     {
@@ -63,4 +63,3 @@
     }
   ]
 }
-
