@@ -13,7 +13,7 @@
     "records": [
         {
             "type": "TXT",
-            "host": "@",
+            "host": "_vyntr",
             "data": "vyntr-verify=%verify_text%",
             "ttl": 3600
         }
