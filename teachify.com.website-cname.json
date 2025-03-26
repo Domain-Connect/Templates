@@ -8,10 +8,11 @@
   "logoUrl": "https://teachify.com/favicon.png",
   "description": "Enables a domain to work with Teachify",
   "variableDescription": "Subdomain is the subdomain for the domain name and Prefix is the identifier for the Teachify account",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "%subdomain%",
+      "host": "@",
       "pointsTo": "%prefix%.cname.myteachify.com",
       "ttl": 3600
     }
