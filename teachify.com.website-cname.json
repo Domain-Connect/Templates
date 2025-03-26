@@ -1,0 +1,19 @@
+{
+  "providerId": "Teachify.com",
+  "providerName": "Teachify",
+  "serviceId": "website-cname",
+  "serviceName": "Teachify Site",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.teachify.com",
+  "logoUrl": "https://teachify.com/favicon.png",
+  "description": "Enables a domain to work with Teachify",
+  "variableDescription": "Subdomain is the subdomain for the domain name and Prefix is the identifier for the Teachify account",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "%prefix%.cname.myteachify.com",
+      "ttl": 3600
+    }
+  ]
+}
