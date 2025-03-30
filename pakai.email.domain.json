@@ -50,10 +50,10 @@
       "ttl": 3600
     },
     {
-        "type": "SPFM",
-        "host": "@",
-        "ttl": 3600,
-        "spfRules":"include:spf.pakai.email"
+      "type": "SPFM",
+      "host": "@",
+      "ttl": 3600,
+      "spfRules":"include:spf.pakai.email"
     },
     {
       "type": "TXT",
