@@ -53,7 +53,7 @@
         "type": "SPFM",
         "host": "@",
         "ttl": 3600,
-        "spfRules": "v=spf1 mx a -all"
+        "spfRules":"include:spf.pakai.email"
     },
     {
       "type": "TXT",
