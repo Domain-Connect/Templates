@@ -1,0 +1,65 @@
+{
+  "providerId": "pakai.email",
+  "providerName": "Pakai Email",
+  "serviceId": "domain",
+  "serviceName": "Email Setup",
+  "version": 1,
+  "logoUrl": "https://pakai.email/assets/dashboard/images/logo-dark.png",
+  "description": "Configures DNS records for Pakai Email domain signing",
+  "variableDescription": "server is the email server domain; relay is the relay email username; dkim is the dkim value.",
+  "syncPubKeyDomain": "domainconnect.pakai.email",
+  "syncRedirectDomain": "pakai.email",
+  "warnPhishing": true,
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%server%.pakai.email",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "%server%.pakai.email",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "%server%.pakai.email",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "return",
+      "pointsTo": "return.pakai.email",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "track",
+      "pointsTo": "track.pakai.email",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%relay%._domainkey",
+      "pointsTo": "dkim.pakai.email",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "ttl": 3600,
+      "spfRules":"include:spf.pakai.email"
+    },
+    {
+      "type": "TXT",
+      "host": "pakaiemail._domainkey",
+      "ttl": 3600,
+      "data": "%dkim%"
+    }
+  ]
+}
