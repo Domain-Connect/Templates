@@ -77,7 +77,7 @@
     {
       "groupId":"mailfrom",
       "type":"SPFM",
-      "host":"%mailfrom_host%",
+      "host":"nwl",
       "spfRules":"include:amazonses.com",
       "ttl":300
     },
