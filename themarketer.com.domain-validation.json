@@ -6,7 +6,7 @@
   "syncPubKeyDomain": "themarketer.com",
   "syncRedirectDomain": "app.themarketer.com",
   "variableDescription": "",
-  "version": 1,
+  "version": 2,
   "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by theMarketer.com on behalf of the user",
   "logoUrl": "https://app.themarketer.com/_nuxt/img/logo.cad7c7f.svg",
   "records": [
@@ -77,7 +77,7 @@
     {
       "groupId":"mailfrom",
       "type":"SPFM",
-      "host":"%mailfrom_host%",
+      "host":"nwl",
       "spfRules":"include:amazonses.com",
       "ttl":300
     },
