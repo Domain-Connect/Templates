@@ -76,11 +76,10 @@
     },
     {
       "groupId":"spfmailfrom",
-      "type":"TXT",
-      "host":"nwl",
-      "data": "v=spf1 include:amazonses.com ~all",
-      "ttl": 300,
-      "txtConflictMatchingMode": "All"
+      "type":"SPFM",
+      "host":"%mailfrom_host%",
+      "spfRules":"include:amazonses.com",
+      "ttl":300
     },
     {
       "groupId":"mailfrom",
