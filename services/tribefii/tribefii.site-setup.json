@@ -28,27 +28,5 @@
       "mask": "^(?!@)[a-zA-Z0-9-]+$",
       "required": true
     }
-  },
-  "testData": {
-    "test1": {
-      "variables": {
-        "domain": "example.com",
-        "cnamehost": "douglas"
-      },
-      "results": [
-        {
-          "type": "A",
-          "name": "@",
-          "ttl": 3600,
-          "data": "52.163.103.108"
-        },
-        {
-          "type": "CNAME",
-          "name": "douglas",
-          "ttl": 3600,
-          "data": "app.tribefii.com"
-        }
-      ]
-    }
   }
 }
