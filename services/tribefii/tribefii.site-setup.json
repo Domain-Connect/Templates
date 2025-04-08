@@ -5,8 +5,8 @@
   "serviceName": "Tribefii Site Setup",
   "version": 2,
   "logoUrl": "https://app.tribefii.com/Images/tribefii250x250.png",
-  "description": "Connect your custom domain to your Tribefii microsite.",
-   "warnPhishing": true,
+  "description": "Connect your custom domain or subdomain to your Tribefii microsite. This setup includes both A and CNAME records.",
+  "warnPhishing": true,
   "records": [
     {
       "type": "A",
@@ -19,12 +19,36 @@
       "host": "%cnamehost%",
       "pointsTo": "app.tribefii.com",
       "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "@",
-      "data": "tribefii-verification=%verification%",
-      "ttl": 3600
     }
-  ]
+  ],
+  "variables": {
+    "cnamehost": {
+      "prompt": "Enter the subdomain prefix you want to connect (e.g., 'www', 'events')",
+      "description": "Used to create a CNAME record for the subdomain like events.yourdomain.com",
+      "mask": "^(?!@)[a-zA-Z0-9-]+$",
+      "required": true
+    }
+  },
+  "testData": {
+    "test1": {
+      "variables": {
+        "domain": "example.com",
+        "cnamehost": "douglas"
+      },
+      "results": [
+        {
+          "type": "A",
+          "name": "@",
+          "ttl": 3600,
+          "data": "52.163.103.108"
+        },
+        {
+          "type": "CNAME",
+          "name": "douglas",
+          "ttl": 3600,
+          "data": "app.tribefii.com"
+        }
+      ]
+    }
+  }
 }
