@@ -20,13 +20,5 @@
       "pointsTo": "app.tribefii.com",
       "ttl": 3600
     }
-  ],
-  "variables": {
-    "cnamehost": {
-      "prompt": "Enter the subdomain prefix you want to connect (e.g., 'www', 'events')",
-      "description": "Used to create a CNAME record for the subdomain like events.yourdomain.com",
-      "mask": "^(?!@)[a-zA-Z0-9-]+$",
-      "required": true
-    }
-  }
+  ]
 }
