@@ -42,8 +42,15 @@
         "ttl": 600
     },
     {
-        "groupId": "venmail-spf",
+        "groupId": "venmail-spf-legacy",
         "type": "SPFM",
+        "host": "@",
+        "data": "%spf_data%",
+        "ttl": 600
+    },
+    {
+        "groupId": "venmail-spf",
+        "type": "TXT",
         "host": "@",
         "data": "%spf_data%",
         "ttl": 600
