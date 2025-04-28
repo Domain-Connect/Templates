@@ -43,7 +43,7 @@
     },
     {
         "groupId": "venmail-spf",
-        "type": "TXT",
+        "type": "SPFM",
         "host": "@",
         "data": "%spf_data%",
         "ttl": 600
@@ -53,6 +53,7 @@
         "type": "TXT",
         "host": "_dmarc",
         "data": "%dmarc_data%",
+        "txtConflictMatchingMode": "All",
         "ttl": 600
     }
     ]
