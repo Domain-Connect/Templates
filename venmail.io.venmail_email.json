@@ -45,7 +45,7 @@
             "groupId": "venmail-spf-legacy",
             "type": "SPFM",
             "host": "@",
-            "data": "%spf_data%",
+            "spfRules": "%spf_rules%",
             "ttl": 600
         },
         {
