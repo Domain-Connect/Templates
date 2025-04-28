@@ -1,0 +1,59 @@
+{
+    "providerId": "venmail.io",
+    "providerName": "Venmail",
+    "serviceId": "venmail_email",
+    "serviceName": "Venmail",
+    "logoUrl": "https://m.venmail.io/logo.png",
+    "description": "This is a template to enable mail hosting with venmail",
+    "variableDescription": "",
+    "syncBlock": false,
+    "hostRequired": false,
+    "version": 1,
+    "syncPubKeyDomain": "venmail.io",
+    "records": [
+    {
+        "groupId": "venmail-dkim",
+        "type": "TXT",
+        "host": "%dkim_name%._domainkey",
+        "data": "%dkim_data%",
+        "ttl": 600
+    },
+    {
+        "groupId": "website-redirection",
+        "type": "CNAME",
+        "host": "%website_host%",
+        "pointsTo": "%website_points%",
+        "ttl": 600
+    },
+    {
+        "groupId": "venmail-mx",
+        "type": "MX",
+        "host": "@",
+        "pointsTo": "%mx_points%",
+        "priority": 10,
+        "ttl": 600
+    },
+    {
+        "groupId": "venmail-mx2",
+        "type": "MX",
+        "host": "@",
+        "pointsTo": "%mx2_points%",
+        "priority": 20,
+        "ttl": 600
+    },
+    {
+        "groupId": "venmail-spf",
+        "type": "TXT",
+        "host": "@",
+        "data": "%spf_data%",
+        "ttl": 600
+    },
+    {
+        "groupId": "venmail-dmarc",
+        "type": "TXT",
+        "host": "_dmarc",
+        "data": "%dmarc_data%",
+        "ttl": 600
+    }
+    ]
+}
