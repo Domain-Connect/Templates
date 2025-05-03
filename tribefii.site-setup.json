@@ -1,0 +1,24 @@
+{
+  "providerId": "tribefii",
+  "providerName": "Tribefii",
+  "serviceId": "site-setup",
+  "serviceName": "Tribefii Site Setup",
+  "version": 2,
+  "logoUrl": "https://app.tribefii.com/Images/tribefii250x250.png",
+  "description": "Connect your custom domain or subdomain to your Tribefii microsite. This setup includes both A and CNAME records.",
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "52.163.103.108",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnamehost%",
+      "pointsTo": "app.tribefii.com",
+      "ttl": 3600
+    }
+  ]
+}
