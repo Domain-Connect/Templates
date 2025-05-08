@@ -1,0 +1,22 @@
+{
+  "providerId": "vulnalyze.com",
+  "providerName": "Vulnalyze",
+  "serviceId": "txt",
+  "serviceName": "Vulnalyze Verification",
+  "version": 1,
+  "syncPubKeyDomain": "vulnalyze.com",
+  "syncRedirectDomain": "app.vulnalyze.com",
+  "logoUrl": "https://vulnalyze.com/logo.svg",
+  "description": "Enables you to run vulnerability analysis on your domain",
+  "variableDescription": "host contains the host to verify; txtValue contains the unique identifier string for the host",
+
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "verifiction",
+      "host": "%host%",
+      "ttl": 600,
+      "data": "%txtValue%"
+    }
+  ]
+}
