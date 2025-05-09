@@ -1,0 +1,20 @@
+{
+  "providerId": "vulnalyze.com",
+  "providerName": "Vulnalyze",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain Verification",
+  "version": 1,
+  "logoUrl": "https://vulnalyze.com/logo.svg",
+  "description": "Enables a domain to work with Vulnalyze",
+  "variableDescription": "hostTxt contains the host to verify; txtValue is an unique verification code provided for purpose of verification",
+  "syncPubKeyDomain": "vulnalyze.com",
+  "records": [
+    {
+      "groupId": "verifiction",
+      "type": "TXT",
+      "host": "%hostToVerify%",
+      "data": "%verifyTxt%",
+      "ttl": 3600
+    }
+  ]
+}
