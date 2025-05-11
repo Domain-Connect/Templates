@@ -12,7 +12,7 @@
     {
       "groupId": "verifiction",
       "type": "TXT",
-      "host": "%hostToVerify%",
+      "host": "@",
       "data": "%verifyTxt%",
       "ttl": 3600
     }
