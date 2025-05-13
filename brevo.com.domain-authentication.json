@@ -3,7 +3,7 @@
   "providerName": "Brevo",
   "serviceId": "domain-authentication",
   "serviceName": "Brevo Domain Authentication",
-  "version": 4,
+  "version": 5,
   "syncPubKeyDomain": "brevo.com",
   "syncRedirectDomain": "app.brevo.com",
   "logoUrl": "https://static.brevo.com/meetings/assets/brevo_logo.png",
