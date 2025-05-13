@@ -40,14 +40,6 @@
     {
       "groupId":"setup",
       "type":"CNAME",
-      "host":"mail._domainkey",
-      "pointsTo":"mail._domainkey.mymangomail.com",
-      "ttl":3600
-    },
-
-    {
-      "groupId":"setup",
-      "type":"CNAME",
       "host":"mango-1._domainkey",
       "pointsTo":"dkim-1.mymangomail.com",
       "ttl":3600
