@@ -8,7 +8,7 @@
   "syncRedirectDomain": "app.brevo.com",
   "logoUrl": "https://static.brevo.com/meetings/assets/brevo_logo.png",
   "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by Brevo on behalf of the user",
-  "variableDescription": "The variable %verfication_code% represents a combination of prefix string and a MD5 hash. %dkim_selector% and %dkim_selector2% is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated. %dkim_public_key% is the DKIM public key. %dmarc_value% is dmarc value. %dkimcname% and %dkimcname2% is cname value where DKIM will point",
+  "variableDescription": "The variable %verfication_code% represents a combination of prefix string and a MD5 hash. %dkim_selector% and %dkim_selector2% is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated. %dkim_public_key% is the DKIM public key. %dmarc_value% is dmarc value. %dkimcname% and %dkimcname2% is cname value where DKIM will point. %ip% is the IP value for A record. %spf_value% is spf value of brevo for spf record. %domain% is domain name which have value of MX record",
   "records": [
     {
       "groupId": "code",
@@ -45,6 +45,45 @@
       "type": "CNAME",
       "host": "%dkim_selector2%._domainkey",
       "pointsTo": "%dkimcname2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "TXT",
+      "host": "@",
+      "data": "%spf_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%domain%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "r",
+      "type": "CNAME",
+      "host": "r",
+      "pointsTo": "r.mailin.fr",
+      "ttl": 3600
+    },
+    {
+      "groupId": "img",
+      "type": "CNAME",
+      "host": "img",
+      "pointsTo": "img.mailin.fr",
       "ttl": 3600
     }
   ]
