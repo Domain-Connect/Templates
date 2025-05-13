@@ -56,19 +56,16 @@
     },
     {
       "groupId": "spf",
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "%spf_value%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1",
-      "essential": "OnApply"
+      "spfRules": "%spf_rules%",
+      "ttl": 3600
     },
     {
       "groupId": "mx",
       "type": "MX",
       "host": "@",
-      "pointsTo": "%domain%",
+      "pointsTo": "%fqdn%",
       "priority": 10,
       "ttl": 3600
     },
