@@ -11,14 +11,14 @@
 	"records": [
 		{
 			"type": "MX",
-			"host": "send",
+			"host": "%spfDomain%",
 			"pointsTo": "feedback-smtp.%region%.amazonses.com",
 			"ttl": 3600,
 			"priority": 10
 		},
 		{
 			"type": "SPFM",
-			"host": "send",
+			"host": "%spfDomain%",
 			"ttl": 3600,
 			"spfRules": "include:amazonses.com"
 		},
