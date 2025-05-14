@@ -3,7 +3,7 @@
 	"providerName": "Resend",
 	"serviceId": "mail",
 	"serviceName": "Mail",
-	"version": 2,
+	"version": 3,
 	"syncPubKeyDomain": "resend.com",
 	"syncRedirectDomain": "resend.com",
 	"description": "Enable email signing and specify authorized senders.",
