@@ -1,0 +1,42 @@
+{
+  "providerId": "customer.io",
+  "providerName": "Customer.io",
+  "serviceId": "email",
+  "serviceName": "Customer.io Email",
+  "hostRequired": true,
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "customer.io",
+  "syncRedirectDomain": "customer.io",
+   "logoUrl": "https://cdp-prod-us-cio-hydra-assets-us.customer.io/assets/images/logos/logo-forest.e11e5daf4d9ed5cc6860.svg",
+  "description": "Enables domain to send emails on Customer.io",
+  "variableDescription": "hostname refers to the sub domain",
+  "records": [
+    {
+      "type": "MX",
+      "host": "%hostname%",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "%hostname%",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "%hostname%",
+      "spfRules": "include:mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "krs._domainkey.%hostname%",
+      "data": "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCym6WI4jXlUnlU1ZM4Klw1iZkLZ1ZTWv/vdBm4b9gpmrfgiqhADlnrKyDiDTqeiaAfSNPjghfybh24ZwTTTwAv1LMMF/jQMlaEFnUwp5bU8WR0+5Ocz80d624HVvfNO4JsgZ3Qew42Fhr21CtEm0PkjobGPDFvX7Pk5sN0H6kTfwIDAQAB",
+      "ttl": 3600
+    }
+  ]
+}
