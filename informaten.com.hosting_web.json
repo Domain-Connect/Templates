@@ -3,7 +3,7 @@
   "providerName": "Informaten",
   "serviceId": "hosting_web",
   "serviceName": "Webhosting on Informaten.com",
-  "version": 1,
+  "version": 2,
   "syncPubKeyDomain": "informaten.com",
   "logoUrl": "https://informaten.com/assets/logo_dark.png",
   "description": "Enables a domain to work with Informaten webhosting",
