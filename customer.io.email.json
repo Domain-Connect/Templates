@@ -1,0 +1,42 @@
+{
+  "providerId": "customer.io",
+  "providerName": "Customer.io",
+  "serviceId": "email",
+  "serviceName": "Customer.io Email",
+  "hostRequired": true,
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "customer.io",
+  "syncRedirectDomain": "customer.io",
+   "logoUrl": "https://cdp-prod-us-cio-hydra-assets-us.customer.io/assets/images/logos/logo-forest.e11e5daf4d9ed5cc6860.svg",
+  "description": "Enables domain to send emails on Customer.io",
+  "variableDescription": "dkim_key refers to the public key for the DKIM record",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "krs._domainkey",
+      "data": "k=rsa; p=%dkim_key%",
+      "ttl": 3600
+    }
+  ]
+}
