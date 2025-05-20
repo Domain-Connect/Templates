@@ -24,7 +24,7 @@
     }, {
       "type": "CNAME",
       "host": "www",
-      "pointsTo": "@",
+      "pointsTo": "%fqdn%",
       "essential": "Always",
       "ttl": 3600
     }
