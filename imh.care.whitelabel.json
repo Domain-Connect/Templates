@@ -6,9 +6,8 @@
    "version": 1,
    "logoUrl": "https://imh.care/assets/imh.svg",
    "description": "Configures your domain to work with IMH Care's white label service.",
-   "variableDescription": "Whitwelabel service requires a CNAME record to be set up for your domain.",
+   "variableDescription": "whitelabel service requires a CNAME record to be set up for your domain.",
    "syncPubKeyDomain": "imh.care",
-   "hostRequired": true,
    "records": [
      {
        "type": "CNAME",
