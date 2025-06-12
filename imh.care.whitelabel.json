@@ -13,43 +13,43 @@
        "type": "CNAME",
        "host": "%host1%",
        "pointsTo": "%record1%",
-       "ttl": 60
+       "ttl": 300
      },
      {
       "type": "CNAME",
       "host": "%host2%",
       "pointsTo": "%record2%",
-      "ttl": 60
+      "ttl": 300
     },
     {
       "type": "CNAME",
       "host": "%sendgridhost1%",
       "pointsTo": "%sendgridrecord1%",
-      "ttl": 60
+      "ttl": 300
     },
     {
       "type": "CNAME",
       "host": "%sendgridhost2%",
       "pointsTo": "%sendgridrecord2%",
-      "ttl": 60
+      "ttl": 300
     },
     {
       "type": "CNAME",
       "host": "%sendgridhost3%",
       "pointsTo": "%sendgridrecord3%",
-      "ttl": 60
+      "ttl": 300
     },
      {
        "type": "A",
        "host": "%host3%",
        "pointsTo": "%record3%",
-       "ttl": 60
+       "ttl": 300
      },
      {
        "type": "A",
        "host": "%host4%",
        "pointsTo": "%record4%",
-       "ttl": 60
+       "ttl": 300
      }
    ]
  }
