@@ -8,10 +8,11 @@
     "logoUrl": "https://merchant-assets-storefront.paysum.dev/dc.png",
     "description": "Integrates a domain with Paysum e-commerce service",
     "variableDescription": "",
+    "hostRequired": true,
     "records": [
         {
             "type": "CNAME",
-            "host": "%website-name%",
+            "host": "@",
             "pointsTo": "%website-value%",
             "ttl": 3600
         },
