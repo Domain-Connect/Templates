@@ -1,0 +1,25 @@
+{
+    "providerId": "paysum.io",
+    "providerName": "Paysum",
+    "serviceId": "storefronts",
+    "serviceName": "Paysum e-commerce",
+    "syncPubKeyDomain": "paysum.dev",
+    "version": 1,
+    "logoUrl": "https://merchant-assets-storefront.paysum.dev/dc.png",
+    "description": "Integrates a domain with Paysum e-commerce service",
+    "variableDescription": "",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%website-name%",
+            "pointsTo": "%website-value%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dcv-name%",
+            "pointsTo": "%dcv-value%",
+            "ttl": 3600
+        }
+    ]
+}
