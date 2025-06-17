@@ -4,7 +4,7 @@
   "serviceId":"email",
   "serviceName":"Email Setup",
   "sharedServiceName": true,
-  "version":4,
+  "version":5,
   "logoUrl":"https://mymangomail.com/assets/mango-domain-connect-logo.png",
   "description":"Set up the necessary records to enable Mango Mail email hosting",
   "variableDescription":"verification: Unique identifier to validate domain ownership. selector: DKIM selector value",
