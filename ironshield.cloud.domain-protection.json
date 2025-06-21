@@ -1,25 +1,25 @@
 {
-    "providerId": "ironshield.cloud",
-    "providerName": "IronShield",
-    "serviceId": "domain-protection",
-    "serviceName": "Bot Protection for APIs",
-    "version": 3,
-    "syncPubKeyDomain": "keys.ironshield.cloud",
-    "syncRedirectDomain": "ironshield.cloud, app.ironshield.cloud",
-    "description": "Route traffic through IronShield's PoW protection layer.",
-    "logoUrl": "https://ironshield.cloud/assets/IronShield-Banner-wpHlpWv8.svg",
-    "records": [
-      {
-        "type": "CNAME",
-        "host": "%targetSubdomain%",
-        "pointsTo": "pow.ironshield.cloud",
-        "ttl": 300
-      },
-      {
-        "type": "TXT",
-        "host": "_ironshield.%targetSubdomain%",
-        "ttl": 300,
-        "data": "siteId=%siteId%;difficulty=%difficulty%;domains=%domains%;signature=%signature%;difficulty_toggle=%difficulty_toggle%;difficulty_manual=%difficulty_manual%;trap=%trap%;fingerprinting=%fingerprinting%;challenge_type=%challenge_type%"
-      }
-    ]
-  }  
+  "providerId": "ironshield.cloud",
+  "providerName": "IronShield",
+  "serviceId": "domain-protection",
+  "serviceName": "Bot Protection for APIs",
+  "version": 3,
+  "syncPubKeyDomain": "keys.ironshield.cloud",
+  "syncRedirectDomain": "ironshield.cloud, app.ironshield.cloud",
+  "description": "Route traffic through IronShield's PoW protection layer.",
+  "logoUrl": "https://ironshield.cloud/assets/IronShield-Banner-wpHlpWv8.svg",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%targetSubdomain%",
+      "pointsTo": "proxy.ironshield.cloud",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_ironshield.%targetSubdomain%",
+      "ttl": 300,
+      "data": "siteId=%siteId%;difficulty=%difficulty%;domains=%domains%;signature=%signature%;difficulty_toggle=%difficulty_toggle%;difficulty_manual=%difficulty_manual%;trap=%trap%;fingerprinting=%fingerprinting%;challenge_type=%challenge_type%"
+    }
+  ]
+}
