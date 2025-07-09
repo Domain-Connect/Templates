@@ -1,22 +1,37 @@
 {
-  "providerId": "quickpanel.com",
-  "serviceId": "quickpanel",
+  "providerId": "quickpanel",
+  "providerName": "QuickPanel V5",
+  "serviceId": "quickpanel-smm",
+  "serviceName": "QuickPanel SMM Panel",
+  "version": 1,
+  "logoUrl": "https://quickpanel.net/assets/logo.png",
+  "description": "QuickPanel V5 - Modern and scalable SaaS SMM Panel Project for social media management",
+  "variableDescription": "QuickPanel panel domain connection setup with Cloudflare integration",
   "syncBlock": false,
   "syncPubKeyDomain": "connect.quickpanel.net",
-  "version": 1,
+  "syncRedirectDomain": "connect.quickpanel.net",
+  "warnPhishing": true,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
       "host": "@",
       "pointsTo": "connect.quickpanel.net",
       "ttl": 3600,
-      "proxy": true
+      "proxied": true
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600,
+      "proxied": true
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 include:_spf.quickpanel.net ~all",
+      "ttl": 3600
     }
-  ],
-  "label": {
-    "en": "QuickPanel V5 DNS Setup"
-  },
-  "description": {
-    "en": "Automatically configures DNS for QuickPanel V5, including CNAME and proxy settings."
-  }
+  ]
 }
