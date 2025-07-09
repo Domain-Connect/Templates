@@ -1,0 +1,22 @@
+{
+  "providerId": "quickpanel.com",
+  "serviceId": "quickpanel",
+  "syncBlock": false,
+  "syncPubKeyDomain": "connect.quickpanel.net",
+  "version": 1,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.quickpanel.net",
+      "ttl": 3600,
+      "proxy": true
+    }
+  ],
+  "label": {
+    "en": "QuickPanel V5 DNS Setup"
+  },
+  "description": {
+    "en": "Automatically configures DNS for QuickPanel V5, including CNAME and proxy settings."
+  }
+}
