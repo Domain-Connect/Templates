@@ -17,15 +17,13 @@
       "type": "CNAME",
       "host": "@",
       "pointsTo": "connect.quickpanel.net",
-      "ttl": 3600,
-      "proxied": true
+      "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "www",
       "pointsTo": "@",
-      "ttl": 3600,
-      "proxied": true
+      "ttl": 3600
     },
     {
       "type": "TXT",
