@@ -3,7 +3,7 @@
   "providerName": "IronShield",
   "serviceId": "domain-protection",
   "serviceName": "Bot Protection for APIs",
-  "version": 1,
+  "version": 2,
   "syncPubKeyDomain": "keys.ironshield.cloud",
   "syncRedirectDomain": "ironshield.cloud",
   "hostRequired": true,
