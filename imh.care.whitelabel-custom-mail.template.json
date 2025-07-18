@@ -5,8 +5,8 @@
   "serviceName": "White Label - Custom Mail",
   "version": 1,
   "logoUrl": "https://imh.care/assets/imh.svg",
-  "description": "Configures your domain to work with IMH Care's white label service (custom mail only).",
-  "variableDescription": "This configuration sets up SendGrid custom mail records.",
+  "description": "Configures your domain to work with IMH Care's white label service with custom mail address.",
+  "variableDescription": "This configuration sets whitelabel for custom domain and email address.",
   "syncPubKeyDomain": "imh.care",
   "records": [
     {

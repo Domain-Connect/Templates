@@ -5,8 +5,8 @@
   "serviceName": "White Label - Default Mail",
   "version": 1,
   "logoUrl": "https://imh.care/assets/imh.svg",
-  "description": "Configures your domain for IMH Care's default white label email setup.",
-  "variableDescription": "This template sets up 2 CNAME records for basic white label email usage.",
+  "description": "Configures your domain for IMH Care's",
+  "variableDescription": "This template sets up 2 CNAME records for white label.",
   "syncPubKeyDomain": "imh.care",
   "records": [
     {
