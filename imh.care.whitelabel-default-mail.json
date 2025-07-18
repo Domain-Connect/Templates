@@ -1,0 +1,25 @@
+{
+  "providerId": "imh.care",
+  "providerName": "IMH Care",
+  "serviceId": "whitelabel-default-mail",
+  "serviceName": "White Label - Default Mail",
+  "version": 1,
+  "logoUrl": "https://imh.care/assets/imh.svg",
+  "description": "Configures your domain for IMH Care's",
+  "variableDescription": "This template sets up 2 CNAME records for white label.",
+  "syncPubKeyDomain": "imh.care",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host1%",
+      "pointsTo": "%record1%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%host2%",
+      "pointsTo": "%record2%",
+      "ttl": 600
+    }
+  ]
+}
