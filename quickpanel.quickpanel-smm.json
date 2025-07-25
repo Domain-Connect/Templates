@@ -18,18 +18,6 @@
       "host": "@",
       "pointsTo": "connect.quickpanel.net",
       "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "www",
-      "pointsTo": "@",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "@",
-      "data": "v=spf1 include:_spf.quickpanel.net ~all",
-      "ttl": 3600
     }
   ]
 }
