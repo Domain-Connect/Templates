@@ -3,9 +3,9 @@
   "providerName": "Informaten",
   "serviceId": "gameserver_generic",
   "serviceName": "Gameserver on Informaten.com",
-  "version": 1,
+  "version": 2,
   "syncPubKeyDomain": "informaten.com",
-  "logoUrl": "https://informaten.com/assets/logo_dark.png",
+  "logoUrl": "https://informaten.com/logo_dark.png",
   "description": "Connect a domain to a gameserver running on informaten.com",
   "variableDescription": "servicesubdomain is the host of the A record. In the most cases, this is equal to %service% but there are some cases, there the need a different host. The other variables for SRV and ttl should be self-explanatory.",
   "records": [
