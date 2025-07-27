@@ -12,19 +12,19 @@
       "type": "TXT",
       "host": "%DNS1_NAME%",
       "data": "%DNS1_VALUE%",
-      "ttl": 300
+      "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "%DNS2_NAME%",
       "data": "%DNS2_VALUE%",
-      "ttl": 300
+      "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "jamie-bounces",
       "pointsTo": "pm.mtasv.net",
-      "ttl": 300
+      "ttl": 3600
     }
   ]
 }
