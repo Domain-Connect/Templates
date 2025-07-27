@@ -1,0 +1,30 @@
+{
+  "providerId": "heyjamie.ai",
+  "providerName": "HeyJamie AI",
+  "serviceId": "mail",
+  "serviceName": "HeyJamie Email Configuration",
+  "version": 1,
+  "logoUrl": "https://heyjamie.ai/images/logo-dc.png",
+  "description": "Automatically configure DNS records for HeyJamie AI email service",
+  "variableDescription": "Configure DKIM, SPF, and bounce handling records",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%DNS1_NAME%",
+      "pointsTo": "%DNS1_VALUE%",
+      "description": "DKIM record for email authentication"
+    },
+    {
+      "type": "TXT",
+      "host": "%DNS2_NAME%",
+      "pointsTo": "%DNS2_VALUE%",
+      "description": "SPF record for email authentication"
+    },
+    {
+      "type": "CNAME",
+      "host": "jamie-bounces",
+      "pointsTo": "pm.mtasv.net",
+      "description": "Bounce handling subdomain"
+    }
+  ]
+}
