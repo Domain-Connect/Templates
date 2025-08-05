@@ -4,7 +4,7 @@
 	"serviceId": "site-txt-cname-ssl",
 	"serviceName": "CertDashboard Site TXT and Cname ssl records",
 	"version": 1,
-	"logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
+	"logoUrl": "https://res.cloudinary.com/dy94cdmsp/image/upload/v1754392054/svgviewer-output_yinzzk.svg",
 	"description": "Enable domain to work with the CertDashboard by configuring the necessary CNAME and TXT SSL records.",
 	"variableDescription": " txtAcmeValue: Value for _acme-challenge TXT record, txtCfValue: Value for _cf-custom-hostname TXT record, cdHostname: cert dashboard host name, txtCdValue: cert dashboard txt value, CNameRecordHost : cname host , CNameRecordIP : ip provided by user.",
 	"syncBlock": false,
