@@ -6,18 +6,19 @@
   "version": 1,
   "logoUrl": "https://heyjamie.ai/images/logo-dc.png",
   "description": "Automatically configure DNS records for HeyJamie AI email service",
-  "variableDescription": "Configure DKIM, SPF, and bounce handling records",
+  "variableDescription": "Configure DKIM signing, SPF and bounce handling records",
+  "syncPubKeyDomain": "heyjamie.ai",
   "records": [
     {
       "type": "TXT",
-      "host": "%DNS1_NAME%",
-      "data": "%DNS1_VALUE%",
+      "host": "%DKIM_SELECTOR%._domainkey",
+      "data": "%DKIM_VALUE%",
       "ttl": 3600
     },
     {
-      "type": "TXT",
-      "host": "%DNS2_NAME%",
-      "data": "%DNS2_VALUE%",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%SPF_RULES%",
       "ttl": 3600
     },
     {
