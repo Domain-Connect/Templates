@@ -1,0 +1,52 @@
+{
+	"providerId": "certdashboard.cloud",
+	"providerName": "CertDashboard",
+	"serviceId": "subdomain",
+	"serviceName": "CertDashboard Site A and TXT ssl records",
+	"version": 1,
+	"logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
+	"description": "Enable domain to work with the CertDashboard by configuring the necessary A ,CNAME and TXT SSL records.",
+	"variableDescription": "ARecordHost: A Record host ,ARecordIP: refers to the IP address provided by the user, cdHostname: cert dashboard host name, txtCdValue: cert dashboard txt value, CNameRecordHost : cname host , CNameRecordIP : ip provided by user, MxRecordHost : mx record host name, MxRecordDomain : max record domain provided by user, NSRecordHost : host provided by user, NSRecordDomain : domain provided by user, AAAARecordHost: record host provided by user, AAAARecordHostIP6: ip6 for the record.",
+	"syncBlock": false,
+	"syncPubKeyDomain": "certdashboard.cloud",
+	"syncRedirectDomain": "certdashboard.cloud",
+	"records": [
+		{
+			"type": "A",
+			"host": "%ARecordHost%",
+			"pointsTo": "%ARecordIP%",
+			"ttl": 600
+		},
+		{
+			"type": "TXT",
+			"host": "%cdHostname%",
+			"data": "%txtCdValue%",
+			"ttl": 600
+		},
+		{
+			"type": "CNAME",
+			"host": "%CNameRecordHost%",
+			"pointsTo": "%CNameRecordIP%",
+			"ttl": 600
+		},
+		{
+			"type": "MX",
+			"host": "%MxRecordHost%",
+			"pointsTo": "%MxRecordDomain%",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"type": "NS",
+			"host": "%NSRecordHost%",
+			"pointsTo": "%NSRecordDomain%",
+			"ttl": 3600
+		},
+		{
+			"type": "AAAA",
+			"host": "%AAAARecordHost%",
+			"pointsTo": "%AAAARecordHostIP6%",
+			"ttl": 3600
+		}
+	]
+}
