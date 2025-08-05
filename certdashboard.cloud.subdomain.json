@@ -6,7 +6,7 @@
 	"version": 1,
 	"logoUrl": "https://res.cloudinary.com/dy94cdmsp/image/upload/v1754392054/svgviewer-output_yinzzk.svg",
 	"description": "Enable domain to work with the CertDashboard by configuring the necessary A ,CNAME and TXT SSL records.",
-	"variableDescription": "ARecordHost: A Record host ,ARecordIP: refers to the IP address provided by the user, cdHostname: cert dashboard host name, txtCdValue: cert dashboard txt value, CNameRecordHost : cname host , CNameRecordIP : ip provided by user, MxRecordHost : mx record host name, MxRecordDomain : max record domain provided by user, NSRecordHost : host provided by user, NSRecordDomain : domain provided by user, AAAARecordHost: record host provided by user, AAAARecordHostIP6: ip6 for the record.",
+	"variableDescription": "ARecordHost: A Record host ,ARecordIP: refers to the IP address provided by the user, CNameRecordHost : cname host , CNameRecordIP : ip provided by user, MxRecordHost : mx record host name, MxRecordDomain : max record domain provided by user, NSRecordHost : host provided by user, NSRecordDomain : domain provided by user, AAAARecordHost: record host provided by user, AAAARecordHostIP6: ip6 for the record.",
 	"syncBlock": false,
 	"syncPubKeyDomain": "certdashboard.cloud",
 	"syncRedirectDomain": "certdashboard.cloud",
@@ -15,12 +15,6 @@
 			"type": "A",
 			"host": "%ARecordHost%",
 			"pointsTo": "%ARecordIP%",
-			"ttl": 600
-		},
-		{
-			"type": "TXT",
-			"host": "%cdHostname%",
-			"data": "%txtCdValue%",
 			"ttl": 600
 		},
 		{
