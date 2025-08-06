@@ -10,6 +10,7 @@
 	"syncBlock": false,
 	"syncPubKeyDomain": "certdashboard.cloud",
 	"syncRedirectDomain": "certdashboard.cloud",
+	"hostRequired": true,
 	"records": [
 		{
 			"type": "CNAME",
