@@ -1,0 +1,34 @@
+{
+	"providerId": "certdashboard.cloud",
+	"providerName": "CertDashboard",
+	"serviceId": "mail",
+	"serviceName": "CertDashboard Site mail records",
+	"version": 1,
+	"logoUrl": "https://res.cloudinary.com/dy94cdmsp/image/upload/v1754392054/svgviewer-output_yinzzk.svg",
+	"description": "Enable domain to work with the CertDashboard by configuring the necessary MX ,SPFM and TXT SSL records.",
+	"variableDescription": "MXTarget: refers to the target for MX, SPFMRules: represents SPMF rules, TXTValue: refers to txt record value.",
+	"syncBlock": false,
+	"syncPubKeyDomain": "certdashboard.cloud",
+	"syncRedirectDomain": "certdashboard.cloud",
+	"records": [
+		{
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "%MXTarget%",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"type": "SPFM",
+			"host": "@",
+			"ttl": 3600,
+			"spfRules": "%SPFMRules%"
+		},
+		{
+			"type": "TXT",
+			"host": "@",
+			"ttl": 3600,
+			"data": "%TXTValue%"
+		}
+	]
+}
