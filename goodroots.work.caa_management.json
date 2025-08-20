@@ -7,11 +7,8 @@
   "logoUrl": "https://goodroots.work/goodroots.svg",
   "description": "Provides tooling to manage error free RFC compliant best practice CAA policy records for a domain, subdomain or specific hostname.",
   "variableDescription": "%flags%: flags for the CAA record, typically 0, or 128 to indicate critical; %tag%: tag for the CAA record; %value%: value for the CAA record;",
-  "syncBlock": false,
   "syncPubKeyDomain": "caa.goodroots.work",
-  "multiInstance": false,
-  "warnPhishing": false,
-  "hostRequired": true,
+  "multiInstance": true,
   "records": [
     {
       "type": "CAA",
