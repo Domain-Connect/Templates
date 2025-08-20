@@ -1,0 +1,49 @@
+{
+    "providerId": "stytch.com",
+    "providerName": "Stytch",
+    "serviceId": "email",
+    "serviceName": "Stytch Custom Sender Domain",
+    "version": 1,
+    "logoUrl": "https://stytch.com/favicon.ico",
+    "description": "Configure DNS records for Stytch custom sender domain",
+    "variableDescription": "%domain%: Your custom domain (e.g., example.com); %verification%: Stytch verification DNS value; %pm_id%: Domain-specific email identifier; %sg_em_id%: Domain-specific email identifier; %pm_rsa_key%: RSA public key for domain authentication",
+    "syncPubKeyDomain": "stytch.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "@",
+            "data": "stytch_verification_dns=%verification%",
+            "ttl": 600
+        },
+        {
+            "type": "TXT",
+            "host": "%pm_id%._domainkey",
+            "data": "%pm_rsa_key%",
+            "ttl": 600
+        },
+        {
+            "type": "CNAME",
+            "host": "pm-bounces",
+            "pointsTo": "pm.mtasv.net",
+            "ttl": 600
+        },
+        {
+            "type": "CNAME",
+            "host": "%sg_em_id%",
+            "pointsTo": "u17391058.wl059.sendgrid.net",
+            "ttl": 600
+        },
+        {
+            "type": "CNAME",
+            "host": "st._domainkey",
+            "pointsTo": "st.domainkey.u17391058.wl059.sendgrid.net",
+            "ttl": 600
+        },
+        {
+            "type": "CNAME",
+            "host": "st2._domainkey",
+            "pointsTo": "st2.domainkey.u17391058.wl059.sendgrid.net",
+            "ttl": 600
+        }
+    ]
+}
