@@ -26,7 +26,7 @@
       "type": "SPFM",
       "host": "@",
       "ttl": "3600",
-      "spfRules": "mx include:smtp.ditmail.online -all"
+      "spfRules": "mx include:smtp.ditmail.online"
     },
     {
       "type": "TXT",
