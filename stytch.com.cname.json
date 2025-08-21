@@ -5,7 +5,7 @@
     "serviceName": "Stytch API CNAME",
     "version": 1,
     "logoUrl": "https://stytch.com/favicon.ico",
-    "description": "Configure a CNAME record to point to the Stytch API",
+    "description": "Configure a CNAME record to point to the Stytch API and add CAA records for SSL certificate authorities",
     "variableDescription": "%cname_host%: The host to point to the Stytch API; %cname_target%: The CNAME target URL that Stytch provides for your specific project",
     "syncPubKeyDomain": "stytch.com",
     "records": [
