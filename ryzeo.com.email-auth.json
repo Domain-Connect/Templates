@@ -1,0 +1,45 @@
+{
+  "providerId": "ryzeo.com",
+  "providerName": "Ryzeo",
+  "serviceId": "email-auth",
+  "serviceName": "Email Auth Setup",
+  "logoUrl": "https://ryzeo.com/wp-content/uploads/2021/11/ryzeo-logo-white-svg-1-1.svg",
+  "syncRedirectDomain": "app1.ryzeo.com,ryzeo.com",
+  "version": 1,
+  "description": "Enable Ryzeo to send emails on behalf of the provided domain",
+  "variableDescription": "Values required: SPF rule string, DKIM selector + key, DMARC policy, and CNAME records",
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spf_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim_selector%",
+      "pointsTo": "%dkim_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "%delivery_host%",
+      "pointsTo": "%delivery_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim_key_host%",
+      "pointsTo": "%dkim_key_value%",
+      "ttl": 3600
+    }
+  ]
+}
