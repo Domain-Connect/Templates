@@ -7,6 +7,7 @@
   "logoUrl": "https://mail.dishis.tech/logo.svg",
   "description": "DITMail DNS configuration for email delivery, authentication, and anti-spam protection.",
   "variableDescription": "%domain%: customer domain, %verification_code%: unique code for domain verification, %dkim_public_key%: DKIM public key",
+  "syncPubKeyDomain": "keys.mail.dishis.tech",
   "records": [
     {
       "type": "TXT",
@@ -22,10 +23,10 @@
       "priority": "10"
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
       "ttl": "3600",
-      "data": "v=spf1 mx include:smtp.ditmail.online -all"
+      "spfRules": "mx include:smtp.ditmail.online -all"
     },
     {
       "type": "TXT",
