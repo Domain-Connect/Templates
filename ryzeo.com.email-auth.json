@@ -8,6 +8,7 @@
   "version": 1,
   "description": "Enable Ryzeo to send emails on behalf of the provided domain",
   "variableDescription": "Values required: SPF rule string, DKIM selector + key, DMARC policy, and CNAME records",
+  "syncPubKeyDomain": "domainconnect.ryzeo.com",
   "warnPhishing": true,
   "records": [
     {
