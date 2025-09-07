@@ -1,0 +1,20 @@
+{
+  "providerId": "pending",
+  "providerName": "Pending",
+  "serviceId": "property-page",
+  "serviceName": "Property Page Hosting",
+  "version": 2,
+  "logoUrl": "https://trypending.com/logo.png",
+  "description": "Enables custom domain hosting for property pages.",
+  "variableDescription": "",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "d1234567890.cloudfront.net",
+      "ttl": 3600
+    }
+  ],
+  "syncRedirectDomain": "app.trypending.com",
+  "syncPubKeyDomain": "keys.trypending.com"
+}
