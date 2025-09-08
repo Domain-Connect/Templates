@@ -8,6 +8,7 @@
   "variableDescription": "targetHostName refers to OneStream managed Custom page host.",
   "logoUrl": "https://assets.onestream.live/OneStreamLive-logo.png",
   "syncRedirectDomain": "app.onestream.live, app-development.onestream.live, app-staging.onestream.live, onestream.localhost, onestream.live",
+  "syncPubKeyDomain": "signing.onestream.live",
   "hostRequired": true,
   "records": [
     {
