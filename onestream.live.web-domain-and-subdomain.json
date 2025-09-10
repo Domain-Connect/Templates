@@ -7,7 +7,7 @@
   "description": "Connect your root domain or subdomain dynamically to OneStream Live managed Custom page host.",
   "variableDescription": "targetHostName refers to OneStream managed Custom page host.",
   "logoUrl": "https://assets.onestream.live/OneStreamLive-logo.png",
-  "syncRedirectDomain": "app.onestream.live, app-development.onestream.live, app-staging.onestream.live, onestream.live",
+  "syncRedirectDomain": "app.onestream.live,app-development.onestream.live,app-staging.onestream.live,onestream.live",
   "syncPubKeyDomain": "signing.onestream.live",
   "hostRequired": true,
   "records": [
