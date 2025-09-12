@@ -4,8 +4,8 @@
     "serviceId": "ai-proxy",
     "serviceName": "Kismet AI Subdomain",
     "version": 1,
-    "logoUrl": "https://kismet.travel/logo.svg",
-    "description": "Creates a CNAME so ai.<domain> points to proxy.kismet.travel.",
+    "logoUrl": "https://kismet.travel/kismet_logo_512.png",
+    "description": "Creates a CNAME so ai.<domain> points to edge.kismet.travel.",
     "syncBlock": false,
     "syncPubKeyDomain": "keys.kismet.travel",
     "records": [
@@ -13,7 +13,7 @@
             "groupId": "ai-proxy",
             "type": "CNAME",
             "host": "ai",
-            "pointsTo": "proxy.kismet.travel",
+            "pointsTo": "edge.kismet.travel",
             "ttl": 3600
         }
     ]
