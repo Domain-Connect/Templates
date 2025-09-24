@@ -4,7 +4,7 @@
   "serviceId": "domainVerification",
   "serviceName": "Domain Ownership Verification (Staging)",
   "version": 1,
-  "logoUrl": "https://stage.beaglesecure.com/assets/logo.svg",
+  "logoUrl": "https://cdn.beaglesecurity.com/assets/brand/svg/beagle-blue.svg",
   "description": "Development and staging environment: Automates adding a TXT record to verify domain ownership.",
   "variableDescription": "%txt%: the domain ownership verification token to be added as a TXT record",
   "syncPubKeyDomain": "stage.beaglesecure.com",
