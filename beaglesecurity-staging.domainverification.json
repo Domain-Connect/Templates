@@ -1,7 +1,7 @@
 {
   "providerId": "beaglesecurity-staging",
   "providerName": "Beagle Security (Staging)",
-  "serviceId": "domainVerification",
+  "serviceId": "domainverification",
   "serviceName": "Domain Ownership Verification (Staging)",
   "version": 1,
   "logoUrl": "https://cdn.beaglesecurity.com/assets/brand/svg/beagle-blue.svg",
