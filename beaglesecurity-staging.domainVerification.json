@@ -1,0 +1,22 @@
+{
+  "providerId": "beaglesecurity-staging",
+  "providerName": "Beagle Security (Staging)",
+  "serviceId": "domainVerification",
+  "serviceName": "Domain Ownership Verification (Staging)",
+  "version": 1,
+  "logoUrl": "https://stage.beaglesecure.com/assets/logo.svg",
+  "description": "Development and staging environment: Automates adding a TXT record to verify domain ownership.",
+  "variableDescription": "%txt%: the domain ownership verification token to be added as a TXT record",
+  "syncPubKeyDomain": "stage.beaglesecure.com",
+  "syncRedirectDomain": "stage.beaglesecure.com",
+  "syncBlock": false,
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "ttl": 3600,
+      "data": "%txt%"
+    }
+  ]
+}
