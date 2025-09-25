@@ -10,7 +10,6 @@
   "syncPubKeyDomain": "stage.beaglesecure.com",
   "syncRedirectDomain": "stage.beaglesecure.com",
   "syncBlock": false,
-  "warnPhishing": true,
   "records": [
     {
       "type": "TXT",
