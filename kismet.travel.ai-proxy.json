@@ -15,13 +15,13 @@
       "type": "CNAME",
       "host": "ai",
       "pointsTo": "edge.kismet.travel",
-      "ttl": 3600
+      "ttl": 300
     },
     {
       "groupId": "ai-proxy",
       "type": "TXT",
       "host": "_kismet",
-      "ttl": 3600,
+      "ttl": 300,
       "data": "kismet-verify-%token%"
     }
   ]
