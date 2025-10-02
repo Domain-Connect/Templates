@@ -22,7 +22,7 @@
     {
       "groupId": "dkim",
       "type": "CNAME",
-      "host": "%dkim_selector%._domainkey.%subdomain%",
+      "host": "%dkim_selector%._domainkey",
       "pointsTo": "%dkim_selector%._domainkey.%mail_server%",
       "ttl": 3600,
       "essential": "Always"
@@ -38,7 +38,7 @@
     {
       "groupId": "tracking",
       "type": "CNAME",
-      "host": "track.%subdomain%",
+      "host": "secure.%subdomain%",
       "pointsTo": "track.%mail_server%",
       "ttl": 3600,
       "essential": "OnApply"
