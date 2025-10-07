@@ -9,6 +9,7 @@
   "variableDescription": "mail_server is the target Lindris mail server (e.g., m1.lindris.net, m2.lindris.net, eu.lindris.net); dkim_selector is the DKIM key selector (e.g., key1 for shared keys, or unique identifier for dedicated keys); verification_id and verification_hash are unique credentials for domain ownership verification.",
   "syncPubKeyDomain": "lindris.com",
   "syncRedirectDomain": "app.lindris.com",
+  "hostRequired": true,
   "warnPhishing": false,
   "records": [
     {
