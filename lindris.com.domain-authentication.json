@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://app.lindris.com/images/logo.png",
   "description": "Configures DNS records for domain verification and email authentication to send emails through Lindris",
-  "variableDescription": "subdomain is the email subdomain prefix (e.g., sl, el1, mail); mail_server is the target Lindris mail server (e.g., m1.lindris.net, m2.lindris.net, eu.lindris.net); dkim_selector is the DKIM key selector (e.g., key1 for shared keys, or unique identifier for dedicated keys); verification_id and verification_hash are unique credentials for domain ownership verification.",
+  "variableDescription": "mail_server is the target Lindris mail server (e.g., m1.lindris.net, m2.lindris.net, eu.lindris.net); dkim_selector is the DKIM key selector (e.g., key1 for shared keys, or unique identifier for dedicated keys); verification_id and verification_hash are unique credentials for domain ownership verification.",
   "syncPubKeyDomain": "lindris.com",
   "syncRedirectDomain": "app.lindris.com",
   "warnPhishing": false,
@@ -14,7 +14,7 @@
     {
       "groupId": "email",
       "type": "CNAME",
-      "host": "%subdomain%",
+      "host": "%host%",
       "pointsTo": "%mail_server%",
       "ttl": 3600,
       "essential": "Always"
@@ -22,7 +22,7 @@
     {
       "groupId": "dkim",
       "type": "CNAME",
-      "host": "%dkim_selector%._domainkey",
+      "host": "%dkim_selector%._domainkey.%host%",
       "pointsTo": "%dkim_selector%._domainkey.%mail_server%",
       "ttl": 3600,
       "essential": "Always"
@@ -30,7 +30,7 @@
     {
       "groupId": "dmarc",
       "type": "CNAME",
-      "host": "_dmarc.%subdomain%",
+      "host": "_dmarc.%host%",
       "pointsTo": "_dmarc.%mail_server%",
       "ttl": 3600,
       "essential": "OnApply"
@@ -38,7 +38,7 @@
     {
       "groupId": "tracking",
       "type": "CNAME",
-      "host": "secure.%subdomain%",
+      "host": "secure.%host%",
       "pointsTo": "track.%mail_server%",
       "ttl": 3600,
       "essential": "OnApply"
@@ -46,7 +46,7 @@
     {
       "groupId": "verification",
       "type": "TXT",
-      "host": "%verification_id%.%subdomain%",
+      "host": "%verification_id%.%host%",
       "data": "%verification_hash%",
       "ttl": 3600,
       "essential": "Always",
