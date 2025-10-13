@@ -1,0 +1,22 @@
+{
+  "providerId": "nerchr.io",
+  "providerName": "Nerchr",
+  "serviceId": "funnels",
+  "serviceName": "Nerchr Funnels",
+  "version": 1,
+  "logoUrl": "https://cdn.nerchr.io/logo/nerchr-symbol-green.svg",
+  "description": "Connect your domain to Nerchr Funnels.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.nerchr.io",
+  "variableDescription": "%subdomain% is the subdomain to connect (e.g. 'www', 'try', 'get').",
+  "syncRedirectDomain": "app.nerchr.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "cname.nerchr-dns.io",
+      "ttl": 300
+    }
+  ]
+}
