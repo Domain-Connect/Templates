@@ -8,13 +8,12 @@
   "description": "Connect your domain to Nerchr Funnels.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.nerchr.io",
-  "variableDescription": "%subdomain% is the subdomain to connect (e.g. 'www', 'try', 'get').",
   "syncRedirectDomain": "app.nerchr.io",
-  "hostRequired": false,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "%subdomain%",
+      "host": "@",
       "pointsTo": "cname.nerchr-dns.io",
       "ttl": 300
     }
