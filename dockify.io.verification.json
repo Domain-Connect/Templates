@@ -1,0 +1,21 @@
+{
+  "providerId": "dockify.io",
+  "providerName": "Dockify",
+  "serviceId": "verification",
+  "serviceName": "Domain Verification",
+  "version": 1,
+  "logoUrl": "https://dockify.io/logo.svg",
+  "description": "Verify your domain ownership for Dockify deployment platform",
+  "variableDescription": "Verification token for domain ownership proof",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dockify.io",
+  "syncRedirectDomain": "dockify.io",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dockify-verification",
+      "data": "%token%",
+      "ttl": 3600
+    }
+  ]
+}
