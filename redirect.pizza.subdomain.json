@@ -1,0 +1,20 @@
+{
+  "providerId": "redirect.pizza",
+  "providerName": "redirect.pizza",
+  "serviceId": "subdomain",
+  "serviceName": "redirect.pizza",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.redirect.pizza",
+  "logoUrl": "https://redirect.pizza/favicons/apple-touch-icon.png",
+  "description": "Redirect a subdomain to a destination using redirect.pizza.",
+  "variableDescription": "`cname` is the CNAME target provided by redirect.pizza.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 3600
+    }
+  ]
+}
