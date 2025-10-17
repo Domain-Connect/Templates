@@ -10,13 +10,13 @@
 	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
 	"records": [
 		{
-			"type": "MX",
-			"host": "%inboundMXDomain%",
-			"pointsTo": "inbound-smtp.%region%.amazonaws.com",
+			"type": "TXT",
+			"host": "resend._domainkey",
 			"ttl": 3600,
-			"priority": "%inboundMXPriority%"
+			"data": "p=%domainKey%"
 		},
 		{
+			"groupId": "outbound",
 			"type": "MX",
 			"host": "%spfDomain%",
 			"pointsTo": "feedback-smtp.%region%.amazonses.com",
@@ -24,16 +24,20 @@
 			"priority": 10
 		},
 		{
+			"groupId": "outbound",
 			"type": "SPFM",
 			"host": "%spfDomain%",
 			"ttl": 3600,
 			"spfRules": "include:amazonses.com"
 		},
 		{
-			"type": "TXT",
-			"host": "resend._domainkey",
+			"groupId": "inbound",
+			"type": "MX",
+			"host": "%inboundMXDomain%",
+			"pointsTo": "inbound-smtp.%region%.amazonaws.com",
 			"ttl": 3600,
-			"data": "p=%domainKey%"
+			"priority": "%inboundMXPriority%"
 		}
 	]
 }
+
