@@ -1,7 +1,7 @@
 {
 	"providerId": "resend.com",
 	"providerName": "Resend",
-	"serviceId": "mail-combined",
+	"serviceId": "mail-send-and-receive",
 	"serviceName": "Mail (Sending & Receiving)",
 	"version": 1,
 	"syncPubKeyDomain": "resend.com",
