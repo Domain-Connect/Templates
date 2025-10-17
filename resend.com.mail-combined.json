@@ -1,0 +1,39 @@
+{
+	"providerId": "resend.com",
+	"providerName": "Resend",
+	"serviceId": "mail-combined",
+	"serviceName": "Mail (Sending & Receiving)",
+	"version": 1,
+	"syncPubKeyDomain": "resend.com",
+	"syncRedirectDomain": "resend.com",
+	"description": "Full email configuration for both sending and receiving emails.",
+	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
+	"records": [
+		{
+			"type": "MX",
+			"host": "%inboundMXDomain%",
+			"pointsTo": "inbound-smtp.%region%.amazonaws.com",
+			"ttl": 3600,
+			"priority": "%inboundMXPriority%"
+		},
+		{
+			"type": "MX",
+			"host": "%spfDomain%",
+			"pointsTo": "feedback-smtp.%region%.amazonses.com",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"type": "SPFM",
+			"host": "%spfDomain%",
+			"ttl": 3600,
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"type": "TXT",
+			"host": "resend._domainkey",
+			"ttl": 3600,
+			"data": "p=%domainKey%"
+		}
+	]
+}
