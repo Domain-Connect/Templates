@@ -3,18 +3,17 @@
   "providerName": "BookSupport Platform",
   "serviceId": "customdomains",
   "serviceName": "BookSupport Custom Domains",
-  "version": 2,
+  "version": 1,
   "logoUrl": "https://raw.githubusercontent.com/Booksupport/BrandAssets/refs/heads/main/Booksupportlogotransparent.svg",
   "description": "Automates the DNS CNAME required to map a BookSupport business to a custom domain.",
-  "variableDescription": "SUBDOMAIN is the host label (for example, www) that should resolve to BookSupport.",
-  "syncPubKeyDomain": "domainconnect.booksupport.co.uk",
   "syncBlock": false,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "%SUBDOMAIN%",
+      "host": "@",
       "pointsTo": "customdomains.booksupport.co.uk",
-      "ttl": "3600"
+      "ttl": 3600
     }
   ]
 }
