@@ -7,6 +7,7 @@
   "logoUrl": "https://raw.githubusercontent.com/Booksupport/BrandAssets/refs/heads/main/Booksupportlogotransparent.svg",
   "description": "Automates the DNS CNAME required to map a BookSupport business to a custom domain.",
   "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.booksupport.co.uk",
   "hostRequired": true,
   "records": [
     {
@@ -17,3 +18,4 @@
     }
   ]
 }
+
