@@ -4,7 +4,7 @@
   "serviceId": "landingpages",
   "serviceName": "Creativo Landing Pages",
   "version": 1,
-  "logoUrl": "https://firebasestorage.googleapis.com/v0/b/creativo-bf5c8.appspot.com/o/static%2Fcreativo-logo.png?alt=media&token=716c5a9c-33b8-45d2-856e-481ede9e0eda",
+  "logoUrl": "https://storage.googleapis.com/creativo-bf5c8.appspot.com/static/creativo-logo.png",
   "description": "Map your custom domain (e.g. subdomain.example.com) to a page in Creativo platform.",
   "syncPubKeyDomain": "connect.well-known.creativo.ai",
   "hostRequired": true,
