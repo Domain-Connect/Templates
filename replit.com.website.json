@@ -1,7 +1,7 @@
 {
   "providerId": "replit.com",
   "providerName": "Replit",
-  "serviceId": "hosting",
+  "serviceId": "website",
   "serviceName": "Replit Custom Domains",
   "version": 1,
   "logoUrl": "https://replit.com/public/images/replit_logo_primary.svg",
