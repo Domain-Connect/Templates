@@ -9,5 +9,34 @@
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.replit.com",
   "syncRedirectDomain": "replit.com",
-  "records": []
+  "records": [
+    {
+      "type": "A",
+      "groupId": "apex",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "apex-verification",
+      "host": "@",
+      "data": "replit-verify=%apex-verification%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "subdomain",
+      "host": "%subdomain%",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "subdomain-verification",
+      "host": "%subdomain%",
+      "data": "replit-verify=%subdomain-verification%",
+      "ttl": 3600
+    }
+  ]
 }
