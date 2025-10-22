@@ -1,0 +1,13 @@
+{
+  "providerId": "replit.com",
+  "providerName": "Replit",
+  "serviceId": "hosting",
+  "serviceName": "Replit Custom Domains",
+  "version": 1,
+  "logoUrl": "https://replit.com/public/images/replit_logo_primary.svg",
+  "description": "Setup a domain seamlessly on Replit",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.replit.com",
+  "syncRedirectDomain": "replit.com",
+  "records": []
+}
