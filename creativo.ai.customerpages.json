@@ -1,0 +1,24 @@
+{
+  "providerId": "creativo.ai",
+  "providerName": "Creativo Pages",
+  "serviceId": "customerpages",
+  "serviceName": "Custom Pages for Creativo",
+  "version": 1,
+  "logoUrl": "",
+  "description": "Map your custom domain (e.g. pages.yourdomain.com) to a page on the Creativo platform.",
+  "syncPubKeyDomain": "keys.creativo.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www.%subdomain%",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
