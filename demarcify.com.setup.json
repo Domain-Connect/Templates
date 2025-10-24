@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://demarcify.com/images/demarcify.svg",
   "description": "Complete email security setup with SPF, DMARC, BIMI, MTA-STS, and TLSRPT for authentication, brand protection, and secure mail delivery with comprehensive reporting",
-  "variableDescription": "spf_record: SPF policy with automatic flattening; dmarc_cname: CNAME target for dynamic DMARC (e.g., abc123.dmarc.demarcify.com); dmarc_record: Static DMARC TXT record; bimi_record: BIMI record string; bimi_selector: BIMI selector; mta_sts_id: MTA-STS policy version ID; tlsrpt_cname: CNAME target for TLS reporting",
+  "variableDescription": "spf_record: SPF policy with automatic flattening; dmarc_cname: CNAME target for dynamic DMARC (e.g., abc123.dmarc.demarcify.com); dmarc_record: Static DMARC TXT record; bimi_record: BIMI record string; bimi_selector: BIMI selector; mta_sts_cname: CNAME target for MTA-STS policy (e.g., mta-sts.demarcify.com); mta_sts_id: MTA-STS policy version ID; tlsrpt_cname: CNAME target for TLS reporting",
   "syncBlock": false,
   "syncPubKeyDomain": "demarcify.com",
   "records": [
@@ -46,7 +46,7 @@
       "groupId": "mta_sts_cname",
       "type": "CNAME",
       "host": "mta-sts",
-      "pointsTo": "mta-sts.demarcify.nl",
+      "pointsTo": "%mta_sts_cname%",
       "ttl": 3600
     },
     {
@@ -54,7 +54,7 @@
       "type": "TXT",
       "host": "_mta-sts",
       "data": "v=STSv1; id=%mta_sts_id%",
-      "ttl": 3600,
+      "ttl": 600,
       "txtConflictMatchingMode": "All"
     },
     {
