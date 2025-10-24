@@ -15,62 +15,54 @@
       "type": "TXT",
       "host": "@",
       "data": "%spf_record%",
-      "ttl": "3600",
+      "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1",
-      "essential": "false"
+      "txtConflictMatchingPrefix": "v=spf1"
     },
     {
       "groupId": "dmarc_cname",
       "type": "CNAME",
       "host": "_dmarc",
       "pointsTo": "%dmarc_cname%",
-      "ttl": "3600"
+      "ttl": 3600
     },
     {
       "groupId": "dmarc_txt",
       "type": "TXT",
-      "host": "@",
-      "name": "_dmarc",
+      "host": "_dmarc",
       "data": "%dmarc_record%",
-      "ttl": "3600",
+      "ttl": 3600,
       "txtConflictMatchingMode": "All"
     },
     {
       "groupId": "bimi",
       "type": "TXT",
-      "host": "@",
-      "name": "%bimi_selector%._bimi",
+      "host": "%bimi_selector%._bimi",
       "data": "%bimi_record%",
-      "ttl": "3600",
-      "txtConflictMatchingMode": "All",
-      "essential": "false"
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
     },
     {
       "groupId": "mta_sts_cname",
       "type": "CNAME",
       "host": "mta-sts",
       "pointsTo": "mta-sts.demarcify.nl",
-      "ttl": "3600",
-      "essential": "false"
+      "ttl": 3600
     },
     {
       "groupId": "mta_sts_txt",
       "type": "TXT",
-      "host": "@",
-      "name": "_mta-sts",
+      "host": "_mta-sts",
       "data": "v=STSv1; id=%mta_sts_id%",
-      "ttl": "3600",
-      "txtConflictMatchingMode": "All",
-      "essential": "false"
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
     },
     {
       "groupId": "tlsrpt",
       "type": "CNAME",
       "host": "_smtp._tls",
       "pointsTo": "%tlsrpt_cname%",
-      "ttl": "3600",
-      "essential": "false"
+      "ttl": 3600
     }
   ]
 }
