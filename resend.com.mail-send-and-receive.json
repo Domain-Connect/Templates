@@ -10,14 +10,7 @@
 	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
 	"records": [
 		{
-			"groupId": "inbound",
-			"type": "TXT",
-			"host": "resend._domainkey",
-			"ttl": 3600,
-			"data": "p=%domainKey%"
-		},
-		{
-			"groupId": "outbound",
+			"groupId": "dkim",
 			"type": "TXT",
 			"host": "resend._domainkey",
 			"ttl": 3600,
