@@ -3,13 +3,14 @@
 	"providerName": "Resend",
 	"serviceId": "mail-send-and-receive",
 	"serviceName": "Mail (Sending & Receiving)",
-	"version": 1,
+	"version": 2,
 	"syncPubKeyDomain": "resend.com",
 	"syncRedirectDomain": "resend.com",
 	"description": "Full email configuration for both sending and receiving emails.",
 	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
 	"records": [
 		{
+			"groupId": "dkim",
 			"type": "TXT",
 			"host": "resend._domainkey",
 			"ttl": 3600,
