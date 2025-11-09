@@ -6,23 +6,10 @@
   "version": 1,
   "logoUrl": "https://outboundhost.com/logo.svg",
   "description": "Configure DNS records for OutboundHost managed email service including MX, SPF, DKIM, and DMARC",
-  "variableDescription": "DKIM selector and public key for email authentication",
+  "variableDescription": "selector is the DKIM selector identifier (default: 'default'). publicKey is the DKIM public key (base64 encoded RSA public key for email authentication)",
   "syncPubKeyDomain": "outboundhost.com",
   "syncRedirectDomain": "outboundhost.com",
   "shared": false,
-  "variables": [
-    {
-      "name": "selector",
-      "type": "string",
-      "description": "DKIM selector identifier",
-      "defaultValue": "default"
-    },
-    {
-      "name": "publicKey",
-      "type": "string",
-      "description": "DKIM public key (base64 encoded)"
-    }
-  ],
   "records": [
     {
       "type": "MX",
