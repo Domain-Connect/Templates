@@ -1,0 +1,81 @@
+{
+  "providerId": "outboundhost.com",
+  "providerName": "OutboundHost",
+  "providerDisplayName": "OutboundHost Email Services",
+  "urlSyncUX": "https://outboundhost.com/v1/domain-connect/sync",
+  "urlAsyncUX": "https://outboundhost.com/v1/domain-connect/async",
+  "width": 750,
+  "height": 750,
+  "urlControlPanel": "https://mailbox.salestools.io",
+  "syncBlock": false,
+  
+  "services": [
+    {
+      "id": "mail",
+      "name": "Email Service",
+      "description": "Configure DNS records for OutboundHost managed email service",
+      "logoUrl": "https://outboundhost.com/logo.svg",
+      "termsOfServiceUrl": "https://outboundhost.com/terms",
+      "privacyPolicyUrl": "https://outboundhost.com/privacy",
+
+      "variables": [
+        {
+          "name": "selector",
+          "type": "string",
+          "description": "DKIM selector identifier",
+          "defaultValue": "default"
+        },
+        {
+          "name": "publicKey",
+          "type": "string",
+          "description": "DKIM public key (base64 encoded, p= value only)"
+        }
+      ],
+
+      "records": [
+        {
+          "type": "MX",
+          "host": "@",
+          "pointsTo": "mx1.outboundhost.com",
+          "priority": 10,
+          "ttl": 3600,
+          "essential": "Always"
+        },
+        {
+          "type": "MX",
+          "host": "@",
+          "pointsTo": "mx2.outboundhost.com",
+          "priority": 20,
+          "ttl": 3600,
+          "essential": "Always"
+        },
+        {
+          "type": "TXT",
+          "host": "@",
+          "data": "v=spf1 include:spf.outboundhost.com ~all",
+          "ttl": 3600,
+          "essential": "Always"
+        },
+        {
+          "type": "TXT",
+          "host": "%selector%._domainkey",
+          "data": "v=DKIM1; k=rsa; p=%publicKey%",
+          "ttl": 3600,
+          "essential": "Always"
+        },
+        {
+          "type": "TXT",
+          "host": "_dmarc",
+          "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@outboundhost.com",
+          "ttl": 3600,
+          "essential": "Always"
+        }
+      ],
+      
+      "variableDescription": "Configuration variables for email DNS setup",
+      "syncPubKeyDomain": "outboundhost.com",
+      "syncRedirectDomain": "outboundhost.com",
+      "shared": false
+    }
+  ]
+}
