@@ -1,7 +1,6 @@
 {
   "providerId": "outboundhost.com",
   "providerName": "OutboundHost",
-  "providerDisplayName": "OutboundHost Email Services",
   "urlSyncUX": "https://outboundhost.com/v1/domain-connect/sync",
   "urlAsyncUX": "https://outboundhost.com/v1/domain-connect/async",
   "width": 750,
