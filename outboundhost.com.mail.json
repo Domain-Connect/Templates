@@ -28,11 +28,10 @@
       "essential": "Always"
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "v=spf1 include:spf.outboundhost.com ~all",
-      "ttl": 3600,
-      "essential": "Always"
+      "spfRules": "include:spf.outboundhost.com",
+      "ttl": 3600
     },
     {
       "type": "TXT",
@@ -46,7 +45,8 @@
       "host": "_dmarc",
       "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@outboundhost.com",
       "ttl": 3600,
-      "essential": "Always"
+      "txtConflictMatchingMode": "All",
+      "txtConflictMatchingPrefix": "v=DMARC1"
     }
   ]
 }
