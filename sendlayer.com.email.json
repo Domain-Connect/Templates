@@ -1,0 +1,44 @@
+{
+    "providerId": "sendlayer.com",
+    "providerName": "SendLayer",
+    "serviceId": "email",
+    "serviceName": "SendLayer Email Service",
+    "version": 1,
+    "logoUrl": "https://sendlayer.com/logo.png",
+    "description": "Configure your domain to send emails using SendLayer. This template sets up the required DNS records for email authentication and tracking.",
+    "syncPubKeyDomain": "sendlayer.com",
+    "syncRedirectDomain": "app.sendlayer.com",
+    "variableDescription": "%sltarget% is the target value for the sl CNAME record, which can be either 'sl.m2.sendlayer.net' or 'sl.m2-use1.sendlayer.net'. %randomprefix% is a randomly generated prefix for the TXT record hostname. %txtvalue% is the base64-encoded value for the TXT record.",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "sl",
+            "pointsTo": "%sltarget%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "_dmarc.sl",
+            "pointsTo": "_dmarc.m2.sendlayer.net",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "sl._domainkey",
+            "pointsTo": "sl._domainkey.m2.sendlayer.net",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "track.sl",
+            "pointsTo": "track.m2.sendlayer.net",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "%randomprefix%.sl",
+            "data": "%txtvalue%",
+            "ttl": 3600
+        }
+    ]
+}
