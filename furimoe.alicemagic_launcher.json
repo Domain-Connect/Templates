@@ -1,0 +1,18 @@
+{
+  "providerId": "furimoe",
+  "providerName": "Furimoe",
+  "serviceId": "alicemagic_launcher",
+  "serviceName": "Alice Magic Launcher DNS TXT",
+  "version": 3,
+  "description": "Instance manages DNS TXT records for Alice Magic Launcher.",
+  "syncPubKeyDomain": "keys.furimoe.com",
+  "syncRedirectDomain": "furimoe.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_alicemagic_launcher",
+      "data": "%server_ip%|%instance_setting_url%|%instance_manifest_url%",
+      "ttl": 3600
+    }
+  ]
+}
