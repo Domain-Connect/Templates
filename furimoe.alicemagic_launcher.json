@@ -10,7 +10,7 @@
   "records": [
     {
       "type": "TXT",
-      "host": "_alicemagic_launcher",
+      "host": "_alicemagiclauncher",
       "data": "%server_ip%|%instance_setting_url%|%instance_manifest_url%",
       "ttl": 3600
     }
