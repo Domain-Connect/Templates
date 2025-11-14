@@ -1,0 +1,14 @@
+{
+  "providerId": "furimoe",
+  "serviceId": "launcher",
+  "serviceProviderName": "AliceMagic Launcher",
+  "syncBlock": false,
+  "syncPubKeyDomain": "keys.furimoe.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_alicemagic_launcher",
+      "value": "%server_ip%|%instance_setting_url%|%instance_manifest_url%"
+    }
+  ]
+}
