@@ -1,7 +1,7 @@
 {
   "providerId": "furimoe",
   "providerName": "Furimoe",
-  "serviceId": "alicemagic_launcher",
+  "serviceId": "alicemagiclauncher",
   "serviceName": "Alice Magic Launcher DNS TXT",
   "version": 3,
   "description": "Instance manages DNS TXT records for Alice Magic Launcher.",
