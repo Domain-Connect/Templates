@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "variableDescription": "%domainPart% - host part of the customer domain (for example cdn for cdn.example.com). %generatedCname% - the Seocrown edge hostname you generated (for example abc123.edge.seocrown.ai).",
+    "syncPubKeyDomain": "keys.edge.seocrown.ai",
+    "serviceName": "Seocrown Edge Cache",
+    "serviceId": "seocrown-edge-cache",
+    "records": [
+        {
+            "type": "CNAME",
+            "ttl": "300",
+            "pointsTo": "%generatedCname%",
+            "host": "%domainPart%"
+        }
+    ],
+    "providerName": "Seocrown",
+    "providerId": "seocrown.ai",
+    "logoUrl": "https://docs.seocrown.ai/assets/seocrown-domain-connect-logo.svg",
+    "description": "Add the CNAME required to route traffic through Seocrown Edge Cache."
+}
