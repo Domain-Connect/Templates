@@ -45,8 +45,7 @@
       "host": "_dmarc",
       "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@outboundhost.com",
       "ttl": 3600,
-      "txtConflictMatchingMode": "All",
-      "txtConflictMatchingPrefix": "v=DMARC1"
+      "txtConflictMatchingMode": "All"
     }
   ]
 }
