@@ -1,19 +1,20 @@
 {
-    "version": 1,
-    "variableDescription": "%domainPart% - host part of the customer domain (for example cdn for cdn.example.com). %generatedCname% - the Standupcode edge hostname you generated (for example abc123.edge.standupcode.tech).",
-    "syncPubKeyDomain": "keys.edge.standupcode.tech",
-    "serviceName": "Standupcode Edge Cache",
-    "serviceId": "standupcode-edge-cache",
+    "description": "Add the CNAME required to route traffic through Standupcode Edge Cache.",
+    "logoUrl": "https://docs.standupcode.tech/assets/standupcode-domain-connect-logo.svg",
+    "providerId": "standupcode.tech",
+    "providerName": "Standupcode",
     "records": [
         {
-            "type": "CNAME",
-            "ttl": "300",
+            "host": "@",
+            "hostRequired": true,
             "pointsTo": "%generatedCname%",
-            "host": "%domainPart%"
+            "ttl": "300",
+            "type": "CNAME"
         }
     ],
-    "providerName": "Standupcode",
-    "providerId": "standupcode.tech",
-    "logoUrl": "https://docs.standupcode.tech/assets/standupcode-domain-connect-logo.svg",
-    "description": "Add the CNAME required to route traffic through Standupcode Edge Cache."
+    "serviceId": "standupcode-edge-cache",
+    "serviceName": "Standupcode Edge Cache",
+    "syncPubKeyDomain": "keys.edge.standupcode.tech",
+    "variableDescription": "%domainPart% - host part of the customer domain (for example cdn for cdn.example.com). %generatedCname% - the Standupcode edge hostname you generated (for example abc123.edge.standupcode.tech).",
+    "version": 1
 }

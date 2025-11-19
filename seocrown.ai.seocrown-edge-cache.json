@@ -9,7 +9,8 @@
             "type": "CNAME",
             "ttl": "300",
             "pointsTo": "%generatedCname%",
-            "host": "%domainPart%"
+            "host": "@",
+            "hostRequired": true
         }
     ],
     "providerName": "Seocrown",
@@ -17,3 +18,4 @@
     "logoUrl": "https://docs.seocrown.ai/assets/seocrown-domain-connect-logo.svg",
     "description": "Add the CNAME required to route traffic through Seocrown Edge Cache."
 }
+
