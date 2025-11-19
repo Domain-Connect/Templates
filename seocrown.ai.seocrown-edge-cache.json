@@ -3,6 +3,7 @@
     "logoUrl": "https://docs.seocrown.ai/assets/seocrown-domain-connect-logo.svg",
     "providerId": "seocrown.ai",
     "providerName": "Seocrown",
+    "hostRequired": true,
     "records": [
         {
             "host": "@",
@@ -14,6 +15,6 @@
     "serviceId": "seocrown-edge-cache",
     "serviceName": "Seocrown Edge Cache",
     "syncPubKeyDomain": "keys.edge.seocrown.ai",
-    "variableDescription": "%domainPart% - host part of the customer domain (for example cdn for cdn.example.com). %generatedCname% - the Seocrown edge hostname you generated (for example abc123.edge.seocrown.ai).",
+    "variableDescription": "%generatedCname% - the Seocrown edge hostname you generated (for example abc123.edge.seocrown.ai).",
     "version": 1
 }

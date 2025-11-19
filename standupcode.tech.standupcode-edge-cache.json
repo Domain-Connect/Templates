@@ -3,6 +3,7 @@
     "logoUrl": "https://docs.standupcode.tech/assets/standupcode-domain-connect-logo.svg",
     "providerId": "standupcode.tech",
     "providerName": "Standupcode",
+    "hostRequired": true,
     "records": [
         {
             "host": "@",
@@ -14,6 +15,6 @@
     "serviceId": "standupcode-edge-cache",
     "serviceName": "Standupcode Edge Cache",
     "syncPubKeyDomain": "keys.edge.standupcode.tech",
-    "variableDescription": "%domainPart% - host part of the customer domain (for example cdn for cdn.example.com). %generatedCname% - the Standupcode edge hostname you generated (for example abc123.edge.standupcode.tech).",
+    "variableDescription": "%generatedCname% - the Standupcode edge hostname you generated (for example abc123.edge.standupcode.tech).",
     "version": 1
 }
