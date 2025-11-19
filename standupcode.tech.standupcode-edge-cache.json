@@ -6,7 +6,6 @@
     "records": [
         {
             "host": "@",
-            "hostRequired": true,
             "pointsTo": "%generatedCname%",
             "ttl": "300",
             "type": "CNAME"
