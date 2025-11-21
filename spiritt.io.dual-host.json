@@ -8,7 +8,7 @@
   "description": "Connect a domain and subdomain to a SPIRITT app",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.spiritt.io",
-  "syncRedirectDomain": "joystick.spiritt.app, spiritt.app",
+  "syncRedirectDomain": "joystick.spiritt.app,spiritt.app",
   "variableDescription": "%host1% and %host2%: Hosts under this domain. %appId%: SPIRITT app id.",
   "records": [
     {
