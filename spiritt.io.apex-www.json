@@ -1,7 +1,7 @@
 {
   "providerId": "spiritt.io",
   "providerName": "SPIRITT",
-  "serviceId": "dual-host",
+  "serviceId": "apex-www",
   "serviceName": "SPIRITT Custom Domain with Subdomain",
   "version": 1,
   "logoUrl": "https://spiritt.io/img/spiritt-logo.png",
@@ -9,18 +9,18 @@
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.spiritt.io",
   "syncRedirectDomain": "joystick.spiritt.app,spiritt.app",
-  "variableDescription": "%host1% and %host2%: Hosts under this domain. %appId%: SPIRITT app id.",
+  "variableDescription": "`ipv4` is the IPv4 address provided by spiritt.io. `appId` is the SPIRITT internal appId provided by spiritt.io.",
   "records": [
     {
       "type": "A",
-      "host": "%host1%",
-      "pointsTo": "34.120.252.68",
+      "host": "@",
+      "pointsTo": "%ipv4%",
       "ttl": 3600
     },
     {
       "type": "A",
-      "host": "%host2%",
-      "pointsTo": "34.120.252.68",
+      "host": "www",
+      "pointsTo": "%ipv4%",
       "ttl": 3600
     },
     {
