@@ -9,11 +9,11 @@
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.spiritt.io",
   "syncRedirectDomain": "joystick.spiritt.app,spiritt.app",
-  "variableDescription": "%host%: Host under this domain (e.g. '@', 'app'). %appId%: SPIRITT app id.",
+  "variableDescription": "%host1%: Host under this domain (e.g. '@', 'app'). %appId%: SPIRITT app id.",
   "records": [
     {
       "type": "A",
-      "host": "%host%",
+      "host": "%host1%",
       "pointsTo": "34.120.252.68",
       "ttl": 3600
     },
