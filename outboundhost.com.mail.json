@@ -3,7 +3,7 @@
   "providerName": "OutboundHost",
   "serviceId": "mail",
   "serviceName": "Email Service",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://outboundhost.com/logo.svg",
   "description": "Configure DNS records for OutboundHost managed email service including MX, SPF, DKIM, and DMARC",
   "variableDescription": "selector is the DKIM selector identifier (default: 'default'). publicKey is the DKIM public key (base64 encoded RSA public key for email authentication)",
