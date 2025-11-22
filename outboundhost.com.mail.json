@@ -10,6 +10,7 @@
   "syncPubKeyDomain": "outboundhost.com",
   "syncRedirectDomain": "outboundhost.com",
   "shared": false,
+  "syncBlock": false,
   "records": [
     {
       "type": "MX",
