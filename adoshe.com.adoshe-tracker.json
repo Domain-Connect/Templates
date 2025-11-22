@@ -1,0 +1,21 @@
+{
+  "providerId": "adoshe.com",
+  "providerName": "Adoshe",
+  "serviceId": "adoshe-tracker",
+  "serviceName": "Adoshe Tracker",
+  "version": 1,
+  "logoUrl": "https://api.adoshe.com/logo.png",
+  "description": "Configure your domain to work with Adoshe traffic tracking system",
+  "variableDescription": "",
+  "syncPubKeyDomain": "api.adoshe.com",
+  "syncRedirectDomain": "api.adoshe.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "api.adoshe.com",
+      "ttl": 3600
+    }
+  ]
+}
