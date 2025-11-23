@@ -8,7 +8,7 @@
   "description": "Connect a domain and subdomain to a SPIRITT app",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.spiritt.io",
-  "syncRedirectDomain": "joystick.spiritt.app,spiritt.app",
+  "syncRedirectDomain": "joystick.spiritt.io,spiritt.io",
   "variableDescription": "`ipv4` is the IPv4 address provided by spiritt.io. `appId` is the SPIRITT internal appId provided by spiritt.io.",
   "records": [
     {
