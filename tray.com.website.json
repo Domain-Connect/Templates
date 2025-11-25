@@ -1,0 +1,31 @@
+{
+    "providerId": "tray.com",
+    "providerName": "Tray",
+    "serviceId": "website",
+    "serviceName": "Tray Site",
+    "version": 1,
+    "logoUrl": "https://sitetray.s3.amazonaws.com/wp-content/uploads/2023/01/logo_tray_site-svg.png",
+    "description": "Setup a domain to work with Tray",
+    "variableDescription": "t1 is the tray hosted domain name and ip is the IP address of the server",
+    "syncPubKeyDomain": "tray.com.br",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%t1%",
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:_spf.tray.com.br",
+            "ttl": 3600
+        }
+    ]
+}
