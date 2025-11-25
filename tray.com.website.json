@@ -8,7 +8,6 @@
     "description": "Setup a domain to work with Tray",
     "variableDescription": "t1 is the tray hosted domain name and ip is the IP address of the server",
     "syncPubKeyDomain": "tray.com.br",
-    "warnPhishing": true,
     "records": [
         {
             "type": "A",
