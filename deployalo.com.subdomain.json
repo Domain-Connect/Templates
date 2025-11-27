@@ -9,7 +9,6 @@
   "variableDescription": "The subdomain of your Deployalo deployment (e.g., sunny-wind.deployalo.com)",
   "syncPubKeyDomain": "deployalo.com",
   "syncRedirectDomain": "deployalo.com",
-  "warnPhishing": true,
   "hostRequired": true,
   "records": [
     {
