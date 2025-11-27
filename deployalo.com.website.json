@@ -1,0 +1,21 @@
+{
+  "providerId": "deployalo.com",
+  "providerName": "Deployalo",
+  "serviceId": "website",
+  "serviceName": "Deployalo Website Hosting",
+  "version": 1,
+  "logoUrl": "https://deployalo.com/deployalo-icon.png",
+  "description": "Point your domain to your Deployalo deployment",
+  "variableDescription": "The IP address of your Deployalo deployment",
+  "syncPubKeyDomain": "deployalo.com",
+  "syncRedirectDomain": "deployalo.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}
