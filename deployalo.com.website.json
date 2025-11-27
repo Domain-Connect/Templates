@@ -1,21 +1,21 @@
 {
   "providerId": "deployalo.com",
   "providerName": "Deployalo",
-  "serviceId": "subdomain",
-  "serviceName": "Deployalo Subdomain",
+  "serviceId": "website",
+  "serviceName": "Deployalo Website Hosting",
   "version": 1,
   "logoUrl": "https://deployalo.com/deployalo-icon.png",
-  "description": "Point a subdomain to your Deployalo deployment",
-  "variableDescription": "The subdomain of your Deployalo deployment (e.g., sunny-wind.deployalo.com)",
+  "description": "Point your domain to your Deployalo deployment",
+  "variableDescription": "The IP address of your Deployalo deployment",
   "syncPubKeyDomain": "deployalo.com",
   "syncRedirectDomain": "deployalo.com",
   "warnPhishing": true,
-  "hostRequired": true,
+  "hostRequired": false,
   "records": [
     {
-      "type": "CNAME",
-      "host": "%host%",
-      "pointsTo": "%target%",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
       "ttl": 3600
     }
   ]
