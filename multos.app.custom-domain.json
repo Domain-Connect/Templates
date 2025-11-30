@@ -9,6 +9,7 @@
   "variableDescription": "Your app name",
   "syncPubKeyDomain": "multos.app",
   "syncBlock": false,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
