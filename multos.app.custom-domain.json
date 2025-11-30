@@ -1,0 +1,20 @@
+{
+  "providerId": "multos.app",
+  "providerName": "Multos",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom Domain",
+  "version": 1,
+  "logoUrl": "https://multos.app/logo.svg",
+  "description": "Connect your custom domain to your Multos app",
+  "variableDescription": "Your app name",
+  "syncPubKeyDomain": "multos.app",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "multos.app",
+      "ttl": "1"
+    }
+  ]
+}
