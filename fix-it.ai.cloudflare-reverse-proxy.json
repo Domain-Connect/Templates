@@ -1,0 +1,25 @@
+{
+  "providerId": "fix-it.ai",
+  "providerName": "Fixit AI",
+  "serviceId": "cloudflare-reverse-proxy",
+  "serviceName": "Fixit AI Reverse Proxy",
+  "version": 1,
+  "logoUrl": "https://frontendfixit.blob.core.windows.net/home/fixit_gray_bg.svg",
+  "description": "Connect your domain to Fixit AI's Cloudflare-powered reverse proxy for enhanced performance, security, and analytics",
+  "warnPhishing": true,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "widget.fix-it.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "widget.fix-it.ai",
+      "ttl": 3600
+    }
+  ]
+}
