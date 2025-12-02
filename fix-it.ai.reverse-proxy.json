@@ -1,11 +1,11 @@
 {
   "providerId": "fix-it.ai",
   "providerName": "Fixit AI",
-  "serviceId": "cloudflare-reverse-proxy",
+  "serviceId": "reverse-proxy",
   "serviceName": "Fixit AI Reverse Proxy",
   "version": 1,
   "logoUrl": "https://frontendfixit.blob.core.windows.net/home/fixit_gray_bg.svg",
-  "description": "Connect your domain to Fixit AI's Cloudflare-powered reverse proxy for enhanced performance, security, and analytics",
+  "description": "Connect your domain to Fixit AI's reverse proxy for simple, secure, and automated chatbot deployment.",
   "warnPhishing": true,
   "hostRequired": true,
   "records": [
