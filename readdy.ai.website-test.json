@@ -1,0 +1,27 @@
+{
+    "providerId": "readdy.ai",
+    "providerName": "Readdy",
+    "serviceId": "website-test",
+    "serviceName": "Readdy Site (Test)",
+    "version": 1,
+    "logoUrl": "https://static.readdy.ai/logo.svg",
+    "description": "Allows user to easily set up domain using Readdy",
+    "syncPubKeyDomain": "readdy.ai",
+    "syncRedirectDomain": "readdy.ai",
+    "sharedProviderName": true,
+    "variableDescription":"No variables. Static template.",
+    "records": [
+       {
+          "type": "A",
+          "host": "@",
+          "pointsTo": "35.155.202.241",
+          "ttl": 3600
+       },
+       {
+          "type": "CNAME",
+          "host": "www",
+          "pointsTo": "dev-publish.readdy.site",
+          "ttl": 3600
+       }
+    ]
+ }
