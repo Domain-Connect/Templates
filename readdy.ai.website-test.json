@@ -9,6 +9,7 @@
     "syncPubKeyDomain": "readdy.ai",
     "syncRedirectDomain": "readdy.ai",
     "sharedProviderName": true,
+    "shared": true,
     "variableDescription":"No variables. Static template.",
     "records": [
        {
