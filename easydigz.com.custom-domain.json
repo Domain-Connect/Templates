@@ -1,0 +1,26 @@
+{
+    "providerId": "easydigz.com",
+    "providerName": "EasyDigz",
+    "serviceId": "custom-domain",
+    "serviceName": "Custom Domain Mapping",
+    "version": 1,
+    "logoUrl": "https://easydigz.com/assets/EasyDigz-HorizontalLogo-Black.svg",
+    "description": "Connect your subdomain to the EasyDigz platform for website hosting. Creates a CNAME record for routing and a TXT record for domain verification.",
+    "variableDescription": "host: The subdomain to connect (e.g., www, shop, blog); target: The proxy server to point the CNAME to; verificationToken: Domain ownership verification token",
+    "warnPhishing": true,
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%host%",
+            "pointsTo": "%target%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname.%host%",
+            "data": "%verificationToken%",
+            "ttl": 3600
+        }
+    ]
+}
