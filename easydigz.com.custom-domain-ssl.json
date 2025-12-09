@@ -6,25 +6,25 @@
     "version": 1,
     "logoUrl": "https://easydigz.com/assets/EasyDigz-HorizontalLogo-Black.svg",
     "description": "Connect your subdomain to the EasyDigz platform with SSL certificate provisioning. Creates a CNAME record for routing and TXT records for domain verification and SSL validation.",
-    "variableDescription": "subdomain-prefix: The subdomain to connect (e.g., www, shop, blog); target: The proxy server to point the CNAME to; verificationToken: Domain ownership verification token; acmeChallenge: SSL certificate validation token",
+    "variableDescription": "target: The proxy server to point the CNAME to; verificationToken: Domain ownership verification token; acmeChallenge: SSL certificate validation token",
     "warnPhishing": true,
     "hostRequired": true,
     "records": [
         {
             "type": "CNAME",
-            "host": "%subdomain-prefix%",
+            "host": "@",
             "pointsTo": "%target%",
             "ttl": 3600
         },
         {
             "type": "TXT",
-            "host": "_cf-custom-hostname.%subdomain-prefix%",
+            "host": "_cf-custom-hostname",
             "data": "%verificationToken%",
             "ttl": 3600
         },
         {
             "type": "TXT",
-            "host": "_acme-challenge.%subdomain-prefix%",
+            "host": "_acme-challenge",
             "data": "%acmeChallenge%",
             "ttl": 3600
         }
