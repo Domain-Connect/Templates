@@ -1,0 +1,72 @@
+{
+  "providerId": "Shopify.com",
+  "providerName": "Shopify",
+  "serviceId": "email",
+  "serviceName": "Email Domain Authentication for Shopify",
+  "version": 1,
+  "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/08/shopify.png",
+  "description": "Enables a domain to be used as an email domain with Shopify",
+  "variableDescription": "Values required: SPF rule string, DKIM selector + key, DMARC policy, and CNAME records",
+  "syncPubKeyDomain": "shopify.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "auth1",
+      "host": "%mailer_host%",
+      "pointsTo": "%mailer_value%",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "auth1",
+      "host": "%dkim1_host%",
+      "pointsTo": "%dkim1_value%",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "auth1",
+      "host": "%dkim2_host%",
+      "pointsTo": "%dkim2_value%",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "auth2",
+      "host": "%mailer2_host%",
+      "pointsTo": "%mailer2_value%",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "auth2",
+      "host": "%dkim3_host%",
+      "pointsTo": "%dkim3_value%",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "auth2",
+      "host": "%dkim4_host%",
+      "pointsTo": "%dkim4_value%",
+      "ttl": "3600"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc_txt",
+      "essential": "OnApply",
+      "host": "_dmarc",
+      "ttl": "3600",
+      "data": "%dmarc_txt_value%",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dmarc_cname",
+      "essential": "OnApply",
+      "host": "_dmarc",
+      "pointsTo": "%dmarc_cname_value%",
+      "ttl": "3600"
+    }
+  ]
+}
