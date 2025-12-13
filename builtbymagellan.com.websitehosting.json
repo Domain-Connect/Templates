@@ -1,0 +1,32 @@
+{
+  "providerId": "builtbymagellan.com",
+  "providerName": "Magellan",
+  "serviceId": "websitehosting",
+  "serviceName": "Site Web IA Magellan",
+  "version": 1,
+  "logoUrl": "https://builtbymagellan.com/logo.svg",
+  "description": "Connecte automatiquement votre domaine personnalisé à votre site web généré par intelligence artificielle hébergé sur Cloudflare Pages",
+  "variableDescription": "target: Le nom du projet Cloudflare Pages (ex: projet-abc123.pages.dev)",
+  "syncBlock": false,
+  "syncRedirectDomain": "builtbymagellan.com",
+  "warnPhishing": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "groupId": "website",
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "groupId": "website",
+      "essential": "Always"
+    }
+  ]
+}
