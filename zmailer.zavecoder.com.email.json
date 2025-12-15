@@ -1,0 +1,44 @@
+{
+  "providerId": "zmailer.zavecoder.com",
+  "providerName": "zMailer",
+  "serviceId": "email",
+  "serviceName": "Email Domain Verification",
+  "version": 1,
+  "logoUrl": "https://zmailer.zavecoder.com/logo.svg",
+  "syncPubKeyDomain": "zmailer.zavecoder.com",
+  "syncRedirectDomain": "zmailer.zavecoder.com",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 include:amazonses.com ~all",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%domain%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "zmailer._domainkey",
+      "data": "%dkimKey%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_zmailer-verify",
+      "data": "%verifyToken%",
+      "ttl": 3600
+    }
+  ],
+  "variableDescription": {
+    "dkimKey": "DKIM public key for email signing",
+    "verifyToken": "Domain verification token"
+  }
+}
