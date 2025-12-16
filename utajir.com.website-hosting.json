@@ -1,0 +1,24 @@
+{
+  "providerId": "utajir.com",
+  "providerName": "Utajir",
+  "serviceId": "website-hosting",
+  "serviceName": "Utajir Website Hosting",
+  "version": 1,
+  "logoUrl": "https://utajir.com/icons/utajir-icon.webp",
+  "description": "Connect your domain to Utajir's hosting platform",
+  "variableDescription": "IP is the Utajir server IP address for hosting your website",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "website-viewer.utajir.com",
+      "ttl": 3600
+    }
+  ]
+}

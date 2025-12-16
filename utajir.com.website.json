@@ -1,0 +1,24 @@
+{
+  "providerId": "utajir.com",
+  "providerName": "Utajir",
+  "serviceId": "website",
+  "serviceName": "Utajir",
+  "version": 1,
+  "logoUrl": "https://utajir.com/icons/utajir-icon.webp",
+  "description": "Enables a domain to work with Utajir",
+  "variableDescription": "v1 is the subdomain prefix",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "website-viewer.utajir.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%v1%",
+      "pointsTo": "website-viewer.utajir.com",
+      "ttl": 3600
+    }
+  ]
+}
