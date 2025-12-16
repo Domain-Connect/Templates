@@ -3,10 +3,12 @@
   "providerName": "Utajir",
   "serviceId": "website",
   "serviceName": "Utajir",
+  "syncRedirectDomain": "creator.utajir.com,utajir.com",
   "version": 1,
   "logoUrl": "https://utajir.com/icons/utajir-icon.webp",
   "description": "Enables a domain to work with Utajir",
   "variableDescription": "v1 is the subdomain prefix",
+  "syncPubKeyDomain": "utajir.com",
   "records": [
     {
       "type": "CNAME",

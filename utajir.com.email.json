@@ -3,10 +3,12 @@
   "providerName": "Utajir", 
   "serviceId": "email",
   "serviceName": "Utajir Email Sending",
+  "syncRedirectDomain": "creator.utajir.com,utajir.com",
   "description": "Configure email sending for your domain with Mailtrap",
   "logoUrl": "https://utajir.com/icons/utajir-icon.webp",
   "version": 1,
   "variableDescription": "verificationToken is the unique subdomain token for domain verification and email authentication",
+  "syncPubKeyDomain": "utajir.com",
   "records": [
     {
       "type": "CNAME",
@@ -31,8 +33,8 @@
       "host": "_dmarc",
       "data": "v=DMARC1; p=none; rua=mailto:dmarc@smtp.mailtrap.live; ruf=mailto:dmarc@smtp.mailtrap.live; rf=afrf; pct=100",
       "ttl": 3600,
-      "essential": "warning",    
-      "conflict": "skip"
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
     },
     {
       "type": "CNAME",
