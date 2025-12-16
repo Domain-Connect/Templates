@@ -1,7 +1,7 @@
 {
   "providerId": "utajir.com",
   "providerName": "Utajir", 
-  "serviceId": "email-sending",
+  "serviceId": "email",
   "serviceName": "Utajir Email Sending",
   "description": "Configure email sending for your domain with Mailtrap",
   "logoUrl": "https://utajir.com/icons/utajir-icon.webp",
