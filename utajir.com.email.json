@@ -30,7 +30,9 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=none; rua=mailto:dmarc@smtp.mailtrap.live; ruf=mailto:dmarc@smtp.mailtrap.live; rf=afrf; pct=100",
-      "ttl": 3600
+      "ttl": 3600,
+      "essential": "warning",    
+      "conflict": "skip"
     },
     {
       "type": "CNAME",
