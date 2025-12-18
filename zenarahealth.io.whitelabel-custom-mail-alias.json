@@ -1,8 +1,8 @@
 {
   "providerId": "zenarahealth.io",
   "providerName": "Zenara Health",
-  "serviceId": "whitelabel-custom-mail",
-  "serviceName": "White Label - Custom Mail",
+  "serviceId": "whitelabel-custom-mail-alias",
+  "serviceName": "White Label - Custom Mail alias",
   "version": 1,
   "logoUrl": "https://zenarahealth.io/assets/zenarahealth.svg",
   "description": "Configures your domain to work with Zenara Health's white label service with custom mail address.",

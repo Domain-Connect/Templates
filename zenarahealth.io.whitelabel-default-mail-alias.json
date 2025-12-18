@@ -1,8 +1,8 @@
 {
   "providerId": "zenarahealth.io",
   "providerName": "Zenara Health",
-  "serviceId": "whitelabel-default-mail",
-  "serviceName": "White Label - Default Mail",
+  "serviceId": "whitelabel-default-mail-alias",
+  "serviceName": "White Label - Default Mail alias",
   "version": 1,
   "logoUrl": "https://zenarahealth.io/assets/zenarahealth.svg",
   "description": "Configures your domain to work with Zenara Health's white label service using default mail.",
@@ -10,25 +10,25 @@
   "syncPubKeyDomain": "zenarahealth.io",
   "records": [
     {
-      "type": "A",
+      "type": "CNAME",
       "host": "%host1%",
       "pointsTo": "%record1%",
       "ttl": 600
     },
     {
-      "type": "A",
+      "type": "CNAME",
       "host": "%host2%",
       "pointsTo": "%record2%",
       "ttl": 600
     },
     {
-    "type": "A",
+    "type": "CNAME",
     "host": "%host3%",
     "pointsTo": "%record3%",
     "ttl": 600
     },
     {
-    "type": "A",
+    "type": "CNAME",
     "host": "%host4%",
     "pointsTo": "%record4%",
     "ttl": 600
