@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Domain-Connect/Templates/master/template-schema.json",
+  "providerId": "streetteam.fm",
+  "providerName": "StreetTeam",
+  "serviceId": "postmark-email",
+  "serviceName": "StreetTeam Email (Postmark)",
+  "version": 1,
+  "logoUrl": "https://streetteam.fm/images/logos/streetteam-logo-icon.png",
+  "description": "Configure DNS records for custom email sending domain with StreetTeam via Postmark",
+  "variableDescription": "DKIM selector and values provided by Postmark for email authentication",
+  "syncPubKeyDomain": "streetteam.fm",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%returnPathHost%",
+      "pointsTo": "%returnPathValue%",
+      "ttl": 3600
+    }
+  ]
+}
+
