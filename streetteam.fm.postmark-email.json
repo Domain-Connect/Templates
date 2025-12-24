@@ -1,5 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Domain-Connect/Templates/master/template-schema.json",
   "providerId": "streetteam.fm",
   "providerName": "StreetTeam",
   "serviceId": "postmark-email",
