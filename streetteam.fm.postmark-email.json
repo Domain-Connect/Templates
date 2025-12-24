@@ -4,7 +4,7 @@
   "serviceId": "postmark-email",
   "serviceName": "StreetTeam Email (Postmark)",
   "version": 1,
-  "logoUrl": "https://streetteam.fm/images/logos/streetteam-logo-icon.png",
+  "logoUrl": "https://streetteam.fm/images/logos/streetteam-logo-black-text.png",
   "description": "Configure DNS records for custom email sending domain with StreetTeam via Postmark",
   "variableDescription": "DKIM selector and values provided by Postmark for email authentication",
   "syncPubKeyDomain": "streetteam.fm",
