@@ -20,12 +20,9 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "v=spf1 include:smtpkit.xyz ~all",
-      "txtConflictMatchingMode": "None",
-      "txtConflictMatchingPrefix": "v=spf1",
-      "ttl": 3600
+      "spfRules": "include:smtpkit.xyz"
     },
     {
       "type": "TXT",
