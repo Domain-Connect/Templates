@@ -4,7 +4,7 @@
   "serviceId":"email",
   "serviceName":"Email Setup",
   "sharedServiceName": true,
-  "version":3,
+  "version":4,
   "logoUrl":"https://mymangomail.com/assets/mango-domain-connect-logo.png",
   "description":"Set up the necessary records to enable Mango Mail email hosting",
   "variableDescription":"verification: Unique identifier to validate domain ownership. selector: DKIM selector value",
@@ -35,14 +35,6 @@
       "data":"v=DMARC1; p=quarantine;",
       "ttl":3600,
       "txtConflictMatchingMode":"All"
-    },
-
-    {
-      "groupId":"setup",
-      "type":"CNAME",
-      "host":"mail._domainkey",
-      "pointsTo":"mail._domainkey.mymangomail.com",
-      "ttl":3600
     },
 
     {

@@ -3,31 +3,38 @@
   "providerName": "Vercel",
   "serviceId": "website",
   "serviceName": "Vercel Websites",
-  "version": 2,
+  "version": 3,
   "description": "Enables a domain to work with Vercel",
   "syncPubKeyDomain": "domainconnect.vercel.com",
   "syncRedirectDomain": "vercel.com",
   "records": [
     {
       "type": "TXT",
-      "groupId": "verification",
+      "groupId": "apex-verification",
       "host": "_vercel",
-      "data": "vc-domain-verify=%verification%",
-      "ttl": 3600
+      "data": "vc-domain-verify=%apex-verification%",
+      "ttl": 600
     },
     {
-      "type":"CNAME",
+      "type": "TXT",
+      "groupId": "subdomain-verification",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%subdomain-verification%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
       "groupId": "subdomain",
       "host": "%subdomain%",
-      "pointsTo": "cname.vercel-dns.com",
-      "ttl":3600
+      "pointsTo": "%cname%",
+      "ttl": 600
     },
     {
       "type": "A",
       "groupId": "apex",
       "host": "@",
-      "pointsTo": "76.76.21.21",
-      "ttl": 3600
+      "pointsTo": "%ip%",
+      "ttl": 600
     }
   ]
 }
