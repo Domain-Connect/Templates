@@ -3,7 +3,7 @@
   "providerName": "SMTPKit",
   "serviceId": "domain-auth",
   "serviceName": "SMTPKit Email Authentication",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://smtpkit.com/og-image.png",
   "description": "Configure SPF, DKIM, and DMARC records for SMTPKit email sending service",
   "variableDescription": "SMTPKit will provide these values during domain setup",
