@@ -2,43 +2,44 @@
   "providerId": "smtpkit.com",
   "providerName": "SMTPKit",
   "serviceId": "domain-auth",
-  "serviceName": "SMTPKit Domain Authentication",
+  "serviceName": "SMTPKit Email Authentication",
   "version": 1,
+  "logoUrl": "https://smtpkit.com/og-image.png",
+  "description": "Configure SPF, DKIM, and DMARC records for SMTPKit email sending service",
+  "variableDescription": "SMTPKit will provide these values during domain setup",
   "syncPubKeyDomain": "smtpkit.com",
   "syncRedirectDomain": "sync.smtpkit.com",
-  "logoUrl": "https://smtpkit.com/assets/media/logo/android-icon-192x192.png",
-  "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by SMTPKit on behalf of the user",
-  "variableDescription": "The variable %smtpkit_code% represents a combination of prefix string and a MD5 hash.  %dkim_selector% and %dkim_selector2% is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated. %dkim_public_key% is the DKIM public key. %dmarc_value% is dmarc value.",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "multiInstance": false,
   "records": [
     {
-      "groupId": "smtpkit_code",
       "type": "TXT",
-      "host": "@",
+      "host": "_smtpkit",
       "data": "%smtpkit_code%",
       "ttl": 3600
     },
     {
-      "groupId": "spf",
-      "type": "SPFM",
-      "spfRules": "include:smtpkit.com",
+      "type": "TXT",
       "host": "@",
+      "data": "v=spf1 include:smtpkit.xyz ~all",
+      "txtConflictMatchingMode": "None",
+      "txtConflictMatchingPrefix": "v=spf1",
       "ttl": 3600
     },
     {
-      "groupId": "dkim_raw",
       "type": "TXT",
       "host": "%dkim_selector%._domainkey",
       "data": "%dkim_public_key%",
       "ttl": 3600
     },
     {
-      "groupId": "dmarc",
       "type": "TXT",
       "host": "_dmarc",
       "data": "%dmarc_value%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "All",
-      "essential": "OnApply"
+      "txtConflictMatchingMode": "None",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "ttl": 3600
     }
   ]
 }
