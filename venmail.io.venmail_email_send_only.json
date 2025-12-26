@@ -1,0 +1,37 @@
+{
+    "providerId": "venmail.io",
+    "providerName": "Venmail",
+    "serviceId": "venmail_email_send_only",
+    "serviceName": "Venmail (Send-Only)",
+    "logoUrl": "https://m.venmail.io/logo.png",
+    "description": "This is a template to enable send-only mail hosting with venmail",
+    "variableDescription": "",
+    "syncBlock": false,
+    "hostRequired": false,
+    "version": 1,
+    "syncPubKeyDomain": "venmail.io",
+    "records": [
+        {
+            "groupId": "venmail-dkim",
+            "type": "TXT",
+            "host": "%dkim_name%._domainkey",
+            "data": "%dkim_data%",
+            "ttl": 600
+        },
+        {
+            "groupId": "venmail-spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "%spf_rules%",
+            "ttl": 600
+        },
+        {
+            "groupId": "venmail-dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "%dmarc_data%",
+            "txtConflictMatchingMode": "All",
+            "ttl": 600
+        }
+    ]
+}
