@@ -18,6 +18,7 @@ Please mark the following checks done
 - [ ] Template functionality checked using [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit)
 - [ ] Template is checked using [template linter](https://github.com/Domain-Connect/dc-template-linter)
 - [ ] Template file name follows the pattern `<providerId>.<serviceId>.json`
+- [ ] resource URL provided with `logoUrl` is actually served by a webserver 
 
 # Example variable values
 <-- to make review process easier please provide example set of variable values for this template -->
