@@ -5,7 +5,7 @@
   "serviceName": "SMTPKit Email Authentication",
   "version": 2,
   "logoUrl": "https://smtpkit.com/og-image.png",
-  "description": "Configure SPF, DKIM, and DMARC records for SMTPKit email sending service",
+  "description": "Configure SPF, DKIM, DMARC, and MX records for SMTPKit email sending service",
   "variableDescription": "SMTPKit will provide these values during domain setup",
   "syncPubKeyDomain": "smtpkit.com",
   "syncRedirectDomain": "sync.smtpkit.com",
@@ -22,7 +22,7 @@
     {
       "type": "SPFM",
       "host": "@",
-      "spfRules": "include:smtpkit.xyz"
+      "spfRules": "include:smtpkit.com"
     },
     {
       "type": "TXT",
@@ -36,6 +36,13 @@
       "data": "%dmarc_value%",
       "txtConflictMatchingMode": "None",
       "txtConflictMatchingPrefix": "v=DMARC1",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.smtpkit.com",
+      "priority": 10,
       "ttl": 3600
     }
   ]
