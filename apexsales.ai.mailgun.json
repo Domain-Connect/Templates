@@ -17,24 +17,28 @@
     {
       "type": "TXT",
       "host": "krs._domainkey.mg",
-      "data": "%dkim_value%"
+      "data": "%dkim_value%",
+      "ttl": 3600
     },
     {
       "type": "MX",
       "host": "mg",
       "pointsTo": "mxa.mailgun.org",
-      "priority": 10
+      "priority": 10,
+      "ttl": 3600
     },
     {
       "type": "MX",
       "host": "mg",
       "pointsTo": "mxb.mailgun.org",
-      "priority": 10
+      "priority": 10,
+      "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "email.mg",
-      "pointsTo": "mailgun.org"
+      "pointsTo": "mailgun.org",
+      "ttl": 3600
     }
   ]
 }
