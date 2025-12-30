@@ -1,0 +1,41 @@
+{
+  "providerId": "apexsales.ai",
+  "providerName": "Apex Sales",
+  "serviceId": "mailgun",
+  "serviceName": "Email Verification",
+  "version": 1,
+  "logoUrl": "https://caspiansol.com/assets/caspian-new-logo-ibH7uW8J.png",
+  "description": "Automatically configures email sending domains for Apex Sales CRM.",
+  "variableDescription": "Enter your Mailgun Domain prefix (e.g. 'mg').",
+  "syncRedirectDomain": "conv.apexsales.ai",
+  "syncPubKeyDomain": "conv.apexsales.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 include:mailgun.org ~all"
+    },
+    {
+      "type": "TXT",
+      "host": "krs._domainkey",
+      "data": "%dkim_value%"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10
+    },
+    {
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "mailgun.org"
+    }
+  ]
+}
