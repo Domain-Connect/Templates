@@ -1,5 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Domain-Connect/templates/master/domain-connect-template-schema.json",
   "providerId": "inb.so",
   "providerName": "INB.so",
   "serviceId": "subdomain",
