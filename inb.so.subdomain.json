@@ -4,11 +4,10 @@
   "serviceId": "subdomain", 
   "serviceName": "INB Order Routing",
   "version": 1,
-  "logoUrl": "https://inb.so/logo.png",
+  ""logoUrl": "https://inb1.lovable.app/inb-logo.png",
   "description": "Creates a subdomain for INB.so order routing",
   "variableDescription": "The subdomain prefix for your order page",
   "hostRequired": true,
-  "syncPubKeyDomain": "inb.so",
   "records": [
     {
       "type": "CNAME",
