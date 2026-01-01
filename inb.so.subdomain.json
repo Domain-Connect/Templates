@@ -1,12 +1,14 @@
 {
+  "$schema": "https://raw.githubusercontent.com/Domain-Connect/templates/master/domain-connect-template-schema.json",
   "providerId": "inb.so",
   "providerName": "INB.so",
-  "serviceId": "subdomain", 
+  "serviceId": "subdomain",
   "serviceName": "INB Order Routing",
   "version": 1,
   "logoUrl": "https://inb1.lovable.app/inb-logo.png",
   "description": "Creates a subdomain for INB.so order routing",
   "variableDescription": "The subdomain prefix for your order page",
+  "warnPhishing": false,
   "hostRequired": true,
   "records": [
     {
