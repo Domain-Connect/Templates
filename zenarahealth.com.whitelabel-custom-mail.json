@@ -10,13 +10,13 @@
   "syncPubKeyDomain": "zenarahealth.com",
   "records": [
     {
-      "type": "A",
+      "type": "CNAME",
       "host": "%host1%",
       "pointsTo": "%record1%",
       "ttl": 600
     },
     {
-      "type": "A",
+      "type": "CNAME",
       "host": "%host2%",
       "pointsTo": "%record2%",
       "ttl": 600
@@ -40,13 +40,13 @@
       "ttl": 600
     },
     {
-      "type": "A",
+      "type": "CNAME",
       "host": "%host3%",
       "pointsTo": "%record3%",
       "ttl": 600
     },
     {
-      "type": "A",
+      "type": "CNAME",
       "host": "%host4%",
       "pointsTo": "%record4%",
       "ttl": 600
