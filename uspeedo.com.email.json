@@ -14,16 +14,14 @@
             "type": "TXT",
             "host": "%host%",
             "data": "%spf_val%",
-            "ttl": 3600,
-            "essential": true
+            "ttl": 3600
         },
         {
             "type": "TXT",
             "host": "%dkim_selector%._domainkey.%host%",
             "data": "%dkim_val%",
             "groupId": "dkim",
-            "ttl": 3600,
-            "essential": true
+            "ttl": 3600
         },
         {
             "type": "MX",
