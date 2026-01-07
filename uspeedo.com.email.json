@@ -1,0 +1,59 @@
+{
+    "providerId": "uspeedo.com",
+    "providerName": "Uspeedo.com",
+    "serviceId": "email",
+    "serviceName": "Uspeedo.com Email",
+    "version": 1,
+    "logoUrl": "https://cdn.uspeedo.com/home-v2/main/logo_en.svg",
+    "description": "Automatically configures DNS records for Uspeedo email services.",
+    "variableDescription": "Configures SPF, DKIM, MX (Primary & Backup), DMARC and Tracking records.",
+    "syncPubKeyDomain": "uspeedo.com",
+    "syncRedirectDomain": "uspeedo.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "%host%",
+            "data": "%spf_val%",
+            "ttl": 3600,
+            "essential": true
+        },
+        {
+            "type": "TXT",
+            "host": "%dkim_selector%._domainkey.%host%",
+            "data": "%dkim_val%",
+            "groupId": "dkim",
+            "ttl": 3600,
+            "essential": true
+        },
+        {
+            "type": "MX",
+            "host": "%host%",
+            "pointsTo": "%mx_primary%",
+            "priority": 10,
+            "groupId": "mx",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "%host%",
+            "pointsTo": "%mx_backup%",
+            "priority": 20,
+            "groupId": "mx",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc.%host%",
+            "data": "%dmarc_val%",
+            "groupId": "dmarc",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%track_host%",
+            "pointsTo": "%track_target%",
+            "groupId": "tracking",
+            "ttl": 3600
+        }
+    ]
+}
