@@ -4,7 +4,7 @@
   "serviceId": "webbuilder-subdomain",
   "serviceName": "AgencyEasy Website (Subdomain)",
   "version": 1,
-  "logoUrl": "https://agencyeasy.com/logo.png",
+  "logoUrl": "https://duhwjqfqbngoexbbpzij.supabase.co/storage/v1/object/public/test%20image/logoipsum-415.png",
   "description": "Connect a subdomain to AgencyEasy for website hosting with automatic SSL",
   "variableDescription": "No variables. Static template.",
   "hostRequired": true,
