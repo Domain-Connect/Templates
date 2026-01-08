@@ -6,52 +6,53 @@
     "version": 1,
     "logoUrl": "https://cdn.uspeedo.com/home-v2/main/logo_en.svg",
     "description": "Automatically configures DNS records for Uspeedo email services.",
-    "variableDescription": "Configures SPF, DKIM, MX (Primary & Backup), DMARC and Tracking records.",
+    "variableDescription": "subdomain: The subdomain prefix (use @ for root domain). spf_val: SPF record value. dkim_selector: DKIM selector. dkim_val: DKIM public key. mx_primary: Primary MX server. mx_backup: Backup MX server. dmarc_val: DMARC policy. track_host: Tracking subdomain. track_target: Tracking CNAME target.",
     "syncPubKeyDomain": "uspeedo.com",
     "syncRedirectDomain": "uspeedo.com",
     "records": [
         {
             "type": "TXT",
-            "host": "%host%",
-            "data": "%spf_val%",
-            "ttl": 3600
+            "host": "%subdomain%",
+            "ttl": "3600",
+            "data": "%spf_val%"
         },
         {
             "type": "TXT",
-            "host": "%dkim_selector%._domainkey.%host%",
-            "data": "%dkim_val%",
             "groupId": "dkim",
-            "ttl": 3600
+            "host": "%dkim_selector%._domainkey.%subdomain%",
+            "ttl": "3600",
+            "data": "%dkim_val%"
         },
         {
             "type": "MX",
-            "host": "%host%",
+            "groupId": "mx",
+            "host": "%subdomain%",
             "pointsTo": "%mx_primary%",
-            "priority": 10,
-            "groupId": "mx",
-            "ttl": 3600
+            "ttl": "3600",
+            "priority": "10"
         },
         {
             "type": "MX",
-            "host": "%host%",
-            "pointsTo": "%mx_backup%",
-            "priority": 20,
             "groupId": "mx",
-            "ttl": 3600
+            "host": "%subdomain%",
+            "pointsTo": "%mx_backup%",
+            "ttl": "3600",
+            "priority": "20"
         },
         {
             "type": "TXT",
-            "host": "_dmarc.%host%",
-            "data": "%dmarc_val%",
             "groupId": "dmarc",
-            "ttl": 3600
+            "host": "_dmarc.%subdomain%",
+            "ttl": "3600",
+            "data": "%dmarc_val%"
         },
         {
             "type": "CNAME",
+            "groupId": "tracking",
             "host": "%track_host%",
             "pointsTo": "%track_target%",
-            "groupId": "tracking",
-            "ttl": 3600
+            "ttl": "3600"
         }
     ]
 }
+
