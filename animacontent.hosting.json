@@ -1,0 +1,34 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Domain-Connect/spec/master/template_schema.json",
+  "providerId": "animacontent",
+  "serviceId": "hosting",
+  "providerName": "AnimaContent",
+  "serviceName": "Website Hosting",
+  "providerDisplayName": "AnimaContent Platform",
+  "serviceDisplayName": "Website Hosting on Vercel",
+  "version": 1,
+  "logoUrl": "https://zumnbsbtxlgknqssjioe.supabase.co/storage/v1/object/public/media/brand/animacontent-logo.png",
+  "description": "Connect your domain to AnimaContent multi-tenant platform hosted on Vercel",
+  "variableDescription": "",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "",
+  "syncRedirectDomain": "",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "multiInstance": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
