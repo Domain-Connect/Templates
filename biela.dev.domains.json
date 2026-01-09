@@ -9,12 +9,6 @@
   "syncBlock": false,
   "logoUrl": "https://biela.dev/assets/biela-logo-zJuJz5eR.svg",
   "variableDescription": "verify: Vercel TXT verification token (optional).",
-  "variables": [
-    {
-      "name": "verify",
-      "description": "Vercel TXT verification token (optional)"
-    }
-  ],
   "records": [
     {
       "groupId": "apex",

@@ -9,20 +9,6 @@
   "syncBlock": false,
   "logoUrl": "https://biela.dev/assets/biela-logo-zJuJz5eR.svg",
   "variableDescription": "verify: Vercel TXT verification token (optional). host: subdomain name. target: CNAME destination.",
-  "variables": [
-    {
-      "name": "verify",
-      "description": "Vercel TXT verification token (optional)"
-    },
-    {
-      "name": "host",
-      "description": "Subdomain name to point to Vercel, e.g., www or * for wildcard"
-    },
-    {
-      "name": "target",
-      "description": "CNAME destination, e.g., cname.vercel-dns.com"
-    }
-  ],
   "records": [
     {
       "groupId": "subdomain-cname",
