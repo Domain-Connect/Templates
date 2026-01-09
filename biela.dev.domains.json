@@ -1,22 +1,18 @@
 {
   "providerId": "biela.dev",
   "providerName": "Biela.dev",
-  "serviceId": "domains",
-  "serviceName": "Biela.dev Domains",
-  "description": "Connect a custom domain to a Vercel-hosted Biela.dev deployment, including optional subdomains",
+  "serviceId": "apex",
+  "serviceName": "Biela.dev Apex Domain",
+  "description": "Connect a custom apex domain (root domain) to a Vercel-hosted Biela.dev deployment",
   "version": 2,
   "syncPubKeyDomain": "domainconnect.biela.dev",
   "syncBlock": false,
   "logoUrl": "https://biela.dev/assets/biela-logo-zJuJz5eR.svg",
-  "variableDescription": "verify: Vercel TXT verification token (optional). target: CNAME destination for subdomains.",
+  "variableDescription": "verify: Vercel TXT verification token (optional).",
   "variables": [
     {
       "name": "verify",
       "description": "Vercel TXT verification token (optional)"
-    },
-    {
-      "name": "target",
-      "description": "CNAME destination for subdomains, e.g., cname.vercel-dns.com"
     }
   ],
   "records": [
@@ -25,13 +21,6 @@
       "type": "A",
       "host": "@",
       "pointsTo": "76.76.21.21",
-      "ttl": 300
-    },
-    {
-      "groupId": "www",
-      "type": "CNAME",
-      "host": "www",
-      "pointsTo": "%target%",
       "ttl": 300
     },
     {
