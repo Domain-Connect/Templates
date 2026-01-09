@@ -1,8 +1,8 @@
 {
   "providerId": "biela.dev",
   "providerName": "Biela.dev",
-  "serviceId": "apex",
-  "serviceName": "Biela.dev Apex Domain",
+  "serviceId": "domains",
+  "serviceName": "Biela.dev Domains",
   "description": "Connect a custom apex domain (root domain) to a Vercel-hosted Biela.dev deployment",
   "version": 2,
   "syncPubKeyDomain": "domainconnect.biela.dev",
