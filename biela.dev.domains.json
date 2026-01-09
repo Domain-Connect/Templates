@@ -1,0 +1,45 @@
+{
+  "providerId": "biela.dev",
+  "providerName": "Biela.dev",
+  "serviceId": "website",
+  "serviceName": "Biela.dev domains",
+  "description": "Connect a custom domain to a Vercel-hosted Biela.dev deployment, including wildcard subdomains",
+  "version": 2,
+  "syncPubKeyDomain": "domainconnect.biela.dev",
+  "syncBlock": false,
+  "logoUrl": "https://biela.dev/assets/biela-logo-zJuJz5eR.svg",
+  "variableDescription": "verify is the Vercel TXT verification token (optional, only if required by Vercel)",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 300
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "2a09:8280::1",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "*",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "%verify%",
+      "ttl": 300,
+      "optional": true
+    }
+  ]
+}
