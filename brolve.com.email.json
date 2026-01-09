@@ -40,13 +40,13 @@
     {
       "type": "CNAME",
       "host": "autodiscover",
-      "data": "eu1.workspace.org",
+      "pointsTo": "eu1.workspace.org",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "mail",
-      "data": "eu1.workspace.org",
+      "pointsTo": "eu1.workspace.org",
       "ttl": 3600
     },
     {
