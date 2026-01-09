@@ -1,0 +1,57 @@
+{
+  "providerId": "lindris.com",
+  "providerName": "Lindris",
+  "serviceId": "domain-authentication",
+  "serviceName": "Lindris Email Domain Authentication",
+  "version": 1,
+  "logoUrl": "https://app.lindris.com/images/logo.png",
+  "description": "Configures DNS records for domain verification and email authentication to send emails through Lindris",
+  "variableDescription": "mail_server is the target Lindris mail server (e.g., m1.lindris.net, m2.lindris.net, eu.lindris.net); dkim_selector is the DKIM key selector (e.g., key1 for shared keys, or unique identifier for dedicated keys); verification_id and verification_hash are unique credentials for domain ownership verification.",
+  "syncPubKeyDomain": "lindris.com",
+  "syncRedirectDomain": "app.lindris.com",
+  "hostRequired": true,
+  "warnPhishing": false,
+  "records": [
+    {
+      "groupId": "email",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%mail_server%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_selector%._domainkey",
+      "pointsTo": "%dkim_selector%._domainkey.%mail_server%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "_dmarc.%mail_server%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "secure",
+      "pointsTo": "track.%mail_server%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "%verification_id%",
+      "data": "%verification_hash%",
+      "ttl": 3600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

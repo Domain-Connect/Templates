@@ -107,8 +107,8 @@ jobs:
           echo "linter_output<<EOF" >> $GITHUB_ENV
           for file in ${ALL_CHANGED_FILES}; do
             echo "Linter result for $file" >> $GITHUB_ENV
-            `go env GOPATH`/bin/dc-template-linter -loglevel info $file 2>> $GITHUB_ENV || true
-            if ! `go env GOPATH`/bin/dc-template-linter -tolerate warn $file; then
+            `go env GOPATH`/bin/dc-template-linter -logos -loglevel info $file 2>> $GITHUB_ENV || true
+            if ! `go env GOPATH`/bin/dc-template-linter -logos -tolerate warn $file; then
                 echo "linter_error=1" >> "$GITHUB_OUTPUT"
                 echo "Linter error for $file"
                 `go env GOPATH`/bin/dc-template-linter -loglevel error $file || true
