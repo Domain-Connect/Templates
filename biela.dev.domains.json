@@ -1,7 +1,7 @@
 {
   "providerId": "biela.dev",
   "providerName": "Biela.dev",
-  "serviceId": "website",
+  "serviceId": "domains",
   "serviceName": "Biela.dev domains",
   "description": "Connect a custom domain to a Vercel-hosted Biela.dev deployment, including wildcard subdomains",
   "version": 2,
