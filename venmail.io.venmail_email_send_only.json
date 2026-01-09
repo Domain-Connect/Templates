@@ -4,10 +4,8 @@
     "serviceId": "venmail_email_send_only",
     "serviceName": "Venmail (Send-Only)",
     "logoUrl": "https://m.venmail.io/logo.png",
-    "description": "This is a template to enable send-only mail hosting with venmail",
-    "variableDescription": "",
-    "syncBlock": false,
-    "hostRequired": false,
+    "description": "Setup your domain for send-only mail hosting with venmail",
+    "variableDescription": "Provide DKIM selector and public key for signing, SPF rules that authorize Venmail to send on your behalf, and a DMARC policy aligned with your domain’s enforcement preference.",
     "version": 1,
     "syncPubKeyDomain": "venmail.io",
     "records": [

@@ -5,9 +5,7 @@
     "serviceName": "Venmail",
     "logoUrl": "https://m.venmail.io/logo.png",
     "description": "This is a template to enable mail hosting with venmail",
-    "variableDescription": "",
-    "syncBlock": false,
-    "hostRequired": false,
+    "variableDescription": "Provide DKIM selector and public key for signing, website CNAME for redirects, MX endpoints, SPF rules for sending, and DMARC policy aligned with your enforcement preference.",
     "version": 1,
     "syncPubKeyDomain": "venmail.io",
     "records": [
