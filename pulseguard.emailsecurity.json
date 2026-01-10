@@ -10,14 +10,12 @@
   "description": "Configure email security records (SPF, DKIM, DMARC) for your domain",
   "records": [
     {
-      "group": "SPF",
       "type": "TXT",
       "host": "@",
       "data": "v=spf1 include:_spf.ipulse.one -all",
       "ttl": 3600
     },
     {
-      "group": "DMARC",
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@ipulse.one",
