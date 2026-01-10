@@ -1,12 +1,12 @@
 {
   "providerId": "pulseguard",
+  "providerName": "PulseGuard",
   "serviceId": "emailsecurity",
+  "serviceName": "Email Security",
   "version": 1,
   "syncBlock": false,
   "syncPubKeyDomain": "pulseguard.pro",
-  "serviceProviderName": "PulseGuard",
-  "serviceName": "Email Security",
-  "logo": "https://ipulse.one/_next/image?url=%2Flogodark.png&w=256&q=75",
+  "logoUrl": "https://ipulse.one/_next/image?url=%2Flogodark.png&w=256&q=75",
   "description": "Configure email security records (SPF, DKIM, DMARC) for your domain",
   "records": [
     {
