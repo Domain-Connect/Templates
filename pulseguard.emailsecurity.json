@@ -1,0 +1,27 @@
+{
+  "providerId": "pulseguard",
+  "serviceId": "emailsecurity",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "pulseguard.pro",
+  "serviceProviderName": "PulseGuard",
+  "serviceName": "Email Security",
+  "logo": "https://ipulse.one/_next/image?url=%2Flogodark.png&w=256&q=75",
+  "description": "Configure email security records (SPF, DKIM, DMARC) for your domain",
+  "records": [
+    {
+      "group": "SPF",
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 include:_spf.ipulse.one -all",
+      "ttl": 3600
+    },
+    {
+      "group": "DMARC",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@ipulse.one",
+      "ttl": 3600
+    }
+  ]
+}
