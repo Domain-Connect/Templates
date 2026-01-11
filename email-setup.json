@@ -1,0 +1,23 @@
+{
+  "providerId": "cleanwiz",
+  "serviceId": "email-setup",
+  "version": 1,
+  "name": "CleanWiz Email Setup",
+  "logoUrl": "https://app.cleanwiz.ai/logo.png",
+  "description": "Automatically configure DNS records for CleanWiz email notifications.",
+  "variableDescription": "Your domain configuration parameters",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%rpPrefix%",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": 3600
+    }
+  ]
+}
