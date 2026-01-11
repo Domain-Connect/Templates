@@ -4,7 +4,6 @@
   "serviceId": "email-setup",
   "serviceName": "Email Setup",
   "version": 1,
-  "name": "CleanWiz Email Setup",
   "logoUrl": "https://app.cleanwiz.ai/logo.png",
   "description": "Automatically configure DNS records for CleanWiz email notifications.",
   "variableDescription": "Your domain configuration parameters",
