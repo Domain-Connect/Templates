@@ -1,6 +1,8 @@
 {
   "providerId": "cleanwiz",
+  "providerName": "CleanWiz",
   "serviceId": "email-setup",
+  "serviceName": "Email Setup",
   "version": 1,
   "name": "CleanWiz Email Setup",
   "logoUrl": "https://app.cleanwiz.ai/logo.png",
