@@ -5,6 +5,7 @@
   "serviceName": "Brolve Email Hosting",
   "version": 1,
   "syncPubKeyDomain": "brolve.com",
+  "syncRedirectDomain": "brolve.com",
   "logoUrl": "https://brolve.com/favicon.ico",
   "description": "Enables you to create a professional email",
   "variableDescription": "emailverification is the verification code for the email service, workspaceVerification is the verification code for workspace service",
