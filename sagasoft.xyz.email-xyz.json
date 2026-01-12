@@ -1,11 +1,11 @@
 {
-    "providerId": "sagasoft.io",
+    "providerId": "sagasoft.xyz",
     "providerName": "SagaSoft",
     "serviceId": "email-xyz",
     "serviceName": "SagaSoft-xyz",
     "version": 1,
     "syncPubKeyDomain": "sagasoft.xyz",
-    "logoUrl": "https://sagasoft.io/static/media/logo.b4e1e079185540b34b1f.png",
+    "logoUrl": "https://sagasoft.xyz/static/media/logo.b4e1e079185540b34b1f.png",
     "description": "Configure professional email with SPF, DKIM, DMARC, and MX records",
     "variableDescription": "SPFTXT for  SPF, DOMAINKEY is part of DKIM record, DMARCTXT for DMARC, MXTXT for MX, VERIFYTXT is the verification code for the email service",
     "records": [
