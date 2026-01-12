@@ -1,24 +1,34 @@
-{
-  "providerId": "cleanwiz",
-  "providerName": "CleanWiz",
-  "serviceId": "email-setup",
-  "serviceName": "Email Setup",
-  "version": 1,
-  "logoUrl": "https://app.cleanwiz.ai/logo.png",
-  "description": "Automatically configure DNS records for CleanWiz email notifications.",
-  "variableDescription": "Your domain configuration parameters",
-  "records": [
-    {
-      "type": "TXT",
-      "host": "%dkimSelector%._domainkey",
-      "data": "%dkimValue%",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "%rpPrefix%",
-      "pointsTo": "pm.mtasv.net",
-      "ttl": 3600
-    }
-  ]
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://app.cleanwiz.ai';
+
+    const template = {
+        "providerId": "cleanwiz",
+        "serviceId": "email-setup",
+        "providerName": "CleanWiz",
+        "serviceName": "Email Setup",
+        "version": 1,
+        "logoUrl": `${appUrl}/cleanwiz-logo.png`, // Fixed Logo URL
+        "description": "Configures DNS for CleanWiz Email & Authentication.",
+        "variableDescription": "Configures CNAME and TXT records for your domain.",
+        "syncPubKeyDomain": "cleanwiz.ai", // Domain hosting the public key for signature verification
+        "records": [
+            {
+                "type": "CNAME",
+                "host": "dc",
+                "pointsTo": "domainconnect.cleanwiz.ai",
+                "ttl": 3600
+            },
+
+            {
+                "type": "TXT",
+                "host": "_dmarc",
+                "data": "v=DMARC1; p=none;",
+                "ttl": 3600
+            }
+        ]
+    };
+
+    return NextResponse.json(template);
 }
