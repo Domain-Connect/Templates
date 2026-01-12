@@ -7,13 +7,14 @@
   "version": 2,
   "syncPubKeyDomain": "subdomainsconnect.biela.dev",
   "syncBlock": false,
+  "hostRequired": true,
   "logoUrl": "https://biela.dev/assets/biela-logo-zJuJz5eR.svg",
   "variableDescription": "verify: Vercel TXT verification token (optional). host: subdomain name. target: CNAME destination.",
   "records": [
     {
       "groupId": "subdomain-cname",
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "%target%",
       "ttl": 300
     },
