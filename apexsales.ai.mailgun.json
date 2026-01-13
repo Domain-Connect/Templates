@@ -10,9 +10,10 @@
   "syncPubKeyDomain": "conv.apexsales.ai",
   "records": [
     {
-      "type": "SPFM",
+      "type": "TXT",
       "host": "mg",
-      "spfRules": "include:mailgun.org"
+      "data": "v=spf1 include:mailgun.org ~all",
+      "ttl": 3600
     },
     {
       "type": "TXT",
@@ -38,6 +39,12 @@
       "type": "CNAME",
       "host": "email.mg",
       "pointsTo": "mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc.mg",
+      "data": "v=DMARC1; p=none;",
       "ttl": 3600
     }
   ]
