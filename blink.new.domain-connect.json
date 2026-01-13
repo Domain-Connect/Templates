@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://blink.new/blink/blink-logo-icon--dark.svg",
   "description": "Connect your domain to Blink for website hosting, subdomains, and email services",
-  "variableDescription": "ip1/ip2: A record IPs. host: subdomain name. target: CNAME destination. verification: domain verification token. acm_host/acm_target: SSL validation CNAME. mx1/mx2: MX record servers. spf: SPF include rule. dkim_selector/dkim_value: DKIM key.",
+  "variableDescription": "ip: primary A record IP. ip2: secondary A record IP (optional). subdomain: subdomain name. target: CNAME destination. verification: domain verification token. acm_host/acm_target: SSL validation CNAME. mx1/mx2: MX record servers. spf: SPF include rule. dkim_selector/dkim_value: DKIM key.",
   "syncPubKeyDomain": "domainconnect.blink.new",
   "syncRedirectDomain": "blink.new,api.blink.new,app.blink.new",
   "hostRequired": false,
@@ -23,11 +23,11 @@
       "groupId": "apex",
       "type": "A",
       "host": "@",
-      "pointsTo": "%ip1%",
+      "pointsTo": "%ip%",
       "ttl": 600
     },
     {
-      "groupId": "apex",
+      "groupId": "apex-redundant",
       "type": "A",
       "host": "@",
       "pointsTo": "%ip2%",
@@ -43,7 +43,7 @@
     {
       "groupId": "subdomain",
       "type": "CNAME",
-      "host": "%host%",
+      "host": "%subdomain%",
       "pointsTo": "%target%",
       "ttl": 600
     },
@@ -88,9 +88,7 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=quarantine; rua=mailto:%dmarc_email%",
-      "txtConflictMatchingMode": "All",
       "ttl": 600
     }
   ]
 }
-
