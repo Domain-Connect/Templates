@@ -1,0 +1,39 @@
+{
+  "providerId": "po6.com",
+  "providerName": "PO6 Email Forwarding",
+  "serviceId": "email-forwarding",
+  "serviceName": "PO6 Email Forwarding",
+  "version": 1,
+  "logoUrl": "https://po6.com/logo.svg",
+  "description": "Configure your domain for PO6 email forwarding service. Sets up ownership verification, email verification, and MX records for email routing.",
+  "syncRedirectDomain": "po6.com",
+  "variableDescription": "po6Token: PO6 ownership verification token, sesToken: AWS SES verification token",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_po6-verify",
+      "data": "%po6Token%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%sesToken%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.po6.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.po6.com",
+      "priority": 20,
+      "ttl": 3600
+    }
+  ]
+}
