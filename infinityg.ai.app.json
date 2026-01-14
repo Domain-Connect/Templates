@@ -1,0 +1,34 @@
+{
+  "providerId": "infinityg.ai",
+  "providerName": "Infinity Ground",
+  "serviceId": "app",
+  "serviceName": "Bind App Domain",
+  "version": 1,
+  "logoUrl": "https://www.infinityg.ai/logo.svg",
+  "description": "Setup a domain to work with Infinity Ground",
+  "syncBlock": false,
+  "syncPubKeyDomain": "synckeys.infinityg.ai",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "variableDescription":"verify is the verification value for the site",
+  "records": [
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"52.221.60.121",
+         "ttl":300
+      },
+      {  
+         "type":"A",
+         "host":"www",
+         "pointsTo":"52.221.60.121",
+         "ttl":300
+      },
+      {
+         "type":"TXT",
+         "host": "_infinityg-domain-verify",
+         "data": "%verify%",
+         "ttl":300
+      }
+  ]
+}
