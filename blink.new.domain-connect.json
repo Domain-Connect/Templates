@@ -88,7 +88,9 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=quarantine; rua=mailto:%dmarc_email%",
-      "ttl": 600
+      "ttl": 600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
     }
   ]
 }
