@@ -3,10 +3,11 @@
   "providerName": "PO6 Email Forwarding",
   "serviceId": "email-forwarding",
   "serviceName": "PO6 Email Forwarding",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://po6.com/logo.svg",
   "description": "Configure your domain for PO6 email forwarding service. Sets up ownership verification, email verification, and MX records for email routing.",
   "syncRedirectDomain": "po6.com",
+  "syncPubKeyDomain": "po6.com",
   "variableDescription": "po6Token: PO6 ownership verification token, sesToken: AWS SES verification token",
   "records": [
     {
