@@ -6,12 +6,10 @@
   "version": 2,
   "logoUrl": "https://smtpkit.com/og-image.png",
   "description": "Configure SPF, DKIM, DMARC, and MX records for SMTPKit email sending service",
-  "variableDescription": "SMTPKit will provide these values during domain setup",
+  "variableDescription": "The variable %smtpkit_code% is a unique verification token. %dkim_selector% is the DKIM selector for the public key placement (dynamically generated). %dkim_public_key% is the DKIM public key. %dmarc_value% is the complete DMARC policy value.",
   "syncPubKeyDomain": "smtpkit.com",
   "syncRedirectDomain": "sync.smtpkit.com",
   "warnPhishing": true,
-  "hostRequired": false,
-  "multiInstance": false,
   "records": [
     {
       "type": "TXT",
@@ -34,8 +32,7 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "%dmarc_value%",
-      "txtConflictMatchingMode": "None",
-      "txtConflictMatchingPrefix": "v=DMARC1",
+      "txtConflictMatchingMode": "All",
       "ttl": 3600
     },
     {
