@@ -10,7 +10,7 @@
   "shared": false,
   "multiInstance": false,
   "version": 1,
-  "logoUrl": "https://verkh.io/logo.png",
+  "logoUrl": "https://verkh.io/logo.svg",
   "hostRequired": false,
   "warnPhishing": false,
   "variables": [
