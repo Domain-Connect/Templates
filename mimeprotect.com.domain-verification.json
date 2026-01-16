@@ -1,0 +1,21 @@
+{
+  "providerId": "mimeprotect.com",
+  "providerName": "MimeProtect",
+  "serviceId": "domain-verification",
+  "serviceName": "MimeProtect Domain Verification",
+  "version": 1,
+  "logoUrl": "https://mimeprotect.com/logo.svg",
+  "syncRedirectDomain": "app.mimeprotect.com",
+  "description": "Verify domain ownership for MimeProtect email security services.",
+  "variableDescription": "%verificationToken%: Your unique domain verification token from MimeProtect",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%verificationToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mimeprotect-verify="
+    }
+  ]
+}

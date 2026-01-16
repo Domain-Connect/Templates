@@ -1,0 +1,19 @@
+{
+  "providerId": "mimeprotect.com",
+  "providerName": "MimeProtect",
+  "serviceId": "tlsrpt",
+  "serviceName": "MimeProtect TLS-RPT",
+  "version": 1,
+  "logoUrl": "https://mimeprotect.com/logo.svg",
+  "syncRedirectDomain": "app.mimeprotect.com",
+  "description": "Enable TLS-RPT (SMTP TLS Reporting) to receive reports about TLS connection failures for your domain.",
+  "variableDescription": "%domain%: Your domain name",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_smtp._tls",
+      "pointsTo": "_smtp._tls.%domain%.zone.mimeprotect.com",
+      "ttl": 3600
+    }
+  ]
+}

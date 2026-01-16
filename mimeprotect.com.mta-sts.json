@@ -1,0 +1,25 @@
+{
+  "providerId": "mimeprotect.com",
+  "providerName": "MimeProtect",
+  "serviceId": "mta-sts",
+  "serviceName": "MimeProtect MTA-STS",
+  "version": 1,
+  "logoUrl": "https://mimeprotect.com/logo.svg",
+  "syncRedirectDomain": "app.mimeprotect.com",
+  "description": "Enable MTA-STS (Mail Transfer Agent Strict Transport Security) to enforce TLS encryption for incoming email.",
+  "variableDescription": "%domain%: Your domain name",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_mta-sts",
+      "pointsTo": "_mta-sts.%domain%.zone.mimeprotect.com",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "cname.mimeprotect.com",
+      "ttl": 3600
+    }
+  ]
+}

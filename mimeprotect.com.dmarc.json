@@ -1,0 +1,19 @@
+{
+  "providerId": "mimeprotect.com",
+  "providerName": "MimeProtect",
+  "serviceId": "dmarc",
+  "serviceName": "MimeProtect DMARC",
+  "version": 1,
+  "logoUrl": "https://mimeprotect.com/logo.svg",
+  "syncRedirectDomain": "app.mimeprotect.com",
+  "description": "Enable DMARC reporting and policy management with MimeProtect. Monitor email authentication and protect against spoofing.",
+  "variableDescription": "%domain%: Your domain name",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "_dmarc.%domain%.zone.mimeprotect.com",
+      "ttl": 3600
+    }
+  ]
+}

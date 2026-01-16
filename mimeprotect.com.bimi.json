@@ -1,0 +1,19 @@
+{
+  "providerId": "mimeprotect.com",
+  "providerName": "MimeProtect",
+  "serviceId": "bimi",
+  "serviceName": "MimeProtect BIMI",
+  "version": 1,
+  "logoUrl": "https://mimeprotect.com/logo.svg",
+  "syncRedirectDomain": "app.mimeprotect.com",
+  "description": "Enable BIMI (Brand Indicators for Message Identification) to display your brand logo in supporting email clients.",
+  "variableDescription": "%domain%: Your domain name; %bimiSelector%: BIMI selector name (typically 'default')",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%bimiSelector%._bimi",
+      "pointsTo": "%bimiSelector%._bimi.%domain%.zone.mimeprotect.com",
+      "ttl": 3600
+    }
+  ]
+}
