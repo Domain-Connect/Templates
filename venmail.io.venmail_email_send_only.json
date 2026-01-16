@@ -1,0 +1,35 @@
+{
+    "providerId": "venmail.io",
+    "providerName": "Venmail",
+    "serviceId": "venmail_email_send_only",
+    "serviceName": "Venmail (Send-Only)",
+    "logoUrl": "https://m.venmail.io/logo.png",
+    "description": "Setup your domain for send-only mail hosting with venmail",
+    "variableDescription": "Provide DKIM selector and public key for signing, SPF rules that authorize Venmail to send on your behalf, and a DMARC policy aligned with your domain’s enforcement preference.",
+    "version": 1,
+    "syncPubKeyDomain": "venmail.io",
+    "records": [
+        {
+            "groupId": "venmail-dkim",
+            "type": "TXT",
+            "host": "%dkim_name%._domainkey",
+            "data": "%dkim_data%",
+            "ttl": 600
+        },
+        {
+            "groupId": "venmail-spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "%spf_rules%",
+            "ttl": 600
+        },
+        {
+            "groupId": "venmail-dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "%dmarc_data%",
+            "txtConflictMatchingMode": "All",
+            "ttl": 600
+        }
+    ]
+}
