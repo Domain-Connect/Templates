@@ -4,7 +4,7 @@
   "serviceId": "verify",
   "serviceName": "Domain Verification",
   "description": "Add a TXT record to verify domain ownership for Verkh",
-  "variableDescription": "Verification token",
+  "variableDescription": "token: Unique verification token provided by Verkh",
   "syncPubKeyDomain": "_domainconnect.verkh.io",
   "syncRedirectDomain": "verkh.io",
   "syncBlock": false,
@@ -14,15 +14,6 @@
   "logoUrl": "https://verkh.io/logo.svg",
   "hostRequired": false,
   "warnPhishing": false,
-  "variables": [
-    {
-      "name": "token",
-      "display": "Verification Token",
-      "description": "Unique verification token",
-      "required": true,
-      "type": "string"
-    }
-  ],
   "records": [
     {
       "type": "TXT",

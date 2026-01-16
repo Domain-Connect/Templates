@@ -4,7 +4,7 @@
   "serviceId": "spf",
   "serviceName": "SPF Email Authentication",
   "description": "Configure SPF record to authorize email senders for your domain",
-  "variableDescription": "Specify authorized email servers",
+  "variableDescription": "spfRecord: Complete SPF record value (e.g. v=spf1 include:_spf.google.com ~all)",
   "syncPubKeyDomain": "_domainconnect.verkh.io",
   "syncRedirectDomain": "verkh.io",
   "syncBlock": false,
@@ -14,16 +14,6 @@
   "logoUrl": "https://verkh.io/logo.svg",
   "hostRequired": false,
   "warnPhishing": false,
-  "variables": [
-    {
-      "name": "spfRecord",
-      "display": "SPF Record",
-      "description": "Complete SPF record value",
-      "default": "v=spf1 ~all",
-      "required": true,
-      "type": "string"
-    }
-  ],
   "records": [
     {
       "type": "SPFM",

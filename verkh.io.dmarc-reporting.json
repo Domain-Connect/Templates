@@ -4,7 +4,7 @@
   "serviceId": "dmarc-reporting",
   "serviceName": "DMARC with Reporting",
   "description": "Configure DMARC policy with aggregate reporting to Verkh",
-  "variableDescription": "Set your DMARC policy and reporting email addresses",
+  "variableDescription": "policy: DMARC policy (none, quarantine, reject). rua: Report email address. pct: Percentage (default 100)",
   "syncPubKeyDomain": "_domainconnect.verkh.io",
   "syncRedirectDomain": "verkh.io",
   "syncBlock": false,
@@ -14,31 +14,6 @@
   "logoUrl": "https://verkh.io/logo.svg",
   "hostRequired": false,
   "warnPhishing": false,
-  "variables": [
-    {
-      "name": "policy",
-      "display": "DMARC Policy",
-      "description": "The DMARC policy (none, quarantine, reject)",
-      "default": "none",
-      "required": true,
-      "type": "string"
-    },
-    {
-      "name": "rua",
-      "display": "Aggregate Report Email",
-      "description": "Email address to receive aggregate DMARC reports",
-      "required": true,
-      "type": "string"
-    },
-    {
-      "name": "pct",
-      "display": "Percentage",
-      "description": "Percentage of messages to apply policy to",
-      "default": "100",
-      "required": false,
-      "type": "string"
-    }
-  ],
   "records": [
     {
       "type": "TXT",
