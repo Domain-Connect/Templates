@@ -1,7 +1,8 @@
 {
   "providerId": "verkh.io",
+  "providerName": "Verkh",
   "serviceId": "verify",
-  "name": "Domain Verification",
+  "serviceName": "Domain Verification",
   "description": "Add a TXT record to verify domain ownership for Verkh",
   "variableDescription": "Verification token",
   "syncPubKeyDomain": "_domainconnect.verkh.io",

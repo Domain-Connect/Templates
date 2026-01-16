@@ -1,7 +1,8 @@
 {
   "providerId": "verkh.io",
+  "providerName": "Verkh",
   "serviceId": "dmarc-reporting",
-  "name": "DMARC with Reporting",
+  "serviceName": "DMARC with Reporting",
   "description": "Configure DMARC policy with aggregate reporting to Verkh",
   "variableDescription": "Set your DMARC policy and reporting email addresses",
   "syncPubKeyDomain": "_domainconnect.verkh.io",

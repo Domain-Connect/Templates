@@ -1,7 +1,8 @@
 {
   "providerId": "verkh.io",
+  "providerName": "Verkh",
   "serviceId": "dmarc",
-  "name": "DMARC Email Authentication",
+  "serviceName": "DMARC Email Authentication",
   "description": "Configure DMARC policy to protect your domain from email spoofing",
   "variableDescription": "Set your DMARC policy and reporting preferences",
   "syncPubKeyDomain": "_domainconnect.verkh.io",
