@@ -5,7 +5,8 @@
   "serviceName": "MimeProtect DMARC",
   "version": 1,
   "logoUrl": "https://mimeprotect.com/logo.svg",
-  "syncRedirectDomain": "app.mimeprotect.com",
+  "syncPubKeyDomain": "zone.mimeprotect.com",
+  "syncRedirectDomain": "mimeprotect.com",
   "description": "Enable DMARC reporting and policy management with MimeProtect. Monitor email authentication and protect against spoofing.",
   "variableDescription": "%domain%: Your domain name",
   "records": [

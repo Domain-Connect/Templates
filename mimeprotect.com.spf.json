@@ -5,7 +5,8 @@
   "serviceName": "MimeProtect SPF",
   "version": 1,
   "logoUrl": "https://mimeprotect.com/logo.svg",
-  "syncRedirectDomain": "app.mimeprotect.com",
+  "syncPubKeyDomain": "zone.mimeprotect.com",
+  "syncRedirectDomain": "mimeprotect.com",
   "description": "Enable SPF hosting with automatic flattening. MimeProtect manages your SPF record to stay within DNS lookup limits.",
   "variableDescription": "%domain%: Your domain name",
   "records": [

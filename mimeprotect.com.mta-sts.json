@@ -5,7 +5,8 @@
   "serviceName": "MimeProtect MTA-STS",
   "version": 1,
   "logoUrl": "https://mimeprotect.com/logo.svg",
-  "syncRedirectDomain": "app.mimeprotect.com",
+  "syncPubKeyDomain": "zone.mimeprotect.com",
+  "syncRedirectDomain": "mimeprotect.com",
   "description": "Enable MTA-STS (Mail Transfer Agent Strict Transport Security) to enforce TLS encryption for incoming email.",
   "variableDescription": "%domain%: Your domain name",
   "records": [

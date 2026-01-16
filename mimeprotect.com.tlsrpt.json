@@ -5,7 +5,8 @@
   "serviceName": "MimeProtect TLS-RPT",
   "version": 1,
   "logoUrl": "https://mimeprotect.com/logo.svg",
-  "syncRedirectDomain": "app.mimeprotect.com",
+  "syncPubKeyDomain": "zone.mimeprotect.com",
+  "syncRedirectDomain": "mimeprotect.com",
   "description": "Enable TLS-RPT (SMTP TLS Reporting) to receive reports about TLS connection failures for your domain.",
   "variableDescription": "%domain%: Your domain name",
   "records": [

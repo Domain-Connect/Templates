@@ -5,7 +5,8 @@
   "serviceName": "MimeProtect BIMI",
   "version": 1,
   "logoUrl": "https://mimeprotect.com/logo.svg",
-  "syncRedirectDomain": "app.mimeprotect.com",
+  "syncPubKeyDomain": "zone.mimeprotect.com",
+  "syncRedirectDomain": "mimeprotect.com",
   "description": "Enable BIMI (Brand Indicators for Message Identification) to display your brand logo in supporting email clients.",
   "variableDescription": "%domain%: Your domain name; %bimiSelector%: BIMI selector name (typically 'default')",
   "records": [
