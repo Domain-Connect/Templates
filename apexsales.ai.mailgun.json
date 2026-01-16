@@ -3,7 +3,7 @@
   "providerName": "Apex Sales",
   "serviceId": "mailgun",
   "serviceName": "Email Verification",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://caspiansol.com/assets/caspian-new-logo-ibH7uW8J.png",
   "description": "Configures Mailgun for mg.apexsales.ai",
   "syncRedirectDomain": "conv.apexsales.ai",
@@ -38,6 +38,12 @@
       "type": "CNAME",
       "host": "email.mg",
       "pointsTo": "mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc.mg",
+      "data": "v=DMARC1; p=none;",
       "ttl": 3600
     }
   ]
