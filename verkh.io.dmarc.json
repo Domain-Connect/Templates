@@ -1,0 +1,27 @@
+{
+  "providerId": "verkh.io",
+  "providerName": "Verkh",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC Email Authentication",
+  "description": "Configure DMARC policy to protect your domain from email spoofing",
+  "variableDescription": "policy: DMARC policy (none, quarantine, reject). pct: Percentage of messages (default 100)",
+  "syncPubKeyDomain": "_domainconnect.verkh.io",
+  "syncRedirectDomain": "verkh.io",
+  "syncBlock": false,
+  "shared": false,
+  "multiInstance": false,
+  "version": 1,
+  "logoUrl": "https://verkh.io/logo.svg",
+  "hostRequired": false,
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%; pct=%pct%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "Always"
+    }
+  ]
+}
