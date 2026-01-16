@@ -1,11 +1,11 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "providerId": "verkh.io",
   "serviceId": "dmarc",
   "name": "DMARC Email Authentication",
   "description": "Configure DMARC policy to protect your domain from email spoofing",
   "variableDescription": "Set your DMARC policy and reporting preferences",
   "syncPubKeyDomain": "_domainconnect.verkh.io",
+  "syncRedirectDomain": "verkh.io",
   "syncBlock": false,
   "shared": false,
   "multiInstance": false,
@@ -36,7 +36,9 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=%policy%; pct=%pct%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "Always"
     }
   ]
 }
