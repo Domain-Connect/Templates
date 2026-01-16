@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "providerId": "verkh.io",
+  "serviceId": "spf",
+  "name": "SPF Email Authentication",
+  "description": "Configure SPF record to authorize email senders for your domain",
+  "variableDescription": "Specify authorized email servers",
+  "syncPubKeyDomain": "_domainconnect.verkh.io",
+  "syncBlock": false,
+  "shared": false,
+  "multiInstance": false,
+  "version": 1,
+  "logoUrl": "https://verkh.io/logo.png",
+  "hostRequired": false,
+  "warnPhishing": false,
+  "variables": [
+    {
+      "name": "spfRecord",
+      "display": "SPF Record",
+      "description": "Complete SPF record value",
+      "default": "v=spf1 ~all",
+      "required": true,
+      "type": "string"
+    }
+  ],
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spfRecord%",
+      "ttl": 3600
+    }
+  ]
+}

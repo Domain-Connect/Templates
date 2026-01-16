@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "providerId": "verkh.io",
+  "serviceId": "verify",
+  "name": "Domain Verification",
+  "description": "Add a TXT record to verify domain ownership",
+  "variableDescription": "Verification token",
+  "syncPubKeyDomain": "_domainconnect.verkh.io",
+  "syncBlock": false,
+  "shared": false,
+  "multiInstance": false,
+  "version": 1,
+  "logoUrl": "https://verkh.io/logo.png",
+  "hostRequired": false,
+  "warnPhishing": false,
+  "variables": [
+    {
+      "name": "token",
+      "display": "Verification Token",
+      "description": "Unique verification token",
+      "required": true,
+      "type": "string"
+    }
+  ],
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "verkh-verification=%token%",
+      "ttl": 3600
+    }
+  ]
+}

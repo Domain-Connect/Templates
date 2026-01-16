@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "providerId": "verkh.io",
+  "serviceId": "dmarc-reporting",
+  "name": "DMARC with Reporting",
+  "description": "Configure DMARC policy with aggregate and forensic reporting",
+  "variableDescription": "Set your DMARC policy and reporting email addresses",
+  "syncPubKeyDomain": "_domainconnect.verkh.io",
+  "syncBlock": false,
+  "shared": false,
+  "multiInstance": false,
+  "version": 1,
+  "logoUrl": "https://verkh.io/logo.png",
+  "hostRequired": false,
+  "warnPhishing": false,
+  "variables": [
+    {
+      "name": "policy",
+      "display": "DMARC Policy",
+      "description": "The DMARC policy (none, quarantine, reject)",
+      "default": "none",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "name": "rua",
+      "display": "Aggregate Report Email",
+      "description": "Email address to receive aggregate DMARC reports",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "name": "pct",
+      "display": "Percentage",
+      "description": "Percentage of messages to apply policy to",
+      "default": "100",
+      "required": false,
+      "type": "string"
+    }
+  ],
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%; pct=%pct%; rua=mailto:%rua%",
+      "ttl": 3600
+    }
+  ]
+}
