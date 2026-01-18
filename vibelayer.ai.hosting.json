@@ -1,0 +1,33 @@
+{
+  "providerId": "vibelayer.ai",
+  "providerName": "VibeLayer",
+  "serviceId": "hosting",
+  "serviceName": "VibeLayer Store Hosting",
+  "version": 1,
+  "logoUrl": "https://vibelayer.ai/logo.svg",
+  "description": "Connect your domain to your VibeLayer e-commerce store for custom domain hosting with automatic SSL.",
+  "variableDescription": "verification: Your unique domain verification token from VibeLayer dashboard",
+  "syncRedirectDomain": "vibelayer.ai",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "vibelayer-verification=%verification%",
+      "ttl": 3600
+    }
+  ]
+}
