@@ -1,0 +1,96 @@
+{
+  "providerId": "blink.new",
+  "providerName": "Blink",
+  "serviceId": "domain-connect",
+  "serviceName": "Blink Domain Connect",
+  "version": 1,
+  "logoUrl": "https://blink.new/blink/blink-logo-icon--dark.svg",
+  "description": "Connect your domain to Blink for website hosting, subdomains, and email services",
+  "variableDescription": "ip: primary A record IP. ip2: secondary A record IP (optional). subdomain: subdomain name. target: CNAME destination. verification: domain verification token. acm_host/acm_target: SSL validation CNAME. mx1/mx2: MX record servers. spf: SPF include rule. dkim_selector/dkim_value: DKIM key.",
+  "syncPubKeyDomain": "domainconnect.blink.new",
+  "syncRedirectDomain": "blink.new,api.blink.new,app.blink.new",
+  "hostRequired": false,
+  "syncBlock": false,
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_blink",
+      "data": "blink-verify=%verification%",
+      "ttl": 600
+    },
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "apex-redundant",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": 600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 600
+    },
+    {
+      "groupId": "subdomain",
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "%target%",
+      "ttl": 600
+    },
+    {
+      "groupId": "acm-validation",
+      "type": "CNAME",
+      "host": "%acm_host%",
+      "pointsTo": "%acm_target%",
+      "ttl": 600
+    },
+    {
+      "groupId": "mx-primary",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx1%",
+      "priority": 10,
+      "ttl": 600
+    },
+    {
+      "groupId": "mx-secondary",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx2%",
+      "priority": 20,
+      "ttl": 600
+    },
+    {
+      "groupId": "email-spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%spf%"
+    },
+    {
+      "groupId": "email-dkim",
+      "type": "TXT",
+      "host": "%dkim_selector%._domainkey",
+      "data": "%dkim_value%",
+      "ttl": 600
+    },
+    {
+      "groupId": "email-dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:%dmarc_email%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
