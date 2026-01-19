@@ -1,0 +1,34 @@
+{
+  "providerId": "mcp-use.com",
+  "providerName": "mcp-use",
+  "serviceId": "custom-domain",
+  "serviceName": "mcp-use Custom Domains",
+  "version": 1,
+  "logoUrl": "https://mcp-use.com/logo.png",
+  "description": "Enables a custom domain to work with mcp-use MCP servers deployments",
+  "variableDescription": "verification: Domain ownership verification token. subdomain: The subdomain to configure (e.g., mcp). ip: Static IP address for apex domain routing.",
+  "syncPubKeyDomain": "domainconnect.mcp-use.com",
+  "syncRedirectDomain": "mcp-use.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_mcp-use-verification",
+      "data": "mcp-use-verify=%verification%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "subdomain",
+      "host": "%subdomain%",
+      "pointsTo": "gateway.mcp-use.run",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "groupId": "apex",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    }
+  ]
+}
