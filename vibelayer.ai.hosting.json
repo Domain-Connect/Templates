@@ -4,7 +4,7 @@
   "serviceId": "hosting",
   "serviceName": "VibeLayer Store Hosting",
   "version": 1,
-  "logoUrl": "https://vibelayer.ai/logo.svg",
+  "logoUrl": "https://www.vibelayer.ai/logos/logo-dark.svg",
   "description": "Connect your domain to your VibeLayer e-commerce store for custom domain hosting with automatic SSL.",
   "variableDescription": "verification: Your unique domain verification token from VibeLayer dashboard",
   "syncRedirectDomain": "vibelayer.ai",
