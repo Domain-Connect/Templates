@@ -1,0 +1,42 @@
+{
+  "providerId": "tigermail.io",
+  "providerName": "TigerMail",
+  "serviceId": "email-send",
+  "serviceName": "Email Sending",
+  "version": 1,
+  "logoUrl": "https://tigermail.io/logo.svg",
+  "description": "Configure DNS records for sending emails with TigerMail. Adds DKIM, SPF, DMARC, and verification records.",
+  "variableDescription": "Domain verification token from TigerMail dashboard",
+  "syncPubKeyDomain": "tigermail.io",
+  "syncRedirectDomain": "tigermail.io",
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "tigermail-verification=%verificationToken%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimSelector%._domainkey",
+      "pointsTo": "%dkimSelector%._domainkey.%domain%.dkim.tigermail.io",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.tigermail.io",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%domain%",
+      "ttl": 3600
+    }
+  ]
+}
