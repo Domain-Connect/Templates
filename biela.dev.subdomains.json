@@ -1,0 +1,29 @@
+{
+  "providerId": "biela.dev",
+  "providerName": "Biela.dev",
+  "serviceId": "subdomains",
+  "serviceName": "Biela.dev Subdomains",
+  "description": "Connect a custom subdomain to a Vercel-hosted Biela.dev deployment",
+  "version": 2,
+  "syncPubKeyDomain": "subdomainsconnect.biela.dev",
+  "syncBlock": false,
+  "hostRequired": true,
+  "logoUrl": "https://biela.dev/assets/biela-logo-zJuJz5eR.svg",
+  "variableDescription": "verify: Vercel TXT verification token (optional). host: subdomain name. target: CNAME destination.",
+  "records": [
+    {
+      "groupId": "subdomain-cname",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "%verify%",
+      "ttl": 300
+    }
+  ]
+}
