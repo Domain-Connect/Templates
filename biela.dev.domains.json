@@ -1,0 +1,28 @@
+{
+  "providerId": "biela.dev",
+  "providerName": "Biela.dev",
+  "serviceId": "domains",
+  "serviceName": "Biela.dev Domains",
+  "description": "Connect a custom apex domain (root domain) to a Vercel-hosted Biela.dev deployment",
+  "version": 2,
+  "syncPubKeyDomain": "domainconnect.biela.dev",
+  "syncBlock": false,
+  "logoUrl": "https://biela.dev/assets/biela-logo-zJuJz5eR.svg",
+  "variableDescription": "verify: Vercel TXT verification token (optional).",
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 300
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "%verify%",
+      "ttl": 300
+    }
+  ]
+}
