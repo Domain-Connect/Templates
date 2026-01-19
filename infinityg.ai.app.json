@@ -7,7 +7,6 @@
   "logoUrl": "https://www.infinityg.ai/logo.svg",
   "description": "Setup a domain to work with Infinity Ground",
   "syncPubKeyDomain": "synckeys.infinityg.ai",
-  "warnPhishing": true,
   "variableDescription":"verify is the verification value for the site",
   "records": [
     {  
