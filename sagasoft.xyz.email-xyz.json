@@ -8,13 +8,13 @@
     "logoUrl": "https://sagasoft.xyz/static/media/logo.b4e1e079185540b34b1f.png",
     "description": "Configure professional email with SPF, DKIM, DMARC, and MX records",
     "variableDescription": "SPFTXT for  SPF, DOMAINKEY is part of DKIM record, DMARCTXT for DMARC, MXTXT for MX, VERIFYTXT is the verification code for the email service",
+    "sharedProviderName": true,
     "records": [
         {
             "groupId": "email",
-            "type": "TXT",
+            "type": "SPFM",
             "host": "@",
-            "data": "%SPFTXT%",
-            "ttl": 3600
+            "spfRules": "%SPFTXT%"
         },
         {
             "groupId": "email",
@@ -28,6 +28,7 @@
             "type": "TXT",
             "host": "_dmarc",
             "data": "%DMARCTXT%",
+            "txtConflictMatchingMode": "All",
             "ttl": 3600
         },
         {
