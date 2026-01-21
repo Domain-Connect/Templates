@@ -14,7 +14,8 @@
       "type": "CNAME",
       "host": "_dmarc",
       "pointsTo": "_dmarc.%domain%.zone.mimeprotect.com",
-      "ttl": 3600
+      "ttl": 3600,
+      "essential": "Always"
     }
   ]
 }
