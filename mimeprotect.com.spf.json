@@ -14,7 +14,8 @@
       "type": "SPFM",
       "host": "@",
       "spfRules": "include:spf.%domain%.zone.mimeprotect.com",
-      "ttl": 3600
+      "ttl": 3600,
+      "essential": "OnApply"
     }
   ]
 }
