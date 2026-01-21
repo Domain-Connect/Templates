@@ -1,47 +1,35 @@
 {
-    "providerId": "thaibulkmail.com",
-    "providerName": "ThaiBulkMail",
-    "serviceId": "email-auth",
-    "serviceName": "Email Authentication (DKIM, DMARC, SPF)",
-    "version": 1,
-    "logoUrl": "https://www.1moby.com/assets/images/logo-1moby-blue.svg",
-    "description": "Configure email authentication records for ThaiBulkMail email delivery service",
-    "variableDescription": "Set up DKIM, DMARC, and SPF records to authenticate emails sent through ThaiBulkMail",
-    "syncPubKeyDomain": "thaibulkmail.com",
-    "syncRedirectDomain": "thaibulkmail.com",
-    "warnPhishing": false,
-    "multiInstance": false,
-    "records": [
-        {
-            "type": "TXT",
-            "host": "tbm._domainkey",
-            "data": "v=DKIM1; k=rsa; p=%dkimPublicKey%",
-            "ttl": 3600
-        },
-        {
-            "type": "TXT",
-            "host": "_dmarc",
-            "data": "v=DMARC1; p=quarantine; rua=mailto:%dmarcEmail%; pct=100; adkim=r; aspf=r",
-            "ttl": 3600
-        },
-        {
-            "type": "TXT",
-            "host": "@",
-            "data": "v=spf1 include:_spf.thaibulkmail.com ~all",
-            "ttl": 3600,
-            "spfRules": "include:_spf.thaibulkmail.com"
-        }
-    ],
-    "variables": {
-        "dkimPublicKey": {
-            "description": "DKIM public key (base64)",
-            "display": "DKIM Public Key",
-            "required": true
-        },
-        "dmarcEmail": {
-            "description": "Email for DMARC reports",
-            "display": "DMARC Report Email",
-            "required": true
-        }
+  "providerId": "thaibulkmail.com",
+  "providerName": "ThaiBulkMail",
+  "serviceId": "email-auth",
+  "serviceName": "Email Authentication (DKIM, DMARC, SPF)",
+  "version": 1,
+  "logoUrl": "https://www.1moby.com/assets/images/logo-1moby-blue.svg",
+  "description": "Configure email authentication records for ThaiBulkMail email delivery service",
+  "variableDescription": "Set up DKIM, DMARC, and SPF records to authenticate emails sent through ThaiBulkMail",
+  "syncPubKeyDomain": "thaibulkmail.com",
+  "syncRedirectDomain": "thaibulkmail.com",
+  "warnPhishing": false,
+  "multiInstance": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "tbm._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimPublicKey%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:%dmarcEmail%; pct=100; adkim=r; aspf=r",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 include:_spf.thaibulkmail.com ~all",
+      "ttl": 3600,
+      "spfRules": "include:_spf.thaibulkmail.com"
     }
+  ]
 }
