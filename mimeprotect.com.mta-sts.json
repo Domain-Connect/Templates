@@ -14,13 +14,15 @@
       "type": "CNAME",
       "host": "_mta-sts",
       "pointsTo": "_mta-sts.%domain%.zone.mimeprotect.com",
-      "ttl": 600
+      "ttl": 600,
+      "essential": "OnApply"
     },
     {
       "type": "CNAME",
       "host": "mta-sts",
       "pointsTo": "cname.mimeprotect.com",
-      "ttl": 3600
+      "ttl": 3600,
+      "essential": "OnApply"
     }
   ]
 }
