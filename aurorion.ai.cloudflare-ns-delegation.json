@@ -1,0 +1,28 @@
+{
+  "providerId": "aurorion.ai",
+  "providerName": "Aurorion",
+  "serviceId": "cloudflare-ns-delegation",
+  "serviceName": "Cloudflare Nameserver Delegation",
+  "version": 1,
+  "description": "Delegates DNS management of the domain to Cloudflare by updating the nameservers.",
+  "variableDescription": "ns1: The first Cloudflare nameserver. ns2: The second Cloudflare nameserver.",
+  "syncRedirectDomain": "aurorion.ai",
+  "syncPubKeyDomain" => "aurorion.ai",
+  "warnPhishing": true,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns1%",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns2%",
+      "ttl": 3600
+    }
+  ],
+  "logoUrl": "https://cdn.aurorion.ai/logo.png"
+}
