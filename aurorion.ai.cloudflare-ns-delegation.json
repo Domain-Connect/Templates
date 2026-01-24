@@ -7,7 +7,7 @@
   "description": "Delegates DNS management of the domain to Cloudflare by updating the nameservers.",
   "variableDescription": "ns1: The first Cloudflare nameserver. ns2: The second Cloudflare nameserver.",
   "syncRedirectDomain": "aurorion.ai",
-  "syncPubKeyDomain" => "aurorion.ai",
+  "syncPubKeyDomain": "aurorion.ai",
   "warnPhishing": true,
   "hostRequired": true,
   "records": [
