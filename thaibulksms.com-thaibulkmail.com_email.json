@@ -4,7 +4,7 @@
   "serviceId": "email",
   "serviceName": "ThaiBulkMail Email Service",
   "version": 3,
-  "logoUrl": "https://thaibulksms.com/assets/logo.svg",
+  "logoUrl": "https://www.thaibulksms.com/assets/images/og-tbs-main.jpg",
   "description": "Complete email authentication setup for ThaiBulkMail: DKIM, SPF, DMARC. Required for Gmail, Outlook, and Yahoo deliverability.",
   "variableDescription": "dkimSelector: DKIM selector (default: 'default'). dkimSelector1/2/3: Additional DKIM selectors for key rotation.",
   "syncPubKeyDomain": "thaibulksms.com",
