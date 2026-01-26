@@ -54,14 +54,6 @@
     },
     {
       "groupId": "mailfrom",
-      "type": "MX",
-      "host": "mail",
-      "pointsTo": "mail.thaibulkmail.com",
-      "priority": 10,
-      "ttl": 3600
-    },
-    {
-      "groupId": "mailfrom",
       "type": "SPFM",
       "host": "mail",
       "spfRules": "include:_spf.thaibulkmail.com"
