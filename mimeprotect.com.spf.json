@@ -1,0 +1,21 @@
+{
+  "providerId": "mimeprotect.com",
+  "providerName": "MimeProtect",
+  "serviceId": "spf",
+  "serviceName": "MimeProtect SPF",
+  "version": 1,
+  "logoUrl": "https://mimeprotect.com/logo.svg",
+  "syncPubKeyDomain": "zone.mimeprotect.com",
+  "syncRedirectDomain": "mimeprotect.com",
+  "description": "Enable SPF hosting with automatic flattening. MimeProtect manages your SPF record to stay within DNS lookup limits.",
+  "variableDescription": "%domain%: Your domain name",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.%domain%.zone.mimeprotect.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
