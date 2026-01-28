@@ -9,7 +9,6 @@
 	"variableDescription": "dkimSelector: DKIM selector identifier; dkimPublicKey: DKIM public key (base64); spfInclude: SPF include domain; returnPathTarget: Return path CNAME target",
 	"syncPubKeyDomain": "arkhq.io",
 	"syncRedirectDomain": "arkhq.io",
-	"warnPhishing": true,
 	"records": [
 		{
 			"groupId": "dkim",
