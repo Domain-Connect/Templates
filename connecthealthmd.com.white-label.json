@@ -1,5 +1,6 @@
 {
     "providerId": "connecthealthmd.com",
+    "providerName": "ConnectHealthMD",
     "serviceId": "white-label",
     "serviceName": "ConnectHealthMD White Label",
     "version": 1,
@@ -7,6 +8,7 @@
     "description": "Connect your domain to your ConnectHealthMD professional storefront.",
     "variableDescription": "The subdomain you want to connect (usually 'www')",
     "syncBlock": false,
+    "hostRequired": true,
     "records": [
         {
             "type": "CNAME",
