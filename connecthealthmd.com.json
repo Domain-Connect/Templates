@@ -1,0 +1,24 @@
+{
+    "providerId": "connecthealthmd.com",
+    "serviceId": "white-label",
+    "serviceName": "ConnectHealthMD White Label",
+    "version": 1,
+    "logoUrl": "https://www.connecthealthmd.com/assets/images/ch_logo.png",
+    "description": "Connect your domain to your ConnectHealthMD professional storefront.",
+    "variableDescription": "The subdomain you want to connect (usually 'www')",
+    "syncBlock": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%host%",
+            "pointsTo": "edge.connecthealthmd.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_ch-verify.%host%",
+            "data": "%verifyToken%",
+            "ttl": 3600
+        }
+    ]
+}
