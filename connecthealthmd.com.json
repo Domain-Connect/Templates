@@ -10,13 +10,13 @@
     "records": [
         {
             "type": "CNAME",
-            "host": "%host%",
+            "host": "@",
             "pointsTo": "edge.connecthealthmd.com",
             "ttl": 3600
         },
         {
             "type": "TXT",
-            "host": "_ch-verify.%host%",
+            "host": "_ch-verify",
             "data": "%verifyToken%",
             "ttl": 3600
         }
