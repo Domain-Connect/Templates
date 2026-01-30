@@ -43,8 +43,7 @@
 			"host": "_dmarc",
 			"ttl": 3600,
 			"data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@migma.ai",
-			"txtConflictMatchingMode": "All",
-			"essential": "true"
+			"txtConflictMatchingMode": "All"	
 		},
 		{
 			"groupId": "mailfrom",
