@@ -1,0 +1,70 @@
+{
+	"providerId": "migma.ai",
+	"providerName": "Migma",
+	"serviceId": "email-sending",
+	"serviceName": "Email Sending",
+	"version": 1,
+	"syncPubKeyDomain": "migma.ai",
+	"syncRedirectDomain": "migma.ai",
+	"description": "Configure your domain to send emails through Migma.",
+	"logoUrl": "https://migma.ai/brandkit/horizontal/SVG/light.svg",
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkimToken1%._domainkey",
+			"pointsTo": "%dkimToken1%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkimToken2%._domainkey",
+			"pointsTo": "%dkimToken2%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkimToken3%._domainkey",
+			"pointsTo": "%dkimToken3%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "spf",
+			"type": "SPFM",
+			"host": "@",
+			"ttl": 3600,
+			"spfRules": "include:spf.migma.ai"
+		},
+		{
+			"groupId": "dmarc",
+			"type": "TXT",
+			"host": "_dmarc",
+			"ttl": 3600,
+			"data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@migma.ai"
+		},
+		{
+			"groupId": "mailfrom",
+			"type": "MX",
+			"host": "send",
+			"pointsTo": "feedback-smtp.%region%.amazonses.com",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"groupId": "mailfrom",
+			"type": "SPFM",
+			"host": "send",
+			"ttl": 3600,
+			"spfRules": "include:spf.migma.ai"
+		},
+		{
+			"groupId": "ownership",
+			"type": "TXT",
+			"host": "_migma",
+			"ttl": 3600,
+			"data": "migma-verify=%ownershipToken%"
+		}
+	]
+}
