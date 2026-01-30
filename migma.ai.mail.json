@@ -44,7 +44,8 @@
 			"type": "TXT",
 			"host": "_migma",
 			"ttl": 3600,
-			"data": "migma-verify=%ownershipToken%"
+			"data": "migma-verify=%ownershipToken%",
+			"txtConflictMatchingMode": "All"
 		}
 	]
 }
