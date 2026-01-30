@@ -1,0 +1,44 @@
+{
+	"providerId": "migma.ai",
+	"providerName": "Migma",
+	"serviceId": "mail",
+	"serviceName": "Mail",
+	"version": 1,
+	"syncPubKeyDomain": "migma.ai",
+	"syncRedirectDomain": "migma.ai",
+	"description": "Enable email signing and specify authorized senders.",
+	"logoUrl": "https://migma.ai/brandkit/horizontal/SVG/light.svg",
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "%dkimToken1%._domainkey",
+			"pointsTo": "%dkimToken1%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkimToken2%._domainkey",
+			"pointsTo": "%dkimToken2%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkimToken3%._domainkey",
+			"pointsTo": "%dkimToken3%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "MX",
+			"host": "send",
+			"pointsTo": "feedback-smtp.%region%.amazonses.com",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"type": "SPFM",
+			"host": "send",
+			"ttl": 3600,
+			"spfRules": "include:spf.migma.ai"
+		}
+	]
+}
