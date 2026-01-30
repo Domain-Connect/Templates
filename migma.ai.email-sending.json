@@ -42,7 +42,9 @@
 			"type": "TXT",
 			"host": "_dmarc",
 			"ttl": 3600,
-			"data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@migma.ai"
+			"data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@migma.ai",
+			"txtConflictMatchingMode": "All",
+			"essential": true
 		},
 		{
 			"groupId": "mailfrom",
@@ -64,7 +66,8 @@
 			"type": "TXT",
 			"host": "_migma",
 			"ttl": 3600,
-			"data": "migma-verify=%ownershipToken%"
+			"data": "migma-verify=%ownershipToken%",
+			"txtConflictMatchingMode": "All"
 		}
 	]
 }
