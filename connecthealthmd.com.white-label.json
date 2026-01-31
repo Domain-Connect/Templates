@@ -1,6 +1,8 @@
 {
     "providerId": "connecthealthmd.com",
     "providerName": "ConnectHealthMD",
+    "syncPubKeyDomain": "connecthealthmd.com",
+    "syncPubKey": "php-sig",
     "serviceId": "white-label",
     "serviceName": "ConnectHealthMD White Label",
     "version": 1,
