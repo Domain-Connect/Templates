@@ -5,16 +5,15 @@
     "serviceName": "HQ Coach Payments",
     "version": 1,
     "logoUrl": "https://hq.coach/logo.svg",
-    "description": "Connect your custom subdomain to HQ Coach for payment links and invoices.",
-    "variableDescription": "host: The subdomain to point to HQ Coach payments (e.g., 'pay', 'payments')",
-    "syncBlock": false,
-    "shared": false,
+    "description": "Connect your custom subdomain to HQ Coach for payment links and invoices. Your payment pages will be served directly on your subdomain (e.g., pay.yourdomain.com).",
+    "variableDescription": "%host%: Your subdomain prefix (e.g., 'pay', 'payments', 'checkout')",
+    "hostRequired": true,
     "multiInstance": true,
     "records": [
         {
-            "type": "A",
+            "type": "CNAME",
             "host": "%host%",
-            "pointsTo": "13.51.251.199",
+            "pointsTo": "proxy.hq.coach",
             "ttl": 3600
         }
     ]
