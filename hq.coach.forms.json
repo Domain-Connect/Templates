@@ -1,0 +1,21 @@
+{
+    "providerId": "hq.coach",
+    "providerName": "HQ Coach",
+    "serviceId": "forms",
+    "serviceName": "HQ Coach Forms",
+    "version": 1,
+    "logoUrl": "https://hq.coach/logo.svg",
+    "description": "Connect your custom subdomain to HQ Coach for client forms, check-ins, and assessments.",
+    "variableDescription": "host: The subdomain to point to HQ Coach (e.g., 'forms', 'checkin')",
+    "syncBlock": false,
+    "shared": false,
+    "multiInstance": true,
+    "records": [
+        {
+            "type": "A",
+            "host": "%host%",
+            "pointsTo": "13.51.251.199",
+            "ttl": 3600
+        }
+    ]
+}
