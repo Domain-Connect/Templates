@@ -20,7 +20,9 @@ Please mark the following checks done
 - [ ] Template file name follows the pattern `<providerId>.<serviceId>.json`
 - [ ] resource URL provided with `logoUrl` is actually served by a webserver
 
-# Checklist of common prolems of issues (mark all the checkboxes after conducting the check). Comment on any point which is not fulfilled.
+# Checklist of common problems
+
+Mark all the checkboxes after conducting the check. Comment on any point which is not fulfilled.
 - [ ] digital signatures are used and `syncPubKeyDomain` specified (yes, `warnPhishing` is an option, but some providers reject such templates by policy, so signing shall be a default)
 - [ ] `syncRedirectDomain` is specified when intended to use `redirect_uri` parameter in the synchronous flow
 - [ ] no TXT record with SPF content (i.e. `"v=spf1 ..."`) instead of using SPFM record type on APEX
@@ -31,16 +33,9 @@ Please mark the following checks done
 - [ ] `essential` setting is used on records, which the user shall be able to change or remove manually later without dropping the whole template (like DMARC)    
 
 # Example variable values
-<-- to make review process easier please provide example set of variable values for this template -->
+<-- to make review process easier please provide example set of variable values and output for this template -->
 
-<-- Example: -->
-
-```
-var1: aaa
-var2: foo.com
-```
-
-<-- Or provide the whole `testData` object from the [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit) after testing and using "Add as test" button -->
+<-- Example: provide the whole `testData` object from the [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit) after testing and using "Add as test" button. Hint: test also with "host" variable set. -->
 ```
 "testData": {
     "testset": {
