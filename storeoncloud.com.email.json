@@ -4,7 +4,7 @@
   "serviceId": "email",
   "serviceName": "Email Verification Records",
   "version": 1,
-  "logoUrl": "https://storeoncloud.com/logo.svg",
+  "logoUrl": "https://www.storeoncloud.com/img/logo.svg",
   "description": "Configure SPF, DKIM, and DMARC records for email verification with StoreOnCloud managed Magento hosting.",
   "variableDescription": "DKIM_SELECTOR: The DKIM selector (e.g., storeoncloud), DKIM_VALUE: The DKIM public key value",
   "syncBlock": false,
