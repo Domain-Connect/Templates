@@ -1,0 +1,17 @@
+{
+  "providerId": "cariseo.com",
+  "providerName": "CariSEO",
+  "serviceId": "blog-hosting",
+  "serviceName": "CariSEO Blog Hosting",
+  "version": 1,
+  "logoUrl": "https://cariseo.com/logo.svg",
+  "syncPubKeyDomain": "cariseo.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "app.cariseo.com",
+      "ttl": 3600
+    }
+  ]
+}
