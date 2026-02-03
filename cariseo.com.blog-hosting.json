@@ -4,7 +4,7 @@
   "serviceId": "blog-hosting",
   "serviceName": "CariSEO Blog Hosting",
   "version": 1,
-  "logoUrl": "https://cariseo.com/logo.svg",
+  "description": "Connect your blog subdomain to CariSEO for AI-powered SEO content hosting",
   "syncPubKeyDomain": "cariseo.com",
   "records": [
     {
