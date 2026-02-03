@@ -6,10 +6,11 @@
   "version": 1,
   "description": "Connect your blog subdomain to CariSEO for AI-powered SEO content hosting",
   "syncPubKeyDomain": "cariseo.com",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "app.cariseo.com",
       "ttl": 3600
     }
