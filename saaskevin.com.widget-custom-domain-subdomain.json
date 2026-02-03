@@ -1,0 +1,29 @@
+{
+  "providerId": "saaskevin.com",
+  "providerName": "SaaSKevin",
+  "serviceId": "widget-custom-domain-subdomain",
+  "serviceName": "Custom domain (subdomain)",
+  "version": 1,
+  "logoUrl": "https://app.saaskevin.com/logo.svg",
+  "description": "Connect a subdomain (CNAME) to SaaSKevin edge, and delegate ACME challenges for automatic TLS.",
+  "variableDescription": "CNAME_TARGET is the CNAME target for routing (may be branded). ACME_DELEGATION_TARGET is the target for the _acme-challenge CNAME delegation.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "saaskevin.com",
+  "syncRedirectDomain": "app.saaskevin.com,saaskevin.com,app.saaskevinstaging.com,saaskevinstaging.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%CNAME_TARGET%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%ACME_DELEGATION_TARGET%",
+      "ttl": 3600
+    }
+  ]
+}
+
