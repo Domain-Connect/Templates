@@ -4,10 +4,10 @@
     "serviceId": "mail-send-and-receive",
     "serviceName": "Mail (Sending & Receiving)",
     "version": 1,
-    "syncPubKeyDomain": "lettr.com",
+    "syncPubKeyDomain": "dc-keys.lettr.com",
     "syncRedirectDomain": "lettr.com",
     "description": "Full email configuration for both sending and receiving emails.",
-    "logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
+    "logoUrl": "https://assets.lettr.com/brand/lettr-logo-bw.svg",
     "records": [
         {
             "groupId": "cname",
@@ -31,6 +31,15 @@
             "data": "%dkimValue%"
         },
         {
+            "type": "TXT",
+            "groupId": "dmarc",
+            "essential": "Optional",
+            "host": "%dmarcDomain%",
+            "ttl": "3600",
+            "data": "%dmarcTxtValue%",
+            "txtConflictMatchingMode": "Prefix"
+        },
+        {
             "groupId": "trackingCertificate",
             "type": "CNAME",
             "host": "_acme-challenge.%trackingDomain%",
@@ -48,9 +57,25 @@
             "groupId": "inbound",
             "type": "MX",
             "host": "%inboundMXDomain%",
-            "pointsTo": "rx%inboundIndex%.sparkpostmail.com",
+            "pointsTo": "rx1.sparkpostmail.com",
             "ttl": 3600,
-            "priority": "%inboundMXPriority%"
+            "priority": "10"
+        },
+        {
+            "groupId": "inbound",
+            "type": "MX",
+            "host": "%inboundMXDomain%",
+            "pointsTo": "rx2.sparkpostmail.com",
+            "ttl": 3600,
+            "priority": "10"
+        },
+        {
+            "groupId": "inbound",
+            "type": "MX",
+            "host": "%inboundMXDomain%",
+            "pointsTo": "rx3.sparkpostmail.com",
+            "ttl": 3600,
+            "priority": 10
         }
     ]
 }
