@@ -37,7 +37,7 @@
             "host": "%dmarcDomain%",
             "ttl": "3600",
             "data": "%dmarcTxtValue%",
-            "txtConflictMatchingMode": "Prefix"
+            "txtConflictMatchingMode": "All"
         },
         {
             "groupId": "trackingCertificate",
