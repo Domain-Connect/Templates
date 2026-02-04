@@ -1,0 +1,56 @@
+{
+    "providerId": "lettr.com",
+    "providerName": "Lettr",
+    "serviceId": "mail-send-and-receive",
+    "serviceName": "Mail (Sending & Receiving)",
+    "version": 1,
+    "syncPubKeyDomain": "lettr.com",
+    "syncRedirectDomain": "lettr.com",
+    "description": "Full email configuration for both sending and receiving emails.",
+    "logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
+    "records": [
+        {
+            "groupId": "cname",
+            "type": "CNAME",
+            "host": "%cnameDomain%",
+            "ttl": 3600,
+            "pointsTo": "sparkpostmail.com"
+        },
+        {
+            "groupId": "spf",
+            "type": "SPFM",
+            "host": "%spfDomain%",
+            "ttl": 3600,
+            "spfRules": "include:_spf.sparkpostmail.com"
+        },
+        {
+            "groupId": "dkim",
+            "type": "TXT",
+            "host": "%dkimSelector%._domainkey",
+            "ttl": 3600,
+            "data": "%dkimValue%"
+        },
+        {
+            "groupId": "trackingCertificate",
+            "type": "CNAME",
+            "host": "_acme-challenge.%trackingDomain%",
+            "ttl": 3600,
+            "pointsTo": "%certificateValue%"
+        },
+        {
+            "groupId": "trackingTraffic",
+            "type": "CNAME",
+            "host": "%trackingDomain%",
+            "ttl": 3600,
+            "pointsTo": "proxy.lettr-tracking.com"
+        },
+        {
+            "groupId": "inbound",
+            "type": "MX",
+            "host": "%inboundMXDomain%",
+            "pointsTo": "rx%inboundIndex%.sparkpostmail.com",
+            "ttl": 3600,
+            "priority": "%inboundMXPriority%"
+        }
+    ]
+}
