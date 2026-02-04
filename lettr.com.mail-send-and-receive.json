@@ -33,7 +33,7 @@
         {
             "type": "TXT",
             "groupId": "dmarc",
-            "essential": "Optional",
+            "essential": "OnApply",
             "host": "%dmarcDomain%",
             "ttl": "3600",
             "data": "%dmarcTxtValue%",
