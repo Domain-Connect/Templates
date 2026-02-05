@@ -1,0 +1,23 @@
+{
+  "providerId": "saaskevin.com",
+  "providerName": "SaaSKevin",
+  "serviceId": "branded-cname",
+  "serviceName": "Branded CNAME (optional)",
+  "version": 1,
+  "logoUrl": "https://app.saaskevin.com/logo.svg",
+  "description": "Create an optional branded CNAME in your SaaS domain that points to SaaSKevin's canonical routing hostname.",
+  "variableDescription": "SAASKEVIN_CNAME_TARGET is SaaSKevin's canonical routing hostname (the final CNAME target).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "saaskevin.com",
+  "syncRedirectDomain": "app.saaskevin.com,saaskevin.com,app.saaskevinstaging.com,saaskevinstaging.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%SAASKEVIN_CNAME_TARGET%",
+      "ttl": 3600
+    }
+  ]
+}
+

@@ -3,17 +3,16 @@
     "providerName": "Example Domain Connect Service",
     "serviceId": "test-template",
     "serviceName": "Test template",
-    "version": 2,
+    "version": 3,
     "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2018/11/DomainConnectSquareBlack.png",
     "description": "Example service for template workflow test",
-    "variableDescription": "",
     "syncRedirectDomain": "exampleservice.domainconnect.org",
     "warnPhishing": true,
     "records": [
         {
             "type": "TXT",
             "host": "@",
-            "ttl": 1800,
+            "ttl": "1800",
             "data": "testupdate"
         }
     ]

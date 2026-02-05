@@ -18,18 +18,24 @@ Please mark the following checks done
 - [ ] Template functionality checked using [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit)
 - [ ] Template is checked using [template linter](https://github.com/Domain-Connect/dc-template-linter)
 - [ ] Template file name follows the pattern `<providerId>.<serviceId>.json`
+- [ ] resource URL provided with `logoUrl` is actually served by a webserver
+
+# Checklist of common problems
+
+Mark all the checkboxes after conducting the check. Comment on any point which is not fulfilled.
+- [ ] digital signatures are used and `syncPubKeyDomain` specified (yes, `warnPhishing` is an option, but some providers reject such templates by policy, so signing shall be a default)
+- [ ] `syncRedirectDomain` is specified when intended to use `redirect_uri` parameter in the synchronous flow
+- [ ] no TXT record with SPF content (i.e. `"v=spf1 ..."`) instead of using SPFM record type on APEX
+- [ ] `txtConflictMatchingMode` is set on TXT records which shall be unique on a label (like DMARC)
+- [ ] variables are set to the smallest scope needed (i.e. limit possibility to be misused to set any arbitrary record and conflict with other template). Too broad scope example: @ TXT "%verification%". Better usage: @ TXT "foo-verification=%verification%".
+- [ ] no variables as a host name to apply template on subdomain instead of standard `host` parameter
+- [ ] no explicit usage of `%host%` variable in `host` attribute 
+- [ ] `essential` setting is used on records, which the user shall be able to change or remove manually later without dropping the whole template (like DMARC)    
 
 # Example variable values
-<-- to make review process easier please provide example set of variable values for this template -->
+<-- to make review process easier please provide example set of variable values and output for this template -->
 
-<-- Example: -->
-
-```
-var1: aaa
-var2: foo.com
-```
-
-<-- Or provide the whole `testData` object from the [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit) after testing and using "Add as test" button -->
+<-- Example: provide the whole `testData` object from the [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit) after testing and using "Add as test" button. Hint: test also with "host" variable set. -->
 ```
 "testData": {
     "testset": {

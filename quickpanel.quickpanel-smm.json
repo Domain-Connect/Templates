@@ -1,0 +1,23 @@
+{
+  "providerId": "quickpanel",
+  "providerName": "QuickPanel V5",
+  "serviceId": "quickpanel-smm",
+  "serviceName": "QuickPanel SMM Panel",
+  "version": 1,
+  "logoUrl": "https://quickpanel.net/assets/logo.png",
+  "description": "QuickPanel V5 - Modern and scalable SaaS SMM Panel Project for social media management",
+  "variableDescription": "QuickPanel panel domain connection setup with Cloudflare integration",
+  "syncBlock": false,
+  "syncPubKeyDomain": "connect.quickpanel.net",
+  "syncRedirectDomain": "connect.quickpanel.net",
+  "warnPhishing": true,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.quickpanel.net",
+      "ttl": 3600
+    }
+  ]
+}
