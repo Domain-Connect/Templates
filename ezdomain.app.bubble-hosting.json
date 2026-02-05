@@ -7,8 +7,8 @@
   "logoUrl": "https://ezdomain.app/logo.png",
   "description": "Configure DNS records to connect your custom domain to a Bubble.io application.",
   "variableDescription": "IP is the Bubble A record IP. CNAME is your Bubble app subdomain (e.g. myapp.bubbleapps.io).",
-  "syncPubKeyDomain": "ezdomain.app",
-  "syncRedirectDomain": "ezdomain.app",
+  "syncPubKeyDomain": "ezdomain.io",
+  "syncRedirectDomain": "ezdomain.io",
   "hostRequired": false,
   "warnPhishing": true,
   "records": [
