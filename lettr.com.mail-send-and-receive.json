@@ -54,6 +54,20 @@
             "pointsTo": "proxy.lettr-tracking.com"
         },
         {
+            "groupId": "storageCertificate",
+            "type": "CNAME",
+            "host": "_acme-challenge.%storageDomain%",
+            "ttl": 3600,
+            "pointsTo": "%storageCertificateValue%"
+        },
+        {
+            "groupId": "storageTraffic",
+            "type": "CNAME",
+            "host": "%storageDomain%",
+            "ttl": 3600,
+            "pointsTo": "fallback.topol-assets.com"
+        },
+        {
             "groupId": "inbound",
             "type": "MX",
             "host": "%inboundMXDomain%",
