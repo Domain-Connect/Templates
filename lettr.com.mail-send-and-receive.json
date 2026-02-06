@@ -3,7 +3,7 @@
     "providerName": "Lettr",
     "serviceId": "mail-send-and-receive",
     "serviceName": "Mail (Sending & Receiving)",
-    "version": 1,
+    "version": 2,
     "syncPubKeyDomain": "dc-keys.lettr.com",
     "syncRedirectDomain": "lettr.com",
     "description": "Full email configuration for both sending and receiving emails.",
