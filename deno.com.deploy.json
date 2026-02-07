@@ -17,21 +17,21 @@
       "ttl": 300
     },
     {
-      "groupId": "cname",
+      "groupId": "subdomain_cname",
       "type": "CNAME",
-      "host": "@",
+      "host": "%subdomain%",
       "pointsTo": "%cname%",
       "ttl": 300
     },
     {
-      "groupId": "a",
+      "groupId": "apex_a",
       "type": "A",
       "host": "@",
       "pointsTo": "%ip4%",
       "ttl": 300
     },
     {
-      "groupId": "aaaa",
+      "groupId": "apex_aaaa",
       "type": "AAAA",
       "host": "@",
       "pointsTo": "%ip6%",
@@ -42,20 +42,6 @@
       "type": "CNAME",
       "host": "*",
       "pointsTo": "%cname%",
-      "ttl": 300
-    },
-    {
-      "groupId": "wildcard_a",
-      "type": "A",
-      "host": "*",
-      "pointsTo": "%ip4%",
-      "ttl": 300
-    },
-    {
-      "groupId": "wildcard_aaaa",
-      "type": "AAAA",
-      "host": "*",
-      "pointsTo": "%ip6%",
       "ttl": 300
     }
   ]
