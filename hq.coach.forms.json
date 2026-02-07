@@ -5,14 +5,15 @@
     "serviceName": "HQ Coach Forms",
     "version": 1,
     "logoUrl": "https://hq.coach/logo.svg",
-    "description": "Connect your custom subdomain to HQ Coach for client forms, check-ins, and assessments. Your forms will be served directly on your subdomain (e.g., forms.yourdomain.com).",
-    "variableDescription": "%host%: Your subdomain prefix (e.g., 'forms', 'checkin', 'intake')",
+    "description": "Connect your custom subdomain to HQ Coach for client forms, check-ins, and assessments. Your forms will be served on your subdomain (e.g., forms.yourdomain.com).",
+    "syncPubKeyDomain": "hq.coach",
+    "syncRedirectDomain": "hq.coach",
     "hostRequired": true,
     "multiInstance": true,
     "records": [
         {
             "type": "CNAME",
-            "host": "%host%",
+            "host": "@",
             "pointsTo": "proxy.hq.coach",
             "ttl": 3600
         }
