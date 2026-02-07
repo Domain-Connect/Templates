@@ -1,0 +1,46 @@
+{
+    "providerId": "hq.coach",
+    "providerName": "HQ Coach",
+    "serviceId": "email",
+    "serviceName": "HQ Coach Email",
+    "version": 1,
+    "logoUrl": "https://hq.coach/logo.svg",
+    "description": "Configure DNS records for sending emails from your domain through HQ Coach via Resend. Sets up domain verification, SPF, DKIM, and DMARC records so you can send emails as no-reply@yourdomain.com.",
+    "variableDescription": "%resendVerification%: Domain verification token provided by HQ Coach during setup",
+    "syncPubKeyDomain": "hq.coach",
+    "syncRedirectDomain": "hq.coach",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "verification",
+            "type": "TXT",
+            "host": "_resend",
+            "data": "resend-verification=%resendVerification%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "resend-verification="
+        },
+        {
+            "groupId": "spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "resend._domainkey",
+            "pointsTo": "resend._domainkey.resend.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc@hq.coach",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Full",
+            "essential": "Always"
+        }
+    ]
+}
