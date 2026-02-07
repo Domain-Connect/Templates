@@ -1,0 +1,62 @@
+{
+  "providerId": "deno.com",
+  "providerName": "Deno",
+  "serviceId": "deploy",
+  "serviceName": "Deno Deploy",
+  "version": 1,
+  "logoUrl": "https://deno.com/logo.svg",
+  "description": "Configuration for Deno Deploy custom domains. `verification` is always set, `cname` OR `ip4`+`ip6` AND/OR `wildcard_cname` OR `wildcard_a`+`wildcard_aaaa` are set depending on domain kind",
+  "syncPubKeyDomain": "console.deno.com",
+  "syncRedirectDomain": "console.deno.com",
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%verification%",
+      "ttl": 300
+    },
+    {
+      "groupId": "cname",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 300
+    },
+    {
+      "groupId": "a",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip4%",
+      "ttl": 300
+    },
+    {
+      "groupId": "aaaa",
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "%ip6%",
+      "ttl": 300
+    },
+    {
+      "groupId": "wildcard_cname",
+      "type": "CNAME",
+      "host": "*",
+      "pointsTo": "%cname%",
+      "ttl": 300
+    },
+    {
+      "groupId": "wildcard_a",
+      "type": "A",
+      "host": "*",
+      "pointsTo": "%ip4%",
+      "ttl": 300
+    },
+    {
+      "groupId": "wildcard_aaaa",
+      "type": "AAAA",
+      "host": "*",
+      "pointsTo": "%ip6%",
+      "ttl": 300
+    }
+  ]
+}
