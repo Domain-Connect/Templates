@@ -1,0 +1,27 @@
+{
+  "providerId": "w7sfw.com",
+  "providerName": "W7SFW",
+  "serviceId": "dns-setup",
+  "serviceName": "W7SFW | WordPress Firewall",
+  "version": 1,
+  "logoUrl": "https://w7sfw.com/logo.svg",
+  "description": "Configures DNS verification and routing records for W7SFW protection services",
+  "variableDescription": "txtValue: unique verification value per domain, cnameHost: subdomain to protect, cnameTarget: unique proxy hostname",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.w7sfw.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_w7sfw",
+      "data": "w7sfw-domain-verify=%txtValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnameHost%",
+      "pointsTo": "%cnameTarget%.wp-protected.com",
+      "ttl": 3600
+    }
+  ]
+}
