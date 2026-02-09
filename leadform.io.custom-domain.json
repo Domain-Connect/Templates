@@ -9,7 +9,8 @@
   "variableDescription": "txtValue is the domain-specific part of the Vercel verification token (e.g. example.com,abc123).",
   "warnPhishing": true,
   "hostRequired": false,
-  "syncBlock": true,
+  "syncRedirectDomain": "leadform.io",
+  "syncBlock": false,
   "records": [
     {
       "type": "A",
