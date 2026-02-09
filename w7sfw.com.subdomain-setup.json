@@ -1,14 +1,14 @@
 {
   "providerId": "w7sfw.com",
   "providerName": "W7SFW",
-  "serviceId": "dns-setup",
-  "serviceName": "W7SFW | WordPress Firewall",
+  "serviceId": "subdomain-setup",
+  "serviceName": "W7SFW | WordPress Firewall (Subdomain)",
   "version": 1,
   "logoUrl": "https://w7sfw.com/logo.svg",
-  "description": "Configures domain verification and CNAME routing for W7SFW WordPress Firewall. Supports both subdomain and apex domains via Cloudflare CNAME flattening.",
+  "description": "Configures domain verification and CNAME routing for W7SFW WordPress Firewall on subdomains",
   "variableDescription": "txtValue: unique domain verification token, cnameTarget: fully qualified proxy hostname (e.g. example.wp-protected.com)",
   "syncPubKeyDomain": "domainconnect.w7sfw.com",
-  "hostRequired": false,
+  "hostRequired": true,
   "records": [
     {
       "groupId": "verification",
