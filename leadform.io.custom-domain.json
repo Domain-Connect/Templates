@@ -3,7 +3,7 @@
   "providerName": "Leadform",
   "serviceId": "custom-domain",
   "serviceName": "Leadform Custom Domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://leadform.io/icon.png",
   "description": "Connects your domain to Leadform for custom domain hosting",
   "variableDescription": "txtValue is the domain-specific part of the Vercel verification token (e.g. example.com,abc123).",
