@@ -1,0 +1,20 @@
+{
+    "providerId": "ops.autos",
+    "providerName": "Ops",
+    "serviceId": "hosting",
+    "serviceName": "Ops Hosting",
+    "version": 1,
+    "description": "Connect a custom domain to Ops Autos hosting",
+    "syncPubKeyDomain": "domainconnect.ops.autos",
+    "syncRedirectDomain": "ops.autos",
+    "syncBlock": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "groupId": "subdomain",
+            "host": "%subdomain%",
+            "pointsTo": "%cname%",
+            "ttl": 3600
+        }
+    ]
+}
