@@ -8,7 +8,6 @@
   "variableDescription": "verificationToken - domain ownership verification token provided by Rocketflow",
   "syncPubKeyDomain": "domainconnect.rflowcdn.com",
   "syncRedirectDomain": "app.rocketflow.com.br",
-  "warnPhishing": true,
   "hostRequired": true,
   "records": [
     {
