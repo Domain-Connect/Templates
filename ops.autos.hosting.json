@@ -8,11 +8,12 @@
     "syncPubKeyDomain": "domainconnect.ops.autos",
     "syncRedirectDomain": "ops.autos",
     "syncBlock": false,
+    "hostRequired": true,
     "records": [
         {
             "type": "CNAME",
             "groupId": "subdomain",
-            "host": "%subdomain%",
+            "host": "@",
             "pointsTo": "%cname%",
             "ttl": 3600
         }
