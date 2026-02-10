@@ -11,13 +11,13 @@
   "records": [
     {
       "type": "TXT",
-      "host": "_statickit-verification.%subdomain%",
+      "host": "_statickit-verification",
       "data": "%verificationToken%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "%subdomain%",
+      "host": "@",
       "pointsTo": "statickit.app",
       "ttl": 3600
     }
