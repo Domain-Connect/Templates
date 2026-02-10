@@ -1,0 +1,31 @@
+{
+  "providerId": "rflowcdn.com",
+  "providerName": "Rocketflow",
+  "serviceId": "tracking-root",
+  "serviceName": "Rocketflow Tracking Page (Root Domain)",
+  "version": 1,
+  "description": "Configure DNS records to enable Rocketflow e-commerce tracking page on your root domain",
+  "variableDescription": "verificationToken - domain ownership verification token provided by Rocketflow",
+  "syncPubKeyDomain": "domainconnect.rflowcdn.com",
+  "syncRedirectDomain": "app.rocketflow.com.br",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_rocketflow",
+      "data": "rocketflow-verify=%verificationToken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "rocketflow-verify="
+    },
+    {
+      "groupId": "cname",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.rflowcdn.com",
+      "ttl": 300
+    }
+  ]
+}
