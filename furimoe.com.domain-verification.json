@@ -12,8 +12,23 @@
     {
       "type": "TXT",
       "host": "_furimoe-challenge", 
+      "groupId": "subdomain-verification",
       "data": "token=%verifytxt%",
       "ttl": 60
+    },
+    {
+      "type": "CNAME",
+      "groupId": "subdomain",
+      "host": "%subdomain%",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "groupId": "apex",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
     }
   ]
 }
