@@ -18,7 +18,7 @@
     },
     {
       "type": "CNAME",
-      "groupId": "sub",
+      "groupId": "subdomain",
       "host": "%subdomain%",
       "pointsTo": "%cname%",
       "ttl": 600
