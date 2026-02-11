@@ -24,6 +24,7 @@ Please mark the following checks done
 
 Mark all the checkboxes after conducting the check. Comment on any point which is not fulfilled.
 - [ ] digital signatures are used and `syncPubKeyDomain` specified (yes, `warnPhishing` is an option, but some providers reject such templates by policy, so signing shall be a default)
+- [ key1.dckeys.example.com ] if syncPubKeyDomain is in use tell the name of TXT record containing the public key
 - [ ] `syncRedirectDomain` is specified when intended to use `redirect_uri` parameter in the synchronous flow
 - [ ] no TXT record with SPF content (i.e. `"v=spf1 ..."`) instead of using SPFM record type on APEX
 - [ ] `txtConflictMatchingMode` is set on TXT records which shall be unique on a label (like DMARC)
