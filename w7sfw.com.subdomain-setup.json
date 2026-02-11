@@ -2,27 +2,48 @@
   "providerId": "w7sfw.com",
   "providerName": "W7SFW",
   "serviceId": "subdomain-setup",
-  "serviceName": "W7SFW | WordPress Firewall (Subdomain)",
-  "version": 1,
+  "serviceName": "W7SFW | WordPress Firewall",
+  "version": 2,
   "logoUrl": "https://w7sfw.com/logo.svg",
-  "description": "Configures domain verification and CNAME routing for W7SFW WordPress Firewall on subdomains",
-  "variableDescription": "txtValue: unique domain verification token, cnameTarget: fully qualified proxy hostname (e.g. example.wp-protected.com)",
+  "description": "Configures DNS verification and routing for W7SFW WordPress Firewall",
+  "variableDescription": "txtValue: domain verification token, subdomain: subdomain to protect, cnameTarget: proxy hostname prefix, ip: IPv4 address for apex routing",
   "syncPubKeyDomain": "domainconnect.w7sfw.com",
-  "hostRequired": true,
+  "syncRedirectDomain": "w7sfw.com",
   "records": [
     {
-      "groupId": "verification",
       "type": "TXT",
+      "groupId": "apex-verification",
       "host": "_w7sfw",
       "data": "w7sfw-domain-verify=%txtValue%",
-      "ttl": 3600
+      "ttl": 600
     },
     {
-      "groupId": "routing",
+      "type": "TXT",
+      "groupId": "subdomain-verification",
+      "host": "_w7sfw",
+      "data": "w7sfw-domain-verify=%txtValue%",
+      "ttl": 600
+    },
+    {
       "type": "CNAME",
+      "groupId": "subdomain",
+      "host": "%subdomain%",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "apex-cname",
       "host": "@",
       "pointsTo": "%cnameTarget%",
-      "ttl": 3600
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "groupId": "apex-a",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
     }
   ]
 }
