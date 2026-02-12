@@ -33,12 +33,10 @@ Mark all the checkboxes after conducting the check. Comment on any point which i
 - [ ] `essential` setting is used on records, which the user shall be able to change or remove manually later without dropping the whole template (like DMARC)    
 
 # Example variable values
-<-- to make review process easier please provide example set of variable values and output for this template -->
-
-<-- Example: provide the whole `testData` object from the [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit) after testing and using "Add as test" button. Hint: test also with "host" variable set. -->
+<-- to make review process easier please provide the whole `testData` object from the [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit) after testing and using "Add as test" button. Hint: test also with "host" variable set. -->
 ```
 "testData": {
-    "testset": {
+    "testingSet": {
       "variables": {
         "domain": "example.com",
         "host": "foo",

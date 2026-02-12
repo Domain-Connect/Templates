@@ -3,7 +3,7 @@
     "providerName": "Lettr",
     "serviceId": "mail-send-and-receive",
     "serviceName": "Mail (Sending & Receiving)",
-    "version": 1,
+    "version": 2,
     "syncPubKeyDomain": "dc-keys.lettr.com",
     "syncRedirectDomain": "lettr.com",
     "description": "Full email configuration for both sending and receiving emails.",
@@ -52,6 +52,20 @@
             "host": "%trackingDomain%",
             "ttl": 3600,
             "pointsTo": "proxy.lettr-tracking.com"
+        },
+        {
+            "groupId": "storageCertificate",
+            "type": "CNAME",
+            "host": "_acme-challenge.%storageDomain%",
+            "ttl": 3600,
+            "pointsTo": "%storageCertificateValue%"
+        },
+        {
+            "groupId": "storageTraffic",
+            "type": "CNAME",
+            "host": "%storageDomain%",
+            "ttl": 3600,
+            "pointsTo": "fallback.topol-assets.com"
         },
         {
             "groupId": "inbound",
