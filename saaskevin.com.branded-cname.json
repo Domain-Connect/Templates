@@ -2,7 +2,7 @@
   "providerId": "saaskevin.com",
   "providerName": "SaaSKevin",
   "serviceId": "branded-cname",
-  "serviceName": "SaaSKevin branded CNAME (optional)",
+  "serviceName": "Branded CNAME",
   "version": 2,
   "logoUrl": "https://app.saaskevin.com/logo.svg",
   "description": "Create an optional branded CNAME in your SaaS domain that points to SaaSKevin's canonical routing hostname.",
