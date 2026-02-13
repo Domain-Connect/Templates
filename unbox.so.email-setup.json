@@ -1,0 +1,64 @@
+{
+	"providerId": "unbox.so",
+	"providerName": "Unbox",
+	"serviceId": "email-setup",
+	"serviceName": "Email Configuration",
+	"version": 1,
+	"syncPubKeyDomain": "unbox.so",
+	"syncRedirectDomain": "unbox.so",
+	"description": "Complete email configuration for sending and receiving emails through Unbox.",
+	"logoUrl": "https://unbox.so/logo.svg",
+	"variableDescription": "Configure your domain for Unbox email",
+	"records": [
+		{
+			"groupId": "dkim1",
+			"type": "CNAME",
+			"host": "%dkimToken1%._domainkey",
+			"pointsTo": "%dkimToken1%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim2",
+			"type": "CNAME",
+			"host": "%dkimToken2%._domainkey",
+			"pointsTo": "%dkimToken2%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim3",
+			"type": "CNAME",
+			"host": "%dkimToken3%._domainkey",
+			"pointsTo": "%dkimToken3%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "mailfrom",
+			"type": "MX",
+			"host": "unbox",
+			"pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "mailfrom",
+			"type": "SPFM",
+			"host": "unbox",
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"groupId": "receiving",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "inbound-smtp.%sesRegion%.amazonaws.com",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "dmarc",
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "v=DMARC1; p=none; rua=mailto:dmarc@unbox.so",
+			"ttl": 3600
+		}
+	]
+}
