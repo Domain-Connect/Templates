@@ -32,6 +32,14 @@
 			"ttl": 3600
 		},
 		{
+			"groupId": "verification",
+			"type": "TXT",
+			"host": "_amazonses",
+			"data": "%verificationToken%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All"
+		},
+		{
 			"groupId": "mailfrom",
 			"type": "MX",
 			"host": "unbox",
@@ -58,7 +66,8 @@
 			"type": "TXT",
 			"host": "_dmarc",
 			"data": "v=DMARC1; p=none; rua=mailto:dmarc@unbox.so",
-			"ttl": 3600
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All"
 		}
 	]
 }
