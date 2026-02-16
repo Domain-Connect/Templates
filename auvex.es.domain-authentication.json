@@ -7,8 +7,8 @@
   "syncPubKeyDomain": "auvex.es",
   "syncRedirectDomain": "dc-callback.auvex.es",
   "logoUrl": "https://auvex.es/favicon-96x96.png",
-  "description": "Places TXT record for domain verification and configures DKIM, DMARC and SPF records to authenticate email sent by Auvex on behalf of the user.",
-  "variableDescription": "The variable %verification_code% represents a combination of a prefix string and a MD5 hash for domain verification. %dkim_selector% and %dkim_selector2% are the DKIM selectors used for placing the DKIM CNAME records; these are dynamically generated. %dkimcname% and %dkimcname2% are the CNAME targets for the DKIM records. %dmarc_value% is the DMARC record value. %spf_value% is the SPF record value.",
+  "description": "Places TXT record for domain verification and configures DKIM, DMARC and SPMF records to authenticate email sent by Auvex on behalf of the user.",
+  "variableDescription": "The variable %verification_code% represents a combination of a prefix string and a MD5 hash for domain verification. %dkim_selector% and %dkim_selector2% are the DKIM selectors used for placing the DKIM CNAME records; these are dynamically generated. %dkimcname% and %dkimcname2% are the CNAME targets for the DKIM records. %dmarc_value% is the DMARC record value. %spmf_value% is the SPMF record value.",
   "records": [
     {
       "groupId": "domain-verification",
@@ -42,9 +42,9 @@
     },
     {
       "groupId": "email-authentication",
-      "type": "SPF",
+      "type": "SPMF",
       "host": "@",
-      "data": "%spf_value%",
+      "data": "%spmf_value%",
       "ttl": 3600
     }
   ]
