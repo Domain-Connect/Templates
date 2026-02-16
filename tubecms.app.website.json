@@ -1,0 +1,19 @@
+{
+  "providerId": "tubecms.app",
+  "providerName": "TubeCMS",
+  "serviceId": "website",
+  "serviceName": "TubeCMS Website",
+  "version": 1,
+  "syncPubKeyDomain": "tubecms.app",
+  "logoUrl": "https://tubecms.app/logo-transparent.svg",
+  "description": "Connect your custom domain to your TubeCMS site",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "on.tubecms.app",
+      "ttl": 3600
+    }
+  ]
+}
