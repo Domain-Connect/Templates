@@ -39,13 +39,6 @@
       "ttl": 3600,
       "txtConflictMatchingMode": "All",
       "essential": "OnApply"
-    },
-    {
-      "groupId": "email-authentication",
-      "type": "SPFM",
-      "host": "@",
-      "spfRules": "%spf_rules%",
-      "ttl": 3600
     }
   ]
 }
