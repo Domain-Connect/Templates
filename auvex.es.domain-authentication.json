@@ -3,29 +3,36 @@
   "providerName": "Auvex",
   "serviceId": "domain-authentication",
   "serviceName": "Auvex Domain Authentication",
-  "version": 5,
+  "version": 6,
   "syncPubKeyDomain": "auvex.es",
   "syncRedirectDomain": "dc-callback.auvex.es",
   "logoUrl": "https://auvex.es/favicon-96x96.png",
-  "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by Auvex on behalf of the user",
-  "variableDescription": "The variable %verification_code% represents a combination of a prefix string and a MD5 hash for domain verification. %dkim_selector% and %dkim_selector2% are the DKIM selectors used for placing the DKIM public keys; these are dynamically generated. %dkim_public_key% is the DKIM public key. %dmarc_value% is the DMARC record value. %dkimcname% and %dkimcname2% are the CNAME targets for the DKIM records. %ip% is the IP address for the A record. %spf_value% is the SPF record value. %domain% is the domain name used in MX records.",
+  "description": "Places TXT record for domain verification and configures DKIM, DMARC and SPF records to authenticate email sent by Auvex on behalf of the user.",
+  "variableDescription": "The variable %verification_code% represents a combination of a prefix string and a MD5 hash for domain verification. %dkim_selector% and %dkim_selector2% are the DKIM selectors used for placing the DKIM CNAME records; these are dynamically generated. %dkimcname% and %dkimcname2% are the CNAME targets for the DKIM records. %dmarc_value% is the DMARC record value. %spf_value% is the SPF record value.",
   "records": [
     {
-      "groupId": "code",
+      "groupId": "domain-verification",
       "type": "TXT",
       "host": "@",
-      "data": "%verfication_code%",
+      "data": "%verification_code%",
       "ttl": 3600
     },
     {
-      "groupId": "dkim_raw",
-      "type": "TXT",
+      "groupId": "email-authentication",
+      "type": "CNAME",
       "host": "%dkim_selector%._domainkey",
-      "data": "%dkim_public_key%",
+      "pointsTo": "%dkimcname%",
       "ttl": 3600
     },
     {
-      "groupId": "dmarc",
+      "groupId": "email-authentication",
+      "type": "CNAME",
+      "host": "%dkim_selector2%._domainkey",
+      "pointsTo": "%dkimcname2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "email-authentication",
       "type": "TXT",
       "host": "_dmarc",
       "data": "%dmarc_value%",
@@ -34,53 +41,10 @@
       "essential": "OnApply"
     },
     {
-      "groupId": "dkim",
-      "type": "CNAME",
-      "host": "%dkim_selector%._domainkey",
-      "pointsTo": "%dkimcname%",
-      "ttl": 3600
-    },
-    {
-      "groupId": "dkim",
-      "type": "CNAME",
-      "host": "%dkim_selector2%._domainkey",
-      "pointsTo": "%dkimcname2%",
-      "ttl": 3600
-    },
-    {
-      "groupId": "a",
-      "type": "A",
+      "groupId": "email-authentication",
+      "type": "SPF",
       "host": "@",
-      "pointsTo": "%ip%",
-      "ttl": 3600
-    },
-    {
-      "groupId": "spf",
-      "type": "SPFM",
-      "host": "@",
-      "spfRules": "%spf_rules%",
-      "ttl": 3600
-    },
-    {
-      "groupId": "mx",
-      "type": "MX",
-      "host": "@",
-      "pointsTo": "%fqdn%",
-      "priority": 10,
-      "ttl": 3600
-    },
-    {
-      "groupId": "r",
-      "type": "CNAME",
-      "host": "r",
-      "pointsTo": "r.mailin.fr",
-      "ttl": 3600
-    },
-    {
-      "groupId": "img",
-      "type": "CNAME",
-      "host": "img",
-      "pointsTo": "img.mailin.fr",
+      "data": "%spf_value%",
       "ttl": 3600
     }
   ]
