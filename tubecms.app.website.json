@@ -7,10 +7,11 @@
   "syncPubKeyDomain": "tubecms.app",
   "logoUrl": "https://tubecms.app/logo-transparent.svg",
   "description": "Connect your custom domain to your TubeCMS site",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "%sub%",
+      "host": "@",
       "pointsTo": "on.tubecms.app",
       "ttl": 3600
     }
