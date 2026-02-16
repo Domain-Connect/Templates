@@ -41,11 +41,11 @@
       "essential": "OnApply"
     },
     {
-      "groupId": "email-authentication",
-      "type": "SPMF",
-      "host": "@",
-      "data": "%spmf_value%",
-      "ttl": 3600
-    }
+  "groupId": "email-authentication",
+  "type": "SPFM",
+  "host": "@",
+  "spfRules": "include:spf.auvex-mail.com ~all",
+  "ttl": 3600
+}
   ]
 }
