@@ -1,0 +1,24 @@
+{
+  "providerId": "dmarcpulse.io",
+  "providerName": "DMARCPulse",
+  "serviceId": "spf-setup",
+  "serviceName": "SPF Record Setup",
+  "version": 1,
+  "logoUrl": "https://dmarcpulse.io/logo.svg",
+  "description": "Configure SPF email authentication to authorize legitimate mail senders",
+  "variableDescription": "spfRules: SPF mechanisms to add (e.g. include:_spf.google.com)",
+  "syncRedirectDomain": "",
+  "syncPubKeyDomain": "",
+  "syncBlock": false,
+  "multiInstance": false,
+  "hostRequired": false,
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spfRules%",
+      "ttl": 3600
+    }
+  ]
+}

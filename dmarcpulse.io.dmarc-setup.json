@@ -1,0 +1,27 @@
+{
+  "providerId": "dmarcpulse.io",
+  "providerName": "DMARCPulse",
+  "serviceId": "dmarc-setup",
+  "serviceName": "DMARC Record Setup",
+  "version": 1,
+  "logoUrl": "https://dmarcpulse.io/logo.svg",
+  "description": "Configure DMARC email authentication and aggregate reporting",
+  "variableDescription": "policy: DMARC policy (none, quarantine, reject). rua: Email address for aggregate reports",
+  "syncRedirectDomain": "",
+  "syncPubKeyDomain": "",
+  "syncBlock": false,
+  "multiInstance": false,
+  "hostRequired": false,
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%; rua=mailto:%rua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "Always"
+    }
+  ]
+}
