@@ -7,12 +7,8 @@
   "logoUrl": "https://dmarcpulse.io/logo.svg",
   "description": "Configure DMARC email authentication and aggregate reporting",
   "variableDescription": "policy: DMARC policy (none, quarantine, reject). rua: Email address for aggregate reports",
-  "syncRedirectDomain": "",
-  "syncPubKeyDomain": "",
-  "syncBlock": false,
-  "multiInstance": false,
-  "hostRequired": false,
-  "warnPhishing": false,
+  "syncPubKeyDomain": "dmarcpulse.io",
+  "syncRedirectDomain": "app.dmarcpulse.io",
   "records": [
     {
       "type": "TXT",
