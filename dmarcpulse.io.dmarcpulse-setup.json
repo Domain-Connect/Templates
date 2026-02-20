@@ -1,0 +1,58 @@
+{
+  "providerId": "dmarcpulse.io",
+  "providerName": "DMARCPulse",
+  "serviceId": "dmarcpulse-setup",
+  "serviceName": "DMARCPulse setup",
+  "version": 1,
+  "logoUrl": "https://dmarcpulse.io/logo.svg",
+  "description": "DMARCPulse is a multi-tenant SaaS platform for DMARC aggregate report monitoring that provides automatic IMAP-based report ingestion and parsing, interactive dashboards with authentication trend analysis, and DNS-verified actionable recommendations for SPF, DKIM, and DMARC policy.",
+  "variableDescription": "%spfRules%: space-separated SPF mechanisms and modifiers for SPFM merge (without the leading \"v=spf1\" version tag and without the final \"all\" mechanism), %spfDomain%: DNS host/name where the SPF policy is managed, %dmarctxt%: DMARC TXT policy, %bimitxt%: BIMI TXT record, %mta_sts_txt%: MTA-STS TXT policy, %tlsrpt%: TLS reporting TXT value",
+  "syncPubKeyDomain": "dmarcpulse.io",
+  "syncRedirectDomain": "app.dmarcpulse.io",
+  "records": [
+    {
+      "type": "SPFM",
+      "groupId": "spf",
+      "host": "%spfDomain%",
+      "ttl": "3600",
+      "spfRules": "%spfRules%"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "essential": "OnApply",
+      "host": "_dmarc",
+      "ttl": "3600",
+      "data": "%dmarctxt%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "type": "TXT",
+      "groupId": "bimi",
+      "host": "default._bimi",
+      "ttl": "3600",
+      "data": "%bimitxt%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=BIMI1"
+    },
+    {
+      "type": "TXT",
+      "groupId": "mta-sts",
+      "host": "_mta-sts",
+      "ttl": "600",
+      "data": "%mta_sts_txt%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=STSv1"
+    },
+    {
+      "type": "TXT",
+      "groupId": "tlsrpt",
+      "host": "_smtp._tls",
+      "ttl": "3600",
+      "data": "%tlsrpt%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=TLSRPTv1"
+    }
+  ]
+}
