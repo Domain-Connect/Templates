@@ -17,21 +17,5 @@
       "pointsTo": "thedtsapp.pages.dev",
       "ttl": 3600
     }
-  ],
-  "testData": {
-    "www": {
-      "variables": {
-        "domain": "example.com",
-        "host": "www"
-      },
-      "results": [
-        {
-          "type": "CNAME",
-          "name": "www",
-          "ttl": 3600,
-          "data": "thedtsapp.pages.dev"
-        }
-      ]
-    }
-  }
+  ]
 }
