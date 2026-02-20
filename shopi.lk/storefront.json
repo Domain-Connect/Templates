@@ -1,0 +1,17 @@
+{
+  "providerId": "shopi.lk",
+  "providerName": "Shopi.lk",
+  "serviceId": "storefront",
+  "serviceName": "Shopi.lk Storefront",
+  "version": 2,
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.shopi.lk",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "api.shopi.lk",
+      "ttl": 3600
+    }
+  ]
+}
