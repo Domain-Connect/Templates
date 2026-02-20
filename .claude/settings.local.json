@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh api:*)",
+      "Bash(cmd.exe /c \"where go\")",
+      "Bash(cmd.exe /c \"go version\")",
+      "Bash(powershell.exe -Command:*)",
+      "WebFetch(domain:exampleservice.domainconnect.org)",
+      "Bash(gh search code:*)",
+      "Bash(git stash:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}

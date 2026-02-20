@@ -1,0 +1,31 @@
+  "testData": {
+    "sfp with host": {
+      "variables": {
+        "domain": "example.com",
+        "host": "test",
+        "spfRules": "office.outlook.com"
+      },
+      "results": [
+        {
+          "type": "TXT",
+          "name": "test",
+          "ttl": 6000,
+          "data": "\"v=spf1 office.outlook.com ~all\""
+        }
+      ]
+    },
+    "sfp without host": {
+      "variables": {
+        "domain": "example.com",
+        "spfRules": "office.outlook.com"
+      },
+      "results": [
+        {
+          "type": "TXT",
+          "name": "@",
+          "ttl": 6000,
+          "data": "\"v=spf1 office.outlook.com ~all\""
+        }
+      ]
+    }
+  }
