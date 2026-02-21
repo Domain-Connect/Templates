@@ -1,0 +1,20 @@
+{
+    "providerId": "2fifteen.io",
+    "providerName": "2fifteen",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain Verification",
+    "description": "Adds a TXT record for Google Workspace domain verification",
+    "syncRedirectDomain": "cortex.2fifteen.io",
+    "multiInstance": true,
+    "version": 1,
+    "variableDescription": "verifytxt: Google domain verification token",
+    "records": [
+        {
+            "groupId": "verification",
+            "type": "TXT",
+            "host": "@",
+            "data": "%verifytxt%",
+            "ttl": 3600
+        }
+    ]
+}
