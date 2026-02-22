@@ -3,10 +3,9 @@
   "providerName": "SaaSKevin",
   "serviceId": "widget-custom-domain-apex",
   "serviceName": "Custom domain (apex)",
-  "version": 1,
-  "logoUrl": "https://app.saaskevin.com/logo.svg",
-  "description": "Connect an apex domain (A record) to SaaSKevin edge, and delegate ACME challenges for automatic TLS.",
-  "variableDescription": "EDGE_IPV4_1/EDGE_IPV4_2/EDGE_IPV4_3 are the IPv4 addresses used for apex routing (create multiple A records). ACME_DELEGATION_TARGET is the target for the _acme-challenge CNAME delegation.",
+  "version": 2,
+  "description": "Connect an apex domain (A record) to SaaSKevin edge.",
+  "variableDescription": "EDGE_IPV4_1/EDGE_IPV4_2/EDGE_IPV4_3 are the IPv4 addresses used for apex routing (create multiple A records).",
   "syncBlock": false,
   "syncPubKeyDomain": "saaskevin.com",
   "syncRedirectDomain": "app.saaskevin.com,saaskevin.com,app.saaskevinstaging.com,saaskevinstaging.com",
@@ -27,12 +26,6 @@
       "type": "A",
       "host": "@",
       "pointsTo": "%EDGE_IPV4_3%",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "_acme-challenge",
-      "pointsTo": "%ACME_DELEGATION_TARGET%",
       "ttl": 3600
     }
   ]
