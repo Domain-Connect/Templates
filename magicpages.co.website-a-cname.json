@@ -1,0 +1,26 @@
+{
+  "providerId": "magicpages.co",
+  "providerName": "Magic Pages",
+  "serviceId": "website-a-cname",
+  "serviceName": "Magic Pages Custom Domain",
+  "version": 1,
+  "logoUrl": "https://www.magicpages.co/content/images/2026/02/magic-pages_full-logo_dark-plum.svg",
+  "description": "Connect your domain to Magic Pages by creating an A record at the apex and a CNAME record for www.",
+  "variableDescription": "IP: A record IP address for apex domain redirect, target: CNAME target for your Magic Pages site",
+  "syncPubKeyDomain": "magicpages.co",
+  "syncRedirectDomain": "domains.magicpages.co",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
