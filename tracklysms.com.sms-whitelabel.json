@@ -13,7 +13,7 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "proxy.tracklysms.com",
       "ttl": 3600
     }
