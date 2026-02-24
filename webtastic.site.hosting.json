@@ -1,0 +1,16 @@
+{
+  "providerId": "webtastic.site",
+  "providerName": "Webtastic",
+  "serviceId": "hosting",
+  "serviceName": "Webtastic Hosting",
+  "version": 1,
+  "logoUrl": "https://webtastic.site/logo.png",
+  "description": "Connect your domain to your Webtastic site",
+  "syncRedirectDomain": "webtastic.site",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "34.36.194.199", "ttl": 3600, "essential": "Always" },
+    { "type": "CNAME", "host": "www", "pointsTo": "@", "ttl": 3600, "essential": "Always" }
+  ]
+}
