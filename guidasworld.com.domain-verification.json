@@ -1,0 +1,24 @@
+{
+  "providerId": "guidasworld.com",
+  "providerName": "Guidasworld",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain Verification",
+  "sharedServiceName": true,
+  "version": 3,
+  "logoUrl": "https://guidasworld.com/favicon.ico",
+  "description": "Enables a domain to work with Guidasworld",
+  "variableDescription": "Unique verification code provided for purpose of verification",
+  "multiInstance": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "guidasworld.com",
+  "syncRedirectDomain": "guidasworld.com,www.guidasworld.com",
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "%verifytxt%",
+      "ttl": 3600
+    }
+  ]
+}
