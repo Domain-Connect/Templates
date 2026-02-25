@@ -1,0 +1,29 @@
+{
+  "providerId": "solidappmaker.in",
+  "serviceId": "custom_domain",
+  "name": "Solid App Maker Custom Domain Setup",
+  "description": "Automatically connects your GoDaddy domain to SolidAppMaker.",
+  "syncOptions": {
+    "syncBlock": false
+  },
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%txt_name%",
+      "pointsTo": "%txt_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dcv_name%",
+      "pointsTo": "%dcv_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cname_name%",
+      "pointsTo": "origin.solidappmaker.in",
+      "ttl": 3600
+    }
+  ]
+}
