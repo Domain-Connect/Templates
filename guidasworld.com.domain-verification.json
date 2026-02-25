@@ -4,7 +4,7 @@
   "serviceId": "domain-verification",
   "serviceName": "Domain Verification",
   "sharedServiceName": true,
-  "version": 3,
+  "version": 1,
   "logoUrl": "https://guidasworld.com/favicon.ico",
   "description": "Enables a domain to work with Guidasworld",
   "variableDescription": "Unique verification code provided for purpose of verification",
