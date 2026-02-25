@@ -1,8 +1,10 @@
 {
   "providerId": "solidappmaker.in",
+  "providerName": "SolidAppMaker",
   "serviceId": "custom_domain",
-  "name": "Solid App Maker Custom Domain Setup",
-  "description": "Automatically connects your GoDaddy domain to SolidAppMaker.",
+  "serviceName": "Custom Domain Setup",
+  "version": 1,
+  "logoUrl": "https://solidappmaker.in/favicon.ico",
   "syncOptions": {
     "syncBlock": false
   },
