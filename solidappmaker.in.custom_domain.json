@@ -12,7 +12,7 @@
     {
       "type": "TXT",
       "host": "%txt_name%",
-      "pointsTo": "%txt_value%",
+      "data": "%txt_value%",
       "ttl": 3600
     },
     {
