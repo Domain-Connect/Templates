@@ -7,6 +7,7 @@
   "logoUrl": "https://webtastic.site/logo.png",
   "description": "Connect your domain to your Webtastic site",
   "syncRedirectDomain": "webtastic.site",
+  "syncPubKeyDomain": "webtastic.site",
   "warnPhishing": true,
   "hostRequired": false,
   "records": [
