@@ -8,7 +8,6 @@
   "description": "Connect your domain to your Webtastic site",
   "syncRedirectDomain": "webtastic.site",
   "syncPubKeyDomain": "webtastic.site",
-  "warnPhishing": true,
   "hostRequired": false,
   "records": [
     { "type": "A", "host": "@", "pointsTo": "34.36.194.199", "ttl": 3600, "essential": "Always" },
