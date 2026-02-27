@@ -1,0 +1,27 @@
+{
+  "providerId": "usethallo.com",
+  "providerName": "Thallo",
+  "serviceId": "hosting",
+  "serviceName": "Thallo Website Hosting",
+  "version": 1,
+  "logoUrl": "https://usethallo.com/logo.png",
+  "description": "Connects your domain to your Thallo-hosted website. Sets the A record for the root domain and a CNAME for www.",
+  "variableDescription": "No variables required. All records use static values.",
+  "syncRedirectDomain": "usethallo.com",
+  "hostRequired": false,
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "5.161.54.32",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}
