@@ -1,0 +1,20 @@
+{
+  "providerId": "ferndesk.com",
+  "providerName": "Ferndesk",
+  "serviceId": "custom-domain",
+  "serviceName": "Ferndesk Custom Domain",
+  "version": 1,
+  "logoUrl": "https://static.ferndesk.com/assets/fern-pixel.jpg",
+  "description": "Connect a custom domain to a Ferndesk documentation.",
+  "syncPubKeyDomain": "domainconnect.ferndesk.com",
+  "syncRedirectDomain": "ferndesk.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.ferndesk.cloud",
+      "ttl": 3600
+    }
+  ]
+}
