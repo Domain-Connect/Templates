@@ -1,34 +1,33 @@
 {
   "providerId": "pakai.email",
   "providerName": "Pakai Email",
-  "serviceId": "domain",
+  "serviceId": "email",
   "serviceName": "Email Setup",
   "version": 1,
   "logoUrl": "https://pakai.email/assets/dashboard/images/logo-dark.png",
   "description": "Configures DNS records for Pakai Email domain signing",
-  "variableDescription": "server is the email server domain; relay is the relay email username; dkim is the dkim value.",
-  "syncPubKeyDomain": "domainconnect.pakai.email",
-  "syncRedirectDomain": "pakai.email",
+  "variableDescription": "server is the email server domain; relay is the relay username; dkim is the dkim value.",
+  "syncPubKeyDomain": "connect.pakai.email",
   "warnPhishing": true,
   "syncBlock": false,
   "records": [
     {
       "type": "MX",
       "host": "@",
-      "pointsTo": "%server%.pakai.email",
+      "pointsTo": "%server%",
       "ttl": 3600,
       "priority": 10
     },
     {
       "type": "CNAME",
       "host": "autoconfig",
-      "pointsTo": "%server%.pakai.email",
+      "pointsTo": "%server%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "autodiscover",
-      "pointsTo": "%server%.pakai.email",
+      "pointsTo": "%server%",
       "ttl": 3600
     },
     {
