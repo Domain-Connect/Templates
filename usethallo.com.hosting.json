@@ -23,26 +23,5 @@
       "pointsTo": "@",
       "ttl": 3600
     }
-  ],
-  "testData": {
-    "default": {
-      "variables": {
-        "domain": "example.com"
-      },
-      "results": [
-        {
-          "type": "A",
-          "name": "@",
-          "ttl": 3600,
-          "data": "5.161.54.32"
-        },
-        {
-          "type": "CNAME",
-          "name": "www",
-          "ttl": 3600,
-          "data": "example.com"
-        }
-      ]
-    }
-  }
+  ]
 }
