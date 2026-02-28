@@ -8,7 +8,6 @@
   "description": "Connect a custom domain to a Ferndesk documentation.",
   "syncPubKeyDomain": "domainconnect.ferndesk.com",
   "syncRedirectDomain": "ferndesk.com",
-  "warnPhishing": true,
   "hostRequired": true,
   "records": [
     {
