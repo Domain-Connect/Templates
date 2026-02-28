@@ -1,14 +1,13 @@
 {
   "providerId": "pakai.email",
   "providerName": "Pakai Email",
-  "serviceId": "email",
+  "serviceId": "domain",
   "serviceName": "Email Setup",
   "version": 1,
   "logoUrl": "https://pakai.email/assets/dashboard/images/logo-dark.png",
   "description": "Configures DNS records for Pakai Email domain signing",
   "variableDescription": "server is the email server domain; relay is the relay username; dkim is the dkim value.",
   "syncPubKeyDomain": "connect.pakai.email",
-  "warnPhishing": true,
   "syncBlock": false,
   "records": [
     {
