@@ -12,6 +12,10 @@ https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Dra
 ## Online Editor
 
 An [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit) is available, with features like syntax check, testing of variables replacement and groups.
+To create the PR define the template and test with the editor and provide the link to test results in PR ("Copy Markdown" button).
+
+<img width="112" height="45" alt="image" src="https://github.com/user-attachments/assets/53493ca4-8458-4209-a658-0e4948c4bbe1" />
+
 
 ## Template Naming Format
 
