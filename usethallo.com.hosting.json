@@ -10,7 +10,6 @@
   "syncPubKeyDomain": "usethallo.com",
   "syncRedirectDomain": "usethallo.com",
   "hostRequired": false,
-  "warnPhishing": true,
   "records": [
     {
       "type": "A",
