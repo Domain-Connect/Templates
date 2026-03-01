@@ -1,0 +1,32 @@
+{
+    "providerId": "devopstacks.com",
+    "providerName": "DevOps Stacks",
+    "serviceId": "email-authentication",
+    "serviceName": "DevOps Stacks Email Authentication",
+    "version": 1,
+    "logoUrl": "https://devopstacks.com/logo.svg",
+    "description": "Configure SPF, DKIM and MX records to authenticate email for your domain...",
+    "variableDescription": "%dkim_host%: DKIM selector; %dkim_value%: DKIM public key; %spf_value%: SPF rules; %mx%: MX mail server; %mxprio%: MX priority",
+    "syncPubKeyDomain": "devopstacks.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkim_host%._domainkey",
+            "pointsTo": "%dkim_value%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "@",
+            "ttl": 3600,
+            "data": "%spf_value%"
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "%mx%",
+            "ttl": 3600,
+            "priority": "%mxprio%"
+        }
+    ]
+}
