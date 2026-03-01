@@ -1,0 +1,27 @@
+{
+  "providerId": "lindo.ai",
+  "providerName": "Lindo",
+  "serviceId": "website-apex",
+  "serviceName": "Lindo Website (Apex Only)",
+  "version": 1,
+  "logoUrl": "https://cdn.ln-cdn.com/image/whitelabel/logo/app.lindo.ai.png",
+  "description": "Connect your root domain to Lindo",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "lindo.ai",
+  "syncRedirectDomain": "app.lindo.ai",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": "300"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": "300"
+    }
+  ]
+}
