@@ -1,0 +1,49 @@
+{
+  "providerId": "molted.email",
+  "providerName": "Molted Email",
+  "serviceId": "moltedmail",
+  "serviceName": "Molted Email Authentication",
+  "version": 1,
+  "logoUrl": "https://molted.email/logo.svg",
+  "description": "Configures SPF, DKIM, DMARC and MX records for sending and receiving email via Molted Email",
+  "variableDescription": "dkimValue1: DKIM public key returned by Resend for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "molted.email",
+  "syncRedirectDomain": "molted.email",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%dkimValue1%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.eu-west-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
