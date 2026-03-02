@@ -1,0 +1,18 @@
+{
+  "providerId": "inboxi.email",
+  "providerName": "Inboxi Email",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC Monitoring",
+  "version": 1,
+  "syncPubKeyDomain": "inboxi.email",
+  "syncRedirectDomain": "inboxi.email",
+  "description": "Ativa o monitoramento de segurança DMARC para proteger seu domínio contra spam e phishing.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@inboxi.email",
+      "ttl": 3600
+    }
+  ]
+}
