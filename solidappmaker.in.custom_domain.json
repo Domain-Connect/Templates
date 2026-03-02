@@ -1,0 +1,31 @@
+{
+  "providerId": "solidappmaker.in",
+  "providerName": "SolidAppMaker",
+  "serviceId": "custom_domain",
+  "serviceName": "Custom Domain Setup",
+  "version": 1,
+  "logoUrl": "https://solidappmaker.in/favicon.ico",
+  "syncOptions": {
+    "syncBlock": false
+  },
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%txt_name%",
+      "data": "%txt_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dcv_name%",
+      "pointsTo": "%dcv_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cname_name%",
+      "pointsTo": "origin.solidappmaker.in",
+      "ttl": 3600
+    }
+  ]
+}
