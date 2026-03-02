@@ -1,5 +1,4 @@
 # Templates
-[![Build Status](https://travis-ci.com/Domain-Connect/Templates.svg?branch=master)](https://travis-ci.com/Domain-Connect/Templates)
 
 Templates for use in the Domain Connect Protocol
 These map to the individual service providers for domain connect. See https://www.domainconnect.org/getting-started/
@@ -9,9 +8,48 @@ For details on how to constuct a Domain Connect template, refer to section 5.2 a
 https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Draft.adoc#template-definition
 https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Draft.adoc#template-record
 
+## Submitting a Pull Request
+
+Follow these steps carefully when contributing a new or updated template:
+
+### 1. Create and Test Your Template
+
+1. Open the [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit).
+2. Define your template and verify it passes the syntax check.
+3. Test all variable replacements and groups using the editor's built-in testing tools.
+4. Perform tests with domain Apex and subdomain using `host` field.
+5. Click the **"Copy Markdown"** button in the editor to copy a shareable link to your test results.
+
+> ⚠️ **Testing with the Online Editor is required.** Pull Requests that do not include a link to editor test results will not be reviewed.
+
+> ⚠️ **Test results MUST match the submitted template.** Pull Requests with outdated tests will not be reviewed.
+
+### 2. Name Your File Correctly
+
+Ensure your template file follows the required naming convention and is placed in the root folder of the repository:
+
+```
+providerId.serviceId.json
+```
+
+For example: `myprovider.com.website.json`
+
+### 3. Open a Pull Request
+
+When opening your Pull Request:
+
+- **Always use the [PR Template](.github/pull_request_template.md)** — it is loaded automatically when you open a new PR on GitHub.
+- **Follow the PR template exactly** — fill in every section and do not alter or remove any part of the template structure.
+- **Paste the Markdown link** from the Online Editor (copied in step 1) into the designated field in the PR template to share your test results.
+
+> ⚠️ Pull Requests that do not use the PR template, skip sections, or modify the template structure will be asked to revise before review begins.
+
 ## Online Editor
 
 An [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit) is available, with features like syntax check, testing of variables replacement and groups.
+To create the PR define the template and test with the editor and provide the link to test results in PR ("Copy Markdown" button).
+
+<img width="112" height="45" alt="image" src="https://github.com/user-attachments/assets/53493ca4-8458-4209-a658-0e4948c4bbe1" />
 
 ## Template Naming Format
 
