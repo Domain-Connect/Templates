@@ -1,0 +1,31 @@
+{
+  "providerId": "lindo.ai",
+  "providerName": "Lindo",
+  "serviceId": "email",
+  "serviceName": "Lindo Email (DKIM + DMARC)",
+  "version": 1,
+  "logoUrl": "https://cdn.ln-cdn.com/image/whitelabel/logo/app.lindo.ai.png",
+  "description": "Set up email authentication for Lindo",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "lindo.ai",
+  "syncRedirectDomain": "app.lindo.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "lindoai._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": "300",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": "300",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
