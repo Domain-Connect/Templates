@@ -35,7 +35,7 @@
     {
       "groupId": "inbound",
       "type": "MX",
-      "host": "%inboundMxDomain%",
+      "host": "@",
       "pointsTo": "%inboundMx%",
       "ttl": 3600,
       "priority": 10
