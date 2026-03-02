@@ -1,0 +1,44 @@
+{
+  "providerId": "mailrify.com",
+  "providerName": "Mailrify",
+  "serviceId": "mail-send-and-receive",
+  "serviceName": "Mail (Sending & Receiving)",
+  "version": 2,
+  "syncBlock": false,
+  "syncPubKeyDomain": "mailrify.com",
+  "syncRedirectDomain": "mailrify.com,app.mailrify.com",
+  "description": "Configure Mailrify DNS records for sending and optional inbound receiving.",
+  "logoUrl": "https://mailrify.com/icons/favicon.svg",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "mailrify._domainkey",
+      "ttl": 3600,
+      "data": "v=DKIM1; k=rsa; p=%dkimPublicKey%"
+    },
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "mailrify",
+      "pointsTo": "%mailFromMx%",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "mailrify",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "%inboundMxDomain%",
+      "pointsTo": "%inboundMx%",
+      "ttl": 3600,
+      "priority": 10
+    }
+  ]
+}
