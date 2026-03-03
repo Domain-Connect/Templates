@@ -7,6 +7,7 @@
     "logoUrl": "https://www.atribu.app/brand/atribu-wordmark-square-1024.png",
     "description": "Adds a CNAME record to enable first-party tracking proxy on your domain",
     "variableDescription": "",
+    "syncPubKeyDomain": "domainconnect.atribu.app",
     "syncRedirectDomain": "atribu.app",
     "hostRequired": true,
     "records": [
