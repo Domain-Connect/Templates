@@ -1,7 +1,7 @@
 {
   "providerId": "molted.email",
   "providerName": "Molted Email",
-  "serviceId": "moltedmail",
+  "serviceId": "moltedemail",
   "serviceName": "Molted Email Authentication",
   "version": 1,
   "logoUrl": "https://molted.email/logo.svg",
