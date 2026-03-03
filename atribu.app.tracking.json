@@ -1,0 +1,21 @@
+{
+    "providerId": "atribu.app",
+    "providerName": "Atribu",
+    "serviceId": "tracking",
+    "serviceName": "Atribu First-Party Tracking",
+    "version": 1,
+    "logoUrl": "https://www.atribu.app/brand/atribu-wordmark-square-1024.png",
+    "description": "Adds a CNAME record to enable first-party tracking proxy on your domain",
+    "variableDescription": "",
+    "syncRedirectDomain": "atribu.app",
+    "hostRequired": true,
+    "records": [
+      {
+        "type": "CNAME",
+        "host": "@",
+        "pointsTo": "collect.atribu.app",
+        "ttl": 3600
+      }
+    ]
+  }
+  
