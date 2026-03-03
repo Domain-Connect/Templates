@@ -1,11 +1,13 @@
 {
   "providerId": "restayway.com",
+  "providerName": "Restayway",
   "serviceId": "cname-connect",
   "serviceName": "Restayway",
   "version": 1,
   "description": "Connect your custom domain to the Restayway platform and automatically configure SSL validation.",
   "variableDescription": "Required routing and validation variables for secure connection to the Restayway infrastructure.",
   "syncMode": "select",
+  "hostRequired": true,
   "syncPubKeyDomain": "restayway.com",
   "records": [
     {
