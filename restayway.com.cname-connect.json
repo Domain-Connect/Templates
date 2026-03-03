@@ -6,16 +6,17 @@
   "description": "Connect your custom domain to the Restayway platform and automatically configure SSL validation.",
   "variableDescription": "Required routing and validation variables for secure connection to the Restayway infrastructure.",
   "syncMode": "select",
+  "syncPubKeyDomain": "restayway.com",
   "records": [
     {
       "type": "CNAME",
-      "host": "%subdomain%",
+      "host": "@",
       "pointsTo": "cname.restayway.com",
       "ttl": 3600
     },
     {
       "type": "TXT",
-      "host": "_cf-custom-hostname.%subdomain%",
+      "host": "_cf-custom-hostname",
       "data": "%txt_validation_code%",
       "ttl": 3600
     }
