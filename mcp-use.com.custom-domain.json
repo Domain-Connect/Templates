@@ -20,7 +20,7 @@
       "type": "CNAME",
       "groupId": "subdomain",
       "host": "%subdomain%",
-      "pointsTo": "gateway.mcp-use.run",
+      "pointsTo": "deploy.mcp-use.com",
       "ttl": 600
     },
     {
