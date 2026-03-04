@@ -7,7 +7,7 @@
   "logoUrl": "https://www.contentmetric.com/logo.svg",
   "description": "Connect your domain to your ContentMetric project",
   "syncPubKeyDomain": "contentmetric.com",
-  "syncBlock": false,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
