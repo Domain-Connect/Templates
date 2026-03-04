@@ -1,6 +1,6 @@
 # Description
 
-<-- short description of the template(s) and/or reason for update -->
+<!-- short description of the template(s) and/or reason for update -->
 
 ## Type of change
 
@@ -14,9 +14,7 @@ Please mark options that are relevant.
 # How Has This Been Tested?
 
 Please mark the following checks done
-- [ ] Schema validated using JSON Schema [template.schema](./template.schema)
 - [ ] Template functionality checked using [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit)
-- [ ] Template is checked using [template linter](https://github.com/Domain-Connect/dc-template-linter)
 - [ ] Template file name follows the pattern `<providerId>.<serviceId>.json`
 - [ ] resource URL provided with `logoUrl` is actually served by a webserver
 
