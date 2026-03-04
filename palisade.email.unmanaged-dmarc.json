@@ -1,0 +1,25 @@
+{
+  "providerId": "palisade.email",
+  "providerName": "Palisade",
+  "serviceId": "unmanaged-dmarc",
+  "serviceName": "Unmanaged DMARC monitoring",
+  "version": 1,
+  "syncRedirectDomain": "app.palisade.email,palisade.email",
+  "logoUrl": "https://app.palisade.email/logo.png",
+  "syncPubKeyDomain": "domainconnect.palisade.email",
+  "warnPhishing": true,
+  "syncBlock": false,
+  "hostRequired": true,
+  "description": "Save time, stop email spoofing and get your customers DMARC compliant 10x faster.",
+  "variableDescription": "dmarcValue is the Palisade DMARC TXT value for your domain",
+  "records": [
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarcValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

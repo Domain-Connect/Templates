@@ -1,0 +1,44 @@
+{
+  "providerId": "auvex.es",
+  "providerName": "Auvex",
+  "serviceId": "domain-authentication",
+  "serviceName": "Auvex Domain Authentication",
+  "version": 6,
+  "syncPubKeyDomain": "auvex.es",
+  "syncRedirectDomain": "dc-callback.auvex.es",
+  "logoUrl": "https://auvex.es/favicon-96x96.png",
+  "description": "Places TXT record for domain verification and configures DKIM, DMARC and SPMF records to authenticate email sent by Auvex on behalf of the user.",
+  "variableDescription": "The variable %verification_code% represents a combination of a prefix string and a MD5 hash for domain verification. %dkim_selector% and %dkim_selector2% are the DKIM selectors used for placing the DKIM CNAME records; these are dynamically generated. %dkimcname% and %dkimcname2% are the CNAME targets for the DKIM records. %dmarc_value% is the DMARC record value. %spmf_value% is the SPMF record value.",
+  "records": [
+    {
+      "groupId": "domain-verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "%verification_code%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "email-authentication",
+      "type": "CNAME",
+      "host": "%dkim_selector%._domainkey",
+      "pointsTo": "%dkimcname%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "email-authentication",
+      "type": "CNAME",
+      "host": "%dkim_selector2%._domainkey",
+      "pointsTo": "%dkimcname2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "email-authentication",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
