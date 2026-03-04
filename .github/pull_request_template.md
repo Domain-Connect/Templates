@@ -1,6 +1,6 @@
 # Description
 
-<-- short description of the template(s) and/or reason for update -->
+<!-- short description of the template(s) and/or reason for update -->
 
 ## Type of change
 
