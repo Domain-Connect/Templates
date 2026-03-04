@@ -1,0 +1,41 @@
+{
+  "providerId": "readymag.com",
+  "providerName": "Readymag",
+  "serviceId": "subdomain",
+  "serviceName": "Connect custom domain to Readymag",
+  "syncPubKeyDomain": "readymag.com",
+  "syncRedirectDomain": "readymag.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "version": 1,
+  "logoUrl": "https://public.readym.ag/domain-connect/logo.svg",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_readymag",
+      "data": "readymag-verification=%verificationToken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "readymag-verification=",
+      "essential": "Always"
+    },
+    {
+      "type": "CAA",
+      "host": "%domain%.",
+      "data": "0 issue \"sectigo.com\"",
+      "ttl": 300
+    },
+    {
+      "type": "CAA",
+      "host": "%domain%.",
+      "data": "0 issue \"letsencrypt.org\"",
+      "ttl": 300
+    }
+  ]
+}

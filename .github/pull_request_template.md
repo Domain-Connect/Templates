@@ -1,6 +1,6 @@
 # Description
 
-<-- short description of the template(s) and/or reason for update -->
+<!-- short description of the template(s) and/or reason for update -->
 
 ## Type of change
 
@@ -14,9 +14,7 @@ Please mark options that are relevant.
 # How Has This Been Tested?
 
 Please mark the following checks done
-- [ ] Schema validated using JSON Schema [template.schema](./template.schema)
 - [ ] Template functionality checked using [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit)
-- [ ] Template is checked using [template linter](https://github.com/Domain-Connect/dc-template-linter)
 - [ ] Template file name follows the pattern `<providerId>.<serviceId>.json`
 - [ ] resource URL provided with `logoUrl` is actually served by a webserver
 
@@ -32,24 +30,17 @@ Mark all the checkboxes after conducting the check. Comment on any point which i
 - [ ] no explicit usage of `%host%` variable in `host` attribute 
 - [ ] `essential` setting is used on records, which the user shall be able to change or remove manually later without dropping the whole template (like DMARC)    
 
-# Example variable values
-<-- to make review process easier please provide the whole `testData` object from the [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit) after testing and using "Add as test" button. Hint: test also with "host" variable set. -->
-```
-"testData": {
-    "testingSet": {
-      "variables": {
-        "domain": "example.com",
-        "host": "foo",
-        "example": "bar"
-      },
-      "results": [
-        {
-          "type": "TXT",
-          "name": "foo",
-          "ttl": 86400,
-          "data": "\"bar\""
-        }
-      ]
-    }
-  }
-```
+## Online Editor test results
+
+<!-- 
+  Required. Follow these steps in the Online Editor (https://domainconnect.paulonet.eu/dc/free/templateedit):
+    1. Load your template and use "Check template" to perform extended schema and consistency check
+    2. Fill in domain/host as well as variable values
+    3. Click "Test apply template"
+    4. Click "Copy Markdown" and paste the link below
+    5. If necessary repeat steps 2-4 with different group setups and/or domain/host configuration
+-->
+
+**Editor test link(s):** 
+<!-- paste the links from "Copy Markdown" here -->
+<!-- paste multiple links if more test conducted. At least 1 per template file included in the PR -->
