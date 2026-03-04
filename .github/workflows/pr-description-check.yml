@@ -1,0 +1,106 @@
+name: PR Description Check
+
+on:
+  pull_request_target:
+    branches:
+      - master
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  check-description:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Get changed template JSON files
+        id: changed-templates
+        uses: tj-actions/changed-files@v45
+        with:
+          files: '*.json'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run PR description check
+        id: pr-check
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+          TEMPLATE_FILES: ${{ steps.changed-templates.outputs.all_changed_files }}
+          LABELS_FILE: /tmp/pr_check_labels.txt
+        run: |
+          set +e
+          python .github/scripts/check_pr_description.py 2>&1 | tee /tmp/pr_check_output.txt
+          echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          {
+            echo "check_output<<EOF"
+            cat /tmp/pr_check_output.txt
+            echo "EOF"
+          } >> "$GITHUB_ENV"
+
+      - name: Apply labels for failed checks
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          labels_file="/tmp/pr_check_labels.txt"
+          if [ ! -f "$labels_file" ] || [ ! -s "$labels_file" ]; then
+            echo "No labels to apply."
+            exit 0
+          fi
+          pr_number="${{ github.event.pull_request.number }}"
+          repo="${{ github.repository }}"
+          while IFS= read -r label; do
+            [ -z "$label" ] && continue
+            echo "Applying label: $label"
+            gh label create "$label" --repo "$repo" --force 2>/dev/null || true
+            gh pr edit "$pr_number" --repo "$repo" --add-label "$label"
+          done < "$labels_file"
+
+      - name: Comment PR – check failed
+        if: steps.pr-check.outputs.exit_code != '0'
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            ## PR Description Check Failed
+
+            The PR description is missing required elements. Please update it according to the [PR template](.github/pull_request_template.md).
+
+            <details><summary>Details</summary>
+
+            ```
+            ${{ env.check_output }}
+            ```
+
+            </details>
+          comment_tag: pr_description_check
+
+      - name: Comment PR – check passed
+        if: steps.pr-check.outputs.exit_code == '0'
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            ## PR Description Check Passed
+
+            All required sections are filled in correctly.
+
+            <details><summary>Details</summary>
+
+            ```
+            ${{ env.check_output }}
+            ```
+
+            </details>
+          comment_tag: pr_description_check
+
+      - name: Fail job if check failed
+        if: steps.pr-check.outputs.exit_code != '0'
+        run: exit 1
