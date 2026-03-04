@@ -1,0 +1,21 @@
+{
+  "providerId": "nettingale.com",
+  "providerName": "Nettingale",
+  "serviceId": "nettingale-connect",
+  "serviceName": "Managed WordPress Hosting",
+  "version": 1,
+  "logoUrl": "https://nettingale.com/favicon.svg",
+  "description": "Enables a domain to work with Nettingale Managed WordPress Hosting",
+  "variableDescription": "target is the CNAME endpoint for the hosting environment.",
+  "syncPubKeyDomain": "domainconnect.nettingale.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
