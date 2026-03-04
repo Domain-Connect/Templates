@@ -3,9 +3,9 @@
   "providerName": "Informaten",
   "serviceId": "a",
   "serviceName": "Connect your Domain with Informaten.com",
-  "version": 2,
+  "version": 3,
   "syncPubKeyDomain": "informaten.com",
-  "logoUrl": "https://informaten.com/assets/logo_dark.png",
+  "logoUrl": "https://informaten.com/logo_dark.png",
   "description": "Enables a domain to work with Informaten Servers",
   "variableDescription": "ip is the IPv4 address of the server",
   "records": [
