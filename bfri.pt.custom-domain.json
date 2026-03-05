@@ -15,7 +15,7 @@
     {
       "groupId": "subdomain",
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "bfri.pt",
       "ttl": 3600
     }
