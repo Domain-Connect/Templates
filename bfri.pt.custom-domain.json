@@ -5,6 +5,8 @@
   "serviceName": "ObraView Custom Domain",
   "version": 1,
   "description": "Connect your domain to ObraView",
+  "syncPubKeyDomain": "bfri.pt",
+  "syncRedirectDomain": "bfri.pt",
   "records": [
     {
       "groupId": "apex",
