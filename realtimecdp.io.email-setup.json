@@ -1,0 +1,32 @@
+{
+  "providerId": "realtimecdp.io",
+  "providerName": "RealTime CDP",
+  "serviceId": "email-setup",
+  "serviceName": "RealtimeCDP Email & Deliverability",
+  "version": 1,
+  "logoUrl": "https://realtimecdp.io/logo.png",
+  "description": "Automatically configures SPF, DKIM, and DMARC for RealtimeCDP.",
+  "variableDescription": "Connect your domain to RealtimeCDP to start sending marketing emails.",
+  "syncPubKeyDomain": "dc.realtimecdp.io",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "NS",
+      "host": "mail",
+      "pointsTo": "ns1.digitalocean.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "host": "mail",
+      "pointsTo": "ns2.digitalocean.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "host": "mail",
+      "pointsTo": "ns3.digitalocean.com.",
+      "ttl": 3600
+    }
+  ]
+}
