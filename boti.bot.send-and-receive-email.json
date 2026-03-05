@@ -1,0 +1,44 @@
+{
+  "providerId": "boti.bot",
+  "serviceId": "send-and-receive-email",
+  "providerName": "Boti",
+  "serviceName": "Boti Email (Send & Receive)",
+  "version": 1,
+  "logoUrl": "https://boti.bot/boti512.png",
+  "description": "Configures complete email setup: sending (SPF, DKIM, DMARC, Return-Path) and receiving (MX) for Boti.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "_dcsync.boti.bot",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.botimail.net",
+      "priority": 10,
+      "ttl": 120
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 include:botimail.net ~all",
+      "ttl": 120
+    },
+    {
+      "type": "CNAME",
+      "host": "boti._domainkey",
+      "pointsTo": "boti._domainkey.botimail.net",
+      "ttl": 120
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@botimail.net",
+      "ttl": 120
+    },
+    {
+      "type": "CNAME",
+      "host": "return",
+      "pointsTo": "mail.botimail.net",
+      "ttl": 120
+    }
+  ]
+}
