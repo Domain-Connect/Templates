@@ -72,7 +72,7 @@ jobs:
           message: |
             ## PR Description Check Failed
 
-            The PR description is missing required elements. Please update it according to the [PR template](.github/pull_request_template.md).
+            The PR description is missing required elements. Please update it according to the [PR template](${{ github.server_url }}/${{ github.repository }}/blob/master/.github/pull_request_template.md?plain=1).
 
             <details><summary>Details</summary>
 
