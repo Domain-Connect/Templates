@@ -15,7 +15,7 @@
   "sharedProviderName": false,
   "sharedServiceName": false,
   "multiInstance": true,
-  "hostRequired": false,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
