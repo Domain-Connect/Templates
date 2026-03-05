@@ -7,6 +7,7 @@
   "logoUrl": "https://li-nk.me/android-chrome-192x192.png",
   "description": "Configures a CNAME record for a branded LinkMe custom domain.",
   "syncBlock": false,
+  "hostRequired": true,
   "syncPubKeyDomain": "li-nk.me",
   "syncRedirectDomain": "li-nk.me",
   "records": [
