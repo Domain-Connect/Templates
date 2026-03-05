@@ -1,0 +1,23 @@
+{
+  "providerId": "bfri.pt",
+  "providerName": "ObraView",
+  "serviceId": "custom-domain",
+  "serviceName": "ObraView Custom Domain",
+  "version": 1,
+  "description": "Connect your domain to ObraView",
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "APEXCNAME",
+      "pointsTo": "bfri.pt",
+      "ttl": 3600
+    },
+    {
+      "groupId": "subdomain",
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "bfri.pt",
+      "ttl": 3600
+    }
+  ]
+}
