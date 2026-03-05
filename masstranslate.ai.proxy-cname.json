@@ -4,7 +4,7 @@
   "serviceId": "proxy-cname",
   "serviceName": "MassTranslate Translation Proxy",
   "version": 1,
-  "logoUrl": "https://masstranslate.ai/app-logo.svg",
+  "logoUrl": "https://masstranslate.ai/masstranslate-logo.svg",
   "description": "Routes translated content through MassTranslate's edge proxy by adding a CNAME record",
   "variableDescription": "No custom variables. The standard 'host' parameter controls which subdomain the CNAME is created on.",
   "syncBlock": false,
