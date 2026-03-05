@@ -7,15 +7,9 @@
   "description": "Connect your domain to BFRI",
   "syncPubKeyDomain": "bfri.pt",
   "syncRedirectDomain": "bfri.pt",
+  "hostRequired": true,
   "records": [
     {
-      "groupId": "apex",
-      "type": "APEXCNAME",
-      "pointsTo": "bfri.pt",
-      "ttl": 3600
-    },
-    {
-      "groupId": "subdomain",
       "type": "CNAME",
       "host": "@",
       "pointsTo": "bfri.pt",
