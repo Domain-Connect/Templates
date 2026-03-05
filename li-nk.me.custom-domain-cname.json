@@ -6,14 +6,14 @@
   "version": 1,
   "logoUrl": "https://li-nk.me/android-chrome-192x192.png",
   "description": "Configures a CNAME record for a branded LinkMe custom domain.",
-  "variableDescription": "%subdomain%: the subdomain label to create (for example, link); %cname%: LinkMe CNAME target host.",
   "syncBlock": false,
   "syncPubKeyDomain": "li-nk.me",
+  "syncRedirectDomain": "li-nk.me",
   "records": [
     {
       "type": "CNAME",
-      "host": "%subdomain%",
-      "pointsTo": "%cname%",
+      "host": "@",
+      "pointsTo": "cname.li-nk.me",
       "ttl": 3600
     }
   ]
