@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://masstranslate.ai/logo.svg",
   "description": "Routes translated content through MassTranslate's edge proxy by adding a CNAME record",
-  "variableDescription": "host: subdomain to route (e.g., 'es' for es.example.com, or '@' for apex)",
+  "variableDescription": "No custom variables. The standard 'host' parameter controls which subdomain the CNAME is created on.",
   "syncBlock": false,
   "syncPubKeyDomain": "masstranslate.ai",
   "syncRedirectDomain": "translate.masstranslate.ai",
@@ -19,7 +19,7 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "proxy-fallback.masstranslate.ai",
       "ttl": 3600
     }
