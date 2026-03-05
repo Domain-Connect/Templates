@@ -1,0 +1,27 @@
+{
+  "providerId": "weav.com",
+  "providerName": "Weav",
+  "serviceId": "weav-custom-email",
+  "serviceName": "Weav Custom Email",
+  "version": 1,
+  "logoUrl": "https://app.weav.com/images/weav.svg",
+  "description": "Configures a custom domain to Weav for sending and receiving emails.",
+  "variableDescription": "%dkim_host%: host label for DKIM TXT record; %dkim_value%: DKIM TXT record value; %return_path_host%: host label for return-path CNAME record; %return_path_value%: return-path CNAME target",
+  "syncPubKeyDomain": "domainconnect.weav.com",
+  "syncRedirectDomain": "app.weav.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkim_host%",
+      "ttl": 3600,
+      "data": "%dkim_value%"
+    },
+    {
+      "type": "CNAME",
+      "host": "%return_path_host%",
+      "pointsTo": "%return_path_value%",
+      "ttl": 3600
+    }
+  ]
+}

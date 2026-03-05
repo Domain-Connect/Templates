@@ -1,0 +1,21 @@
+{
+  "providerId": "nettingale.com",
+  "providerName": "Nettingale",
+  "serviceId": "nettingale-connect",
+  "serviceName": "Managed WordPress Hosting",
+  "version": 1,
+  "logoUrl": "https://nettingale.com/favicon.svg",
+  "description": "Enables a domain to work with Nettingale Managed WordPress Hosting",
+  "variableDescription": "Configures DNS for Nettingale managed WordPress hosting.",
+  "syncPubKeyDomain": "domainconnect.nettingale.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.ng-prod.com",
+      "ttl": 3600
+    }
+  ]
+}
