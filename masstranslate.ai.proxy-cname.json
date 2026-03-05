@@ -1,0 +1,27 @@
+{
+  "providerId": "masstranslate.ai",
+  "providerName": "MassTranslate",
+  "serviceId": "proxy-cname",
+  "serviceName": "MassTranslate Translation Proxy",
+  "version": 1,
+  "logoUrl": "https://masstranslate.ai/logo.svg",
+  "description": "Routes translated content through MassTranslate's edge proxy by adding a CNAME record",
+  "variableDescription": "host: subdomain to route (e.g., 'es' for es.example.com, or '@' for apex)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "masstranslate.ai",
+  "syncRedirectDomain": "translate.masstranslate.ai",
+  "warnPhishing": false,
+  "shared": false,
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "multiInstance": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "proxy-fallback.masstranslate.ai",
+      "ttl": 3600
+    }
+  ]
+}
