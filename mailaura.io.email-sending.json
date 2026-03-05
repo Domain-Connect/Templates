@@ -53,7 +53,7 @@
       "data": "%dmarcValue%",
       "ttl": 3600,
       "txtConflictMatchingMode": "All",
-      "essential": false
+      "essential": "No"
     }
   ]
 }
