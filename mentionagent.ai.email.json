@@ -29,9 +29,9 @@
       },
       {
         "groupId": "SPF",
-        "type": "TXT",
+        "type": "SPFM",
         "host": "send",
-        "data": "v=spf1 include:amazonses.com ~all",
+        "spfRules": "include:amazonses.com",
         "ttl": 3600
       },
       {
