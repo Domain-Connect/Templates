@@ -100,6 +100,7 @@ jobs:
 
             </details>
           comment_tag: pr_description_check
+          mode: recreate
 
       - name: Comment PR – check passed
         if: steps.pr-check.outputs.exit_code == '0'
@@ -117,6 +118,8 @@ jobs:
             ```
 
             </details>
+          comment_tag: pr_description_check
+          mode: recreate
 
       - name: Fail job if check failed
         if: steps.pr-check.outputs.exit_code != '0'
