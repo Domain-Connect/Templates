@@ -8,6 +8,7 @@
   "description": "Configures complete email setup: sending (SPF, DKIM, DMARC, Return-Path) and receiving (MX) for Boti.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.boti.bot",
+  "syncRedirectDomain": "boti.bot",
   "records": [
     {
       "type": "MX",

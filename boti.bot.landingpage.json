@@ -9,6 +9,7 @@
   "hostRequired": true,
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.boti.bot",
+  "syncRedirectDomain": "boti.bot",
   "records": [
     {
       "type": "CNAME",

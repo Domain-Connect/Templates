@@ -8,6 +8,7 @@
   "description": "Configures email sending (SPF, DKIM, DMARC, Return-Path) for Boti. Use this if you already have MX records (e.g., Gmail, Outlook).",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.boti.bot",
+  "syncRedirectDomain": "boti.bot",
   "records": [
     {
       "type": "SPFM",
