@@ -6,6 +6,7 @@
   "version": 1,
   "logoUrl": "https://boti.bot/boti512.png",
   "description": "Configures a CNAME record for hosting landing pages with Boti.",
+  "hostRequired": true,
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.boti.bot",
   "records": [
