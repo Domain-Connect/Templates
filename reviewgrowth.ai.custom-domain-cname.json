@@ -3,7 +3,7 @@
   "serviceId": "custom-domain-cname",
   "name": "Review Growth Custom Domain",
   "description": "Configure CNAME record for Review Growth custom review pages",
-  "syncPubKeyDomain": "reviewgrowth.ai",
+  "syncPubKeyDomain": "_dcpubkeyv1.reviewgrowth.ai",
   "syncBlock": false,
   "shared": false,
   "multiInstance": false,
