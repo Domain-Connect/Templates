@@ -24,7 +24,7 @@
         {
             "type": "SPFM",
             "host": "@",
-            "spfRules": "include:_spf.tray.com.br",
+            "spfRules": "%spf%",
             "ttl": 3600
         }
     ]
