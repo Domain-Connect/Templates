@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://reviewgrowth.ai/logo.png",
   "description": "Configure CNAME record for ReviewGrowth custom review pages",
-  "syncPubKeyDomain": "_dcpubkeyv1.reviewgrowth.ai",
+  "syncPubKeyDomain": "dns.reviewgrowth.ai",
   "syncRedirectDomain": "reviewgrowth.ai",
   "warnPhishing": true,
   "hostRequired": true,
