@@ -35,7 +35,8 @@ jobs:
         env:
           PR_BODY: ${{ github.event.pull_request.body }}
           TEMPLATE_FILES: ${{ steps.changed-templates.outputs.all_changed_files }}
-          LABELS_FILE: /tmp/pr_check_labels.txt
+          LABELS_ADD_FILE: /tmp/pr_labels_add.txt
+          LABELS_REMOVE_FILE: /tmp/pr_labels_remove.txt
         run: |
           set +e
           python .github/scripts/check_pr_description.py 2>&1 | tee /tmp/pr_check_output.txt
@@ -46,23 +47,40 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_ENV"
 
-      - name: Apply labels for failed checks
+      - name: Add labels
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          labels_file="/tmp/pr_check_labels.txt"
+          labels_file="/tmp/pr_labels_add.txt"
           if [ ! -f "$labels_file" ] || [ ! -s "$labels_file" ]; then
-            echo "No labels to apply."
+            echo "No labels to add."
             exit 0
           fi
           pr_number="${{ github.event.pull_request.number }}"
           repo="${{ github.repository }}"
           while IFS= read -r label; do
             [ -z "$label" ] && continue
-            echo "Applying label: $label"
-            gh label create "$label" --repo "$repo" --force 2>/dev/null || true
+            echo "Adding label: $label"
             gh pr edit "$pr_number" --repo "$repo" --add-label "$label"
+          done < "$labels_file"
+
+      - name: Remove labels
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          labels_file="/tmp/pr_labels_remove.txt"
+          if [ ! -f "$labels_file" ] || [ ! -s "$labels_file" ]; then
+            echo "No labels to remove."
+            exit 0
+          fi
+          pr_number="${{ github.event.pull_request.number }}"
+          repo="${{ github.repository }}"
+          while IFS= read -r label; do
+            [ -z "$label" ] && continue
+            echo "Removing label: $label"
+            gh pr edit "$pr_number" --repo "$repo" --remove-label "$label" 2>/dev/null || true
           done < "$labels_file"
 
       - name: Comment PR – check failed
