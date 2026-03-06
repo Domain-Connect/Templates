@@ -85,6 +85,7 @@ jobs:
 
       - name: Comment PR - delete ok comment on failure
         if: steps.pr-check.outputs.exit_code != '0'
+        continue-on-error: true
         uses: thollander/actions-comment-pull-request@v2
         with:
           comment_tag: pr_description_check_ok
@@ -111,6 +112,7 @@ jobs:
 
       - name: Comment PR - delete fail comment on success
         if: steps.pr-check.outputs.exit_code == '0'
+        continue-on-error: true
         uses: thollander/actions-comment-pull-request@v2
         with:
           comment_tag: pr_description_check
