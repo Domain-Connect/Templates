@@ -4,6 +4,7 @@
   "name": "Review Growth Custom Domain",
   "description": "Configure CNAME record for Review Growth custom review pages",
   "syncPubKeyDomain": "_dcpubkeyv1.reviewgrowth.ai",
+  "syncRedirectDomain": "reviewgrowth.ai",
   "syncBlock": false,
   "shared": false,
   "multiInstance": false,
@@ -12,8 +13,8 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "%host%",
-      "pointsTo": "%target%",
+      "host": "@",
+      "pointsTo": "widget.reviewgrowth.ai",
       "ttl": 3600
     }
   ]
