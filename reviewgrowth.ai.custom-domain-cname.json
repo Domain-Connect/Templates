@@ -1,6 +1,8 @@
 {
   "providerId": "reviewgrowth.ai",
+  "providerName": "ReviewGrowth",
   "serviceId": "custom-domain-cname",
+  "serviceName": "ReviewGrowth Custom Domain",
   "name": "Review Growth Custom Domain",
   "description": "Configure CNAME record for Review Growth custom review pages",
   "syncPubKeyDomain": "_dcpubkeyv1.reviewgrowth.ai",
