@@ -7,12 +7,12 @@
   "logoUrl": "https://boti.bot/boti512.png",
   "description": "Configures email sending (SPF, DKIM, DMARC, Return-Path) for Boti. Use this if you already have MX records (e.g., Gmail, Outlook).",
   "syncBlock": false,
-  "syncPubKeyDomain": "_dcsync.boti.bot",
+  "syncPubKeyDomain": "domainconnect.boti.bot",
   "records": [
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "v=spf1 include:botimail.net ~all",
+      "spfRules": "include:botimail.net",
       "ttl": 3600
     },
     {
@@ -25,7 +25,10 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=none; rua=mailto:dmarc@botimail.net",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "Always"
     },
     {
       "type": "CNAME",

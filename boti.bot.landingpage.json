@@ -6,13 +6,12 @@
   "version": 1,
   "logoUrl": "https://boti.bot/boti512.png",
   "description": "Configures a CNAME record for hosting landing pages with Boti.",
-  "variableDescription": "Subdomain for landing page (e.g. www or @ for root domain)",
   "syncBlock": false,
-  "syncPubKeyDomain": "_dcsync.boti.bot",
+  "syncPubKeyDomain": "domainconnect.boti.bot",
   "records": [
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "pages.boti.bot",
       "ttl": 3600
     }
