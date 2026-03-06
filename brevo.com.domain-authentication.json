@@ -3,12 +3,12 @@
   "providerName": "Brevo",
   "serviceId": "domain-authentication",
   "serviceName": "Brevo Domain Authentication",
-  "version": 5,
+  "version": 6,
   "syncPubKeyDomain": "brevo.com",
   "syncRedirectDomain": "app.brevo.com",
   "logoUrl": "https://static.brevo.com/meetings/assets/brevo_logo.png",
-  "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by Brevo on behalf of the user",
-  "variableDescription": "The variable %verfication_code% represents a combination of prefix string and a MD5 hash. %dkim_selector% and %dkim_selector2% is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated. %dkim_public_key% is the DKIM public key. %dmarc_value% is dmarc value. %dkimcname% and %dkimcname2% is cname value where DKIM will point. %ip% is the IP value for A record. %spf_value% is spf value of brevo for spf record. %domain% is domain name which have value of MX record",
+  "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by Brevo on behalf of the user. Supports both root domain and branded subdomain DNS configurations. Includes NS records for DNS delegation to Brevo nameservers.",
+  "variableDescription": "The variable %verfication_code% represents a combination of prefix string and a MD5 hash. %dkim_selector% and %dkim_selector2% is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated. %dkim_public_key% is the DKIM public key. %dmarc_value% is dmarc value. %dkimcname% and %dkimcname2% is cname value where DKIM will point. %ip% is the IP value for A record. %a_host% is the host for A record (e.g. ip1.mail for branded, @ for non-branded). %spf_rules% is spf rules of brevo for spf record. %fqdn% is the fully qualified domain name for MX record. %brand_host% is the host for brand CNAME (e.g. mail for branded, empty for non-branded). %brand_value% is the target for brand CNAME (e.g. mail-acme-com.brand.brevosend.com). %r_host% is the host for return path CNAME (e.g. r.mail for branded, r for non-branded). %r_value% is the target for return path CNAME. %img_host% is the host for image tracking CNAME (e.g. img.mail for branded, img for non-branded). %img_value% is the target for image tracking CNAME. %host% is the host for NS records (@ for root domain, subdomain for branded). %ns1_value% is the primary nameserver (e.g. ns1.sendinblue.com for non-branded, ns1.brevo.com for branded). %ns2_value% is the secondary nameserver (e.g. ns2.sendinblue.com for non-branded, ns2.brevo.com for branded).",
   "records": [
     {
       "groupId": "code",
@@ -50,7 +50,7 @@
     {
       "groupId": "a",
       "type": "A",
-      "host": "@",
+      "host": "%a_host%",
       "pointsTo": "%ip%",
       "ttl": 3600
     },
@@ -70,17 +70,38 @@
       "ttl": 3600
     },
     {
+      "groupId": "brand",
+      "type": "CNAME",
+      "host": "%brand_host%",
+      "pointsTo": "%brand_value%",
+      "ttl": 3600
+    },
+    {
       "groupId": "r",
       "type": "CNAME",
-      "host": "r",
-      "pointsTo": "r.mailin.fr",
+      "host": "%r_host%",
+      "pointsTo": "%r_value%",
       "ttl": 3600
     },
     {
       "groupId": "img",
       "type": "CNAME",
-      "host": "img",
-      "pointsTo": "img.mailin.fr",
+      "host": "%img_host%",
+      "pointsTo": "%img_value%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ns",
+      "type": "NS",
+      "host": "%host%",
+      "pointsTo": "%ns1_value%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ns",
+      "type": "NS",
+      "host": "%host%",
+      "pointsTo": "%ns2_value%",
       "ttl": 3600
     }
   ]
