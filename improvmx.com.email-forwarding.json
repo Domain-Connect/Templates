@@ -1,0 +1,40 @@
+{
+  "providerId": "improvmx.com",
+  "providerName": "ImprovMX",
+  "serviceId": "email-forwarding",
+  "serviceName": "Email Forwarding",
+  "version": 1,
+  "logoUrl": "https://improvmx.com/images/logo.png",
+  "description": "Configure your domain for email forwarding with ImprovMX. Sets up MX records and SPF in one step.",
+  "variableDescription": "",
+  "syncPubKeyDomain": "improvmx.com",
+  "syncRedirectDomain": "improvmx.com",
+  "warnPhishing": false,
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.improvmx.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.improvmx.com",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "ttl": 3600,
+      "spfRules": "include:spf.improvmx.com"
+    }
+  ]
+}
