@@ -117,7 +117,6 @@ jobs:
             ```
 
             </details>
-          comment_tag: pr_description_check
 
       - name: Fail job if check failed
         if: steps.pr-check.outputs.exit_code != '0'
