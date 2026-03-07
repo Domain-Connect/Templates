@@ -75,12 +75,21 @@ def check_section_ticked(section_text: str, require_all: bool) -> tuple[bool, st
         return True, f"{ticked}/{total} checkboxes ticked"
 
 
+def _required_payload_keys() -> set[str]:
+    """Return the set of required top-level payload keys from the env variable."""
+    raw = os.environ.get("REQUIRED_PAYLOAD_KEYS", "")
+    return {k.strip() for k in raw.split(",") if k.strip()}
+
+
 def get_editor_links(body: str) -> list[dict]:
     """Return list of decoded token payloads from all editor links in body."""
+    required_keys = _required_payload_keys()
     results = []
     for token in EDITOR_URL_PATTERN.findall(body):
         try:
             payload = decode_token(token)
+            if required_keys and not required_keys.issubset(payload.keys()):
+                raise ValueError("invalid payload")
             results.append(payload)
         except Exception as e:
             print(f"  WARNING: could not decode token: {e}", file=sys.stderr)
