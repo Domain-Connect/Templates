@@ -36,6 +36,12 @@
       "host": "return",
       "pointsTo": "mail.botimail.net",
       "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_boti-verify-%accountId%",
+      "data": "boti-domain-verify",
+      "ttl": 3600
     }
   ]
 }
