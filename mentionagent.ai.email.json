@@ -1,0 +1,46 @@
+{                                                                                                                                                                      
+    "providerId": "mentionagent.ai",                                                                                                                                         "providerName": "MentionAgent",                                                                                                                                      
+    "serviceId": "email",                                                                                                                                                
+    "serviceName": "MentionAgent Email Sending & Receiving",
+    "version": 1,
+    "logoUrl": "https://mentionagent.ai/img/logo-square.svg",
+    "description": "Configures DNS records for sending and receiving outreach emails via MentionAgent",
+    "variableDescription": "DKIM is the DKIM public key for email authentication.",
+    "syncPubKeyDomain": "mentionagent.ai",
+    "syncRedirectDomain": "mentionagent.ai",
+    "syncBlock": false,
+    "shared": false,
+    "warnPhishing": false,
+    "records": [
+      {
+        "groupId": "DKIM",
+        "type": "TXT",
+        "host": "resend._domainkey",
+        "data": "%DKIM%",
+        "ttl": 3600
+      },
+      {
+        "groupId": "SPF",
+        "type": "MX",
+        "host": "send",
+        "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+        "priority": 10,
+        "ttl": 3600
+      },
+      {
+        "groupId": "SPF",
+        "type": "SPFM",
+        "host": "send",
+        "spfRules": "include:amazonses.com",
+        "ttl": 3600
+      },
+      {
+        "groupId": "Receiving",
+        "type": "MX",
+        "host": "@",
+        "pointsTo": "inbound-smtp.us-east-1.amazonaws.com",
+        "priority": 10,
+        "ttl": 3600
+      }
+    ]
+  }
