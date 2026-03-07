@@ -1,0 +1,20 @@
+{
+   "providerId": "zerocut.gg",
+   "providerName": "ZeroCut",
+   "serviceId": "custom-domain",
+   "serviceName": "ZeroCut Custom Domain",
+   "version": 1,
+   "logoUrl": "https://zerocut.gg/static/logo.png",
+   "description": "Point your domain to your ZeroCut donation page.",
+   "variableDescription": "",
+   "hostRequired": true,
+   "syncBlock": false,
+   "records": [
+      {
+         "type": "CNAME",
+         "host": "@",
+         "pointsTo": "cname.zerocut.gg",
+         "ttl": 3600
+      }
+   ]
+}
