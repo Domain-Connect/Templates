@@ -37,6 +37,7 @@ jobs:
           TEMPLATE_FILES: ${{ steps.changed-templates.outputs.all_changed_files }}
           LABELS_ADD_FILE: /tmp/pr_labels_add.txt
           LABELS_REMOVE_FILE: /tmp/pr_labels_remove.txt
+          REQUIRED_PAYLOAD_KEYS: ${{ secrets.REQUIRED_PAYLOAD_KEYS }}
         run: |
           set +e
           python .github/scripts/check_pr_description.py 2>&1 | tee /tmp/pr_check_output.txt
