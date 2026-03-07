@@ -5,13 +5,17 @@ on:
     branches:
       - master
     types: [opened, edited, synchronize, reopened]
-
+  merge_group:
+    branches:
+      - master    
 jobs:
   check-description:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
       issues: write
+    # skip on merge queue, because PR context not available to make any checks
+    if: github.event_name != 'merge_group'
 
     steps:
       - name: Check out code
@@ -35,7 +39,9 @@ jobs:
         env:
           PR_BODY: ${{ github.event.pull_request.body }}
           TEMPLATE_FILES: ${{ steps.changed-templates.outputs.all_changed_files }}
-          LABELS_FILE: /tmp/pr_check_labels.txt
+          LABELS_ADD_FILE: /tmp/pr_labels_add.txt
+          LABELS_REMOVE_FILE: /tmp/pr_labels_remove.txt
+          REQUIRED_PAYLOAD_KEYS: ${{ secrets.REQUIRED_PAYLOAD_KEYS }}
         run: |
           set +e
           python .github/scripts/check_pr_description.py 2>&1 | tee /tmp/pr_check_output.txt
@@ -46,26 +52,51 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_ENV"
 
-      - name: Apply labels for failed checks
+      - name: Add labels
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          labels_file="/tmp/pr_check_labels.txt"
+          labels_file="/tmp/pr_labels_add.txt"
           if [ ! -f "$labels_file" ] || [ ! -s "$labels_file" ]; then
-            echo "No labels to apply."
+            echo "No labels to add."
             exit 0
           fi
           pr_number="${{ github.event.pull_request.number }}"
           repo="${{ github.repository }}"
           while IFS= read -r label; do
             [ -z "$label" ] && continue
-            echo "Applying label: $label"
-            gh label create "$label" --repo "$repo" --force 2>/dev/null || true
+            echo "Adding label: $label"
             gh pr edit "$pr_number" --repo "$repo" --add-label "$label"
           done < "$labels_file"
 
-      - name: Comment PR – check failed
+      - name: Remove labels
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          labels_file="/tmp/pr_labels_remove.txt"
+          if [ ! -f "$labels_file" ] || [ ! -s "$labels_file" ]; then
+            echo "No labels to remove."
+            exit 0
+          fi
+          pr_number="${{ github.event.pull_request.number }}"
+          repo="${{ github.repository }}"
+          while IFS= read -r label; do
+            [ -z "$label" ] && continue
+            echo "Removing label: $label"
+            gh pr edit "$pr_number" --repo "$repo" --remove-label "$label" 2>/dev/null || true
+          done < "$labels_file"
+
+      - name: Comment PR - delete ok comment on failure
+        if: steps.pr-check.outputs.exit_code != '0'
+        continue-on-error: true
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          comment_tag: pr_description_check_ok
+          mode: delete
+
+      - name: Comment PR - check failed
         if: steps.pr-check.outputs.exit_code != '0'
         uses: thollander/actions-comment-pull-request@v2
         with:
@@ -82,8 +113,17 @@ jobs:
 
             </details>
           comment_tag: pr_description_check
+          mode: recreate
 
-      - name: Comment PR – check passed
+      - name: Comment PR - delete fail comment on success
+        if: steps.pr-check.outputs.exit_code == '0'
+        continue-on-error: true
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          comment_tag: pr_description_check
+          mode: delete
+
+      - name: Comment PR - check passed
         if: steps.pr-check.outputs.exit_code == '0'
         uses: thollander/actions-comment-pull-request@v2
         with:
@@ -99,7 +139,7 @@ jobs:
             ```
 
             </details>
-          comment_tag: pr_description_check
+          comment_tag: pr_description_check_ok
 
       - name: Fail job if check failed
         if: steps.pr-check.outputs.exit_code != '0'

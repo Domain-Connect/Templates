@@ -75,12 +75,21 @@ def check_section_ticked(section_text: str, require_all: bool) -> tuple[bool, st
         return True, f"{ticked}/{total} checkboxes ticked"
 
 
+def _required_payload_keys() -> set[str]:
+    """Return the set of required top-level payload keys from the env variable."""
+    raw = os.environ.get("REQUIRED_PAYLOAD_KEYS", "")
+    return {k.strip() for k in raw.split(",") if k.strip()}
+
+
 def get_editor_links(body: str) -> list[dict]:
     """Return list of decoded token payloads from all editor links in body."""
+    required_keys = _required_payload_keys()
     results = []
     for token in EDITOR_URL_PATTERN.findall(body):
         try:
             payload = decode_token(token)
+            if required_keys and not required_keys.issubset(payload.keys()):
+                raise ValueError("invalid payload")
             results.append(payload)
         except Exception as e:
             print(f"  WARNING: could not decode token: {e}", file=sys.stderr)
@@ -189,12 +198,19 @@ LABEL_DESCRIPTION_INCOMPLETE = "PR description incomplete"
 LABEL_CHECKLIST_INCOMPLETE = "Checklist of common problems not complete"
 LABEL_TEST_LINKS_MISSING = "Test links missing"
 
+ALL_MANAGED_LABELS = {
+    LABEL_DESCRIPTION_INCOMPLETE,
+    LABEL_CHECKLIST_INCOMPLETE,
+    LABEL_TEST_LINKS_MISSING,
+}
+
 
 def main() -> int:
     body = os.environ.get("PR_BODY", "")
     template_files_env = os.environ.get("TEMPLATE_FILES", "")
     template_files = [f for f in template_files_env.split() if f.strip()]
-    labels_file = os.environ.get("LABELS_FILE", "")
+    labels_add_file = os.environ.get("LABELS_ADD_FILE", "")
+    labels_remove_file = os.environ.get("LABELS_REMOVE_FILE", "")
 
     failures: list[str] = []
     labels_to_add: set[str] = set()
@@ -263,13 +279,20 @@ def main() -> int:
         if not coverage_errors and template_files:
             print(f"  OK  Template coverage: all {len(template_files)} template(s) covered")
 
-    # --- Write labels file ---
-    if labels_file and labels_to_add:
-        with open(labels_file, "w") as f:
-            f.write("\n".join(sorted(labels_to_add)) + "\n")
-        print(f"\nLabels to apply: {', '.join(sorted(labels_to_add))}")
-    elif labels_file:
-        open(labels_file, "w").close()  # empty file = no labels needed
+    # --- Write labels files ---
+    labels_to_remove = ALL_MANAGED_LABELS - labels_to_add
+    if labels_add_file:
+        with open(labels_add_file, "w") as f:
+            if labels_to_add:
+                f.write("\n".join(sorted(labels_to_add)) + "\n")
+        if labels_to_add:
+            print(f"\nLabels to add: {', '.join(sorted(labels_to_add))}")
+    if labels_remove_file:
+        with open(labels_remove_file, "w") as f:
+            if labels_to_remove:
+                f.write("\n".join(sorted(labels_to_remove)) + "\n")
+        if labels_to_remove:
+            print(f"Labels to remove: {', '.join(sorted(labels_to_remove))}")
 
     if failures:
         print("\nPR description check FAILED:")
