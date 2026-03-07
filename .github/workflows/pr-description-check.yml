@@ -5,13 +5,17 @@ on:
     branches:
       - master
     types: [opened, edited, synchronize, reopened]
-
+  merge_group:
+    branches:
+      - master    
 jobs:
   check-description:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
       issues: write
+    # skip on merge queue, because PR context not available to make any checks
+    if: github.event_name != 'merge_group'
 
     steps:
       - name: Check out code
