@@ -83,7 +83,15 @@ jobs:
             gh pr edit "$pr_number" --repo "$repo" --remove-label "$label" 2>/dev/null || true
           done < "$labels_file"
 
-      - name: Comment PR – check failed
+      - name: Comment PR - delete ok comment on failure
+        if: steps.pr-check.outputs.exit_code != '0'
+        continue-on-error: true
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          comment_tag: pr_description_check_ok
+          mode: delete
+
+      - name: Comment PR - check failed
         if: steps.pr-check.outputs.exit_code != '0'
         uses: thollander/actions-comment-pull-request@v2
         with:
@@ -100,8 +108,17 @@ jobs:
 
             </details>
           comment_tag: pr_description_check
+          mode: recreate
 
-      - name: Comment PR – check passed
+      - name: Comment PR - delete fail comment on success
+        if: steps.pr-check.outputs.exit_code == '0'
+        continue-on-error: true
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          comment_tag: pr_description_check
+          mode: delete
+
+      - name: Comment PR - check passed
         if: steps.pr-check.outputs.exit_code == '0'
         uses: thollander/actions-comment-pull-request@v2
         with:
@@ -117,6 +134,7 @@ jobs:
             ```
 
             </details>
+          comment_tag: pr_description_check_ok
 
       - name: Fail job if check failed
         if: steps.pr-check.outputs.exit_code != '0'
