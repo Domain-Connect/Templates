@@ -1,0 +1,20 @@
+{
+  "providerId": "nimeracp.com",
+  "providerName": "NimeraCP",
+  "serviceId": "website",
+  "serviceName": "NimeraCP Website",
+  "version": 3,
+  "description": "Configures a CNAME record to connect a custom domain to NimeraCP.",
+  "syncPubKeyDomain": "nimeracp.com",
+  "syncRedirectDomain": "nimeracp.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "subdomain",
+      "host": "%subdomain%",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    }
+  ]
+}
