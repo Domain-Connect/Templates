@@ -4,17 +4,15 @@
   "serviceId": "signflow-custom-domain",
   "serviceName": "SignFlow Custom Domain",
   "version": 1,
-  "logoUrl": "https://signflow.leonai.io/logo.png",
-  "description": "Configure your custom domain for SignFlow signing links",
-  "variableDescription": "The subdomain to point to SignFlow",
+  "logoUrl": "https://signflow.leonai.io/leonai-logo.png",
+  "description": "Configure your custom domain for SignFlow document signing links",
   "syncPubKeyDomain": "domainconnect.leonai.io",
   "syncRedirectDomain": "signflow.leonai.io",
-  "warnPhishing": true,
   "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "custom.leonai.io",
       "ttl": 3600
     }
