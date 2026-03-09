@@ -15,13 +15,21 @@
       "type": "CNAME",
       "host": "@",
       "pointsTo": "pages.boti.bot",
+<<<<<<< HEAD
       "ttl": 120
+=======
+      "ttl": 3600
+>>>>>>> base-fork-remote/master
     },
     {
       "type": "TXT",
       "host": "_boti-verify-%accountId%",
       "data": "boti-domain-verify",
+<<<<<<< HEAD
       "ttl": 120
+=======
+      "ttl": 3600
+>>>>>>> base-fork-remote/master
     }
   ]
 }
