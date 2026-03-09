@@ -8,7 +8,7 @@
   "description": "Configures a CNAME record for hosting landing pages with Boti.",
   "hostRequired": true,
   "syncBlock": false,
-  "syncPubKeyDomain": "domainconnect.boti.bot",
+  "syncPubKeyDomain": "boti.bot",
   "syncRedirectDomain": "boti.bot",
   "records": [
     {
