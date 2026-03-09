@@ -3,7 +3,7 @@
   "serviceId": "send-and-receive-email",
   "providerName": "Boti",
   "serviceName": "Boti Email (Send & Receive)",
-  "version": 1,
+  "version": 3,
   "logoUrl": "https://boti.bot/boti512.png",
   "description": "Configures complete email setup: sending (SPF, DKIM, DMARC, Return-Path) and receiving (MX) for Boti.",
   "syncBlock": false,
@@ -30,18 +30,21 @@
       "ttl": 120
     },
     {
-      "type": "TXT",
+      "type": "CNAME",
       "host": "_dmarc",
-      "data": "v=DMARC1; p=none; rua=mailto:dmarc@botimail.net",
-      "ttl": 120,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1",
-      "essential": "Always"
+      "pointsTo": "_dmarc.botimail.net",
+      "ttl": 120
     },
     {
       "type": "CNAME",
       "host": "return",
       "pointsTo": "mail.botimail.net",
+      "ttl": 120
+    },
+    {
+      "type": "TXT",
+      "host": "_boti-verify-%accountId%",
+      "data": "boti-domain-verify",
       "ttl": 120
     }
   ]
