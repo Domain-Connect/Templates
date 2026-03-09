@@ -3,7 +3,7 @@
    "providerName": "ZeroCut",
    "serviceId": "custom-domain",
    "serviceName": "ZeroCut Custom Domain",
-   "version": 1,
+   "version": 2,
    "logoUrl": "https://zerocut.gg/icon.png",
    "description": "Point your domain to your ZeroCut donation page.",
    "variableDescription": "",
