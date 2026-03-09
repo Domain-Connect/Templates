@@ -3,7 +3,7 @@
     "providerName": "Tray",
     "serviceId": "website",
     "serviceName": "Tray Site",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://sitetray.s3.amazonaws.com/wp-content/uploads/2023/01/logo_tray_site-svg.png",
     "description": "Setup a domain to work with Tray",
     "variableDescription": "t1 is the tray hosted domain name and ip is the IP address of the server",
@@ -24,7 +24,7 @@
         {
             "type": "SPFM",
             "host": "@",
-            "spfRules": "include:_spf.tray.com.br",
+            "spfRules": "%spf%",
             "ttl": 3600
         }
     ]
