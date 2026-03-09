@@ -3,7 +3,7 @@
   "serviceId": "send-email",
   "providerName": "Boti",
   "serviceName": "Boti Email (Send Only)",
-  "version": 3,
+  "version": 4,
   "logoUrl": "https://boti.bot/boti512.png",
   "description": "Configures email sending (SPF, DKIM, DMARC, Return-Path) for Boti. Use this if you already have MX records (e.g., Gmail, Outlook).",
   "syncBlock": false,
