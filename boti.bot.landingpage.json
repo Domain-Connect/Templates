@@ -15,13 +15,13 @@
       "type": "CNAME",
       "host": "@",
       "pointsTo": "pages.boti.bot",
-      "ttl": 3600
+      "ttl": 120
     },
     {
       "type": "TXT",
       "host": "_boti-verify-%accountId%",
       "data": "boti-domain-verify",
-      "ttl": 3600
+      "ttl": 120
     }
   ]
 }
