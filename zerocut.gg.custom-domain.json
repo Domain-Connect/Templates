@@ -4,7 +4,7 @@
    "serviceId": "custom-domain",
    "serviceName": "ZeroCut Custom Domain",
    "version": 1,
-   "logoUrl": "https://zerocut.gg/static/logo.png",
+   "logoUrl": "https://zerocut.gg/icon.png",
    "description": "Point your domain to your ZeroCut donation page.",
    "variableDescription": "",
    "syncPubKeyDomain": "domainconnect.zerocut.gg",
