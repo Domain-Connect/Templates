@@ -147,11 +147,11 @@ jobs:
       uses: thollander/actions-comment-pull-request@v2
       with:
         message: |
-          ## JSON Filename Check Failed
+          ❌  **JSON Filename Check Failed**
 
           ${{ env.unexpected_files_output }}${{ env.filename_output }}
         comment_tag: json_filename_check
-        mode: recreate
+        mode: upsert
 
     - name: Comment PR - filename/unexpected files passed
       if: >
@@ -160,9 +160,9 @@ jobs:
         steps.validate-filenames.outcome != 'failure'
       uses: thollander/actions-comment-pull-request@v2
       with:
-        message: "## JSON Filename Check Passed"
+        message: "✅  **JSON Filename Check Passed**"
         comment_tag: json_filename_check
-        mode: recreate
+        mode: upsert
 
     - name: Label PR - add filename-error / remove on fix
       if: always() && github.event_name == 'pull_request_target'
@@ -185,7 +185,7 @@ jobs:
       uses: thollander/actions-comment-pull-request@v2
       with:
         message: |
-          ## JSON Schema Validation Failed
+          ❌  **JSON Schema Validation Failed**
 
           <details><summary>Details</summary>
 
@@ -195,7 +195,7 @@ jobs:
 
           </details>
         comment_tag: json_schema_check
-        mode: recreate
+        mode: upsert
 
     - name: Comment PR - schema validation passed
       if: >
@@ -203,9 +203,9 @@ jobs:
         steps.validate-schema.outcome != 'failure'
       uses: thollander/actions-comment-pull-request@v2
       with:
-        message: "## JSON Schema Validation Passed"
+        message: "✅  **JSON Filename Check Passed**"
         comment_tag: json_schema_check
-        mode: recreate
+        mode: upsert
 
     - name: Label PR - add schema-error / remove on fix
       if: always() && github.event_name == 'pull_request_target'
