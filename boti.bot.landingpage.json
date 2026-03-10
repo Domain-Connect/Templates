@@ -3,25 +3,25 @@
   "serviceId": "landingpage",
   "providerName": "Boti",
   "serviceName": "Boti Landing Pages",
-  "version": 2,
+  "version": 4,
   "logoUrl": "https://boti.bot/boti512.png",
   "description": "Configures a CNAME record for hosting landing pages with Boti.",
   "hostRequired": true,
   "syncBlock": false,
-  "syncPubKeyDomain": "domainconnect.boti.bot",
+  "syncPubKeyDomain": "boti.bot",
   "syncRedirectDomain": "boti.bot",
   "records": [
     {
       "type": "CNAME",
       "host": "@",
       "pointsTo": "pages.boti.bot",
-      "ttl": 3600
+      "ttl": 120
     },
     {
       "type": "TXT",
       "host": "_boti-verify-%accountId%",
       "data": "boti-domain-verify",
-      "ttl": 3600
+      "ttl": 120
     }
   ]
 }
