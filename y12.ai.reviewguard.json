@@ -1,0 +1,21 @@
+{
+    "providerId": "y12.ai",
+    "providerName": "ReviewGuard",
+    "serviceId": "reviewguard",
+    "serviceName": "Review Page",
+    "version": 1,
+    "logoUrl": "https://reviewguard.us/assets/logo.svg",
+    "description": "Add a CNAME record to connect your custom domain to your ReviewGuard review page.",
+    "variableDescription": "host: The subdomain to point to ReviewGuard (e.g. reviews, feedback)",
+    "syncPubKeyDomain": "domainconnect.y12.ai",
+    "syncRedirectDomain": "reviewguard.us",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%host%",
+            "pointsTo": "reviews-proxy.y12.ai",
+            "ttl": 3600
+        }
+    ]
+}
