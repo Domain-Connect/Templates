@@ -6,7 +6,7 @@
   "description": "Configures DNS records for hosting a white-label casino website with Spinlab.",
   "variableDescription": "",
   "version": 1,
-  "logoUrl": "https://spinlab.studio/logo.svg",
+  "logoUrl": "https://cdn.spinlab.studio/logo-spinlab.svg",
   "syncBlock": false,
   "syncPubKeyDomain": "spinlab.studio",
   "records": [
