@@ -10,6 +10,8 @@
   "syncRedirectDomain": "tenant.coreware.app",
   "warnPhishing": true,
   "hostRequired": false,
+  "keyId": "1",
+  "sig": "w+SOaeLgUCqzI084YHsohEPYCqeAo6IFyew8JJNWTcfcE5A9KqQxzR1huWuzPAewhNNEFiZSbmer7Lx+aNw0m5xRjJqcokA+XtPdXPEZTTs5MGbNRJyeFM56CPdtesmaRItBoH8lqRpxHFSDuBt9jYl+/WqrPZ4MDDSrH29cpxi/yucHXGH5eHjL+rJrsmAj8EstHTU3ABYx9sotaJby0JBjkoSCdjzsdUrzj1fGFd5kONOnHZzzTNd31YktN8fX/91Fw9foTXp/R/Lw7Ab2YwPfBYq2724+jSJPC3AnSVDNdOYrmj/YH5hMUPRMCIsE3OuQBIoia8xG1sOHRNTIVQ==",
   "records": [
     {
       "type": "SPFM",
@@ -35,7 +37,7 @@
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1",
-      "essential": "true"
+      "essential": "Always"
     }
   ]
 }
