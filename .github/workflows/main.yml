@@ -203,7 +203,7 @@ jobs:
         steps.validate-schema.outcome != 'failure'
       uses: thollander/actions-comment-pull-request@v2
       with:
-        message: "✅  **JSON Filename Check Passed**"
+        message: "✅  **JSON Schema Validation Passed**"
         comment_tag: json_schema_check
         mode: upsert
 
