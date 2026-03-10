@@ -1,0 +1,41 @@
+{
+	"providerId": "leonai.io",
+	"providerName": "SignFlow by Leon AI",
+	"serviceId": "signflow-email-dns",
+	"serviceName": "SignFlow Email Authentication",
+	"version": 1,
+	"logoUrl": "https://signflow.leonai.io/leonai-logo.png",
+	"description": "Configure SPF, DKIM, and DMARC records for authenticated email sending via SignFlow",
+	"variableDescription": "spfInclude: SPF include domain, dkim1Host: first DKIM selector hostname, dkim1Value: first DKIM CNAME target, dkim2Host: second DKIM selector hostname, dkim2Value: second DKIM CNAME target, dmarcValue: DMARC policy value",
+	"syncPubKeyDomain": "domainconnect.leonai.io",
+	"syncRedirectDomain": "signflow.leonai.io",
+	"hostRequired": false,
+	"records": [
+		{
+			"type": "SPFM",
+			"host": "@",
+			"spfRules": "include:%spfInclude%",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkim1Host%",
+			"pointsTo": "%dkim1Value%",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkim2Host%",
+			"pointsTo": "%dkim2Value%",
+			"ttl": 3600
+		},
+		{
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "%dmarcValue%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All",
+			"essential": "Always"
+		}
+	]
+}
