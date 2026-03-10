@@ -11,6 +11,11 @@
   "syncPubKeyDomain": "spinlab.studio",
   "records": [
     {
+      "type": "APEXCNAME",
+      "pointsTo": "apex.spinlab.studio",
+      "ttl": 3600
+    },
+    {
       "type": "CNAME",
       "host": "www",
       "pointsTo": "apex.spinlab.studio",
