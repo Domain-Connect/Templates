@@ -1,0 +1,26 @@
+{
+  "providerId": "codevibe.com",
+  "providerName": "CodeVibe",
+  "serviceId": "website",
+  "serviceName": "CodeVibe Website",
+  "version": 1,
+  "logoUrl": "https://codevibe.com/favicon.ico",
+  "description": "Connects your domain to a website built with CodeVibe",
+  "syncPubKeyDomain": "codevibe.com",
+  "syncBlock": false,
+  "shared": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
