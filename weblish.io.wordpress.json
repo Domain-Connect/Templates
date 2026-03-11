@@ -1,0 +1,25 @@
+{
+  "providerId": "weblish.io",
+  "providerName": "Weblish",
+  "serviceId": "wordpress",
+  "serviceName": "WordPress Hosting",
+  "version": 1,
+  "description": "Connect your domain to Wordpress hosting",
+  "syncRedirectDomain": "weblish.io",
+  "syncBlock": false,
+  "syncPubKeyDomain": "weblish.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "wp.wpenginepowered.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "wp.wpenginepowered.com",
+      "ttl": 3600
+    }
+  ]
+}
