@@ -1,0 +1,28 @@
+{
+  "providerId": "usecurbside.com",
+  "providerName": "Curbside",
+  "serviceId": "website",
+  "serviceName": "Curbside Website Hosting",
+  "version": 1,
+  "logoUrl": "https://app.runcurbside.com/logo.svg",
+  "description": "Connect your domain to your Curbside website for your local service business.",
+  "variableDescription": "slug is the unique identifier for the customer's Curbside site.",
+  "syncPubKeyDomain": "",
+  "syncRedirectDomain": "app.runcurbside.com",
+  "warnPhishing": true,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%slug%.usecurbside.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%slug%.usecurbside.com",
+      "ttl": 3600
+    }
+  ]
+}
