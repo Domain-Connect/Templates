@@ -54,7 +54,10 @@ These are **binding rules**, not suggestions. Every rule below must be satisfied
 
 `syncPubKeyDomain` enables cryptographic verification of the template. Many DNS providers enforce this and will reject templates that do not have it. `warnPhishing` is not an acceptable substitute — it is a weaker, UI-only warning with no cryptographic backing.
 
-**Exception:** If your service infrastructure genuinely cannot support key-based signing, omit `syncPubKeyDomain` and set `warnPhishing` instead — but you must explain the technical reason in the PR description. PRs that omit `syncPubKeyDomain` without justification will be rejected.
+**Exception:** If your service infrastructure genuinely cannot support key-based signing, you have two alternatives — explain which you chose and why in the PR description. PRs that omit `syncPubKeyDomain` without justification will be rejected.
+
+- **Async flow:** Set `"syncBlock": true` to restrict the template to the asynchronous flow only. The async flow does not require a signing key because the service provider is authenticated via OAuth. Note that only a fraction of DNS providers support the async flow, the integration is more complex, and onboarding is never automatic — it requires an explicit OAuth setup with each provider.
+- **`warnPhishing`:** Set `warnPhishing: true` as a last resort when neither key-based signing nor async flow is feasible. This provides no cryptographic guarantee and will cause some providers to reject the template by policy.
 
 Linter will report [DCTL1029](https://github.com/Domain-Connect/dc-template-linter/wiki/DCTL1029).
 
@@ -71,6 +74,8 @@ Linter will report [DCTL1028](https://github.com/Domain-Connect/dc-template-lint
 **Rule:** Set `syncRedirectDomain` whenever the template uses the `redirect_uri` parameter in the synchronous flow.
 
 Providers that enforce this field will reject the flow if `syncRedirectDomain` is absent. If the template does not use `redirect_uri`, this field is not required.
+
+More details in [draft-ietf-dconn-domainconnect-01 Section 8.3.5](https://www.ietf.org/archive/id/draft-ietf-dconn-domainconnect-01.html#section-8.3.5).
 
 ### 4. Never use a TXT record for SPF — use SPFM
 
