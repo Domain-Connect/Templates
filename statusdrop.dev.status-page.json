@@ -9,17 +9,17 @@
     "variableDescription": "VERIFICATION_TOKEN is the domain verification token from your StatusDrop dashboard.",
     "syncPubKeyDomain": "statusdrop.dev",
     "syncRedirectDomain": "statusdrop.dev",
-    "warnPhishing": false,
+    "hostRequired": true,
     "records": [
         {
             "type": "CNAME",
-            "host": "%host%",
+            "host": "@",
             "pointsTo": "cname.statusdrop.dev",
             "ttl": 3600
         },
         {
             "type": "TXT",
-            "host": "_statusdrop-verify.%host%",
+            "host": "_statusdrop-verify",
             "data": "statusdrop-verify=%VERIFICATION_TOKEN%",
             "ttl": 3600,
             "txtConflictMatchingMode": "Prefix",
