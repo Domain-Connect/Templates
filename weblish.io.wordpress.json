@@ -4,19 +4,24 @@
   "serviceId": "wordpress",
   "serviceName": "WordPress Hosting",
   "version": 1,
-  "description": "Connect your domain to Wordpress hosting",
+  "logoUrl": "https://weblish.io/logo.svg",
+  "description": "Connect your domain to Weblish WordPress hosting",
+  "variableDescription": "",
   "syncRedirectDomain": "weblish.io",
   "syncBlock": false,
   "syncPubKeyDomain": "weblish.io",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
+      "groupId": "hosting",
       "host": "@",
       "pointsTo": "wp.wpenginepowered.com",
       "ttl": 3600
     },
     {
       "type": "CNAME",
+      "groupId": "hosting",
       "host": "www",
       "pointsTo": "wp.wpenginepowered.com",
       "ttl": 3600
