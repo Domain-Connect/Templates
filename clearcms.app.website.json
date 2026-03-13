@@ -1,0 +1,21 @@
+{
+  "providerId": "clearcms.app",
+  "providerName": "ClearCMS",
+  "serviceId": "website",
+  "serviceName": "ClearCMS Website",
+  "version": 1,
+  "logoUrl": "https://console.clearcms.app/logo.svg",
+  "description": "Connect a domain to a ClearCMS site",
+  "variableDescription": "No variables. Static CNAME to proxy.clearcms.app.",
+  "syncPubKeyDomain": "domainconnect.clearcms.app",
+  "syncRedirectDomain": "console.clearcms.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy.clearcms.app",
+      "ttl": 600
+    }
+  ]
+}
