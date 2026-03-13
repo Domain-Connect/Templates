@@ -1,0 +1,37 @@
+{
+  "providerId": "inboxi.email",
+  "providerName": "Inboxi Email",
+  "serviceId": "email-hosting",
+  "serviceName": "Inboxi Email Hosting",
+  "version": 1,
+  "syncPubKeyDomain": "inboxi.email",
+  "syncRedirectDomain": "inboxi.email",
+  "description": "Configure automaticamente os registros DNS para enviar e receber emails com Inboxi.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_inboxi",
+      "data": "inboxi-verification=%verificationToken%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "default._domainkey",
+      "pointsTo": "dkim.inboxi.email",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.inboxi.email",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.inboxi.email",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
