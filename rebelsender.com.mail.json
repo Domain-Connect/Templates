@@ -1,0 +1,54 @@
+{
+  "providerId": "rebelsender.com",
+  "providerName": "RebelSender",
+  "serviceId": "mail",
+  "serviceName": "Mail",
+  "version": 1,
+  "syncPubKeyDomain": "rebelsender.com",
+  "syncRedirectDomain": "rebelsender.com",
+  "description": "Configure DNS records for email sending with RebelSender.",
+  "logoUrl": "https://rebelsender.com/logo.svg",
+  "variableDescription": "%DKIM1_HOST%: first DKIM CNAME host; %DKIM1_VALUE%: first DKIM CNAME target; %DKIM2_HOST%: second DKIM CNAME host; %DKIM2_VALUE%: second DKIM CNAME target; %DKIM3_HOST%: third DKIM CNAME host; %DKIM3_VALUE%: third DKIM CNAME target; %DMARC_VALUE%: DMARC policy value; %MX_HOST%: mail exchange host",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%DKIM1_HOST%",
+      "pointsTo": "%DKIM1_VALUE%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%DKIM2_HOST%",
+      "pointsTo": "%DKIM2_VALUE%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%DKIM3_HOST%",
+      "pointsTo": "%DKIM3_VALUE%",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "%DMARC_VALUE%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%MX_HOST%",
+      "ttl": 3600,
+      "priority": 10
+    }
+  ]
+}
