@@ -3,10 +3,10 @@
   "providerName": "Weblish",
   "serviceId": "wordpress",
   "serviceName": "WordPress Hosting",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://app.weblish.io/logo.svg",
   "description": "Connect your domain to Weblish WordPress hosting powered by WP Engine.",
-  "variableDescription": "",
+  "variableDescription": "gsc_verification is the Google Search Console verification TXT value (optional).",
   "syncRedirectDomain": "app.weblish.io",
   "syncPubKeyDomain": "weblish.io",
   "syncBlock": false,
@@ -24,6 +24,13 @@
       "groupId": "hosting",
       "host": "www",
       "pointsTo": "wp.wpenginepowered.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "gsc",
+      "host": "@",
+      "data": "%gsc_verification%",
       "ttl": 3600
     }
   ]
