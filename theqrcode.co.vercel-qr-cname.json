@@ -8,6 +8,7 @@
   "description": "Connect a hostname to the qr code co. QR redirects using the CNAME target provided by the qr code co.",
   "variableDescription": "%value%: the CNAME target the qr code co. requests for this hostname.",
   "syncPubKeyDomain": "dc.theqrcode.co",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
