@@ -4,7 +4,7 @@
     "serviceId": "mail",
     "serviceName": "Email Sending",
     "version": 1,
-    "logoUrl": "https://sendkit.dev/logo.png",
+    "logoUrl": "https://sendkit.dev/images/sendkit/logo-light.png",
     "description": "Configures DNS records for SendKit email sending (DKIM, SPF, MX, DMARC)",
     "variableDescription": "region: AWS SES region (e.g. us-east-2); domainKey: DKIM RSA public key (base64)",
     "syncPubKeyDomain": "sendkit.dev",
