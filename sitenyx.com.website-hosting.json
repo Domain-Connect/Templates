@@ -8,8 +8,8 @@
   "description": "Connect your domain to your Sitenyx website for automatic DNS configuration",
   "variableDescription": "No additional variables required",
   "syncPubKeyDomain": "sitenyx.com",
-  "syncRedirectDomain": "sitenyx.com, sitenyx.dev",
-  "hostRequired": false,
+  "syncRedirectDomain": "sitenyx.com,sitenyx.dev",
+  "hostRequired": true,
   "multiInstance": false,
   "records": [
     {
