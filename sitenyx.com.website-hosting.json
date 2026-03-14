@@ -1,0 +1,22 @@
+{
+  "providerId": "sitenyx.com",
+  "providerName": "Sitenyx",
+  "serviceId": "website-hosting",
+  "serviceName": "Sitenyx Website Hosting",
+  "version": 1,
+  "logoUrl": "https://sitenyx.com/images/logo.png",
+  "description": "Connect your domain to your Sitenyx website for automatic DNS configuration",
+  "variableDescription": "No additional variables required",
+  "syncPubKeyDomain": "sitenyx.com",
+  "syncRedirectDomain": "sitenyx.com, sitenyx.dev",
+  "hostRequired": false,
+  "multiInstance": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.sitenyx.com",
+      "ttl": 3600
+    }
+  ]
+}
