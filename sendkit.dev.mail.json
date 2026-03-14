@@ -1,0 +1,41 @@
+{
+    "providerId": "sendkit.dev",
+    "serviceId": "mail",
+    "name": "SendKit Email",
+    "description": "Configures DNS records for SendKit email sending (DKIM, SPF, MX, DMARC)",
+    "syncPubKeyDomain": "sendkit.dev",
+    "version": 1,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "sendkit._domainkey.%host%",
+            "data": "v=DKIM1; k=rsa; p=%domainKey%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "%spfDomain%",
+            "data": "v=spf1 include:amazonses.com ~all",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "%spfDomain%",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc.%host%",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600
+        }
+    ],
+    "variableDescription": {
+        "host": "Mail subdomain prefix (e.g. send, mail)",
+        "spfDomain": "SPF and MX subdomain prefix (same as host)",
+        "region": "AWS SES region (e.g. us-east-2)",
+        "domainKey": "DKIM RSA public key"
+    }
+}
