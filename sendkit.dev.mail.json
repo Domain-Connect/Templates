@@ -1,41 +1,46 @@
 {
     "providerId": "sendkit.dev",
+    "providerName": "SendKit",
     "serviceId": "mail",
-    "name": "SendKit Email",
-    "description": "Configures DNS records for SendKit email sending (DKIM, SPF, MX, DMARC)",
-    "syncPubKeyDomain": "sendkit.dev",
+    "serviceName": "Email Sending",
     "version": 1,
+    "logoUrl": "https://sendkit.dev/logo.png",
+    "description": "Configures DNS records for SendKit email sending (DKIM, SPF, MX, DMARC)",
+    "variableDescription": "region: AWS SES region (e.g. us-east-2); domainKey: DKIM RSA public key (base64)",
+    "syncPubKeyDomain": "sendkit.dev",
+    "syncRedirectDomain": "sendkit.dev",
     "records": [
         {
             "type": "TXT",
-            "host": "sendkit._domainkey.%host%",
+            "host": "sendkit._domainkey",
             "data": "v=DKIM1; k=rsa; p=%domainKey%",
-            "ttl": 3600
+            "ttl": 3600,
+            "essential": "Always",
+            "groupId": "dkim"
         },
         {
-            "type": "TXT",
-            "host": "%spfDomain%",
-            "data": "v=spf1 include:amazonses.com ~all",
-            "ttl": 3600
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:amazonses.com"
         },
         {
             "type": "MX",
-            "host": "%spfDomain%",
+            "host": "@",
             "pointsTo": "feedback-smtp.%region%.amazonses.com",
             "priority": 10,
-            "ttl": 3600
+            "ttl": 3600,
+            "essential": "Always",
+            "groupId": "mx"
         },
         {
             "type": "TXT",
-            "host": "_dmarc.%host%",
+            "host": "_dmarc",
             "data": "v=DMARC1; p=none;",
-            "ttl": 3600
+            "ttl": 3600,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "groupId": "dmarc"
         }
-    ],
-    "variableDescription": {
-        "host": "Mail subdomain prefix (e.g. send, mail)",
-        "spfDomain": "SPF and MX subdomain prefix (same as host)",
-        "region": "AWS SES region (e.g. us-east-2)",
-        "domainKey": "DKIM RSA public key"
-    }
+    ]
 }
