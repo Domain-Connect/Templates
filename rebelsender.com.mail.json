@@ -3,12 +3,12 @@
   "providerName": "RebelSender",
   "serviceId": "mail",
   "serviceName": "Mail",
-  "version": 2,
+  "version": 3,
   "syncPubKeyDomain": "rebelsender.com",
   "syncRedirectDomain": "rebelsender.com",
   "description": "Configure DNS records for email sending with RebelSender.",
   "logoUrl": "https://rebelsender.com/logo.svg",
-  "variableDescription": "%DKIM1_HOST%: first DKIM CNAME host; %DKIM1_VALUE%: first DKIM CNAME target; %DKIM2_HOST%: second DKIM CNAME host; %DKIM2_VALUE%: second DKIM CNAME target; %DKIM3_HOST%: third DKIM CNAME host; %DKIM3_VALUE%: third DKIM CNAME target; %VERIFY_VALUE%: domain name for ownership verification (e.g. example.com); %DMARC_VALUE%: DMARC policy value; %MX_HOST%: mail exchange host",
+  "variableDescription": "%DKIM1_HOST%: DKIM CNAME host; %DKIM1_VALUE%: DKIM CNAME target; %VERIFY_VALUE%: domain name for ownership verification (e.g. example.com); %MAILFROM_MX%: MAIL FROM bounce handler host; %DMARC_VALUE%: DMARC policy value",
   "records": [
     {
       "type": "TXT",
@@ -23,22 +23,23 @@
       "ttl": 3600
     },
     {
-      "type": "CNAME",
-      "host": "%DKIM2_HOST%",
-      "pointsTo": "%DKIM2_VALUE%",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "%DKIM3_HOST%",
-      "pointsTo": "%DKIM3_VALUE%",
-      "ttl": 3600
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "%MAILFROM_MX%",
+      "ttl": 3600,
+      "priority": 10
     },
     {
       "type": "SPFM",
-      "host": "@",
+      "host": "mail",
       "ttl": 3600,
       "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "track",
+      "pointsTo": "fallback-tracking.rebelsender.com",
+      "ttl": 3600
     },
     {
       "type": "TXT",
@@ -48,13 +49,6 @@
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1",
       "essential": "OnApply"
-    },
-    {
-      "type": "MX",
-      "host": "@",
-      "pointsTo": "%MX_HOST%",
-      "ttl": 3600,
-      "priority": 10
     }
   ]
 }
