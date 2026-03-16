@@ -34,7 +34,8 @@
             "data": "v=DMARC1; p=none;",
             "ttl": 3600,
             "txtConflictMatchingMode": "Prefix",
-            "txtConflictMatchingPrefix": "v=DMARC1"
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
         }
     ]
 }
