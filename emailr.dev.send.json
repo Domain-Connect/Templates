@@ -1,0 +1,44 @@
+{
+  "providerId": "emailr.dev",
+  "providerName": "emailr",
+  "serviceId": "send",
+  "serviceName": "emailr Mail",
+  "version": 1,
+  "logoUrl": "https://emailr.dev/black_logo.svg",
+  "description": "Configure email sending DNS records for emailr.dev",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "emailr.dev",
+  "syncRedirectDomain": "app.emailr.dev",
+  "variableDescription": "dkimkey: DKIM public key, region: AWS region, spfDomain: Mail-From subdomain",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "emailr._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 300,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "type": "MX",
+      "host": "%spfDomain%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "ttl": 300,
+      "priority": 10
+    }
+  ]
+}
