@@ -3,19 +3,19 @@
   "providerName": "MailGlyph",
   "serviceId": "mail-send-and-receive",
   "serviceName": "Mail (Sending & Receiving)",
-  "version": 1,
+  "version": 2,
   "syncBlock": false,
   "syncPubKeyDomain": "mailglyph.com",
   "syncRedirectDomain": "mailglyph.com,app.mailglyph.com",
   "description": "Configure MailGlyph DNS records for sending and optional inbound receiving.",
-  "logoUrl": "https://mailglyph.com/icons/favicon.svg",
+  "logoUrl": "https://cdn.mailglyph.com/assets/logo.svg",
   "records": [
     {
       "groupId": "dkim",
       "type": "TXT",
       "host": "mailglyph._domainkey",
       "ttl": 3600,
-      "data": "v=DKIM1; k=rsa; p=%dkimPublicKey%"
+      "data": "p=%dkimPublicKey%"
     },
     {
       "groupId": "outbound",
