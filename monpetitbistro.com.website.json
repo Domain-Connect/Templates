@@ -4,6 +4,7 @@
     "serviceId": "website",
     "serviceName": "MonPetitBistro Website",
     "version": 1,
+    "logoUrl": "https://monpetitbistro.com/logo-mpb.svg",
     "description": "Connect your domain to your MonPetitBistro website with automatic SSL.",
     "variableDescription": "target: hostname for routing (e.g. edge.monpetitbistro.com). dcv_target: Cloudflare DCV target (e.g. <token>.dcv.cloudflare.com).",
     "syncPubKeyDomain": "monpetitbistro.com",
