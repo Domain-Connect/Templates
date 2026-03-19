@@ -1,0 +1,27 @@
+{
+  "providerId": "builtbymagellan.com",
+  "providerName": "Magellan",
+  "serviceId": "website",
+  "serviceName": "Magellan Website Hosting",
+  "version": 1,
+  "logoUrl": "https://builtbymagellan.com/logo.svg",
+  "description": "Connect your custom domain to your Magellan-built website with automatic DNS configuration",
+  "syncRedirectDomain": "builtbymagellan.com,app.builtbymagellan.com",
+  "syncPubKeyDomain": "domainconnect.builtbymagellan.com",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "185.158.133.1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "proxy.builtbymagellan.com",
+      "ttl": 3600
+    }
+  ]
+}
