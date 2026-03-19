@@ -1,0 +1,57 @@
+{
+	"providerId": "xmit.sh",
+	"providerName": "Transmit",
+	"serviceId": "email",
+	"serviceName": "Email Sending & Receiving",
+	"version": 1,
+	"logoUrl": "https://xmit.sh/logo.png",
+	"description": "Configure DKIM, SPF, DMARC, and mail routing for Transmit email platform",
+	"variableDescription": "dkimSelector: DKIM selector identifier for signing outbound email; awsRegion: AWS region used for SES mail routing (e.g. us-east-1)",
+	"syncPubKeyDomain": "xmit.sh",
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "xmit._domainkey",
+			"pointsTo": "%dkimSelector%._domainkey.dkim.xmit.sh",
+			"ttl": 3600
+		},
+		{
+			"groupId": "spf",
+			"type": "SPFM",
+			"host": "@",
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"groupId": "dmarc",
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "v=DMARC1; p=none; rua=mailto:dmarc@%fqdn%",
+			"txtConflictMatchingMode": "None",
+			"ttl": 3600,
+			"essential": "OnApply"
+		},
+		{
+			"groupId": "mailfrom",
+			"type": "MX",
+			"host": "mail",
+			"pointsTo": "feedback-smtp.%awsRegion%.amazonses.com",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "mailfrom",
+			"type": "SPFM",
+			"host": "mail",
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"groupId": "inbound",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "inbound-smtp.%awsRegion%.amazonaws.com",
+			"priority": 10,
+			"ttl": 3600
+		}
+	]
+}
