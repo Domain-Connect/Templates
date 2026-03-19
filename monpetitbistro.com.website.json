@@ -19,7 +19,7 @@
         {
             "type": "CNAME",
             "host": "www",
-            "pointsTo": "@",
+            "pointsTo": "%target%",
             "ttl": 3600
         },
         {
