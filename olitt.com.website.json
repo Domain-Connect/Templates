@@ -1,0 +1,18 @@
+{
+  "providerId": "olitt.com",
+  "providerName": "Olitt",
+  "serviceId": "website",
+  "serviceName": "Olitt Website Hosting",
+  "version": 1,
+  "logoUrl": "https://olitt.com/wp-content/uploads/2025/08/Olitt-logo-website-builder-300x118.webp",
+  "description": "Connect your domain to your Olitt website automatically",
+  "variableDescription": "ip: The IP address of the Olitt server",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}
