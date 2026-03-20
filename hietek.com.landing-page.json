@@ -9,7 +9,6 @@
     "syncPubKeyDomain": "pubkey.hietek.com",
     "syncRedirectDomain": "hietek.com",
     "hostRequired": true,
-    "multiInstance": true,
     "records": [
         {
             "type": "CNAME",
