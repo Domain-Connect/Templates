@@ -5,6 +5,8 @@
 	"serviceName": "Email Sending & Receiving",
 	"version": 1,
 	"logoUrl": "https://xmit.sh/logo.png",
+	"syncPubKeyDomain": "xmit.sh",
+	"syncRedirectDomain": "xmit.sh",
 	"description": "Configure DKIM, SPF, DMARC, and mail routing for Transmit email platform",
 	"variableDescription": "dkimSelector: DKIM selector identifier for signing outbound email; awsRegion: AWS region used for SES mail routing (e.g. us-east-1)",
 	"records": [
@@ -29,6 +31,14 @@
 			"txtConflictMatchingMode": "None",
 			"ttl": 3600,
 			"essential": "OnApply"
+		},
+		{
+			"groupId": "inbound",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "inbound-smtp.%awsRegion%.amazonaws.com",
+			"priority": 10,
+			"ttl": 3600
 		},
 		{
 			"groupId": "mailfrom",
