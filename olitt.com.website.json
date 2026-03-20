@@ -4,7 +4,7 @@
   "serviceId": "website",
   "serviceName": "Olitt Website Hosting",
   "version": 1,
-  "logoUrl": "https://olitt.com/wp-content/uploads/2025/08/Olitt-logo-website-builder-300x118.webp",
+  "logoUrl": "https://s3.olitt.com/static/assets/img/olitt-logo.webp",
   "description": "Connect your domain to your Olitt website automatically",
   "syncBlock": false,
   "warnPhishing": true,
