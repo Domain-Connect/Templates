@@ -1,14 +1,13 @@
 {
    "providerId": "tidycal.com",
    "providerName": "TidyCal",
-   "serviceId": "tidycal.com",
+   "serviceId": "website",
    "serviceName": "TidyCal Scheduling",
    "version": 1,
    "logoUrl": "https://tidycal.com/img/logo-blue.svg",
-   "description": "Connect your domain to TidyCal for custom booking pages.",
+   "description": "Connect your root domain to TidyCal for custom booking pages.",
    "syncBlock": false,
    "syncPubKeyDomain": "domainconnect.tidycal.com",
-   "hostRequired": true,
    "records": [
       {
          "type": "CNAME",
