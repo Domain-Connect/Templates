@@ -6,7 +6,9 @@
   "version": 1,
   "logoUrl": "https://olitt.com/wp-content/uploads/2025/08/Olitt-logo-website-builder-300x118.webp",
   "description": "Connect your domain to your Olitt website automatically",
+  "syncBlock": false,
   "warnPhishing": true,
+  "hostRequired": false,
   "records": [
     {
       "type": "A",
@@ -17,7 +19,7 @@
     {
       "type": "CNAME",
       "host": "www",
-      "pointsTo": "olitt.com",
+      "pointsTo": "@",
       "ttl": 3600
     }
   ]
