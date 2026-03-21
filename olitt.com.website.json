@@ -7,7 +7,6 @@
   "logoUrl": "https://s3.olitt.com/static/assets/img/olitt-logo.webp",
   "description": "Connect your domain to your Olitt website automatically",
   "syncBlock": false,
-  "warnPhishing": true,
   "hostRequired": false,
   "syncPubKeyDomain": "olitt.com",
   "records": [
