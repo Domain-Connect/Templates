@@ -9,7 +9,6 @@
   "variableDescription": "%spfhost%: SPF/MX subdomain (e.g. send). %spfvalue%: SPF TXT record value. %mxvalue%: MX endpoint. %dkim1name%: DKIM key 1 name. %dkim1value%: DKIM key 1 value. %dkim2name%: DKIM key 2 name. %dkim2value%: DKIM key 2 value. %dkim3name%: DKIM key 3 name. %dkim3value%: DKIM key 3 value.",
   "syncRedirectDomain": "branch.getowlet.ai",
   "syncPubKeyDomain": "branch.getowlet.ai",
-  "warnPhishing": false,
   "hostRequired": false,
   "records": [
     {
@@ -20,9 +19,9 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "%spfhost%",
-      "data": "%spfvalue%",
+      "spfRules": "%spfvalue%",
       "ttl": 3600
     },
     {
