@@ -9,6 +9,7 @@
   "syncBlock": false,
   "warnPhishing": true,
   "hostRequired": false,
+  "syncPubKeyDomain": "olitt.com",
   "records": [
     {
       "type": "A",
