@@ -1,0 +1,25 @@
+{
+  "providerId": "delegated.to",
+  "providerName": "Mission Control",
+  "serviceId": "site",
+  "serviceName": "Mission Control Site",
+  "version": 1,
+  "logoUrl": "https://delegated.to/logo.png",
+  "description": "Point your domain to your Mission Control site with automatic SSL via Caddy.",
+  "variableDescription": "`IP` is the public IP address of the Mission Control VPS server hosting the site.",
+  "syncPubKeyDomain": "delegated.to",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%IP%",
+      "ttl": 3600
+    }
+  ]
+}
