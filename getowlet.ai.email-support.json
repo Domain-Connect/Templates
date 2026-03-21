@@ -1,0 +1,47 @@
+{
+  "providerId": "getowlet.ai",
+  "providerName": "Branch by Getowlet",
+  "serviceId": "email-support",
+  "serviceName": "Branch Email Support",
+  "version": 1,
+  "logoUrl": "https://branch.getowlet.ai/images/logo-mark.png",
+  "description": "Configure DNS records for Branch AI-powered email support. Adds SPF, DKIM, and MX records required by Resend for sending and receiving email on your domain.",
+  "variableDescription": "%spfhost%: SPF/MX subdomain (e.g. send). %spfvalue%: SPF TXT record value. %mxvalue%: MX endpoint. %dkim1name%: DKIM key 1 name. %dkim1value%: DKIM key 1 value. %dkim2name%: DKIM key 2 name. %dkim2value%: DKIM key 2 value. %dkim3name%: DKIM key 3 name. %dkim3value%: DKIM key 3 value.",
+  "syncRedirectDomain": "branch.getowlet.ai",
+  "syncPubKeyDomain": "branch.getowlet.ai",
+  "warnPhishing": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "%spfhost%",
+      "pointsTo": "%mxvalue%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%spfhost%",
+      "data": "%spfvalue%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1name%",
+      "pointsTo": "%dkim1value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2name%",
+      "pointsTo": "%dkim2value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3name%",
+      "pointsTo": "%dkim3value%",
+      "ttl": 3600
+    }
+  ]
+}
