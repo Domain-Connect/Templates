@@ -9,6 +9,7 @@
     "variableDescription": "%cname_target%: Vercel DNS target for your domain (e.g. cname.vercel-dns.com)",
     "syncPubKeyDomain": "nashra.ai",
     "syncRedirectDomain": "app.nashra.ai",
+    "hostRequired": true,
     "records": [
         {
             "type": "CNAME",
