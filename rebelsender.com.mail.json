@@ -3,7 +3,7 @@
   "providerName": "RebelSender",
   "serviceId": "mail",
   "serviceName": "Mail",
-  "version": 3,
+  "version": 4,
   "syncPubKeyDomain": "rebelsender.com",
   "syncRedirectDomain": "rebelsender.com",
   "description": "Configure DNS records for email sending with RebelSender.",
