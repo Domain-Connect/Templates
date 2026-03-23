@@ -12,7 +12,7 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "",
+      "host": "@",
       "pointsTo": "branch.getowlet.ai",
       "ttl": 3600
     }
