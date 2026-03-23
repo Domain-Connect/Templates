@@ -8,7 +8,7 @@
   "syncRedirectDomain": "rebelsender.com",
   "description": "Configure DNS records for email sending with RebelSender.",
   "logoUrl": "https://rebelsender.com/logo.svg",
-  "variableDescription": "%DKIM1_HOST%/%DKIM1_VALUE%, %DKIM2_HOST%/%DKIM2_VALUE%, %DKIM3_HOST%/%DKIM3_VALUE%: Easy DKIM CNAME records (AWS SES); %BYODKIM_SELECTOR%/%BYODKIM_PUBKEY%: BYODKIM TXT record (single-record mode); %VERIFY_VALUE%: domain ownership verification; %MAILFROM_MX%: MAIL FROM bounce handler; %DMARC_VALUE%: DMARC policy",
+  "variableDescription": "%DKIM1_HOST%/%DKIM1_VALUE%, %DKIM2_HOST%/%DKIM2_VALUE%, %DKIM3_HOST%/%DKIM3_VALUE%: Easy DKIM CNAME records (AWS SES); %VERIFY_VALUE%: domain ownership verification; %MAILFROM_MX%: MAIL FROM bounce handler; %DMARC_VALUE%: DMARC policy",
   "records": [
     {
       "type": "TXT",
@@ -17,35 +17,24 @@
       "data": "rebelsender-verify=%VERIFY_VALUE%"
     },
     {
-      "groupId": "dkim-easy",
       "type": "CNAME",
       "host": "%DKIM1_HOST%",
       "pointsTo": "%DKIM1_VALUE%",
       "ttl": 3600
     },
     {
-      "groupId": "dkim-easy",
       "type": "CNAME",
       "host": "%DKIM2_HOST%",
       "pointsTo": "%DKIM2_VALUE%",
       "ttl": 3600
     },
     {
-      "groupId": "dkim-easy",
       "type": "CNAME",
       "host": "%DKIM3_HOST%",
       "pointsTo": "%DKIM3_VALUE%",
       "ttl": 3600
     },
     {
-      "groupId": "dkim-byod",
-      "type": "TXT",
-      "host": "%BYODKIM_SELECTOR%._domainkey",
-      "data": "v=DKIM1; k=rsa; p=%BYODKIM_PUBKEY%",
-      "ttl": 3600
-    },
-    {
-      "groupId": "mail",
       "type": "MX",
       "host": "mail",
       "pointsTo": "%MAILFROM_MX%",
@@ -53,21 +42,18 @@
       "priority": 10
     },
     {
-      "groupId": "mail",
       "type": "SPFM",
       "host": "mail",
       "ttl": 3600,
       "spfRules": "include:amazonses.com"
     },
     {
-      "groupId": "tracking",
       "type": "CNAME",
       "host": "track",
       "pointsTo": "fallback-tracking.rebelsender.com",
       "ttl": 3600
     },
     {
-      "groupId": "mail",
       "type": "TXT",
       "host": "_dmarc",
       "ttl": 3600,
