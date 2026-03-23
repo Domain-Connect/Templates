@@ -8,7 +8,7 @@
   "description": "Point a custom subdomain at your Branch Help Center. Adds a CNAME record so customers can reach their knowledge base at their own domain (e.g. support.yourcompany.com).",
   "syncRedirectDomain": "branch.getowlet.ai",
   "syncPubKeyDomain": "branch.getowlet.ai",
-  "hostRequired": false,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
