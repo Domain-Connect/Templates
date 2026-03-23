@@ -12,25 +12,25 @@
   "records": [
     {
       "type": "A",
-      "host": "",
+      "host": "@",
       "pointsTo": "185.199.108.153",
       "ttl": 3600
     },
     {
       "type": "A",
-      "host": "",
+      "host": "@",
       "pointsTo": "185.199.109.153",
       "ttl": 3600
     },
     {
       "type": "A",
-      "host": "",
+      "host": "@",
       "pointsTo": "185.199.110.153",
       "ttl": 3600
     },
     {
       "type": "A",
-      "host": "",
+      "host": "@",
       "pointsTo": "185.199.111.153",
       "ttl": 3600
     },
