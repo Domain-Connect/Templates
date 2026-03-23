@@ -1,0 +1,21 @@
+{
+  "providerId": "getowlet.ai",
+  "providerName": "Branch by Getowlet",
+  "serviceId": "help-center",
+  "serviceName": "Branch Help Center",
+  "version": 1,
+  "logoUrl": "https://branch.getowlet.ai/images/logo-mark.png",
+  "description": "Point a custom subdomain at your Branch Help Center. Adds a single CNAME record so your customers can reach your knowledge base at your own domain (e.g. support.yourcompany.com).",
+  "variableDescription": "%subdomain%: The subdomain to point at Branch (e.g. support, help, kb).",
+  "syncRedirectDomain": "branch.getowlet.ai",
+  "syncPubKeyDomain": "branch.getowlet.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "branch.getowlet.ai",
+      "ttl": 3600
+    }
+  ]
+}
