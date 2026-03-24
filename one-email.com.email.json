@@ -1,50 +1,47 @@
 {
-    "providerId": "one-email.com",
-    "providerName": "One-Email",
-    "serviceId": "email",
-    "serviceName": "One-Email Transactional & Marketing Email",
-    "version": 1,
-    "logoUrl": "https://one-email.com/icon.svg",
-    "description": "Configure DNS records for sending transactional and marketing email
-  with One-Email. Sets up SPF, DKIM (two selectors for key rotation), DMARC, and domain
-  verification.",
-    "variableDescription": "%verification%: unique domain verification token issued by
-  One-Email",
-    "syncPubKeyDomain": "one-email.com",
-    "syncRedirectDomain": "api.one-email.com",
-    "syncBlock": false,
-    "records": [
-      {
-        "type": "SPFM",
-        "host": "@",
-        "spfRules": "include:spf.one-email.com"
-      },
-      {
-        "type": "CNAME",
-        "host": "oe1._domainkey",
-        "pointsTo": "%domain%.oe1.dkim.one-email.com",
-        "ttl": 3600
-      },
-      {
-        "type": "CNAME",
-        "host": "oe2._domainkey",
-        "pointsTo": "%domain%.oe2.dkim.one-email.com",
-        "ttl": 3600
-      },
-      {
-        "type": "TXT",
-        "host": "_dmarc",
-        "data": "v=DMARC1; p=none; rua=mailto:dmarc@one-email.com",
-        "ttl": 3600,
-        "txtConflictMatchingMode": "Prefix",
-        "txtConflictMatchingPrefix": "v=DMARC1",
-        "essential": "OnApply"
-      },
-      {
-        "type": "CNAME",
-        "host": "oe-verify",
-        "pointsTo": "oe-verify-%verification%.verify.one-email.com",
-        "ttl": 3600
-      }
-    ]
-  }
+  "providerId": "one-email.com",
+  "providerName": "One-Email",
+  "serviceId": "email",
+  "serviceName": "One-Email Transactional and Marketing Email",
+  "version": 1,
+  "logoUrl": "https://one-email.com/icon.svg",
+  "description": "Configure DNS records for sending transactional and marketing email with One-Email.",
+  "variableDescription": "%verification%: unique domain verification token issued by One-Email",
+  "syncPubKeyDomain": "one-email.com",
+  "syncRedirectDomain": "api.one-email.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.one-email.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "oe1._domainkey",
+      "pointsTo": "%domain%.oe1.dkim.one-email.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "oe2._domainkey",
+      "pointsTo": "%domain%.oe2.dkim.one-email.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@one-email.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "oe-verify",
+      "pointsTo": "oe-verify-%verification%.verify.one-email.com",
+      "ttl": 3600
+    }
+  ]
+}
