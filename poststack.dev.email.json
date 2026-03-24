@@ -12,12 +12,11 @@
 	"shared": false,
 	"multiInstance": false,
 	"syncBlock": false,
-	"warnPhishing": false,
 	"records": [
 		{
-			"type": "TXT",
+			"type": "SPFM",
 			"host": "@",
-			"data": "v=spf1 include:poststack.dev ~all",
+			"spfRules": "include:poststack.dev",
 			"ttl": 3600
 		},
 		{
@@ -30,7 +29,10 @@
 			"type": "TXT",
 			"host": "_dmarc",
 			"data": "v=DMARC1; p=none; rua=mailto:dmarc@poststack.dev",
-			"ttl": 3600
+			"ttl": 3600,
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1",
+			"essential": "OnApply"
 		},
 		{
 			"type": "CNAME",
