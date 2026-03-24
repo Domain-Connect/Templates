@@ -7,7 +7,7 @@
   "logoUrl": "https://cashwebdev.com/og-image.png",
   "description": "Points a domain to a CashWebDev-managed website on GitHub Pages",
   "variableDescription": "",
-  "warnPhishing": true,
+  "syncPubKeyDomain": "cashwebdev.com",
   "hostRequired": false,
   "records": [
     {
