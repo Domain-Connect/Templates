@@ -1,0 +1,42 @@
+{
+	"providerId": "poststack.dev",
+	"providerName": "PostStack",
+	"serviceId": "email",
+	"serviceName": "PostStack Email",
+	"version": 1,
+	"logoUrl": "https://poststack.dev/logo.svg",
+	"description": "Configure DNS records for PostStack email sending (SPF, DKIM, DMARC, Return-Path)",
+	"variableDescription": "DKIM public key for your domain",
+	"syncPubKeyDomain": "domainconnect.poststack.dev",
+	"syncRedirectDomain": "poststack.dev",
+	"shared": false,
+	"multiInstance": false,
+	"syncBlock": false,
+	"warnPhishing": false,
+	"records": [
+		{
+			"type": "TXT",
+			"host": "@",
+			"data": "v=spf1 include:poststack.dev ~all",
+			"ttl": 3600
+		},
+		{
+			"type": "TXT",
+			"host": "poststack._domainkey",
+			"data": "v=DKIM1; k=rsa; h=sha256; p=%dkim_record%",
+			"ttl": 3600
+		},
+		{
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "v=DMARC1; p=none; rua=mailto:dmarc@poststack.dev",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "bounce",
+			"pointsTo": "bounce.poststack.dev",
+			"ttl": 3600
+		}
+	]
+}
