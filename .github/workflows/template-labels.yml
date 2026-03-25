@@ -1,0 +1,76 @@
+name: Template Labels
+
+on:
+  pull_request_target:
+    branches:
+      - master
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  label-templates:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Get changed template JSON files
+        id: changed-templates
+        uses: tj-actions/changed-files@v45
+        with:
+          files: '*.json'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Check template properties and compute labels
+        id: template-labels
+        env:
+          TEMPLATE_FILES: ${{ steps.changed-templates.outputs.all_changed_files }}
+          LABELS_ADD_FILE: /tmp/template_labels_add.txt
+          LABELS_REMOVE_FILE: /tmp/template_labels_remove.txt
+        run: |
+          python .github/scripts/check_template_labels.py
+
+      - name: Add labels
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          labels_file="/tmp/template_labels_add.txt"
+          if [ ! -f "$labels_file" ] || [ ! -s "$labels_file" ]; then
+            echo "No labels to add."
+            exit 0
+          fi
+          pr_number="${{ github.event.pull_request.number }}"
+          repo="${{ github.repository }}"
+          while IFS= read -r label; do
+            [ -z "$label" ] && continue
+            echo "Adding label: $label"
+            gh pr edit "$pr_number" --repo "$repo" --add-label "$label"
+          done < "$labels_file"
+
+      - name: Remove labels
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          labels_file="/tmp/template_labels_remove.txt"
+          if [ ! -f "$labels_file" ] || [ ! -s "$labels_file" ]; then
+            echo "No labels to remove."
+            exit 0
+          fi
+          pr_number="${{ github.event.pull_request.number }}"
+          repo="${{ github.repository }}"
+          while IFS= read -r label; do
+            [ -z "$label" ] && continue
+            echo "Removing label: $label"
+            gh pr edit "$pr_number" --repo "$repo" --remove-label "$label" 2>/dev/null || true
+          done < "$labels_file"
