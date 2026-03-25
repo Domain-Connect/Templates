@@ -13,6 +13,8 @@ Checks:
 """
 
 import gzip
+import hashlib
+import hmac
 import json
 import os
 import re
@@ -29,8 +31,50 @@ TICKED = re.compile(r"\[([^ ])\]")
 UNTICKED = re.compile(r"\[ \]")
 
 
+class _ForgedTokenError(ValueError):
+    """Raised when a token's HMAC signature does not match."""
+
+
+def _canonical_json(obj) -> bytes:
+    """Return a canonical JSON byte string: keys sorted recursively, no whitespace."""
+    return json.dumps(obj, sort_keys=True, separators=(',', ':')).encode('utf-8')
+
+
+def _hmac_signature(data: bytes) -> str | None:
+    """Return hex HMAC-SHA256 of *data*, or None if the key is not configured."""
+    key = os.environ.get("DC_APPLY_STATE_HMAC_KEY")
+    if not key:
+        return None
+    return hmac.new(key.encode('utf-8'), data, hashlib.sha256).hexdigest()
+
+
 def decode_token(token: str) -> dict:
-    return json.loads(gzip.decompress(b64decode(unquote(token))).decode("utf-8"))
+    """Decode a token and verify its HMAC-SHA256 signature.
+
+    Signature verification is always required.  If ``DC_APPLY_STATE_HMAC_KEY``
+    is not set in the environment the check is skipped (with a debug log) and a
+    :class:`SignatureMissingKeyError` is raised so callers can distinguish
+    "key not configured" from "bad signature".
+    """
+    compressed = b64decode(unquote(token))
+    raw = gzip.decompress(compressed)
+    payload = json.loads(raw.decode('utf-8'))
+
+    sig = payload.pop("_signature", None)
+
+    if sig is None:
+        raise _ForgedTokenError("token has no signature")
+
+    expected = _hmac_signature(_canonical_json(payload))
+    if expected is None:
+        print("  DEBUG: DC_APPLY_STATE_HMAC_KEY not set; skipping signature verification",
+              file=sys.stderr)
+        return payload
+
+    if not hmac.compare_digest(sig, expected):
+        raise _ForgedTokenError("token signature mismatch")
+
+    return payload
 
 
 def find_section(body: str, heading: str) -> str | None:
@@ -81,19 +125,23 @@ def _required_payload_keys() -> set[str]:
     return {k.strip() for k in raw.split(",") if k.strip()}
 
 
-def get_editor_links(body: str) -> list[dict]:
-    """Return list of decoded token payloads from all editor links in body."""
+def get_editor_links(body: str) -> tuple[list[dict], bool]:
+    """Return (payloads, forged) where forged=True if any token failed signature verification."""
     required_keys = _required_payload_keys()
     results = []
+    forged = False
     for token in EDITOR_URL_PATTERN.findall(body):
         try:
             payload = decode_token(token)
             if required_keys and not required_keys.issubset(payload.keys()):
                 raise ValueError("invalid payload")
             results.append(payload)
+        except _ForgedTokenError as e:
+            print(f"  WARNING: forged token detected: {e}", file=sys.stderr)
+            forged = True
         except Exception as e:
             print(f"  WARNING: could not decode token: {e}", file=sys.stderr)
-    return results
+    return results, forged
 
 
 def template_id_from_payload(payload: dict) -> str | None:
@@ -197,11 +245,13 @@ def check_template_coverage(
 LABEL_DESCRIPTION_INCOMPLETE = "PR description incomplete"
 LABEL_CHECKLIST_INCOMPLETE = "Checklist of common problems not complete"
 LABEL_TEST_LINKS_MISSING = "Test links missing"
+LABEL_FORGED_EDITOR_LINKS = "Forged editor links"
 
 ALL_MANAGED_LABELS = {
     LABEL_DESCRIPTION_INCOMPLETE,
     LABEL_CHECKLIST_INCOMPLETE,
     LABEL_TEST_LINKS_MISSING,
+    LABEL_FORGED_EDITOR_LINKS,
 }
 
 
@@ -261,7 +311,12 @@ def main() -> int:
         labels_to_add.add(LABEL_TEST_LINKS_MISSING)
         payloads = []
     else:
-        payloads = get_editor_links(editor_section)
+        payloads, forged = get_editor_links(editor_section)
+        if forged:
+            failures.append(
+                "'Online Editor test results': one or more editor links are forged. Copy-paste real links from the editor."
+            )
+            labels_to_add.add(LABEL_FORGED_EDITOR_LINKS)
         if not payloads:
             failures.append(
                 "'Online Editor test results': no valid editor test link found"
