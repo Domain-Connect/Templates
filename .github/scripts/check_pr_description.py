@@ -19,7 +19,7 @@ import json
 import os
 import re
 import sys
-from base64 import b64decode
+from base64 import b64decode, b64encode
 from urllib.parse import unquote
 
 EDITOR_URL_PATTERN = re.compile(
@@ -41,11 +41,13 @@ def _canonical_json(obj) -> bytes:
 
 
 def _hmac_signature(data: bytes) -> str | None:
-    """Return hex HMAC-SHA256 of *data*, or None if the key is not configured."""
+    """Return base64 HMAC-SHA256 of *data*, or None if the key is not configured."""
     key = os.environ.get("DC_APPLY_STATE_HMAC_KEY")
     if not key:
         return None
-    return hmac.new(key.encode('utf-8'), data, hashlib.sha256).hexdigest()
+    key_bytes = bytes.fromhex(key) if isinstance(key, str) else key
+    digest = hmac.new(key_bytes, data, hashlib.sha256).digest()
+    return b64encode(digest).decode('ascii')
 
 
 def decode_token(token: str) -> dict:
