@@ -47,4 +47,5 @@ See [Template Quality Guidelines](../README.md#template-quality-guidelines) for 
 
 **Editor test link(s):** 
 <!-- paste the links from "Copy Markdown" here -->
+<!-- REQUIRED: at last one test with domain apex and one test with subdomain (host set). EXCEPTION: if hostRequired=true, apex test is not required.
 <!-- paste multiple links if more test conducted. At least 1 per template file included in the PR -->
