@@ -99,13 +99,21 @@ A bare variable allows the value to be set to any arbitrary string, which increa
 
 **Exception:** A bare variable is acceptable when the use case genuinely requires it (e.g. the full record value is prescribed by an external standard and cannot carry a prefix). In that case, justify the choice in the PR description.
 
-### 7. Never use a variable in the `host` field to target a subdomain
+### 7. Scope variables narrowly in `host` — fix the non-variable parts
+
+**Rule:** When a variable appears in the `host` field, fix the surrounding label parts so the variable can only resolve to a meaningful, service-specific hostname. Do not use a bare variable as the entire host label.
+
+A bare host variable (e.g. `host: "%dkimhost%"`) allows the caller to set any arbitrary label, which can be used to create unexpected records anywhere under the domain. Instead, embed the variable in the fixed portion of the label so only the meaningful part varies. For example, for DKIM use `host: "%dkimkey%._domainkey"` — the selector is variable but the `._domainkey` suffix is fixed, making the record unambiguous and its purpose clear.
+
+**Exception:** A bare host variable is acceptable when the use case genuinely requires full control of the label (e.g. the subdomain name itself is user-supplied and has no predictable fixed suffix). In that case, justify the choice in the PR description.
+
+### 8. Never use a variable in the `host` field to target a subdomain
 
 **Rule:** Do not put a variable (e.g. `%subdomain%`) in the `host` field of records to make the template apply to a subdomain.
 
 Use the standard `host` parameter of the Domain Connect protocol instead. If a variable is used in `host`, the template appears to work on first apply — but on a second application with a different variable value, providers that track template integrity will remove the records from the first application. If `host` parameter is not sufficient for your use case, use `multiInstance`.
 
-### 8. Never write `%host%` explicitly in the `host` attribute
+### 9. Never write `%host%` explicitly in the `host` attribute
 
 **Rule:** Do not include `%host%` in any record's `host` attribute.
 
@@ -113,7 +121,7 @@ The Domain Connect protocol appends the `host` parameter value to every record a
 
 Linter will report [DCTL1024](https://github.com/Domain-Connect/dc-template-linter/wiki/DCTL1024).
 
-### 9. Set `essential` on records the user may need to change independently
+### 10. Set `essential` on records the user may need to change independently
 
 **Rule:** Set `"essential": "OnApply"` on any record that the end user should be able to modify or delete manually without triggering a template conflict (e.g. DMARC policy record).
 
