@@ -16,6 +16,7 @@
       "host": "_dmarc",
       "data": "v=DMARC1; p=%policy%; rua=mailto:dmarc@dmarc.spoofcanary.com; fo=1",
       "ttl": 3600,
+      "essential": "OnApply",
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1"
     }
