@@ -1,0 +1,23 @@
+{
+  "providerId": "tortus.io",
+  "providerName": "Tortus",
+  "serviceId": "connect-site",
+  "serviceName": "Tortus Website",
+  "version": 1,
+  "logoUrl": "https://tortus.io/logo.png",
+  "description": "Connect your domain to your Tortus-powered website with automatic SSL.",
+  "variableDescription": "CNAME record pointing to Tortus hosting",
+  "syncPubKeyDomain": "tortus.io",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "sites.tortus.com",
+      "ttl": 3600
+    }
+  ]
+}
