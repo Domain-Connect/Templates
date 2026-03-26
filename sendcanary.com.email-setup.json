@@ -5,7 +5,7 @@
   "serviceName": "Email Security Setup",
   "version": 1,
   "logoUrl": "https://sendcanary.com/logo.png",
-  "description": "Set up complete email security for your domain. Delegates DMARC and BIMI to SendCanary via CNAME so policy changes and brand logo updates happen automatically. Authorizes SendCanary in your SPF record via merge. One-click setup, no ongoing DNS management required.",
+  "description": "Set up complete email security for your domain. Delegates DMARC and BIMI to SendCanary via CNAME so policy changes and brand logo updates happen automatically. Authorizes SendCanary in your SPF record via merge.",
   "variableDescription": "token: Per-domain identifier used to route DMARC reports and serve brand assets",
   "syncPubKeyDomain": "sendcanary.com",
   "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
@@ -14,7 +14,7 @@
       "groupId": "dmarc",
       "type": "CNAME",
       "host": "_dmarc",
-      "pointsTo": "_dmarc.%token%.dns.sendcanary.com",
+      "pointsTo": "%token%.dmarc.sendcanary.com",
       "ttl": 3600,
       "essential": "OnApply"
     },
