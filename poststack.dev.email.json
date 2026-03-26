@@ -3,7 +3,7 @@
   "providerName": "PostStack",
   "serviceId": "email",
   "serviceName": "PostStack Email",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://poststack.dev/logo.svg",
   "description": "Configure DNS records for PostStack email sending and receiving (SPF, DKIM, DMARC, Return-Path, MX)",
   "variableDescription": "DKIM public key for your domain",
