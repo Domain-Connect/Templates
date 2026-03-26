@@ -9,6 +9,7 @@
   "logoUrl": "https://cdn.spinlab.studio/logo-spinlab.svg",
   "syncBlock": false,
   "syncPubKeyDomain": "spinlab.studio",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
