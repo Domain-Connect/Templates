@@ -1,0 +1,18 @@
+{
+  "providerId": "plop.so",
+  "providerName": "plop",
+  "serviceId": "website",
+  "serviceName": "plop File Hosting",
+  "variableDescription": "Connect your domain to plop.so for file hosting",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "plop.so",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "plop.so",
+      "ttl": 3600
+    }
+  ]
+}
