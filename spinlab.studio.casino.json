@@ -5,13 +5,14 @@
   "serviceName": "Spinlab Casino Platform",
   "description": "Configures DNS records for hosting a white-label casino website with Spinlab.",
   "variableDescription": "",
-  "version": 1,
+  "version": 3,
   "logoUrl": "https://cdn.spinlab.studio/logo-spinlab.svg",
   "syncBlock": false,
   "syncPubKeyDomain": "spinlab.studio",
   "records": [
     {
-      "type": "APEXCNAME",
+      "type": "CNAME",
+      "host": "@",
       "pointsTo": "apex.spinlab.studio",
       "ttl": 3600
     },
