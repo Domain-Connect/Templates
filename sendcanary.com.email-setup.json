@@ -5,20 +5,18 @@
   "serviceName": "Email Security Setup",
   "version": 1,
   "logoUrl": "https://sendcanary.com/logo.png",
-  "description": "Set up complete email security for your domain. Adds DMARC monitoring with per-domain reporting, authorizes SendCanary in your SPF record, and configures BIMI for brand display. SendCanary walks you through protecting your email step by step.",
-  "variableDescription": "token: Per-domain identifier for DMARC report routing; policy: DMARC enforcement level (none, quarantine, reject)",
+  "description": "Set up complete email security for your domain. Delegates DMARC and BIMI to SendCanary via CNAME so policy changes and brand logo updates happen automatically. Authorizes SendCanary in your SPF record via merge. One-click setup, no ongoing DNS management required.",
+  "variableDescription": "token: Per-domain identifier used to route DMARC reports and serve brand assets",
   "syncPubKeyDomain": "sendcanary.com",
   "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
   "records": [
     {
       "groupId": "dmarc",
-      "type": "TXT",
+      "type": "CNAME",
       "host": "_dmarc",
-      "data": "v=DMARC1; p=%policy%; rua=mailto:%token%@dmarc.spoofcanary.com; ruf=mailto:%token%@dmarc.spoofcanary.com; fo=1",
+      "pointsTo": "_dmarc.%token%.dns.sendcanary.com",
       "ttl": 3600,
-      "essential": "OnApply",
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1"
+      "essential": "OnApply"
     },
     {
       "groupId": "spf",
@@ -29,13 +27,11 @@
     },
     {
       "groupId": "bimi",
-      "type": "TXT",
+      "type": "CNAME",
       "host": "default._bimi",
-      "data": "v=BIMI1; l=https://bimi.sendcanary.com/%token%/logo.svg",
+      "pointsTo": "%token%.bimi.sendcanary.com",
       "ttl": 3600,
-      "essential": "OnApply",
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=BIMI1"
+      "essential": "OnApply"
     }
   ]
 }
