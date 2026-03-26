@@ -1,0 +1,25 @@
+{
+  "providerId": "plop.so",
+  "providerName": "plop",
+  "serviceId": "website-apex",
+  "serviceName": "plop File Hosting (Apex)",
+  "version": 1,
+  "variableDescription": "Connect your apex domain to plop.so for file hosting",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "plop.so",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "104.21.9.9",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "172.67.140.209",
+      "ttl": 3600
+    }
+  ]
+}
