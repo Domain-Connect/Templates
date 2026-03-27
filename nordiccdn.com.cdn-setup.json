@@ -4,7 +4,7 @@
   "serviceId": "cdn-setup",
   "serviceName": "NordicCDN CDN Acceleration",
   "version": 1,
-  "logoUrl": "https://nordiccdn.com/images/nordiccdn-icon.svg",
+  "logoUrl": "https://nordiccdn.com/images/nordiccdn-logo.svg",
   "description": "Configure your domain to use NordicCDN for full-page caching, content delivery acceleration, and automatic SSL certificate provisioning.",
   "variableDescription": "token: Domain ownership verification token. cdnhost: CDN hostname for traffic routing. acmetarget: ACME challenge CNAME target for SSL certificate provisioning.",
   "syncBlock": false,
