@@ -8,8 +8,14 @@
   "description": "Enables a domain to work with AuthGravity",
   "syncBlock": false,
   "shared": false,
+  "hostRequired": true,
   "syncPubKeyDomain": "domainconnect.authgravity.org",
   "records": [
-    { "type": "CNAME", "host": "authgravity", "pointsTo": "cname.authgravity.net", "ttl": 3600 }
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.authgravity.net",
+      "ttl": 3600
+    }
   ]
 }
