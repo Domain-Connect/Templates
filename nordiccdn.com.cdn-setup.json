@@ -10,7 +10,7 @@
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.nordiccdn.com",
   "syncRedirectDomain": "nordiccdn.com",
-  "hostRequired": false,
+  "hostRequired": true,
   "records": [
      {
       "type": "TXT",
@@ -21,7 +21,7 @@
       "txtConflictMatchingPrefix": "cdn-verify="
     },
     {
-      "type": "APEXCNAME",
+      "type": "CNAME",
       "host": "@",
       "pointsTo": "%cdnhost%",
       "ttl": 3600
