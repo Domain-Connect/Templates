@@ -12,11 +12,13 @@
   "syncRedirectDomain": "nordiccdn.com",
   "hostRequired": false,
   "records": [
-    {
+     {
       "type": "TXT",
       "host": "_cdn-verification",
       "data": "cdn-verify=%token%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "cdn-verify="
     },
     {
       "type": "APEXCNAME",
