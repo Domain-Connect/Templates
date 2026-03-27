@@ -1,0 +1,65 @@
+{
+  "providerId": "simplomail.com",
+  "providerName": "SimploMail",
+  "serviceId": "email",
+  "serviceName": "Email Sending",
+  "version": 1,
+  "logoUrl": "https://simplomail.com/assets/simplomail-logo-B61Jcr54.png",
+  "description": "Configure your domain for email sending with SimploMail. Sets up DKIM, SPF, DMARC, and custom MAIL FROM for improved deliverability.",
+  "variableDescription": "%dkimToken1%: First DKIM token; %dkimToken2%: Second DKIM token; %dkimToken3%: Third DKIM token; %mailFromSubdomain%: Custom MAIL FROM subdomain; %region%: AWS SES region",
+  "warnPhishing": true,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@simplomail.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "%mailFromSubdomain%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "%mailFromSubdomain%",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
