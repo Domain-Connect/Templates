@@ -1,0 +1,34 @@
+{
+  "providerId": "unidesk.ai",
+  "providerName": "Unidesk",
+  "serviceId": "email",
+  "serviceName": "Unidesk Email Domain Authentication",
+  "version": 1,
+  "logoUrl": "https://app.unidesk.ai/logo.png",
+  "description": "Configure DNS records for Unidesk custom email domain authentication (via SendGrid). Sets up CNAME records for DKIM and SPF so your helpdesk can send emails from your domain.",
+  "variableDescription": "The DNS record values are specific to your domain and provided by Unidesk during setup.",
+  "syncPubKeyDomain": "",
+  "syncRedirectDomain": "",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host1%",
+      "pointsTo": "%pointsTo1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%host2%",
+      "pointsTo": "%pointsTo2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%host3%",
+      "pointsTo": "%pointsTo3%",
+      "ttl": 3600
+    }
+  ]
+}
