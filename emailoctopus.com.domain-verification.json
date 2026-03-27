@@ -1,0 +1,45 @@
+{
+    "providerId": "emailoctopus.com",
+    "providerName": "EmailOctopus",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain Verification",
+    "version": 1,
+    "logoUrl": "https://dashboard.emailoctopus.com/logo-domain-connect.png",
+    "syncPubKeyDomain": "emailoctopus.com",
+    "syncRedirectDomain": "dashboard.emailoctopus.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "eo._domainkey",
+            "pointsTo": "eo._domainkey.%proxy_domain%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "eom",
+            "pointsTo": "eom.%proxy_domain%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "eot",
+            "pointsTo": "eot.%proxy_domain%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%subaccount_id%",
+            "pointsTo": "%subaccount_id%.%proxy_domain%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "essential": "OnApply",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        }
+    ]
+}
