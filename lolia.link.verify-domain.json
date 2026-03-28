@@ -4,7 +4,7 @@
 	"serviceId": "verify-domain",
 	"serviceName": "LoliaFRP Verify Domain",
 	"version": 3,
-	"syncPubKeyDomain": "dash.lolia.link",
+	"syncPubKeyDomain": "lolia.link",
 	"syncRedirectDomain": "dash.lolia.link",
 	"description": "Automatically adds a TXT record to verify domain ownership for LoliaFRP",
 	"logoUrl": "https://r2.lolia.link/public/Lolia.png",
