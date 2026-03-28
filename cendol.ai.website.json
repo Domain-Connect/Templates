@@ -3,21 +3,14 @@
   "providerName": "Cendol AI",
   "serviceId": "website",
   "serviceName": "SEO Autopilot",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cendol.ai/logo.png",
   "description": "Connects domain to Cendol AI for automatic SEO, AEO, GEO, and VSEO optimization via edge proxy.",
   "syncPubKeyDomain": "domainconnect.cendol.ai",
   "syncRedirectDomain": "cendol.ai",
   "records": [
     {
-      "type": "APEXCNAME",
-      "groupId": "apex",
-      "pointsTo": "proxy.cendol.ai",
-      "ttl": 600
-    },
-    {
       "type": "CNAME",
-      "groupId": "subdomain",
       "host": "www",
       "pointsTo": "proxy.cendol.ai",
       "ttl": 600
