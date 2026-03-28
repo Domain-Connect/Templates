@@ -1,0 +1,19 @@
+{
+	"providerId": "lolia.link",
+	"providerName": "LoliaFRP",
+	"serviceId": "cust-domain",
+	"serviceName": "LoliaFRP Custom Domain",
+	"version": 3,
+	"syncPubKeyDomain": "dash.lolia.link",
+	"syncRedirectDomain": "dash.lolia.link",
+	"description": "Automatically adds a CNAME record to point your domain to a custom target for LoliaFRP",
+	"logoUrl": "https://r2.lolia.link/public/Lolia.png",
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "%domain-custom-name%",
+			"ttl": 600,
+			"pointsTo": "%domain-custom-pointsTo%"
+		}
+	]
+}
