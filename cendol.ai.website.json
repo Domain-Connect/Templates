@@ -8,12 +8,10 @@
   "description": "Connects domain to Cendol AI for automatic SEO, AEO, GEO, and VSEO optimization via edge proxy.",
   "syncPubKeyDomain": "domainconnect.cendol.ai",
   "syncRedirectDomain": "cendol.ai",
-  "hostRequired": true,
   "records": [
     {
-      "type": "CNAME",
+      "type": "APEXCNAME",
       "groupId": "apex",
-      "host": "@",
       "pointsTo": "proxy.cendol.ai",
       "ttl": 600
     },
