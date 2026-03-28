@@ -1,0 +1,24 @@
+{
+  "providerId": "meteorack.app",
+  "providerName": "Meteorack",
+  "serviceId": "hosting-subdomain-v1",
+  "serviceName": "Connect subdomain",
+  "syncPubKeyDomain": "meteorack.app",
+  "syncRedirectDomain": "app.meteorack.com",
+  "hostRequired": true,
+  "version": 1,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%TARGET_CNAME%",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "%VERIFY_HOST%",
+      "pointsTo": "%VERIFY_TARGET%",
+      "ttl": "300"
+    }
+  ]
+}

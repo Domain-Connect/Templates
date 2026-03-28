@@ -1,0 +1,29 @@
+{
+  "providerId": "meteorack.app",
+  "providerName": "Meteorack",
+  "serviceId": "hosting-apex-v1",
+  "serviceName": "Connect apex domain",
+  "syncPubKeyDomain": "meteorack.app",
+  "syncRedirectDomain": "app.meteorack.com",
+  "version": 1,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%APEX_IPV4%",
+      "ttl": "300"
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "%APEX_IPV6%",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "%VERIFY_HOST%",
+      "pointsTo": "%VERIFY_TARGET%",
+      "ttl": "300"
+    }
+  ]
+}
