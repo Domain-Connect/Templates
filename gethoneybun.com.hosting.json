@@ -1,0 +1,28 @@
+{
+  "providerId": "gethoneybun.com",
+  "providerName": "HoneyBun",
+  "serviceId": "hosting",
+  "serviceName": "HoneyBun Website Hosting",
+  "version": 1,
+  "logoUrl": "https://app.gethoneybun.com/logo.png",
+  "description": "Connect your domain to your HoneyBun-powered website. This will point your domain to your website's server.",
+  "variableDescription": "IP is the IP address of your website server.",
+  "syncPubKeyDomain": "gethoneybun.com",
+  "syncRedirectDomain": "gethoneybun.com",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%DOMAIN%",
+      "ttl": 3600
+    }
+  ]
+}
