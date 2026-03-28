@@ -1,7 +1,7 @@
 {
 	"providerId": "lolia.link",
 	"providerName": "LoliaFRP",
-	"serviceId": "cust-domain",
+	"serviceId": "custom-domain",
 	"serviceName": "LoliaFRP Custom Domain",
 	"version": 3,
 	"syncPubKeyDomain": "dash.lolia.link",
