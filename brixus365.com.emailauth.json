@@ -46,7 +46,8 @@
       "data": "v=DMARC1; p=none; adkim=r; aspf=r; rua=mailto:postmaster@%domain%",
       "ttl": 3600,
       "txtConflictMatchingMode": "prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1"
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     }
   ]
 }
