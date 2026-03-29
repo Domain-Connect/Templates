@@ -12,16 +12,8 @@
   "records": [
     {
       "type": "CNAME",
-      "groupId": "subdomain",
       "host": "@",
       "pointsTo": "cname.vercel-dns.com",
-      "ttl": 600
-    },
-    {
-      "type": "A",
-      "groupId": "apex",
-      "host": "@",
-      "pointsTo": "76.76.21.21",
       "ttl": 600
     }
   ]
