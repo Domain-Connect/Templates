@@ -12,7 +12,7 @@
     {
       "type": "CNAME",
       "groupId": "subdomain",
-      "host": "www",
+      "host": "@",
       "pointsTo": "cname.vercel-dns.com",
       "ttl": 600
     },
