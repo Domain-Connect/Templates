@@ -10,12 +10,14 @@
   "syncRedirectDomain": "blocsmith.io,www.blocsmith.io",
   "records": [
     {
+      "groupId": "mapping",
       "type": "CNAME",
       "host": "www",
       "pointsTo": "cname.vercel-dns.com",
       "ttl": 600
     },
     {
+      "groupId": "mapping",
       "type": "A",
       "host": "@",
       "pointsTo": "76.76.21.21",
