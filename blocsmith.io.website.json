@@ -8,12 +8,17 @@
   "description": "Enables a domain to work with Blocsmith",
   "syncPubKeyDomain": "domainconnect.blocsmith.io",
   "syncRedirectDomain": "blocsmith.io,www.blocsmith.io",
-  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "@",
+      "host": "www",
       "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
       "ttl": 600
     }
   ]
