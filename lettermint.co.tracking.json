@@ -1,0 +1,21 @@
+{
+  "providerId": "lettermint.co",
+  "providerName": "Lettermint",
+  "serviceId": "tracking",
+  "serviceName": "Lettermint Custom Tracking Domain",
+  "version": 1,
+  "logoUrl": "https://lettermint.co/logo.svg",
+  "description": "Configure a custom tracking domain for open and click tracking with Lettermint.",
+  "syncPubKeyDomain": "lettermint.co",
+  "syncRedirectDomain": "app.lettermint.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom.ltrmnt.com",
+      "ttl": 3600
+    }
+  ]
+}
