@@ -1,0 +1,22 @@
+{
+  "providerId": "strix.ai",
+  "providerName": "Strix",
+  "serviceId": "domain-verification",
+  "serviceName": "Strix Domain Verification",
+  "version": 1,
+  "logoUrl": "https://app.strix.ai/logo.png",
+  "description": "Verifies domain ownership for Strix, a security scanning platform that checks domains for vulnerabilities and misconfigurations.",
+  "variableDescription": "A unique verification hash provided by Strix to prove domain ownership.",
+  "syncPubKeyDomain": "strix.ai",
+  "syncRedirectDomain": "strix.ai,app.strix.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_strix-verification",
+      "data": "strix-verify-%verify_hash%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "strix-verify-"
+    }
+  ]
+}
