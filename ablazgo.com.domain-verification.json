@@ -4,7 +4,7 @@
   "serviceId": "domain-verification",
   "serviceName": "Ablazgo Domain Verification",
   "version": 1,
-  "logoUrl": "https://portal.ablazgo.com/ablazgo-logo-ag17-710.png",
+  "logoUrl": "https://portal.ablazgo.com/ablazgo-logo.png",
   "description": "Verify domain ownership for your Ablazgo store",
   "variableDescription": "The verification token for your domain",
   "syncPubKeyDomain": "ablazgo.com",
