@@ -13,20 +13,23 @@
   "hostRequired": false,
   "records": [
     {
+      "groupId": "mailhost",
       "type": "CNAME",
-      "host": "%mail1Host%",
+      "host": "%mail1Host%.%domain%.",
       "pointsTo": "%mail1Value%",
       "ttl": 3600
     },
     {
+      "groupId": "dkim",
       "type": "CNAME",
-      "host": "%dkim1Host%",
+      "host": "%dkim1Host%._domainkey",
       "pointsTo": "%dkim1Value%",
       "ttl": 3600
     },
     {
+      "groupId": "dkim",
       "type": "CNAME",
-      "host": "%dkim2Host%",
+      "host": "%dkim2Host%._domainkey",
       "pointsTo": "%dkim2Value%",
       "ttl": 3600
     },
