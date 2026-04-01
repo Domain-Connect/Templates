@@ -9,7 +9,7 @@
   "variableDescription": "target is the Elestio CNAME endpoint for your service (e.g. exxx-uxx.vm.elestio.app). ip is the Elestio IP address for your service.",
   "syncPubKeyDomain": "domainconnect.elest.io",
   "syncRedirectDomain": "dash.elest.io",
-  "hostRequired": true,
+  "hostRequired": false,
   "records": [
     {
       "type": "CNAME",
