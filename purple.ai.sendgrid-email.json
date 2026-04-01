@@ -15,7 +15,7 @@
     {
       "groupId": "mailhost",
       "type": "CNAME",
-      "host": "%mail1Host%.%domain%.",
+      "host": "%mail1Host%.%fqdn%.",
       "pointsTo": "%mail1Value%",
       "ttl": 3600
     },
@@ -42,3 +42,4 @@
     }
   ]
 }
+
