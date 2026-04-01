@@ -1,0 +1,39 @@
+{
+  "providerId": "thesummit.ai",
+  "providerName": "Summit Mailguard",
+  "serviceId": "email-auth",
+  "serviceName": "Email Authentication Setup",
+  "version": 2,
+  "logoUrl": "https://mailguard.thesummit.ai/logo.svg",
+  "description": "Configure SPF, DMARC, and DKIM records for email authentication",
+  "variableDescription": "spf_rules: SPF directives. dmarc_policy: DMARC record value. dkim_selector: DKIM selector. dkim_target: DKIM CNAME target",
+  "syncRedirectDomain": "mailguard.thesummit.ai",
+  "syncPubKeyDomain": "thesummit.ai",
+  "syncBlock": false,
+  "warnPhishing": false,
+  "records": [
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spf_rules%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_policy%",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_selector%._domainkey",
+      "pointsTo": "%dkim_target%",
+      "ttl": 3600
+    }
+  ]
+}

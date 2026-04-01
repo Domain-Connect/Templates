@@ -29,6 +29,7 @@ See [Template Quality Guidelines](../README.md#template-quality-guidelines) for 
 - [ ] no TXT record contains SPF content (`"v=spf1 ..."`) — use the `SPFM` record type instead
 - [ ] `txtConflictMatchingMode` is set on every TXT record that must be unique per label or content prefix (e.g. DMARC)
 - [ ] no variable is used as a bare full record value (e.g. `@ TXT "%foo%"`) unless necessary — prefer `@ TXT "service-foo=%foo%"`; if bare, justify in the PR description
+- [ ] no bare variable is used as the full `host` label — the non-variable parts are fixed to limit misuse (e.g. `%dkimkey%._domainkey`, not `%dkimhost%`); if bare, justify in the PR description
 - [ ] no variable is used in the `host` field to create a subdomain — use the `host` parameter or `multiInstance` instead
 - [ ] `%host%` does not appear explicitly in any `host` attribute
 - [ ] `essential` is set to `OnApply` on records the end user may need to modify or remove without breaking the template (e.g. DMARC)
@@ -46,4 +47,5 @@ See [Template Quality Guidelines](../README.md#template-quality-guidelines) for 
 
 **Editor test link(s):** 
 <!-- paste the links from "Copy Markdown" here -->
+<!-- REQUIRED: at last one test with domain apex and one test with subdomain (host set). EXCEPTION: if hostRequired=true, apex test is not required.
 <!-- paste multiple links if more test conducted. At least 1 per template file included in the PR -->
