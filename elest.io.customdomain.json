@@ -1,0 +1,29 @@
+{
+  "providerId": "elest.io",
+  "providerName": "Elestio",
+  "serviceId": "custom",
+  "serviceName": "Elestio Custom Domain",
+  "version": 1,
+  "logoUrl": "https://elest.io/images/elestio.svg",
+  "description": "Connect a custom domain to your Elestio service.",
+  "variableDescription": "target is the Elestio CNAME endpoint for your service (e.g. exxx-uxx.vm.elestio.app). ip is the Elestio IP address for your service.",
+  "syncPubKeyDomain": "domainconnect.elest.io",
+  "syncRedirectDomain": "dash.elest.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "cname",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "arecord",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}
