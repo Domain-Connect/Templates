@@ -1,0 +1,19 @@
+{
+  "providerId": "sporkops.com",
+  "providerName": "Spork",
+  "serviceId": "status-page",
+  "serviceName": "Spork Status Page",
+  "version": 1,
+  "logoUrl": "https://sporkops.com/favicon.svg",
+  "description": "Configures a subdomain for use as a Spork status page",
+  "syncPubKeyDomain": "sporkops.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "status.sporkops.com",
+      "ttl": 3600
+    }
+  ]
+}

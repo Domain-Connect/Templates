@@ -1,0 +1,31 @@
+{
+  "providerId": "unkey.com",
+  "providerName": "Unkey",
+  "serviceId": "custom-domain",
+  "serviceName": "Unkey Custom Domain",
+  "syncPubKeyDomain": "domainconnect.unkey.com",
+  "version": 1,
+  "logoUrl": "https://unkey.com/logo.png",
+  "description": "Configure DNS records to connect your custom domain with Unkey",
+  "variableDescription": "target - CNAME target hostname for routing traffic to Unkey, verificationToken - Domain ownership verification token",
+  "hostRequired": true,
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "cname",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_unkey",
+      "data": "unkey-domain-verify=%verificationToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "unkey-domain-verify=",
+      "ttl": 600
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "providerId": "blocsmith.io",
+  "providerName": "Blocsmith",
+  "serviceId": "website",
+  "serviceName": "Blocsmith Website",
+  "version": 1,
+  "logoUrl": "https://blocsmith.io/blocsmith-logo.svg",
+  "description": "Enables a domain to work with Blocsmith",
+  "syncPubKeyDomain": "domainconnect.blocsmith.io",
+  "syncRedirectDomain": "blocsmith.io,www.blocsmith.io",
+  "records": [
+    {
+      "groupId": "mapping",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    },
+    {
+      "groupId": "mapping",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 600
+    }
+  ]
+}
