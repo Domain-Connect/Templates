@@ -15,22 +15,22 @@
     {
       "groupId": "mailhost",
       "type": "CNAME",
-      "host": "%mail1Host%.%fqdn%.",
-      "pointsTo": "%mail1Value%",
+      "host": "%mail1Host%",
+      "pointsTo": "%mail1Value%.sendgrid.net",
       "ttl": 3600
     },
     {
       "groupId": "dkim",
       "type": "CNAME",
       "host": "%dkim1Host%._domainkey",
-      "pointsTo": "%dkim1Value%",
+      "pointsTo": "%dkim1Value%.sendgrid.net",
       "ttl": 3600
     },
     {
       "groupId": "dkim",
       "type": "CNAME",
       "host": "%dkim2Host%._domainkey",
-      "pointsTo": "%dkim2Value%",
+      "pointsTo": "%dkim2Value%.sendgrid.net",
       "ttl": 3600
     },
     {
