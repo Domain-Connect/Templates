@@ -10,8 +10,6 @@
   "syncPubKeyDomain": "brixus365.com",
   "syncRedirectDomain": "app.brixus365.com",
   "syncBlock": false,
-  "shared": true,
-  "sharedProviderName": true,
   "records": [
     {
       "groupId": "dkim",
