@@ -21,14 +21,18 @@ Please mark the following checks done
 # Checklist of common problems
 
 Mark all the checkboxes after conducting the check. Comment on any point which is not fulfilled.
-- [ ] digital signatures are used and `syncPubKeyDomain` specified (yes, `warnPhishing` is an option, but some providers reject such templates by policy, so signing shall be a default)
-- [ ] `syncRedirectDomain` is specified when intended to use `redirect_uri` parameter in the synchronous flow
-- [ ] no TXT record with SPF content (i.e. `"v=spf1 ..."`) instead of using SPFM record type on APEX
-- [ ] `txtConflictMatchingMode` is set on TXT records which shall be unique on a label (like DMARC)
-- [ ] variables are set to the smallest scope needed (i.e. limit possibility to be misused to set any arbitrary record and conflict with other template). Too broad scope example: @ TXT "%verification%". Better usage: @ TXT "foo-verification=%verification%".
-- [ ] no variables as a host name to apply template on subdomain instead of standard `host` parameter
-- [ ] no explicit usage of `%host%` variable in `host` attribute 
-- [ ] `essential` setting is used on records, which the user shall be able to change or remove manually later without dropping the whole template (like DMARC)    
+See [Template Quality Guidelines](../README.md#template-quality-guidelines) for details and rationale on each rule.
+
+- [ ] `syncPubKeyDomain` is set — **this is mandatory**; omitting it requires explicit justification in the PR description or the PR will be rejected
+- [ ] `warnPhishing` is **not** set alongside `syncPubKeyDomain` — the two must not appear together
+- [ ] `syncRedirectDomain` is set whenever the template uses `redirect_uri` in the synchronous flow
+- [ ] no TXT record contains SPF content (`"v=spf1 ..."`) — use the `SPFM` record type instead
+- [ ] `txtConflictMatchingMode` is set on every TXT record that must be unique per label or content prefix (e.g. DMARC)
+- [ ] no variable is used as a bare full record value (e.g. `@ TXT "%foo%"`) unless necessary — prefer `@ TXT "service-foo=%foo%"`; if bare, justify in the PR description
+- [ ] no bare variable is used as the full `host` label — the non-variable parts are fixed to limit misuse (e.g. `%dkimkey%._domainkey`, not `%dkimhost%`); if bare, justify in the PR description
+- [ ] no variable is used in the `host` field to create a subdomain — use the `host` parameter or `multiInstance` instead
+- [ ] `%host%` does not appear explicitly in any `host` attribute
+- [ ] `essential` is set to `OnApply` on records the end user may need to modify or remove without breaking the template (e.g. DMARC)
 
 ## Online Editor test results
 
@@ -43,4 +47,5 @@ Mark all the checkboxes after conducting the check. Comment on any point which i
 
 **Editor test link(s):** 
 <!-- paste the links from "Copy Markdown" here -->
+<!-- REQUIRED: at last one test with domain apex and one test with subdomain (host set). EXCEPTION: if hostRequired=true, apex test is not required.
 <!-- paste multiple links if more test conducted. At least 1 per template file included in the PR -->

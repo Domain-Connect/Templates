@@ -1,0 +1,20 @@
+{
+    "providerId": "hietek.com",
+    "providerName": "Hietek",
+    "serviceId": "landing-page",
+    "serviceName": "Hietek Landing Page",
+    "version": 1,
+    "logoUrl": "https://hietek.com/favicon.png",
+    "description": "Connect your custom domain to the Hietek Landing Page platform via CNAME record setup.",
+    "syncPubKeyDomain": "pubkey.hietek.com",
+    "syncRedirectDomain": "hietek.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "dns.hietek.com",
+            "ttl": 3600
+        }
+    ]
+}
