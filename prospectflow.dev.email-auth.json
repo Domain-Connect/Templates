@@ -9,16 +9,13 @@
   "syncBlock": false,
   "syncPubKeyDomain": "prospectflow.dev",
   "syncRedirectDomain": "prospectflow.dev",
-  "warnPhishing": true,
   "hostRequired": false,
   "records": [
     {
       "groupId": "email",
       "type": "SPFM",
       "host": "@",
-      "spfRules": "%spfInclude%",
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1"
+      "spfRules": "%spfInclude%"
     },
     {
       "groupId": "email",
@@ -27,7 +24,8 @@
       "data": "v=DMARC1; p=none; rua=mailto:dmarc@%domain%",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1"
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     },
     {
       "groupId": "dkim",
@@ -35,7 +33,7 @@
       "host": "selector1._domainkey",
       "pointsTo": "%dkimSelector1Value%",
       "ttl": 3600,
-      "essential": "false"
+      "essential": "OnApply"
     },
     {
       "groupId": "dkim",
@@ -43,7 +41,7 @@
       "host": "selector2._domainkey",
       "pointsTo": "%dkimSelector2Value%",
       "ttl": 3600,
-      "essential": "false"
+      "essential": "OnApply"
     }
   ]
 }
