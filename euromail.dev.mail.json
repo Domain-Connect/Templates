@@ -29,8 +29,7 @@
 			"host": "%subdomain%",
 			"pointsTo": "bounce.euromail.dev",
 			"ttl": 3600,
-			"priority": 10,
-			"essential": "OnApply"
+			"priority": 10
 		}
 	]
 }
