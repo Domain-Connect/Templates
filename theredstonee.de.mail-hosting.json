@@ -5,10 +5,11 @@
   "serviceName": "TheRedStonee E-Mail Hosting",
   "version": 1,
   "logoUrl": "https://www.theredstonee.de/favicon.jpg",
-  "description": "Configure DNS records for TheRedStonee E-Mail Hosting (MX, SPF, DKIM, DMARC, Autodiscover)",
-  "variableDescription": "Set up email hosting DNS records",
+  "description": "Configure DNS records for TheRedStonee E-Mail Hosting",
+  "variableDescription": "Set up MX, SPF, DMARC, and Autodiscover records for email hosting",
   "syncPubKeyDomain": "theredstonee.de",
   "syncRedirectDomain": "theredstonee.de",
+  "syncBlock": false,
   "warnPhishing": false,
   "hostRequired": false,
   "records": [
@@ -24,13 +25,16 @@
       "groupId": "mail",
       "type": "SPFM",
       "host": "@",
-      "spfRules": "mx a include:mail.theredstonee.de"
+      "spfRules": "include:mail.theredstonee.de"
     },
     {
       "groupId": "mail",
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
       "ttl": 3600
     },
     {
