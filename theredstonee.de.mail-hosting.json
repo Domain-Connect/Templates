@@ -1,0 +1,51 @@
+{
+  "providerId": "theredstonee.de",
+  "providerName": "TheRedStonee",
+  "serviceId": "mail-hosting",
+  "serviceName": "TheRedStonee E-Mail Hosting",
+  "version": 1,
+  "logoUrl": "https://www.theredstonee.de/favicon.jpg",
+  "description": "Configure DNS records for TheRedStonee E-Mail Hosting (MX, SPF, DKIM, DMARC, Autodiscover)",
+  "variableDescription": "Set up email hosting DNS records",
+  "syncPubKeyDomain": "theredstonee.de",
+  "syncRedirectDomain": "theredstonee.de",
+  "warnPhishing": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.theredstonee.de",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx a include:mail.theredstonee.de"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mail.theredstonee.de",
+      "ttl": 3600
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mail.theredstonee.de",
+      "ttl": 3600
+    }
+  ]
+}
