@@ -15,7 +15,8 @@
 			"host": "euromail._domainkey.%subdomain%",
 			"ttl": 3600,
 			"data": "v=DKIM1; k=rsa; p=%dkimKey%",
-			"txtConflictMatchingMode": "Full"
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DKIM1"
 		},
 		{
 			"type": "SPFM",
