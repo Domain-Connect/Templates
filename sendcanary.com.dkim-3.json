@@ -1,0 +1,38 @@
+{
+  "providerId": "sendcanary.com",
+  "providerName": "SendCanary",
+  "serviceId": "dkim-3",
+  "serviceName": "DKIM Email Signing (3 records)",
+  "version": 1,
+  "logoUrl": "https://sendcanary.com/logo.png",
+  "description": "Add three DKIM CNAME records to enable email signing for your domain.",
+  "variableDescription": "host1/target1: First DKIM CNAME. host2/target2: Second. host3/target3: Third.",
+  "syncPubKeyDomain": "sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+  "records": [
+    {
+      "groupId": "dkim1",
+      "type": "CNAME",
+      "host": "%host1%",
+      "pointsTo": "%target1%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim2",
+      "type": "CNAME",
+      "host": "%host2%",
+      "pointsTo": "%target2%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim3",
+      "type": "CNAME",
+      "host": "%host3%",
+      "pointsTo": "%target3%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
