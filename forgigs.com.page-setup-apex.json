@@ -6,10 +6,9 @@
     "version": 1,
     "logoUrl": "https://app.forgigs.com/logo.png",
     "description": "Configure your apex domain to work with Forgigs (page routing + email sending)",
-    "variableDescription": "%vercel_ip%: Vercel IP; %spf_host%: SPF record host; %spf_value%: SPF record value; %dkim1_host%/%dkim1_value%: DKIM record 1; %dkim2_host%/%dkim2_value%: DKIM record 2",
+    "variableDescription": "%vercel_ip%: Vercel IP; %spf_value%: SPF include value; %dkim1_host%/%dkim1_value%: DKIM record 1; %dkim2_host%/%dkim2_value%: DKIM record 2",
     "syncPubKeyDomain": "keys.forgigs.com",
     "syncRedirectDomain": "app.forgigs.com",
-    "warnPhishing": true,
     "records": [
         {
             "type": "A",
@@ -18,9 +17,9 @@
             "ttl": 3600
         },
         {
-            "type": "TXT",
-            "host": "%spf_host%",
-            "data": "%spf_value%",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "%spf_value%",
             "ttl": 3600
         },
         {
