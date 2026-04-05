@@ -1,21 +1,15 @@
 {
     "providerId": "forgigs.com",
     "providerName": "Forgigs",
-    "serviceId": "page-setup-apex",
-    "serviceName": "Connect your domain to Forgigs",
+    "serviceId": "email-setup",
+    "serviceName": "Enable email sending for Forgigs",
     "version": 1,
     "logoUrl": "https://app.forgigs.com/logo.svg",
-    "description": "Automatically sets up your domain to work with your Forgigs page and enables email sending (newsletters, order confirmations). Creates an A record pointing to Forgigs and the necessary email authentication records (SPF, DKIM).",
-    "variableDescription": "%vercel_ip%: Forgigs server IP address; %spf_value%: Email authentication value provided by Forgigs; %dkim1_host% / %dkim1_value%: Email signing key 1; %dkim2_host% / %dkim2_value%: Email signing key 2; %dkim3_host% / %dkim3_value%: Email signing key 3 (if applicable)",
+    "description": "Sets up email authentication records on your domain so Forgigs can send emails on your behalf (newsletters, order confirmations). Creates SPF and DKIM records required by email providers to verify your domain.",
+    "variableDescription": "%spf_value%: Email authentication value provided by Forgigs; %dkim1_host% / %dkim1_value%: Email signing key 1; %dkim2_host% / %dkim2_value%: Email signing key 2; %dkim3_host% / %dkim3_value%: Email signing key 3 (if applicable)",
     "syncPubKeyDomain": "keys.forgigs.com",
     "syncRedirectDomain": "app.forgigs.com",
     "records": [
-        {
-            "type": "A",
-            "host": "@",
-            "pointsTo": "%vercel_ip%",
-            "ttl": 3600
-        },
         {
             "type": "SPFM",
             "host": "@",
