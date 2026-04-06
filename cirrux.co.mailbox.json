@@ -3,14 +3,12 @@
   "providerName": "Cirrux",
   "serviceId": "mailbox",
   "serviceName": "Cirrux Mail",
-  "name": "Cirrux Mail",
   "description": "Configure DNS records for Cirrux email service (MX, SPF, DKIM, DMARC, and domain verification).",
   "variableDescription": "verification_token: Domain ownership verification token. dkim_selector_1, dkim_selector_2, dkim_selector_3: DKIM key selectors for email signing.",
   "syncPubKeyDomain": "cirrux.co",
   "shared": false,
   "version": 1,
   "logoUrl": "https://static.cirrux.co/mail/img/favicon/favicon-512.png",
-  "warnPhishing": true,
   "hostRequired": false,
   "records": [
     {
