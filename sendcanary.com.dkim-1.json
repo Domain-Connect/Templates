@@ -6,14 +6,14 @@
   "version": 1,
   "logoUrl": "https://sendcanary.com/logo.png",
   "description": "Add a DKIM CNAME record to enable email signing for your domain.",
-  "variableDescription": "host1: DKIM selector host (e.g. google._domainkey). target1: CNAME target from your email provider.",
+  "variableDescription": "selector1: DKIM selector name (e.g. google, s1, selector1). target1: CNAME target from your email provider.",
   "syncPubKeyDomain": "sendcanary.com",
   "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
   "records": [
     {
       "groupId": "dkim1",
       "type": "CNAME",
-      "host": "%host1%",
+      "host": "%selector1%._domainkey",
       "pointsTo": "%target1%",
       "ttl": 3600,
       "essential": "OnApply"
