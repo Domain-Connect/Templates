@@ -7,7 +7,6 @@
   "logoUrl": "https://simplomail.com/assets/simplomail-logo-B61Jcr54.png",
   "description": "Configure your domain for email sending with SimploMail. Sets up DKIM, SPF, DMARC, and custom MAIL FROM for improved deliverability.",
   "variableDescription": "%dkimToken1%: First DKIM token; %dkimToken2%: Second DKIM token; %dkimToken3%: Third DKIM token; %region%: AWS SES region",
-  "warnPhishing": true,
   "syncBlock": false,
   "syncPubKeyDomain": "simplomail.com",
   "syncRedirectDomain": "connect.simplomail.com,simplomail.com",
