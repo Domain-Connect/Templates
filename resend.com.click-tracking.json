@@ -1,0 +1,20 @@
+{
+	"providerId": "resend.com",
+	"providerName": "Resend",
+	"serviceId": "click-tracking",
+	"serviceName": "Click Tracking",
+	"version": 1,
+	"syncPubKeyDomain": "resend.com",
+	"syncRedirectDomain": "resend.com",
+	"hostRequired": true, 
+	"description": "Configure a custom domain for click and open tracking.",
+	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "%clickTrackingCnameTarget%.resend-dns.com",
+			"ttl": 3600
+		}
+	]
+}
