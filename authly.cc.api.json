@@ -1,0 +1,20 @@
+{
+  "providerId": "authly.cc",
+  "providerName": "AuthlyX",
+  "serviceId": "api",
+  "serviceName": "AuthlyX API",
+  "version": 1,
+  "logoUrl": "https://authly.cc/logo-round.svg",
+  "description": "Connect a custom domain to the AuthlyX API by creating the required CNAME record.",
+  "syncPubKeyDomain": "domainconnect.authly.cc",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.authly.cc",
+      "ttl": 3600,
+      "essential": true
+    }
+  ]
+}
