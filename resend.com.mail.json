@@ -3,7 +3,7 @@
 	"providerName": "Resend",
 	"serviceId": "mail",
 	"serviceName": "Mail",
-	"version": 3,
+	"version": 4,
 	"syncPubKeyDomain": "resend.com",
 	"syncRedirectDomain": "resend.com",
 	"description": "Enable email signing and specify authorized senders.",
@@ -27,6 +27,13 @@
 			"host": "resend._domainkey",
 			"ttl": 3600,
 			"data": "p=%domainKey%"
+		},
+		{
+			"groupId": "click-tracking",
+			"type": "CNAME",
+			"host": "%clickTrackingSubdomain%",
+			"pointsTo": "%clickTrackingCnameTarget%.resend-dns.com",
+			"ttl": 3600
 		}
 	]
 }
