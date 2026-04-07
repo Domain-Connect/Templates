@@ -5,8 +5,7 @@
     "serviceName": "Connect your apex domain to Forgigs",
     "version": 1,
     "logoUrl": "https://pages.forgigs.com/logo.svg",
-    "description": "Sets up DNS records to connect your apex domain to Forgigs for both page routing and email sending. Creates an A record at @ for routing, a DKIM TXT record, an SPF record, and an MX record for email authentication.",
-    "variableDescription": "%vercel_ip%: Forgigs server IP address; %dkim_value%: DKIM public key for email authentication",
+    "description": "Sets up DNS records to connect your apex domain to Forgigs. Creates an A record for page routing, plus DKIM, SPF, and MX records for email sending.",
     "syncPubKeyDomain": "keys.forgigs.com",
     "syncRedirectDomain": "pages.forgigs.com",
     "records": [
