@@ -5,11 +5,10 @@
     "serviceName": "Connect your subdomain to Forgigs",
     "version": 1,
     "logoUrl": "https://pages.forgigs.com/logo.svg",
-    "description": "Sets up DNS records to connect your subdomain to Forgigs for both page routing and email sending. Creates a CNAME record at the subdomain for routing, a DKIM TXT record, an SPF record, and an MX record for email authentication.",
-    "variableDescription": "%vercel_cname%: Forgigs CNAME target; %dkim_value%: DKIM public key for email authentication",
+    "description": "Sets up DNS records to connect your subdomain to Forgigs. Creates a CNAME record for page routing, plus DKIM, SPF, and MX records for email sending.",
+    "hostRequired": true,
     "syncPubKeyDomain": "keys.forgigs.com",
     "syncRedirectDomain": "pages.forgigs.com",
-    "hostRequired": true,
     "records": [
         {
             "type": "CNAME",
