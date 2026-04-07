@@ -4,7 +4,7 @@
   "serviceId": "api",
   "serviceName": "AuthlyX API",
   "version": 1,
-  "logoUrl": "https://authly.cc/logo-round.svg",
+  "logoUrl": "https://cdn.authly.cc/logos/logo-round.svg",
   "description": "Connect a custom domain to the AuthlyX API by creating the required CNAME record.",
   "syncPubKeyDomain": "domainconnect.authly.cc",
   "hostRequired": true,
