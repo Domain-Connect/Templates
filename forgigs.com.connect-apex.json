@@ -1,0 +1,39 @@
+{
+    "providerId": "forgigs.com",
+    "providerName": "Forgigs",
+    "serviceId": "connect-apex",
+    "serviceName": "Connect your apex domain to Forgigs",
+    "version": 1,
+    "logoUrl": "https://pages.forgigs.com/logo.svg",
+    "description": "Sets up DNS records to connect your apex domain to Forgigs for both page routing and email sending. Creates an A record at @ for routing, a DKIM TXT record, an SPF record, and an MX record for email authentication.",
+    "variableDescription": "%vercel_ip%: Forgigs server IP address; %dkim_value%: DKIM public key for email authentication",
+    "syncPubKeyDomain": "keys.forgigs.com",
+    "syncRedirectDomain": "pages.forgigs.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%vercel_ip%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "%dkim_value%",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        }
+    ]
+}
