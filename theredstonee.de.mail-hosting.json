@@ -10,7 +10,6 @@
   "syncPubKeyDomain": "theredstonee.de",
   "syncRedirectDomain": "theredstonee.de",
   "syncBlock": false,
-  "warnPhishing": false,
   "hostRequired": false,
   "records": [
     {
@@ -42,6 +41,8 @@
       "type": "TXT",
       "host": "dkim._domainkey",
       "data": "v=DKIM1;k=rsa;t=s;s=email;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnkWT7/rfQ6PVqHSr81fkG2ejaaa9B7EZdD4ppN8lUR/vxfgUQ2LE7DlQYK1yGfKFQbIUOggmNjt5CEDMsqwlkx96j74Dvcxfhs6JtinnqRljRGdFw4+X5dtJVR+r7BLlf0KCSOZwFi3sUs1G5q9HHmXwpCkxERi/q8+TkveIG8DBXvC126zf6bIBQ+2PFMzKmWHhot0erdX/6AqgAmRDOb4FLmjj4hCGB9kKtTqNxZQR4EiY8IuqFLGHwdu+zlK4e0JYe2I1ZSyL6DCPbIxYF3jvcM2IGYv/9QxD+cy+yvL2lkTlqepvOI7v0x+v5jFZsOLnBNQ/caHdlV/haQM7JQIDAQAB",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1",
       "ttl": 3600
     },
     {
