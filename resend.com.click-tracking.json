@@ -13,7 +13,7 @@
 		{
 			"type": "CNAME",
 			"host": "@",
-			"pointsTo": "%cnameTarget%.resend-dns.com",
+			"pointsTo": "%clickTrackingCnameTarget%.resend-dns.com",
 			"ttl": 3600
 		}
 	]
