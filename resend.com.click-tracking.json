@@ -6,13 +6,14 @@
 	"version": 1,
 	"syncPubKeyDomain": "resend.com",
 	"syncRedirectDomain": "resend.com",
+	"hostRequired": true, 
 	"description": "Configure a custom domain for click and open tracking.",
 	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
 	"records": [
 		{
 			"type": "CNAME",
-			"host": "%trackingSubdomain%",
-			"pointsTo": "%cnameTarget%",
+			"host": "@",
+			"pointsTo": "%cnameTarget%.resend-dns.com",
 			"ttl": 3600
 		}
 	]
