@@ -6,7 +6,7 @@
     "version": 1,
     "logoUrl": "https://nextcommerce-public-assets.s3.us-east-1.amazonaws.com/final-logo-dark-stroked-md.png",
     "description": "Connects your domain to your NextCommerce store at nextcommerce.com.",
-    "variableDescription": "cname is the DNS CNAME target for NextCommerce infrastructure. verification is the domain ownership verification token issued by NextCommerce.",
+    "variableDescription": "cname is the DNS CNAME target for the NextCommerce store subdomain.",
     "syncPubKeyDomain": "29next.store",
     "hostRequired": true,
     "records": [
