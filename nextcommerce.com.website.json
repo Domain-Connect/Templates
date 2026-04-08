@@ -24,7 +24,7 @@
         {
             "type": "CNAME",
             "host": "29next-verification",
-            "data": "%verification%",
+            "pointsTo": "%verification%",
             "ttl": 3600
         }
     ]
