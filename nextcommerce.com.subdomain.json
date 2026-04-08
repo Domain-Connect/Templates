@@ -1,7 +1,7 @@
 {
     "providerId": "nextcommerce.com",
     "providerName": "NextCommerce",
-    "serviceId": "website",
+    "serviceId": "subdomain",
     "serviceName": "Connect Store Domain",
     "version": 1,
     "logoUrl": "https://nextcommerce-public-assets.s3.us-east-1.amazonaws.com/final-logo-dark-stroked-md.png",
