@@ -15,7 +15,7 @@
 		{
 			"type": "CNAME",
 			"host": "%certValidationName%",
-			"pointsTo": "%certValidationValue%",
+			"pointsTo": "%certValidationValue%.acm-validations.aws.",
 			"ttl": 3600
 		}
 	]
