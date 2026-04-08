@@ -4,6 +4,7 @@
 	"serviceId": "email",
 	"serviceName": "Email Sending & Receiving",
 	"version": 1,
+	"syncBlock": false,
 	"syncPubKeyDomain": "bongo.bot",
 	"syncRedirectDomain": "bongo.bot",
 	"description": "Configure DNS records for sending and receiving email through BongoBot.",
