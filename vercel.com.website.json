@@ -3,10 +3,11 @@
   "providerName": "Vercel",
   "serviceId": "website",
   "serviceName": "Vercel Websites",
-  "version": 3,
+  "version": 4,
   "description": "Enables a domain to work with Vercel",
   "syncPubKeyDomain": "domainconnect.vercel.com",
   "syncRedirectDomain": "vercel.com",
+  "hostRequired": true,
   "records": [
     {
       "type": "TXT",
@@ -34,6 +35,13 @@
       "groupId": "apex",
       "host": "@",
       "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "apex-cname",
+      "host": "@",
+      "pointsTo": "%apex-cname%",
       "ttl": 600
     }
   ]
