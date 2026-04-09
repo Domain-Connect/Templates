@@ -11,19 +11,19 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "%dkim1%._domainkey.support",
+      "host": "%dkim1%._domainkey",
       "pointsTo": "%dkim1%.dkim.amazonses.com",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "%dkim2%._domainkey.support",
+      "host": "%dkim2%._domainkey",
       "pointsTo": "%dkim2%.dkim.amazonses.com",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "%dkim3%._domainkey.support",
+      "host": "%dkim3%._domainkey",
       "pointsTo": "%dkim3%.dkim.amazonses.com",
       "ttl": 3600
     }
