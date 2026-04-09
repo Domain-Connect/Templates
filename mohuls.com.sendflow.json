@@ -1,5 +1,5 @@
 {
-  "providerId": "mohuls.com",
+  "providerId": "com.mohuls",
   "providerName": "Mohuls",
   "serviceId": "sendflow",
   "serviceName": "SendFlow Email & Domain Service",
@@ -17,25 +17,25 @@
     {
       "type": "A",
       "host": "@",
-      "data": "57.129.77.164",
+      "pointsTo": "57.129.77.164",
       "ttl": 300
     },
     {
       "type": "CNAME",
       "host": "www",
-      "data": "sendflow.mohuls.com",
+      "pointsTo": "sendflow.mohuls.com",
       "ttl": 300
     },
     {
       "type": "CNAME",
       "host": "api",
-      "data": "sendflow.mohuls.com",
+      "pointsTo": "sendflow.mohuls.com",
       "ttl": 300
     },
     {
       "type": "TXT",
       "host": "_sendflow",
-      "data": "%verification%",
+      "pointsTo": "%verification%",
       "ttl": 300
     }
   ]
