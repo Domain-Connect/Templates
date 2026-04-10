@@ -8,7 +8,7 @@
   "description": "Configure DNS records for email sending via Valiant AI platform (DKIM, SPF, MX)",
   "syncPubKeyDomain": "valiant.biz",
   "syncRedirectDomain": "valiant.biz",
-  "hostRequired": true,
+  "hostRequired": false,
   "records": [
     {
       "groupId": "dkim",
@@ -20,14 +20,14 @@
     {
       "groupId": "spf",
       "type": "SPFM",
-      "host": "@",
+      "host": "send",
       "spfRules": "include:amazonses.com",
       "ttl": 3600
     },
     {
       "groupId": "mx",
       "type": "MX",
-      "host": "@",
+      "host": "send",
       "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
       "ttl": 3600,
       "priority": 10
