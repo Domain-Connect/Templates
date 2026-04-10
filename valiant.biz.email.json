@@ -3,7 +3,7 @@
   "providerName": "Valiant AI",
   "serviceId": "email",
   "serviceName": "Valiant Email Sending",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://app.valiant.biz/valiant-logo.png",
   "description": "Configure DNS records for email sending via Valiant AI platform (DKIM, SPF, MX)",
   "syncPubKeyDomain": "valiant.biz",
