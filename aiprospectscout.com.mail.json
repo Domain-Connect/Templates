@@ -17,7 +17,7 @@
       "host": "resend._domainkey",
       "data": "p=%dkimKey%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "prefix",
+      "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "p="
     },
     {
