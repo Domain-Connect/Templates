@@ -7,7 +7,6 @@
   "syncBlock": false,
   "syncPubKeyDomain": "sendflow.mohuls.com",
   "description": "Auto DNS setup for SendFlow SaaS",
-
   "properties": {
     "verification": {
       "type": "string",
