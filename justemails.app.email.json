@@ -1,0 +1,62 @@
+{
+  "providerId": "justemails.app",
+  "serviceId": "email",
+  "name": "JustEmails Email Hosting",
+  "description": "Configure DNS records for JustEmails custom domain email hosting. Sets up MX, SPF, DKIM, DMARC, MTA-STS, and domain verification.",
+  "variableDescription": "IP: mail server hostname, DKIM_KEY: DKIM public key, RANDOMTEXT: verification token",
+  "syncPubKeyDomain": "justemails.app",
+  "version": 1,
+  "logoUrl": "https://justemails.app/icon.svg",
+  "syncRedirectDomain": "justemails.app",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 a:%IP% ~all",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%DKIM_KEY%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@justemails.app",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "justemails-verify=%RANDOMTEXT%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_mta-sts",
+      "data": "v=STSv1; id=1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "mta-sts.justemails.app",
+      "ttl": 3600
+    }
+  ]
+}
