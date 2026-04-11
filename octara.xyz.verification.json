@@ -16,7 +16,7 @@
       "ttl": "3600",
       "data": "%txt%",
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=octara-verification="
+      "txtConflictMatchingPrefix": "octara-verification="
     }
   ]
 }
