@@ -7,6 +7,7 @@
   "logoUrl": "https://aisdr-oceanix.lovable.app/placeholder.svg",
   "description": "Configures DNS records for AI ProspectScout outbound email sending (DKIM, SPF, MX) and inbound reply routing.",
   "variableDescription": "dkimKey: DKIM public key for email signing. region: AWS SES region for SPF/MX. inboundHost: subdomain prefix for inbound reply routing (e.g. reply).",
+  "syncPubKeyDomain": "aiprospectscout.com",
   "syncBlock": false,
   "shared": false,
   "warnPhishing": false,
@@ -16,7 +17,9 @@
       "type": "TXT",
       "host": "resend._domainkey.%host%",
       "data": "p=%dkimKey%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "prefix",
+      "txtConflictMatchingPrefix": "p="
     },
     {
       "type": "SPFM",
