@@ -1,11 +1,13 @@
 {
-  "providerId": "com.mohuls",
+  "providerId": "mohuls.com",
   "providerName": "Mohuls",
   "serviceId": "sendflow",
   "serviceName": "SendFlow Email & Domain Service",
   "version": 1,
   "syncBlock": false,
   "syncPubKeyDomain": "sendflow.mohuls.com",
+  "txtConflictMatchingMode": "prefix",
+  "essential": "OnApply",
   "description": "Auto DNS setup for SendFlow SaaS",
   "properties": {
     "verification": {
