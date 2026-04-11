@@ -1,0 +1,47 @@
+{
+  "providerId": "atlos.email",
+  "providerName": "ATLOS Mail",
+  "serviceId": "mail",
+  "serviceName": "ATLOS Mail — Email Service",
+  "version": 1,
+  "logoUrl": "https://app.atlos.email/logo-wordmark.svg",
+  "description": "Configure DNS records for ATLOS Mail email service. Creates MX, SPF, DMARC, and auto-discovery records.",
+  "variableDescription": "The domain to configure for ATLOS Mail",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.atlos.email",
+  "syncRedirectDomain": "app.atlos.email",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.atlos.email",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mx1.atlos.email"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%domain%; fo=1",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "app.atlos.email",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "app.atlos.email",
+      "ttl": 3600
+    }
+  ]
+}
