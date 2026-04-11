@@ -38,7 +38,7 @@
       "data": "v=sendflow-token %verification%",
       "ttl": 300,
       "txtConflictMatchingMode": "prefix",
-      "essential": "OnApply"
+      "essential": "true"
     }
   ]
 }
