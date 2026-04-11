@@ -12,10 +12,11 @@
   "shared": false,
   "warnPhishing": false,
   "hostRequired": true,
+  "multiInstance": true,
   "records": [
     {
       "type": "TXT",
-      "host": "resend._domainkey.%host%",
+      "host": "resend._domainkey",
       "data": "p=%dkimKey%",
       "ttl": 3600,
       "txtConflictMatchingMode": "prefix",
@@ -23,12 +24,12 @@
     },
     {
       "type": "SPFM",
-      "host": "%host%",
+      "host": "@",
       "spfRules": "include:amazonses.com"
     },
     {
       "type": "MX",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "feedback-smtp.%region%.amazonses.com",
       "priority": 10,
       "ttl": 3600
