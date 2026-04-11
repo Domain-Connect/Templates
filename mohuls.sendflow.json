@@ -16,7 +16,7 @@
   "records": [
     {
       "type": "A",
-      "host": "@",
+      "host": "",
       "pointsTo": "57.129.77.164",
       "ttl": 300
     },
@@ -35,7 +35,7 @@
     {
       "type": "TXT",
       "host": "_sendflow",
-      "data": "v=sendflow-token %verification%",
+      "pointsTo": "v=sendflow-token %verification%",
       "ttl": 300,
       "txtConflictMatchingMode": "prefix",
       "essential": "OnApply"
