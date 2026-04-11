@@ -37,8 +37,10 @@
     {
       "type": "TXT",
       "host": "_sendflow",
-      "pointsTo": "%verification%",
-      "ttl": 300
+      "data": "%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "prefix",
+      "essential": "OnApply"
     }
   ]
 }
