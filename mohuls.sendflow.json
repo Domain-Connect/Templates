@@ -35,7 +35,7 @@
     {
       "type": "TXT",
       "host": "_sendflow",
-      "data": "%verification%",
+      "data": "v=sendflow-token %verification%",
       "ttl": 300,
       "txtConflictMatchingMode": "prefix",
       "essential": "OnApply"
