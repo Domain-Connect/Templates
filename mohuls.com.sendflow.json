@@ -1,12 +1,19 @@
 {
-  "providerId": "mohuls.sendflow",
+  "providerId": "mohuls.com",
   "providerName": "Mohuls",
   "serviceId": "sendflow",
   "serviceName": "SendFlow Email & Domain Service",
   "version": 1,
+
+  "logoUrl": "https://sendflow.mohuls.com/logo.png",
+  "documentationUrl": "https://sendflow.mohuls.com/docs",
+
   "syncBlock": false,
   "syncPubKeyDomain": "sendflow.mohuls.com",
-  "description": "Auto DNS setup for SendFlow SaaS",
+  "syncRedirectDomain": "sendflow.mohuls.com",
+
+  "description": "Auto DNS setup for SendFlow SaaS platform",
+
   "properties": {
     "verification": {
       "type": "string",
@@ -36,9 +43,8 @@
     {
       "type": "TXT",
       "host": "_sendflow",
-      "data": "v=sendflow-token {{verification}}",
-      "ttl": 300,
-      "txtConflictMatchingMode": "prefix"
+      "data": "v=sendflow-verification={{verification}}",
+      "ttl": 300
     }
   ]
 }
