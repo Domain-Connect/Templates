@@ -4,16 +4,12 @@
   "serviceId": "sendflow",
   "serviceName": "SendFlow Email & Domain Service",
   "version": 1,
-
   "logoUrl": "https://sendflow.mohuls.com/logo.png",
   "documentationUrl": "https://sendflow.mohuls.com/docs",
-
   "syncBlock": false,
   "syncPubKeyDomain": "sendflow.mohuls.com",
   "syncRedirectDomain": "sendflow.mohuls.com",
-
   "description": "Auto DNS setup for SendFlow SaaS platform",
-
   "properties": {
     "verification": {
       "type": "string",
