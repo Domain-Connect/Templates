@@ -8,6 +8,7 @@
   "logoUrl": "https://sendflow.mohuls.com/logo.png",
   "documentationUrl": "https://sendflow.mohuls.com/docs",
 
+  "syncBlock": false,
   "syncPubKeyDomain": "sendflow.mohuls.com",
   "syncRedirectDomain": "sendflow.mohuls.com",
 
@@ -24,25 +25,25 @@
     {
       "type": "A",
       "host": "@",
-      "data": "57.129.77.164",
+      "pointsTo": "57.129.77.164",
       "ttl": 300
     },
     {
       "type": "CNAME",
       "host": "www",
-      "data": "sendflow.mohuls.com",
+      "pointsTo": "sendflow.mohuls.com",
       "ttl": 300
     },
     {
       "type": "CNAME",
       "host": "api",
-      "data": "sendflow.mohuls.com",
+      "pointsTo": "sendflow.mohuls.com",
       "ttl": 300
     },
     {
       "type": "TXT",
       "host": "_sendflow",
-      "data": "v=sendflow-verification=%verification%",
+      "data": "v=sendflow-verification={{verification}}",
       "ttl": 300
     }
   ]
