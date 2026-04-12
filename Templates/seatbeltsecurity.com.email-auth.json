@@ -1,0 +1,37 @@
+{
+  "providerId": "seatbeltsecurity.com",
+  "providerName": "Seatbelt Security",
+  "serviceId": "email-auth",
+  "serviceName": "Email Authentication",
+  "description": "Configures SPF, DKIM, and DMARC delegation for automated email security management via Seatbelt Security",
+  "logoUrl": "https://seatbeltsecurity.com/marketing/logo-icon.png",
+  "version": 1,
+  "hostRequired": false,
+  "syncPubKeyDomain": "seatbeltsecurity.com",
+  "syncRedirectDomain": "seatbeltsecurity.com",
+  "variableDescription": "customer: Domain slug with dots replaced by hyphens (e.g., example-com for example.com)",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%customer%.spf.seatbeltsecurity.com",
+      "ttl": 3600,
+      "groupId": "email-auth"
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "_dmarc.%customer%.seatbeltsecurity.com",
+      "ttl": 3600,
+      "groupId": "email-auth",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "seatbelt._domainkey",
+      "pointsTo": "seatbelt._domainkey.%customer%.seatbeltsecurity.com",
+      "ttl": 3600,
+      "groupId": "email-auth"
+    }
+  ]
+}

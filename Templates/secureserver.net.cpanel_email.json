@@ -1,0 +1,84 @@
+{
+  "providerId": "secureserver.net",
+  "providerName": "SecureServer",
+  "serviceId": "cpanel_email",
+  "serviceName": "cPanel E-mail",
+  "version": 1,
+  "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
+  "description": "Enables a domain to work with cPanel e-mail",
+  "variableDescription": "v1 is the IP address of the server.",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%v1%",
+      "priority": 0,
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "%v1%",
+      "ttl": 3600
+    },
+    {
+      "pointsTo": "%v1%",
+      "type": "CNAME",
+      "host": "autodiscover.admin",
+      "ttl": 3600
+    },
+    {
+      "protocol": "_tcp",
+      "name": "@",
+      "weight": 0,
+      "target": "cpanelemaildiscovery.cpanel.net",
+      "priority": 0,
+      "service": "_autodiscover",
+      "type": "SRV",
+      "port": 443,
+      "ttl": 3600
+    },
+    {
+      "protocol": "_tcp",
+      "name": "admin",
+      "weight": 0,
+      "target": "cpanelemaildiscovery.cpanel.net",
+      "priority": 0,
+      "service": "_autodiscover",
+      "type": "SRV",
+      "port": 443,
+      "ttl": 3600
+    },
+    {
+      "data": "v=spf1 a mx ptr include:secureserver.net ~all",
+      "type": "TXT",
+      "host": "@",
+      "ttl": 3600
+    },
+    {
+      "data": "v=spf1 a mx ptr include:secureserver.net ~all",
+      "type": "TXT",
+      "host": "admin",
+      "ttl": 3600
+    },
+    {
+      "pointsTo": "%v1%",
+      "type": "CNAME",
+      "host": "webmail",
+      "ttl": 3600
+    },
+    {
+      "pointsTo": "%v1%",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "ttl": 3600
+    },
+    {
+      "pointsTo": "%v1%",
+      "type": "CNAME",
+      "host": "autoconfig.admin",
+      "ttl": 3600
+    }
+  ]
+}

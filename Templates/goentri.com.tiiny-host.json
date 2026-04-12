@@ -1,0 +1,84 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "tiiny-host",
+  "serviceName": "Tiiny.host",
+  "version": 4,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "variableDescription": "webSitePointsTo1, webSitePointsTo2 is to where the website is pointed to, CnameHost1, CnameHost2, is the host for each CNAME and mappingValue1 is the value assigned to host websiteHost1, target is to where it's redirected",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%CnameHost1%",
+      "groupId": "a1",
+      "pointsTo": "%webSitePointsTo1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%CnameHost2%",
+      "groupId": "a1",
+      "pointsTo": "%webSitePointsTo2%",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "target": "%target%",
+      "groupId": "a1",
+      "host": "@"
+    },
+    {
+      "type": "CNAME",
+      "host": "%CnameHost1%",
+      "groupId": "a2",
+      "pointsTo": "%webSitePointsTo1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%CnameHost2%",
+      "groupId": "a2",
+      "pointsTo": "%webSitePointsTo2%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "%websiteHost1%",
+      "pointsTo": "%mappingValue1%",
+      "groupId": "a2",
+      "ttl": 3600
+    },
+      {
+      "type": "CNAME",
+      "host": "%CnameHost1%",
+      "groupId": "a3",
+      "pointsTo": "%webSitePointsTo1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%CnameHost2%",
+      "groupId": "a3",
+      "pointsTo": "%webSitePointsTo2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%CnameHost3%",
+      "groupId": "a3",
+      "pointsTo": "%webSitePointsTo3%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "%websiteHost1%",
+      "pointsTo": "%mappingValue1%",
+      "groupId": "a3",
+      "ttl": 3600
+    }
+  ]
+}

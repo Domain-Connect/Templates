@@ -1,0 +1,26 @@
+{  
+   "providerId": "mailerlite.com",
+   "providerName": "MailerLite",
+   "serviceId": "website",
+   "serviceName": "MailerLite Sites",
+   "version": 1,
+   "description": "Create websites or landing pages using your own domain.",
+   "syncPubKeyDomain": "mailerlite.com",
+   "variableDescription": "Self explanatory in the variable names.",
+   "records": [
+      {
+         "groupId": "domain",
+         "type": "A",
+         "host": "@",
+         "pointsTo": "%ip%",
+         "ttl": 3600
+      },
+      {
+         "groupId": "redirect",
+         "type": "CNAME",
+         "host": "www",
+         "pointsTo": "%www_points_to%",
+         "ttl": 3600
+      }
+   ]
+}

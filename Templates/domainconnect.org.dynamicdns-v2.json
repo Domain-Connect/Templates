@@ -1,0 +1,28 @@
+{
+   "providerId":"domainconnect.org",
+   "providerName":"Domain Connect",
+   "serviceId":"dynamicdns-v2",
+   "serviceName":"Dynamic DNS",
+   "version": 1,
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/03/cropped-Domain_Connect3.png",
+   "description":"Template for Domain Connect Dynamic DNS Service. See https://github.com/Domain-Connect/DomainConnectDDNS for onboarding instructions.",
+   "syncBlock": true,
+   "warnPhishing": true,
+   "variableDescription":"",
+   "records":[
+      {
+         "groupId": "IPv4",
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%IPv4%",
+         "ttl":"60"
+      },
+      {
+         "groupId": "IPv6",
+         "type":"AAAA",
+         "host":"@",
+         "pointsTo":"%IPv6%",
+         "ttl":"60"
+      }
+   ]
+}

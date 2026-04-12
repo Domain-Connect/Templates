@@ -1,0 +1,33 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "smtp2go",
+  "serviceName": "SMTP2GO",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "cnameValue is the value assigned to the domain and cnameHotst is the host for each CNAME",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%cnameHotst1%",
+      "pointsTo": "%cnameValue1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnameHotst2%",
+      "pointsTo": "%cnameValue2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnameHotst3%",
+      "pointsTo": "%cnameValue3%",
+      "ttl": 3600
+    }
+  ]
+}

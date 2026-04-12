@@ -1,0 +1,55 @@
+{
+  "providerId": "zenarahealth.com",
+  "providerName": "Zenara Health",
+  "serviceId": "whitelabel-custom-mail",
+  "serviceName": "White Label - Custom Mail",
+  "version": 1,
+  "logoUrl": "https://zenarahealth.com/assets/zenarahealth.svg",
+  "description": "Configures your domain to work with Zenara Health's white label service with a custom mail address.",
+  "variableDescription": "This template configures white-label CNAME records for customer domains. The CNAME host and target values are fully variable to support multiple environments (such as dev, staging, and production), where the target records differ per environment. In addition, SendGrid-specific CNAME records are included to enable sending emails from a custom domain. These SendGrid values are dynamically generated per customer and environment, therefore fixed prefixes or suffixes cannot be enforced in this template.",
+  "syncPubKeyDomain": "zenarahealth.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%cnamehost1%",
+      "pointsTo": "%record1%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnamehost2%",
+      "pointsTo": "%record2%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnamesendgridhost1%",
+      "pointsTo": "%sendgridrecord1%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sendgridhost2%",
+      "pointsTo": "%sendgridrecord2%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sendgridhost3%",
+      "pointsTo": "%sendgridrecord3%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnamehost3%",
+      "pointsTo": "%record3%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnamehost4%",
+      "pointsTo": "%record4%",
+      "ttl": 600
+    }
+  ]
+}

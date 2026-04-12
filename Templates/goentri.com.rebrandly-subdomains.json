@@ -1,0 +1,21 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "rebrandly-subdomains",
+    "serviceName": "RebrandlySubdomains",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "sharedProviderName": true,
+    "variableDescription": "ipValue is the rebrandly's ip , websiteHost is the website host value",
+    "records": [
+        {
+            "type": "A",
+            "host": "%websiteHost%",
+            "pointsTo": "%ipValue%",
+            "ttl": 3600
+        }
+    ]
+}

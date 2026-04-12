@@ -1,0 +1,25 @@
+{
+  "providerId": "edgepress.co",
+  "providerName": "Edgepress",
+  "serviceId": "website-arecord",
+  "serviceName": "Edgepress Site",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.edgepress.co",
+  "logoUrl": "https://www.edgepress.co/edgepress-logo.png",
+  "description": "Enables a domain to work with Edgepress",
+  "variableDescription": "IP is the IP address for the site",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "providerId":"google.com",
+  "providerName":"Google",
+  "serviceId":"domain-verification",
+  "serviceName":"Domain Verification",
+  "sharedServiceName": true,
+  "version": 3,
+  "logoUrl":"",
+  "description":"Enables a domain to work with Google",
+  "variableDescription":"Unique verification code provided for purpose of verification",
+  "multiInstance": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "google.com",
+  "records":[
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "%verifytxt%",
+      "ttl": 3600
+    }
+  ]
+}

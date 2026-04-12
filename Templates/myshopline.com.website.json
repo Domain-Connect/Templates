@@ -1,0 +1,25 @@
+{  
+   "providerId":"myshopline.com",
+   "providerName":"SHOPLINE",
+   "serviceId":"website",
+   "serviceName":"SHOPLINE Site",
+   "version": 1,
+   "syncPubKeyDomain" : "dctemplate.myshopline.com",
+   "logoUrl":"https://img.myshopline.com/image/store/2001028614/1653529992529/d64da099ff214118b8f1be25495a93db.png?w=1181&h=525",
+   "description":"Enables a domain to work with SHOPLINE",
+   "variableDescription":"v1 is the shopline hosted domain name",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"104.17.232.29",
+         "ttl":3600
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"%v1%",
+         "ttl":3600
+      }
+   ]
+}

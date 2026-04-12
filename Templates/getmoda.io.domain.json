@@ -1,0 +1,45 @@
+{
+    "providerId": "getmoda.io",
+    "providerName": "Moda",
+    "serviceId": "domain",
+    "serviceName": "Moda Domain",
+    "logoUrl": "https://userconfig.getmoda.io/moda-logo/moda-icon.svg",
+    "description": "This is a template to enable domain verification on Moda",
+    "variableDescription": "cname_host is the mail CNAME. cname_points is the value to which mail CNAME points to. dkim_points and dkim2_points are for the DKIM records ",
+    "syncRedirectDomain": "app.getmoda.io, moda-ui-dev.getmoda.io, moda-ui-stg.getmoda.io",
+    "syncPubKeyDomain": "getmoda.io",
+    "version": 1,
+    "records":
+    [
+        {
+            "groupId": "moda-cname",
+            "type": "CNAME",
+            "host": "%cname_host%",
+            "pointsTo": "%cname_points%",
+            "ttl": 600
+        },
+        {
+            "groupId": "moda-dkim",
+            "type": "CNAME",
+            "host": "md._domainkey",
+            "pointsTo": "md.domainkey.%dkim_points%",
+            "ttl": 600
+        },
+        {
+            "groupId": "moda-dkim2",
+            "type": "CNAME",
+            "host": "md2._domainkey",
+            "pointsTo": "md2.domainkey.%dkim2_points%",
+            "ttl": 600
+        },
+        {
+            "groupId": "moda-dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc@getmoda.io",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "ttl": 600
+        }
+    ]
+}

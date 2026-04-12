@@ -1,0 +1,23 @@
+{
+   "providerId": "Webomat.at",
+   "providerName": "Webomat Test",
+   "serviceId": "website-test",
+   "serviceName": "Webomat Site (Test)",
+   "version": 1,
+   "logoUrl": "https://www.webomat.at/assets/web/img/logo-colorized.svg",
+   "description": "Enables a domain to work with Webomat Websites",
+   "records": [
+      {
+         "type": "A",
+         "host": "@",
+         "pointsTo": "217.160.28.254",
+         "ttl": 3600
+      },
+      {
+         "type": "CNAME",
+         "host": "www",
+         "pointsTo": "www.webomat.at",
+         "ttl": 3600
+      }
+   ]
+}

@@ -1,0 +1,38 @@
+{
+  "providerId": "storeoncloud.com",
+  "providerName": "StoreOnCloud",
+  "serviceId": "email",
+  "serviceName": "Email Verification Records",
+  "version": 1,
+  "logoUrl": "https://www.storeoncloud.com/img/logo.svg",
+  "description": "Configure SPF, DKIM, and DMARC records for email verification with StoreOnCloud managed Magento hosting.",
+  "variableDescription": "DKIM_SELECTOR: The DKIM selector (e.g., storeoncloud), DKIM_VALUE: The DKIM public key value",
+  "syncBlock": false,
+  "syncPubKeyDomain": "storeoncloud.com",
+  "syncRedirectDomain": "storeoncloud.com,admin.storeoncloud.com",
+  "warnPhishing": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.storeoncloud.com"
+    },
+    {
+      "type": "TXT",
+      "host": "%DKIM_SELECTOR%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%DKIM_VALUE%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%domain%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

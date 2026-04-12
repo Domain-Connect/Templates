@@ -1,0 +1,23 @@
+{
+  "providerId": "sendcanary.com",
+  "providerName": "SendCanary",
+  "serviceId": "bimi",
+  "serviceName": "BIMI Brand Logo",
+  "version": 1,
+  "logoUrl": "https://sendcanary.com/logo.png",
+  "description": "Add a BIMI record so your brand logo appears next to your emails in supported inboxes like Gmail and Apple Mail.",
+  "variableDescription": "logo_url: Public HTTPS URL to your SVG brand logo",
+  "syncPubKeyDomain": "sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "default._bimi",
+      "data": "v=BIMI1; l=%logo_url%;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=BIMI1"
+    }
+  ]
+}

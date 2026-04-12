@@ -1,0 +1,46 @@
+{
+    "providerId": "bird.com",
+    "providerName": "Bird",
+    "serviceId": "sparkpost-email",
+    "serviceName": "SparkPost Email",
+    "version": 1,
+    "logoUrl": "https://cdn.app.bird.com/assets/logo/Bird_t.png",
+    "description": "Configure email sending and receiving through SparkPost email service.",
+    "syncPubKeyDomain": "domainconnect.sparkpost.com",
+    "syncRedirectDomain": "app.sparkpost.com,app.eu.sparkpost.com,app.bird.com",
+    "records": [
+      {
+        "type": "TXT",
+        "host": "%dkimSelector%._domainkey",
+        "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimPublicKey%",
+        "ttl": 3600,
+        "essential": "Always",
+        "groupId": "auth"
+      },
+      {
+        "type": "CNAME",
+        "host": "%bounceSubdomain%",
+        "pointsTo": "%bounceTarget%",
+        "ttl": 3600,
+        "essential": "Always",
+        "groupId": "outbound"
+      },
+      {
+        "type": "CNAME",
+        "host": "%trackingSubdomain%",
+        "pointsTo": "%trackingTarget%",
+        "ttl": 3600,
+        "essential": "OnApply",
+        "groupId": "tracking"
+      },
+      {
+        "type": "MX",
+        "host": "@",
+        "pointsTo": "%mxValue%",
+        "priority": 10,
+        "ttl": 3600,
+        "essential": "OnApply",
+        "groupId": "inbound"
+      }
+    ]
+  }

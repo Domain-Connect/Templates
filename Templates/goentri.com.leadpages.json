@@ -1,0 +1,36 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "leadpages",
+  "serviceName": "Leadpages",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to point domain to the website",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "pointstoIp is  IP address where the domains is going to be pointed, pointstoDomain is the value for the CNAME and hostCname the subdomain",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "groupId": "a1",
+      "pointsTo": "%pointstoDomain%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "groupId": "a1",
+      "pointsTo": "%pointstoIp%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%hostCname%",
+      "groupId": "a2",
+      "pointsTo": "%pointstoDomain2%",
+      "ttl": 3600
+    }
+  ]
+}

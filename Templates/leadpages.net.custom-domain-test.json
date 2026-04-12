@@ -1,0 +1,21 @@
+{
+  "providerId": "leadpages.net",
+  "providerName": "Leadpages Test",
+  "serviceId": "custom-domain-test",
+  "serviceName": "Leadpages Custom Domain (Test)",
+  "version": 3,
+  "logoUrl": "https://my.leadpagestest.net/static/current/img/logos/logo_icon.svg",
+  "description": "Enables a domain to work with Leadpages",
+  "syncRedirectDomain": "my.leadpagestest.net, my.leadpagestest.com,api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "HOST: The subdomain for the domain.",
+  "hostRequired": true,
+  "syncPubKeyDomain":"leadpages.net",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom-proxy.leadpagestest.net",
+      "ttl": 600
+    }
+  ]
+}

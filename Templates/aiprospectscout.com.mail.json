@@ -1,0 +1,43 @@
+{
+  "providerId": "aiprospectscout.com",
+  "providerName": "AI ProspectScout",
+  "serviceId": "mail",
+  "serviceName": "AI ProspectScout Email",
+  "version": 1,
+  "logoUrl": "https://aisdr-oceanix.lovable.app/placeholder.svg",
+  "description": "Configures DNS records for AI ProspectScout outbound email sending (DKIM, SPF, MX) and inbound reply routing.",
+  "variableDescription": "dkimKey: DKIM public key for email signing. region: AWS SES region for SPF/MX.",
+  "syncPubKeyDomain": "aiprospectscout.com",
+  "syncBlock": false,
+  "shared": false,
+  "multiInstance": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p="
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "reply",
+      "pointsTo": "inbound-smtp.resend.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

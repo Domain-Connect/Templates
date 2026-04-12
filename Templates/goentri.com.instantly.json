@@ -1,0 +1,26 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "instantly",
+  "serviceName": "Instantly",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "thirdPartyDomain is the third party domain to include in spf rules. dmarcValue is the email service DMARC value.",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarcValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%thirdPartyDomain%"
+    }
+  ]
+}

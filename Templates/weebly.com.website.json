@@ -1,0 +1,26 @@
+{
+   "providerId": "weebly.com",
+   "providerName": "Weebly",
+   "serviceId": "website",
+   "serviceName": "Weebly site",
+   "version": 1,
+   "logoUrl": "https://cdn-uc.editmysite.com/checkout/assets/images/emails/weebly.png",
+   "description": "Enables a domain to work with Weebly.",
+   "variableDescription": "ip is the IP address of the server.",
+   "syncPubKeyDomain": "domainconnect.weebly.com",
+   "records": [
+      {
+         "type": "A",
+         "host": "@",
+         "pointsTo": "%ip%",
+         "ttl": 3600
+      },
+      {
+         "type": "CNAME",
+         "host": "www",
+         "pointsTo": "@",
+         "ttl": 3600
+      }
+   ]
+}
+

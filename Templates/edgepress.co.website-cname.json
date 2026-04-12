@@ -1,0 +1,20 @@
+{
+  "providerId": "edgepress.co",
+  "providerName": "Edgepress",
+  "serviceId": "website-cname",
+  "serviceName": "Edgepress Site",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.edgepress.co",
+  "logoUrl": "https://www.edgepress.co/edgepress-logo.png",
+  "description": "Enables a domain to work with Edgepress",
+  "variableDescription": "Subdomain is the subdomain for the domain name and Prefix is the identifier for the Edgepress account",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%prefix%.cname.edgepress.co",
+      "ttl": 3600
+    }
+  ]
+}

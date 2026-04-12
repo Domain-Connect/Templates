@@ -1,0 +1,37 @@
+{  
+   "providerId":"Shopify.com",
+   "providerName":"Shopify",
+   "serviceId":"verification",
+   "serviceName":"Shopify Site and Domain Verification",
+   "version": 1,
+   "syncPubKeyDomain":"shopify.com",
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/08/shopify.png",
+   "description":"Verifies the proof of domain ownership to work with Shopify",
+   "variableDescription":"v1 is the shopify hosted domain name, verification is the verification code for the site and ulid is the unique verification code for proof of domain ownership",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"23.227.38.65",
+         "ttl":3600
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"%v1%",
+         "ttl":3600
+      },
+      {  
+         "type":"CNAME",
+         "host":"%verification%",
+         "pointsTo":"dns-verification.shopify.com",
+         "ttl":3600
+      },
+      {
+         "type":"TXT",
+         "host":"shopify_verification",
+         "data":"%ulid%",
+         "ttl":3600
+      }
+   ]
+}

@@ -1,0 +1,22 @@
+{
+	"providerId": "certdashboard.cloud",
+	"providerName": "CertDashboard",
+	"serviceId": "site-cname",
+	"serviceName": "CertDashboard Site CNAME records",
+	"version": 1,
+	"logoUrl": "https://res.cloudinary.com/dy94cdmsp/image/upload/v1754392054/svgviewer-output_yinzzk.svg",
+	"description": "Enable domain to work with the CertDashboard by configuring the necessary A ,CNAME and TXT SSL records.",
+	"variableDescription": "CNameRecordTarget : target hostname provided by user.",
+	"syncBlock": false,
+	"syncPubKeyDomain": "certdashboard.cloud",
+	"syncRedirectDomain": "certdashboard.cloud",
+	"hostRequired": true,
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "%CNameRecordTarget%",
+			"ttl": 600
+		}
+	]
+}

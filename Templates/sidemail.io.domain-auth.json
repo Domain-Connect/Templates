@@ -1,0 +1,25 @@
+{
+	"providerId": "sidemail.io",
+	"providerName": "Sidemail.io",
+	"serviceId": "domain-auth",
+	"serviceName": "Sidemail.io Domain Authentication",
+	"description": "This template sets up the necessary DNS records for Sidemail.io domain authentication, including DKIM and sending domain configurations.",
+	"version": 1,
+	"logoUrl": "https://sidemail.io/assets/logo.png",
+	"syncPubKeyDomain": "sidemail.io",
+	"syncRedirectDomain": "sidemail.io, api.sidemail.io",
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "%DKIM_HOSTNAME%",
+			"pointsTo": "%DKIM_HOSTNAME_POINTS_TO%",
+			"ttl": 1800
+		},
+		{
+			"type": "CNAME",
+			"host": "%SENDING_DOMAIN%",
+			"pointsTo": "%SENDING_DOMAIN_POINTS_TO%",
+			"ttl": 1800
+		}
+	]
+}

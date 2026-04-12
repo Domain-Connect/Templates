@@ -1,0 +1,39 @@
+{
+  "providerId": "secureserver.net",
+  "providerName": "SecureServer",
+  "serviceId": "cpanel_flockmail",
+  "serviceName": "cPanel FlockMail",
+  "version": 1,
+  "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/06/godaddy-logo-300x79.png",
+  "description": "Enables a domain to work with FlockMail",
+  "variableDescription": "",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.flockmail.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.flockmail.com",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 include:spf.flockmail.com ~all",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1;p=none;sp=none;adkim=r;aspf=r;pct=100",
+      "ttl": 3600
+    }
+  ]
+}

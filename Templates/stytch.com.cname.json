@@ -1,0 +1,37 @@
+{
+    "providerId": "stytch.com",
+    "providerName": "Stytch",
+    "serviceId": "cname",
+    "serviceName": "Stytch API CNAME",
+    "version": 1,
+    "logoUrl": "https://stytch.com/favicon.ico",
+    "description": "Configure a CNAME record to point to the Stytch API and add CAA records for SSL certificate authorities",
+    "variableDescription": "%cname_host%: The host to point to the Stytch API; %cname_target%: The CNAME target URL that Stytch provides for your specific project",
+    "syncPubKeyDomain": "stytch.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%cname_host%",
+            "pointsTo": "%cname_target%",
+            "ttl": 600
+        },
+        {
+            "type": "CAA",
+            "host": "@",
+            "ttl": 600,
+            "data": "0 issue \"letsencrypt.org\""
+        },
+        {
+            "type": "CAA",
+            "host": "@",
+            "ttl": 600,
+            "data": "0 issue \"pki.goog\""
+        },
+        {
+            "type": "CAA",
+            "host": "@",
+            "ttl": 600,
+            "data": "0 issue \"ssl.com\""
+        }
+    ]
+}

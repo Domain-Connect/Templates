@@ -1,0 +1,86 @@
+{
+  "providerId": "secureserver.net",
+  "providerName": "SecureServer",
+  "serviceId": "professional_mail",
+  "serviceName": "Professional Mail",
+  "version": 3,
+  "description": "Enables a domain to work with Whitelabel Professional Mail",
+  "shared": true,
+  "sharedProviderName": true,
+  "variableDescription": "txtValue - txt verification record data value, dmarcPolicy - the dmarc policy definition, sel1/2 - the selector name. dkimCname1/2 - the target zone for dkim selector",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "groupId": "service",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "smtp.secureserver.net",
+      "priority": 0,
+      "ttl": 3600
+    },
+    {
+      "groupId": "service",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mailstore1.secureserver.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "service",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:secureserver.net"
+    },
+    {
+      "groupId": "service",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "email.secureserver.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "service",
+      "protocol": "_tcp",
+      "name": "@",
+      "weight": 0,
+      "target": "autodiscover.secureserver.net",
+      "priority": 0,
+      "service": "_autodiscover",
+      "type": "SRV",
+      "port": 443,
+      "ttl": 3600
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "%txtValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;",
+      "host": "_dmarc",
+      "data": "%dmarcPolicy%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%sel1%._domainkey",
+      "pointsTo": "%dkimCname1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%sel2%._domainkey",
+      "pointsTo": "%dkimCname2%",
+      "ttl": 3600
+    }
+  ]
+}

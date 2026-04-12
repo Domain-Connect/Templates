@@ -1,0 +1,19 @@
+{
+   "providerId":"app.unbounce.com",
+   "providerName": "Unbounce",
+   "serviceId":"site",
+   "serviceName":"Unbounce Public Web Application",
+   "version": 1,
+   "logoUrl":"https://app.unbounce.com/app_assets/sign_up_funnel/unbounce-logo-2017-6c9556be74767c10c9992c13898b84f1.svg",
+   "description":"Enables a Domain to work with Unbounce",
+   "variableDescription":"HOST is the subdomain for the domain.",
+   "hostRequired": true,
+   "records":[
+      {
+        "type": "CNAME",
+        "host": "@",
+        "pointsTo": "unbouncepages.com",
+        "ttl": 600
+       }
+   ]
+}

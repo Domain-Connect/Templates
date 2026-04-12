@@ -1,0 +1,42 @@
+{
+    "providerId": "Zenfolio",
+    "serviceId": "CustomDomain-Test",
+    "serviceName": "Zenfolio Custom Domain Web Hosting DEVELOPMENT TEMPLATE",
+    "providerName": "Zenfolio Custom Domain Web Hosting DEVELOPMENT TEMPLATE",
+    "syncPubKeyDomain": "zenfolio.dev",
+    "version": 2022122001,
+    "logoUrl": "https://zenfolio.com/resources/zenfolio-logo.gif",
+    "description": "This DEVELOPMENT TEMPLATE is used for ZENFOLIO DEVELOPERS to test custom domain web-hosting",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "199.181.197.211",
+            "ttl": "3600"
+        },
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "199.181.197.212",
+            "ttl": "3600"
+        },
+        {
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "2620:78:200f::cf:211",
+            "ttl": "3600"
+        },
+        {
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "2620:78:200f::cf:212",
+            "ttl": "3600"
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "custom.zenfoliosite.dev",
+            "ttl": "3600"
+        }
+    ]
+}

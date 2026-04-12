@@ -1,0 +1,21 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "dkim-helper",
+  "serviceName": "DKIM Helper",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up dkim record using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "dkimHost is dkim host and dkimValue is dkim value.",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimHost%._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 14400
+    }
+  ]
+}

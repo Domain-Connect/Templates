@@ -1,0 +1,23 @@
+{
+   "providerId": "smugmug.com",
+   "providerName": "SmugMug",
+   "serviceId": "custom-domain",
+   "serviceName": "SmugMug Custom Domain",
+   "version": 5,
+   "logoUrl": "https://cdn.smugmug.com/img/domain-connect/smugmug-logo.png",
+   "description": "Enables a domain to work with SmugMug",
+   "syncRedirectDomain": "www.smugmug.com",
+   "records": [
+      {
+         "type": "REDIR301",
+         "target": "https://www.%domain%",
+         "host": "%domain%."
+      },
+      {
+         "type": "CNAME",
+         "host": "www.%domain%.",
+         "pointsTo": "domains.smugmug.com",
+         "ttl": 600
+      }
+   ]
+}

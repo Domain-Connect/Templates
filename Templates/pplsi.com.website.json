@@ -1,0 +1,24 @@
+{
+  "providerId": "pplsi.com",
+  "providerName": "PPLSI",
+  "serviceId": "website",
+  "serviceName": "Business Plus",
+  "version": 1,
+  "logoUrl": "https://www.pplsi.com/wp-content/themes/pplsi-custom/images/logo.svg,",
+  "description": "Enables a domain to work with Business Plus Sites through Weebly.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "199.34.228.68",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}
+

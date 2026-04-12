@@ -1,0 +1,19 @@
+{
+    "providerId": "Zenfolio",
+    "serviceId": "CustomSubDomain-Test",
+    "serviceName": "Zenfolio Custom Subdomain-only Web Hosting DEVELOPMENT TEMPLATE",
+    "providerName": "Zenfolio Custom Subdomain-only Web Hosting DEVELOPMENT TEMPLATE",
+    "syncPubKeyDomain": "zenfolio.dev",
+    "version": 2022122001,
+    "logoUrl": "https://zenfolio.com/resources/zenfolio-logo.gif",
+    "description": "This DEVELOPMENT TEMPLATE is used for ZENFOLIO DEVELOPERS to test custom sub-domain web-hosting",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "custom.zenfoliosite.dev",
+            "ttl": "3600"
+        }
+    ]
+}

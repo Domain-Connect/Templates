@@ -1,0 +1,53 @@
+{
+  "providerId": "getreadydigital.com",
+  "providerName": "GetReadyDigital",
+  "serviceId": "email",
+  "serviceName": "GetReadyDigital Email records",
+  "syncRedirectDomain": "domainconnect.getreadydigital.com,getreadydigital.com",
+  "version": 2,
+  "logoUrl": "https://getreadydigital.com/wp-content/uploads/2023/04/cropped-GR-Logo-Favicon-192x192.png",
+  "description": "Enable domain to work with the GetReadyDigital web and mail",
+  "variableDescription": "TXT, CNAME, and MX Records: GetReadyDigital connection",
+  "syncPubKeyDomain": "getreadydigital.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%txtHost1%",
+      "data": "%txtValue1%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%txtValue2%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "%cnameValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "%mxHost1%",
+      "pointsTo": "%mxValue1%",
+      "priority": 10,
+      "ttl": 600
+    },
+    {
+      "type": "MX",
+      "host": "%mxHost2%",
+      "pointsTo": "%mxValue2%",
+      "priority": 20,
+      "ttl": 600
+    },
+    {
+      "type": "MX",
+      "host": "%mxHost3%",
+      "pointsTo": "%mxValue3%",
+      "priority": 30,
+      "ttl": 600
+    }
+  ]
+}

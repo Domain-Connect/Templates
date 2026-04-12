@@ -1,0 +1,20 @@
+{
+  "providerId": "v4guard.io",
+  "providerName": "v4Guard",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain Verification",
+  "version": 1,
+  "logoUrl": "https://cdn.v4guard.io/logos/domainconnect.svg",
+  "description": "Verifies a domain ownership in order to continue registering a company profile on v4Guard.",
+  "variableDescription": "A unique verification token is supplied for the purpose of domain verification.",
+  "syncPubKeyDomain": "v4guard.io",
+  "syncRedirectDomain": "v4guard.io,dashboard.v4guard.io",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v4guard=%token%",
+      "ttl": 3600
+    }
+  ]
+}

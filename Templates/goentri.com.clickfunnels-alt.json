@@ -1,0 +1,51 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "clickfunnels-alt",
+    "serviceName": "ClickFunnels",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
+    "variableDescription": "verificationValue is the value that is used to verify domain ownership,clusterValue is the cluster assigned to the domain,websiteId is the id of website, keyValue is the generated key value, websitehost is the website host value, dmarcHost and  dmarcValue are the value for the dmarc TXT",
+    "sharedProviderName": true,
+    "hostRequired":true,
+    "multiInstance": true,
+    "records": [
+      {
+        "type": "TXT",
+        "host": "@",
+        "data": "clickfunnels-domain-verification=%verificationValue%",
+        "groupId": "a1",
+        "ttl": 3600
+      },
+      {
+        "type": "CNAME",
+        "host": "%websitehost%",
+        "pointsTo": "%clusterValue%",
+        "groupId": "a1",
+        "ttl": 3600
+      },
+      {
+        "type": "TXT",
+        "host": "%websiteId%._domainkey.%websitehost%",
+        "data": "%keyValue%",
+        "groupId": "a2",
+        "ttl": 3600
+      },
+      {
+        "type": "SPFM",
+        "host": "@",
+        "spfRules": "include:mailer.myclickfunnels.com",
+        "groupId": "a3"
+      },
+      {
+        "groupId": "a3",
+        "type": "TXT",
+        "host": "%dmarcHost%",
+        "data": "%dmarcValue2%",
+        "ttl": 3600
+      }
+    ]
+  }

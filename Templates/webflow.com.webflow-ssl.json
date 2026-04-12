@@ -1,0 +1,30 @@
+{
+   "providerId":"webflow.com",
+   "providerName":"Webflow",
+   "serviceId":"webflow-ssl",
+   "serviceName":"Webflow SSL",
+   "version": 1,
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2017/01/webflow-logo-blue-300x113.jpg",
+   "description":"SSL for webflow",
+   "variableDescription":"No variables. Static template.",
+   "records":[
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo":"75.2.70.75",
+         "ttl":300
+      },
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo":"99.83.190.102",
+         "ttl":300
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"proxy-ssl.webflow.com",
+         "ttl":300
+      }
+   ]
+}

@@ -1,0 +1,20 @@
+{
+  "providerId": "getreadydigital.com",
+  "providerName": "GetReadyDigital",
+  "serviceId": "text-dynamic-record",
+  "serviceName": "GetReadyDigital Text records",
+  "syncRedirectDomain": "domainconnect.getreadydigital.com,getreadydigital.com",
+  "version": 2,
+  "logoUrl": "https://getreadydigital.com/wp-content/uploads/2023/04/cropped-GR-Logo-Favicon-192x192.png",
+  "description": "Enable domain to work with the GetReadyDigital",
+  "variableDescription": "TXTs: GetReadyDigital connection",
+  "syncPubKeyDomain": "getreadydigital.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%txtValue%",
+      "ttl": 600
+    }
+  ]
+}

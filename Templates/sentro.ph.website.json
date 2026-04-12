@@ -1,0 +1,30 @@
+{
+    "providerId": "sentro.ph",
+    "providerName": "Sentro",
+    "serviceId": "website",
+    "serviceName": "Sentro Website Builder",
+    "version": 2,
+    "syncPubKeyDomain": "sentro.ph",
+    "description": "Enables a domain to work with Sentro and GoDaddy",
+    "variableDescription": "v1 is the sentro hosted domain name and verification is the verification code for the site",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "13.226.62.29",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%v1%.sentro.ph",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%verification%",
+            "pointsTo": "dns-verification.sentro.ph",
+            "ttl": 3600
+        }
+    ]
+}

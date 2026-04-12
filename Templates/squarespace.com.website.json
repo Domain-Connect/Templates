@@ -1,0 +1,50 @@
+{
+   "providerId":"squarespace.com",
+   "providerName":"Squarespace",
+   "serviceId":"website",
+   "serviceName":"Squarespace Site",
+   "version": 4,
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/04/squarespace-logo-horizontal-white-300x109.jpg",
+   "description":"Enables a domain to work with Squarespace",
+   "variableDescription":"v1 is the verification code for the site",
+   "syncPubKeyDomain":"domainconnect.squarespace.com",
+   "syncRedirectDomain":"oauth.squarespace.com,oauth.stage.sqsp.net,oauth.qa1.sqsp.net,oauth.qa2.sqsp.net,oauth.qa10.sqsp.net,oauth.qa11.sqsp.net,oauth.qa15.sqsp.net,oauth.dev.squarespace.net",
+   "records":[
+      {
+         "type":"CNAME",
+         "host":"%v1%",
+         "pointsTo":"verify.squarespace.com",
+         "ttl":3600
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"ext-cust.squarespace.com",
+         "ttl":3600
+      },
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo":"198.185.159.144",
+         "ttl":3600
+      },
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo":"198.185.159.145",
+         "ttl":3600
+      },
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo":"198.49.23.144",
+         "ttl":3600
+      },
+      {
+         "type":"A",
+         "host":"@",
+         "pointsTo":"198.49.23.145",
+         "ttl":3600
+      }
+   ]
+}

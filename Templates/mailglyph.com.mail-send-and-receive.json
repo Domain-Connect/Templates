@@ -1,0 +1,44 @@
+{
+  "providerId": "mailglyph.com",
+  "providerName": "MailGlyph",
+  "serviceId": "mail-send-and-receive",
+  "serviceName": "Mail (Sending & Receiving)",
+  "version": 2,
+  "syncBlock": false,
+  "syncPubKeyDomain": "mailglyph.com",
+  "syncRedirectDomain": "mailglyph.com,app.mailglyph.com",
+  "description": "Configure MailGlyph DNS records for sending and optional inbound receiving.",
+  "logoUrl": "https://cdn.mailglyph.com/assets/logo.svg",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "mailglyph._domainkey",
+      "ttl": 3600,
+      "data": "p=%dkimPublicKey%"
+    },
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "mailglyph",
+      "pointsTo": "%mailFromMx%",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "mailglyph",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%inboundMx%",
+      "ttl": 3600,
+      "priority": 10
+    }
+  ]
+}
