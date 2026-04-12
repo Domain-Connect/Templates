@@ -1,0 +1,28 @@
+{
+  "providerId": "spaceship.com",
+  "providerName": "Spaceship",
+  "serviceId": "urlredirect",
+  "serviceName": "UrlRedirect",
+  "version": 1,
+  "logoUrl": "https://spaceship-cdn.com/static/spaceship/favicon/spaceship-icon.svg",
+  "description": "Enables UrlRedirect service for 3rd party domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.spaceship.com",
+  "variableDescription": "%ip% is a target IP address",
+  "records": [
+    {
+      "groupId": "root",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300
+    },
+    {
+      "groupId": "wildcard",
+      "type": "A",
+      "host": "*",
+      "pointsTo": "%ip%",
+      "ttl": 300
+    }
+  ]
+}

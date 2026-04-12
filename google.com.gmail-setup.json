@@ -1,0 +1,62 @@
+{
+  "providerId":"google.com",
+  "providerName":"Google",
+  "serviceId":"gmail-setup",
+  "serviceName":"Gmail Setup",
+  "sharedServiceName": true,
+  "version":3,
+  "logoUrl":"",
+  "description":"Setup the MX records to enable Gmail",
+  "variableDescription":"Unique SPF rule",
+  "syncBlock": false,
+  "syncPubKeyDomain": "google.com",
+  "records":[
+    {
+      "groupId":"setup",
+      "type":"MX",
+      "host":"@",
+      "priority":1,
+      "pointsTo":"ASPMX.L.GOOGLE.COM",
+      "ttl":3600
+    },
+    {
+      "groupId":"setup",
+      "type":"MX",
+      "host":"@",
+      "priority":5,
+      "pointsTo":"ALT1.ASPMX.L.GOOGLE.COM",
+      "ttl":3600
+    },
+    {
+      "groupId":"setup",
+      "type":"MX",
+      "host":"@",
+      "priority":5,
+      "pointsTo":"ALT2.ASPMX.L.GOOGLE.COM",
+      "ttl":3600
+    },
+    {
+      "groupId":"setup",
+      "type":"MX",
+      "host":"@",
+      "priority":10,
+      "pointsTo":"ALT3.ASPMX.L.GOOGLE.COM",
+      "ttl":3600
+    },
+    {
+      "groupId":"setup",
+      "type":"MX",
+      "host":"@",
+      "priority":10,
+      "pointsTo":"ALT4.ASPMX.L.GOOGLE.COM",
+      "ttl":3600
+    },
+    {
+      "groupId":"setup",
+      "type":"SPFM",
+      "host":"@",
+      "spfRules":"%spfrule%",
+      "ttl":3600
+    }
+  ]
+}

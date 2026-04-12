@@ -1,0 +1,33 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "folk",
+  "serviceName": "Folk",
+  "version": 3,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "mappingValue1, mappingValue2, mappingValue3 are the values assigned to hosts websiteHost1, websiteHost2, websiteHost3 subsequently",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%websiteHost1%",
+      "pointsTo": "%mappingValue1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%websiteHost2%",
+      "pointsTo": "%mappingValue2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%websiteHost3%",
+      "pointsTo": "%mappingValue3%",
+      "ttl": 3600
+    }    
+  ]
+}

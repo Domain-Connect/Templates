@@ -1,0 +1,21 @@
+{
+  "providerId": "elest.io",
+  "providerName": "Elestio",
+  "serviceId": "custom",
+  "serviceName": "Elestio Custom Domain",
+  "version": 2,
+  "logoUrl": "https://elest.io/images/elestio.svg",
+  "description": "Connect a custom domain to your Elestio service.",
+  "variableDescription": "ip is the Elestio IP address for your service.",
+  "syncPubKeyDomain": "domainconnect.elest.io",
+  "syncRedirectDomain": "dash.elest.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+    "description": "Add the CNAME required to route traffic through Seocrown Edge Cache.",
+    "logoUrl": "https://docs.seocrown.ai/assets/seocrown-domain-connect-logo.svg",
+    "providerId": "seocrown.ai",
+    "providerName": "Seocrown",
+    "hostRequired": true,
+    "records": [
+        {
+            "host": "@",
+            "pointsTo": "%generatedCname%",
+            "ttl": "300",
+            "type": "CNAME"
+        }
+    ],
+    "serviceId": "seocrown-edge-cache",
+    "serviceName": "Seocrown Edge Cache",
+    "syncPubKeyDomain": "keys.edge.seocrown.ai",
+    "variableDescription": "%generatedCname% - the Seocrown edge hostname you generated (for example abc123.edge.seocrown.ai).",
+    "version": 1
+}

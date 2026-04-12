@@ -1,0 +1,35 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "i360",
+  "serviceName": "I360",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "cnameValue is the value assigned to the domain and cnameHost is the host for each CNAME",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%cnameHost%",
+      "pointsTo": "%cnameValue%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnameHost%",
+      "pointsTo": "%cnameValue%",
+      "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "target": "%target%",
+      "groupId": "a2",
+      "host": "@"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "providerId": "elementor.com",
+  "providerName": "Elementor",
+  "serviceId": "email",
+  "serviceName": "Elementor hosting",
+  "version": 1,
+  "logoUrl": "https://elementor.com/marketing/wp-content/uploads/2021/10/Elementor-Logo-Full-Red.png",
+  "description": "Enables a domain to send emails",
+  "variableDescription": "record1-record3 are records for the mail authentication, host1-host3 are the cname hosts for respective records",
+  "syncPubKeyDomain": "domainconnect.elementor.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host1%",
+      "pointsTo": "%record1%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%host2%",
+      "pointsTo": "%record2%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%host3%",
+      "pointsTo": "%record3%",
+      "ttl": 300
+    }
+  ]
+}

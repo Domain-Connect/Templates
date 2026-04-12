@@ -1,0 +1,21 @@
+{
+   "providerId":"pearcommerce.com",
+   "providerName":"Pear Commerce",
+   "serviceId":"cname",
+   "serviceName":"Pear Commerce Hosted Landing Page",
+   "version": 1,
+   "logoUrl":"https://assets.pearcommerce.com/PearLogo.png",
+   "description":"Configure domain record for CNAME entry.",
+   "syncBlock":false,
+   "syncPubKeyDomain": "pearcommerce.com",
+   "hostRequired": true,
+   "syncRedirectDomain": "admin.pearcommerce.com",
+   "records":[
+      {
+         "type":"CNAME",
+         "host":"@",
+         "pointsTo":"%cname%.pearcommerce.com",
+         "ttl":60
+      }
+   ]
+}

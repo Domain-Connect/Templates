@@ -1,0 +1,21 @@
+{
+  "providerId": "getfoundation.com",
+  "providerName": "Foundation Commerce Inc",
+  "serviceId": "foundation-wholesale",
+  "serviceName": "Foundation Domain Configuration",
+  "version": 1,
+  "logoUrl":"https://getfoundation.com/wp-content/uploads/2023/07/Foundation_logo.png",
+  "description": "Enables the wholesale eCommerce site to work with Foundation",
+  "variableDescription":"sub is the subdomain for the domain.",
+  "syncPubKeyDomain": "getfoundation.com",
+  "syncRedirectDomain":"app.getfoundation.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%sub%.getfoundation.store",
+      "ttl": 3600
+    }
+  ]
+}

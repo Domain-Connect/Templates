@@ -1,0 +1,22 @@
+{
+    "providerId": "2fifteen.io",
+    "providerName": "2fifteen",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain Verification",
+    "description": "Adds a TXT record for Google Workspace domain verification",
+    "syncPubKeyDomain": "domainconnect.2fifteen.io",
+    "syncRedirectDomain": "cortex.2fifteen.io",
+    "logoUrl": "https://static.2fifteen.io/2FIFTEEN%20TECH%20LOGOS/2Fifteen%20Icon.svg",
+    "multiInstance": true,
+    "version": 1,
+    "variableDescription": "verifytxt: Google domain verification token (e.g. google-site-verification=abc123)",
+    "records": [
+        {
+            "groupId": "verification",
+            "type": "TXT",
+            "host": "@",
+            "data": "%verifytxt%",
+            "ttl": 3600
+        }
+    ]
+}

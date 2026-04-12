@@ -1,0 +1,60 @@
+{
+  "providerId": "everinbox",
+  "providerName": "Everinbox", 
+  "serviceId": "domain-auth-tracking",
+  "serviceName": "Domain Authentication with Tracking",
+  "version": 1,
+  "logoUrl": "https://everinbox.com.br/everinbox-logo-dark.svg",
+  "description": "Configures domain authentication, DKIM, DMARC and link tracking records for complete email delivery service",
+  "variableDescription": "MAIL_SUBDOMAIN is the mail routing subdomain, MAIL_TARGET is the mail server target, DKIM_SELECTOR1/DKIM_SELECTOR2 are DKIM selectors, DKIM_TARGET1/DKIM_TARGET2 are DKIM targets, DMARC_POLICY is the DMARC policy, URL_TRACKING_SUBDOMAIN is the URL tracking subdomain, URL_TRACKING_TARGET is the URL tracking target, CLICK_TRACKING_SUBDOMAIN is the click tracking subdomain, CLICK_TRACKING_TARGET is the click tracking target",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.everinbox.com.br",
+  "syncRedirectDomain": "everinbox.com.br", 
+  "warnPhishing": false,
+  "records": [
+    {
+      "groupId": "mail_routing",
+      "type": "CNAME",
+      "host": "%MAIL_SUBDOMAIN%",
+      "pointsTo": "%MAIL_TARGET%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%DKIM_SELECTOR1%._domainkey",
+      "pointsTo": "%DKIM_TARGET1%", 
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%DKIM_SELECTOR2%._domainkey",
+      "pointsTo": "%DKIM_TARGET2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%DMARC_POLICY%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "%URL_TRACKING_SUBDOMAIN%",
+      "pointsTo": "%URL_TRACKING_TARGET%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME", 
+      "host": "%CLICK_TRACKING_SUBDOMAIN%",
+      "pointsTo": "%CLICK_TRACKING_TARGET%",
+      "ttl": 3600
+    }
+  ]
+}

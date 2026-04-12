@@ -1,0 +1,27 @@
+{
+  "providerId": "v4guard.io",
+  "providerName": "v4Guard",
+  "serviceId": "vanity-pages",
+  "serviceName": "Vanity Pages (CNAME)",
+  "version": 1,
+  "logoUrl": "https://cdn.v4guard.io/logos/domainconnect.svg",
+  "description": "Allow customers to link their own vanity domain to their v4Guard's company profile.",
+  "variableDescription": "A unique verification token is supplied for the purpose of domain verification.",
+  "syncPubKeyDomain": "v4guard.io",
+  "syncRedirectDomain": "v4guard.io,dashboard.v4guard.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.v4guard.me",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%challenge%",
+      "ttl": 3600
+    }
+  ]
+}

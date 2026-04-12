@@ -1,0 +1,229 @@
+name: JSON Schema Validation
+
+on:
+  pull_request_target:
+    branches:
+      - master
+  merge_group:
+    branches:
+      - master
+
+env:
+  PYTHON_VERSION: '3.10'
+
+jobs:
+  validate_json_schema:
+    name: Validate JSON Schema
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
+
+    steps:
+    - name: Setup refs
+      id: setup-refs
+      run: |
+        echo "base_sha=${{ github.event.pull_request.base.sha }}${{ github.event.merge_group.base_sha }}" >> "$GITHUB_OUTPUT"
+        echo "head_sha=${{ github.event.pull_request.head.sha }}${{ github.event.merge_group.head_sha }}" >> "$GITHUB_OUTPUT"
+
+    - name: Check out code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
+        ref: ${{ steps.setup-refs.outputs.head_sha }}
+
+    - name: Get all changed files
+      id: changed-all-files
+      uses: tj-actions/changed-files@v45
+
+    - name: Check for unexpected files
+      id: check-unexpected-files
+      if: github.event_name == 'pull_request_target'
+      continue-on-error: true
+      env:
+        ALL_CHANGED_FILES: ${{ steps.changed-all-files.outputs.all_changed_files }}
+      run: |
+        errors=()
+        for file in ${ALL_CHANGED_FILES}; do
+          if [[ "$file" == */* ]]; then
+            errors+=("File in subdirectory not allowed: \`$file\`")
+            continue
+          fi
+          if [[ "$file" != *.json ]]; then
+            errors+=("Non-JSON file not allowed: \`$file\`")
+          fi
+        done
+        if [ ${#errors[@]} -gt 0 ]; then
+          {
+            echo "unexpected_files_output<<EOF"
+            for err in "${errors[@]}"; do
+              echo "- $err"
+            done
+            echo "EOF"
+          } >> "$GITHUB_ENV"
+          exit 1
+        fi
+        echo "All changed files are valid root-level JSON files."
+
+    - name: Get changed JSON files
+      id: changed-json-files
+      uses: tj-actions/changed-files@v45
+      with:
+        files: '*.json'
+
+    - name: Set up Python ${{ env.PYTHON_VERSION }}
+      if: steps.changed-json-files.outputs.any_changed == 'true'
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+
+    - name: Install dependencies
+      if: steps.changed-json-files.outputs.any_changed == 'true'
+      run: |
+        pip install jsonschema check-jsonschema
+
+    - name: Validate JSON files against schema
+      id: validate-schema
+      if: steps.changed-json-files.outputs.any_changed == 'true'
+      continue-on-error: true
+      env:
+        ALL_CHANGED_FILES: ${{ steps.changed-json-files.outputs.all_changed_files }}
+      run: |
+        {
+          echo "schema_output<<EOF"
+          for filename in ${ALL_CHANGED_FILES}; do
+            echo "Checking schema for $filename"
+            check-jsonschema --schemafile template.schema "$filename" 2>&1 || true
+          done
+          echo "EOF"
+        } >> "$GITHUB_ENV"
+        schema_error=0
+        for filename in ${ALL_CHANGED_FILES}; do
+          if ! check-jsonschema --schemafile template.schema "$filename" 2>/dev/null; then
+            schema_error=1
+          fi
+        done
+        echo "schema_error=$schema_error" >> "$GITHUB_OUTPUT"
+        [ "$schema_error" -eq 0 ] || exit 1
+
+    - name: Validate JSON filenames
+      id: validate-filenames
+      if: steps.changed-json-files.outputs.any_changed == 'true'
+      continue-on-error: true
+      env:
+        ALL_CHANGED_FILES: ${{ steps.changed-json-files.outputs.all_changed_files }}
+      run: |
+        python -c "
+        import json, os, sys
+        files = os.environ['ALL_CHANGED_FILES'].split()
+        errors = []
+        for file_to_check in files:
+            with open(file_to_check) as f:
+                template_json = json.load(f)
+            expected_filename = '{}.{}.json'.format(
+                template_json['providerId'].lower(),
+                template_json['serviceId'].lower()
+            )
+            if expected_filename != file_to_check:
+                errors.append('- \`{}\` does not match pattern. Expected \`{}\`'.format(
+                    file_to_check, expected_filename))
+        if errors:
+            print('\n'.join(errors))
+            sys.exit(1)
+        " 2>&1 | tee /tmp/filename_check_output.txt
+        exit_code=${PIPESTATUS[0]}
+        {
+          echo "filename_output<<EOF"
+          cat /tmp/filename_check_output.txt
+          echo "EOF"
+        } >> "$GITHUB_ENV"
+        exit $exit_code
+
+    - name: Comment PR - filename/unexpected files failed
+      if: >
+        github.event_name == 'pull_request_target' &&
+        (steps.check-unexpected-files.outcome == 'failure' ||
+         steps.validate-filenames.outcome == 'failure')
+      uses: thollander/actions-comment-pull-request@v2
+      with:
+        message: |
+          ❌  **JSON Filename Check Failed**
+
+          ${{ env.unexpected_files_output }}${{ env.filename_output }}
+        comment_tag: json_filename_check
+        mode: upsert
+
+    - name: Comment PR - filename/unexpected files passed
+      if: >
+        github.event_name == 'pull_request_target' &&
+        steps.check-unexpected-files.outcome != 'failure' &&
+        steps.validate-filenames.outcome != 'failure'
+      uses: thollander/actions-comment-pull-request@v2
+      with:
+        message: "✅  **JSON Filename Check Passed**"
+        comment_tag: json_filename_check
+        mode: upsert
+
+    - name: Label PR - add filename-error / remove on fix
+      if: always() && github.event_name == 'pull_request_target'
+      env:
+        GH_TOKEN: ${{ github.token }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        REPO: ${{ github.repository }}
+        FILENAME_FAILED: ${{ steps.check-unexpected-files.outcome == 'failure' || steps.validate-filenames.outcome == 'failure' }}
+      run: |
+        if [ "$FILENAME_FAILED" = "true" ]; then
+          gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "filename-error"
+        else
+          gh pr edit "$PR_NUMBER" --repo "$REPO" --remove-label "filename-error" 2>/dev/null || true
+        fi
+
+    - name: Comment PR - schema validation failed
+      if: >
+        github.event_name == 'pull_request_target' &&
+        steps.validate-schema.outcome == 'failure'
+      uses: thollander/actions-comment-pull-request@v2
+      with:
+        message: |
+          ❌  **JSON Schema Validation Failed**
+
+          <details><summary>Details</summary>
+
+          ```
+          ${{ env.schema_output }}
+          ```
+
+          </details>
+        comment_tag: json_schema_check
+        mode: upsert
+
+    - name: Comment PR - schema validation passed
+      if: >
+        github.event_name == 'pull_request_target' &&
+        steps.validate-schema.outcome != 'failure'
+      uses: thollander/actions-comment-pull-request@v2
+      with:
+        message: "✅  **JSON Schema Validation Passed**"
+        comment_tag: json_schema_check
+        mode: upsert
+
+    - name: Label PR - add schema-error / remove on fix
+      if: always() && github.event_name == 'pull_request_target'
+      env:
+        GH_TOKEN: ${{ github.token }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        REPO: ${{ github.repository }}
+        SCHEMA_FAILED: ${{ steps.validate-schema.outcome == 'failure' }}
+      run: |
+        if [ "$SCHEMA_FAILED" = "true" ]; then
+          gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "schema-error"
+        else
+          gh pr edit "$PR_NUMBER" --repo "$REPO" --remove-label "schema-error" 2>/dev/null || true
+        fi
+
+    - name: Fail job if any check failed
+      if: >
+        steps.check-unexpected-files.outcome == 'failure' ||
+        steps.validate-schema.outcome == 'failure' ||
+        steps.validate-filenames.outcome == 'failure'
+      run: exit 1

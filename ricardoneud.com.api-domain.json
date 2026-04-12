@@ -1,0 +1,19 @@
+{
+  "providerId": "ricardoneud.com",
+  "providerName": "Ricardoneud.com",
+  "serviceId": "api-domain",
+  "serviceName": "API Subdomain",
+  "version": 1,
+  "logoUrl": "https://ricardoneud.com/logo.svg",
+  "description": "Configures a subdomain for use with API service",
+  "syncPubKeyDomain": "ricardoneud.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "api.zone-bind.com",
+      "ttl": 3600
+    }
+  ]
+}

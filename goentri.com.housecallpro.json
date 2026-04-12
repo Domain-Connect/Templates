@@ -1,0 +1,49 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "housecallpro",
+  "serviceName": "Housecallpro",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription":"cnamePointsto is the value for the CNAME, ipPointsto1 and ipPointsto2 is the IP",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipPointsto%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cnamePointsto%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+     {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipPointsto2%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "target": "%target%",
+      "host": "@",
+      "groupId": "a2"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cnamePointsto%",
+      "groupId": "a2",
+      "ttl": 3600
+    }
+  ]
+}

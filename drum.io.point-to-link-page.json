@@ -1,0 +1,31 @@
+{
+  "providerId": "drum.io",
+  "providerName": "Drum",
+  "serviceId": "point-to-link-page",
+  "serviceName": "Link Page",
+  "version": 2,
+  "logoUrl": "https://drum-prod-assets.s3.amazonaws.com/public/images/drummer-logo-new.png",
+  "description": "Enables a domain to work with Drum",
+  "variableDescription": "IP - ip address of Drum Link Page for the A record",
+  "syncRedirectDomain": "drum.io,hjh0y.app.link,hjh0y-alternate.app.link,link.drum.io,ttb89-alternate.app.link,share.drum.io,share.stg.drum.io",
+  "syncPubKeyDomain": "drum.io",
+  "hostRequired": false,
+  "shared": true,
+  "sharedProviderName": true,
+  "records": [
+    {
+      "groupId": "pointToLinkPage",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 600
+    },
+    {
+      "groupId": "pointToLinkPage",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 600
+    }
+  ]
+}

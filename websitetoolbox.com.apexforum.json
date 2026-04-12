@@ -1,0 +1,36 @@
+{
+  "providerId":"websitetoolbox.com",
+  "providerName":"Website Toolbox",
+  "serviceId":"apexforum",
+  "serviceName":"Website Toolbox Forum",
+  "version": 2,
+  "logoUrl":"https://cdn.websitetoolbox.com/images/logos/wt_logo_transparent.png",
+  "description":"Enables the root of a domain to work with Website Toolbox.",
+  "syncRedirectDomain": "websitetoolbox.com, www.websitetoolbox.com, beta.websitetoolbox.com",
+  "variableDescription":"",
+  "records":[
+    {
+      "type":"A",
+      "host": "@",
+      "pointsTo":"107.21.35.214",
+      "ttl":3600
+    },
+    {
+      "type":"CNAME",
+      "host":"www",
+      "pointsTo":"custom.websitetoolbox.com",
+      "ttl":3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a:mailers.websitetoolbox.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "websitetoolbox._domainkey",
+      "pointsTo": "websitetoolbox._domainkey.websitetoolbox.com",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "eventcreate",
+    "serviceName": "EventCreate",
+    "version": 2,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com, app.goentri.com",
+    "variableDescription": "returreturnPathHost is the dynamic host value assigned for the return path, dkimHost is the variable dkim host assigned to the user",
+    "sharedProviderName": true,
+    "records": [
+        {
+            "groupId": "a1",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "domainsecure.eventcreate.com",
+            "ttl": 3600
+        },
+        {
+          "groupId": "a1",
+          "type": "REDIR301",
+          "target": "%target%",
+          "host": "@"
+        },
+        {
+            "groupId": "a2",
+            "type": "CNAME",
+            "host": "%returnPathHost%",
+            "pointsTo": "%returnPathPointsTo%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "a2",
+            "type": "TXT",
+            "host": "%dkimHost%",
+            "data": "%dkimValue%",
+            "ttl": 3600
+        },
+        {
+          "groupId": "a2",
+          "type": "REDIR301",
+          "target": "%target%",
+          "host": "@"
+        },
+        {
+            "groupId": "a3",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "domainsecure.eventcreate.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "a3",
+            "type": "CNAME",
+            "host": "%returnPathHost%",
+            "pointsTo": "%returnPathPointsTo%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "a3",
+            "type": "TXT",
+            "host": "%dkimHost%",
+            "data": "%dkimValue%",
+            "ttl": 3600
+        },
+        {
+          "groupId": "a3",
+          "type": "REDIR301",
+          "target": "%target%",
+          "host": "@"
+        }       
+    ]
+}
+

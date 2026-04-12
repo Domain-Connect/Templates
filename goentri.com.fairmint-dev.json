@@ -1,0 +1,45 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "fairmint-dev",
+    "serviceName": "Fairmint",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "variableDescription": "Its only for tests, webSitePointsTo1, webSitePointsTo2, webSitePointsTo3, webSitePointsTo4 and webSitePointsTo5 is to where the website ins pointed to and CnameHost1, CnameHost2,CnameHost3, CnameHost4, CnameHost5 is the host for each CNAME",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "sharedProviderName": true,
+    "records": [
+    {
+      "type": "CNAME",
+      "host": "%CnameHost1%",
+      "pointsTo": "%webSitePointsTo1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%CnameHost2%",
+      "pointsTo": "%webSitePointsTo2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%CnameHost3%",
+      "pointsTo": "%webSitePointsTo3%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%CnameHost4%",
+      "pointsTo": "%webSitePointsTo4%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%CnameHost5%",
+      "pointsTo": "%webSitePointsTo5%",
+      "ttl": 3600
+    }
+    ]
+}

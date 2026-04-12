@@ -1,0 +1,51 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "webflow",
+  "serviceName": "Webflow",
+  "version": 3,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up dkim record using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "primaryIp and primaryIp2 are the IP, cnamePointsTo is the URL to where the subdomain is pointed ",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%primaryIp%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%primaryIp2%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%proxySslUrl%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%txt%",
+      "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "%proxySslUrl%",
+      "groupId": "a3",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{  
+   "providerId":"id4me.org",
+   "shared": true,
+   "sharedProviderName": true,
+   "warnPhishing": true,    
+   "providerName":"ID4me Identity Agent",
+   "serviceId":"activation",
+   "serviceName":"Identity Registration",
+   "version": 1,
+   "logoUrl":"https://id4me.org/wp-content/uploads/2018/03/ID4me_logo_2c_pos_rgb.png",
+   "description":"ID4me activation template",
+   "variableDescription":"OPENID is the discovery record. ACME is the ACME challenge record.",
+   "records":[  
+      {  
+         "type":"TXT",
+         "host":"_openid",
+         "data":"%OPENID%",
+         "ttl":3600
+      },
+      {  
+         "type":"TXT",
+         "host":"_acme-challenge",
+         "data":"%ACME%",
+         "ttl":3600,
+         "essential":"OnApply"
+      }
+   ]
+}

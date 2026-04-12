@@ -1,0 +1,31 @@
+{
+  "providerId":"sendgrid.com",
+  "providerName":"Twilio SendGrid",
+  "serviceId":"domain-auth-manual",
+  "serviceName":"Twilio SendGrid Domain Authentication (Manual)",
+  "version": 1,
+  "logoUrl":"https://sendgrid.com/brand/sg-twilio/SG_Twilio_Lockup_RGBx1.png",
+  "syncPubKeyDomain": "domainconnect.sendgrid.net",
+  "syncRedirectDomain": "sendgrid.com",
+  "records":[
+    {
+      "type": "MX",
+      "host": "%SUBDOMAIN%.%domain%.",
+      "pointsTo": "mx.sendgrid.net.",
+      "priority": 20,
+      "ttl": 1800
+    },
+    {
+      "type": "TXT",
+      "host": "%SUBDOMAIN%.%domain%.",
+      "data": "%DATA%",
+      "ttl": 1800
+    },
+    {
+      "type": "TXT",
+      "host": "%SUBDOMAIN_DKIM%.%domain%.",
+      "data": "%DKIM%",
+      "ttl": 1800
+    }
+  ]
+}

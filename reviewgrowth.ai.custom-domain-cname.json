@@ -1,0 +1,20 @@
+{
+  "providerId": "reviewgrowth.ai",
+  "providerName": "ReviewGrowth",
+  "serviceId": "custom-domain-cname",
+  "serviceName": "ReviewGrowth Custom Domain",
+  "version": 1,
+  "logoUrl": "https://reviewgrowth.ai/logo.png",
+  "description": "Configure CNAME record for ReviewGrowth custom review pages",
+  "syncPubKeyDomain": "dns.reviewgrowth.ai",
+  "syncRedirectDomain": "reviewgrowth.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "widget.reviewgrowth.ai",
+      "ttl": 3600
+    }
+  ]
+}

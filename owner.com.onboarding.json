@@ -1,0 +1,26 @@
+{
+  "providerId": "owner.com",
+  "providerName": "Owner.com",
+  "serviceId": "onboarding",
+  "serviceName": "Onboarding",
+  "version": 1,
+  "logoUrl": "https://assets-global.website-files.com/63355f061512f71caf6ee3de/6346e7d7059863f35873ea35_owner-logo.svg",
+  "description": "Allows user to easily point their domain to their Owner.com site",
+  "syncPubKeyDomain": "owner.com",
+  "syncRedirectDomain": "owner.com, dashboard.owner.com, generate.owner.com, dev-dashboard.owner.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "ordersave.com",
+      "ttl": 60
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "ordersave.com",
+      "ttl": 60
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+   "providerId":"aweber.com",
+   "providerName":"AWeber",
+   "serviceId":"email-web",
+   "serviceName":"Email Authentication and Landing Pages",
+   "version": 3,
+   "syncRedirectDomain": "aweber.com, optin.com",
+   "syncPubKeyDomain": "optin.com",
+   "logoUrl":"https://assets.aweber-static.com/page-templates/assets/img/powered_by.png",
+   "description":"Configure AWeber's DKIM records to improve sender reputation and deliverability. Connect AWeber landing pages to your domain",
+   "records":[
+      {
+         "groupId": "email-aweber",
+         "type": "CNAME",
+         "host":"aweber_key_a._domainkey",
+         "pointsTo": "aweber_key_a.send.aweber.com.",
+         "ttl": 3600
+       },
+       {
+         "groupId": "email-aweber",
+         "type": "CNAME",
+         "host": "aweber_key_b._domainkey",
+         "pointsTo": "aweber_key_b.send.aweber.com.",
+         "ttl": 3600
+       },
+       {
+         "groupId": "email-aweber",
+         "type": "CNAME",
+         "host": "aweber_key_c._domainkey",
+         "pointsTo": "aweber_key_c.send.aweber.com.",
+         "ttl": 3600
+       },
+      {
+         "groupId": "email-optin",
+         "type": "CNAME",
+         "host":"k1._domainkey",
+         "pointsTo": "k1.optin.com.",
+         "ttl": 3600
+       },
+       {
+         "groupId": "email-optin",
+         "type": "CNAME",
+         "host": "k2._domainkey",
+         "pointsTo": "k2.optin.com.",
+         "ttl": 3600
+       },
+       {
+         "groupId": "email-optin",
+         "type": "CNAME",
+         "host": "k3._domainkey",
+         "pointsTo": "k3.optin.com.",
+         "ttl": 3600
+       },
+       {
+         "groupId": "email-dmarc",
+         "type": "TXT",
+         "host": "_dmarc",
+         "data": "%dmarc%",
+         "ttl": 3600
+       },
+       {
+         "groupId": "web",
+         "type": "A",
+         "host": "@",
+         "pointsTo": "204.194.222.116",
+         "ttl": 3600
+       },
+       {
+         "groupId": "web",
+         "type": "CNAME",
+         "host": "www",
+         "pointsTo": "hosted-content.aweber.com.",
+         "ttl": 3600
+       }
+   ]
+}

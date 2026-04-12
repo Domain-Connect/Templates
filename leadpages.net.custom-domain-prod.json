@@ -1,0 +1,21 @@
+{
+  "providerId": "leadpages.net",
+  "providerName": "Leadpages",
+  "serviceId": "custom-domain-prod",
+  "serviceName": "Leadpages Custom Domain",
+  "version": 3,
+  "logoUrl": "https://my.leadpages.net/static/current/img/logos/logo_icon.svg",
+  "description": "Enables a domain to work with Leadpages",
+  "syncRedirectDomain": "my.leadpages.net, my.leadpages.com,api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "HOST: The subdomain for the domain.",
+  "syncPubKeyDomain":"leadpages.net",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom-proxy.leadpages.net",
+      "ttl": 600
+    }
+  ]
+}

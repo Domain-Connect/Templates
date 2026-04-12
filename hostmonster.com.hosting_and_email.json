@@ -1,0 +1,184 @@
+{
+  "providerId": "hostmonster.com",
+  "providerName": "Hostmonster",
+  "serviceId": "hosting_and_email",
+  "serviceName": "Hosting and Mail",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.bluehost.com",
+  "syncRedirectDomain": "my.hostmonster.com",
+  "logoUrl": "https://hostmonster-cdn.com/media/app/hostmonster/live/static/media/src/common/assets/images/brand/hm/logo.svg",
+  "description": "Enables a domain to work with Hostmonster hosting and email",
+  "variableDescription": "ip is the IP address of the server, and box is the hostname of the server.",
+  "records": [
+    {
+      "pointsTo": "%ip%",
+      "type": "A",
+      "host": "@",
+      "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "%ip%",
+      "type": "A",
+      "host": "whm",
+      "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "%ip%",
+      "type": "A",
+      "host": "mail",
+      "essential": "OnApply",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "%ip%",
+      "type": "A",
+      "host": "cpcalendars",
+      "essential": "OnApply",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "@",
+      "type": "CNAME",
+      "host": "www",
+      "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "@",
+      "type": "CNAME",
+      "host": "ftp",
+      "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "@",
+      "type": "CNAME",
+      "host": "cpanel",
+      "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "@",
+      "type": "CNAME",
+      "host": "webmail",
+      "essential": "OnApply",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "mail.%domain%",
+      "type": "CNAME",
+      "host": "imap",
+      "essential": "OnApply",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "mail.%domain%",
+      "type": "MX",
+      "host": "@",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0
+    },
+    {
+      "spfRules": "a mx include:websitewelcome.com",
+      "type": "SPFM",
+      "host": "@",
+      "essential": "OnApply"
+    },
+    {
+      "data": "path=/",
+      "type": "TXT",
+      "host": "_caldav._tcp",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "data": "path=/",
+      "type": "TXT",
+      "host": "_caldavs._tcp",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "data": "path=/",
+      "type": "TXT",
+      "host": "_carddav._tcp",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "data": "path=/",
+      "type": "TXT",
+      "host": "_carddavs._tcp",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "target": "emaildiscovery.cpanel.net",
+      "type": "SRV",
+      "service": "_autodiscover",
+      "protocol": "_tcp",
+      "name": "",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0,
+      "weight": 0,
+      "port": 443
+    },
+    {
+      "target": "%box%",
+      "type": "SRV",
+      "service": "_caldav",
+      "protocol": "_tcp",
+      "name": "",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0,
+      "weight": 0,
+      "port": 2079
+    },
+    {
+      "target": "%box%",
+      "type": "SRV",
+      "service": "_carddav",
+      "protocol": "_tcp",
+      "name": "",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0,
+      "weight": 0,
+      "port": 2079
+    },
+    {
+      "target": "%box%",
+      "type": "SRV",
+      "service": "_caldavs",
+      "protocol": "_tcp",
+      "name": "",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0,
+      "weight": 0,
+      "port": 2080
+    },
+    {
+      "target": "%box%",
+      "type": "SRV",
+      "service": "_carddavs",
+      "protocol": "_tcp",
+      "name": "",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0,
+      "weight": 0,
+      "port": 2080
+    }
+  ]
+}
+

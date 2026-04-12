@@ -1,0 +1,33 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "duda",
+    "serviceName": "Duda",
+    "version": 2,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "variableDescription":"mappingValue is the value assigned to the domain, primaryIp is the primary Ip assigned to the customer, fallbackIp is the fallback ip assigned to the customer",
+    "sharedProviderName": true,
+    "records": [
+      {
+        "type": "CNAME",
+        "host": "www",
+        "pointsTo": "%mappingValue%",
+        "ttl": 3600
+      },
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "%primaryIp%",
+        "ttl": 3600
+      },
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "%fallbackIp%",
+        "ttl": 3600
+      }
+    ]
+  }

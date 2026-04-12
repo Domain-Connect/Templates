@@ -1,0 +1,25 @@
+{  
+   "providerId":"wix.com",
+   "providerName":"Wix",
+   "serviceId":"wixsites",
+   "serviceName":"Wix Websites",
+   "version": 2,
+   "syncPubKeyDomain" : "wix.com",
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/06/wix-300x103.png",
+   "description":"Enables a domain to work with Wix Websites",
+   "variableDescription":"v1 is the numeric cluster within wix for hosting the site.",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"23.236.62.147",
+         "ttl":3600
+      },
+      {  
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"www%v1%.wixdns.net",
+         "ttl":3600
+      }
+   ]
+}

@@ -1,0 +1,22 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "toast_arecord",
+  "serviceName": "Toast_arecord",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up dkim record using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+   "variableDescription": "primaryIp is Entri's IP ",
+  "sharedProviderName": true,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%primaryIp%",
+      "ttl": 3600
+    }
+  ]
+}

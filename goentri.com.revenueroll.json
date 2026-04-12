@@ -1,0 +1,21 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "revenueroll",
+    "serviceName": "Revenueroll",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up domain using Entri",
+    "variableDescription":"subdomain is subdomain of the client's main site and ipsubdomain is the IP the the subdomain is going to be ponted ",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "sharedProviderName": true,
+    "records": [
+      {
+        "type":"A",
+        "host":"%subdomain%",
+        "pointsTo":"%ipsubdomain%",
+        "ttl": 300
+      }
+    ]
+  }

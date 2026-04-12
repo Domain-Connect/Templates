@@ -1,0 +1,30 @@
+{
+  "providerId":"sendgrid.com",
+  "providerName":"Twilio SendGrid",
+  "serviceId":"domain-auth",
+  "serviceName":"Twilio SendGrid Domain Authentication",
+  "version": 1,
+  "logoUrl":"https://sendgrid.com/brand/sg-twilio/SG_Twilio_Lockup_RGBx1.png",
+  "syncPubKeyDomain": "domainconnect.sendgrid.net",
+  "syncRedirectDomain": "sendgrid.com",
+  "records":[
+    {
+      "type": "CNAME",
+      "host": "%SUBDOMAIN%.%domain%.",
+      "pointsTo": "%POINTS_TO%",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "host": "%SUBDOMAIN_DKIM1%.%domain%.",
+      "pointsTo": "%POINTS_TO_DKIM1%",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "host": "%SUBDOMAIN_DKIM2%.%domain%.",
+      "pointsTo": "%POINTS_TO_DKIM2%",
+      "ttl": 1800
+    }
+  ]
+}

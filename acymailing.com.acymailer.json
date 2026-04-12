@@ -1,0 +1,33 @@
+{
+    "providerId": "acymailing.com",
+    "providerName": "AcyMailer",
+    "serviceId": "acymailer",
+    "serviceName": "AcyMailer DKIM Authentication",
+    "version": 1,
+    "logoUrl": "https://www.acymailing.com/wp-content/uploads/2019/05/ACYMAILING_logo_mobile.png",
+    "description": "Allows user to easily set up CNAME record for AcyMailer service",
+    "syncPubKeyDomain": "acymailer.com",
+    "syncRedirectDomain": "api.acymailer.com, acymailer.com",
+    "variableDescription": "dkimhost1, dkimhost2 and dkimhost3 are the values assigned to host dkimvalue1, dkimvalue2 and dkimvalue2",
+    "sharedProviderName": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkimhost1%._domainkey",
+            "pointsTo": "%dkimvalue1%.dkim.acymailer.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkimhost2%._domainkey",
+            "pointsTo": "%dkimvalue2%.dkim.acymailer.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkimhost3%._domainkey",
+            "pointsTo": "%dkimvalue3%.dkim.acymailer.com",
+            "ttl": 3600
+        }
+    ]
+}

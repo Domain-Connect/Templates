@@ -1,0 +1,31 @@
+{
+    "providerId": "railway.com",
+    "providerName": "Railway",
+    "serviceId": "custom",
+    "serviceName": "Railway Custom Domain",
+    "version": 1,
+    "logoUrl": "https://railway.com/brand/logotype-dark.svg",
+    "description": "Connect a custom domain to a Railway application.",
+    "variableDescription": "target is the Railway CNAME endpoint. verifyHost is the TXT record host for ownership verification. verification is the verification token.",
+    "syncPubKeyDomain": "domainconnect.railway.com",
+    "syncRedirectDomain": "railway.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "groupId": "cname",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": "3600"
+        },
+        {
+            "type": "TXT",
+            "groupId": "verification",
+            "host": "%verifyHost%",
+            "ttl": "3600",
+            "data": "railway-verify=%verification%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "railway-verify="
+        }
+    ]
+}

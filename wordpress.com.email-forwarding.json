@@ -1,0 +1,23 @@
+{
+	"providerId": "WordPress.com",
+	"providerName": "WordPress.com",
+	"serviceId": "email-forwarding",
+	"serviceName": "WordPress services",
+	"version": 2,
+	"logoUrl":"https://automattic.files.wordpress.com/2005/12/wpcom-horiz.png",
+	"description":"This can be used to set up email forwarding at WordPress.com",
+	"syncBlock": false,
+	"syncPubKeyDomain": "wordpress.com",
+	"syncRedirectDomain":"wordpress.com",
+	"warnPhishing": false,
+	"records":[
+		{
+			"groupId":"email-forwarding-mx",
+			"type":"MX",
+			"host":"@",
+			"pointsTo":"smtp-fwd.wordpress.com",
+			"priority":1,
+			"ttl":3600
+		}
+	]
+}

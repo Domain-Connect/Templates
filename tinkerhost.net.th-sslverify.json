@@ -1,0 +1,20 @@
+{
+  "providerId": "tinkerhost.net",
+  "providerName": "TinkerHost",
+  "serviceId": "th-sslverify",
+  "serviceName": "TinkerHost Hosting",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.tinkerhost.net",
+  "syncRedirectDomain": "app.tinkerhost.net",
+  "logoUrl": "https://app.tinkerhost.net/assets/image/th.svg",
+  "description": "Verifies a domain name for SSL Certificates via the ACME protocol",
+  "variableDescription": "id is a unique identifier for a certificate order",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%id%.acme.sslmgmt.tinkerhost.net",
+      "ttl": 3600
+    }
+  ]
+}

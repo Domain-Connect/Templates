@@ -1,0 +1,33 @@
+{
+  "providerId": "vidual.app",
+  "providerName": "Vidual",
+  "serviceId": "email-auth",
+  "serviceName": "Vidual Email Authentication",
+  "version": 1,
+  "logoUrl": "https://vidual.app/logo.svg",
+  "description": "Configure SPF, DKIM, and MX records so Vidual can send and receive email on behalf of your domain.",
+  "variableDescription": "%dkimKey%: DKIM public key provided by Resend; %region%: AWS SES region for bounce handling (e.g. eu-west-1)",
+  "syncPubKeyDomain": "vidual.app",
+  "syncRedirectDomain": "vidual.app",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimKey%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "send",
+      "data": "v=spf1 include:amazonses.com ~all",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

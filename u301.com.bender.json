@@ -1,0 +1,20 @@
+{
+    "providerId": "u301.com",
+    "providerName": "U301 URL Shortener",
+    "serviceId": "bender",
+    "serviceName": "Bender",
+    "version": 1,
+    "syncPubKeyDomain": "u301.com",
+    "syncRedirectDomain": "u301.com",
+    "logoUrl": "https://kit.u301.com/u301-logo-v2.svg",
+    "description": "Configure domain CNAME record for U301 URL Shortener.",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%cname%.bender.u301.com",
+            "ttl": 3600
+        }
+    ]
+}

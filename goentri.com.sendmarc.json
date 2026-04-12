@@ -1,0 +1,34 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "sendmarc",
+  "serviceName": "Sendmarc",
+  "version": 3,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up dkim record using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "cnamePointsTo is the URL to where the subdomain is pointed and thirdPartyDomain is domain to add to SPF merge  ",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "groupId": "a1",
+      "pointsTo": "%cnamePointsTo%",
+      "ttl": 3600
+    },
+
+     {
+      "data": "v=spf1 redirect=%thirdPartyDomain%",
+      "host": "@",
+      "ttl": 3600,
+      "type": "TXT",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1",
+      "essential": "OnApply",
+      "groupId": "a2"
+     }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "thedtsapp.com",
+  "providerName": "TheDTSApp",
+  "serviceId": "cname-setup",
+  "serviceName": "TheDTSApp Custom Domain",
+  "version": 3,
+  "logoUrl": "https://thedtsapp.com/icons/Icon-192.png",
+  "description": "Connect your custom domain to your TheDTSApp website hosted on Cloudflare Pages",
+  "variableDescription": "CNAME record pointing your domain to TheDTSApp CDN",
+  "syncPubKeyDomain": "thedtsapp.com",
+  "syncRedirectDomain": "thedtsapp.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "thedtsapp.pages.dev",
+      "ttl": 3600
+    }
+  ]
+}

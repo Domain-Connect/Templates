@@ -1,0 +1,24 @@
+{
+    "providerId": "keyauth.com",
+    "providerName": "KeyAuth",
+    "serviceId": "panel-custom-domains",
+    "serviceName": "KeyAuth",
+    "version": 1,
+    "logoUrl": "https://cdn.keyauth.cc/v2/assets/media/logos/logo-1-dark.png",
+    "description": "Enables a domain to work with KeyAuth customer panel",
+    "syncPubKeyDomain": "keyauth.cc",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%cnamehost%",
+            "pointsTo": "panel.keyauth.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "ttl": 3600,
+            "data": "%verifytxt%"
+        }
+    ]
+}

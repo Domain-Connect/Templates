@@ -1,0 +1,32 @@
+{
+  "providerId": "redirect.pizza",
+  "providerName": "redirect.pizza",
+  "serviceId": "apex-www",
+  "serviceName": "redirect.pizza",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.redirect.pizza",
+  "logoUrl": "https://redirect.pizza/favicons/apple-touch-icon.png",
+  "description": "Redirect the apex and www of a domain to a destination using redirect.pizza.",
+  "variableDescription": "`ipv4` is the IPv4 address provided by redirect.pizza. `ipv6` is the IPv6 address provided by redirect.pizza. `cname` is the CNAME target provided by redirect.pizza.",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "%ipv6%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cname%",
+      "ttl": 3600
+    }
+  ]
+}

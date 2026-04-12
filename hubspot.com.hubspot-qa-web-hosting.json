@@ -1,0 +1,17 @@
+{
+    "providerId": "hubspot.com",
+    "providerName": "HubSpot",
+    "serviceId": "hubspot-qa-web-hosting",
+    "serviceName": "HubSpot QA Site",
+    "version": 1,
+    "logoUrl": "https://domainconnect.org/wp-content/uploads/2017/02/HubSpot-768x223.png",
+    "description": "Enables a domain to work with the HubSpot CMS",
+    "variableDescription": "DESTINATION: an account-specific subdomain.",
+    "hostRequired": true,
+    "records": [{
+        "type": "CNAME",
+        "host": "@",
+        "pointsTo": "%DESTINATION%.sites.hubspotqa.net",
+        "ttl": 600
+    }]
+}

@@ -1,0 +1,19 @@
+{  
+   "providerId": "jitbit.com",
+   "providerName":"Jitbit Helpdesk",
+   "serviceId":"helpdesk",
+   "serviceName":"Jitbit Helpdesk Support Site",
+   "version": 1,
+   "hostRequired": true,
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2017/10/jitbit.png",
+   "description":"Enables a domain to work with Jitbit Helpdesk. Only works when host is non-null.",
+   "variableDescription":"",
+   "records":[        
+      {  
+         "type":"CNAME",
+         "host":"@",
+         "pointsTo":"jitbit.com",
+         "ttl":1800
+      }
+   ]
+}

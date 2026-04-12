@@ -1,0 +1,20 @@
+{  
+   "providerId":"elementor.com",
+   "providerName":"Elementor",
+   "serviceId":"cname",
+   "serviceName":"Elementor hosting",
+   "version": 1,
+   "logoUrl":"https://elementor.com/marketing/wp-content/uploads/2021/10/Elementor-Logo-Full-Red.png",
+   "description":"Enables a domain to work with Elementor",
+   "variableDescription": "cname is the hostname of the server",
+   "syncPubKeyDomain": "domainconnect.elementor.com",
+   "hostRequired":true,
+   "records":[  
+      {  
+         "type":"CNAME",
+         "host":"@",
+         "pointsTo":"%cname%",
+         "ttl":300
+      }
+   ]
+}

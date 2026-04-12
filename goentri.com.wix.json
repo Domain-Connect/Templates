@@ -1,0 +1,46 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "wix",
+  "serviceName": "Wix",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "variableDescription": "webSitePointsto is to where the website is pointed to, CnameHost is the host for each CNAME and mappingValue is the value assigned to host, websiteHost is the IP, mxHost is the host for the email and mx is the value for the MX record",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "%websiteHost%",
+      "pointsTo": "%mappingValue%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%CnameHost%",
+      "groupId": "a1",
+      "pointsTo": "%webSitePointsTo%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "%mxHost1%",
+      "pointsTo": "%mx1%",
+      "groupId": "a2",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "%mxHost2%",
+      "pointsTo": "%mx2%",
+      "groupId": "a2",
+      "priority": 20,
+      "ttl": 3600
+    }
+  ]
+}

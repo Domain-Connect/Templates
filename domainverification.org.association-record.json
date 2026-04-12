@@ -1,0 +1,21 @@
+{
+    "providerId": "domainverification.org",
+    "providerName": "Domain Verification Protocol",
+    "serviceId": "association-record",
+    "serviceName": "Association Record",
+    "logoUrl": "https://www.domainverification.org/images/dv-logo.png",
+    "version": 1,
+    "shared": true,
+    "sharedProviderName": true,
+    "description": "Enable automatic domain verification for authorised parties. More information at https://www.domainverification.org",
+    "variableDescription": "The variable %hash% represents a base 36 encoded SHA-256 hash digest. %verificationdata% represents permissions data for authorised parties.",
+    "syncPubKeyDomain": "domainverification.org",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "%hash%._dv",
+            "data": "@dv=1;%verificationdata%",
+            "ttl": 300
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+	"providerId": "lolia.link",
+	"providerName": "LoliaFRP",
+	"serviceId": "verify-domain",
+	"serviceName": "LoliaFRP Verify Domain",
+	"version": 3,
+	"syncPubKeyDomain": "lolia.link",
+	"syncRedirectDomain": "dash.lolia.link",
+	"description": "Automatically adds a TXT record to verify domain ownership for LoliaFRP",
+	"logoUrl": "https://r2.lolia.link/public/Lolia.png",
+	"records": [
+		{
+			"type": "TXT",
+			"host": "lolia_%domain-verify-name%",
+			"ttl": 600,
+			"data": "%domain-verify-key%"
+		}
+	]
+}

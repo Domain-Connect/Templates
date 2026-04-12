@@ -1,0 +1,52 @@
+{
+  "providerId": "spinlabstudio.dev",
+  "providerName": "Spinlab",
+  "serviceId": "casino",
+  "serviceName": "Spinlab Casino Platform (Dev)",
+  "description": "Configures DNS records for hosting a white-label casino website and email sending with Spinlab (development environment).",
+  "variableDescription": "resend_dkim: DKIM public key for email authentication (provided by Resend API)",
+  "version": 1,
+  "logoUrl": "https://cdn.spinlab.studio/logo-spinlab.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "spinlabstudio.dev",
+  "syncRedirectDomain": "app.spinlabstudio.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "apex.spinlabstudio.dev",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "apex.spinlabstudio.dev",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "api",
+      "pointsTo": "apex.spinlabstudio.dev",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%resend_dkim%",
+      "ttl": 3600
+    }
+  ]
+}
