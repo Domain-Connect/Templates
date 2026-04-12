@@ -5,8 +5,8 @@
   "serviceName": "Octara Domain Verification",
   "version": 1,
   "logoUrl": "https://octara.xyz/favicon.svg",
-  "description": "Cette template permet de v\u00e9rifier la propri\u00e9t\u00e9 de votre domaine pour Octara.",
-  "variableDescription": "%txt%: Le jeton de v\u00e9rification TXT fourni par Octara.",
+  "description": "Cette template permet de vérifier la propriété de votre domaine pour Octara.",
+  "variableDescription": "verificationToken: Le jeton de vérification fourni par Octara.",
   "syncPubKeyDomain": "octara.xyz",
   "syncRedirectDomain": "octara.xyz",
   "records": [
@@ -14,7 +14,7 @@
       "type": "TXT",
       "host": "@",
       "ttl": "3600",
-      "data": "%txt%",
+      "data": "octara-verification=%verificationToken%",
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "octara-verification="
     }
