@@ -1,0 +1,50 @@
+{
+    "providerId": "sagasoft.xyz",
+    "providerName": "SagaSoft",
+    "serviceId": "email-xyz",
+    "serviceName": "SagaSoft-xyz",
+    "version": 1,
+    "syncPubKeyDomain": "sagasoft.xyz",
+    "logoUrl": "https://sagasoft.xyz/static/media/logo.b4e1e079185540b34b1f.png",
+    "description": "Configure professional email with SPF, DKIM, DMARC, and MX records",
+    "variableDescription": "SPFTXT for  SPF, DOMAINKEY is part of DKIM record, DMARCTXT for DMARC, MXTXT for MX, VERIFYTXT is the verification code for the email service",
+    "sharedProviderName": true,
+    "records": [
+        {
+            "groupId": "email",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "%SPFTXT%"
+        },
+        {
+            "groupId": "email",
+            "type": "CNAME",
+            "host": "frappemail-r._domainkey",
+            "pointsTo": "%DOMAINKEY%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "email",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "%DMARCTXT%",
+            "txtConflictMatchingMode": "All",
+            "ttl": 3600
+        },
+        {
+            "groupId": "email",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "%MXTXT%",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "@",
+            "data": "%VERIFYTXT%",
+            "ttl": 3600
+        }
+    ]
+}

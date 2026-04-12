@@ -1,0 +1,20 @@
+{
+    "providerId": "s4e.io",
+    "providerName": "S4E",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain Verification",
+    "version": 1,
+    "logoUrl": "https://static.s4e.io/web/public/img/logo/circle/white/s4e.svg",
+    "description": "Verifies domain ownership to continue scanning assets for security analysis and vulnerability detection on the S4E platform.",
+    "variableDescription": "A unique verification text is provided by S4E and should be added as a TXT record in the domain's DNS settings to complete ownership verification.",
+    "syncPubKeyDomain": "s4e.io",
+    "syncRedirectDomain": "s4e.io,app.s4e.io",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "@",
+            "data": "s4e-site-verification=%verify_text%",
+            "ttl": 3600
+        }
+    ]
+}

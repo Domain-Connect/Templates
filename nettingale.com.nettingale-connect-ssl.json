@@ -1,0 +1,27 @@
+{
+  "providerId": "nettingale.com",
+  "providerName": "Nettingale",
+  "serviceId": "nettingale-connect-ssl",
+  "serviceName": "Nettingale SSL Setup",
+  "version": 2,
+  "logoUrl": "https://nettingale.com/favicon.svg",
+  "description": "Configures DNS records for SSL certificate provisioning for Nettingale Managed WordPress Hosting.",
+  "variableDescription": "ownership_value is the Cloudflare custom hostname ownership verification token. dcv_target is the DCV delegation CNAME target for automatic SSL certificate renewal.",
+  "syncPubKeyDomain": "domainconnect.nettingale.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%dcv_target%",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "providerId":"vaultcord.com",
+  "providerName":"VaultCord",
+  "serviceName":"VaultCord",
+  "serviceId":"vaultcord-custom-domains",
+  "logoUrl":"https://cdn.vaultcord.com/logo.png",
+  "version": 1,
+  "description":"Enables a domain to work with VaultCord",
+  "syncPubKeyDomain": "vaultcord.com",
+  "records":[
+    {
+      "type": "CNAME",
+      "host": "%cnamehost%",
+      "pointsTo": "customers.vaultcord.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "%verifytxt%",
+      "ttl": 3600
+    }
+  ]
+}

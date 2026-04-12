@@ -1,0 +1,26 @@
+{  
+    "providerId":"coda.io",
+    "providerName":"Coda",
+    "serviceId":"subdomain",
+    "serviceName":"Coda Site",
+    "version": 1,
+    "syncPubKeyDomain" : "domainconnect.coda.io",
+    "logoUrl":"https://cdn.coda.io/icons/png/color/coda-192.png",
+    "hostRequired": true,
+    "description":"Allows serving Coda documents from your own domain (subdomain only)",
+    "variableDescription":"`environment` refers to the environment for Coda's custom domain server. `verification` refers to the TXT verification of doc ownership",
+    "records":[  
+       {  
+          "type":"CNAME",
+          "host":"@",
+          "pointsTo":"%environment%.coda.io",
+          "ttl":600
+       },
+       {
+           "type": "TXT",
+           "host": "_coda",
+           "data": "%verification%",
+           "ttl":600
+       }
+    ]
+ }

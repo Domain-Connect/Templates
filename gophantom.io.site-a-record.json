@@ -1,0 +1,20 @@
+{
+  "providerId": "gophantom.io",
+  "providerName": "Phantom",
+  "serviceId": "site-a-record",
+  "serviceName": "Phantom Site A records",
+  "version": 1,
+  "syncRedirectDomain": "domainconnect.gophantom.io,gophantom.io",
+  "logoUrl": "https://storage.googleapis.com/msgsndr/lki4VEKAMpGqEj4vMQnl/media/67bcb0180202315b9df96e22.png",
+  "description": "Enable domain to work with Phantom",
+  "variableDescription": "IPs: Phantom connection",
+  "syncPubKeyDomain": "gophantom.io",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP1%",
+      "ttl": 600
+    }
+  ]
+}

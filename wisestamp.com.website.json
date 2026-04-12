@@ -1,0 +1,24 @@
+{  
+   "providerId":"wisestamp.com",
+   "providerName":"WiseStamp",
+   "serviceId":"website",
+   "serviceName":"WiseStamp Website",
+   "version": 1,
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/06/wisestamp_logo-help.png",
+   "description":"Enables a domain to work with WiseStamp",
+   "variableDescription":"No variables. Static template.",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"130.211.27.66",
+         "ttl":600
+      },
+      {  
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"@",
+         "ttl":600
+      }
+   ]
+}

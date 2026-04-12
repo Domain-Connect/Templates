@@ -1,0 +1,27 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "owner",
+  "serviceName": "Owner",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to point domain to the website",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "ip is  IP address where the domains if going to be pointed",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "providerId": "pblin.net",
+  "providerName": "Public Internet",
+  "serviceId": "email",
+  "serviceName": "Public Internet Email Hosting",
+  "version": 1,
+  "syncPubKeyDomain": "pblin.net",
+  "syncRedirectDomain": "public-internet.co.uk,pblin.net",
+  "logoUrl": "https://www.public-internet.co.uk/images/site-logo-2020.svg",
+  "description": "Enables a domain to work with Public Internet email hosting",
+  "records": [{
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx01.mail.pblin.net",
+      "priority": 10,
+      "ttl": 86400
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx02.mail.pblin.net",
+      "priority": 10,
+      "ttl": 86400
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.pblin.net",
+      "ttl": 86400
+    },
+    {
+      "type": "CNAME",
+      "host": "pblin1._domainkey",
+      "pointsTo": "pblin1.dkim.mail.pblin.net",
+      "ttl": 86400
+    },
+    {
+      "type": "CNAME",
+      "host": "pblin2._domainkey",
+      "pointsTo": "pblin2.dkim.mail.pblin.net",
+      "ttl": 86400
+    },
+    {
+      "type": "SRV",
+      "service": "_autodiscover",
+      "protocol": "_tcp",
+      "name": "",
+      "target": "autodiscover.mail.pblin.net",
+      "priority": 0,
+      "weight": 0,
+      "port": 443,
+      "ttl": 86400
+    }
+  ]
+}

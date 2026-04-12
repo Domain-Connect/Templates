@@ -1,0 +1,25 @@
+{
+    "providerId": "optimizex.io",
+    "providerName": "Optimizex",
+    "serviceId": "ox-verification",
+    "serviceName": "Domain proof of ownership for configuring Optimizex services",
+    "version": 1,
+    "logoUrl": "https://app.optimizex.io/icons/logo.svg",
+    "description": "Verifies domain ownership for further configuration of Optimizex services",
+    "variableDescription": "Self explanatory in the variable names.",
+    "syncBlock": false,
+    "shared": true,
+    "sharedProviderName": true,    
+    "warnPhishing": false,
+    "syncPubKeyDomain": "optimizex.io",
+    "syncRedirectDomain": "",
+    "records": [
+      {
+        "groupId": "Verification",
+        "type": "TXT",
+        "host": "@",
+        "data": "%ox-verify-txt%",
+        "ttl": 3600
+      }
+    ]
+  }

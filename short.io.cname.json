@@ -1,0 +1,20 @@
+{
+   "providerId":"short.io",
+   "providerName":"Short.io",
+   "serviceId":"cname",
+   "serviceName":"White label link shortener",
+   "version": 2,
+   "logoUrl":"",
+   "description":"Configure ip address for the domain CNAME record.",
+   "syncBlock":false,
+   "hostRequired":true,
+   "syncPubKeyDomain":"pubkey.short.io",
+   "records":[
+      {
+         "type":"CNAME",
+         "host":"@",
+         "pointsTo":"%cname%",
+         "ttl":3600
+      }
+   ]
+}

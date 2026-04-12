@@ -1,0 +1,26 @@
+{
+  "providerId": "leadconnectorhq.com",
+  "providerName": "LeadConnector",
+  "serviceId": "site-a-cname-record",
+  "serviceName": "LeadConnector Site A and CNAME records",
+  "version": 1,
+  "syncRedirectDomain": "domainconnect.leadconnectorhq.com,leadconnectorhq.com",
+  "logoUrl": "https://assets.cdn.filesafe.space/knES3eSWYIsc5YSZ3YLl/media/6269a1de6e3f42c196dbd949.png",
+  "description": "Enable domain to work with the LeadConnector by configuring the necessary A and CNAME records.",
+  "variableDescription": "IP1: LeadConnector connection,cnameValue: Custom CNAME value”",
+  "syncPubKeyDomain": "leadconnectorhq.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP1%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cnameValue%",
+      "ttl": 3600
+    }
+  ]
+}

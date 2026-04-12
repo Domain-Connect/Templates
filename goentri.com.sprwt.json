@@ -1,0 +1,33 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "sprwt",
+  "serviceName": "Sprwt.io",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com, app.goentri.com",
+  "variableDescription": "ip is the ip to point the domain, customDomain is the subdomain to point Sprwt servers websitePointsTo. hostValue and customValue is the dynamic host value assigned to the domain",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%customDomain%",
+      "pointsTo": "%websitePointsTo%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 include:amazonses.com include:_spf.google.com ~all",
+      "ttl": 3600
+    }
+  ]
+}

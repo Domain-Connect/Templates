@@ -1,0 +1,20 @@
+{
+  "providerId": "bloffee.com",
+  "providerName": "Bloffee",
+  "serviceId": "blog",
+  "serviceName": "Bloffee Blog Platform",
+  "version": 1,
+  "logoUrl": "https://bloffee.com/bloffee-logo.png",
+  "description": "Connect your domain to Bloffee's AI blog platform",
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.bloffee.com",
+  "syncRedirectDomain": "coffee.bloffee.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

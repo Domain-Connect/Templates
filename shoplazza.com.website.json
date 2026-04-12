@@ -1,0 +1,25 @@
+{  
+   "providerId":"shoplazza.com",
+   "providerName":"Shoplazza",
+   "serviceId":"website",
+   "serviceName":"Shoplazza Site",
+   "version": 1,
+   "syncPubKeyDomain" : "dctemplate.shoplazza.com",
+   "logoUrl":"https://img.staticdj.com/51afa2c2ea96ac248dededf372226b71.svg",
+   "description":"Enables a domain to work with Shoplazza",
+   "variableDescription":"a1 is the shoplazza hosted ip and v1 is the shoplazza hosted domain name",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"%a1%",
+         "ttl":3600
+      },
+      {
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"%v1%",
+         "ttl":3600
+      }
+   ]
+}

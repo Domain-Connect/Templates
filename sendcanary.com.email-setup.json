@@ -1,0 +1,38 @@
+{
+  "providerId": "sendcanary.com",
+  "providerName": "SendCanary",
+  "serviceId": "email-setup",
+  "serviceName": "Email Security Setup (DMARC + SPF + BIMI)",
+  "version": 3,
+  "logoUrl": "https://sendcanary.com/logo.svg",
+  "description": "Configure complete email security for your domain. Sets up DMARC monitoring (via CNAME), SPF sender authorization, and BIMI brand indicator (via CNAME). SendCanary manages these records so you can enforce email authentication with one click.",
+  "variableDescription": "dmarcTarget: CNAME target for DMARC record; spfRecord: Complete SPF TXT record value; bimiTarget: CNAME target for BIMI record",
+  "syncPubKeyDomain": "sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%dmarcTarget%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spfRecord%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
+    },
+    {
+      "type": "CNAME",
+      "host": "default._bimi",
+      "pointsTo": "%bimiTarget%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

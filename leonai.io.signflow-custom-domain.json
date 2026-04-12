@@ -1,0 +1,20 @@
+{
+  "providerId": "leonai.io",
+  "providerName": "SignFlow by Leon AI",
+  "serviceId": "signflow-custom-domain",
+  "serviceName": "SignFlow Custom Domain",
+  "version": 1,
+  "logoUrl": "https://signflow.leonai.io/leonai-logo.png",
+  "description": "Configure your custom domain for SignFlow document signing links",
+  "syncPubKeyDomain": "domainconnect.leonai.io",
+  "syncRedirectDomain": "signflow.leonai.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom.leonai.io",
+      "ttl": 3600
+    }
+  ]
+}

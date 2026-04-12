@@ -1,0 +1,25 @@
+{
+  "providerId": "godaddy.com",
+  "providerName": "GoDaddy",
+  "serviceId": "dpsAws",
+  "serviceName": "Website Builder",
+  "version": 1,
+  "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2020/02/godaddy_logo_new.png",
+  "description": "Enables a domain to work with GoDaddy Website Builder",
+  "variableDescription": "v1 is the IP address of the server.",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "pointsTo": "%v1%",
+      "type": "A",
+      "host": "@",
+      "ttl": 3600
+    },
+    {
+      "pointsTo": "@",
+      "type": "CNAME",
+      "host": "www",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "providerId": "framer.dev",
+  "providerName": "Framer",
+  "serviceId": "domain",
+  "serviceName": "Custom Domain [DEV]",
+  "syncPubKeyDomain": "development.framer.com",
+  "syncRedirectDomain": "development.framer.com, api.development.framer.com, domainconnect.beta.development.framer.com, framerlocal.com, api.framerlocal.com",
+  "version": 1,
+  "logoUrl": "https://misc.framerstatic.com/domainconnect/logo.svg",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": "300"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%prefix%.framerdev.app",
+      "ttl": "300"
+    }
+  ]
+}

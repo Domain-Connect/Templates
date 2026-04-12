@@ -1,0 +1,51 @@
+{
+  "providerId": "outboundhost.com",
+  "providerName": "OutboundHost",
+  "serviceId": "mail",
+  "serviceName": "Email Service",
+  "version": 1,
+  "logoUrl": "https://outboundhost.com/logo.svg",
+  "description": "Configure DNS records for OutboundHost managed email service including MX, SPF, DKIM, and DMARC",
+  "variableDescription": "selector is the DKIM selector identifier (default: 'default'). publicKey is the DKIM public key (base64 encoded RSA public key for email authentication)",
+  "syncPubKeyDomain": "outboundhost.com",
+  "syncRedirectDomain": "outboundhost.com",
+  "shared": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.outboundhost.com",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.outboundhost.com",
+      "priority": 20,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.outboundhost.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%publicKey%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@outboundhost.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "providerId": "mail.dishis.tech",
+  "providerName": "DITMail",
+  "serviceId": "ditmail",
+  "serviceName": "DITMail Email Service",
+  "version": 1,
+  "logoUrl": "https://mail.dishis.tech/logo.svg",
+  "description": "DITMail DNS configuration for email delivery, authentication, and anti-spam protection.",
+  "variableDescription": "%domain%: customer domain, %verification_code%: unique code for domain verification, %dkim_public_key%: DKIM public key",
+  "syncPubKeyDomain": "keys.mail.dishis.tech",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "ttl": "3600",
+      "data": "ditmail-verification=%verification_code%"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.ditmail.online",
+      "ttl": "3600",
+      "priority": "10"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "ttl": "3600",
+      "spfRules": "mx include:smtp.ditmail.online"
+    },
+    {
+      "type": "TXT",
+      "host": "default._domainkey",
+      "ttl": "3600",
+      "data": "v=DKIM1; k=rsa; p=%dkim_public_key%"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": "3600",
+      "data": "v=DMARC1; p=reject; rua=mailto:dmarc@%domain%"
+    }
+  ]
+}

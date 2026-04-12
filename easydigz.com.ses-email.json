@@ -1,0 +1,51 @@
+{
+    "providerId": "easydigz.com",
+    "providerName": "EasyDigz",
+    "serviceId": "ses-email",
+    "serviceName": "Email Authentication (SES)",
+    "version": 1,
+    "logoUrl": "https://easydigz.com/assets/EasyDigz-HorizontalLogo-Black.svg",
+    "description": "Configure email authentication for your domain using AWS SES on EasyDigz platform. Sets up DKIM, SPF, DMARC, and mail routing records.",
+    "variableDescription": "dkim1Selector: DKIM selector 1; dkim1Value: DKIM value 1; dkim2Selector: DKIM selector 2; dkim2Value: DKIM value 2; dkim3Selector: DKIM selector 3; dkim3Value: DKIM value 3; mailFromSubdomain: Mail FROM subdomain; mailFromMx: Mail FROM MX server; spfValue: SPF record; dmarcValue: DMARC policy",
+    "warnPhishing": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkim1Selector%._domainkey",
+            "pointsTo": "%dkim1Value%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2Selector%._domainkey",
+            "pointsTo": "%dkim2Value%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3Selector%._domainkey",
+            "pointsTo": "%dkim3Value%",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "%mailFromSubdomain%",
+            "pointsTo": "%mailFromMx%",
+            "priority": "10",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "%mailFromSubdomain%",
+            "data": "%spfValue%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "%dmarcValue%",
+            "ttl": 3600
+        }
+    ]
+}
+

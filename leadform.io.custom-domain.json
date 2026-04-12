@@ -1,0 +1,31 @@
+{
+  "providerId": "leadform.io",
+  "providerName": "Leadform",
+  "serviceId": "custom-domain",
+  "serviceName": "Leadform Custom Domain",
+  "version": 2,
+  "logoUrl": "https://leadform.io/icon.png",
+  "description": "Connects your domain to Leadform for custom domain hosting",
+  "variableDescription": "txtValue is the domain-specific part of the Vercel verification token (e.g. example.com,abc123).",
+  "syncPubKeyDomain": "leadform.io",
+  "hostRequired": false,
+  "syncRedirectDomain": "leadform.io",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.150.1.1",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%txtValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vc-domain-verify=",
+      "essential": "Always"
+    }
+  ]
+}

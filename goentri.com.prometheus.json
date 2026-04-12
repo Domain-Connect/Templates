@@ -1,0 +1,79 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "prometheus",
+  "serviceName": "Prometheus",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com, app.goentri.com",
+  "variableDescription": "customDomain1, customDomain2, customDomain3 and customDomain4 are the subdomain to point to websitePointsTo1 websitePointsTo2, websitePointsTo3, websitePointsTo4 respectively. hostValue and customValue is the dynamic host value assigned to the domain",
+  "sharedProviderName": true,
+  "hostRequired":false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%customDomain1%",
+      "pointsTo": "%websitePointsTo1%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%customDomain2%",
+      "pointsTo": "%websitePointsTo2%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "hw",
+      "pointsTo": "%websitePointsTo3%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%hostValue%",
+      "data": "%customValue%",
+      "groupId": "a1",
+      "ttl": 3600
+    },
+      {
+      "type": "CNAME",
+      "host": "%customDomain1%",
+      "pointsTo": "%websitePointsTo1%",
+      "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%customDomain2%",
+      "pointsTo": "%websitePointsTo2%",
+      "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "hw",
+      "pointsTo": "%websitePointsTo3%",
+      "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%customDomain4%",
+      "pointsTo": "%websitePointsTo4%",
+      "groupId": "a2",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%hostValue%",
+      "data": "%customValue%",
+      "groupId": "a2",
+      "ttl": 3600
+    }
+  ]
+}

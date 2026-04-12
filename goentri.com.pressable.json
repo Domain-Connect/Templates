@@ -1,0 +1,40 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "pressable",
+  "serviceName": "Pressable",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
+  "variableDescription": "ipAdress is the IP to where the domain is pointed",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipAdress1%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipAdress2%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%ipAdress1%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%ipAdress2%",
+      "ttl": 3600
+    }
+  ]
+}

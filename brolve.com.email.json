@@ -1,0 +1,66 @@
+{
+  "providerId": "brolve.com",
+  "providerName": "Brolve",
+  "serviceId": "email",
+  "serviceName": "Brolve Email Hosting",
+  "version": 1,
+  "syncPubKeyDomain": "brolve.com",
+  "syncRedirectDomain": "brolve.com",
+  "logoUrl": "https://brolve.com/favicon.ico",
+  "description": "Enables you to create a professional email",
+  "variableDescription": "emailverification is the verification code for the email service, workspaceVerification is the verification code for workspace service",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.mxfilter.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.mxfilter.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx3.mxfilter.net",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx4.mxfilter.net",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "eu1.workspace.org",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "mail",
+      "pointsTo": "eu1.workspace.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "workspace-verification",
+      "data": "%workspaceVerification%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%emailverification%",
+      "ttl": 3600
+    }
+  ]
+}

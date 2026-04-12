@@ -1,0 +1,20 @@
+{
+    "providerId": "incidentpecker.com",
+    "providerName": "IncidentPecker",
+    "serviceId": "status-page",
+    "serviceName": "Status Page",
+    "version": 1,
+    "logoUrl": "https://app.incidentpecker.com/favicon.png",
+    "description": "Configures a subdomain for use as an IncidentPecker status page",
+    "variableDescription": "CNAME_TARGET: The Vercel DNS target for this domain (e.g. cname.vercel-dns.com).",
+    "syncPubKeyDomain": "incidentpecker.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%CNAME_TARGET%",
+            "ttl": 3600
+        }
+    ]
+}

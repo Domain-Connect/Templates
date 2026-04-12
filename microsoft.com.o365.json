@@ -1,0 +1,127 @@
+{
+  "providerId": "microsoft.com",
+  "providerName": "Microsoft",
+  "serviceId": "O365",
+  "serviceName": "Microsoft 365",
+  "version": 5,
+  "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/07/microsoft-300x89.jpg",
+  "description": "Enables a domain to work with Microsoft 365 services",
+  "variableDescription": "Self explanatory in the variable names.",
+  "syncBlock": false,
+  "shared": true,
+  "sharedProviderName": true,
+  "warnPhishing": true,
+  "syncPubKeyDomain": "portal.office.com",
+  "syncRedirectDomain": "",
+  "records": [
+    {
+      "groupId": "Login",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "%LOGINHOST%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "Outlook",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%MX%",
+      "priority": 0,
+      "ttl": 3600
+    },
+    {
+      "groupId": "Outlook",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "%AUTODISCOVER%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "Outlook",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%SPFRULES%"
+    },
+    {
+      "groupId": "Skype",
+      "type": "CNAME",
+      "host": "sip",
+      "pointsTo": "%SIP%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "Skype",
+      "type": "CNAME",
+      "host": "lyncdiscover",
+      "pointsTo": "%LYNCDISCOVER%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "Skype",
+      "type": "SRV",
+      "service": "_sip",
+      "protocol": "_tls",
+      "port": 443,
+      "weight": 1,
+      "priority": 100,
+      "name": "@",
+      "target": "%SIPDIR%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "Skype",
+      "type": "SRV",
+      "service": "_sipfederationtls",
+      "protocol": "_tcp",
+      "port": 5061,
+      "weight": 1,
+      "priority": 100,
+      "name": "@",
+      "target": "%SIPFED%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "MDM",
+      "type": "CNAME",
+      "host": "enterpriseregistration",
+      "pointsTo": "%ENTREG%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "MDM",
+      "type": "CNAME",
+      "host": "enterpriseenrollment",
+      "pointsTo": "%ENTENROLL%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "Auth",
+      "type": "CNAME",
+      "host": "msoid",
+      "pointsTo": "%MSOID%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "Verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "%VERIFYTXT%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "DKIM",
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%DKIMSEL1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "DKIM",
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%DKIMSEL2%",
+      "ttl": 3600
+    }
+  ]
+}
+ 

@@ -1,0 +1,33 @@
+{
+    "providerId": "netkii.com",
+    "providerName": "Netkii",
+    "serviceId": "website",
+    "serviceName": "Netkii",
+    "version": 1,
+    "logoUrl": "https://netkii.com/logo.png",
+    "description": "Allows user to set up domain using Netkii",
+    "syncPubKeyDomain": "domainconnect.netkii.com",
+    "syncRedirectDomain": "api.netkii.com, netkii.com, app.netkii.com",
+    "variableDescription":"mappingValue is the value assigned to the domain, primaryIp and fallbackIp is assigned to the customer",
+    "sharedProviderName": true,
+    "records": [
+      {
+        "type": "CNAME",
+        "host": "www",
+        "pointsTo": "%mappingValue%",
+        "ttl": 3600
+      },
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "%primaryIp%",
+        "ttl": 3600
+      },
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "%fallbackIp%",
+        "ttl": 3600
+      }
+    ]
+  }

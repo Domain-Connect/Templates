@@ -1,0 +1,57 @@
+{
+  "providerId": "mail.pohjoistech.fi",
+  "providerName": "PohjoisMail",
+  "serviceId": "email",
+  "serviceName": "Mail",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.pohjoistech.fi",
+  "syncRedirectDomain": "mail.pohjoistech.fi",
+  "logoUrl": "https://r2.pohjoistech.fi/logo.png",
+  "description": "Enables a domain to work with PohjoisMail, a mail service offered by Pohjoistech.",
+  "variableDescription": "ip is the IP address of the server, and key is the DKIM public key.",
+  "records": [
+    {
+      "pointsTo": "%ip%",
+      "type": "A",
+      "host": "pohjoismail",
+      "essential": "OnApply",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "pohjoismail.%fqdn%",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "essential": "OnApply",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "mailsrv.pohjoistech.fi",
+      "type": "MX",
+      "host": "@",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 10
+    },
+    {
+      "spfRules": "a mx ip4:193.108.130.22 include:relay.mailchannels.net ip6:2605:6400:3:fed5:1000:201:0:2",
+      "type": "SPFM",
+      "host": "@",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%domain%; ruf=mailto:dmarc-forensics@%domain%; sp=reject; fo=1; adkim=s; aspf=s",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "All",
+      "ttl": 14400
+    },
+    {
+      "type": "TXT",
+      "host": "x._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%key%",
+      "essential": "OnApply",
+      "ttl": 14400
+    }
+  ]
+}

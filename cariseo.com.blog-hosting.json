@@ -1,0 +1,18 @@
+{
+  "providerId": "cariseo.com",
+  "providerName": "CariSEO",
+  "serviceId": "blog-hosting",
+  "serviceName": "CariSEO Blog Hosting",
+  "version": 1,
+  "description": "Connect your blog subdomain to CariSEO for AI-powered SEO content hosting",
+  "syncPubKeyDomain": "cariseo.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "app.cariseo.com",
+      "ttl": 3600
+    }
+  ]
+}

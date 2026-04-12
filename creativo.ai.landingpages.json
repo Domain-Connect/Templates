@@ -1,0 +1,19 @@
+{
+  "providerId": "creativo.ai",
+  "providerName": "Creativo AI",
+  "serviceId": "landingpages",
+  "serviceName": "Creativo Landing Pages",
+  "version": 1,
+  "logoUrl": "https://storage.googleapis.com/creativo-bf5c8.appspot.com/static/creativo-logo.png",
+  "description": "Map your custom domain (e.g. subdomain.example.com) to a page in Creativo platform.",
+  "syncPubKeyDomain": "connect.well-known.creativo.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "pages.marketing.creativo.ai",
+      "ttl": 3600
+    }
+  ]
+}

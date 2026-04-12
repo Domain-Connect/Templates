@@ -1,0 +1,30 @@
+{
+  "providerId": "framer.com",
+  "providerName": "Framer",
+  "serviceId": "domain",
+  "serviceName": "Custom Domain",
+  "syncPubKeyDomain": "framer.com",
+  "syncRedirectDomain": "framer.com, api.framer.com",
+  "version": 1,
+  "logoUrl": "https://misc.framerstatic.com/domainconnect/logo.svg",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": "300"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%prefix%.framer.app",
+      "ttl": "300"
+    }
+  ]
+}

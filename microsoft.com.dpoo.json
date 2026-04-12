@@ -1,0 +1,26 @@
+{
+  "providerId": "microsoft.com",
+  "providerName": "Microsoft",
+  "serviceId": "DPOO",
+  "serviceName": "Domain proof of ownership for configuring Microsoft services",
+  "version": 1,
+  "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/07/microsoft-300x89.jpg",
+  "description": "Verifies domain ownership for further configuration of Microsoft services",
+  "variableDescription": "Self explanatory in the variable names.",
+  "syncBlock": false,
+  "shared": true,
+  "sharedProviderName": true,    
+  "warnPhishing": false,
+  "syncPubKeyDomain": "portal.office.com",
+  "syncRedirectDomain": "",
+  "records": [
+    {
+      "groupId": "Verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "%VERIFYTXT%",
+      "ttl": 3600
+    }
+  ]
+}
+

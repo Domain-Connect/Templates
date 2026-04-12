@@ -1,0 +1,137 @@
+{
+  "providerId": "fastdomain.com",
+  "providerName": "Fastdomain",
+  "serviceId": "hosting",
+  "serviceName": "hosting",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.bluehost.com",
+  "syncRedirectDomain": "my.fastdomain.com",
+  "logoUrl": "https://fastdomain-cdn.com/media/app/fastdomain/live/static/media/src/common/assets/images/brand/fd/logo.png",
+  "description": "Enables a domain to work with Fastdomain hosting",
+  "variableDescription": "ip is the IP address of the server, and box is the hostname of the server.",
+  "records": [
+    {
+      "pointsTo": "%ip%",
+      "type": "A",
+      "host": "@",
+      "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "%ip%",
+      "type": "A",
+      "host": "whm",
+      "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "%ip%",
+      "type": "A",
+      "host": "cpcalendars",
+      "essential": "OnApply",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "@",
+      "type": "CNAME",
+      "host": "www",
+      "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "@",
+      "type": "CNAME",
+      "host": "ftp",
+      "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "pointsTo": "@",
+      "type": "CNAME",
+      "host": "cpanel",
+      "essential": "Always",
+      "ttl": 14400
+    },
+    {
+      "data": "path=/",
+      "type": "TXT",
+      "host": "_caldav._tcp",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "data": "path=/",
+      "type": "TXT",
+      "host": "_caldavs._tcp",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "data": "path=/",
+      "type": "TXT",
+      "host": "_carddav._tcp",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "data": "path=/",
+      "type": "TXT",
+      "host": "_carddavs._tcp",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "target": "%box%",
+      "type": "SRV",
+      "service": "_caldav",
+      "protocol": "_tcp",
+      "name": "",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0,
+      "weight": 0,
+      "port": 2079
+    },
+    {
+      "target": "%box%",
+      "type": "SRV",
+      "service": "_carddav",
+      "protocol": "_tcp",
+      "name": "",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0,
+      "weight": 0,
+      "port": 2079
+    },
+    {
+      "target": "%box%",
+      "type": "SRV",
+      "service": "_caldavs",
+      "protocol": "_tcp",
+      "name": "",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0,
+      "weight": 0,
+      "port": 2080
+    },
+    {
+      "target": "%box%",
+      "type": "SRV",
+      "service": "_carddavs",
+      "protocol": "_tcp",
+      "name": "",
+      "essential": "OnApply",
+      "ttl": 14400,
+      "priority": 0,
+      "weight": 0,
+      "port": 2080
+    }
+  ]
+}
+

@@ -1,0 +1,18 @@
+{  
+    "providerId":"approximated.app",
+    "providerName":"Approximated",
+    "serviceId":"arecord",
+    "serviceName":"A Record",
+    "version": 1,
+    "syncPubKeyDomain" : "domainconnect.approximated.app",
+    "description":"Connect a domain or subdomain by an A record to a dynamic IP address.",
+    "variableDescription":"`ipAddress` refers to the IP address provided by the user.",
+    "records":[  
+       {  
+          "type":"A",
+          "host":"@",
+          "pointsTo":"%ipAddress%",
+          "ttl":3600
+       }
+    ]
+ }

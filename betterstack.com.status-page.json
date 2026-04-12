@@ -1,0 +1,19 @@
+{
+    "providerId": "betterstack.com",
+    "providerName": "Better Stack",
+    "serviceId": "status-page",
+    "serviceName": "Status page",
+    "version": 1,
+    "logoUrl": "https://betterstack.com/static/images/better-stack-logo.png",
+    "description": "Configures a sub-domain for use as a Better Stack status page",
+    "syncPubKeyDomain": "betterstack.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "statuspage.betteruptime.com",
+            "ttl": 3600
+        }
+    ]
+}

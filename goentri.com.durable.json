@@ -1,0 +1,51 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "durable",
+  "serviceName": "Durable",
+  "version": 2,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up dkim record using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "dkimHost is dkim host and dkimValue is dkim value, mappingValue is to where the CNAME is pointed, primaryIp is the IP",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+     "groupId": "a1",
+      "type": "TXT",
+      "host": "%dkimHost%",
+      "data": "%dkimValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a1",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%mappingValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a1",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%primaryIp%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a2",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%mappingValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a2",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%primaryIp%",
+      "ttl": 3600
+    }
+  ]
+}

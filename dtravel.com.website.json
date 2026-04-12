@@ -1,0 +1,31 @@
+{  
+   "providerId":"dtravel.com",
+   "providerName":"Dtravel",
+   "serviceId":"website",
+   "serviceName":"Dtravel Websites",
+   "syncRedirectDomain":"dtravel.com",
+   "version": 1,
+   "logoUrl": "https://static.dtravel.com/dtravel-direct/logo/logo.dtravel.svg",
+   "description":"Enables a domain to work with Dtravel",
+   "variableDescription":"verify is the verification value for the site",
+   "records":[  
+      {  
+         "type":"A",
+         "host":"@",
+         "pointsTo":"3.0.166.119",
+         "ttl": 600
+      },
+      {  
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"connect.dtravel.com",
+         "ttl":600
+      },
+      {
+         "type":"TXT",
+         "host": "dtravel_verification",
+         "data": "%verify%",
+         "ttl":600
+      }
+   ]
+}

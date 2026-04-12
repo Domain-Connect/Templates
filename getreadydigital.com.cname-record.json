@@ -1,0 +1,22 @@
+{
+  "providerId": "getreadydigital.com",
+  "providerName": "GetReadyDigital",
+  "serviceId": "cname-record",
+  "serviceName": "GetReadyDigital Cname records",
+  "syncRedirectDomain": "domainconnect.getreadydigital.com,getreadydigital.com",
+  "version": 1,
+  "logoUrl": "https://getreadydigital.com/wp-content/uploads/2023/04/cropped-GR-Logo-Favicon-192x192.png",
+  "description": "Enable root domain to work with the GetReadyDigital",
+  "variableDescription": "CNAMEs: GetReadyDigital connection",
+  "syncPubKeyDomain": "getreadydigital.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "cname",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameValue%",
+      "ttl": 3600
+    }
+  ]
+}

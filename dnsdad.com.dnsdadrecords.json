@@ -1,0 +1,38 @@
+{
+    "providerId": "dnsdad.com",
+    "providerName": "dnsdad.com",
+    "serviceId": "dnsdadrecords",
+    "serviceName": "Dnsdad Records",
+    "version": 3,
+    "logoUrl": "https://dnsdad.com/static/images/mini-logo.svg",
+    "description": "Configure DNS records using DNSDAD",
+    "variableDescription": "IP address for the domain A, CNAME. Domain for TXT",
+    "syncPubKeyDomain":"dnsdad.com",
+    "syncRedirectDomain": "dnsdad.com, api.dnsdad.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ipAdress%",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ipAdress2%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%cnamehost%",
+            "pointsTo": "%domain%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "@",
+            "ttl": 3600,
+            "data": "%txt%"
+        }
+    ]
+}

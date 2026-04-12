@@ -1,0 +1,67 @@
+{
+	"providerId":"WordPress.com",
+	"providerName":"WordPress.com",
+	"serviceId":"wordpress-services",
+	"serviceName":"G-Suite",
+	"version": 2,
+	"logoUrl":"https://automattic.files.wordpress.com/2005/12/wpcom-horiz.png",
+	"description":"This can be used to set up G-Suite at WordPress.com",
+	"syncBlock":true,
+	"syncPubKeyDomain": "wordpress.com",
+	"records":[
+		{
+			"groupId":"g-suite-verification",
+			"type":"TXT",
+			"host":"@",
+			"data":"%g-suite-token%",
+			"ttl":3600
+		},
+		{
+			"groupId":"g-suite-spf",
+			"type":"TXT",
+			"host":"@",
+			"data":"v=spf1 include:_spf.google.com ~all",
+			"ttl":3600
+		},
+		{
+			"groupId":"g-suite-mx",
+			"type":"MX",
+			"host":"@",
+			"pointsTo":"ASPMX.L.GOOGLE.COM",
+			"priority":1,
+			"ttl":3600
+		},
+		{
+			"groupId":"g-suite-mx",
+			"type":"MX",
+			"host":"@",
+			"pointsTo":"ALT1.ASPMX.L.GOOGLE.COM",
+			"priority":5,
+			"ttl":3600
+		},
+		{
+			"groupId":"g-suite-mx",
+			"type":"MX",
+			"host":"@",
+			"pointsTo":"ALT2.ASPMX.L.GOOGLE.COM",
+			"priority":5,
+			"ttl":3600
+		},
+		{
+			"groupId":"g-suite-mx",
+			"type":"MX",
+			"host":"@",
+			"pointsTo":"ALT3.ASPMX.L.GOOGLE.COM",
+			"priority":10,
+			"ttl":3600
+		},
+		{
+			"groupId":"g-suite-mx",
+			"type":"MX",
+			"host":"@",
+			"pointsTo":"ALT4.ASPMX.L.GOOGLE.COM",
+			"priority":10,
+			"ttl":3600
+		}
+	]
+}

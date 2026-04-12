@@ -1,0 +1,18 @@
+{
+  "providerId": "closehack.dev",
+  "providerName": "CloseHack",
+  "serviceId": "website",
+  "serviceName": "CloseHack Site",
+  "version": 1,
+  "syncPubKeyDomain": "closehack.dev",
+  "logoUrl": "https://studio.closehack.com/closehack-domain-connect.png",
+  "description": "Connects a domain to a CloseHack website",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "149.248.197.11",
+      "ttl": 3600
+    }
+  ]
+}

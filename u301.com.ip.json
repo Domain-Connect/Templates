@@ -1,0 +1,25 @@
+{
+    "providerId": "u301.com",
+    "providerName": "U301 URL Shortener",
+    "serviceId": "ip",
+    "serviceName": "ip",
+    "version": 1,
+    "syncPubKeyDomain": "u301.com",
+    "syncRedirectDomain": "u301.com",
+    "logoUrl": "https://kit.u301.com/u301-logo-v2.svg",
+    "description": "Configure domain A record for U301 URL Shortener.",
+    "records": [
+        {
+           "type":"A",
+           "host":"@",
+           "pointsTo":"%ip%",
+           "ttl":3600
+        },
+        {
+           "type":"A",
+           "host":"@",
+           "pointsTo":"%fallbackip%",
+           "ttl":3600
+        }
+    ]
+}

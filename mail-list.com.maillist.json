@@ -1,0 +1,33 @@
+{  
+   "providerId":"mail-list.com",
+   "providerName":"mail-list.com",
+   "serviceId":"maillist",
+   "serviceName":"Mail List",
+   "version": 1,
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2017/05/mail-list.com_-300x190.png",
+   "description":"Enables a domain's mail settings to work with the mail-list.com service",
+   "variableDescription":"",
+   "records":[  
+      {  
+         "type":"MX",
+         "host":"@",
+         "pointsTo":"transport.mail-list.com",
+         "priority": 50, 
+         "ttl":14400
+      },
+      {  
+         "type":"MX",
+         "host":"@",
+         "pointsTo":"canon.mail-list.com",
+         "priority": 50, 
+         "ttl":14400
+      },
+      {  
+         "type":"MX",
+         "host":"@",
+         "pointsTo":"cirrus.mail-list.com",
+         "priority": 40,
+         "ttl":14400
+      }
+   ]
+}

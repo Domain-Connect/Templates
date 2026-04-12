@@ -1,0 +1,28 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "crisp-watch",
+  "serviceName": "Crisp",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "variableDescription": "txt is the text domain verification.",
+  "hostRequired": true,
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_crisp",
+      "data": "%txt%",
+      "ttl": 14400
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom.crisp.watch.",
+      "ttl": 3600
+    }
+  ]
+}

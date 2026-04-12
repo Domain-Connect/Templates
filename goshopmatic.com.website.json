@@ -1,0 +1,23 @@
+{  
+   "providerId":"goshopmatic.com",
+   "providerName":"Shopmatic",
+   "serviceId":"website",
+   "serviceName":"Shopmatic Site",
+   "logoUrl":"https://domainconnect.org/wp-content/uploads/2016/07/shopmatic-300x81.png",
+   "description":"Enables a domain to work with Shopmatic",
+   "variableDescription":"INPUTDOMAIN is domain name being configured to work with shopmatic.",
+   "syncBlock":false,
+   "shared":true,
+   "sharedProviderName":true,    
+   "warnPhishing":true,
+   "hostRequired":false,
+   "version": 1,
+   "records":[  
+      {  
+         "type":"CNAME",
+         "host":"www",
+         "pointsTo":"%INPUTDOMAIN%",
+         "ttl":3600
+      }
+   ]
+}

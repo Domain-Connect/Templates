@@ -1,0 +1,26 @@
+{
+  "providerId": "leadpages.net",
+  "providerName": "Leadpages",
+  "serviceId": "custom-domain-apex-prod",
+  "serviceName": "Leadpages Custom Domain",
+  "version": 3,
+  "logoUrl": "https://my.leadpages.net/static/current/img/logos/logo_icon.svg",
+  "description": "Enables a domain to work with Leadpages",
+  "syncRedirectDomain": "my.leadpages.net, my.leadpages.com,api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+  "hostRequired": false,
+  "syncPubKeyDomain":"leadpages.net",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "35.202.21.90",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "custom-proxy.leadpages.net",
+      "ttl": 600
+    }
+  ]
+}

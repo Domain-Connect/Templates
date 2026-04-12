@@ -1,0 +1,20 @@
+{
+  "providerId": "gophantom.io",
+  "providerName": "Phantom",
+  "serviceId": "cname-record",
+  "serviceName": "Phantom CNAME records",
+  "syncRedirectDomain": "domainconnect.gophantom.io,gophantom.io",
+  "version": 1,
+  "logoUrl": "https://storage.googleapis.com/msgsndr/lki4VEKAMpGqEj4vMQnl/media/67bcb0180202315b9df96e22.png",
+  "description": "Enable domain to work with the Phantom",
+  "variableDescription": "cnameValue: Phantom connection",
+  "syncPubKeyDomain": "gophantom.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cnameValue%",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+    "providerId": "pblin.net",
+    "providerName": "Public Internet",
+    "serviceId": "website-cname",
+    "serviceName": "Public Internet Website Hosting",
+    "version": 1,
+    "syncPubKeyDomain": "pblin.net",
+    "syncRedirectDomain": "public-internet.co.uk,pblin.net",
+    "logoUrl": "https://www.public-internet.co.uk/images/site-logo-2020.svg",
+    "description": "Enables a hostname to work with Public Internet website hosting",
+    "hostRequired": true,
+    "records": [{
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "virt02.web.pblin.net",
+            "ttl": 86400
+        },
+        {
+            "type": "SPFM",
+            "host": "%domain%",
+            "spfRules": "include:_spf.pblin.net",
+            "ttl": 86400
+        },
+        {
+            "type": "CNAME",
+            "host": "pblin1._domainkey",
+            "pointsTo": "pblin1.dkim.mail.pblin.net",
+            "ttl": 86400
+        },
+        {
+            "type": "CNAME",
+            "host": "pblin2._domainkey",
+            "pointsTo": "pblin2.dkim.mail.pblin.net",
+            "ttl": 86400
+        }
+    ]
+}

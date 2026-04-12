@@ -1,0 +1,22 @@
+{
+    "providerId": "retroliste.com",
+    "providerName": "RetroListe",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain Verification",
+    "sharedServiceName": false,
+    "version": 1,
+    "logoUrl": "https://retroliste.com/logo.gif",
+    "description": "Enables a domain to work with RetroListe",
+    "variableDescription": "Unique verification code provided for purpose of verification",
+    "multiInstance": false,
+    "syncPubKeyDomain": "retroliste.com",
+    "records": [
+        {
+            "groupId": "verification",
+            "type": "TXT",
+            "host": "@",
+            "data": "%verifytxt%",
+            "ttl": 3600
+        }
+    ]
+}

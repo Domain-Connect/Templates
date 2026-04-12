@@ -1,0 +1,28 @@
+{
+  "providerId": "goentri.com",
+  "providerName": "Entri",
+  "serviceId": "rebillion",
+  "serviceName": "Rebillion",
+  "version": 1,
+  "logoUrl": "https://cdn.goentri.com/logo.svg",
+  "description": "Allows user to easily set up domain using Entri",
+  "syncPubKeyDomain": "goentri.com",
+  "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com",
+  "variableDescription": "cnameValue is the value where checkout subdomain will be pointed to AWS LoadBalancer, awsDinamicHost is the dynamic host to validate the Certificate issued for that subdomain in AWS",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "checkout",
+      "pointsTo": "%cnameValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%awsDinamicHost%",
+      "pointsTo": "%keyValue%",
+      "ttl": 3600
+    }
+  ]
+}
