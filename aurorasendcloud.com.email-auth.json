@@ -1,7 +1,7 @@
 {
     "providerId": "aurorasendcloud.com",
     "providerName": "sendcloud",
-    "serviceId": "email-auth1",
+    "serviceId": "email-auth",
     "serviceName": "SendCloud Email Sending Authentication",
     "version": 1,
     "logoUrl": "https://www.aurorasendcloud.com/logo_simple.svg",
