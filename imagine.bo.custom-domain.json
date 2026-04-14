@@ -10,7 +10,7 @@
   "syncPubKeyDomain": "app.imagine.bo",
   "syncRedirectDomain": "app.imagine.bo",
   "warnPhishing": true,
-  "hostRequired": false,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
