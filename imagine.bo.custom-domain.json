@@ -9,7 +9,6 @@
   "syncBlock": false,
   "syncPubKeyDomain": "app.imagine.bo",
   "syncRedirectDomain": "app.imagine.bo",
-  "warnPhishing": true,
   "hostRequired": true,
   "records": [
     {
