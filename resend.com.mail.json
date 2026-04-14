@@ -7,7 +7,7 @@
 	"syncPubKeyDomain": "resend.com",
 	"syncRedirectDomain": "resend.com",
 	"description": "Enable email signing and specify authorized senders.",
-	"logoUrl": "https://resend.com/static/brand/resend-wordmark-black.svg",
+	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
 	"records": [
 		{
 			"groupId": "outbound",
