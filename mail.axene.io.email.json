@@ -3,14 +3,12 @@
     "providerName": "Axene Mailer",
     "serviceId": "email",
     "serviceName": "Axene Mailer - Transactional and Marketing Email",
-    "sharedServiceName": false,
+    "version": 1,
     "logoUrl": "https://mail.axene.io/email-assets/logo.png",
     "description": "Configure DNS records for transactional and marketing email sending via Axene Mailer. Adds DKIM signing, SPF authorization, DMARC reporting, and bounce-handling records.",
-    "variableDescription": "These values are generated automatically by Axene Mailer for your domain.",
-    "syncBlock": false,
-    "hostRequired": false,
-    "version": 1,
+    "variableDescription": "%verification_token%: domain ownership token; %dkim_selector%: DKIM key selector; %dkim_public_key%: RSA public key for DKIM signing",
     "syncPubKeyDomain": "mail.axene.io",
+    "syncRedirectDomain": "mail.axene.io",
     "records": [
         {
             "groupId": "axene-verification",
