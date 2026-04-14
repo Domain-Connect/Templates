@@ -11,7 +11,7 @@
     "records": [
         {
             "groupId": "classic",
-            "type": "TXT",
+            "type": "SPFM",
             "host": "@",
             "data": "v=spf1 include:spf.sendcloud.org -all",
             "ttl": 600
@@ -40,7 +40,7 @@
         },
         {
             "groupId": "auto",
-            "type": "TXT",
+            "type": "SPFM",
             "host": "@",
             "data": "v=spf1 include:spf.sendcloud.org -all",
             "ttl": 600
