@@ -1,0 +1,55 @@
+{
+    "providerId": "mail.axene.io",
+    "providerName": "Axene Mailer",
+    "serviceId": "email",
+    "serviceName": "Axene Mailer - Transactional and Marketing Email",
+    "sharedServiceName": false,
+    "logoUrl": "https://mail.axene.io/email-assets/logo.png",
+    "description": "Configure DNS records for transactional and marketing email sending via Axene Mailer. Adds DKIM signing, SPF authorization, DMARC reporting, and bounce-handling records.",
+    "variableDescription": "These values are generated automatically by Axene Mailer for your domain.",
+    "syncBlock": false,
+    "hostRequired": false,
+    "version": 1,
+    "syncPubKeyDomain": "mail.axene.io",
+    "records": [
+        {
+            "groupId": "axene-verification",
+            "type": "TXT",
+            "host": "@",
+            "data": "axene-verify=%verification_token%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "axene-verify=",
+            "ttl": 300
+        },
+        {
+            "groupId": "axene-dkim",
+            "type": "TXT",
+            "host": "%dkim_selector%._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkim_public_key%",
+            "txtConflictMatchingMode": "All",
+            "ttl": 300
+        },
+        {
+            "groupId": "axene-spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:mail.axene.io"
+        },
+        {
+            "groupId": "axene-dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc@mail.axene.io",
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply",
+            "ttl": 300
+        },
+        {
+            "groupId": "axene-returnpath",
+            "type": "CNAME",
+            "host": "axene-bounce",
+            "pointsTo": "bounces.mail.axene.io",
+            "ttl": 300
+        }
+    ]
+}
