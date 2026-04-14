@@ -13,7 +13,7 @@
             "groupId": "classic",
             "type": "SPFM",
             "host": "@",
-            "data": "v=spf1 include:spf.sendcloud.org -all",
+            "spfRules": "include:spf.sendcloud.org",
             "ttl": 600
         },
         {
@@ -42,7 +42,7 @@
             "groupId": "auto",
             "type": "SPFM",
             "host": "@",
-            "data": "v=spf1 include:spf.sendcloud.org -all",
+            "spfRules": "include:spf.sendcloud.org",
             "ttl": 600
         },
         {
