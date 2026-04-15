@@ -7,7 +7,6 @@
   "variableOptionId": "default",
   "syncRedirectDomain": "pass.qrtick.com",
   "syncPubKeyDomain": "pass.qrtick.com",
-  "logoUrl": "https://pass.qrtick.com/logo.png",
   "description": "Connect your custom domain to your digital membership portal.",
   "records": [
     {
