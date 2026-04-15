@@ -3,13 +3,14 @@
   "serviceId": "custom-domain",
   "providerName": "imagine.bo",
   "serviceName": "Custom Domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://app.imagine.bo/logo.png",
   "description": "Connect your domain to your Imagine.bo project",
   "syncBlock": false,
   "syncPubKeyDomain": "app.imagine.bo",
   "syncRedirectDomain": "app.imagine.bo",
-  "hostRequired": true,
+  "warnPhishing": true,
+  "hostRequired": false,
   "records": [
     {
       "type": "CNAME",
