@@ -1,0 +1,26 @@
+{
+  "providerId": "salesio.app",
+  "providerName": "Salesio",
+  "serviceId": "hosting",
+  "serviceName": "Salesio Landing Page Hosting",
+  "syncPubKeyDomain": "salesio.app",
+  "syncRedirectDomain": "salesio.app, webapp.salesio.app",
+  "version": 1,
+  "logoUrl": "https://salesio.app/logo.png",
+  "description": "Connect your custom domain to your Salesio landing page. Points the apex and www to Salesio hosting.",
+  "variableDescription": "Your Salesio site",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.salesio.app.",
+      "ttl": 600
+    }
+  ]
+}
