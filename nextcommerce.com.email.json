@@ -3,11 +3,12 @@
   "providerName": "NextCommerce",
   "serviceId": "email",
   "serviceName": "Connect Email Sending Domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://nextcommerce-public-assets.s3.us-east-1.amazonaws.com/final-logo-dark-stroked-md.png",
   "description": "Configures your domain for sending email via NextCommerce (powered by Amazon SES). Adds DKIM signing records required for email deliverability.",
   "variableDescription": "dkim1, dkim2, dkim3 are the three DKIM tokens issued by Amazon SES for your domain. These are provided automatically by NextCommerce.",
   "syncPubKeyDomain": "29next.store",
+  "syncRedirectDomain": "29next.store"
   "records": [
     {
       "type": "CNAME",
