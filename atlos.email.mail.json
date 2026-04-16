@@ -3,9 +3,9 @@
   "providerName": "ATLOS Mail",
   "serviceId": "mail",
   "serviceName": "ATLOS Mail — Email Service",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://app.atlos.email/logo-wordmark.svg",
-  "description": "Configure DNS records for ATLOS Mail email service. Creates MX, SPF, DMARC, and auto-discovery records.",
+  "description": "Configure DNS records for ATLOS Mail email service. Creates MX, SPF, DKIM, DMARC, and auto-discovery records.",
   "variableDescription": "The domain to configure for ATLOS Mail",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.atlos.email",
@@ -22,6 +22,12 @@
       "type": "SPFM",
       "host": "@",
       "spfRules": "include:mx1.atlos.email"
+    },
+    {
+      "type": "TXT",
+      "host": "stalwart._domainkey",
+      "data": "v=DKIM1; k=ed25519; p=%dkimKey%",
+      "ttl": 3600
     },
     {
       "type": "TXT",

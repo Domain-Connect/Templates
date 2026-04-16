@@ -1,0 +1,22 @@
+{
+  "providerId": "wegic.ai",
+  "providerName": "WEGIC",
+  "serviceId": "website-subdomain",
+  "serviceName": "WEGIC Websites",
+  "version": 1,
+  "logoUrl": "https://cdn.wegic.ai/assets/logo.png",
+  "description": "Enables a subdomain to work with WEGIC",
+  "variableDescription": "%target%: canonical hostname for the subdomain CNAME target; the target host label is supplied via the Domain Connect host parameter",
+  "syncPubKeyDomain": "domainconnect.wegic.ai",
+  "syncRedirectDomain": "wegic.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "website",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 600
+    }
+  ]
+}
