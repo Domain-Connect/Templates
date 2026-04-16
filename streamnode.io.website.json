@@ -8,7 +8,7 @@
   "description": "Connect your domain to Streamnode",
   "variableDescription": "%cname%: Streamnode edge CNAME target; %apex-cname%: apex CNAME/ALIAS target; %ipv4%: Streamnode apex IPv4 address",
   "syncPubKeyDomain": "domainconnect.streamnode.io",
-  "syncRedirectDomain": "streamnode.io",
+  "syncRedirectDomain": "streamnode.io, app.streamnode.io",
   "hostRequired": true,
   "records": [
     {
