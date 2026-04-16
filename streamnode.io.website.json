@@ -1,0 +1,36 @@
+{
+  "providerId": "streamnode.io",
+  "providerName": "Streamnode",
+  "serviceId": "website",
+  "serviceName": "Streamnode Websites",
+  "version": 1,
+  "logoUrl": "https://streamnode.io/assets/www/images/logos/logo.svg",
+  "description": "Connect your domain to Streamnode",
+  "variableDescription": "%cname%: Streamnode edge CNAME target; %apex-cname%: apex CNAME/ALIAS target; %ipv4%: Streamnode apex IPv4 address",
+  "syncPubKeyDomain": "domainconnect.streamnode.io",
+  "syncRedirectDomain": "streamnode.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "subdomain",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "groupId": "apex",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "apex-cname",
+      "host": "@",
+      "pointsTo": "%apex-cname%",
+      "ttl": 600
+    }
+  ]
+}
