@@ -1,0 +1,56 @@
+{
+  "providerId": "domainbridge.io",
+  "providerName": "DomainBridge",
+  "serviceId": "mx",
+  "serviceName": "MX Records",
+  "version": 1,
+  "logoUrl": "https://domainbridge.io/logo.svg",
+  "description": "Mail exchange records for email delivery. Supports primary and secondary MX.",
+  "syncPubKeyDomain": "domainbridge.io",
+  "syncRedirectDomain": "domainbridge.io,api.domainbridge.io,app.domainbridge.io",
+  "variableDescription": "mx1 is Primary mail server hostname (priority 10), mx2 is Secondary mail server hostname (priority 20), mx3 is Tertiary mail server hostname (priority 30), mx4 is Fourth mail server hostname (priority 40), mx5 is Fifth mail server hostname (priority 50)",
+  "sharedProviderName": true,
+  "shared": true,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "ttl": 3600,
+      "pointsTo": "%mx1%",
+      "priority": 10,
+      "groupId": "mx-primary"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "ttl": 3600,
+      "pointsTo": "%mx2%",
+      "priority": 20,
+      "groupId": "mx-secondary"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "ttl": 3600,
+      "pointsTo": "%mx3%",
+      "priority": 30,
+      "groupId": "mx-tertiary"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "ttl": 3600,
+      "pointsTo": "%mx4%",
+      "priority": 40,
+      "groupId": "mx-quaternary"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "ttl": 3600,
+      "pointsTo": "%mx5%",
+      "priority": 50,
+      "groupId": "mx-quinary"
+    }
+  ]
+}
