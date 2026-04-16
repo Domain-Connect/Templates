@@ -40,6 +40,12 @@
     {
       "type": "CAA",
       "host": "%domain%.",
+      "data": "0 issue \"pki.goog\"",
+      "ttl": 300
+    },
+    {
+      "type": "CAA",
+      "host": "%domain%.",
       "data": "0 issue \"letsencrypt.org\"",
       "ttl": 300
     }
