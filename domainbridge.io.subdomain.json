@@ -1,0 +1,22 @@
+{
+  "providerId": "domainbridge.io",
+  "providerName": "DomainBridge",
+  "serviceId": "subdomain",
+  "serviceName": "Subdomain CNAME Pointing",
+  "version": 1,
+  "logoUrl": "https://domainbridge.io/logo.svg",
+  "description": "Points a subdomain to a target via CNAME record",
+  "syncPubKeyDomain": "domainbridge.io",
+  "syncRedirectDomain": "domainbridge.io, api.domainbridge.io, app.domainbridge.io",
+  "variableDescription": "subdomain is Subdomain to point (e.g. app, blog), target is Target hostname",
+  "sharedProviderName": true,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "ttl": 3600,
+      "pointsTo": "%target%"
+    }
+  ]
+}
