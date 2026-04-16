@@ -6,10 +6,8 @@
   "version": 1,
   "logoUrl": "https://app.referralhero.com/rh_logo.png",
   "description": "Connect your subdomain to ReferralHero landing pages",
-  "variableDescription": "Configure your custom subdomain",
   "syncPubKeyDomain": "app.referralhero.com",
   "syncRedirectDomain": "app.referralhero.com",
-  "syncBlock": false,
   "variables": [
     { "name": "SUBDOMAIN",    "dataType": "STRING", "description": "Your subdomain (e.g. ref)" },
     { "name": "CERT_NAME",    "dataType": "STRING", "description": "SSL certificate validation record name" },
