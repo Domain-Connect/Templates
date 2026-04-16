@@ -7,7 +7,7 @@
   "syncRedirectDomain": "readymag.com",
   "syncBlock": false,
   "hostRequired": true,
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://public.readym.ag/domain-connect/logo.svg",
   "records": [
     {
