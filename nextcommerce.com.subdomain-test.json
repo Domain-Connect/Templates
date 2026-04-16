@@ -8,7 +8,7 @@
     "description": "Connects your domain to your NextCommerce store at nextcommerce.com.",
     "variableDescription": "cname is the DNS CNAME target for the NextCommerce store subdomain.",
     "syncPubKeyDomain": "29next.store",
-    "syncRedirectDomain": "29next.store,gorsutlame.work"
+    "syncRedirectDomain": "29next.store,gorsutlame.work",
     "hostRequired": true,
     "records": [
      {

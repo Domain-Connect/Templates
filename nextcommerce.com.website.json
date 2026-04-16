@@ -8,7 +8,7 @@
     "description": "Connects your domain to your NextCommerce store at nextcommerce.com.",
     "variableDescription": "ip is the IP address for the NextCommerce store. verification is the domain ownership verification token issued by NextCommerce.",
     "syncPubKeyDomain": "29next.store",
-    "syncRedirectDomain": "29next.store"
+    "syncRedirectDomain": "29next.store",
     "records": [
         {
             "type": "A",
