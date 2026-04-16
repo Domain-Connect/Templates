@@ -8,13 +8,6 @@
   "description": "Connect your subdomain to ReferralHero landing pages",
   "syncPubKeyDomain": "dev.referralhero.com",
   "syncRedirectDomain": "dev.referralhero.com",
-  "variables": [
-    { "name": "SUBDOMAIN",    "dataType": "STRING", "description": "Your subdomain (e.g. ref)" },
-    { "name": "CERT_NAME",    "dataType": "STRING", "description": "SSL certificate validation record name" },
-    { "name": "CERT_VALUE",   "dataType": "STRING", "description": "SSL certificate validation record value" },
-    { "name": "VERIFY_NAME",  "dataType": "STRING", "description": "Domain ownership verification record name" },
-    { "name": "VERIFY_VALUE", "dataType": "STRING", "description": "Domain ownership verification record value" }
-  ],
   "records": [
     { "type": "CNAME", "host": "%SUBDOMAIN%",   "pointsTo": "fallback.referralhero.com", "ttl": 600 },
     { "type": "CNAME", "host": "%CERT_NAME%",   "pointsTo": "%CERT_VALUE%",              "ttl": 600 },
