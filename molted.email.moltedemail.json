@@ -3,10 +3,10 @@
   "providerName": "Molted Email",
   "serviceId": "moltedemail",
   "serviceName": "Molted Email Authentication",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://molted.email/logo.svg",
   "description": "Configures SPF, DKIM, DMARC and MX records for sending and receiving email via Molted Email",
-  "variableDescription": "dkimValue1: DKIM public key returned by Resend for this domain",
+  "variableDescription": "dkimSelector1: DKIM selector (e.g. resend). dkimValue1: DKIM public key. mxSend: region-specific outbound feedback MX (e.g. feedback-smtp.eu-west-1.amazonses.com). mxInbound: region-specific inbound MX (e.g. inbound-smtp.eu-west-1.amazonaws.com). spfInclude: SPF include domain (e.g. amazonses.com).",
   "syncBlock": false,
   "syncPubKeyDomain": "molted.email",
   "syncRedirectDomain": "molted.email",
@@ -15,21 +15,21 @@
   "records": [
     {
       "type": "TXT",
-      "host": "resend._domainkey",
+      "host": "%dkimSelector1%._domainkey",
       "data": "%dkimValue1%",
       "ttl": 3600
     },
     {
       "type": "MX",
       "host": "send",
-      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "pointsTo": "%mxSend%",
       "priority": 10,
       "ttl": 3600
     },
     {
       "type": "SPFM",
       "host": "send",
-      "spfRules": "include:amazonses.com"
+      "spfRules": "include:%spfInclude%"
     },
     {
       "type": "TXT",
@@ -41,7 +41,7 @@
     {
       "type": "MX",
       "host": "@",
-      "pointsTo": "inbound-smtp.eu-west-1.amazonaws.com",
+      "pointsTo": "%mxInbound%",
       "priority": 10,
       "ttl": 3600
     }
