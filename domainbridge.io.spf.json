@@ -1,0 +1,21 @@
+{
+  "providerId": "domainbridge.io",
+  "providerName": "DomainBridge",
+  "serviceId": "spf",
+  "serviceName": "SPF Record",
+  "version": 1,
+  "logoUrl": "https://domainbridge.io/logo.svg",
+  "description": "Sender Policy Framework TXT record to authorize mail senders.",
+  "syncPubKeyDomain": "domainbridge.io",
+  "syncRedirectDomain": "domainbridge.io,api.domainbridge.io,app.domainbridge.io",
+  "variableDescription": "spfDomain is SPF include domain (e.g. _spf.google.com)",
+  "sharedProviderName": true,
+  "shared": true,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%spfDomain%"
+    }
+  ]
+}
