@@ -6,18 +6,16 @@
   "version": 2,
   "logoUrl": "https://molted.email/logo.svg",
   "description": "Configures SPF, DKIM, DMARC and MX records for sending and receiving email via Molted Email",
-  "variableDescription": "dkimSelector1: DKIM selector (e.g. resend). dkimValue1: DKIM public key. mxSend: region-specific outbound feedback MX (e.g. feedback-smtp.eu-west-1.amazonses.com). mxInbound: region-specific inbound MX (e.g. inbound-smtp.eu-west-1.amazonaws.com). spfInclude: SPF include domain (e.g. amazonses.com).",
-  "syncBlock": false,
+  "variableDescription": "dkimValue1: DKIM public key returned by Resend for this domain. mxSend: region-specific outbound feedback MX (e.g. feedback-smtp.eu-west-1.amazonses.com). mxInbound: region-specific inbound MX (e.g. inbound-smtp.eu-west-1.amazonaws.com). spfInclude: SPF include domain (e.g. amazonses.com).",
   "syncPubKeyDomain": "molted.email",
   "syncRedirectDomain": "molted.email",
-  "warnPhishing": true,
-  "hostRequired": false,
   "records": [
     {
       "type": "TXT",
-      "host": "%dkimSelector1%._domainkey",
+      "host": "resend._domainkey",
       "data": "%dkimValue1%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
     },
     {
       "type": "MX",
@@ -36,7 +34,8 @@
       "host": "_dmarc",
       "data": "v=DMARC1; p=none;",
       "ttl": 3600,
-      "txtConflictMatchingMode": "All"
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
     },
     {
       "type": "MX",
