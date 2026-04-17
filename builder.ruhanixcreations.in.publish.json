@@ -1,7 +1,7 @@
 {
-  "providerId": "ruhanix.websitebuilder",
+  "providerId": "builder.ruhanixcreations.in",
   "providerName": "Ruhanix",
-  "serviceId": "publish",
+  "serviceId": "publish"
   "serviceName": "Ruhanix Website Builder",
   "version": 1,
   "logoUrl": "https://ruhanixcreations.in/logo.png",
