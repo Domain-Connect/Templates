@@ -1,0 +1,21 @@
+{
+    "providerId": "breachme.ai",
+    "providerName": "BreachMe",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain Verification",
+    "version": 1,
+    "logoUrl": "https://breachme.ai/logo.svg",
+    "description": "Verify domain ownership for BreachMe breach monitoring service",
+    "variableDescription": "%verification%: unique domain verification token provided by BreachMe",
+    "syncBlock": false,
+    "syncPubKeyDomain": "breachme.ai",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_breachme",
+            "data": "%verification%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "None"
+        }
+    ]
+}
