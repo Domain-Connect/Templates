@@ -1,14 +1,14 @@
 {
     "providerId": "nextcommerce.com",
     "providerName": "NextCommerce",
-    "serviceId": "website",
-    "serviceName": "Connect Store Domain",
-    "version": 2,
+    "serviceId": "website-test",
+    "serviceName": "Connect Store Domain For DEVELOPMENT",
+    "version": 1,
     "logoUrl": "https://nextcommerce-public-assets.s3.us-east-1.amazonaws.com/final-logo-dark-stroked-md.png",
-    "description": "Connects your domain to your NextCommerce store at nextcommerce.com.",
+    "description": "This is DEVELOPMENT template for connect domain to nextcommerce",
     "variableDescription": "ip is the IP address for the NextCommerce store. verification is the domain ownership verification token issued by NextCommerce.",
     "syncPubKeyDomain": "29next.store",
-    "syncRedirectDomain": "29next.store",
+    "syncRedirectDomain": "29next.store,gorsutlame.work",
     "records": [
         {
             "type": "A",
