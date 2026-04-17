@@ -1,0 +1,21 @@
+{
+  "providerId": "zovroy.com",
+  "providerName": "Zovroy",
+  "serviceId": "public-site",
+  "serviceName": "Zovroy Public Site",
+  "version": 1,
+  "logoUrl": "https://zovroy.com/icons/Icon-512.png",
+  "description": "Connects a customer's www hostname to their Zovroy public site.",
+  "variableDescription": "%cnamehost%: hostname label to connect, usually www",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.zovroy.com",
+  "syncRedirectDomain": "app.zovroy.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%cnamehost%",
+      "pointsTo": "domains.zovroy.com",
+      "ttl": 3600
+    }
+  ]
+}
