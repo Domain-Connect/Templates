@@ -10,7 +10,6 @@
   "syncRedirectDomain": "domainbridge.io,api.domainbridge.io,app.domainbridge.io",
   "variableDescription": "mx1 is Primary mail server hostname (priority 10), mx2 is Secondary mail server hostname (priority 20), mx3 is Tertiary mail server hostname (priority 30), mx4 is Fourth mail server hostname (priority 40), mx5 is Fifth mail server hostname (priority 50)",
   "sharedProviderName": true,
-  "shared": true,
   "records": [
     {
       "type": "MX",
