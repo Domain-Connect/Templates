@@ -1,0 +1,23 @@
+{
+  "providerId": "domainbridge.io",
+  "providerName": "DomainBridge",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC Record",
+  "version": 1,
+  "logoUrl": "https://domainbridge.io/logo.svg",
+  "description": "DMARC policy record for email authentication reporting and enforcement.",
+  "syncPubKeyDomain": "domainbridge.io",
+  "syncRedirectDomain": "domainbridge.io, api.domainbridge.io, app.domainbridge.io",
+  "variableDescription": "dmarcPolicy is DMARC policy: none, quarantine, or reject, dmarcRua is Email address for DMARC aggregate reports",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "v=DMARC1; p=%dmarcPolicy%; rua=mailto:%dmarcRua%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

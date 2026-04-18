@@ -1,0 +1,22 @@
+{
+  "providerId": "domainbridge.io",
+  "providerName": "DomainBridge",
+  "serviceId": "aaaa-record",
+  "serviceName": "AAAA Record",
+  "version": 1,
+  "logoUrl": "https://domainbridge.io/logo.svg",
+  "description": "Single AAAA record pointing the root domain to an IPv6 address.",
+  "syncPubKeyDomain": "domainbridge.io",
+  "syncRedirectDomain": "domainbridge.io, api.domainbridge.io, app.domainbridge.io",
+  "variableDescription": "ipv6 is IPv6 address to point the domain to",
+  "sharedProviderName": true,
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "AAAA",
+      "host": "@",
+      "ttl": 3600,
+      "pointsTo": "%ipv6%"
+    }
+  ]
+}
