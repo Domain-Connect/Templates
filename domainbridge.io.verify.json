@@ -10,7 +10,6 @@
   "syncRedirectDomain": "domainbridge.io,api.domainbridge.io,app.domainbridge.io",
   "variableDescription": "verification is Unique verification token",
   "sharedProviderName": true,
-  "shared": true,
   "records": [
     {
       "type": "TXT",
