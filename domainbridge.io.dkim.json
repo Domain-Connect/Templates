@@ -11,7 +11,6 @@
   "variableDescription": "dkimSelector is DKIM selector (e.g. s1, google), dkimTarget is DKIM CNAME target hostname",
   "sharedProviderName": true,
   "hostRequired": false,
-  "shared": true,
   "records": [
     {
       "type": "CNAME",
