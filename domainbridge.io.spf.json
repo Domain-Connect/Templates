@@ -10,7 +10,6 @@
   "syncRedirectDomain": "domainbridge.io,api.domainbridge.io,app.domainbridge.io",
   "variableDescription": "spfDomain is SPF include domain (e.g. _spf.google.com)",
   "sharedProviderName": true,
-  "shared": true,
   "records": [
     {
       "type": "SPFM",
