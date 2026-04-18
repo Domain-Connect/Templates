@@ -5,8 +5,9 @@
   "serviceName": "Domain verbinden",
   "version": 1,
   "logoUrl": "https://website-boost.com/logo.svg",
-  "description": "Verbindet deine Domain mit deiner Website Boost Website.",
-  "variableDescription": "Bitte gib an, ob deine Domain mit 'www' oder ohne beginnen soll.",
+  "description": "Connects your domain to your Website Boost website.",
+  "hostRequired": true,
+  "warnPhishing": true,
   "syncBlock": [
     {
       "type": "CNAME",
@@ -15,6 +16,11 @@
       "ttl": 300
     }
   ],
-  "hostRequired": true,
-  "warnPhishing": false
+  "variables": [
+    {
+      "name": "host",
+      "type": "String",
+      "description": "The subdomain (e.g. www)"
+    }
+  ]
 }
