@@ -10,7 +10,6 @@
   "syncRedirectDomain": "domainbridge.io,api.domainbridge.io,app.domainbridge.io",
   "variableDescription": "primaryIp is Primary IPv4 address, fallbackIp is Fallback IPv4 address, cnameTarget is Target hostname for www CNAME",
   "sharedProviderName": true,
-  "shared": true,
   "records": [
     {
       "type": "A",
