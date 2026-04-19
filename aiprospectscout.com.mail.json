@@ -3,6 +3,7 @@
   "providerName": "AI ProspectScout",
   "serviceId": "mail",
   "serviceName": "AI ProspectScout Email",
+  "syncPubKeyDomain": "aiprospectscout.com",
   "version": 1,
   "logoUrl": "https://aisdr-oceanix.lovable.app/placeholder.svg",
   "description": "Configures DNS records for AI ProspectScout outbound email sending (DKIM, SPF, MX) and inbound reply routing.",
