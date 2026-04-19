@@ -1,0 +1,32 @@
+{
+    "providerId": "sendcanary.com",
+    "providerName": "SendCanary",
+    "serviceId": "revert-lockdown",
+    "serviceName": "Revert Domain Lockdown",
+    "version": 1,
+    "logoUrl": "https://sendcanary.com/logo.png",
+    "description": "Reverts a previously applied domain lockdown by replacing strict DMARC reject policy with monitoring-only and permissive SPF. Use when a locked-down domain needs to start sending email.",
+    "variableDescription": "ruaAddress: Email address to receive DMARC aggregate reports (same as original lockdown)",
+    "syncPubKeyDomain": "sendcanary.com",
+    "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+    "warnPhishing": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:%ruaAddress%",
+            "ttl": 3600,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        },
+        {
+            "type": "TXT",
+            "host": "@",
+            "data": "v=spf1 ~all",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=spf1"
+        }
+    ]
+}
