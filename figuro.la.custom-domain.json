@@ -1,0 +1,21 @@
+{
+    "providerId": "figuro.la",
+    "providerName": "Figuro",
+    "serviceId": "custom-domain",
+    "serviceName": "Figuro Engage",
+    "description": "Configure a custom subdomain for your Figuro Engage microsite",
+    "variableDescription": "CNAME target for agent microsite",
+    "syncPubKeyDomain": "figuro.la",
+    "syncRedirectDomain": "engage.figuro.la",
+    "hostRequired": true,
+    "version": 1,
+    "logoUrl": "https://engage.figuro.la/images/figuroLogo.webp",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "custom.figuro.la",
+            "ttl": "3600"
+        }
+    ]
+}
