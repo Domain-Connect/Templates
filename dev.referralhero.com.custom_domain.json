@@ -3,14 +3,15 @@
   "providerName": "ReferralHero",
   "serviceId": "custom_domain",
   "serviceName": "Custom Domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://dev.referralhero.com/rh_logo.png",
   "description": "Connect your subdomain to ReferralHero landing pages",
   "syncPubKeyDomain": "dev.referralhero.com",
   "syncRedirectDomain": "dev.referralhero.com",
+  "hostRequired": true,
   "records": [
-    { "type": "CNAME", "host": "%SUBDOMAIN%",   "pointsTo": "fallback.referralhero.com", "ttl": 600 },
-    { "type": "CNAME", "host": "%CERT_NAME%",   "pointsTo": "%CERT_VALUE%",              "ttl": 600 },
-    { "type": "TXT",   "host": "%VERIFY_NAME%", "data":     "%VERIFY_VALUE%",             "ttl": 600 }
+    { "type": "CNAME", "host": "@",                   "pointsTo": "fallback.referralhero.com", "ttl": 600 },
+    { "type": "CNAME", "host": "_acme-challenge",     "pointsTo": "%CERT_VALUE%",              "ttl": 600 },
+    { "type": "TXT",   "host": "_cf-custom-hostname", "data":     "%VERIFY_VALUE%",             "ttl": 600 }
   ]
 }
