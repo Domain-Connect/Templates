@@ -9,7 +9,6 @@
     "syncRedirectDomain": "keychain.com",
     "variableDescription": "blogHost: subdomain part of your blog URL (e.g. 'blog' for blog.example.com). blogTarget: Keychain's blog server hostname.",
     "syncBlock": false,
-    "hostRequired": true,
     "records": [
         {
             "type": "CNAME",
