@@ -12,7 +12,7 @@
     "records": [
         {
             "type": "CNAME",
-            "host": "%host%",
+            "host": "%subdomain%",
             "pointsTo": "%blogTarget%",
             "ttl": 3600
         }
