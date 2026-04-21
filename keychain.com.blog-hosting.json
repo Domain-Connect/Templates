@@ -7,7 +7,7 @@
     "description": "Connect a custom sub domain to Keychain Blog Hosting",
     "syncPubKeyDomain": "domainconnect.keychain.com",
     "syncRedirectDomain": "keychain.com",
-    "variableDescription": "blogHost: subdomain part of your blog URL (e.g. 'blog' for blog.example.com). blogTarget: Keychain's blog server hostname.",
+    "variableDescription": "subdomain: subdomain part of your blog URL (e.g. 'blog' for blog.example.com). blogTarget: Keychain's blog server hostname.",
     "syncBlock": false,
     "records": [
         {
