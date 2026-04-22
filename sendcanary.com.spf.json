@@ -1,0 +1,20 @@
+{
+  "providerId": "sendcanary.com",
+  "providerName": "SendCanary",
+  "serviceId": "spf",
+  "serviceName": "SPF Sender Authorization",
+  "version": 1,
+  "logoUrl": "https://sendcanary.com/logo.png",
+  "description": "Add an authorized email sender to your SPF record. SendCanary detects which services send email on your behalf and helps you authorize them with one click.",
+  "variableDescription": "include: SPF include mechanism to add (e.g. amazonses.com, _spf.google.com)",
+  "syncPubKeyDomain": "sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%include%",
+      "ttl": 3600
+    }
+  ]
+}

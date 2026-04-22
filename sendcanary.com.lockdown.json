@@ -1,0 +1,32 @@
+{
+    "providerId": "sendcanary.com",
+    "providerName": "SendCanary",
+    "serviceId": "lockdown",
+    "serviceName": "Non-Sending Domain Lockdown",
+    "version": 1,
+    "logoUrl": "https://sendcanary.com/logo.png",
+    "description": "Lock down a domain that does not send email. Sets DMARC to reject and SPF to deny all senders, preventing anyone from spoofing your domain.",
+    "variableDescription": "ruaAddress: Email address to receive DMARC aggregate reports (e.g. you@company.com)",
+    "syncPubKeyDomain": "sendcanary.com",
+    "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+    "warnPhishing": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=reject; rua=mailto:%ruaAddress%",
+            "ttl": 3600,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        },
+        {
+            "type": "TXT",
+            "host": "@",
+            "data": "v=spf1 -all",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=spf1"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+  "providerId": "rstream.io",
+  "providerName": "rstream",
+  "serviceId": "tunnels",
+  "serviceName": "rstream tunnels",
+  "version": 1,
+  "logoUrl": "https://rstream.io/images/brand/rstream-logo-square-light.svg",
+  "description": "Route your custom domain through your rstream tunnel.",
+  "variableDescription": "%cluster%: CNAME target pointing at the rstream edge; %verifytoken%: hex token used to prove ownership of the hostname.",
+  "syncPubKeyDomain": "rstream.io",
+  "syncRedirectDomain": "rstream.io",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cluster%.",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_rstream-verify",
+      "data": "rstream-verify=%verifytoken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "rstream-verify="
+    }
+  ]
+}

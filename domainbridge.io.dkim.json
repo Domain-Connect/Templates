@@ -1,0 +1,22 @@
+{
+  "providerId": "domainbridge.io",
+  "providerName": "DomainBridge",
+  "serviceId": "dkim",
+  "serviceName": "DKIM Record (CNAME)",
+  "version": 1,
+  "logoUrl": "https://domainbridge.io/logo.svg",
+  "description": "Sets up a DKIM record via CNAME for email authentication",
+  "syncPubKeyDomain": "domainbridge.io",
+  "syncRedirectDomain": "domainbridge.io,api.domainbridge.io,app.domainbridge.io",
+  "variableDescription": "dkimSelector is DKIM selector (e.g. s1, google), dkimTarget is DKIM CNAME target hostname",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkimSelector%._domainkey",
+      "ttl": 14400,
+      "pointsTo": "%dkimTarget%"
+    }
+  ]
+}

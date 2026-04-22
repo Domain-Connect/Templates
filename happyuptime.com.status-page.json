@@ -1,0 +1,21 @@
+{
+    "providerId": "happyuptime.com",
+    "providerName": "Happy Uptime",
+    "serviceId": "status-page",
+    "serviceName": "Status Page",
+    "version": 1,
+    "logoUrl": "https://happyuptime.com/happyuptime-logo.svg",
+    "description": "Configures a sub-domain for use as a Happy Uptime status page",
+    "syncPubKeyDomain": "domainconnect.happyuptime.com",
+    "syncRedirectDomain": "happyuptime.com,www.happyuptime.com",
+    "hostRequired": true,
+    "syncBlock": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "status-proxy.happyuptime.com",
+            "ttl": 3600
+        }
+    ]
+}
