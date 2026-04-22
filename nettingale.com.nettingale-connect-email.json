@@ -52,7 +52,8 @@
       "host": "_dmarc",
       "data": "v=DMARC1; p=none;",
       "ttl": 3600,
-      "txtConflictMatchingMode": "All"
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
     }
   ]
 }
