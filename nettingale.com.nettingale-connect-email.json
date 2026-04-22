@@ -1,0 +1,58 @@
+{
+  "providerId": "nettingale.com",
+  "providerName": "Nettingale",
+  "serviceId": "nettingale-connect-email",
+  "serviceName": "Nettingale Email Sending",
+  "version": 1,
+  "logoUrl": "https://nettingale.com/favicon.svg",
+  "description": "Configures DNS records so a domain can send transactional email through Nettingale (Amazon SES DKIM + Custom MAIL FROM + DMARC).",
+  "variableDescription": "dkim_token_1, dkim_token_2, dkim_token_3 are the three Amazon SES DKIM tokens generated when the sending identity is created. aws_region is the AWS region the identity lives in (e.g. eu-central-1).",
+  "syncPubKeyDomain": "domainconnect.nettingale.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_token_1%._domainkey",
+      "pointsTo": "%dkim_token_1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_token_2%._domainkey",
+      "pointsTo": "%dkim_token_2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_token_3%._domainkey",
+      "pointsTo": "%dkim_token_3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "bounces",
+      "pointsTo": "feedback-smtp.%aws_region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "bounces",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
