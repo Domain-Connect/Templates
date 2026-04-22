@@ -38,7 +38,7 @@
 			"groupId": "returnpath",
 			"type": "CNAME",
 			"host": "%returnPathDomain%",
-			"pointsTo": "%returnPathValue%",
+			"pointsTo": "pm.mtasv.net",
 			"ttl": 3600
 		}
 	]
