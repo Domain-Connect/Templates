@@ -1,0 +1,47 @@
+{
+  "providerId": "clerk.com",
+  "providerName": "Clerk",
+  "serviceId": "app",
+  "serviceName": "Clerk Application",
+  "version": 1,
+  "description": "Enables a domain to work with Clerk",
+  "syncPubKeyDomain": "domainconnect.dashboard.clerk.com",
+  "syncRedirectDomain": "dashboard.clerk.com",
+  "records": [
+    {
+      "type":"CNAME",
+      "groupId": "auth",
+      "host": "clerk",
+      "pointsTo": "frontend-api.clerk.services",
+      "ttl":3600
+    },
+    {
+      "type":"CNAME",
+      "groupId": "auth",
+      "host": "accounts",
+      "pointsTo": "accounts.clerk.services",
+      "ttl":3600
+    },
+    {
+      "type":"CNAME",
+      "groupId": "mail",
+      "host": "clk._domainkey",
+      "pointsTo": "dkim1.%mailtoken%.clerk.services",
+      "ttl":3600
+    },
+    {
+      "type":"CNAME",
+      "groupId": "mail",
+      "host": "clk2._domainkey",
+      "pointsTo": "dkim2.%mailtoken%.clerk.services",
+      "ttl":3600
+    },
+    {
+      "type":"CNAME",
+      "groupId": "mail",
+      "host": "clkmail",
+      "pointsTo": "mail.%mailtoken%.clerk.services",
+      "ttl":3600
+    }
+  ]
+}

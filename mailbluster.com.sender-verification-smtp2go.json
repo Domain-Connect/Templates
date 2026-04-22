@@ -1,0 +1,52 @@
+{
+	"providerId": "mailbluster.com",
+	"providerName": "MailBluster",
+	"serviceId": "sender-verification-smtp2go",
+	"serviceName": "MailBluster Email Sender Verification (SMTP2Go)",
+	"version": 1,
+	"logoUrl": "https://mailbluster.com/wp-content/themes/mailbluster/resources/assets/images/mailbluster-logo.svg",
+	"description": "Configures DKIM, SPF, DMARC, Return Path, and Tracking DNS records for MailBluster email sender verification using SMTP2Go",
+	"syncPubKeyDomain": "mailbluster.com",
+	"syncRedirectDomain": "mailbluster.com",
+	"syncBlock": false,
+	"shared": false,
+	"multiInstance": true,
+	"warnPhishing": false,
+	"hostRequired": false,
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkimSelector%._domainkey",
+			"pointsTo": "dkim.smtp2go.net",
+			"ttl": 3600
+		},
+		{
+			"groupId": "spf",
+			"type": "SPFM",
+			"host": "%sub%",
+			"spfRules": "include:smtp2go.net"
+		},
+		{
+			"groupId": "dmarc",
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "%dmarcValue%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "returnpath",
+			"type": "CNAME",
+			"host": "%returnPathSelector%",
+			"pointsTo": "return.smtp2go.net",
+			"ttl": 3600
+		},
+		{
+			"groupId": "tracking",
+			"type": "CNAME",
+			"host": "%trackingHost%",
+			"pointsTo": "track.smtp2go.net",
+			"ttl": 3600
+		}
+	]
+}

@@ -1,0 +1,22 @@
+{
+    "providerId": "smartdmarc.com",
+    "providerName": "SmartDMARC",
+    "serviceId": "dmarc",
+    "serviceName": "DMARC Record Setup",
+    "version": 1,
+    "logoUrl": "https://smartdmarc.codexplabs.com/media/app/mini-logo.svg",
+    "description": "Enables DMARC record configuration for email authentication and reporting",
+    "variableDescription": "dmarc_policy - The complete DMARC policy record (e.g., v=DMARC1;p=none;rua=mailto:reports@example.com)",
+    "syncRedirectDomain": "smartdmarc.com",
+    "syncPubKeyDomain": "smartdmarc.com",
+    "warnPhishing": false,
+    "records": [
+      {
+        "type": "TXT",
+        "host": "_dmarc",
+        "data": "%dmarc_policy%",
+        "ttl": 3600,
+        "txtConflictMatchingMode": "All"
+      }
+    ]
+  }

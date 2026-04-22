@@ -1,0 +1,46 @@
+{
+  "providerId": "everinbox",
+  "providerName": "Everinbox",
+  "serviceId": "domain-auth",
+  "serviceName": "Domain Authentication",
+  "version": 1,
+  "logoUrl": "https://everinbox.com.br/everinbox-logo-dark.svg",
+  "description": "Configures domain authentication records for email delivery service including DKIM, DMARC and mail routing",
+  "variableDescription": "MAIL_SUBDOMAIN is the mail routing subdomain (e.g., 'em5027'), MAIL_TARGET is the mail server target, DKIM_SELECTOR1/DKIM_SELECTOR2 are DKIM selectors, DKIM_TARGET1/DKIM_TARGET2 are DKIM targets, DMARC_POLICY is the DMARC policy configuration",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.everinbox.com.br",
+  "syncRedirectDomain": "everinbox.com.br",
+  "warnPhishing": false,
+  "records": [
+    {
+      "groupId": "mail_routing",
+      "type": "CNAME",
+      "host": "%MAIL_SUBDOMAIN%",
+      "pointsTo": "%MAIL_TARGET%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME", 
+      "host": "%DKIM_SELECTOR1%._domainkey",
+      "pointsTo": "%DKIM_TARGET1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%DKIM_SELECTOR2%._domainkey", 
+      "pointsTo": "%DKIM_TARGET2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%DMARC_POLICY%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

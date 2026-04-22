@@ -1,0 +1,20 @@
+{
+  "providerId": "ironshield.cloud",
+  "providerName": "IronShield",
+  "serviceId": "domain-protection",
+  "serviceName": "Bot Protection for APIs",
+  "version": 2,
+  "syncPubKeyDomain": "keys.ironshield.cloud",
+  "syncRedirectDomain": "ironshield.cloud",
+  "hostRequired": true,
+  "description": "Route traffic through IronShield's PoW protection layer.",
+  "logoUrl": "https://ironshield.cloud/assets/IronShield-Banner-BjcFODK7.svg",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy.ironshield.cloud",
+      "ttl": 300
+    }
+  ]
+}

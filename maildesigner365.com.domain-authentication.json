@@ -1,0 +1,51 @@
+{
+    "providerId": "maildesigner365.com",
+    "providerName": "Mail Designer 365",
+    "serviceId": "domain-authentication",
+    "serviceName": "Mail Designer 365 Domain Authentication",
+    "version": 1,
+    "logoUrl": "https://my.maildesigner365.com/domain-connect/maildesigner365-logo.svg",
+    "description": "Configures DKIM, SPF, DMARC, and custom MAIL FROM for Mail Designer 365 sending.",
+    "variableDescription": "%dkim_selector%: DKIM selector; %dkim_value%: DKIM TXT value; %mailfrom_host%: custom MAIL FROM subdomain host",
+    "syncPubKeyDomain": "maildesigner365.com",
+    "syncRedirectDomain": "my.maildesigner365.com",
+    "records": [
+        {
+            "type": "TXT",
+            "groupId": "dkim",
+            "host": "%dkim_selector%._domainkey",
+            "ttl": "3600",
+            "data": "%dkim_value%"
+        },
+        {
+            "type": "SPFM",
+            "groupId": "spf",
+            "host": "@",
+            "ttl": "3600",
+            "spfRules": "include:spf.welovemails.com"
+        },
+        {
+            "type": "MX",
+            "groupId": "mailfrom",
+            "host": "%mailfrom_host%",
+            "pointsTo": "mail-transfer-reports.welovemails.com",
+            "ttl": "3600",
+            "priority": "10"
+        },
+        {
+            "type": "SPFM",
+            "groupId": "mailfrom",
+            "host": "%mailfrom_host%",
+            "ttl": "3600",
+            "spfRules": "include:spf.welovemails.com"
+        },
+        {
+            "type": "TXT",
+            "groupId": "dmarc",
+            "host": "_dmarc",
+            "ttl": "3600",
+            "data": "v=DMARC1; p=quarantine; sp=none; rua=mailto:mailauth-reports@welovemails.com",
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

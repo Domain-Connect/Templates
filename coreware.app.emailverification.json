@@ -1,0 +1,41 @@
+{
+  "providerId": "coreware.app",
+  "providerName": "Coreware",
+  "serviceId": "emailverification",
+  "serviceName": "Email Verification",
+  "version": 1,
+  "logoUrl": "https://coreware-app-coreware-production.s3.us-east-1.amazonaws.com/coreware-3/public/COREWARE-LOGOMARK.png",
+  "description": "Configures SPF, DKIM, DMARC, and email tracking records for authenticated email sending via Coreware. Coreware is a multi-tenant platform where each tenant operates on a dedicated sending domain. This template applies the exact DNS records required for that tenant's domain to pass email authentication checks.",
+  "variableDescription": "spfRules: SPF mechanisms for the sending provider, excluding the v=spf1 prefix and all qualifier (e.g. include:mailgun.org). dkimSelector: DKIM selector label assigned by the sending provider (e.g. k1). dkimRecord: Full DKIM public key TXT value provided by the sending provider. trackingTarget: FQDN the email tracking CNAME on the 'email' subdomain points to.",
+  "syncRedirectDomain": "tenant.coreware.app",
+  "syncPubKeyDomain": "coreware.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spfRules%"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimRecord%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "%trackingTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "Always"
+    }
+  ]
+}

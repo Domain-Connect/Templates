@@ -1,0 +1,32 @@
+{
+	"providerId": "tosend.com",
+	"providerName": "ToSend",
+	"serviceId": "mail",
+	"serviceName": "Mail",
+	"version": 3,
+	"syncPubKeyDomain": "tosend.com",
+	"syncRedirectDomain": "tosend.com",
+	"description": "Enable email signing and specify authorized senders.",
+	"logoUrl": "https://tosend.com/wp-content/uploads/2025/12/to-send-logo-svg.svg",
+	"records": [
+		{
+			"type": "MX",
+			"host": "%spfDomain%",
+			"pointsTo": "feedback-smtp.%region%.amazonses.com",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"type": "SPFM",
+			"host": "%spfDomain%",
+			"ttl": 3600,
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"type": "TXT",
+			"host": "tosend._domainkey",
+			"ttl": 3600,
+			"data": "p=%domainKey%"
+		}
+	]
+}

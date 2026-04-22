@@ -3,12 +3,12 @@
   "providerName": "Brevo",
   "serviceId": "domain-authentication",
   "serviceName": "Brevo Domain Authentication",
-  "version": 4,
+  "version": 6,
   "syncPubKeyDomain": "brevo.com",
   "syncRedirectDomain": "app.brevo.com",
   "logoUrl": "https://static.brevo.com/meetings/assets/brevo_logo.png",
-  "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by Brevo on behalf of the user",
-  "variableDescription": "The variable %verfication_code% represents a combination of prefix string and a MD5 hash. %dkim_selector% and %dkim_selector2% is the DKIM selector for placing the DKIM public key. This needs to be a variable because the selector is dynamically generated. %dkim_public_key% is the DKIM public key. %dmarc_value% is dmarc value. %dkimcname% and %dkimcname2% is cname value where DKIM will point",
+  "description": "Places TXT record for domain verification and DKIM records to authenticate email sent by Brevo on behalf of the user. Supports both root domain and branded subdomain DNS configurations. Includes NS records for DNS delegation to Brevo nameservers.",
+  "variableDescription": "Verification code: %verification_code% (prefix + MD5 hash). DKIM: %dkim_selector%, %dkim_selector2% (dynamic selectors), %dkim_public_key%, %dkimcname%, %dkimcname2% (CNAME targets). Authentication: %dmarc_value%, %spf_rules% (SPF include), %fqdn% (MX target), %ip% (A record IP). A record host: %a_host% (@ for non-branded apex, ip1.{prefix} for branded subdomains; server-constrained, only two safe patterns). Branded: %brand_host% (CNAME host, e.g. 'mail'), %brand_value% (CNAME target), %r_host% (return path, e.g. 'r.mail'), %r_value%, %img_host% (tracking, e.g. 'img.mail'), %img_value%. NS delegation: %host% (always empty for apex), %ns1_value%, %ns2_value% (parent domain coordination required).",
   "records": [
     {
       "groupId": "code",
@@ -45,6 +45,63 @@
       "type": "CNAME",
       "host": "%dkim_selector2%._domainkey",
       "pointsTo": "%dkimcname2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a",
+      "type": "A",
+      "host": "%a_host%",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spf_rules%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%fqdn%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "brand",
+      "type": "CNAME",
+      "host": "%brand_host%",
+      "pointsTo": "%brand_value%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "r",
+      "type": "CNAME",
+      "host": "%r_host%",
+      "pointsTo": "%r_value%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "img",
+      "type": "CNAME",
+      "host": "%img_host%",
+      "pointsTo": "%img_value%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ns",
+      "type": "NS",
+      "host": "%ns_host%",
+      "pointsTo": "%ns1_value%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ns",
+      "type": "NS",
+      "host": "%ns_host%",
+      "pointsTo": "%ns2_value%",
       "ttl": 3600
     }
   ]

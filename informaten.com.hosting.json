@@ -3,9 +3,9 @@
   "providerName": "Informaten",
   "serviceId": "hosting",
   "serviceName": "Webhosting on Informaten.com",
-  "version": 1,
+  "version": 2,
   "syncPubKeyDomain": "informaten.com",
-  "logoUrl": "https://informaten.com/assets/logo_dark.png",
+  "logoUrl": "https://informaten.com/logo_dark.png",
   "description": "Enables a domain to work with Informaten webhosting",
   "variableDescription": "ip and ip6 are the v4/v6 address of the webspace server, domain is the domain this template is applied to and hostname is the hostname of the webspace server",
   "records": [

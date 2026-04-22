@@ -1,0 +1,19 @@
+{
+  "providerId": "dynares.app",
+  "providerName": "dynares",
+  "serviceId": "landingpage",
+  "serviceName": "Landing Page CNAME",
+  "version": 1,
+  "description": "Connect a subdomain to dynares landing pages via CNAME record.",
+  "variableDescription": "`pointsTo` is the dynares platform domain the CNAME should resolve to.",
+  "syncPubKeyDomain": "domainconnect.dynares.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%pointsTo%",
+      "ttl": 3600
+    }
+  ]
+}

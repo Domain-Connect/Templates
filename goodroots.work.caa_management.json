@@ -1,0 +1,20 @@
+{
+  "providerId": "goodroots.work",
+  "providerName": "Good Roots Work",
+  "serviceId": "caa_management",
+  "serviceName": "CAA Policy Management",
+  "version": 1,
+  "logoUrl": "https://goodroots.work/goodroots.svg",
+  "description": "Provides tooling to manage error free RFC compliant best practice CAA policy records for a domain, subdomain or specific hostname.",
+  "variableDescription": "%flags%: flags for the CAA record, typically 0, or 128 to indicate critical; %tag%: tag for the CAA record; %value%: value for the CAA record;",
+  "syncPubKeyDomain": "caa.goodroots.work",
+  "multiInstance": true,
+  "records": [
+    {
+      "type": "CAA",
+      "host": "@",
+      "data": "%flags% %tag% \"%value%\"",
+      "ttl": 300
+    }
+  ]
+}

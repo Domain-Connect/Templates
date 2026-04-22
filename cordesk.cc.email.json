@@ -1,0 +1,35 @@
+{
+  "providerId": "cordesk.cc",
+  "providerName": "Cordesk",
+  "serviceId": "email",
+  "serviceName": "Mail",
+  "version": 1,
+  "syncPubKeyDomain": "dc.cordesk.cc",
+  "syncRedirectDomain": "cordesk.cc",
+  "logoUrl": "https://cordesk.cc/logo.svg",
+  "description": "Enables a domain to send and recieve emails with Cordesk",
+  "variableDescription": "%dkim_public_key% is the DKIM public key",
+  "records": [
+    {
+      "pointsTo": "mail.cordesk.cc",
+      "type": "MX",
+      "host": "@",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "spfRules": "include:spf.cordesk.cc",
+      "type": "SPFM",
+      "host": "@",
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "cordesk._domainkey",
+      "data": "%dkim_public_key%",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
+

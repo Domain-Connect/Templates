@@ -1,0 +1,21 @@
+{
+    "providerId": "vyntr.com",
+    "providerName": "Vyntr",
+    "serviceId": "domain-verification",
+    "serviceName": "Vyntr Domain Verification",
+    "version": 1,
+    "logoUrl": "https://vyntr.com/vyntr.svg",
+    "description": "Enables a domain to work with Vyntr",
+    "syncPubKeyDomain": "vyntr.com",
+    "syncRedirectDomain": "vyntr.com,app.vyntr.com",
+    "hostRequired": false,
+    "multiInstance": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_vyntr",
+            "data": "vyntr-verify=%verify_text%",
+            "ttl": 3600
+        }
+    ]
+}

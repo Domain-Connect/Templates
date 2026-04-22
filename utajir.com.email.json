@@ -1,0 +1,46 @@
+{
+  "providerId": "utajir.com",
+  "providerName": "Utajir", 
+  "serviceId": "email",
+  "serviceName": "Utajir Email Sending",
+  "syncRedirectDomain": "creator.utajir.com,utajir.com",
+  "description": "Configure email sending for your domain with Mailtrap",
+  "logoUrl": "https://utajir.com/icons/utajir-icon.webp",
+  "version": 1,
+  "variableDescription": "verificationToken is the unique subdomain token for domain verification and email authentication",
+  "syncPubKeyDomain": "utajir.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%verificationToken%",
+      "pointsTo": "smtp.mailtrap.live",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "rwmt1._domainkey",
+      "pointsTo": "rwmt1.dkim.smtp.mailtrap.live", 
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "rwmt2._domainkey",
+      "pointsTo": "rwmt2.dkim.smtp.mailtrap.live",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@smtp.mailtrap.live; ruf=mailto:dmarc@smtp.mailtrap.live; rf=afrf; pct=100",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "mt-link",
+      "pointsTo": "t.mailtrap.live",
+      "ttl": 3600
+    }
+  ]
+}

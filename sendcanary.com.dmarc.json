@@ -1,0 +1,23 @@
+{
+  "providerId": "sendcanary.com",
+  "providerName": "SendCanary",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC Email Security Monitoring",
+  "version": 2,
+  "logoUrl": "https://sendcanary.com/logo.png",
+  "description": "Configure DMARC monitoring to protect your domain from email spoofing and phishing. SendCanary receives aggregate reports to give you visibility into who is sending email on behalf of your domain.",
+  "variableDescription": "token: Per-domain identifier for DMARC report routing; policy: DMARC policy (none, quarantine, reject)",
+  "syncPubKeyDomain": "sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%; rua=mailto:%token%@dmarc.spoofcanary.com; ruf=mailto:%token%@dmarc.spoofcanary.com; fo=1",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "providerId": "contentmetric.com",
+  "providerName": "ContentMetric",
+  "serviceId": "website",
+  "serviceName": "ContentMetric Website Hosting",
+  "version": 4,
+  "logoUrl": "https://www.contentmetric.com/logo.svg",
+  "description": "Connect your domain to your ContentMetric project",
+  "syncPubKeyDomain": "contentmetric.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    }
+  ]
+}

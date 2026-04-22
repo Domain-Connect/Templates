@@ -1,0 +1,22 @@
+{
+    "providerId": "nextcommerce.com",
+    "providerName": "NextCommerce",
+    "serviceId": "subdomain-test",
+    "serviceName": "Connect Store Sub Domain For DEVELOPMENT",
+    "version": 1,
+    "logoUrl": "https://nextcommerce-public-assets.s3.us-east-1.amazonaws.com/final-logo-dark-stroked-md.png",
+    "description": "Connects your domain to your NextCommerce store at nextcommerce.com.",
+    "variableDescription": "cname is the DNS CNAME target for the NextCommerce store subdomain.",
+    "syncPubKeyDomain": "29next.store",
+    "syncRedirectDomain": "29next.store,gorsutlame.work",
+    "hostRequired": true,
+    "records": [
+     {
+        "type":"CNAME",
+        "host":"@",
+        "pointsTo":"%cname%",
+        "ttl":3600
+     }
+  ]
+}
+

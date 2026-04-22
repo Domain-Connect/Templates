@@ -1,0 +1,21 @@
+{
+	"providerId": "certdashboard.cloud",
+	"providerName": "CertDashboard",
+	"serviceId": "subdomain",
+	"serviceName": "CertDashboard Site A records",
+	"version": 1,
+	"logoUrl": "https://res.cloudinary.com/dy94cdmsp/image/upload/v1754392054/svgviewer-output_yinzzk.svg",
+	"description": "Enable domain to work with the CertDashboard by configuring the necessary A ,CNAME and TXT SSL records.",
+	"variableDescription": "ARecordIP: refers to the IP address provided by the user.",
+	"syncBlock": false,
+	"syncPubKeyDomain": "certdashboard.cloud",
+	"syncRedirectDomain": "certdashboard.cloud",
+	"records": [
+		{
+			"type": "A",
+			"host": "@",
+			"pointsTo": "%ARecordIP%",
+			"ttl": 600
+		}
+	]
+}

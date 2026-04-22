@@ -1,0 +1,95 @@
+{
+    "providerId": "lettr.com",
+    "providerName": "Lettr",
+    "serviceId": "mail-send-and-receive",
+    "serviceName": "Mail (Sending & Receiving)",
+    "version": 2,
+    "syncPubKeyDomain": "dc-keys.lettr.com",
+    "syncRedirectDomain": "lettr.com",
+    "description": "Full email configuration for both sending and receiving emails.",
+    "logoUrl": "https://assets.lettr.com/brand/lettr-logo-bw.svg",
+    "records": [
+        {
+            "groupId": "cname",
+            "type": "CNAME",
+            "host": "%cnameDomain%",
+            "ttl": 3600,
+            "pointsTo": "sparkpostmail.com"
+        },
+        {
+            "groupId": "spf",
+            "type": "SPFM",
+            "host": "%spfDomain%",
+            "ttl": 3600,
+            "spfRules": "include:_spf.sparkpostmail.com"
+        },
+        {
+            "groupId": "dkim",
+            "type": "TXT",
+            "host": "%dkimSelector%._domainkey",
+            "ttl": 3600,
+            "data": "%dkimValue%"
+        },
+        {
+            "type": "TXT",
+            "groupId": "dmarc",
+            "essential": "OnApply",
+            "host": "%dmarcDomain%",
+            "ttl": "3600",
+            "data": "%dmarcTxtValue%",
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "trackingCertificate",
+            "type": "CNAME",
+            "host": "_acme-challenge.%trackingDomain%",
+            "ttl": 3600,
+            "pointsTo": "%certificateValue%"
+        },
+        {
+            "groupId": "trackingTraffic",
+            "type": "CNAME",
+            "host": "%trackingDomain%",
+            "ttl": 3600,
+            "pointsTo": "proxy.lettr-tracking.com"
+        },
+        {
+            "groupId": "storageCertificate",
+            "type": "CNAME",
+            "host": "_acme-challenge.%storageDomain%",
+            "ttl": 3600,
+            "pointsTo": "%storageCertificateValue%"
+        },
+        {
+            "groupId": "storageTraffic",
+            "type": "CNAME",
+            "host": "%storageDomain%",
+            "ttl": 3600,
+            "pointsTo": "fallback.topol-assets.com"
+        },
+        {
+            "groupId": "inbound",
+            "type": "MX",
+            "host": "%inboundMXDomain%",
+            "pointsTo": "rx1.sparkpostmail.com",
+            "ttl": 3600,
+            "priority": "10"
+        },
+        {
+            "groupId": "inbound",
+            "type": "MX",
+            "host": "%inboundMXDomain%",
+            "pointsTo": "rx2.sparkpostmail.com",
+            "ttl": 3600,
+            "priority": "10"
+        },
+        {
+            "groupId": "inbound",
+            "type": "MX",
+            "host": "%inboundMXDomain%",
+            "pointsTo": "rx3.sparkpostmail.com",
+            "ttl": 3600,
+            "priority": 10
+        }
+    ]
+}

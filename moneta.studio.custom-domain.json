@@ -1,0 +1,20 @@
+{
+  "providerId": "moneta.studio",
+  "providerName": "Moneta Studio",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom Domain",
+  "version": 1,
+  "logoUrl": "https://moneta.studio/__moneta-static__/logo.svg",
+  "description": "Connect your domain to Moneta Studio apps",
+  "syncPubKeyDomain": "moneta.studio",
+  "syncRedirectDomain": "moneta.studio",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom.moneta.studio",
+      "ttl": 3600
+    }
+  ]
+}

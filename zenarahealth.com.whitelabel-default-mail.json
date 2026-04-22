@@ -1,0 +1,37 @@
+{
+  "providerId": "zenarahealth.com",
+  "providerName": "Zenara Health",
+  "serviceId": "whitelabel-default-mail",
+  "serviceName": "White Label - Default Mail",
+  "version": 1,
+  "logoUrl": "https://zenarahealth.com/assets/zenarahealth.svg",
+  "description": "Configures your domain to work with Zenara Health's white label service using default mail.",
+  "variableDescription": "This template configures white-label CNAME records for customer domains using Zenara Health’s default mail setup. All CNAME host and target values are defined as variables to allow reuse of this template across multiple environments, where record values differ between deployments.",
+  "syncPubKeyDomain": "zenarahealth.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%cnamehost1%",
+      "pointsTo": "%record1%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnamehost2%",
+      "pointsTo": "%record2%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnamehost3%",
+      "pointsTo": "%record3%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%cnamehost4%",
+      "pointsTo": "%record4%",
+      "ttl": 600
+    }
+  ]
+}

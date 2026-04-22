@@ -1,0 +1,68 @@
+{
+  "providerId": "demarcify.com",
+  "providerName": "Demarcify",
+  "serviceId": "setup",
+  "serviceName": "Email Security Setup",
+  "version": 1,
+  "logoUrl": "https://demarcify.com/images/demarcify.svg",
+  "description": "Complete email security setup with SPF, DMARC, BIMI, MTA-STS, and TLSRPT for authentication, brand protection, and secure mail delivery with comprehensive reporting",
+  "variableDescription": "spf_record: SPF policy with automatic flattening; dmarc_cname: CNAME target for dynamic DMARC (e.g., abc123.dmarc.demarcify.com); dmarc_record: Static DMARC TXT record; bimi_record: BIMI record string; bimi_selector: BIMI selector; mta_sts_cname: CNAME target for MTA-STS policy (e.g., mta-sts.demarcify.com); mta_sts_id: MTA-STS policy version ID; tlsrpt_cname: CNAME target for TLS reporting",
+  "syncBlock": false,
+  "syncPubKeyDomain": "demarcify.com",
+  "records": [
+    {
+      "groupId": "spf",
+      "type": "TXT",
+      "host": "@",
+      "data": "%spf_record%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
+    },
+    {
+      "groupId": "dmarc_cname",
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%dmarc_cname%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc_txt",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_record%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "bimi",
+      "type": "TXT",
+      "host": "%bimi_selector%._bimi",
+      "data": "%bimi_record%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mta_sts_cname",
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "%mta_sts_cname%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mta_sts_txt",
+      "type": "TXT",
+      "host": "_mta-sts",
+      "data": "v=STSv1; id=%mta_sts_id%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "tlsrpt",
+      "type": "CNAME",
+      "host": "_smtp._tls",
+      "pointsTo": "%tlsrpt_cname%",
+      "ttl": 3600
+    }
+  ]
+}

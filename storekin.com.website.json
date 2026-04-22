@@ -1,0 +1,29 @@
+{
+  "providerId": "storekin.com",
+  "providerName": "StoreKin",
+  "serviceId": "website",
+  "serviceName": "StoreKin Storefront",
+  "version": 1,
+  "description": "Connects your domain to your StoreKin store with automatic SSL.",
+  "variableDescription": "No variables required — template uses fixed StoreKin targets.",
+  "syncPubKeyDomain": "storekin.com",
+  "syncRedirectDomain": "storekin.com",
+  "multiInstance": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
