@@ -4,7 +4,7 @@
   "serviceId": "email",
   "serviceName": "Customer.io Email",
   "hostRequired": true,
-  "version": 3,
+  "version": 4,
   "syncBlock": false,
   "syncPubKeyDomain": "customer.io",
   "syncRedirectDomain": "customer.io",
@@ -17,14 +17,14 @@
       "host": "@",
       "pointsTo": "%mx1%",
       "priority": 10,
-      "ttl": 3600
+      "ttl": 300
     },
     {
       "type": "MX",
       "host": "@",
       "pointsTo": "%mx2%",
       "priority": 10,
-      "ttl": 3600
+      "ttl": 300
     },
     {
       "type": "SPFM",
@@ -36,6 +36,12 @@
       "type": "TXT",
       "host": "%dkim_selector%._domainkey",
       "data": "k=rsa; p=%dkim_key%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
       "ttl": 3600
     }
   ]
