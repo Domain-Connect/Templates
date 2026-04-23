@@ -1,0 +1,53 @@
+{
+    "providerId": "sentroy.com",
+    "providerName": "Sentroy",
+    "serviceId": "email-setup",
+    "serviceName": "Sentroy Email",
+    "version": 1,
+    "logoUrl": "https://sentroy.com/business/sentroy-logo-light.png",
+    "description": "Configure DNS records for Sentroy self-hosted email service",
+    "variableDescription": "serverIp: mail server IP address, dkimSelector: DKIM selector name, dkimPublicKey: DKIM public key, dmarcEmail: email for DMARC reports",
+    "syncBlock": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "sentroy.com",
+    "records": [
+        {
+            "groupId": "sentroy-spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "ip4:%serverIp%"
+        },
+        {
+            "groupId": "sentroy-dkim",
+            "type": "TXT",
+            "host": "%dkimSelector%._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimPublicKey%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sentroy-dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:%dmarcEmail%; ruf=mailto:%dmarcEmail%; fo=1",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sentroy-mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mail.%fqdn%",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "sentroy-mail-a",
+            "type": "A",
+            "host": "mail",
+            "pointsTo": "%serverIp%",
+            "ttl": 3600
+        }
+    ]
+}
