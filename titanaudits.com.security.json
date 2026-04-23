@@ -9,7 +9,6 @@
   "variableDescription": "Secures domain against unauthorized sending.",
   "syncPubKeyDomain": "titanaudits.com",
   "syncBlock": false,
-  "warnPhishing": true,
   "records": [
     {
       "type": "TXT",
