@@ -1,0 +1,24 @@
+{
+  "providerId": "titanaudits.com",
+  "providerName": "InstantDMARC",
+  "serviceId": "security",
+  "serviceName": "InstantDMARC 1-Click Deliverability",
+  "version": 1,
+  "logoUrl": "https://img.plasmic.app/img-optimizer/v1/img?src=https%3A%2F%2Fimg.plasmic.app%2Fimg-optimizer%2Fv1%2Fimg%2F8e5e377d6700a6e005cda1483ddd5e1f.png&w=384&q=75&f=webp",
+  "description": "Configures strict DMARC authentication to prevent spoofing and fix email deliverability.",
+  "variableDescription": "Secures domain against unauthorized sending.",
+  "syncPubKeyDomain": "titanaudits.com",
+  "syncBlock": false,
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "dmarc_policy",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject; rua=mailto:reports@titanaudits.com; pct=100; aspf=s; adkim=s",
+      "ttl": 3600
+    }
+  ]
+}
+
+
