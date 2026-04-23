@@ -1,0 +1,43 @@
+{
+  "providerId": "zibpost.com",
+  "providerName": "ZibPost",
+  "serviceId": "email",
+  "serviceName": "Email Hosting",
+  "version": 1,
+  "logoUrl": "https://zibpost.com/favicon.svg",
+  "description": "Configure your domain for email hosting with ZibPost. Sets up MX records, SPF, DKIM, and DMARC in one step.",
+  "variableDescription": "%dkimSelector%: DKIM selector (default); %dkimValue%: DKIM public key TXT record value (the full v=DKIM1; k=rsa; p=... string)",
+  "syncPubKeyDomain": "zibpost.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.zibpost.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "ttl": 3600,
+      "spfRules": "include:zibpost.com"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@zibpost.com",
+      "ttl": 3600
+    }
+  ]
+}
