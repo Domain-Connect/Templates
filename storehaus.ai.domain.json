@@ -1,0 +1,27 @@
+{
+  "providerId": "storehaus.ai",
+  "providerName": "Storehaus",
+  "serviceId": "domain",
+  "serviceName": "Custom Domain",
+  "version": 1,
+  "logoUrl": "https://storehaus.ai/logo.svg",
+  "description": "Connect your domain to your Storehaus store",
+  "variableDescription": "verifyCode is the domain verification token from Vercel",
+  "syncPubKeyDomain": "storehaus.ai",
+  "syncRedirectDomain": "storehaus.ai",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%domain%,%verifyCode%",
+      "ttl": 3600
+    }
+  ]
+}
