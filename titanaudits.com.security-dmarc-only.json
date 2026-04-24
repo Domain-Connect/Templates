@@ -1,0 +1,16 @@
+{
+  "providerId": "titanaudits.com",
+  "providerName": "InstantDMARC",
+  "serviceId": "security-dmarc-only",
+  "serviceName": "InstantDMARC (DMARC Only)",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_policy%",
+      "ttl": 3600
+    }
+  ]
+}
+
+

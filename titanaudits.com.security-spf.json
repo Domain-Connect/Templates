@@ -1,0 +1,21 @@
+{
+  "providerId": "titanaudits.com",
+  "providerName": "InstantDMARC",
+  "serviceId": "security-spf",
+  "serviceName": "InstantDMARC (DMARC + SPF)",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_policy%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spf_record%",
+      "ttl": 3600
+    }
+  ]
+}
+
