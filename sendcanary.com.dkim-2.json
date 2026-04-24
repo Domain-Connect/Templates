@@ -3,12 +3,12 @@
   "providerName": "SendCanary",
   "serviceId": "dkim-2",
   "serviceName": "DKIM Email Signing (2 records)",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://sendcanary.com/logo.png",
-  "description": "Add two DKIM CNAME records to enable email signing for your domain.",
-  "variableDescription": "selector1/target1: First DKIM CNAME. selector2/target2: Second DKIM CNAME.",
+  "description": "SendCanary DKIM setup (2 CNAMEs): publishes two DKIM CNAMEs for providers that rotate a selector1 / selector2 pair - most commonly Microsoft 365, which requires both CNAMEs up front even though only one is active at a time. DKIM is required for DMARC alignment and improves deliverability. SendCanary (https://sendcanary.com) is an email authentication platform that monitors DMARC reports, detects spoofing, and automates DNS remediation for domain owners.",
+  "variableDescription": "selector1 / target1: first DKIM CNAME (e.g. selector1 -> selector1-<tenant>._domainkey.<tenant>.onmicrosoft.com). selector2 / target2: second DKIM CNAME. Hosts become %selector1%._domainkey.<your-domain> and %selector2%._domainkey.<your-domain>.",
   "syncPubKeyDomain": "sendcanary.com",
-  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com,api.sendcanary.com",
   "records": [
     {
       "groupId": "dkim1",

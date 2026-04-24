@@ -3,12 +3,12 @@
   "providerName": "SendCanary",
   "serviceId": "spf",
   "serviceName": "SPF Sender Authorization",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://sendcanary.com/logo.png",
-  "description": "Add an authorized email sender to your SPF record. SendCanary detects which services send email on your behalf and helps you authorize them with one click.",
-  "variableDescription": "include: SPF include mechanism to add (e.g. amazonses.com, _spf.google.com)",
+  "description": "SendCanary SPF sender authorization: merges a new include: mechanism into your existing SPF record without clobbering other approved senders (uses the SPFM record type so the DC provider appends rather than replaces). SendCanary detects which services send email on your behalf from DMARC reports and adds them with one click. Safe to re-apply - duplicate includes are de-duplicated by the provider. SendCanary (https://sendcanary.com) is an email authentication platform that monitors DMARC reports, detects spoofing, and automates DNS remediation for domain owners.",
+  "variableDescription": "include: SPF include mechanism to merge into the existing record (hostname only, no 'include:' prefix). Examples: amazonses.com, _spf.google.com, spf.protection.outlook.com, _spf.salesforce.com.",
   "syncPubKeyDomain": "sendcanary.com",
-  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com,api.sendcanary.com",
   "records": [
     {
       "type": "SPFM",

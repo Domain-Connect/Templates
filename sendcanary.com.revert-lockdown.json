@@ -3,12 +3,12 @@
     "providerName": "SendCanary",
     "serviceId": "revert-lockdown",
     "serviceName": "Revert Domain Lockdown",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://sendcanary.com/logo.png",
-    "description": "Reverts a previously applied domain lockdown by replacing strict DMARC reject policy with monitoring-only and permissive SPF. Use when a locked-down domain needs to start sending email.",
-    "variableDescription": "ruaAddress: Email address to receive DMARC aggregate reports (same as original lockdown)",
+    "description": "SendCanary: revert a non-sending domain lockdown. Replaces strict DMARC p=reject + SPF '-all' with a monitoring posture (DMARC p=none, SPF '~all') so the domain can start sending email safely. Run this before configuring senders through SendCanary's normal setup flow; otherwise your authorized senders will be rejected at the apex. Aggregate reports keep flowing to your chosen ruaAddress so you still have visibility during the transition. SendCanary (https://sendcanary.com) is an email authentication platform that monitors DMARC reports, detects spoofing, and automates DNS remediation for domain owners.",
+    "variableDescription": "ruaAddress: email address that will keep receiving DMARC aggregate reports during the transition (same address you used for the original lockdown works well, or point it at SendCanary's per-tenant address once set up).",
     "syncPubKeyDomain": "sendcanary.com",
-    "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+    "syncRedirectDomain": "sendcanary.com,app.sendcanary.com,api.sendcanary.com",
     "warnPhishing": false,
     "records": [
         {
@@ -25,6 +25,7 @@
             "host": "@",
             "data": "v=spf1 ~all",
             "ttl": 3600,
+            "essential": "OnApply",
             "txtConflictMatchingMode": "Prefix",
             "txtConflictMatchingPrefix": "v=spf1"
         }
