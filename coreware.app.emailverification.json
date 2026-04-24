@@ -37,7 +37,7 @@
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1",
-      "essential": "Always"
+      "essential": "OnApply"
     }
   ]
 }
