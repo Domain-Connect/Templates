@@ -12,7 +12,6 @@
   "syncPubKeyDomain": "keys.cyberalarm.police.uk",
   "records": [
     {
-      "groupId": "verification",
       "type": "TXT",
       "host": "%HOST%",
       "data": "_cyberalarm-verification=%VERIFICATION_CODE%",
