@@ -3,7 +3,6 @@
   "providerName": "Police CyberAlarm",
   "serviceId": "domain-verification",
   "serviceName": "Domain Verification",
-  "sharedServiceName": true,
   "version": 1,
   "logoUrl": "",
   "description": "Verifies domain ownership for Police CyberAlarm",
