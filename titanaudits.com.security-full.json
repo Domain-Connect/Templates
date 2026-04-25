@@ -3,6 +3,7 @@
   "providerName": "InstantDMARC",
   "serviceId": "security-full",
   "serviceName": "InstantDMARC (Full Security Suite)",
+  "version": 1,
   "records": [
     {
       "type": "TXT",

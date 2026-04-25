@@ -3,6 +3,7 @@
   "providerName": "InstantDMARC",
   "serviceId": "security-spf",
   "serviceName": "InstantDMARC (DMARC + SPF)",
+  "version": 1,
   "records": [
     {
       "type": "TXT",

@@ -3,6 +3,7 @@
   "providerName": "InstantDMARC",
   "serviceId": "security-dmarc-only",
   "serviceName": "InstantDMARC (DMARC Only)",
+  "version": 1,
   "records": [
     {
       "type": "TXT",

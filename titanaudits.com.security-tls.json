@@ -3,6 +3,7 @@
   "providerName": "InstantDMARC",
   "serviceId": "security-tls",
   "serviceName": "InstantDMARC (DMARC + TLS-RPT)",
+  "version": 1,
   "records": [
     {
       "type": "TXT",
