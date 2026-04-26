@@ -3,12 +3,12 @@
   "providerName": "SendCanary",
   "serviceId": "dkim-3",
   "serviceName": "DKIM Email Signing (3 records)",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://sendcanary.com/logo.png",
-  "description": "Add three DKIM CNAME records to enable email signing for your domain.",
-  "variableDescription": "selector1/target1: First DKIM CNAME. selector2/target2: Second. selector3/target3: Third.",
+  "description": "SendCanary DKIM setup (3 CNAMEs): publishes three DKIM CNAMEs for providers that rotate multiple selectors - typically SendGrid (s1, s2, em), Mailchimp's multi-region CNAME bundle, or other SaaS senders that need a full three-record set up front. DKIM is required for DMARC alignment and improves deliverability. SendCanary (https://sendcanary.com) is an email authentication platform that monitors DMARC reports, detects spoofing, and automates DNS remediation for domain owners.",
+  "variableDescription": "selector1 / target1: first DKIM CNAME. selector2 / target2: second. selector3 / target3: third. Hosts become %selectorN%._domainkey.<your-domain>.",
   "syncPubKeyDomain": "sendcanary.com",
-  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com,api.sendcanary.com",
   "records": [
     {
       "groupId": "dkim1",
