@@ -5,7 +5,7 @@
   "serviceName": "Inbound Email",
   "version": 1,
   "syncPubKeyDomain": "domainconnect.novu.co",
-  "syncRedirectDomain": "dashboard.novu.co, eu.dashboard.novu.co",
+  "syncRedirectDomain": "dashboard.novu.co,eu.dashboard.novu.co",
   "syncBlock": false,
   "logoUrl": "https://dashboard.novu.co/images/novu-logo-dark.svg",
   "description": "Configure MX records so Novu can receive inbound email for this domain.",
