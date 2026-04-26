@@ -1,0 +1,37 @@
+{
+  "providerId": "pyrx.tech",
+  "providerName": "PYRX CRM (Synapse CEP)",
+  "serviceId": "mail",
+  "serviceName": "PYRX Email Configuration",
+  "version": 1,
+  "logoUrl": "https://synapse-api.pyrx.tech/images/logo.svg",
+  "description": "Automatically configure email authentication (SPF, DKIM, DMARC) for sending emails through PYRX CRM",
+  "variableDescription": "Domain ownership verification hash",
+  "syncPubKeyDomain": "synapse.pyrx.tech",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 include:send.resend.dev ~all",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "resend._domainkey",
+      "pointsTo": "resend.domainkey.resend.dev",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "synapse-verify=%verifyHash%",
+      "ttl": 3600
+    }
+  ]
+}
