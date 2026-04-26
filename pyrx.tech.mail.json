@@ -10,9 +10,9 @@
   "syncPubKeyDomain": "synapse.pyrx.tech",
   "records": [
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "v=spf1 include:send.resend.dev ~all",
+      "spfRules": "include:send.resend.dev",
       "ttl": 3600
     },
     {
@@ -25,12 +25,17 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=none;",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
       "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "@",
       "data": "synapse-verify=%verifyHash%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "synapse-verify=",
       "ttl": 3600
     }
   ]
