@@ -1,0 +1,52 @@
+{
+  "providerId": "mailtactic.com",
+  "providerName": "Mailtactic",
+  "serviceId": "email",
+  "serviceName": "Mailtactic Email Authentication",
+  "version": 1,
+  "logoUrl": "https://mailtactic.net/images/logo.svg",
+  "syncPubKeyDomain": "mailtactic.com",
+  "syncRedirectDomain": "app.mailtactic.com,app-staging.mailtactic.net",
+  "description": "Configures DKIM, SPF, DMARC, inbound MX, and bounces MX records for sending and receiving email via Mailtactic.",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimHost%",
+      "data": "%dkimPointsTo%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "%host%",
+      "spfRules": "%spfRules%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarcValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mx_inbound",
+      "type": "MX",
+      "host": "%host%",
+      "pointsTo": "%mxPointsTo%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mx_bounces",
+      "type": "MX",
+      "host": "%bouncesHost%",
+      "pointsTo": "%bouncesPointsTo%",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
