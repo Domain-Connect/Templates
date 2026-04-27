@@ -3,10 +3,10 @@
   "providerName": "Mailtactic",
   "serviceId": "email",
   "serviceName": "Mailtactic Email Authentication",
-  "version": 1,
-  "logoUrl": "https://mailtactic.net/images/logo.svg",
+  "version": 2,
+  "logoUrl": "https://cdn.mailtactic.com/public/logos/512b-260427.png",
   "syncPubKeyDomain": "mailtactic.com",
-  "syncRedirectDomain": "app.mailtactic.com,app-staging.mailtactic.net",
+  "syncRedirectDomain": "app.mailtactic.com",
   "description": "Configures DKIM, SPF, DMARC, inbound MX, and bounces MX records for sending and receiving email via Mailtactic.",
   "records": [
     {
