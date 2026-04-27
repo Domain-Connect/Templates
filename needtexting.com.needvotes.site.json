@@ -1,0 +1,35 @@
+{
+  "providerId": "needtexting.com",
+  "providerName": "NeedTexting",
+  "serviceId": "needvotes.site",
+  "serviceName": "NeedVotes Campaign Site",
+  "version": 1,
+  "description": "Points your domain at the NeedVotes site renderer so your campaign site (currently at slug.needvotes.com) is served from your own domain.",
+  "logoUrl": "https://needtexting.com/assets/logo-square.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "needtexting.com",
+  "syncRedirectDomain": "needtexting.com,needvotes.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "104.225.216.245",
+      "ttl": 3600,
+      "groupId": "web"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.needvotes.com",
+      "ttl": 3600,
+      "groupId": "web"
+    },
+    {
+      "type": "TXT",
+      "host": "_needvotes-verify",
+      "data": "%VERIFY_TOKEN%",
+      "ttl": 3600,
+      "groupId": "verification"
+    }
+  ]
+}

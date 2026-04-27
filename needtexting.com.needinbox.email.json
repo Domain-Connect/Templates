@@ -1,0 +1,60 @@
+{
+  "providerId": "needtexting.com",
+  "providerName": "NeedTexting",
+  "serviceId": "needinbox.email",
+  "serviceName": "NeedInbox Email Sending",
+  "version": 1,
+  "description": "Adds the records NeedInbox needs to send email from your domain (MX for inbound, SPF + DKIM + DMARC for authentication, return-path + tracking subdomains).",
+  "logoUrl": "https://needtexting.com/assets/logo-square.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "needtexting.com",
+  "syncRedirectDomain": "needtexting.com,app.needinbox.com,needinbox.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.needtexting.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "mx"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a mx include:postal.needtexting.com",
+      "ttl": 3600,
+      "groupId": "spf"
+    },
+    {
+      "type": "TXT",
+      "host": "%DKIM_SELECTOR%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%DKIM_PUBKEY%",
+      "ttl": 3600,
+      "groupId": "dkim"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@needtexting.com; pct=100; aspf=r; adkim=r",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "groupId": "dmarc",
+      "essential": "OnApply"
+    },
+    {
+      "type": "A",
+      "host": "rp",
+      "pointsTo": "149.255.39.6",
+      "ttl": 3600,
+      "groupId": "tracking"
+    },
+    {
+      "type": "A",
+      "host": "track",
+      "pointsTo": "149.255.39.6",
+      "ttl": 3600,
+      "groupId": "tracking"
+    }
+  ]
+}

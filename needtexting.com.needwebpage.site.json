@@ -1,0 +1,35 @@
+{
+  "providerId": "needtexting.com",
+  "providerName": "NeedTexting",
+  "serviceId": "needwebpage.site",
+  "serviceName": "NeedWebpage AI Site",
+  "version": 1,
+  "description": "Points apex + www at the NeedWebpage site renderer plus an ownership-verification TXT.",
+  "logoUrl": "https://needtexting.com/assets/logo-square.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "needtexting.com",
+  "syncRedirectDomain": "needtexting.com,needwebpage.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "104.225.216.245",
+      "ttl": 3600,
+      "groupId": "web"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.needwebpage.com",
+      "ttl": 3600,
+      "groupId": "web"
+    },
+    {
+      "type": "TXT",
+      "host": "_needwebpage-verify",
+      "data": "%VERIFY_TOKEN%",
+      "ttl": 3600,
+      "groupId": "verification"
+    }
+  ]
+}
