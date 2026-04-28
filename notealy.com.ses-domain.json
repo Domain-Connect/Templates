@@ -1,0 +1,31 @@
+{
+  "providerId": "notealy.com",
+  "providerName": "Notealy",
+  "serviceId": "ses-domain",
+  "serviceName": "Notealy Email Sending Domain",
+  "version": 1,
+  "logoUrl": "https://www.notealy.com/images/logo-brand-notealy.svg",
+  "description": "Configures Amazon SES DKIM CNAME records for Notealy.",
+  "syncPubKeyDomain": "notealy.com",
+  "syncRedirectDomain": "app.notealy.com,notealy.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%DKIM1TOKEN%._domainkey",
+      "pointsTo": "%DKIM1TOKEN%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "host": "%DKIM2TOKEN%._domainkey",
+      "pointsTo": "%DKIM2TOKEN%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "host": "%DKIM3TOKEN%._domainkey",
+      "pointsTo": "%DKIM3TOKEN%.dkim.amazonses.com",
+      "ttl": 1800
+    }
+  ]
+}
