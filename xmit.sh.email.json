@@ -3,12 +3,13 @@
 	"providerName": "Transmit",
 	"serviceId": "email",
 	"serviceName": "Email Sending & Receiving",
-	"version": 1,
+	"version": 2,
 	"logoUrl": "https://xmit.sh/logo.png",
 	"syncPubKeyDomain": "xmit.sh",
 	"syncRedirectDomain": "xmit.sh",
+	"warnPhishing": true,
 	"description": "Configure DKIM, SPF, DMARC, and mail routing for Transmit email platform",
-	"variableDescription": "dkimSelector: DKIM selector identifier for signing outbound email; awsRegion: AWS region used for SES mail routing (e.g. us-east-1)",
+	"variableDescription": "dkimSelector: DKIM selector identifier for signing outbound email; awsRegion: AWS region used for SES mail routing (e.g. us-east-1); dmarcPolicy: DMARC enforcement level (none, quarantine, or reject)",
 	"records": [
 		{
 			"groupId": "dkim",
@@ -27,8 +28,9 @@
 			"groupId": "dmarc",
 			"type": "TXT",
 			"host": "_dmarc",
-			"data": "v=DMARC1; p=none; rua=mailto:dmarc@%fqdn%",
-			"txtConflictMatchingMode": "None",
+			"data": "v=DMARC1; p=%dmarcPolicy%; rua=mailto:dmarc@%fqdn%",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1",
 			"ttl": 3600,
 			"essential": "OnApply"
 		},
@@ -38,7 +40,8 @@
 			"host": "@",
 			"pointsTo": "inbound-smtp.%awsRegion%.amazonaws.com",
 			"priority": 10,
-			"ttl": 3600
+			"ttl": 3600,
+			"essential": "OnApply"
 		},
 		{
 			"groupId": "mailfrom",
