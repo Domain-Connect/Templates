@@ -1,0 +1,23 @@
+{
+  "providerId": "titanaudits.com",
+  "providerName": "InstantDMARC",
+  "serviceId": "security-tls",
+  "serviceName": "InstantDMARC (DMARC + TLS-RPT)",
+  "version": 1,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_policy%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "%tls_policy%",
+      "ttl": 3600
+    }
+  ]
+}
+
+

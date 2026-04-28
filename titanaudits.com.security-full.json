@@ -1,0 +1,29 @@
+{
+  "providerId": "titanaudits.com",
+  "providerName": "InstantDMARC",
+  "serviceId": "security-full",
+  "serviceName": "InstantDMARC (Full Security Suite)",
+  "version": 1,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_policy%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "%tls_policy%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spf_record%",
+      "ttl": 3600
+    }
+  ]
+}
+
+
