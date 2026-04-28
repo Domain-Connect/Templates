@@ -1,0 +1,25 @@
+{
+    "providerId": "xellux.com",
+    "providerName": "Xellux",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain Verification",
+    "version": 1,
+    "logoUrl": "https://cdn-edge.xellux.com/i/73f312de-3ea8-4063-8b6d-85af107d5b99-rem-0f395230",
+    "description": "Enables a domain to work with Xellux",
+    "variableDescription": "Unique verification code provided for purpose of verification",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.xellux.com",
+    "syncRedirectDomain": "xellux.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "verification",
+            "type": "TXT",
+            "host": "@",
+            "data": "xellux-verification=%verifytxt%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "xellux-verification="
+        }
+    ]
+}
