@@ -1,0 +1,18 @@
+{
+  "providerId": "storypages.ai",
+  "providerName": "StoryPages",
+  "serviceId": "site-and-email",
+  "serviceName": "StoryPages Website + Email",
+  "version": 1,
+  "logoUrl": "https://www.storypages.ai/logo.png",
+  "syncBlock": false,
+  "shared": false,
+  "variableDescription": "Connects mydomain.com to your StoryPages site and authenticates email sending.",
+  "records": [
+    { "type": "A",     "host": "@",   "pointsTo": "76.76.21.21",         "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com.", "ttl": 3600 },
+    { "type": "CNAME", "host": "%emHost%",          "pointsTo": "u%sgUid%.wl.sendgrid.net", "ttl": 3600 },
+    { "type": "CNAME", "host": "s1._domainkey",     "pointsTo": "s1.domainkey.u%sgUid%.wl.sendgrid.net", "ttl": 3600 },
+    { "type": "CNAME", "host": "s2._domainkey",     "pointsTo": "s2.domainkey.u%sgUid%.wl.sendgrid.net", "ttl": 3600 }
+  ]
+}
