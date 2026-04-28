@@ -3,7 +3,7 @@
   "providerName": "Mailtactic",
   "serviceId": "email",
   "serviceName": "Mailtactic Email Authentication",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://cdn.mailtactic.com/public/logos/512b-260427.png",
   "syncPubKeyDomain": "mailtactic.com",
   "syncRedirectDomain": "app.mailtactic.com",
