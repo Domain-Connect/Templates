@@ -1,0 +1,32 @@
+{
+    "providerId": "fieldplan.ai",
+    "providerName": "FieldPlan",
+    "serviceId": "site-hosting-subdomain",
+    "serviceName": "FieldPlan website hosting (subdomain)",
+    "description": "Connect a subdomain of your domain to your FieldPlan site.",
+    "variableDescription": "`cnametarget` is the FieldPlan site host the customer's subdomain CNAMEs to. `cfownership_apex` is the Cloudflare Custom Hostname ownership token, `cfacme_apex` the Let's Encrypt ACME challenge token. Both are minted by FieldPlan and substituted at apply time. (The `_apex` suffix is a naming holdover from the apex+www template; it identifies the records belonging to the customer's configured sub-host, not the zone apex.)",
+    "version": 1,
+    "logoUrl": "https://fieldplan.ai/logo.png",
+    "syncPubKeyDomain": "fieldplan.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%cnametarget%",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%cfownership_apex%",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "host": "_acme-challenge",
+            "data": "%cfacme_apex%",
+            "ttl": 300
+        }
+    ]
+}
