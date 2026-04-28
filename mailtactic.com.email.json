@@ -28,7 +28,7 @@
       "groupId": "dmarc",
       "type": "TXT",
       "host": "_dmarc",
-      "data": "v=DMARC1; p=%dmarcPolicy%; rua=mailto:%dmarcRua%",
+      "data": "v=DMARC1; p=%dmarcPolicy%; rua=mailto:%dmarcRua%; ruf=mailto:%dmarcRuf%",
       "ttl": 3600,
       "txtConflictMatchingMode": "All",
       "essential": "OnApply"
