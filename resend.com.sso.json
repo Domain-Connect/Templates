@@ -10,12 +10,12 @@
 	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
 	"records": [
 		{
-			"groupId": "verification",
 			"type": "TXT",
 			"host": "@",
 			"ttl": 3600,
 			"data": "resend-domain-verification=%verificationToken%",
-			"txtConflictMatchingMode": "Prefix"
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "resend-domain-verification="
 		}
 	]
 }
