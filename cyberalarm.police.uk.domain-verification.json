@@ -1,0 +1,21 @@
+{
+  "providerId": "cyberalarm.police.uk",
+  "providerName": "Police CyberAlarm",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain Verification",
+  "version": 1,
+  "logoUrl": "https://member.cyberalarm.police.uk/favicon/web-app-manifest-512x512.png",
+  "description": "Verifies domain ownership for Police CyberAlarm",
+  "variableDescription": "VERIFICATION_CODE: Unique verification code provided for purpose of verification",
+  "multiInstance": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "keys.cyberalarm.police.uk",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "_cyberalarm-verification=%VERIFICATION_CODE%",
+      "ttl": 3600
+    }
+  ]
+}
