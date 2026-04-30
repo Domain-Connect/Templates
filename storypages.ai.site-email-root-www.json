@@ -1,0 +1,19 @@
+{
+  "providerId": "storypages.ai",
+  "providerName": "StoryPages",
+  "serviceId": "site-email-root-www",
+  "serviceName": "StoryPages Website (apex + www) + Email",
+  "version": 1,
+  "logoUrl": "https://www.storypages.ai/logo.png",
+  "syncPubKeyDomain": "storypages.ai",
+  "syncBlock": false,
+  "shared": false,
+  "variableDescription": "Vercel apex and www targets from the domain config API; SendGrid CNAME targets from the authenticated sender domain.",
+  "records": [
+    {"type": "A", "host": "@", "pointsTo": "%vercelApexTarget%", "ttl": 3600},
+    {"type": "CNAME", "host": "www", "pointsTo": "%vercelCnameTarget%", "ttl": 3600},
+    {"type": "CNAME", "host": "%emHost%", "pointsTo": "%sendgridMailTarget%", "ttl": 3600},
+    {"type": "CNAME", "host": "s1._domainkey", "pointsTo": "%sendgridDkim1Target%", "ttl": 3600},
+    {"type": "CNAME", "host": "s2._domainkey", "pointsTo": "%sendgridDkim2Target%", "ttl": 3600}
+  ]
+}
