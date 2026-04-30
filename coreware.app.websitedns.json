@@ -5,25 +5,17 @@
     "serviceName": "Website DNS",
     "version": 1,
     "logoUrl": "https://coreware-app-coreware-production.s3.us-east-1.amazonaws.com/coreware-3/public/COREWARE-LOGOMARK.png",
-    "description": "Configures DNS records required to point a custom domain to a Coreware-hosted website. This template sets a subdomain CNAME record and the domain ownership verification TXT record needed to activate and verify a custom domain on the Coreware website builder.",
-    "variableDescription": "cnameHost: The subdomain label the CNAME record is placed on (e.g. www, blog, shop). cnameDomain: The FQDN the CNAME record should point to (Coreware website CNAME target). verificationToken: The unique domain ownership verification token assigned to this website domain (e.g. cw-verify-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx).",
+    "description": "Adds the AWS ACM DNS validation CNAME required to issue an SSL certificate for your custom domain on Coreware. The routing CNAME (pointing your domain to Coreware infrastructure) must be configured separately through your DNS provider.",
+    "variableDescription": "acmValidationName: The ACM certificate validation CNAME host label relative to the apex domain (e.g. _abc123def456). acmValidationValue: The ACM certificate validation CNAME target (e.g. _xyz.acm-validations.aws).",
     "syncRedirectDomain": "tenant.coreware.app",
     "syncPubKeyDomain": "coreware.app",
     "hostRequired": false,
     "records": [
       {
         "type": "CNAME",
-        "host": "%cnameHost%",
-        "pointsTo": "%cnameDomain%",
+        "host": "%acmValidationName%",
+        "pointsTo": "%acmValidationValue%",
         "ttl": 3600
-      },
-      {
-        "type": "TXT",
-        "host": "@",
-        "data": "%verificationToken%",
-        "ttl": 3600,
-        "txtConflictMatchingMode": "Prefix",
-        "txtConflictMatchingPrefix": "cw-verify-"
       }
     ]
   }
