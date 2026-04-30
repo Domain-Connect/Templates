@@ -42,6 +42,7 @@ jobs:
           LABELS_ADD_FILE: /tmp/pr_labels_add.txt
           LABELS_REMOVE_FILE: /tmp/pr_labels_remove.txt
           REQUIRED_PAYLOAD_KEYS: ${{ secrets.REQUIRED_PAYLOAD_KEYS }}
+          DC_APPLY_STATE_HMAC_KEY: ${{ secrets.DC_APPLY_STATE_HMAC_KEY }}
         run: |
           set +e
           python .github/scripts/check_pr_description.py 2>&1 | tee /tmp/pr_check_output.txt

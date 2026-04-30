@@ -1,0 +1,20 @@
+{
+  "providerId": "linklyhq.com",
+  "providerName": "Linkly",
+  "serviceId": "a-record",
+  "serviceName": "Linkly link shortener custom domain (A record)",
+  "version": 1,
+  "logoUrl": "https://linklyhq.com/img/linkly-logo.svg",
+  "description": "Adds an A record to point your root domain to Linkly for short link management.",
+  "syncBlock": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "linklyhq.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "34.133.74.21",
+      "ttl": 3600
+    }
+  ]
+}

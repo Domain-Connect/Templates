@@ -1,0 +1,45 @@
+{
+  "providerId": "purple.ai",
+  "providerName": "Purple.ai",
+  "serviceId": "sendgrid-email",
+  "serviceName": "Purple.ai Email Domain Authentication",
+  "version": 1,
+  "logoUrl": "https://d1ldbb6wxu8wdm.cloudfront.net/33815c0fcf008942e52db4c68969c433.png",
+  "description": "Configures your custom domain to work with Purple.ai's email service",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.purple.ai",
+  "syncRedirectDomain": "domainconnect.purple.ai",
+  "shared": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "mailhost",
+      "type": "CNAME",
+      "host": "%mail1Host%",
+      "pointsTo": "%mail1Value%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1Host%._domainkey",
+      "pointsTo": "%dkim1Value%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2Host%._domainkey",
+      "pointsTo": "%dkim2Value%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:sendgrid.net",
+      "ttl": 3600
+    }
+  ]
+}
+

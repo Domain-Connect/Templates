@@ -1,0 +1,22 @@
+{
+  "providerId": "8s.io",
+  "providerName": "8s.io",
+  "serviceId": "ownership-verification",
+  "serviceName": "8s.io Domain Ownership Verification",
+  "version": 1,
+  "description": "Creates the TXT ownership record required by 8s.io onboarding.",
+  "logoUrl": "https://raw.githubusercontent.com/josuegiomexia/8s-domain-connect-onboarding/main/assets/8s.io-logo.svg",
+  "syncPubKeyDomain": "8s.io",
+  "syncRedirectDomain": "8s.io",
+  "syncBlock": false,
+  "variableDescription": "verificationToken is the TXT challenge token required by 8s.io.",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_8s-verify",
+      "ttl": "3600",
+      "data": "8s-verification=%verificationToken%"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "providerId": "rapidolinks.com",
+  "providerName": "RapidoLinks",
+  "serviceId": "custom-domain",
+  "serviceName": "RapidoLinks Custom Domain",
+  "version": 1,
+  "logoUrl": "https://rapidolinks.com/static/icon.svg",
+  "description": "Configures CNAME for a RapidoLinks custom redirect subdomain",
+  "variableDescription": "cname: CNAME target for the redirect domain",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "rapidolinks.com",
+  "syncRedirectDomain": "app.rapidolinks.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 3600
+    }
+  ]
+}

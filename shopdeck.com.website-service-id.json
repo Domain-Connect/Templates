@@ -1,0 +1,28 @@
+{
+  "providerId": "shopdeck.com",
+  "providerName": "ShopDeck",
+  "serviceId": "website-service-id",
+  "serviceName": "ShopDeck Website Hosting",
+  "version": 1,
+  "logoUrl": "https://pro.shopdeck.com/logo192.png",
+  "description": "Website Hosting with ShopDeck",
+  "variableDescription": "Website Hosting with ShopDeck",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.shopdeck.com",
+  "syncRedirectDomain": "pro.shopdeck.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%arecord%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}

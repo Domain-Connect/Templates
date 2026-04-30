@@ -1,0 +1,66 @@
+{
+  "providerId": "rebelsender.com",
+  "providerName": "RebelSender",
+  "serviceId": "mail",
+  "serviceName": "Mail",
+  "version": 4,
+  "syncPubKeyDomain": "rebelsender.com",
+  "syncRedirectDomain": "rebelsender.com",
+  "description": "Configure DNS records for email sending with RebelSender.",
+  "logoUrl": "https://rebelsender.com/logo.svg",
+  "variableDescription": "%DKIM1_TOKEN%/%DKIM1_TARGET%, %DKIM2_TOKEN%/%DKIM2_TARGET%, %DKIM3_TOKEN%/%DKIM3_TARGET%: DKIM selector tokens and CNAME targets (AWS SES); %VERIFY_VALUE%: domain ownership verification; %MAILFROM_MX%: MAIL FROM bounce handler; %DMARC_VALUE%: DMARC policy",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "ttl": 3600,
+      "data": "rebelsender-verify=%VERIFY_VALUE%"
+    },
+    {
+      "type": "CNAME",
+      "host": "%DKIM1_TOKEN%._domainkey",
+      "pointsTo": "%DKIM1_TARGET%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%DKIM2_TOKEN%._domainkey",
+      "pointsTo": "%DKIM2_TARGET%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%DKIM3_TOKEN%._domainkey",
+      "pointsTo": "%DKIM3_TARGET%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "%MAILFROM_MX%",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "track",
+      "pointsTo": "fallback-tracking.rebelsender.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "%DMARC_VALUE%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

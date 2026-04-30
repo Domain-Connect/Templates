@@ -1,0 +1,38 @@
+{
+  "providerId": "sendcanary.com",
+  "providerName": "SendCanary",
+  "serviceId": "email-setup",
+  "serviceName": "Email Security Setup (DMARC + SPF + BIMI)",
+  "version": 4,
+  "logoUrl": "https://sendcanary.com/logo.svg",
+  "description": "SendCanary complete email security bundle: publishes CNAMEs for DMARC and BIMI (pointing at SendCanary-managed per-tenant record targets) plus an SPF TXT record. The CNAME indirection lets SendCanary evolve the underlying policy, selectors, and BIMI logo on your behalf - no more editing DNS every time you want to move DMARC to reject or rotate BIMI. Use this for a managed 'set and forget' setup; use the individual DMARC / SPF / BIMI templates if you prefer owning the raw record values yourself. SendCanary (https://sendcanary.com) is an email authentication platform that monitors DMARC reports, detects spoofing, and automates DNS remediation for domain owners.",
+  "variableDescription": "dmarcTarget: CNAME target SendCanary assigns for DMARC (e.g. <token>._dmarc.sendcanary.com). spfRecord: complete SPF TXT record value (e.g. 'v=spf1 include:spf.google.com include:amazonses.com ~all'). bimiTarget: CNAME target for BIMI (e.g. <token>._bimi.sendcanary.com).",
+  "syncPubKeyDomain": "sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com,api.sendcanary.com",
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%dmarcTarget%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spfRecord%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
+    },
+    {
+      "type": "CNAME",
+      "host": "default._bimi",
+      "pointsTo": "%bimiTarget%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

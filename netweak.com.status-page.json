@@ -1,0 +1,19 @@
+{
+    "providerId": "netweak.com",
+    "providerName": "Netweak",
+    "serviceId": "status-page",
+    "serviceName": "Status page",
+    "version": 1,
+    "logoUrl": "https://netweak.com/img/logo/logo-dark.png",
+    "description": "Configures a sub-domain for use as a Netweak status page",
+    "syncPubKeyDomain": "netweak.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cname.netweak.com",
+            "ttl": 3600
+        }
+    ]
+}

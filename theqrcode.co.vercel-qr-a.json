@@ -1,0 +1,19 @@
+{
+  "providerId": "theqrcode.co",
+  "providerName": "the qr code co.",
+  "serviceId": "vercel-qr-a",
+  "serviceName": "the qr code co. QR Redirect",
+  "version": 1,
+  "logoUrl": "https://theqrcode.co/logo.svg",
+  "description": "Connect a hostname to the qr code co. QR redirects using the IPv4 target provided by the qr code co.",
+  "variableDescription": "%value%: the IPv4 target the qr code co. requests for this hostname.",
+  "syncPubKeyDomain": "dc.theqrcode.co",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%value%",
+      "ttl": "3600"
+    }
+  ]
+}

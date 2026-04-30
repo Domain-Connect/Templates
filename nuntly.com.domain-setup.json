@@ -1,0 +1,44 @@
+{
+  "providerId": "nuntly.com",
+  "providerName": "Nuntly",
+  "serviceId": "domain-setup",
+  "serviceName": "Nuntly Email Setup",
+  "version": 1,
+  "logoUrl": "https://nuntly.com/logo.svg",
+  "description": "Configure DNS records for sending and receiving emails with Nuntly.",
+  "variableDescription": "dkimhost is the DKIM selector prefix. dkimkey is the DKIM public key. region is the region identifier for mail routing.",
+  "syncPubKeyDomain": "domainconnect.nuntly.com",
+  "syncRedirectDomain": "nuntly.com",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimhost%._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "%dkimhost%",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "%dkimhost%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

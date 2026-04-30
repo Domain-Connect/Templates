@@ -1,0 +1,41 @@
+{
+  "providerId": "lettermint.co",
+  "providerName": "Lettermint",
+  "serviceId": "mail",
+  "serviceName": "Lettermint Email DNS",
+  "version": 1,
+  "logoUrl": "https://lettermint.co/logo.svg",
+  "description": "Configure Return-Path, DKIM, and DMARC records for sending emails with Lettermint.",
+  "variableDescription": "dkimKey: DKIM public key (base64-encoded RSA public key); dkimSelector: DKIM selector identifier",
+  "syncPubKeyDomain": "lettermint.co",
+  "syncRedirectDomain": "app.lettermint.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "return-path",
+      "type": "CNAME",
+      "host": "lm-bounces",
+      "pointsTo": "bounces.lmta.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "v=DKIM1;k=rsa;p=%dkimKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1;p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
