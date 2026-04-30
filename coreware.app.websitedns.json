@@ -1,22 +1,21 @@
 {
-    "providerId": "coreware.app",
-    "providerName": "Coreware",
-    "serviceId": "websitedns",
-    "serviceName": "Website DNS",
-    "version": 1,
-    "logoUrl": "https://coreware-app-coreware-production.s3.us-east-1.amazonaws.com/coreware-3/public/COREWARE-LOGOMARK.png",
-    "description": "Adds the AWS ACM DNS validation CNAME required to issue an SSL certificate for your custom domain on Coreware. The routing CNAME (pointing your domain to Coreware infrastructure) must be configured separately through your DNS provider.",
-    "variableDescription": "acmValidationName: The ACM certificate validation CNAME host label relative to the apex domain (e.g. _abc123def456). acmValidationValue: The ACM certificate validation CNAME target (e.g. _xyz.acm-validations.aws).",
-    "syncRedirectDomain": "tenant.coreware.app",
-    "syncPubKeyDomain": "coreware.app",
-    "hostRequired": false,
-    "records": [
-      {
-        "type": "CNAME",
-        "host": "%acmValidationName%",
-        "pointsTo": "%acmValidationValue%",
-        "ttl": 3600
-      }
-    ]
-  }
-  
+  "providerId": "coreware.app",
+  "providerName": "Coreware",
+  "serviceId": "websitedns",
+  "serviceName": "Website DNS",
+  "version": 1,
+  "logoUrl": "https://coreware-app-coreware-production.s3.us-east-1.amazonaws.com/coreware-3/public/COREWARE-LOGOMARK.png",
+  "description": "Adds the AWS ACM DNS validation CNAME required to issue an SSL certificate for your custom domain on Coreware. The routing CNAME (pointing your domain to Coreware infrastructure) must be configured separately through your DNS provider.",
+  "variableDescription": "acmValidationName: The ACM certificate validation CNAME host label relative to the apex domain (e.g. _abc123def456). acmValidationValue: The ACM certificate validation CNAME target (e.g. _xyz.acm-validations.aws).",
+  "syncRedirectDomain": "tenant.coreware.app",
+  "syncPubKeyDomain": "coreware.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%acmValidationName%",
+      "pointsTo": "%acmValidationValue%",
+      "ttl": 3600
+    }
+  ]
+}
