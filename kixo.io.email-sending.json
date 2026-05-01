@@ -1,0 +1,63 @@
+{
+  "providerId": "kixo.io",
+  "providerName": "Kixo",
+  "serviceId": "email-sending",
+  "serviceName": "Kixo email sending",
+  "version": 1,
+  "logoUrl": "https://kixo.io/icon.png",
+  "description": "Authorize Kixo to send transactional and marketing email from this domain. Adds DKIM signing keys, a custom MAIL FROM bounce subdomain, and a DMARC monitoring policy. No incoming mail is touched.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "kixo.io",
+  "syncRedirectDomain": "kixo.io",
+  "variableDescription": "Email authentication records",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 1800,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 1800,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 1800,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "bounces",
+      "pointsTo": "%mailFromMxTarget%",
+      "priority": 10,
+      "ttl": 1800,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "bounces",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@kixo.io",
+      "ttl": 1800,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
