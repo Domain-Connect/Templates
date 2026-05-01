@@ -1,0 +1,23 @@
+{
+  "providerId": "borghq.io",
+  "providerName": "Odin by Borg",
+  "serviceId": "domain-verification",
+  "serviceName": "Mjolnir Domain Verification",
+  "version": 1,
+  "logoUrl": "https://odin.borghq.io/logo-full.svg",
+  "description": "Verify domain ownership for a Mjolnir security assessment.",
+  "variableDescription": "token is the unique verification value assigned to this domain.",
+  "syncPubKeyDomain": "domainconnect.borghq.io",
+  "syncRedirectDomain": "odin.borghq.io",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_borg-verify",
+      "ttl": "3600",
+      "data": "borg-verify=%token%"
+    }
+  ]
+}
