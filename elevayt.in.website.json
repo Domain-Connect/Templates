@@ -3,13 +3,10 @@
   "providerName": "Elevayt",
   "serviceId": "website",
   "serviceName": "Elevayt Website",
-  "version": 1.0,
+  "version": 1,
   "logoUrl": "https://www.elevayt.in/icon.png",
-  "description": "Connect your domain to your Elevayt website. This adds a CNAME record so www.yourdomain.com points to your Elevayt site.",
+  "description": "Connect your domain to your Elevayt website. Adds a CNAME record so www.yourdomain.com points to your Elevayt-hosted site.",
   "variableDescription": "",
-  "syncBlock": false,
-  "shared": true,
-  "shareServiceInSync": false,
   "records": [
     {
       "type": "CNAME",
