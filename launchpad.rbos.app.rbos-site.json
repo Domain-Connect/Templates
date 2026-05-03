@@ -1,0 +1,26 @@
+{
+  "providerId": "launchpad.rbos.app",
+  "providerName": "Red Bricks",
+  "serviceId": "rbos-site",
+  "serviceName": "Red Bricks Site",
+  "version": 2,
+  "logoUrl": "https://launchpad.rbos.app/red-bricks-logo-square.svg",
+  "description": "Connect this domain to your Red Bricks site so visitors land on it.",
+  "syncBlock": true,
+  "syncRedirectDomain": "launchpad.rbos.app",
+  "syncPubKeyDomain": "launchpad.rbos.app",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 1800
+    }
+  ]
+}
