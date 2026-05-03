@@ -3,7 +3,7 @@
       "providerName": "NeevJob ATS",
       "serviceId": "agent-email-inbox",
       "serviceName": "Agent Email Inbox",
-      "serviceDescription": "Connects your domain to NeevJob ATS so your AI recruiting agent can send and receive emails on your behalf.",
+      "description": "Connects your domain to NeevJob ATS so your AI recruiting agent can send and receive emails on your behalf.",
       "version": 1,
       "logoUrl": "https://neevjob.com/logo.png",
       "syncPubKeyDomain": "domainconnect.neevjob.com",
