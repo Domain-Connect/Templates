@@ -5,7 +5,7 @@
     "serviceName": "BreachMe Domain Verification",
     "syncPubKeyDomain": "breachme.ai",
     "syncBlock": false,
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://breachme.ai/logo.svg",
     "description": "Use this DNS record to verify your domain ownership with BreachMe.",
     "hostRequired": false,
