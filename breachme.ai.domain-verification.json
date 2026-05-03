@@ -3,7 +3,7 @@
     "providerName": "BreachMe",
     "serviceId": "domain-verification",
     "serviceName": "BreachMe Domain Verification",
-    "syncPubKeyDomain": "domainconnect.breachme.ai",
+    "syncPubKeyDomain": "breachme.ai",
     "syncBlock": false,
     "version": 1,
     "logoUrl": "https://breachme.ai/logo.svg",
