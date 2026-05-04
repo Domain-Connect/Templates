@@ -5,16 +5,22 @@
   "serviceName": "Website DNS",
   "version": 1,
   "logoUrl": "https://coreware-app-coreware-production.s3.us-east-1.amazonaws.com/coreware-3/public/COREWARE-LOGOMARK.png",
-  "description": "Adds the AWS ACM DNS validation CNAME required to issue an SSL certificate for your custom domain on Coreware. The routing CNAME (pointing your domain to Coreware infrastructure) must be configured separately through your DNS provider.",
-  "variableDescription": "acmValidationName: The ACM certificate validation CNAME host label relative to the apex domain (e.g. _abc123def456). acmValidationValue: The ACM certificate validation CNAME target (e.g. _xyz.acm-validations.aws).",
+  "description": "Configures the DNS records required to connect your custom domain to Coreware. Adds a routing CNAME to point your domain to Coreware infrastructure and an AWS ACM DNS validation CNAME to issue an SSL certificate.",
+  "variableDescription": "host: The custom domain or subdomain being connected to Coreware (e.g. coreware.ph or shop.coreware.com). acmValidationName: The ACM certificate validation CNAME host prefix relative to the apex domain (e.g. _81ca9d65c3b6cc12a56dbef97c478782). acmValidationValue: The unique prefix of the ACM validation target, before the fixed .acm-validations.aws suffix (e.g. _546055a181acf858b7e2b39b43932277.jkddzztszm).",
   "syncRedirectDomain": "tenant.coreware.app",
   "syncPubKeyDomain": "coreware.app",
   "hostRequired": false,
   "records": [
     {
       "type": "CNAME",
-      "host": "%acmValidationName%",
-      "pointsTo": "%acmValidationValue%",
+      "host": "%host%",
+      "pointsTo": "coreboss-lb-prd-859315297.us-east-1.elb.amazonaws.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%acmValidationName%.%host%",
+      "pointsTo": "%acmValidationValue%.acm-validations.aws",
       "ttl": 3600
     }
   ]
