@@ -6,7 +6,6 @@
   "version": 2,
   "logoUrl": "https://launchpad.rbos.app/red-bricks-logo-square.svg",
   "description": "Connect this domain to your Red Bricks site so visitors land on it.",
-  "syncBlock": true,
   "syncRedirectDomain": "launchpad.rbos.app",
   "syncPubKeyDomain": "launchpad.rbos.app",
   "records": [
