@@ -1,0 +1,20 @@
+{
+  "providerId": "theqrcode.co",
+  "providerName": "the qr code co.",
+  "serviceId": "vercel-qr-cname",
+  "serviceName": "the qr code co. QR Redirect",
+  "version": 1,
+  "logoUrl": "https://theqrcode.co/logo.svg",
+  "description": "Connect a hostname to the qr code co. QR redirects using the CNAME target provided by the qr code co.",
+  "variableDescription": "%value%: the CNAME target the qr code co. requests for this hostname.",
+  "syncPubKeyDomain": "dc.theqrcode.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%value%",
+      "ttl": "3600"
+    }
+  ]
+}

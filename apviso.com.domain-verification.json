@@ -1,0 +1,20 @@
+{
+  "providerId": "apviso.com",
+  "providerName": "APVISO",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain Verification",
+  "version": 1,
+  "logoUrl": "https://apviso.com/logo.svg",
+  "description": "Verifies domain ownership for APVISO security testing platform.",
+  "variableDescription": "A unique verification token is supplied for the purpose of domain verification.",
+  "syncPubKeyDomain": "apviso.com",
+  "syncRedirectDomain": "apviso.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_apviso",
+      "data": "apviso-verify=%verificationToken%",
+      "ttl": 3600
+    }
+  ]
+}

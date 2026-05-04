@@ -1,0 +1,21 @@
+{
+    "providerId": "nashra.ai",
+    "providerName": "Nashra",
+    "serviceId": "blog-hosting-subdomain",
+    "serviceName": "Nashra Blog Hosting (Subdomain)",
+    "version": 1,
+    "logoUrl": "https://app.nashra.ai/images/logo/logo.svg",
+    "description": "Configure DNS CNAME record for hosting your blog subdomain via Nashra. The target subdomain is passed via the host URL parameter.",
+    "variableDescription": "%cname_target%: Vercel DNS target for your domain (e.g. cname.vercel-dns.com)",
+    "syncPubKeyDomain": "nashra.ai",
+    "syncRedirectDomain": "app.nashra.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%cname_target%",
+            "ttl": 3600
+        }
+    ]
+}

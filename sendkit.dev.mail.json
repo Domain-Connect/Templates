@@ -1,0 +1,41 @@
+{
+    "providerId": "sendkit.dev",
+    "providerName": "SendKit",
+    "serviceId": "mail",
+    "serviceName": "Mail",
+    "version": 2,
+    "syncPubKeyDomain": "sendkit.dev",
+    "syncRedirectDomain": "sendkit.dev",
+    "description": "Enable email signing and specify authorized senders.",
+    "logoUrl": "https://cdn.sendkit.dev/domain-connect.png",
+    "records": [
+        {
+            "type": "MX",
+            "host": "%spfDomain%",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "ttl": 3600,
+            "priority": 10
+        },
+        {
+            "type": "SPFM",
+            "host": "%spfDomain%",
+            "ttl": 3600,
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "type": "TXT",
+            "host": "sendkit._domainkey",
+            "ttl": 3600,
+            "data": "v=DKIM1; k=rsa; p=%domainKey%"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+  "providerId": "flowapt.com",
+  "providerName": "Flowapt",
+  "serviceId": "email-receive",
+  "serviceName": "Flowapt Email (Receiving)",
+  "version": 1,
+  "logoUrl": "https://app.flowiq.live/original_logo.png",
+  "description": "Enable inbound email on this domain so mail sent to any address on the root domain is captured by Flowapt. Replaces the apex MX record: ONLY apply this if the domain does not already have email configured elsewhere (Gmail, Outlook, etc.), otherwise existing email delivery will stop working.",
+  "syncPubKeyDomain": "flowapt.com",
+  "records": [
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.eu-west-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

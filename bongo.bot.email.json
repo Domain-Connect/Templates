@@ -1,0 +1,49 @@
+{
+	"providerId": "bongo.bot",
+	"providerName": "BongoBot",
+	"serviceId": "email",
+	"serviceName": "Email Sending & Receiving",
+	"version": 1,
+	"syncPubKeyDomain": "bongo.bot",
+	"syncRedirectDomain": "bongo.bot",
+	"description": "Configure DNS records for sending and receiving email through BongoBot.",
+	"logoUrl": "https://bongo.bot/logo.png",
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkim1%._domainkey",
+			"pointsTo": "track.bongo.bot",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkim2%._domainkey",
+			"pointsTo": "track.bongo.bot",
+			"ttl": 3600
+		},
+		{
+			"groupId": "outbound",
+			"type": "SPFM",
+			"host": "@",
+			"spfRules": "include:spf.bongo.bot"
+		},
+		{
+			"groupId": "inbound",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "mx1.bongo.bot",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "inbound",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "mx2.bongo.bot",
+			"priority": 10,
+			"ttl": 3600
+		}
+	]
+}

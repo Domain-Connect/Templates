@@ -1,0 +1,88 @@
+name: Automerge Check
+
+on:
+  pull_request_target:
+    branches:
+      - master
+    types: [opened, synchronize, reopened]
+
+jobs:
+  automerge-check:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Setup refs
+        id: setup-refs
+        run: |
+          echo "base_sha=${{ github.event.pull_request.base.sha }}" >> "$GITHUB_OUTPUT"
+          echo "head_sha=${{ github.event.pull_request.head.sha }}" >> "$GITHUB_OUTPUT"
+
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          ref: ${{ steps.setup-refs.outputs.head_sha }}
+
+      - name: Get changed JSON files
+        id: changed-json-files
+        uses: tj-actions/changed-files@v45
+        with:
+          files: '*.json'
+
+      - name: Skip if no JSON files changed
+        if: steps.changed-json-files.outputs.any_changed != 'true'
+        run: |
+          echo "No JSON files changed, skipping automerge check"
+          exit 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '^1.22'
+
+      - name: Install dc-template-linter
+        run: |
+          go install github.com/Domain-Connect/dc-template-linter@latest
+
+      - name: Run linter with merge-or-fail on changed files
+        id: linter-check
+        continue-on-error: true
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-json-files.outputs.all_changed_files }}
+        run: |
+          linter_failed=0
+          for file in ${ALL_CHANGED_FILES}; do
+            echo "Checking $file"
+            if ! $(go env GOPATH)/bin/dc-template-linter --merge-or-fail "$file" > /dev/null 2>&1; then
+              echo "Linter failed for $file"
+              linter_failed=1
+              break
+            fi
+          done
+          if [ $linter_failed -eq 1 ]; then
+            echo "linter_passed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "linter_passed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Add automerge-possible label on success
+        if: steps.linter-check.outputs.linter_passed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Linter passed, adding automerge-possible label"
+          gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "automerge-possible"
+
+      - name: Remove automerge-possible label on failure
+        if: steps.linter-check.outputs.linter_passed == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Linter failed, removing automerge-possible label if present"
+          gh pr edit "$PR_NUMBER" --repo "$REPO" --remove-label "automerge-possible" 2>/dev/null || true

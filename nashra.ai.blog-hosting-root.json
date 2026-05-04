@@ -1,0 +1,20 @@
+{
+    "providerId": "nashra.ai",
+    "providerName": "Nashra",
+    "serviceId": "blog-hosting-root",
+    "serviceName": "Nashra Blog Hosting (Root Domain)",
+    "version": 1,
+    "logoUrl": "https://app.nashra.ai/images/logo/logo.svg",
+    "description": "Configure DNS A record for hosting your blog on your root domain via Nashra",
+    "variableDescription": "%a_ip%: Vercel IP address for your domain",
+    "syncPubKeyDomain": "nashra.ai",
+    "syncRedirectDomain": "app.nashra.ai",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%a_ip%",
+            "ttl": 3600
+        }
+    ]
+}

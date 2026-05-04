@@ -1,0 +1,49 @@
+{
+    "providerId": "nashra.ai",
+    "providerName": "Nashra",
+    "serviceId": "email-sending",
+    "serviceName": "Nashra Email Sending",
+    "version": 1,
+    "logoUrl": "https://app.nashra.ai/images/logo/logo.svg",
+    "description": "Configure SPF, DKIM, and DMARC records for sending emails via Nashra. Records are placed on the mg. subdomain (Mailgun sending domain).",
+    "variableDescription": "%dkim_selector%: DKIM key selector assigned by Mailgun (e.g. k1, mailo); %dkim_value%: DKIM RSA public key value (prescribed by DKIM standard, bare variable justified)",
+    "syncPubKeyDomain": "nashra.ai",
+    "syncRedirectDomain": "app.nashra.ai",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "email.mg",
+            "pointsTo": "mailgun.org",
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "mg",
+            "spfRules": "include:mailgun.org"
+        },
+        {
+            "type": "TXT",
+            "host": "%dkim_selector%._domainkey.mg",
+            "data": "%dkim_value%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc.mg",
+            "data": "v=DMARC1; p=quarantine;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

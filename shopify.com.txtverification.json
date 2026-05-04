@@ -1,0 +1,19 @@
+{
+   "providerId": "Shopify.com",
+   "providerName": "Shopify",
+   "serviceId": "txtverification",
+   "serviceName": "Shopify Domain TXT Verification",
+   "version": 1,
+   "syncPubKeyDomain": "shopify.com",
+   "logoUrl": "https://domainconnect.org/wp-content/uploads/2016/08/shopify.png",
+   "description": "Verifies proof of domain ownership for Shopify using a TXT record",
+   "variableDescription": "ulid is the unique verification code for proof of domain ownership",
+   "records": [
+      {
+         "type": "TXT",
+         "host": "shopify_verification",
+         "data": "%ulid%",
+         "ttl": 3600
+      }
+   ]
+}

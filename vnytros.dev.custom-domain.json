@@ -1,0 +1,31 @@
+{
+  "providerId": "vnytros.dev",
+  "providerName": "Vnytros",
+  "serviceId": "custom-domain",
+  "serviceName": "Connect Custom Domain",
+  "version": 1,
+  "logoUrl": "https://public.assets.vnytros.dev/vnytros_logo.svg",
+  "description": "Connect your custom domain to Vnytros.",
+  "variableDescription": "%ip%: server IP address; %target%: CNAME destination; %txt%: verification token",
+  "syncPubKeyDomain": "vnytros.dev",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "vnytros-verify=%txt%",
+      "ttl": 300
+    }
+  ]
+}

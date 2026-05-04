@@ -1,0 +1,23 @@
+{
+  "providerId": "domainbridge.io",
+  "providerName": "DomainBridge",
+  "serviceId": "verify",
+  "serviceName": "Domain Verification (TXT)",
+  "version": 1,
+  "logoUrl": "https://domainbridge.io/logo.svg",
+  "description": "Verifies domain ownership by adding a TXT record",
+  "syncPubKeyDomain": "domainbridge.io",
+  "syncRedirectDomain": "domainbridge.io,api.domainbridge.io,app.domainbridge.io",
+  "variableDescription": "verification is Unique verification token",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "ttl": 3600,
+      "data": "domainbridge-verify=%verification%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "domainbridge-verify="
+    }
+  ]
+}

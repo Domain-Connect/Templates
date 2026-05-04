@@ -1,0 +1,20 @@
+{
+  "providerId": "holydocs.com",
+  "providerName": "HolyDocs",
+  "serviceId": "custom-domain",
+  "serviceName": "HolyDocs Custom Domain",
+  "version": 1,
+  "description": "Automatically configures the DNS CNAME required to connect a documentation subdomain to HolyDocs.",
+  "logoUrl": "https://holydocs.com/favicon.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.holydocs.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy.holydocs.com",
+      "ttl": 300
+    }
+  ]
+}

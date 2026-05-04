@@ -1,0 +1,67 @@
+{
+  "providerId": "cirrux.co",
+  "providerName": "Cirrux",
+  "serviceId": "mailbox",
+  "serviceName": "Cirrux Mail",
+  "description": "Configure DNS records for Cirrux email service (MX, SPF, DKIM, DMARC, and domain verification).",
+  "variableDescription": "verification_token: Domain ownership verification token. dkim_selector_1, dkim_selector_2, dkim_selector_3: DKIM key selectors for email signing.",
+  "syncPubKeyDomain": "cirrux.co",
+  "shared": false,
+  "version": 1,
+  "logoUrl": "https://static.cirrux.co/mail/img/favicon/favicon-512.png",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "cirrux-verification=%verification_token%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim_selector_1%._domainkey",
+      "pointsTo": "%dkim_selector_1%.%domain%.dkim.cirrux.co",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim_selector_2%._domainkey",
+      "pointsTo": "%dkim_selector_2%.%domain%.dkim.cirrux.co",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim_selector_3%._domainkey",
+      "pointsTo": "%dkim_selector_3%.%domain%.dkim.cirrux.co",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.cirrux.co",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject; rua=mailto:dmarc@cirrux.co",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "smtp.cirrux.co",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx-fallback.cirruxmail.com",
+      "priority": 20,
+      "ttl": 3600
+    }
+  ]
+}

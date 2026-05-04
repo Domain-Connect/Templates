@@ -1,0 +1,24 @@
+{
+  "providerId":"your.tube",
+  "providerName":"Your.tube",
+  "serviceId":"domain",
+  "serviceName":"Your.tube Domain",
+  "version": 1,
+  "logoUrl":"https://your.tube/themes/logo.png",
+  "description":"Create a video channel with your own domain.",
+  "syncPubKeyDomain":"your.tube",
+  "records":[
+    {
+      "type":"A",
+      "host":"@",
+      "pointsTo":"34.1.16.185",
+      "ttl":3600
+    },
+    {
+      "type":"CNAME",
+      "host":"www",
+      "pointsTo":"@",
+      "ttl":3600
+    }
+  ]
+}

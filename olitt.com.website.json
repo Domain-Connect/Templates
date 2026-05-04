@@ -1,0 +1,26 @@
+{
+  "providerId": "olitt.com",
+  "providerName": "Olitt",
+  "serviceId": "website",
+  "serviceName": "Olitt Website Hosting",
+  "version": 1,
+  "logoUrl": "https://s3.olitt.com/static/assets/img/olitt-logo.webp",
+  "description": "Connect your domain to your Olitt website automatically",
+  "syncBlock": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "olitt.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "185.113.249.232",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}
