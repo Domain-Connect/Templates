@@ -4,7 +4,7 @@
   "serviceId": "domain-verification",
   "serviceName": "Mjolnir Domain Verification",
   "version": 1,
-  "logoUrl": "https://odin.borghq.io/logo-full.svg",
+  "logoUrl": "https://odin.borghq.io/logo-full-light-mode.svg",
   "description": "Verify domain ownership for a Mjolnir security assessment.",
   "variableDescription": "token is the unique verification value assigned to this domain.",
   "syncPubKeyDomain": "domainconnect.borghq.io",
