@@ -1,0 +1,15 @@
+{
+  "providerId": "lllogan.cloud",
+  "providerName": "lllogan.cloud",
+  "serviceId": "duckmath",
+  "serviceName": "Duckmath BYOD",
+  "version": 1,
+  "logoUrl": "https://lllogan.cloud/logo.png",
+  "description": "Point your domain to Duckmath (byod.duckmath.org)",
+  "syncPubKeyDomain": "lllogan.cloud",
+  "syncBlock": false,
+  "records": [
+    { "type": "CNAME", "host": "@",   "pointsTo": "byod.duckmath.org", "ttl": 1800 },
+    { "type": "CNAME", "host": "www", "pointsTo": "byod.duckmath.org", "ttl": 1800 }
+  ]
+}
