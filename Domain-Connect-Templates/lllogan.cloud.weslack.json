@@ -1,0 +1,15 @@
+{
+  "providerId": "lllogan.cloud",
+  "providerName": "lllogan.cloud",
+  "serviceId": "weslack",
+  "serviceName": "Weslack BYOD",
+  "version": 1,
+  "logoUrl": "https://lllogan.cloud/logo.png",
+  "description": "Point your domain to Weslack (byod.weslack.com)",
+  "syncPubKeyDomain": "lllogan.cloud",
+  "syncBlock": false,
+  "records": [
+    { "type": "CNAME", "host": "@",   "pointsTo": "byod.weslack.com", "ttl": 1800 },
+    { "type": "CNAME", "host": "www", "pointsTo": "byod.weslack.com", "ttl": 1800 }
+  ]
+}
