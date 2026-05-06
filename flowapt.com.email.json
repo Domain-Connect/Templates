@@ -1,0 +1,36 @@
+{
+  "providerId": "flowapt.com",
+  "providerName": "Flowapt",
+  "serviceId": "email",
+  "serviceName": "Flowapt Email",
+  "version": 1,
+  "logoUrl": "https://app.flowiq.live/original_logo.png",
+  "description": "Configure DNS so this domain can send authenticated email through Flowapt. Adds a DKIM TXT record at resend._domainkey, plus a bounce-handling MX and SPF on a 'send' subdomain. Does not change the apex MX or apex SPF: existing inbound email to the root domain is unaffected.",
+  "variableDescription": "domainKey: RSA public key material for DKIM signing, provided by Flowapt. The template prepends the 'p=' prefix so the variable itself carries key bytes only.",
+  "syncPubKeyDomain": "flowapt.com",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%domainKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
