@@ -3,7 +3,7 @@
   "providerName": "Police CyberAlarm",
   "serviceId": "domain-verification",
   "serviceName": "Domain Verification",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://member.cyberalarm.police.uk/favicon/web-app-manifest-512x512.png",
   "description": "Verifies domain ownership for Police CyberAlarm",
   "variableDescription": "VERIFICATION_CODE: Unique verification code provided as a subdomain prefix for CNAME verification",
