@@ -4,7 +4,7 @@
   "serviceId": "email-marketing",
   "serviceName": "Email sending authentication",
   "version": 1,
-  "logoUrl": "https://marketing.mesquared.ai/logo.svg",
+  "logoUrl": "https://marketing.mesquared.ai/branding/mesquared-logo.svg",
   "description": "Adds the DNS records needed to authenticate a MeSquared Marketing sending domain.",
   "variableDescription": "%dkim_selector%: Mailgun DKIM selector; %dkim_value%: Mailgun DKIM TXT value; %tracking_target%: Mailgun tracking CNAME target; %dmarc_value%: root-domain DMARC policy.",
   "syncPubKeyDomain": "domainconnect.mesquared.ai",
