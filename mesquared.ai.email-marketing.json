@@ -1,0 +1,46 @@
+{
+  "providerId": "mesquared.ai",
+  "providerName": "MeSquared Marketing",
+  "serviceId": "email-marketing",
+  "serviceName": "Email sending authentication",
+  "version": 1,
+  "logoUrl": "https://marketing.mesquared.ai/logo.svg",
+  "description": "Adds the DNS records needed to authenticate a MeSquared Marketing sending domain.",
+  "variableDescription": "%dkim_selector%: Mailgun DKIM selector; %dkim_value%: Mailgun DKIM TXT value; %tracking_target%: Mailgun tracking CNAME target; %dmarc_value%: root-domain DMARC policy.",
+  "syncPubKeyDomain": "domainconnect.mesquared.ai",
+  "syncRedirectDomain": "marketing.mesquared.ai, app.mesquared.ai",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "mg",
+      "ttl": "3600",
+      "spfRules": "include:mailgun.org",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkim_selector%._domainkey.mg",
+      "ttl": "3600",
+      "data": "%dkim_value%",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "email.mg",
+      "pointsTo": "%tracking_target%",
+      "ttl": "3600",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": "3600",
+      "data": "%dmarc_value%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
