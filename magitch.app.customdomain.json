@@ -9,6 +9,7 @@
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.magitch.app",
   "syncRedirectDomain": "dev.supgen.ai,app.magitch.com,supgen.ai",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
