@@ -1,0 +1,28 @@
+{
+  "providerId": "w7sfw.com",
+  "providerName": "W7SFW",
+  "serviceId": "subdomain-setup",
+  "serviceName": "W7SFW | WordPress Firewall (Subdomain)",
+  "version": 1,
+  "logoUrl": "https://w7sfw.com/logo.svg",
+  "description": "Configures domain verification and CNAME routing for W7SFW WordPress Firewall on subdomains",
+  "variableDescription": "txtValue: unique domain verification token, cnameTarget: fully qualified proxy hostname (e.g. example.wp-protected.com)",
+  "syncPubKeyDomain": "domainconnect.w7sfw.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_w7sfw",
+      "data": "w7sfw-domain-verify=%txtValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 3600
+    }
+  ]
+}

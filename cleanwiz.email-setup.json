@@ -1,0 +1,25 @@
+{
+  "providerId": "cleanwiz",
+  "serviceId": "email-setup",
+  "providerName": "CleanWiz",
+  "serviceName": "Email Setup",
+  "version": 1,
+  "logoUrl": "https://app.cleanwiz.ai/cleanwiz-logo.png",
+  "description": "Configures DNS for CleanWiz Email & Authentication.",
+  "variableDescription": "Configures CNAME and TXT records for your domain.",
+  "syncPubKeyDomain": "cleanwiz.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "dc",
+      "pointsTo": "domainconnect.cleanwiz.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600
+    }
+  ]
+}

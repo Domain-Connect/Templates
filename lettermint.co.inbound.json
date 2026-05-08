@@ -1,0 +1,22 @@
+{
+  "providerId": "lettermint.co",
+  "providerName": "Lettermint",
+  "serviceId": "inbound",
+  "serviceName": "Lettermint Inbound Email",
+  "version": 1,
+  "logoUrl": "https://lettermint.co/logo.svg",
+  "description": "Configure MX records for receiving inbound email with Lettermint.",
+  "syncPubKeyDomain": "lettermint.co",
+  "syncRedirectDomain": "app.lettermint.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound.lettermint.co",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+    "providerId": "navscope.io",
+    "providerName": "NavScope",
+    "serviceId": "token-claim-verification",
+    "serviceName": "NavScope Token Claim Verification",
+    "version": 1,
+    "logoUrl": "https://navscope.io/logo.svg",
+    "description": "Verifies domain ownership for NavScope token listing claims. Adds a temporary TXT record used to confirm the domain owner controls the listed crypto token project.",
+    "variableDescription": "verificationToken is the unique claim verification code issued by NavScope during the token claim process",
+    "syncPubKeyDomain": "navscope.io",
+    "syncRedirectDomain": "navscope.io",
+    "records": [
+        {
+            "groupId": "verification",
+            "type": "TXT",
+            "host": "_navscope-verify",
+            "ttl": 3600,
+            "data": "navscope-claim=%verificationToken%"
+        }
+    ]
+}

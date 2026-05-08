@@ -1,0 +1,45 @@
+{
+  "providerId": "boti.bot",
+  "serviceId": "send-email",
+  "providerName": "Boti",
+  "serviceName": "Boti Email (Send Only)",
+  "version": 4,
+  "logoUrl": "https://boti.bot/boti512.png",
+  "description": "Configures email sending (SPF, DKIM, DMARC, Return-Path) for Boti. Use this if you already have MX records (e.g., Gmail, Outlook).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "boti.bot",
+  "syncRedirectDomain": "boti.bot",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:botimail.net",
+      "ttl": 120
+    },
+    {
+      "type": "CNAME",
+      "host": "boti._domainkey",
+      "pointsTo": "boti._domainkey.botimail.net",
+      "ttl": 120
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "_dmarc.botimail.net",
+      "ttl": 120
+    },
+    {
+      "type": "CNAME",
+      "host": "return",
+      "pointsTo": "mail.botimail.net",
+      "ttl": 120
+    },
+    {
+      "type": "TXT",
+      "host": "_boti-verify-%accountId%",
+      "data": "boti-domain-verify",
+      "ttl": 120
+    }
+  ]
+}
+

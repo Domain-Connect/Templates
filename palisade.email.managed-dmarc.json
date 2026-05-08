@@ -1,0 +1,24 @@
+{
+  "providerId": "palisade.email",
+  "providerName": "Palisade",
+  "serviceId": "managed-dmarc",
+  "serviceName": "Managed DMARC monitoring",
+  "version": 1,
+  "syncRedirectDomain": "app.palisade.email,palisade.email",
+  "logoUrl": "https://app.palisade.email/logo.png",
+  "syncPubKeyDomain": "domainconnect.palisade.email",
+  "warnPhishing": true,
+  "syncBlock": false,
+  "hostRequired": true,
+  "description": "Save time, stop email spoofing and get your customers DMARC compliant 10x faster.",
+  "variableDescription": "mappingSubdomain is the Palisade DMARC CNAME value for your domain",
+  "records": [
+    {
+      "groupId": "dmarc",
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%mappingSubdomain%.palisade.email",
+      "ttl": 43200
+    }
+  ]
+}

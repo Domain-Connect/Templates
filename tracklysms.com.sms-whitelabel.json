@@ -1,0 +1,21 @@
+{
+  "providerId": "tracklysms.com",
+  "providerName": "TracklySMS",
+  "serviceId": "sms-whitelabel",
+  "serviceName": "TracklySMS White-Label Domain",
+  "version": 1,
+  "logoUrl": "https://app.tracklysms.com/logo-dark.svg",
+  "description": "Creates a CNAME record to enable a custom domain for your TracklySMS number approval page.",
+  "syncPubKeyDomain": "domainconnect.tracklysms.com",
+  "syncRedirectDomain": "app.tracklysms.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy.tracklysms.com",
+      "ttl": 3600
+    }
+  ]
+}

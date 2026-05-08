@@ -1,0 +1,22 @@
+{
+  "providerId": "saaskevin.com",
+  "providerName": "SaaSKevin",
+  "serviceId": "widget-custom-domain-subdomain",
+  "serviceName": "Custom domain (subdomain)",
+  "version": 2,
+  "description": "Connect a subdomain (CNAME) to SaaSKevin edge.",
+  "variableDescription": "CNAME_TARGET is the CNAME target for routing (may be branded).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "saaskevin.com",
+  "syncRedirectDomain": "app.saaskevin.com,saaskevin.com,app.saaskevinstaging.com,saaskevinstaging.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%CNAME_TARGET%",
+      "ttl": 3600
+    }
+  ]
+}
+

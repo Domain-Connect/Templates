@@ -1,0 +1,43 @@
+{
+	"providerId": "leonai.io",
+	"providerName": "SignFlow by Leon AI",
+	"serviceId": "signflow-email-dns",
+	"serviceName": "SignFlow Email Authentication",
+	"version": 2,
+	"logoUrl": "https://signflow.leonai.io/leonai-logo.png",
+	"description": "Configure DKIM, SPF, MX, and DMARC records for authenticated email sending via SignFlow",
+	"variableDescription": "dkimHost: DKIM selector hostname, dkimValue: DKIM public key TXT value, mxHost: MX/SPF subdomain, mxTarget: MX target hostname, mxPriority: MX priority, spfInclude: SPF include domain, dmarcDomain: domain for DMARC aggregate reports",
+	"syncPubKeyDomain": "domainconnect.leonai.io",
+	"syncRedirectDomain": "signflow.leonai.io",
+	"hostRequired": false,
+	"records": [
+		{
+			"type": "TXT",
+			"host": "%dkimHost%",
+			"data": "%dkimValue%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All"
+		},
+		{
+			"type": "MX",
+			"host": "%mxHost%",
+			"pointsTo": "%mxTarget%",
+			"priority": "%mxPriority%",
+			"ttl": 3600
+		},
+		{
+			"type": "SPFM",
+			"host": "%mxHost%",
+			"spfRules": "include:%spfInclude%",
+			"ttl": 3600
+		},
+		{
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "v=DMARC1; p=none; rua=mailto:dmarc@%dmarcDomain%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All",
+			"essential": "Always"
+		}
+	]
+}

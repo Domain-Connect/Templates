@@ -1,0 +1,31 @@
+{
+    "providerId": "agencyeasy.com",
+    "providerName": "AgencyEasy",
+    "serviceId": "webbuilder",
+    "serviceName": "AgencyEasy Website Hosting",
+    "version": 1,
+    "logoUrl": "https://duhwjqfqbngoexbbpzij.supabase.co/storage/v1/object/public/test%20image/logoipsum-415.png",
+    "description": "Connect your domain to AgencyEasy for website hosting with automatic SSL",
+    "variableDescription": "No variables. Static template.",
+    "syncPubKeyDomain": "agencyeasy.com",
+    "records": [
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "75.2.91.24",
+        "ttl": 300
+      },
+      {
+        "type": "A",
+        "host": "@",
+        "pointsTo": "166.117.241.255",
+        "ttl": 300
+      },
+      {
+        "type": "CNAME",
+        "host": "www",
+        "pointsTo": "proxy-ssl.agencyeasy.com",
+        "ttl": 300
+      }
+    ]
+  }

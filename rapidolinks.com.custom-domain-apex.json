@@ -1,0 +1,28 @@
+{
+  "providerId": "rapidolinks.com",
+  "providerName": "RapidoLinks",
+  "serviceId": "custom-domain-apex",
+  "serviceName": "RapidoLinks Custom Domain (Apex)",
+  "version": 1,
+  "logoUrl": "https://rapidolinks.com/static/icon.svg",
+  "description": "Configures A record for a RapidoLinks custom redirect apex domain",
+  "variableDescription": "ip: A record target IP address",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "rapidolinks.com",
+  "syncRedirectDomain": "app.rapidolinks.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}

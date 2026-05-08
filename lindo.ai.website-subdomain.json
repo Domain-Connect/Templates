@@ -1,0 +1,22 @@
+{
+  "providerId": "lindo.ai",
+  "providerName": "Lindo",
+  "serviceId": "website-subdomain",
+  "serviceName": "Lindo Website (Subdomain)",
+  "version": 1,
+  "logoUrl": "https://cdn.ln-cdn.com/image/whitelabel/logo/app.lindo.ai.png",
+  "description": "Connect your subdomain to Lindo",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "lindo.ai",
+  "syncRedirectDomain": "app.lindo.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%prefix%.ln-dns.com",
+      "ttl": "300"
+    }
+  ]
+}

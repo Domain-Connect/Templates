@@ -1,0 +1,21 @@
+{
+  "providerId": "li-nk.me",
+  "providerName": "LinkMe",
+  "serviceId": "custom-domain-cname",
+  "serviceName": "LinkMe Custom Domain",
+  "version": 1,
+  "logoUrl": "https://li-nk.me/android-chrome-192x192.png",
+  "description": "Configures a CNAME record for a branded LinkMe custom domain.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "li-nk.me",
+  "syncRedirectDomain": "li-nk.me",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.li-nk.me",
+      "ttl": 3600
+    }
+  ]
+}

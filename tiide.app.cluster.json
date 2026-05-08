@@ -1,0 +1,23 @@
+{
+  "providerId": "tiide.app",
+  "providerName": "Tiide",
+  "serviceId": "cluster",
+  "serviceName": "Connect your domain to Tiide",
+  "version": 1,
+  "description": "Automatically configures DNS records so your domain points to your Tiide site.",
+  "logoUrl": "https://tiide.app/img/logo-blue.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tiide.app",
+  "syncRedirectDomain": "tiide.app",
+  "variableDescription": "Connects %domain% to your Tiide site",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "groupId": "tiide"
+    }
+  ]
+}

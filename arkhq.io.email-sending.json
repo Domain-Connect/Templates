@@ -1,0 +1,34 @@
+{
+	"providerId": "arkhq.io",
+	"providerName": "Ark",
+	"serviceId": "email-sending",
+	"serviceName": "Email Sending",
+	"version": 1,
+	"logoUrl": "https://arkhq.io/ark-logo.png",
+	"description": "Configure DNS records for sending emails with Ark.",
+	"variableDescription": "dkimSelector: DKIM selector identifier; dkimPublicKey: DKIM public key (base64); spfInclude: SPF include domain; returnPathTarget: Return path CNAME target",
+	"syncPubKeyDomain": "arkhq.io",
+	"syncRedirectDomain": "arkhq.io",
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "TXT",
+			"host": "%dkimSelector%._domainkey",
+			"data": "v=DKIM1; t=s; h=sha256; p=%dkimPublicKey%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "spf",
+			"type": "SPFM",
+			"host": "@",
+			"spfRules": "include:%spfInclude%"
+		},
+		{
+			"groupId": "return-path",
+			"type": "CNAME",
+			"host": "psrp",
+			"pointsTo": "%returnPathTarget%",
+			"ttl": 3600
+		}
+	]
+}

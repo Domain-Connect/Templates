@@ -1,0 +1,21 @@
+{
+  "providerId": "darkstrata.io",
+  "providerName": "DarkStrata",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain Verification",
+  "version": 1,
+  "logoUrl": "https://cdn.darkstrata.io/assets/logos/darkstrata_square_256.png",
+  "description": "Verify domain ownership for DarkStrata threat monitoring",
+  "variableDescription": "Unique verification code for domain ownership verification",
+  "multiInstance": false,
+  "syncBlock": false,
+  "syncPubKeyDomain": "darkstrata.io",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "_darkstrata-domain-verification=%verification%",
+      "ttl": 3600
+    }
+  ]
+}

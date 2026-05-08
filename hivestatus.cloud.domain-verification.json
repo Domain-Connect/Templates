@@ -1,0 +1,25 @@
+{
+  "providerId": "hivestatus.cloud",
+  "providerName": "HiveStatus",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain Verification",
+  "version": 1,
+  "logoUrl": "https://static.cdn.hivestatus.cloud/v1/assets/logo.svg",
+  "description": "Enables a domain to work with HiveStatus",
+  "variableDescription": "Unique verification code provided for purpose of verification",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.hivestatus.cloud",
+  "syncRedirectDomain": "hivestatus.cloud",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "hivestatus-verification=%verifytxt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "hivestatus-verification="
+    }
+  ]
+}

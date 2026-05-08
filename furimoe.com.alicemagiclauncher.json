@@ -1,0 +1,18 @@
+{
+  "providerId": "furimoe.com",
+  "providerName": "Furimoe",
+  "serviceId": "alicemagiclauncher",
+  "serviceName": "Alice Magic / Neko Launcher",
+  "version": 2,
+  "description": "DNS TXT record for Alice Magic / Neko Launcher auto configuration",
+  "syncPubKeyDomain": "keys.furimoe.com",
+  "syncRedirectDomain": "furimoe.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_nekolauncher",
+      "data": "v=2;ip=%server_ip%;settings=%instance_setting_url%;manifest=%instance_manifest_url%;update=%lastupdate%",
+      "ttl": 3600
+    }
+  ]
+}

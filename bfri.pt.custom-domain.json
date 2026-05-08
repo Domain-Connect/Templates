@@ -1,0 +1,19 @@
+{
+  "providerId": "bfri.pt",
+  "providerName": "BFRI",
+  "serviceId": "custom-domain",
+  "serviceName": "BFRI Custom Domain",
+  "version": 1,
+  "description": "Connect your domain to BFRI",
+  "syncPubKeyDomain": "bfri.pt",
+  "syncRedirectDomain": "bfri.pt",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "bfri.pt",
+      "ttl": 3600
+    }
+  ]
+}

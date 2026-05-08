@@ -1,0 +1,26 @@
+{
+  "providerId": "statickit.app",
+  "providerName": "StaticKit",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom Domain",
+  "version": 1,
+  "syncPubKeyDomain": "statickit.app",
+  "syncRedirectDomain": "dashboard.statickit.app",
+  "description": "Configure your custom domain to point to your StaticKit site.",
+  "hostRequired": true,
+  "logoUrl": "https://statickit.app/images/logo-dark.svg",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_statickit-verification",
+      "data": "%verificationToken%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "statickit.app",
+      "ttl": 3600
+    }
+  ]
+}

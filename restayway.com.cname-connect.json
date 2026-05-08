@@ -1,0 +1,26 @@
+{
+  "providerId": "restayway.com",
+  "providerName": "Restayway",
+  "serviceId": "cname-connect",
+  "serviceName": "Restayway",
+  "version": 1,
+  "logoUrl": "https://s3.restayway.com/logo/icon-blue-500x500.png",
+  "description": "Connect your custom domain to the Restayway platform and automatically configure SSL validation.",
+  "variableDescription": "%txt_validation_code%: TXT validation code for Cloudflare custom hostname SSL verification",
+  "syncPubKeyDomain": "restayway.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.restayway.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%txt_validation_code%",
+      "ttl": 3600
+    }
+  ]
+}

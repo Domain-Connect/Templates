@@ -1,0 +1,30 @@
+{
+  "providerId": "hunternetworking.com",
+  "providerName": "Hunter Networking",
+  "serviceId": "smtp2go-email",
+  "serviceName": "Email Domain Authentication (SMTP2GO)",
+  "version": 1,
+  "logoUrl": "https://app.hunternetworking.com/images/logo.png",
+  "syncPubKeyDomain": "hunternetworking.com",
+  "syncRedirectDomain": "hunternetworking.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%RPATH_SELECTOR%",
+      "pointsTo": "%RPATH_TARGET%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%DKIM_SELECTOR%._domainkey",
+      "pointsTo": "%DKIM_TARGET%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%TRACKING_SUBDOMAIN%",
+      "pointsTo": "%TRACKING_TARGET%",
+      "ttl": 3600
+    }
+  ]
+}

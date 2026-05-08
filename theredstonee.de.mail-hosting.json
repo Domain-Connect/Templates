@@ -1,0 +1,63 @@
+{
+  "providerId": "theredstonee.de",
+  "providerName": "TheRedStonee",
+  "serviceId": "mail-hosting",
+  "serviceName": "TheRedStonee E-Mail Hosting",
+  "version": 2,
+  "logoUrl": "https://www.theredstonee.de/favicon.jpg",
+  "description": "Configure DNS records for TheRedStonee E-Mail Hosting",
+  "variableDescription": "Set up MX, SPF, DMARC, DKIM, Autodiscover, and Autoconfig records for email hosting",
+  "syncPubKeyDomain": "theredstonee.de",
+  "syncRedirectDomain": "theredstonee.de",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.theredstonee.de",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mail.theredstonee.de"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "data": "v=DKIM1;k=rsa;t=s;s=email;p=%dkimkey%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1",
+      "ttl": 3600
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mail.theredstonee.de",
+      "ttl": 3600
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mail.theredstonee.de",
+      "ttl": 3600
+    }
+  ]
+}

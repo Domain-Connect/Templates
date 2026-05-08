@@ -1,0 +1,20 @@
+{
+  "providerId": "getowlet.ai",
+  "providerName": "Plume by Getowlet",
+  "serviceId": "plume-blog",
+  "serviceName": "Plume Blog",
+  "version": 2,
+  "logoUrl": "https://plume.getowlet.ai/images/logo-mark.png",
+  "description": "Point a custom subdomain at your Plume blog. Adds a CNAME record so readers can reach your blog at your own domain (e.g. blog.yourcompany.com).",
+  "syncRedirectDomain": "plume.getowlet.ai",
+  "syncPubKeyDomain": "plume.getowlet.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "plume.getowlet.ai",
+      "ttl": 3600
+    }
+  ]
+}

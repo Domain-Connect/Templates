@@ -1,0 +1,21 @@
+{
+  "providerId": "magicpages.co",
+  "providerName": "Magic Pages",
+  "serviceId": "website-cname",
+  "serviceName": "Magic Pages Subdomain",
+  "version": 1,
+  "logoUrl": "https://www.magicpages.co/content/images/2026/02/magic-pages_full-logo_dark-plum.svg",
+  "description": "Connect a subdomain to Magic Pages by creating a CNAME record pointing to your Magic Pages site.",
+  "variableDescription": "target: CNAME target for your Magic Pages site",
+  "syncPubKeyDomain": "magicpages.co",
+  "syncRedirectDomain": "domains.magicpages.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

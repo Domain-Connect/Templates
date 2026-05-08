@@ -1,0 +1,23 @@
+{
+  "providerId": "sendcanary.com",
+  "providerName": "SendCanary",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC Email Security Monitoring",
+  "version": 3,
+  "logoUrl": "https://sendcanary.com/logo.png",
+  "description": "SendCanary DMARC setup: publishes a DMARC TXT record that tells receiving inboxes (Google, Microsoft, Yahoo, etc.) how to handle email that fails authentication from this domain - monitor (p=none), quarantine (p=quarantine), or reject (p=reject). Aggregate and forensic reports are routed to SendCanary's per-tenant endpoint so you get visibility into who is sending email as you and can act on spoofing attempts. SendCanary (https://sendcanary.com) is an email authentication platform that monitors DMARC reports, detects spoofing, and automates DNS remediation for domain owners.",
+  "variableDescription": "token: per-domain identifier SendCanary assigns for DMARC report routing (lowercased 12-char hex, e.g. 9a9d452a1442). policy: DMARC policy enforcement level - 'none' for monitoring, 'quarantine' to send failing mail to spam, 'reject' to block it entirely.",
+  "syncPubKeyDomain": "sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com,api.sendcanary.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%; rua=mailto:%token%@dmarc.sendcanary.com; ruf=mailto:%token%@dmarc.sendcanary.com; fo=1",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

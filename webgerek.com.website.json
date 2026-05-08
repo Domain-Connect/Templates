@@ -1,0 +1,20 @@
+{
+    "providerId": "webgerek.com",
+    "providerName": "webgerek.com",
+    "syncPubKeyDomain": "webgerek.com",
+    "serviceId": "website",
+    "serviceName": "Website Hosting",
+    "version": 1,
+    "logoUrl": "https://webgerek.com/logo.svg",
+    "description": "Connect your domain to your webgerek.com website.",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "sites.webgerek.com",
+            "ttl": 3600
+        }
+    ]
+}

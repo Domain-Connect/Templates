@@ -1,0 +1,44 @@
+{
+  "providerId": "cashwebdev.com",
+  "providerName": "CashWebDev",
+  "serviceId": "website",
+  "serviceName": "Website Hosting",
+  "version": 1,
+  "logoUrl": "https://cashwebdev.com/og-image.png",
+  "description": "Points a domain to a CashWebDev-managed website on GitHub Pages",
+  "variableDescription": "",
+  "syncPubKeyDomain": "cashwebdev.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "185.199.108.153",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "185.199.109.153",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "185.199.110.153",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "185.199.111.153",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}

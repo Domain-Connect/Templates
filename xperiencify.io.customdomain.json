@@ -1,0 +1,18 @@
+{
+  "providerId": "xperiencify.io",
+  "providerName": "Xperiencify",
+  "serviceId": "customdomain",
+  "serviceName": "Xperiencify Custom Domain",
+  "version": 1,
+  "logoUrl": "https://app.xperiencify.io/images/logo.svg",
+  "syncPubKeyDomain": "xperiencify.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.xperiencify.io",
+      "ttl": 3600
+    }
+  ]
+}

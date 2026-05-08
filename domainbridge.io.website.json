@@ -1,0 +1,36 @@
+{
+  "providerId": "domainbridge.io",
+  "providerName": "DomainBridge",
+  "serviceId": "website",
+  "serviceName": "Website Hosting (A + CNAME www)",
+  "version": 1,
+  "logoUrl": "https://domainbridge.io/logo.svg",
+  "description": "Points root domain via A record and www via CNAME for website hosting",
+  "syncPubKeyDomain": "domainbridge.io",
+  "syncRedirectDomain": "domainbridge.io,api.domainbridge.io,app.domainbridge.io",
+  "variableDescription": "primaryIp is Primary IPv4 address, fallbackIp is Fallback IPv4 address, cnameTarget is Target hostname for www CNAME",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "ttl": 3600,
+      "pointsTo": "%primaryIp%",
+      "groupId": "web-a"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "ttl": 3600,
+      "pointsTo": "%fallbackIp%",
+      "groupId": "web-a-fallback"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "ttl": 3600,
+      "pointsTo": "%cnameTarget%",
+      "groupId": "web-www"
+    }
+  ]
+}

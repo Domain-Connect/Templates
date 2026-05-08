@@ -1,0 +1,47 @@
+{
+  "providerId": "prospectflow.dev",
+  "providerName": "ProspectFlow",
+  "serviceId": "email-auth",
+  "serviceName": "ProspectFlow Email Authentication",
+  "version": 1,
+  "logoUrl": "https://prospectflow.dev/icon.png",
+  "description": "Configure SPF, DMARC, and DKIM records for email deliverability.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "prospectflow.dev",
+  "syncRedirectDomain": "prospectflow.dev",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "email",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spfInclude%"
+    },
+    {
+      "groupId": "email",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%domain%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%dkimSelector1Value%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%dkimSelector2Value%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
