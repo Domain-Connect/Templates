@@ -1,0 +1,20 @@
+{
+  "providerId": "magitch.app",
+  "providerName": "Magitch",
+  "serviceId": "customdomain",
+  "serviceName": "Magitch Custom Domain",
+  "version": 1,
+  "logoUrl": "https://magitch.s3.eu-north-1.amazonaws.com/assets/images/icons/magitch_logo.png",
+  "description": "Connect your domain to your Magitch site",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.magitch.app",
+  "syncRedirectDomain": "dev.supgen.ai,app.magitch.com,supgen.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy-fallback.magitch.app",
+      "ttl": 3600
+    }
+  ]
+}
