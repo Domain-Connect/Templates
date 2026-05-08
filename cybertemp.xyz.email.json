@@ -1,0 +1,41 @@
+{
+  "providerId": "cybertemp.xyz",
+  "providerName": "CyberTemp",
+  "serviceId": "email",
+  "serviceName": "CyberTemp Email",
+  "version": 1,
+  "logoUrl": "https://cybertemp.xyz/logo.png",
+  "description": "Configure your domain to send and receive email through CyberTemp.",
+  "syncPubKeyDomain": "cybertemp.xyz",
+  "syncBlock": false,
+  "shared": false,
+  "variableDescription": "%ip% is the CyberTemp mail server IP address (set by CyberTemp at apply time)",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.%domain%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "*",
+      "pointsTo": "mail.%domain%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "mail",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 ip4:%ip% include:_spf.google.com -all",
+      "ttl": 3600
+    }
+  ]
+}
