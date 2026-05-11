@@ -1,0 +1,18 @@
+{
+  "providerId": "diamondhost.tw",
+  "serviceId": "minecraft-hosting",
+  "providerName": "DiamondHost",
+  "records": [
+    {
+      "type": "SRV",
+      "service": "minecraft",
+      "protocol": "tcp",
+      "name": "%name%",
+      "priority": 0,
+      "weight": 0,
+      "port": "%port%",
+      "target": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
