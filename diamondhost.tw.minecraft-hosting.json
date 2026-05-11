@@ -1,6 +1,7 @@
 {
   "providerId": "diamondhost.tw",
   "serviceId": "minecraft-hosting",
+  "serviceName": "DiamondHosting",
   "providerName": "DiamondHost",
   "records": [
     {
