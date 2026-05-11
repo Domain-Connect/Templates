@@ -1,0 +1,22 @@
+{
+  "providerId": "dritestudio.co.th",
+  "providerName": "Drite Studio",
+  "serviceId": "hosting-domain-verification",
+  "serviceName": "Hosting Domain Verification",
+  "version": 1,
+  "logoUrl": "https://dritestudio.co.th/img/logo.svg",
+  "description": "Adds the TXT record required to verify ownership of an existing domain before claiming a Plesk hosting subscription in Drite Studio.",
+  "syncPubKeyDomain": "domainconnect.dritestudio.co.th",
+  "syncRedirectDomain": "dritestudio.co.th",
+  "syncBlock": false,
+  "variableDescription": "%verification_token%: TXT token generated for the signed-in customer and domain",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_drite-verify",
+      "data": "drite-domain-verification=%verification_token%",
+      "ttl": 300,
+      "groupId": "verification"
+    }
+  ]
+}
