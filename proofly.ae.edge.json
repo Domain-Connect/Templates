@@ -6,14 +6,13 @@
   "version": 1,
   "logoUrl": "https://proofly.ae/logo.png",
   "description": "Front your Framer site with Proofly's reverse proxy — adds an A record so visitors hit Proofly Edge.",
-  "variableDescription": "We will add a single A record pointing your domain at our edge proxy.",
   "syncBlock": false,
   "syncPubKeyDomain": "proofly.ae",
   "records": [
     {
       "type": "A",
       "host": "@",
-      "pointsTo": "%ip%",
+      "pointsTo": "51.89.33.47",
       "ttl": 300
     }
   ]
