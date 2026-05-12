@@ -13,7 +13,7 @@
       "type": "SRV",
       "service": "minecraft",
       "protocol": "tcp",
-      "name": "%name%",
+      "name": "",
       "priority": 0,
       "weight": 0,
       "port": "%port%",
