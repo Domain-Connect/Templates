@@ -18,7 +18,8 @@
       "weight": 0,
       "port": "%port%",
       "target": "%target%",
-      "ttl": 3600
+      "ttl": 3600,
+      "essential": "Always"
     }
   ]
 }
