@@ -1,0 +1,29 @@
+{
+  "providerId": "appointshub.com",
+  "providerName": "AppointsHub",
+  "serviceId": "booking",
+  "serviceName": "Custom Booking Domain",
+  "version": 1,
+  "logoUrl": "https://appointshub.com/icon.svg",
+  "description": "Connect a custom domain to an AppointsHub public booking and membership storefront.",
+  "variableDescription": "ROUTING_VALUE is the Railway CNAME target returned by AppointsHub. TXT_NAME is the Railway ownership TXT host label returned by AppointsHub. TXT_VALUE is the Railway ownership TXT value returned by AppointsHub.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.appointshub.com",
+  "syncRedirectDomain": "appointshub.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "routing",
+      "host": "%fqdn%.",
+      "pointsTo": "%ROUTING_VALUE%",
+      "ttl": "3600"
+    },
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "%TXT_NAME%.%domain%.",
+      "ttl": "3600",
+      "data": "%TXT_VALUE%"
+    }
+  ]
+}
