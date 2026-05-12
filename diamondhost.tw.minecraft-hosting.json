@@ -1,7 +1,7 @@
 {
   "providerId": "diamondhost.tw",
   "serviceId": "minecraft-hosting",
-  "serviceName": "DiamondHosting",
+  "serviceName": "Minecraft Hosting",
   "logoUrl": "https://r2.diamondhost.tw/logo.png",
   "syncPubKeyDomain": "v1.domainconnect.diamondhost.tw",
   "syncRedirectDomain": "diamondhost.tw",
