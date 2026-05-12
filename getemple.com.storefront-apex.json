@@ -1,0 +1,20 @@
+{
+  "providerId": "getemple.com",
+  "providerName": "Temple",
+  "serviceId": "storefront-apex",
+  "serviceName": "Temple Storefront",
+  "version": 1,
+  "logoUrl": "https://admin.getemple.com/icons/temple-admin-192.svg",
+  "description": "Connect an apex/root domain to a Temple storefront.",
+  "variableDescription": "%IP%: Temple storefront IPv4 address",
+  "syncPubKeyDomain": "domainconnect.getemple.com",
+  "syncRedirectDomain": "admin.getemple.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": "3600"
+    }
+  ]
+}

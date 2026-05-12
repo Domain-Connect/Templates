@@ -1,0 +1,52 @@
+{
+  "providerId": "dub.co",
+  "providerName": "Dub",
+  "serviceId": "email",
+  "serviceName": "Dub Partner email",
+  "version": 1,
+  "logoUrl": "https://assets.dub.co/brand/logo.svg",
+  "syncPubKeyDomain": "dub.co",
+  "syncRedirectDomain": "app.dub.co,preview.dub.co,dub.co",
+  "syncBlock": false,
+  "description": "SPF (SPFM merge), DKIM (optional dkim2 group), and DMARC for Dub partner email domains.",
+  "variableDescription": "%spfTxtHost%: hostname for the SPF policy (typically @). %spfTxtValue%: SPFM merge mechanisms only (without the \"v=spf1\" prefix and typically without the trailing \"all\" mechanism); see SPFM merging in the Domain Connect specification. %dkimSelector%, %dkim2Selector%: DKIM selectors (DNS label before ._domainkey). %dkimTxtValue%, %dkim2TxtValue%: Full DKIM TXT value from Dub (normally starting with \"v=DKIM1;\")",
+  "records": [
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "%spfTxtHost%",
+      "spfRules": "%spfTxtValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimTxtValue%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "dkim2",
+      "type": "TXT",
+      "host": "%dkim2Selector%._domainkey",
+      "data": "%dkim2TxtValue%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
