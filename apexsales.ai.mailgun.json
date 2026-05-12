@@ -3,7 +3,7 @@
   "providerName": "Apex Sales",
   "serviceId": "mailgun",
   "serviceName": "Email Verification",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://caspiansol.com/assets/caspian-new-logo-ibH7uW8J.png",
   "description": "Configures Mailgun DNS records for Apex Sales email sending.",
   "syncRedirectDomain": "api.callapp.apexsales.ai",
