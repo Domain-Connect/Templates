@@ -11,8 +11,8 @@
   "records": [
     {
       "type": "SRV",
-      "service": "minecraft",
-      "protocol": "tcp",
+      "service": "_minecraft",
+      "protocol": "_tcp",
       "name": "",
       "priority": 0,
       "weight": 0,
