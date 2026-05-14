@@ -1,0 +1,34 @@
+{
+  "providerId": "vohtrah.com",
+  "providerName": "Vohtrah",
+  "serviceId": "lead-magnet",
+  "serviceName": "Lead magnet custom domain",
+  "version": 1,
+  "logoUrl": "https://vohtrah.com/logo.svg",
+  "description": "Adds the DNS records needed to connect a customer-owned hostname to Vohtrah lead magnets and verify ownership inside Vohtrah.",
+  "variableDescription": "%verificationToken%: Vohtrah site verification token for this hostname.",
+  "syncPubKeyDomain": "domainconnect.vohtrah.com",
+  "syncRedirectDomain": "vohtrah.com,www.vohtrah.com,app.vohtrah.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "ingress.vohtrah.com",
+      "ttl": 3600,
+      "groupId": "routing",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "vohtrah-verify",
+      "data": "vohtrah-site-verification=%verificationToken%",
+      "ttl": 3600,
+      "groupId": "verification",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vohtrah-site-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}
