@@ -1,0 +1,46 @@
+{
+    "providerId": "listblast",
+    "providerName": "List Blast",
+    "serviceId": "mailgun-email",
+    "serviceName": "Email Sending via Mailgun",
+    "syncRedirect": "https://listblast.com/domain-connect/callback",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "@",
+            "pointsTo": "%spf_value%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim_selector%._domainkey",
+            "pointsTo": "%dkim_value%",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "%mx_value%",
+            "priority": 10,
+            "ttl": 3600
+        }
+    ],
+    "variables": [
+        {
+            "name": "spf_value",
+            "description": "SPF TXT record value from Mailgun (e.g. v=spf1 include:mailgun.org ~all)"
+        },
+        {
+            "name": "dkim_selector",
+            "description": "DKIM selector prefix (the part before ._domainkey in the record name)"
+        },
+        {
+            "name": "dkim_value",
+            "description": "DKIM CNAME target value from Mailgun"
+        },
+        {
+            "name": "mx_value",
+            "description": "MX record hostname from Mailgun (e.g. mxa.mailgun.org)"
+        }
+    ]
+}
