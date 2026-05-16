@@ -1,0 +1,25 @@
+{
+  "providerId": "qrtick",
+  "serviceId": "member-portal",
+  "providerName": "QRTick Member Access",
+  "serviceName": "Digital Membership Portal",
+  "syncBlock": false,
+  "variableOptionId": "default",
+  "syncRedirectDomain": "pass.qrtick.com",
+  "syncPubKeyDomain": "pass.qrtick.com",
+  "description": "Connect your custom domain to your digital membership portal.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
