@@ -1,0 +1,20 @@
+{
+  "providerId": "crawlfix.ai",
+  "providerName": "Crawlfix",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain Verification",
+  "version": 1,
+  "logoUrl": "https://crawlfix.ai/brand/crawlfix-logo.png",
+  "description": "Verifies that you control this domain so Crawlfix can run external AI-readiness audits and unlock paid reports.",
+  "variableDescription": "Adds the TXT record required by Crawlfix to confirm domain ownership.",
+  "syncPubKeyDomain": "crawlfix.ai",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_crawlfix",
+      "data": "crawlfix-verification=%token%",
+      "ttl": 300
+    }
+  ]
+}
