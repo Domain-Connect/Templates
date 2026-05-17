@@ -8,6 +8,7 @@
   "description": "Verifies that you control this domain so Crawlfix can run external AI-readiness audits and unlock paid reports.",
   "variableDescription": "Adds the TXT record required by Crawlfix to confirm domain ownership.",
   "syncPubKeyDomain": "crawlfix.ai",
+  "syncRedirectDomain": "crawlfix.ai",
   "syncBlock": false,
   "records": [
     {
