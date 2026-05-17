@@ -1,7 +1,8 @@
 {                                                         
     "providerId": "codexsuit.com",                                                                                                                                                                                                 
     "providerName": "CodexSuit",
-    "serviceId": "emailDkim",                                                                                                                                                                                                      
+    "serviceId": "emailDkim",
+    "serviceName": "Email Marketing DKIM/SPF",
     "version": 1,                                                                                                                                                                                                                  
     "syncBlock": false,
     "syncPubKeyDomain": "domainconnect.mail.codexsuit.com",                                                                                                                                                                        
