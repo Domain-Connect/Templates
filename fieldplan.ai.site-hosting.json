@@ -1,0 +1,50 @@
+{
+    "providerId": "fieldplan.ai",
+    "providerName": "FieldPlan",
+    "serviceId": "site-hosting",
+    "serviceName": "FieldPlan website hosting",
+    "description": "Connect your domain and www to your FieldPlan site so visitors can reach it at your custom URL.",
+    "variableDescription": "`cnametarget` is the FieldPlan site host the customer's domain CNAMEs to. `cfownership_apex` / `cfownership_www` are Cloudflare Custom Hostname ownership tokens (DNS-01 verification). `cfacme_apex` / `cfacme_www` are the matching Let's Encrypt ACME challenge tokens. All five are minted by FieldPlan when the customer adds the domain in the editor and substituted at apply time.",
+    "version": 1,
+    "logoUrl": "https://fieldplan.ai/logo.png",
+    "syncPubKeyDomain": "fieldplan.ai",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "APEXCNAME",
+            "host": "@",
+            "pointsTo": "%cnametarget%",
+            "ttl": 300
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%cnametarget%",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%cfownership_apex%",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname.www",
+            "data": "%cfownership_www%",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "host": "_acme-challenge",
+            "data": "%cfacme_apex%",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "host": "_acme-challenge.www",
+            "data": "%cfacme_www%",
+            "ttl": 300
+        }
+    ]
+}
