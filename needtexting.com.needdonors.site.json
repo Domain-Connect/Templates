@@ -1,0 +1,28 @@
+{
+  "providerId": "needtexting.com",
+  "providerName": "NeedTexting",
+  "serviceId": "needdonors.site",
+  "serviceName": "NeedDonors Donation Page",
+  "version": 1,
+  "description": "Adds a donate.<yourdomain> CNAME pointing at the NeedDonors page renderer plus an ownership-verification TXT record.",
+  "logoUrl": "https://needtexting.com/assets/logo-square.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "needtexting.com",
+  "syncRedirectDomain": "needtexting.com,needdonors.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "donate",
+      "pointsTo": "pages.needdonors.com",
+      "ttl": 3600,
+      "groupId": "web"
+    },
+    {
+      "type": "TXT",
+      "host": "_needdonors-verify",
+      "data": "%VERIFY_TOKEN%",
+      "ttl": 3600,
+      "groupId": "verification"
+    }
+  ]
+}

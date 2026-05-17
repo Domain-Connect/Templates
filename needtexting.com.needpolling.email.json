@@ -1,0 +1,46 @@
+{
+  "providerId": "needtexting.com",
+  "providerName": "NeedTexting",
+  "serviceId": "needpolling.email",
+  "serviceName": "NeedPolling Email",
+  "version": 1,
+  "description": "MX + SPF + DKIM + DMARC records so NeedPolling can send poll invites from your domain. Reputation is isolated to a separate Postal pool from NeedInbox.",
+  "logoUrl": "https://needtexting.com/assets/logo-square.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "needtexting.com",
+  "syncRedirectDomain": "needtexting.com,needpolling.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.needpolling.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "mx"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a mx include:postal.needtexting.com",
+      "ttl": 3600,
+      "groupId": "spf"
+    },
+    {
+      "type": "TXT",
+      "host": "%DKIM_SELECTOR%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%DKIM_PUBKEY%",
+      "ttl": 3600,
+      "groupId": "dkim"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@needpolling.com; pct=100",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "groupId": "dmarc",
+      "essential": "OnApply"
+    }
+  ]
+}
