@@ -1,18 +1,20 @@
 {                                                         
-    "providerId": "codexsuit.com",                                                                                                                                                                                                 
+    "providerId": "codexsuit.com",
     "providerName": "CodexSuit",
     "serviceId": "emailDkim",
-    "serviceName": "Email Marketing DKIM/SPF",
-    "version": 1,                                                                                                                                                                                                                  
-    "syncBlock": false,
-    "syncPubKeyDomain": "domainconnect.mail.codexsuit.com",                                                                                                                                                                        
-    "records": [                                                                                                                                                                                                                   
+    "serviceName": "Email Marketing DKIM/SPF",                                                                                                                                                                                     
+    "version": 1,
+    "syncBlock": false,                                                                                                                                                                                                            
+    "syncPubKeyDomain": "domainconnect.mail.codexsuit.com", 
+    "syncRedirectDomain": "app.codexsuit.com",
+    "logoUrl": "https://app.codexsuit.com/logo.svg",                                                                                                                                                                               
+    "records": [
       {                                                                                                                                                                                                                            
-        "type": "CNAME",                                                                                                                                                                                                           
+        "type": "CNAME",                                    
         "host": "%token1%._domainkey",                                                                                                                                                                                             
-        "pointsTo": "%token1%._domainkey.mail.codexsuit.com",                                                                                                                                                                      
+        "pointsTo": "%token1%._domainkey.mail.codexsuit.com",
         "ttl": 300                                                                                                                                                                                                                 
-      },                                                                                                                                                                                                                           
+      },
       {                                                                                                                                                                                                                            
         "type": "CNAME",                                    
         "host": "%token2%._domainkey",
@@ -22,20 +24,22 @@
       {                                                                                                                                                                                                                            
         "type": "CNAME",                                    
         "host": "%token3%._domainkey",
-        "pointsTo": "%token3%._domainkey.mail.codexsuit.com",                                                                                                                                                                      
-        "ttl": 300
-      },                                                                                                                                                                                                                           
-      {                                                     
-        "type": "TXT",
-        "host": "@",                                                                                                                                                                                                               
-        "data": "v=spf1 include:mail.codexsuit.com ~all",
+        "pointsTo": "%token3%._domainkey.mail.codexsuit.com",
         "ttl": 300                                                                                                                                                                                                                 
-      },                                                    
-      {
+      },
+      {                                                                                                                                                                                                                            
+        "type": "SPFM",                                     
+        "host": "@",
+        "spfRules": "include:mail.codexsuit.com"
+      },
+      {                                                                                                                                                                                                                            
         "type": "TXT",
-        "host": "_dmarc",
-        "data": "v=DMARC1; p=none;",                                                                                                                                                                                               
-        "ttl": 300
+        "host": "_dmarc",                                                                                                                                                                                                          
+        "data": "v=DMARC1; p=none;",                        
+        "ttl": 300,
+        "txtConflictMatchingMode": "Prefix",
+        "txtConflictMatchingPrefix": "v=DMARC1;",                                                                                                                                                                                  
+        "essential": "OnApply"
       }                                                                                                                                                                                                                            
     ]                                                       
   }
