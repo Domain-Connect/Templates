@@ -1,0 +1,19 @@
+{
+  "providerId": "traaaction.com",
+  "providerName": "Traaaction",
+  "serviceId": "cname",
+  "serviceName": "Affiliate tracking",
+  "description": "Add a tracking subdomain that points to your Traaaction affiliate portal. This enables first-party click tracking and a custom-branded short-link domain.",
+  "version": 1,
+  "syncPubKeyDomain": "traaaction.com",
+  "hostRequired": true,
+  "syncRedirectDomain": "traaaction.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%track%",
+      "pointsTo": "cname.traaaction.com",
+      "ttl": 300
+    }
+  ]
+}
