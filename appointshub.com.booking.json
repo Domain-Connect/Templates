@@ -15,7 +15,7 @@
     {
       "type": "CNAME",
       "groupId": "routing",
-      "host": "%fqdn%.",
+      "host": "@",
       "pointsTo": "%ROUTING_VALUE%",
       "ttl": "3600"
     },
