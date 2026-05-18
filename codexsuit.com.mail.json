@@ -1,0 +1,27 @@
+{                                                                                                                                                                            
+    "providerId": "codexsuit.com",                                                                                                                                             
+    "providerName": "CodexSuit",                                                                                                                                               
+    "serviceId": "mail",                                                                                                                                                  
+    "serviceName": "Email Service DKIM/SPF",
+    "version": 1,                                                                                                                                                              
+    "logoUrl": "https://cdn.codexsuit.com/frontend-contents/logos/codex/codex.svg",                                                                                            
+    "description": "Configures DKIM, SPF and DMARC records to send authenticated emails through CodexSuit",
+    "variableDescription": "token1, token2, token3 are the DKIM selector names provided by CodexSuit",                                                                         
+    "syncPubKeyDomain": "domainconnect.mail.codexsuit.com",                                                                                                                    
+    "syncRedirectDomain": "ev.codexsuit.com",                                                                                                                                  
+    "records": [                                                                                                                                                               
+      { "type": "CNAME", "host": "%token1%._domainkey", "pointsTo": "%token1%._domainkey.mail.codexsuit.com", "ttl": 300 },                                                    
+      { "type": "CNAME", "host": "%token2%._domainkey", "pointsTo": "%token2%._domainkey.mail.codexsuit.com", "ttl": 300 },                                                    
+      { "type": "CNAME", "host": "%token3%._domainkey", "pointsTo": "%token3%._domainkey.mail.codexsuit.com", "ttl": 300 },                                                    
+      { "type": "SPFM",  "host": "@", "spfRules": "include:mail.codexsuit.com" },                                                                                              
+      {                                                                                                                                                                        
+        "type": "TXT",                                                                                                                                                         
+        "host": "_dmarc",                                                                                                                                                      
+        "data": "v=DMARC1; p=none;",                                                                                                                                           
+        "ttl": 300,                                                                                                                                                            
+        "txtConflictMatchingMode": "Prefix",                                                                                                                                   
+        "txtConflictMatchingPrefix": "v=DMARC1;",                                                                                                                              
+        "essential": "OnApply"                
+      }                                                                                                                                                                        
+    ]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+  }
