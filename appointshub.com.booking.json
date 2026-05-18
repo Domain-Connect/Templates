@@ -23,7 +23,9 @@
       "groupId": "ownership",
       "host": "%TXT_NAME%.%domain%.",
       "ttl": "3600",
-      "data": "%TXT_VALUE%"
+      "data": "%TXT_VALUE%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "railway-domain-verification="
     }
   ]
 }
