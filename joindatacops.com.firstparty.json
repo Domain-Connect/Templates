@@ -5,8 +5,8 @@
    "serviceName": "First-party tracking",
    "version": 1,
    "logoUrl": "https://app.joindatacops.com/logo.svg",
-   "description": "Adds a CNAME so DataCops loads as first-party from your domain. Required for accurate ad-fraud analytics — bypasses ad blockers and Safari ITP without sharing user data with us beyond what your visitors already send.",
-   "syncPubKeyDomain": "_dc-key.joindatacops.com",
+   "description": "Adds a CNAME so DataCops loads as first-party from your domain. Required for accurate ad-fraud analytics, bypassing ad blockers and Safari ITP without sharing user data with us beyond what your visitors already send.",
+   "syncPubKeyDomain": "domainconnect.joindatacops.com",
    "syncRedirectDomain": "app.joindatacops.com",
    "records": [
       {
