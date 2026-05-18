@@ -1,0 +1,27 @@
+{
+  "providerId": "usegizmo.com",
+  "providerName": "Gizmo",
+  "serviceId": "click-tracking",
+  "serviceName": "Click Tracking",
+  "version": 3,
+  "syncPubKeyDomain": "usegizmo.com",
+  "syncRedirectDomain": "usegizmo.com",
+  "description": "Configure a custom domain for click and open tracking.",
+  "logoUrl": "https://f2rxegjclexeggce.public.blob.vercel-storage.com/gizmo-wordmark-black.svg",
+  "records": [
+    {
+      "groupId": "click-tracking",
+      "type": "CNAME",
+      "host": "%clickTrackingSubdomain%",
+      "pointsTo": "%clickTrackingCnameTarget%.resend-dns.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "caa",
+      "type": "CAA",
+      "host": "%caaSubdomain%",
+      "data": "0 issue \"amazon.com\"",
+      "ttl": 3600
+    }
+  ]
+}
