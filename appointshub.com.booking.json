@@ -8,6 +8,7 @@
   "description": "Connect a custom domain to an AppointsHub public booking and membership storefront.",
   "variableDescription": "ROUTING_VALUE is the Railway CNAME target returned by AppointsHub. TXT_NAME is the Railway ownership TXT host label returned by AppointsHub. TXT_VALUE is the Railway ownership TXT value returned by AppointsHub.",
   "syncBlock": false,
+  "hostRequired": true,
   "syncPubKeyDomain": "domainconnect.appointshub.com",
   "syncRedirectDomain": "appointshub.com",
   "records": [
