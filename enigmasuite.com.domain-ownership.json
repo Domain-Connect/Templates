@@ -1,0 +1,14 @@
+{
+    "providerId": "enigmasuite.com",
+    "serviceId": "domain-ownership",
+    "serviceName": "EnigmaSuite Domain Ownership Verification",
+    "syncRedirectDomain": "app.enigmasuite.com",
+    "records": [
+      {
+        "type": "TXT",
+        "host": "_verify",
+        "data": "%VERIFICATION_TOKEN%",
+        "ttl": 300
+      }
+    ]
+  }
