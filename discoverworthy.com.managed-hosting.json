@@ -1,0 +1,14 @@
+{
+  "providerId": "discoverworthy.com",
+  "providerName": "DiscoverWorthy",
+  "serviceId": "managed-hosting",
+  "serviceName": "DiscoverWorthy Managed Hosting",
+  "version": 1,
+  "description": "Point your domain at your DiscoverWorthy managed-hosting site.",
+  "variableDescription": "`target` is the DiscoverWorthy Cloudflare Pages hostname for the site (e.g. `my-site.discoverworthy.app`), supplied by DiscoverWorthy.",
+  "syncPubKeyDomain": "discoverworthy.app",
+  "records": [
+    { "type": "APEXCNAME", "host": "@", "pointsTo": "%target%", "ttl": 300 },
+    { "type": "CNAME", "host": "www", "pointsTo": "%target%", "ttl": 300 }
+  ]
+}
