@@ -1,5 +1,6 @@
 {
     "providerId": "enigmasuite.com",
+    "providerName": "EnigmaSuite",
     "serviceId": "domain-ownership",
     "serviceName": "EnigmaSuite Domain Ownership Verification",
     "syncRedirectDomain": "app.enigmasuite.com",
