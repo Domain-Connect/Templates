@@ -1,0 +1,33 @@
+{
+	"providerId": "storypages.ai",
+	"providerName": "StoryPages",
+	"version": 1,
+	"logoUrl": "https://platform.storypages.ai/_next/static/media/storypages-logo.2dfb6f9c.png",
+	"syncPubKeyDomain": "storypages.ai",
+	"syncRedirectDomain": "storypages.ai,api.storypages.ai,platform.storypages.ai",
+	"syncBlock": false,
+	"serviceId": "email",
+	"serviceName": "StoryPages Email Authentication",
+	"description": "Adds SendGrid email authentication CNAMEs (mail branding + DKIM) for sending branded email through StoryPages.",
+	"variableDescription": "%emHost%: SendGrid mail branding label; %sendgridMailTarget%: mail CNAME target; %sendgridDkim1Target%: DKIM s1; %sendgridDkim2Target%: DKIM s2",
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "%emHost%",
+			"pointsTo": "%sendgridMailTarget%",
+			"ttl": "3600"
+		},
+		{
+			"type": "CNAME",
+			"host": "s1._domainkey",
+			"pointsTo": "%sendgridDkim1Target%",
+			"ttl": "3600"
+		},
+		{
+			"type": "CNAME",
+			"host": "s2._domainkey",
+			"pointsTo": "%sendgridDkim2Target%",
+			"ttl": "3600"
+		}
+	]
+}
