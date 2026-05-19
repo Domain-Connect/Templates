@@ -1,0 +1,22 @@
+{
+	"providerId": "storypages.ai",
+	"providerName": "StoryPages",
+	"version": 1,
+	"logoUrl": "https://platform.storypages.ai/_next/static/media/storypages-logo.2dfb6f9c.png",
+	"syncPubKeyDomain": "storypages.ai",
+	"syncRedirectDomain": "storypages.ai,api.storypages.ai,platform.storypages.ai",
+	"syncBlock": false,
+	"serviceId": "site-subdomain",
+	"serviceName": "StoryPages Website (subdomain)",
+	"description": "Points a subdomain (CNAME) to a StoryPages site hosted on Vercel. The subdomain is specified via the host parameter in the apply URL.",
+	"variableDescription": "%vercelCnameTarget%: Vercel CNAME target for the subdomain",
+	"hostRequired": true,
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "%vercelCnameTarget%",
+			"ttl": "3600"
+		}
+	]
+}
