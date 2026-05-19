@@ -3,7 +3,7 @@
   "providerName": "Furimoe",
   "serviceId": "domain-verification",
   "serviceName": "Domain Verification",
-  "version": 3,
+  "version": 4,
   "description": "Enables a domain to work with Furimoe via IETF BCP Standard",
   "variableDescription": "Unique verification code provided for purpose of verification",
   "syncPubKeyDomain": "keys.furimoe.com",
@@ -11,9 +11,24 @@
   "records": [
     {
       "type": "TXT",
-      "host": "_furimoe-challenge", 
+      "groupId": "subdomain-verification",
+      "host": "_furimoe-challenge",
       "data": "token=%verifytxt%",
-      "ttl": 60
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "groupId": "subdomain",
+      "host": "%subdomain%",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "groupId": "apex",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
     }
   ]
 }
