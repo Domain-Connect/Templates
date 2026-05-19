@@ -1,0 +1,35 @@
+{
+	"providerId": "euromail.dev",
+	"providerName": "EuroMail",
+	"serviceId": "mail",
+	"serviceName": "Transactional Email",
+	"version": 1,
+	"syncPubKeyDomain": "euromail.dev",
+	"syncRedirectDomain": "euromail.dev",
+	"description": "Configure DKIM signing, SPF authorization, and bounce handling for EuroMail transactional email delivery.",
+	"logoUrl": "https://euromail.dev/static/favicon.svg",
+	"variableDescription": "subdomain: Sending subdomain prefix (default: em). dkimKey: DKIM public key for email signing.",
+	"records": [
+		{
+			"type": "TXT",
+			"host": "euromail._domainkey.%subdomain%",
+			"ttl": 3600,
+			"data": "v=DKIM1; k=rsa; p=%dkimKey%",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DKIM1"
+		},
+		{
+			"type": "SPFM",
+			"host": "%subdomain%",
+			"ttl": 3600,
+			"spfRules": "include:spf.euromail.dev"
+		},
+		{
+			"type": "MX",
+			"host": "%subdomain%",
+			"pointsTo": "bounce.euromail.dev",
+			"ttl": 3600,
+			"priority": 10
+		}
+	]
+}
