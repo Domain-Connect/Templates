@@ -1,0 +1,16 @@
+{
+    "providerId": "enigmasuite.com",
+    "providerName": "EnigmaSuite",
+    "serviceId": "custom-domain",
+    "serviceName": "EnigmaSuite Custom Domain",
+    "hostRequired": true,
+    "syncRedirectDomain": "app.enigmasuite.com",
+    "records": [
+      {
+        "type": "CNAME",
+        "host": "%host%",
+        "pointsTo": "%TARGET_HOST%",
+        "ttl": 3600
+      }
+    ]
+  }
