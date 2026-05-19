@@ -1,0 +1,26 @@
+{
+  "providerId": "website-boost.com",
+  "serviceId": "connect",
+  "providerName": "Website Boost",
+  "serviceName": "Domain verbinden",
+  "version": 1,
+  "logoUrl": "https://website-boost.com/logo.svg",
+  "description": "Connects your domain to your Website Boost website.",
+  "hostRequired": true,
+  "warnPhishing": true,
+  "syncBlock": [
+    {
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "website-boost-router.muddy-mode-170d.workers.dev",
+      "ttl": 300
+    }
+  ],
+  "variables": [
+    {
+      "name": "host",
+      "type": "String",
+      "description": "The subdomain (e.g. www)"
+    }
+  ]
+}
