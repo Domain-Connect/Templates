@@ -4,7 +4,7 @@
   "serviceId": "customdomain",
   "serviceName": "Achene Custom Domain",
   "version": 2,
-  "logoUrl": "https://achene.app/favicon-light.svg",
+  "logoUrl": "https://achene.app/achene-logo.png",
   "description": "Connect a subdomain to your Achene teaching academy",
   "syncBlock": false,
   "syncPubKeyDomain": "achene.app",
