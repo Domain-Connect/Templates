@@ -7,7 +7,7 @@
   "logoUrl": "https://achene.app/favicon-light.svg",
   "description": "Connect a subdomain to your Achene teaching academy",
   "syncBlock": false,
-  "syncPubKeyDomain": "domainconnect.achene.app",
+  "syncPubKeyDomain": "achene.app",
   "syncRedirectDomain": "achene.app",
   "hostRequired": true,
   "records": [
