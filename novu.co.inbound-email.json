@@ -3,7 +3,7 @@
   "providerName": "Novu",
   "serviceId": "inbound-email",
   "serviceName": "Inbound Email",
-  "version": 2,
+  "version": 3,
   "syncPubKeyDomain": "domainconnect.novu.co",
   "syncRedirectDomain": "dashboard.novu.co,eu.dashboard.novu.co,dashboard.novu-staging.co,connect.novu.co",
   "syncBlock": false,
