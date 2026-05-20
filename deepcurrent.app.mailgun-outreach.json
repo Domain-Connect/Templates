@@ -1,0 +1,59 @@
+{
+  "providerId": "deepcurrent.app",
+  "providerName": "DeepCurrent",
+  "serviceId": "mailgun-outreach",
+  "serviceName": "DeepCurrent Managed Email",
+  "version": 1,
+  "logoUrl": "https://deepcurrent.app/assets/images/deep-logo.png",
+  "description": "Automatically configures DNS records so your selected sending subdomain can send outbound email through DeepCurrent managed email infrastructure.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.deepcurrent.app",
+  "syncRedirectDomain": "deepcurrent.app",
+  "variableDescription": "%mailgunDkimDomain%: Mailgun PDK target suffix returned by Mailgun, for example b04a44.dkim1.us.mgsend.org. Apply this template with the Domain Connect host parameter set to the selected sending subdomain, for example outreach-test.",
+  "records": [
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim-pdk",
+      "type": "CNAME",
+      "host": "pdk1._domainkey",
+      "pointsTo": "pdk1._domainkey.%mailgunDkimDomain%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim-pdk",
+      "type": "CNAME",
+      "host": "pdk2._domainkey",
+      "pointsTo": "pdk2._domainkey.%mailgunDkimDomain%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "groupId": "receiving-mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxa.mailgun.org",
+      "ttl": 3600,
+      "priority": "10"
+    },
+    {
+      "groupId": "receiving-mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxb.mailgun.org",
+      "ttl": 3600,
+      "priority": "10"
+    }
+  ]
+}
