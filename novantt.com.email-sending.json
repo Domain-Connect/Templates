@@ -7,7 +7,7 @@
   "logoUrl": "https://www.novantt.com/images/novantt-logo.svg",
   "description": "Configure DNS records for sending campaign emails via Novantt (Resend).",
   "variableDescription": "dkimHost1: DKIM record hostname; dkimValue1: DKIM public key; mxHost: MX subdomain; mxValue: MX target; spfRules: SPF include rules",
-  "syncPubKeyDomain": "domainconnect.novantt.com",
+  "syncPubKeyDomain": "novantt.com",
   "syncRedirectDomain": "novantt.com",
   "syncBlock": false,
   "records": [
