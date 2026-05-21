@@ -1,0 +1,29 @@
+{
+  "providerId": "bce.email",
+  "providerName": "bce.email",
+  "serviceId": "bceemail",
+  "serviceName": "bce.email inbound email",
+  "version": 1,
+  "logoUrl": "https://bce.email/favicon.svg",
+  "description": "Configure DNS records so bce.email can receive and route inbound email for this domain.",
+  "variableDescription": "value is the Amazon SES domain verification token for this domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.bce.email",
+  "syncRedirectDomain": "bce.email",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.us-east-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
