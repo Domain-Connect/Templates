@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://cdn.campaigndeputy.com/img/logo_2026.png",
   "description": "Sets up DKIM, click tracking, images, and bounce handling for Campaign Deputy email.",
-  "variableDescription": "%dnsName% is your unique Campaign Deputy account identifier.",
+  "variableDescription": "dnsName:is your unique Campaign Deputy account identifier.; googleToken: Your unique Google Verification Token (optional);  dmarcPolicy: DMARC Policy (optional);  dmarcReportingEmail: DMARC Reporting Email (optional);  formHost: Subdomain for hosted forms (optional); sp_id: DKIM ID (optional); sp_rsa_key: DKIM Key (optional);",
   "syncPubKeyDomain": "dommainconnect.campaigndeputy.app",
   "records": [
     {
@@ -30,6 +30,13 @@
       "ttl": 1800,
       "essential": "Always"
     },
+    {
+      "type": "TXT",
+      "host": "%sp_id%._domainkey",
+      "data": "%sp_rsa_key%",
+      "ttl": 1800,
+      "groupId": "sp-dkim"
+    },    
     {
       "type": "CNAME",
       "host": "cdg._domainkey",
