@@ -1,0 +1,40 @@
+{
+  "providerId": "godaddy.com",
+  "providerName": "GoDaddy",
+  "serviceId": "ans-registration",
+  "serviceName": "Agent Name Service Registration",
+  "version": 1,
+  "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2020/02/godaddy_logo_new.png",
+  "description": "Provisions DNS records required for Agent Name Service (ANS) registration.",
+  "variableDescription": "%acmeChallenge%: ACME challenge value for domain validation. %ansData%: Complete ANS registration data.\n%ansBadgeData%: Complete ANS badge data.",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "groupId": "acme",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%acmeChallenge%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "core",
+      "type": "TXT",
+      "host": "_ans",
+      "ttl": 3600,
+      "data": "%ansData%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=ans1;"
+    },
+    {
+      "groupId": "core",
+      "type": "TXT",
+      "host": "_ans-badge",
+      "ttl": 3600,
+      "data": "%ansBadgeData%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=ans-badge1;"
+    }
+  ]
+}
+
