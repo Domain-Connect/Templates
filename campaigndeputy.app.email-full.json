@@ -1,0 +1,83 @@
+{
+  "providerId": "campaigndeputy.app",
+  "providerName": "Campaign Deputy",
+  "serviceId": "email-full",
+  "serviceName": "Campaign Deputy Email (all records)",
+  "version": 1,
+  "logoUrl": "https://cdn.campaigndeputy.com/img/logo_2026.png",
+  "description": "Sets up DKIM, click tracking, images, and bounce handling for Campaign Deputy email.",
+  "variableDescription": "%dnsName% is your unique Campaign Deputy account identifier.",
+  "syncPubKeyDomain": "dommainconnect.campaigndeputy.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "bouncesp",
+      "pointsTo": "%dnsName%.spbounce.emaildeputy.com",
+      "ttl": 1800,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "clicksp",
+      "pointsTo": "%dnsName%.splink.emaildeputy.com",
+      "ttl": 1800,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "bouncecd",
+      "pointsTo": "%dnsName%.bouncecd.emaildeputy.com",
+      "ttl": 1800,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "cdg._domainkey",
+      "pointsTo": "%dnsName%.dkimus.emaildeputy.com",
+      "ttl": 1800,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "images",
+      "pointsTo": "%dnsName%.images.emaildeputy.com",
+      "ttl": 1800,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "unsubscribe",
+      "pointsTo": "%dnsName%.clientusub.emaildeputy.com",
+      "ttl": 1800,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "clickcd",
+      "pointsTo": "%dnsName%.link.emaildeputy.com",
+      "ttl": 1800,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "google-site-verification=%googleToken%",
+      "ttl": 1800,
+      "groupId": "google-verify"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%dmarcPolicy%; rua=mailto:%dmarcReportingEmail%",
+      "ttl": 1800,
+      "groupId": "dmarc"
+    },
+    {
+      "type": "CNAME",
+      "host": "%formHost%",
+      "pointsTo": "%dnsName%.hosted.emaildeputy.com",
+      "ttl": 1800,
+      "groupId": "hosted-form"
+    }
+  ]
+}
