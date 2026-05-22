@@ -91,7 +91,10 @@
       "host": "_dmarc",
       "data": "v=DMARC1; p=%dmarcPolicy%; rua=mailto:%dmarcReportingEmail%",
       "ttl": 1800,
-      "groupId": "dmarc"
+      "groupId": "dmarc",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
     },
     {
       "type": "CNAME",
