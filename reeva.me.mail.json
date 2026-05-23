@@ -1,0 +1,23 @@
+{
+  "providerId": "reeva.me",
+  "providerName": "Reeva.me",
+  "serviceId": "mail",
+  "serviceName": "Reeva Mail",
+  "description": "Reeva.me mail service: MX (mx1/mx2.reeva.me), SPF, DKIM, DMARC, and autoconfig/autodiscover CNAMEs (Thunderbird + Outlook auto-setup).",
+  "logoUrl": "https://app.reeva.me/auth-bg.png",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "reeva.me",
+  "syncRedirectDomain": "app.reeva.me",
+  "shared": false,
+  "variableDescription": "Reeva issues a per-domain DKIM key. dkim_selector and dkim_pub are minted by Reeva at /api/v1/domains/{id}/dns; the SaaS embeds them in the apply URL.",
+  "records": [
+    { "type": "MX",    "host": "@",                                   "pointsTo": "mx1.reeva.me",     "priority": 10, "ttl": 300 },
+    { "type": "MX",    "host": "@",                                   "pointsTo": "mx2.reeva.me",     "priority": 20, "ttl": 300 },
+    { "type": "TXT",   "host": "@",                                   "data": "v=spf1 mx ~all",                       "ttl": 300 },
+    { "type": "TXT",   "host": "_dmarc",                              "data": "v=DMARC1; p=none; rua=mailto:dmarc@%domain%", "ttl": 300 },
+    { "type": "TXT",   "host": "%dkim_selector%._domainkey",          "data": "v=DKIM1; k=ed25519; p=%dkim_pub%",     "ttl": 300 },
+    { "type": "CNAME", "host": "autoconfig",                          "pointsTo": "webmail.reeva.me",                 "ttl": 300 },
+    { "type": "CNAME", "host": "autodiscover",                        "pointsTo": "webmail.reeva.me",                 "ttl": 300 }
+  ]
+}
