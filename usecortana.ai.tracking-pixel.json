@@ -1,0 +1,35 @@
+{
+  "providerId": "usecortana.ai",
+  "providerName": "Cortana",
+  "serviceId": "tracking-pixel",
+  "serviceName": "First-Party Tracking Pixel",
+  "version": 1,
+  "syncBlock": false,
+  "logoUrl": "https://usecortana.ai/logo.png",
+  "description": "Routes your tracking subdomain to Cortana for first-party pixel delivery.",
+  "variableDescription": {
+    "domain": "Full tracking hostname, e.g. use.customer.com",
+    "host": "CNAME target — Cortana tracking origin",
+    "subdomain": "Subdomain label, e.g. use",
+    "dcv_txt_name": "SSL validation TXT record name",
+    "dcv_txt_value": "SSL validation TXT record value"
+  },
+  "syncPubKeyDomain": "usecortana.ai",
+  "syncRedirectDomain": "app.usecortana.ai",
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "%host%",
+      "ttl": 300
+    },
+    {
+      "groupId": "ssl",
+      "type": "TXT",
+      "host": "%dcv_txt_name%",
+      "data": "%dcv_txt_value%",
+      "ttl": 300
+    }
+  ]
+}
