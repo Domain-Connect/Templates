@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://cdn.masuru.in.th/storage/furimoe/furimoe-logo-2x1.webp",
   "description": "Connects a domain to a Furimoe Figura server and verifies domain ownership in one step",
-  "variableDescription": "host: subdomain or @ for root, target: CNAME target for the Figura backend server, verifytxt: verification token issued by Furimoe",
+  "variableDescription": "target: CNAME target for the Figura backend server, verifytxt: verification token issued by Furimoe",
   "syncPubKeyDomain": "furimoe.com",
   "syncRedirectDomain": "static.furimoe.com",
   "hostRequired": true,
@@ -14,7 +14,7 @@
     {
       "groupId": "figura",
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "%target%",
       "ttl": 3600
     },
