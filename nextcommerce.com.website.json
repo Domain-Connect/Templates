@@ -1,0 +1,20 @@
+{
+    "providerId": "nextcommerce.com",
+    "providerName": "Next Commerce",
+    "serviceId": "website",
+    "serviceName": "Connect Store Domain",
+    "version": 3,
+    "logoUrl": "https://nextcommerce-public-assets.s3.us-east-1.amazonaws.com/final-logo-dark-stroked-md.png",
+    "description": "Connects your domain to your Next Commerce store at nextcommerce.com.",
+    "variableDescription": "ip is the IP address for the Next Commerce store.",
+    "syncPubKeyDomain": "29next.store",
+    "syncRedirectDomain": "29next.store",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 3600
+        }
+    ]
+}

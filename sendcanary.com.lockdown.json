@@ -1,0 +1,33 @@
+{
+    "providerId": "sendcanary.com",
+    "providerName": "SendCanary",
+    "serviceId": "lockdown",
+    "serviceName": "Non-Sending Domain Lockdown",
+    "version": 2,
+    "logoUrl": "https://sendcanary.com/logo.png",
+    "description": "SendCanary non-sending domain lockdown: for domains that don't send email at all (holding companies, placeholder brands, legacy registrations, personal sites), publishes DMARC p=reject plus SPF 'v=spf1 -all' to refuse every sender. Attackers can't spoof an actively rejected domain, and aggregate reports let you watch for attempts. Use this the moment you register a domain you don't plan to send from. Pair with the revert-lockdown template if the domain later needs to start sending. SendCanary (https://sendcanary.com) is an email authentication platform that monitors DMARC reports, detects spoofing, and automates DNS remediation for domain owners.",
+    "variableDescription": "ruaAddress: email address that will receive DMARC aggregate reports for this locked-down domain (e.g. security@yourcompany.com). Keep this mailbox monitored so you notice when someone tries to spoof you.",
+    "syncPubKeyDomain": "sendcanary.com",
+    "syncRedirectDomain": "sendcanary.com,app.sendcanary.com,api.sendcanary.com",
+    "warnPhishing": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=reject; rua=mailto:%ruaAddress%",
+            "ttl": 3600,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        },
+        {
+            "type": "TXT",
+            "host": "@",
+            "data": "v=spf1 -all",
+            "ttl": 3600,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=spf1"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+	"providerId": "buckt.dev",
+	"providerName": "Buckt",
+	"serviceId": "cdn-cname",
+	"serviceName": "Buckt CDN Domain",
+	"version": 1,
+	"logoUrl": "https://cdn.buckt.dev/logo.png",
+	"description": "Points your domain to Buckt's CDN distribution.",
+	"variableDescription": "CNAME record pointing to your Buckt CDN distribution.",
+	"syncPubKeyDomain": "buckt.dev",
+	"syncRedirectDomain": "buckt.dev",
+	"shared": false,
+	"hostRequired": true,
+	"multiInstance": false,
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "%pointsTo%",
+			"ttl": 3600
+		}
+	]
+}

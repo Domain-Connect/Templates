@@ -1,0 +1,25 @@
+{
+  "providerId": "builder.ruhanixcreations.in",
+  "providerName": "Ruhanix",
+  "serviceId": "publish",
+  "serviceName": "Ruhanix Website Builder",
+  "version": 1,
+  "logoUrl": "https://ruhanixcreations.in/logo.png",
+  "description": "Connect your domain to Ruhanix Website Builder",
+  "syncPubKeyDomain": "connect.ruhanixcreations.in",
+  "syncRedirectDomain": "builder.ruhanixcreations.in",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "103.50.162.186",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}
