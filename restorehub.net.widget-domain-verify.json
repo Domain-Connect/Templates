@@ -9,7 +9,6 @@
   "variableDescription": "Restore Hub will add a single TXT record at _restorehub-verify proving you own this domain.",
   "syncBlock": false,
   "syncPubKeyDomain": "restorehub.net",
-  "warnPhishing": true,
   "records": [
     {
       "type": "TXT",
