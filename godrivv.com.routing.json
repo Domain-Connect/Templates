@@ -6,6 +6,7 @@
   "version": 1,
   "logoUrl": "https://godrivv.com/logo.png",
   "syncRedirectDomain": "godrivv.com",
+  "syncPubKeyDomain": "godrivv.com",
   "records": [
     {
       "type": "A",
