@@ -1,0 +1,22 @@
+{
+  "providerId": "restorehub.net",
+  "providerName": "Restore Hub",
+  "serviceId": "widget-domain-verify",
+  "serviceName": "Restore Hub Widget Domain Verification",
+  "version": 1,
+  "logoUrl": "https://cdn.restorehub.net/static/cms/logos/logo-256.png",
+  "description": "Verifies your domain so the Restore Hub embeddable Discord verification widget can run on it.",
+  "variableDescription": "Restore Hub will add a single TXT record at _restorehub-verify proving you own this domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "restorehub.net",
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_restorehub-verify",
+      "data": "%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
