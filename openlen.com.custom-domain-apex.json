@@ -3,7 +3,7 @@
   "providerName": "OpenLen",
   "serviceId": "custom-domain-apex",
   "serviceName": "OpenLen Custom Apex Domain",
-  "syncPubKeyDomain": "_dc.openlen.com",
+  "syncPubKeyDomain": "dc.openlen.com",
   "version": 1,
   "logoUrl": "https://openlen.com/icon.svg",
   "description": "Connect your root domain (e.g. yoursite.com) to your OpenLen landing page.",

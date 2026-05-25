@@ -3,7 +3,7 @@
   "providerName": "OpenLen",
   "serviceId": "custom-domain-subdomain",
   "serviceName": "OpenLen Custom Subdomain",
-  "syncPubKeyDomain": "_dc.openlen.com",
+  "syncPubKeyDomain": "dc.openlen.com",
   "version": 1,
   "logoUrl": "https://openlen.com/icon.svg",
   "description": "Connect a subdomain (e.g. landing.yoursite.com) to your OpenLen landing page.",
