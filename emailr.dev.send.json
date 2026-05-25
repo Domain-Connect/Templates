@@ -21,7 +21,7 @@
     },
     {
       "type": "SPFM",
-      "host": "@",
+      "host": "%spfDomain%",
       "spfRules": "include:amazonses.com"
     },
     {
