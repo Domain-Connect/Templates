@@ -1,0 +1,45 @@
+{
+  "providerId": "mailtosh.com",
+  "providerName": "Mailtosh",
+  "serviceId": "email-sending",
+  "serviceName": "Email Sending",
+  "version": 1,
+  "description": "Configure DNS records required for verified email sending with Mailtosh.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.mailtosh.com",
+  "syncRedirectDomain": "app.mailtosh.com",
+  "variableDescription": "%dkim1%: DKIM selector 1; %dkim2%: DKIM selector 2; %dkim3%: DKIM selector 3; %region%: sending region",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": "300"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": "10",
+      "ttl": "300"
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": "300"
+    }
+  ]
+}
