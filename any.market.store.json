@@ -3,7 +3,7 @@
     "providerName": "Any Market",
     "serviceId": "store",
     "serviceName": "Store Custom Domain",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://us.any.market/icons/logo.svg",
     "description": "Connect customer's domain to their Any Market store hosted on Vercel",
     "syncRedirectDomain": "any.market",
