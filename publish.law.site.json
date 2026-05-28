@@ -3,18 +3,23 @@
   "providerName": "Publish.law",
   "serviceId": "site",
   "serviceName": "Publish.law site",
-  "version": 1,
-  "description": "Connect this domain to your Publish.law site so visitors can reach your content at your own URL with automatic HTTPS. Sets the www CNAME automatically; the apex (root) record is added separately because DNS specifications do not allow CNAME at the apex.",
+  "version": 2,
+  "description": "Connect this domain to your Publish.law site. Visitors reach your content at your own URL with automatic HTTPS. Sets two A records (apex and www) pointing at our anycast edge.",
   "logoUrl": "https://publish.law/brand/mark.svg",
   "syncPubKeyDomain": "publish.law",
   "syncRedirectDomain": "publish.law",
   "syncBlock": false,
-  "variableDescription": "subdomain — your Publish.law subdomain (e.g. jane-smith from jane-smith.publish.law).",
   "records": [
     {
-      "type": "CNAME",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "13.248.190.8",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
       "host": "www",
-      "pointsTo": "%subdomain%.publish.law",
+      "pointsTo": "13.248.190.8",
       "ttl": 3600
     }
   ]
