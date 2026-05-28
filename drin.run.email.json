@@ -4,7 +4,7 @@
   "serviceId": "email",
   "serviceName": "Drin email sending",
   "version": 1,
-  "logoUrl": "https://app.drin.run/icon.png",
+  "logoUrl": "https://app.drin.run/icon.svg",
   "description": "Add the DKIM, MAIL FROM and DMARC records that let Drin send email from this domain. We never read or write any other records.",
   "variableDescription": "dkim_value: the complete DKIM record value Drin supplies for this domain at apply time. MAIL FROM (SPF) and DMARC are fixed.",
   "syncBlock": false,
