@@ -21,9 +21,10 @@
     },
     {
       "groupId": "mailfrom",
-      "type": "CNAME",
+      "type": "MX",
       "host": "bounces",
       "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
       "ttl": 3600
     },
     {
