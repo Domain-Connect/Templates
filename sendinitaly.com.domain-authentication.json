@@ -3,7 +3,7 @@
 	"providerName": "Send in Italy",
 	"serviceId": "domain-authentication",
 	"serviceName": "Send in Italy Domain Authentication",
-	"version": 1,
+	"version": 2,
 	"syncBlock": false,
 	"syncPubKeyDomain": "dc-sign.sendinitaly.com",
 	"syncRedirectDomain": "api.sendinitaly.com",
