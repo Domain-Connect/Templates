@@ -1,0 +1,47 @@
+{
+  "providerId": "drin.run",
+  "providerName": "Drin",
+  "serviceId": "email",
+  "serviceName": "Drin email sending",
+  "version": 1,
+  "logoUrl": "https://app.drin.run/icon.png",
+  "description": "Add the DKIM, MAIL FROM and DMARC records that let Drin send email from this domain. We never read or write any other records.",
+  "variableDescription": "dkim_value: the complete DKIM record value Drin supplies for this domain at apply time. MAIL FROM (SPF) and DMARC are fixed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "drin.run",
+  "syncRedirectDomain": "app.drin.run",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "drin._domainkey",
+      "data": "%dkim_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "CNAME",
+      "host": "bounces",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "bounces",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@drin.run",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
