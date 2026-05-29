@@ -1,0 +1,45 @@
+{
+  "providerId": "sendcorex.com",
+  "providerName": "Sendcorex",
+  "serviceId": "email",
+  "serviceName": "Sendcorex Email",
+  "version": 1,
+  "logoUrl": "https://sendcorex.com/assets/logo/sendcorex-logo-dark.svg",
+  "description": "Configures DNS records for Sendcorex email sending: SPF, DKIM, Return Path and DMARC.",
+  "variableDescription": "%dkim_public_key%: DKIM public key for the domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sendcorex.com",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:smtp.emailsbit.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "sendcorex._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkim_public_key%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "bounces",
+      "pointsTo": "bounces.emailsbit.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "bounce.emailsbit.com",
+      "priority": 0,
+      "ttl": 3600
+    }
+  ]
+}
