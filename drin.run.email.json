@@ -22,7 +22,7 @@
     {
       "groupId": "mailfrom",
       "type": "MX",
-      "host": "bounces",
+      "host": "send",
       "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
       "priority": 10,
       "ttl": 3600
@@ -30,7 +30,7 @@
     {
       "groupId": "mailfrom",
       "type": "SPFM",
-      "host": "bounces",
+      "host": "send",
       "spfRules": "include:amazonses.com",
       "ttl": 3600
     },
@@ -38,7 +38,7 @@
       "groupId": "dmarc",
       "type": "TXT",
       "host": "_dmarc",
-      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@drin.run",
+      "data": "v=DMARC1; p=none;",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1",
