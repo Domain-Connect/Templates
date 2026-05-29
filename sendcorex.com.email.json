@@ -9,9 +9,9 @@
   "syncPubKeyDomain": "sendcorex.com",
   "records": [
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "%spf_record%",
+      "spfRules": "include:smtp.emailsbit.com",
       "ttl": 3600
     },
     {
