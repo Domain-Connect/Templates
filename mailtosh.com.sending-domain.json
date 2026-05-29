@@ -1,0 +1,45 @@
+{
+  "providerId": "mailtosh.com",
+  "providerName": "Mailtosh",
+  "serviceId": "sending-domain",
+  "serviceName": "Mailtosh sending domain verification",
+  "version": 1,
+  "description": "Adds DNS records required for Mailtosh sending domain verification, custom MAIL FROM, and SPF.",
+  "logoUrl": "https://mailtosh.com/logo.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.mailtosh.com",
+  "syncRedirectDomain": "mailtosh.com, app.mailtosh.com",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: DKIM verification tokens; %emailRegion%: email delivery region, for example us-east-1",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%emailRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
