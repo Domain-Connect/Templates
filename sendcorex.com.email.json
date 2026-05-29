@@ -1,0 +1,45 @@
+{
+  "providerId": "sendcorex.com",
+  "providerName": "Sendcorex",
+  "serviceId": "email",
+  "serviceName": "Sendcorex Email",
+  "version": 1,
+  "logoUrl": "https://sendcorex.com/logo.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sendcorex.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spf_record%",
+      "ttl": 3600,
+      "conflictMatchingMode": "Replace"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkim_selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkim_public_key%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%bounce_prefix%",
+      "pointsTo": "bounce.emailsbit.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "bounce.emailsbit.com",
+      "priority": 0,
+      "ttl": 3600,
+      "essential": "OnlyOneRequired"
+    }
+  ]
+}
