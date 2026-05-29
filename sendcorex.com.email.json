@@ -12,8 +12,7 @@
       "type": "TXT",
       "host": "@",
       "data": "%spf_record%",
-      "ttl": 3600,
-      "conflictMatchingMode": "Replace"
+      "ttl": 3600
     },
     {
       "type": "TXT",
@@ -31,16 +30,14 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=none;",
-      "ttl": 3600,
-       "conflictMatchingMode": "Skip"
+      "ttl": 3600
     },
     {
       "type": "MX",
       "host": "@",
       "pointsTo": "bounce.emailsbit.com",
       "priority": 0,
-      "ttl": 3600,
-      "essential": "OnlyOneRequired"
+      "ttl": 3600
     }
   ]
 }
