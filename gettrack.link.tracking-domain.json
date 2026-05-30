@@ -1,0 +1,14 @@
+{
+  "providerId": "gettrack.link",
+  "providerName": "Track Link",
+  "serviceId": "tracking-domain",
+  "serviceName": "Custom tracking domain",
+  "version": 2,
+  "logoUrl": "https://gettrack.link/logo-lt.webp",
+  "description": "Connect your subdomain to Track Link for branded short links over HTTPS.",
+  "syncRedirectDomain": "gettrack.link",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "cname.gettrack.link", "ttl": 3600 }
+  ]
+}
