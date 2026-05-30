@@ -6,6 +6,7 @@
   "version": 2,
   "logoUrl": "https://gettrack.link/logo-lt.webp",
   "description": "Connect your subdomain to Track Link for branded short links over HTTPS.",
+  "syncPubKeyDomain": "gettrack.link",
   "syncRedirectDomain": "gettrack.link",
   "hostRequired": true,
   "records": [
