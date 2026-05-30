@@ -16,9 +16,15 @@
       "ttl": 3600
     },
     {
-      "type": "CNAME",
+      "type": "A",
       "host": "@",
-      "pointsTo": "customers.treadcommand.com",
+      "pointsTo": "104.26.12.191",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "104.26.13.191",
       "ttl": 3600
     }
   ]
