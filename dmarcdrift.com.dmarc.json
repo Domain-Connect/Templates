@@ -8,15 +8,16 @@
   "syncRedirectDomain": "api.dmarcdrift.com",
   "logoUrl": "https://dmarcdrift.com/icon-512.png",
   "description": "Sets DMARC aggregate reporting for your domain, routing reports to your dmarcdrift inbox.",
-  "variableDescription": "policy: DMARC enforcement policy (none, quarantine, or reject). rua: your unique dmarcdrift reporting address (pre-filled).",
+  "variableDescription": "dmarc_record: full DMARC TXT record value to set at _dmarc (e.g. 'v=DMARC1; p=none; rua=mailto:d-{id}@in.dmarcdrift.com'). Pre-filled by dmarcdrift.",
   "records": [
     {
       "type": "TXT",
       "host": "_dmarc",
-      "data": "v=DMARC1; p=%policy%; rua=mailto:%rua%",
+      "data": "%dmarc_record%",
       "ttl": 3600,
       "essential": "OnApply",
-      "txtConflictMatchingMode": "None"
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
     }
   ]
 }
