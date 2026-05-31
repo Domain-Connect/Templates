@@ -1,0 +1,19 @@
+{
+  "providerId": "proofly.ae",
+  "providerName": "Proofly",
+  "serviceId": "edge",
+  "serviceName": "Proofly Edge",
+  "version": 1,
+  "logoUrl": "https://proofly.ae/logo.png",
+  "description": "Front your Framer site with Proofly's reverse proxy — adds an A record so visitors hit Proofly Edge.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "proofly.ae",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "51.89.33.47",
+      "ttl": 300
+    }
+  ]
+}

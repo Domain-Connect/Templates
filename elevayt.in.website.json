@@ -1,0 +1,18 @@
+{
+  "providerId": "elevayt.in",
+  "providerName": "Elevayt",
+  "serviceId": "website",
+  "serviceName": "Elevayt Website",
+  "version": 1,
+  "logoUrl": "https://www.elevayt.in/icon.png",
+  "description": "Connect your domain to your Elevayt website. Adds a CNAME record so www.yourdomain.com points to your Elevayt-hosted site.",
+  "variableDescription": "",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
