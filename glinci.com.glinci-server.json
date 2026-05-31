@@ -8,7 +8,7 @@
   "description": "Adds the DNS records required for a Glinci server.",
   "variableDescription": "%host_ip%, %smtp_ip%, optional %smtp2_ip%..%smtp10_ip%, %spf_rules%, %dkim_value%, and %dmarc_value%.",
   "syncPubKeyDomain": "domainconnect.glinci.com",
-  "syncRedirectDomain": "glinci.com, app.glinci.com, staging.glinci.com",
+  "syncRedirectDomain": "glinci.com,app.glinci.com,staging.glinci.com",
   "syncBlock": false,
   "records": [
     {

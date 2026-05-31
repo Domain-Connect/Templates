@@ -8,7 +8,7 @@
   "description": "Adds the DNS records required for a Glinci server and Arohra mailboxes.",
   "variableDescription": "%host_ip%, %smtp_ip%, optional %smtp2_ip%..%smtp10_ip%, %spf_rules%, %dkim_value%, %dmarc_value%, %mx_target%, and %mx_priority%.",
   "syncPubKeyDomain": "domainconnect.glinci.com",
-  "syncRedirectDomain": "glinci.com, app.glinci.com, staging.glinci.com",
+  "syncRedirectDomain": "glinci.com,app.glinci.com,staging.glinci.com",
   "syncBlock": false,
   "records": [
     {
