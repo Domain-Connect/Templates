@@ -7,22 +7,8 @@
   "syncPubKeyDomain": "keys.dmarcdrift.com",
   "syncRedirectDomain": "api.dmarcdrift.com",
   "logoUrl": "https://dmarcdrift.com/icon-512.png",
-  "variables": [
-    {
-      "name": "policy",
-      "description": "DMARC enforcement policy",
-      "dataType": "ENUM",
-      "defaultValue": "none",
-      "options": ["none", "quarantine", "reject"],
-      "required": true
-    },
-    {
-      "name": "rua",
-      "description": "Aggregate report destination (pre-filled by dmarcdrift with your unique reporting address)",
-      "dataType": "STRING",
-      "required": true
-    }
-  ],
+  "description": "Sets DMARC aggregate reporting for your domain, routing reports to your dmarcdrift inbox.",
+  "variableDescription": "policy: DMARC enforcement policy (none, quarantine, or reject). rua: your unique dmarcdrift reporting address (pre-filled).",
   "records": [
     {
       "type": "TXT",
