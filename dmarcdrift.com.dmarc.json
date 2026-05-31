@@ -5,7 +5,7 @@
   "serviceName": "DMARC Monitoring",
   "version": 1,
   "syncPubKeyDomain": "keys.dmarcdrift.com",
-  "syncRedirectDomain": "dmarcdrift.com",
+  "syncRedirectDomain": "api.dmarcdrift.com",
   "logoUrl": "https://dmarcdrift.com/icon-512.png",
   "variables": [
     {
