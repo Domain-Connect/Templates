@@ -1,0 +1,126 @@
+{
+  "providerId": "glinci.com",
+  "providerName": "Glinci",
+  "serviceId": "glinci-server-arohra",
+  "serviceName": "Glinci server DNS with Arohra mailboxes",
+  "version": 1,
+  "logoUrl": "https://app.glinci.com/glinci-logo.png",
+  "description": "Adds the DNS records required for a Glinci server and Arohra mailboxes.",
+  "variableDescription": "%host_ip%, %smtp_ip%, optional %smtp2_ip%..%smtp10_ip%, %spf_rules%, %dkim_value%, %dmarc_value%, %mx_target%, and %mx_priority%.",
+  "syncPubKeyDomain": "domainconnect.glinci.com",
+  "syncRedirectDomain": "glinci.com, app.glinci.com, staging.glinci.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "host",
+      "pointsTo": "%host_ip%",
+      "ttl": "%ttl%",
+      "groupId": "base"
+    },
+    {
+      "type": "A",
+      "host": "smtp",
+      "pointsTo": "%smtp_ip%",
+      "ttl": "%ttl%",
+      "groupId": "base"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spf_rules%",
+      "ttl": "%ttl%",
+      "groupId": "base"
+    },
+    {
+      "type": "TXT",
+      "host": "glinci._domainkey",
+      "data": "%dkim_value%",
+      "ttl": "%ttl%",
+      "groupId": "base",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_value%",
+      "ttl": "%ttl%",
+      "groupId": "base",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "type": "A",
+      "host": "smtp2",
+      "pointsTo": "%smtp2_ip%",
+      "ttl": "%ttl%",
+      "groupId": "smtp2"
+    },
+    {
+      "type": "A",
+      "host": "smtp3",
+      "pointsTo": "%smtp3_ip%",
+      "ttl": "%ttl%",
+      "groupId": "smtp3"
+    },
+    {
+      "type": "A",
+      "host": "smtp4",
+      "pointsTo": "%smtp4_ip%",
+      "ttl": "%ttl%",
+      "groupId": "smtp4"
+    },
+    {
+      "type": "A",
+      "host": "smtp5",
+      "pointsTo": "%smtp5_ip%",
+      "ttl": "%ttl%",
+      "groupId": "smtp5"
+    },
+    {
+      "type": "A",
+      "host": "smtp6",
+      "pointsTo": "%smtp6_ip%",
+      "ttl": "%ttl%",
+      "groupId": "smtp6"
+    },
+    {
+      "type": "A",
+      "host": "smtp7",
+      "pointsTo": "%smtp7_ip%",
+      "ttl": "%ttl%",
+      "groupId": "smtp7"
+    },
+    {
+      "type": "A",
+      "host": "smtp8",
+      "pointsTo": "%smtp8_ip%",
+      "ttl": "%ttl%",
+      "groupId": "smtp8"
+    },
+    {
+      "type": "A",
+      "host": "smtp9",
+      "pointsTo": "%smtp9_ip%",
+      "ttl": "%ttl%",
+      "groupId": "smtp9"
+    },
+    {
+      "type": "A",
+      "host": "smtp10",
+      "pointsTo": "%smtp10_ip%",
+      "ttl": "%ttl%",
+      "groupId": "smtp10"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx_target%",
+      "priority": "%mx_priority%",
+      "ttl": "%ttl%",
+      "groupId": "arohra"
+    }
+  ]
+}
