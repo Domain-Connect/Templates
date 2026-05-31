@@ -1,0 +1,21 @@
+{
+  "providerId": "byteseats.com",
+  "providerName": "Bytes",
+  "serviceId": "storefront",
+  "serviceName": "Bytes AI Storefront",
+  "version": 2,
+  "logoUrl": "https://static.trybytes.ai/bytes-new-logo.png",
+  "description": "Point your domain at your Bytes online-ordering storefront.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "byteseats.com",
+  "syncRedirectDomain": "dashboard.trybytes.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
