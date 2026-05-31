@@ -1,0 +1,36 @@
+{
+  "providerId": "dmarcdrift.com",
+  "providerName": "dmarcdrift",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC Monitoring",
+  "version": 1,
+  "syncPubKeyDomain": "keys.dmarcdrift.com",
+  "syncRedirectDomain": "dmarcdrift.com",
+  "logoUrl": "https://dmarcdrift.com/icon-512.png",
+  "variables": [
+    {
+      "name": "policy",
+      "description": "DMARC enforcement policy",
+      "dataType": "ENUM",
+      "defaultValue": "none",
+      "options": ["none", "quarantine", "reject"],
+      "required": true
+    },
+    {
+      "name": "rua",
+      "description": "Aggregate report destination (pre-filled by dmarcdrift with your unique reporting address)",
+      "dataType": "STRING",
+      "required": true
+    }
+  ],
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%; rua=mailto:%rua%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
