@@ -7,7 +7,7 @@
   "logoUrl": "https://app.addresstwo.com/assets/images/adTwoAccessBarLogo.png",
   "description": "Automatically configures DNS records so your domain can send and receive email via Mailgun.",
   "syncBlock": false,
-  "syncPubKeyDomain": "domainconnect.addresstwo.com",
+  "syncPubKeyDomain": "cdn.addresstwo.com",
   "syncRedirectDomain": "addresstwo.com",
   "variableDescription": "%dkimValue%: Full DKIM TXT record value; %dkimSelector%: Full DKIM Selector value",
   "records": [
