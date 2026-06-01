@@ -1,0 +1,21 @@
+{
+  "providerId": "achene.app",
+  "providerName": "Achene",
+  "serviceId": "customdomain",
+  "serviceName": "Achene Custom Domain",
+  "version": 2,
+  "logoUrl": "https://achene.app/achene-logo.png",
+  "description": "Connect a subdomain to your Achene teaching academy",
+  "syncBlock": false,
+  "syncPubKeyDomain": "achene.app",
+  "syncRedirectDomain": "achene.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom.achene.app",
+      "ttl": 3600
+    }
+  ]
+}
