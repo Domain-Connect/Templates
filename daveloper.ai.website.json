@@ -4,7 +4,6 @@
   "serviceId": "website",
   "serviceName": "Daveloper Website",
   "version": 1,
-  "logoUrl": "https://daveloper.ai/daveloper-logo.png",
   "syncPubKeyDomain": "daveloper.ai",
   "syncRedirectDomain": "daveloper.ai",
   "description": "Connect your domain to the website you built on Daveloper.",
