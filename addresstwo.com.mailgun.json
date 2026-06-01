@@ -3,7 +3,7 @@
   "providerName": "AddressTwo",
   "serviceId": "mailgun",
   "serviceName": "Email Verification",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://app.addresstwo.com/assets/images/adTwoAccessBarLogo.png",
   "description": "Automatically configures DNS records so your domain can send and receive email via Mailgun.",
   "syncBlock": false,
