@@ -21,6 +21,7 @@
       "type": "TXT",
       "host": "_cf-custom-hostname",
       "data": "%ownership%",
+      "txtConflictMatchingMode": "All",
       "ttl": 300
     }
   ]
