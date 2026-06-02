@@ -3,7 +3,7 @@
   "providerName": "Bytes",
   "serviceId": "storefront",
   "serviceName": "Bytes AI Storefront",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://static.trybytes.ai/bytes-new-logo.png",
   "description": "Point your domain at your Bytes online-ordering storefront.",
   "syncBlock": false,
@@ -16,6 +16,12 @@
       "host": "@",
       "pointsTo": "%target%",
       "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 300
     }
   ]
 }
