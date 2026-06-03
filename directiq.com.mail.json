@@ -1,0 +1,41 @@
+{
+  "providerId": "directiq.com",
+  "providerName": "DirectIQ",
+  "serviceId": "mail",
+  "serviceName": "Mail",
+  "version": 1,
+  "syncPubKeyDomain": "directiq.com",
+  "syncRedirectDomain": "directiq.com",
+  "description": "Configures DNS records for DirectIQ email signing",
+  "logoUrl": "https://directiq.com/directiq-logo.svg",
+  "records": [
+    {
+      "groupId": "outbound",
+      "type": "CNAME",
+      "host": "sender",
+      "pointsTo": "sender.directiq.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "CNAME",
+      "host": "link",
+      "pointsTo": "clientlink.directiq.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "vip._domainkey",
+      "pointsTo": "vip._domainkey.sender.directiq.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600
+    }
+  ]
+}
