@@ -6,10 +6,12 @@
   "version": 1,
   "logoUrl": "https://app.deepbluework.com/logo.png",
   "description": "Authorize your domain for Deepbluework business email. Sets MX and SPF records to route and send email.",
-  "variableDescription": "No user input required — all values are pre-configured.",
-  "syncBlock": true,
+  "variableDescription": "No user input required - all values are pre-configured.",
+  "syncRedirectDomain": "deepbluework.com",
+  "warnPhishing": true,
   "records": [
     {
+      "groupId": "mx",
       "type": "MX",
       "host": "@",
       "pointsTo": "mail.deepbluework.com.",
@@ -17,6 +19,7 @@
       "ttl": 3600
     },
     {
+      "groupId": "mx",
       "type": "MX",
       "host": "@",
       "pointsTo": "mailsec.deepbluework.com.",
@@ -24,6 +27,7 @@
       "ttl": 3600
     },
     {
+      "groupId": "spf",
       "type": "SPFM",
       "host": "@",
       "spfRules": "include:_spf.deepbluework.com mx",
