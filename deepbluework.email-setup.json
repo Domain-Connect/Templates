@@ -1,0 +1,33 @@
+{
+  "providerId": "deepbluework",
+  "providerName": "Deepbluework",
+  "serviceId": "email-setup",
+  "serviceName": "Deepbluework Email Setup",
+  "version": 1,
+  "logoUrl": "https://app.deepbluework.com/logo.png",
+  "description": "Authorize your domain for Deepbluework business email. Sets MX and SPF records to route and send email.",
+  "variableDescription": "No user input required — all values are pre-configured.",
+  "syncBlock": true,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.deepbluework.com.",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mailsec.deepbluework.com.",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.deepbluework.com mx",
+      "ttl": 3600
+    }
+  ]
+}

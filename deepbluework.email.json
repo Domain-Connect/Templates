@@ -1,0 +1,79 @@
+{
+  "providerId": "deepbluework",
+  "providerName": "Deepbluework",
+  "serviceId": "email",
+  "serviceName": "Deepbluework Business Email",
+  "version": 1,
+  "logoUrl": "https://app.deepbluework.com/logo.png",
+  "description": "Configure your domain to send and receive email with Deepbluework. Sets up MX, SPF, DKIM, DMARC, and BIMI records.",
+  "variableDescription": "dkimSelector: DKIM selector assigned by Deepbluework; dkimValue: full DKIM TXT record value; dmarcValue: DMARC policy record value (p=quarantine or p=reject required for BIMI); bimiLogoUrl: HTTPS URL to the BIMI-compliant SVG logo for this domain.",
+  "syncBlock": true,
+  "variables": [
+    {
+      "name": "dkimSelector",
+      "dataType": "STRING",
+      "description": "DKIM selector name assigned by Deepbluework"
+    },
+    {
+      "name": "dkimValue",
+      "dataType": "STRING",
+      "description": "Full DKIM TXT record value (v=DKIM1; k=rsa; p=...)"
+    },
+    {
+      "name": "dmarcValue",
+      "dataType": "STRING",
+      "description": "DMARC policy record value (must include p=quarantine or p=reject for BIMI to work)"
+    },
+    {
+      "name": "bimiLogoUrl",
+      "dataType": "STRING",
+      "description": "HTTPS URL to the domain's BIMI-compliant SVG logo (SVG Tiny 1.2, square)",
+      "defaultValue": "https://app.deepbluework.com/bimi/%domain%/logo.svg"
+    }
+  ],
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.deepbluework.com.",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mailsec.deepbluework.com.",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.deepbluework.com mx",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarcValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "default._bimi",
+      "data": "v=BIMI1; l=%bimiLogoUrl%; a=;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
