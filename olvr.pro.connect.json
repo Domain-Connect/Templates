@@ -1,38 +1,14 @@
-# Description
-  New Domain Connect template for olvr. Connects a customer's subdomain to their
-  olvr community via a single CNAME to our Cloudflare-for-SaaS origin
-  (cname.olvr.pro), with automatic HTTPS.
-  
-  ## Type of change
-  - [x] New template
-
-  # How Has This Been Tested?
-  - [x] Template functionality checked using the Online Editor
-  - [x] Template file name follows the pattern `<providerId>.<serviceId>.json`
-  - [ ] logoUrl served by a webserver — N/A, no `logoUrl` in this template
-
-  # Checklist of common problems
-  - [ ] `syncPubKeyDomain` — **not set; justified:** single static CNAME, no variables,
-        no `redirect_uri`; the record only ever points to our fixed Cloudflare-for-SaaS
-        origin (`cname.olvr.pro`). We don't yet operate a signing key, so `warnPhishing`
-        is used instead.
-  - [x] `warnPhishing` not set alongside `syncPubKeyDomain` — only `warnPhishing` is set
-  - [x] `syncRedirectDomain` — N/A, template does not use `redirect_uri`
-  - [x] no TXT with SPF content — N/A, no TXT records
-  - [x] `txtConflictMatchingMode` on unique TXT — N/A, no TXT records
-  - [x] no bare variable as full record value — N/A, no variables
-  - [x] no bare variable as full host label — N/A, no variables
-  - [x] no variable in `host` for a subdomain — uses `hostRequired` + the host parameter
-  - [x] `%host%` not written explicitly — correct
-  - [x] `essential: OnApply` where needed — N/A, single CNAME
-
-  ## Online Editor test results
-  **Editor test link(s):** [Test olvr.pro/connect techead.lol/community](https://domainconnect.paulonet.eu/dc/
-  free/templateedit?token=H4sIAAG1IWoC%2F91UXWvbMBT9K0avdVxFdT5qGCyUfbGtzbZAH0IwsqTGGrLkSbLTNPi%2FT3LixOnC2PPA
-  IOv43sM9R0feAcuKUmDLQLIDpVY1p0x%2FoiABStQ6cggIj%2Fg9Ltjhi0MN0zUnrC0mSkpG7Ak9lN7t8WCrKh1QVWAuA6uCA0PNtOFKgmQY
-  AsoM0by07f7YhwNTZae%2BlsY3B0QVRSW53YbBhts8wJV1VZaT4ONiMf8ROfYN1nKec5NzuQaJ1RULQa6M%2Fc5%2BVVwz2mGaEaWpAclyB%
-  2By2bMe%2Bn319B%2FblbvvWe6C4tGahvFjpxEU9f6wVILmBsFk1IXhRkqUnzpWT1s7vGi0jOcM0EkqcyI9KHLTWqipT3jWWWOPC%2BJPpKJ
-  ZnHKuOZNlj8TPwtVSapcat2FaadVKLSlieYufMEaIkxWUptm5k4746rj9tkPvD7E9KscV%2FsyIEKSV%2Bcu7jMb6Zkmk2ooMhucWDOEbxII
-  szMniaIDiJ4ROE47iXs9f5u5y0C%2F4xY5i0HLsZwExs8NaAplmFzsv%2FTpQ7e4NrRlPs6xFE4wF0T7wYThI0StAwiiejKRpdQZhA6EUwY%
-  2FcCd%2B17m6v2Irq1xprjTLCzsP1jXn1WG3%2BNfH4uXqPXVkc94ujM38sn4O5V4w0TziOn2E%2Ff%2FYYc3o85uHqZzDRHP7Pnb%2Fkjvf
-  6gZvL68eH280OMxBRx9H6YzaH4YuK72RvQ%2FAYD6M8G%2FwQAAA%3D%3D)
+{
+    "providerId": "olvr.pro",
+    "providerName": "olvr",
+    "serviceId": "connect",
+    "serviceName": "Connect your domain to olvr",
+    "version": 1,
+    "description": "Connect a subdomain to your olvr community, with automatic
+  HTTPS.",
+    "warnPhishing": true,
+    "hostRequired": true,
+    "records": [
+      { "type": "CNAME", "host": "@", "pointsTo": "cname.olvr.pro", "ttl": 300 }
+    ]
+}
