@@ -3,7 +3,7 @@
     "providerName": "Any Market",
     "serviceId": "store",
     "serviceName": "Store Custom Domain",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://us.any.market/icons/logo.svg",
     "description": "Connect customer's domain to their Any Market store hosted on Vercel",
     "syncRedirectDomain": "any.market",
@@ -12,13 +12,19 @@
         {
             "type": "A",
             "host": "@",
-            "pointsTo": "76.76.21.21",
+            "pointsTo": "216.150.1.1",
             "ttl": 3600
         },
         {
             "type": "CNAME",
             "host": "www",
             "pointsTo": "cname.vercel-dns.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_any-market-verify",
+            "data": "%verificationToken%",
             "ttl": 3600
         }
     ]
