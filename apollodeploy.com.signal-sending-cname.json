@@ -15,23 +15,20 @@
       "type": "CNAME",
       "host": "%dkimSelector%._domainkey",
       "pointsTo": "%dkimPointsTo%",
-      "ttl": 3600,
-      "comment": "Apollo Signal — DKIM CNAME selector"
+      "ttl": 3600
     },
     {
       "type": "MX",
       "host": "%mailFromSubdomain%",
       "pointsTo": "%mailFromMx%",
       "priority": "%mailFromPriority%",
-      "ttl": 3600,
-      "comment": "Apollo Signal — MAIL FROM (bounce handling)"
+      "ttl": 3600
     },
     {
       "type": "SPFM",
       "host": "%mailFromSubdomain%",
       "spfRules": "include:%spfInclude%",
-      "ttl": 3600,
-      "comment": "Apollo Signal — SPF for MAIL FROM subdomain"
+      "ttl": 3600
     }
   ]
 }
