@@ -3,10 +3,10 @@
   "providerName": "Drin",
   "serviceId": "email",
   "serviceName": "Drin email sending",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://app.drin.run/icon.svg",
   "description": "Add the DKIM, MAIL FROM and DMARC records that let Drin send email from this domain. We never read or write any other records.",
-  "variableDescription": "dkim_value: the complete DKIM record value Drin supplies for this domain at apply time. MAIL FROM (SPF) and DMARC are fixed.",
+  "variableDescription": "dkim_value: the complete DKIM record value Drin supplies for this domain at apply time. dkimhost: the DKIM record host relative to the zone apex (e.g. 'drin._domainkey' or a unique 'drin-<id>._domainkey'), so a recycled domain's old key can't collide. MAIL FROM (SPF) and DMARC are fixed.",
   "syncBlock": false,
   "syncPubKeyDomain": "drin.run",
   "syncRedirectDomain": "app.drin.run",
@@ -14,7 +14,7 @@
     {
       "groupId": "dkim",
       "type": "TXT",
-      "host": "drin._domainkey",
+      "host": "%dkimhost%",
       "data": "%dkim_value%",
       "ttl": 3600,
       "txtConflictMatchingMode": "All"
