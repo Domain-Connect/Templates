@@ -1,0 +1,23 @@
+{
+  "providerId": "cloudcat.me",
+  "providerName": "Cloudcat",
+  "serviceId": "connect-site",
+  "serviceName": "Connect your domain to your Cloudcat site",
+  "version": 1,
+  "syncPubKeyDomain": "cloudcat.me",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.cloudcat.me.",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%dcvtarget%.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}
