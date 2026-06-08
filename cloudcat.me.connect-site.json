@@ -1,8 +1,8 @@
 {
   "providerId": "cloudcat.me",
-  "providerName": "Cloudcat",
+  "providerName": "CloudCat",
   "serviceId": "connect-site",
-  "serviceName": "Connect your domain to your Cloudcat site",
+  "serviceName": "Connect your domain to your CloudCat site",
   "version": 1,
   "syncPubKeyDomain": "cloudcat.me",
   "hostRequired": true,
