@@ -1,0 +1,30 @@
+{
+  "providerId": "storix-ai.com",
+  "providerName": "Storix",
+  "serviceId": "storefront",
+  "serviceName": "Storix storefront custom domain",
+  "version": 1,
+  "logoUrl": "https://storix-ai.com/branding/storix-default-logo.png",
+  "description": "Connect a subdomain to a Storix merchant storefront.",
+  "variableDescription": "Set Domain Connect host to the merchant storefront label, for example www for www.example.com or shop for shop.example.com. %storixVerificationToken% is the Storix ownership token used in the verification TXT value. %storixCnameTarget% is the Storix storefront CNAME target.",
+  "syncPubKeyDomain": "domainconnect-keys.storix-ai.com",
+  "syncRedirectDomain": "storix-ai.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "storefront",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%storixCnameTarget%",
+      "ttl": "600"
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_storix-verify",
+      "data": "storix-verify=%storixVerificationToken%",
+      "ttl": "600",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
