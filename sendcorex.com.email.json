@@ -3,7 +3,7 @@
   "providerName": "Sendcorex",
   "serviceId": "email",
   "serviceName": "Sendcorex Email",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://sendcorex.com/assets/logo/sendcorex-logo-dark.svg",
   "description": "Configures DNS records for Sendcorex email sending: SPF, DKIM, Return Path and DMARC.",
   "variableDescription": "%dkim_public_key%: DKIM public key for the domain",
