@@ -3,32 +3,18 @@
 	"providerName": "KonvoAI",
 	"serviceId": "email",
 	"serviceName": "Custom email domain",
-	"version": 1,
+	"version": 2,
 	"syncPubKeyDomain": "konvo.to",
 	"syncRedirectDomain": "konvoai.com",
 	"description": "DNS records for sending email from your domain with KonvoAI (Resend / Amazon SES).",
 	"logoUrl": "https://k2.konvoai.com/favicon.svg",
-	"variableDescription": "dkim1–dkim3: DKIM selectors from Resend; region: SES region from the send MX record; trackingSubdomain (optional): click-tracking host label when Resend returns a links CNAME.",
+	"variableDescription": "dkimKey: Resend DKIM public key (the base64 value after p= in the resend._domainkey TXT record); region: SES region parsed from the send MX record.",
 	"records": [
 		{
-			"groupId": "dkim-1",
-			"type": "CNAME",
-			"host": "%dkim1%._domainkey",
-			"pointsTo": "%dkim1%.dkim.amazonses.com",
-			"ttl": 3600
-		},
-		{
-			"groupId": "dkim-2",
-			"type": "CNAME",
-			"host": "%dkim2%._domainkey",
-			"pointsTo": "%dkim2%.dkim.amazonses.com",
-			"ttl": 3600
-		},
-		{
-			"groupId": "dkim-3",
-			"type": "CNAME",
-			"host": "%dkim3%._domainkey",
-			"pointsTo": "%dkim3%.dkim.amazonses.com",
+			"groupId": "dkim",
+			"type": "TXT",
+			"host": "resend._domainkey",
+			"data": "p=%dkimKey%",
 			"ttl": 3600
 		},
 		{
