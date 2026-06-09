@@ -9,6 +9,7 @@
   "variableDescription": "%dkim_public_key%: DKIM public key for the domain",
   "syncBlock": false,
   "syncPubKeyDomain": "app.sendcorex.com",
+  "syncRedirectDomain": "app.sendcorex.com",
   "records": [
     {
       "type": "SPFM",
