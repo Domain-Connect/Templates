@@ -9,7 +9,7 @@
     "syncBlock": false,
     "hostRequired": false,
     "syncPubKeyDomain": "improvmx.com",
-    "syncRedirectDomain": "improvmx.com, app.improvmx.com",
+    "syncRedirectDomain": "improvmx.com,app.improvmx.com",
     "records": [
         {
             "groupId": "mx",
