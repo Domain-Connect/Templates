@@ -1,0 +1,26 @@
+{
+  "providerId": "cavuno.com",
+  "providerName": "Cavuno",
+  "serviceId": "boards",
+  "serviceName": "Cavuno Job Board (subdomain)",
+  "version": 1,
+  "logoUrl": "https://cavuno.com/images/favicon/android-chrome-192x192.png",
+  "description": "Connects a subdomain (e.g. jobs.example.com) to your Cavuno job board.",
+  "variableDescription": "txt is the domain-ownership verification value issued by Cavuno.",
+  "syncPubKeyDomain": "cavuno.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.cavuno.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cavuno",
+      "data": "%txt%",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "providerId": "cavuno.com",
+  "providerName": "Cavuno",
+  "serviceId": "boardsapex",
+  "serviceName": "Cavuno Job Board (apex)",
+  "version": 1,
+  "logoUrl": "https://cavuno.com/images/favicon/android-chrome-192x192.png",
+  "description": "Connects your domain to your Cavuno job board, served at the www host with the bare domain redirecting to it.",
+  "variableDescription": "ip is Cavuno's origin address for the apex redirect; txt is the domain-ownership verification value issued by Cavuno.",
+  "syncPubKeyDomain": "cavuno.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "edge.cavuno.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cavuno",
+      "data": "%txt%",
+      "ttl": 3600
+    }
+  ]
+}
