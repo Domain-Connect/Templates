@@ -8,6 +8,7 @@
   "description": "Connects a subdomain (e.g. jobs.example.com) to your Cavuno job board.",
   "variableDescription": "txt is the domain-ownership verification value issued by Cavuno.",
   "syncPubKeyDomain": "cavuno.com",
+  "syncRedirectDomain": "cavuno.com",
   "hostRequired": true,
   "records": [
     {
@@ -20,7 +21,8 @@
       "type": "TXT",
       "host": "_cavuno",
       "data": "%txt%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
     }
   ]
 }
