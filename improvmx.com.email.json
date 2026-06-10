@@ -1,7 +1,7 @@
 {
     "providerId": "improvmx.com",
     "providerName": "ImprovMX",
-    "serviceId": "email-forwarding",
+    "serviceId": "email",
     "serviceName": "Email Forwarding",
     "version": 1,
     "logoUrl": "https://improvmx-public-assets.s3.eu-west-3.amazonaws.com/improvmx_logo.svg",
@@ -9,6 +9,7 @@
     "syncBlock": false,
     "hostRequired": false,
     "syncPubKeyDomain": "improvmx.com",
+    "syncRedirectDomain": "improvmx.com, app.improvmx.com",
     "records": [
         {
             "groupId": "mx",
