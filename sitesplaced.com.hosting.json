@@ -26,7 +26,8 @@
     {
       "type": "TXT",
       "host": "_sitesplaced-verify",
-      "data": "%verifytoken%",
+      "data": "sitesplaced-%verifytoken%",
+      "txtConflictMatchingMode": "All",
       "ttl": 600
     }
   ]
