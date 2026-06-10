@@ -1,0 +1,50 @@
+{
+    "providerId": "improvmx.com",
+    "providerName": "ImprovMX",
+    "serviceId": "email-forwarding",
+    "serviceName": "Email Forwarding",
+    "version": 1,
+    "logoUrl": "https://improvmx-public-assets.s3.eu-west-3.amazonaws.com/improvmx_logo.svg",
+    "description": "Set up the DNS records needed to forward emails for your domain with ImprovMX: MX records for inbound mail, SPF for forwarding, and DKIM for sending through ImprovMX SMTP.",
+    "syncBlock": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "improvmx.com",
+    "records": [
+        {
+            "groupId": "mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx1.improvmx.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx2.improvmx.com",
+            "priority": 20,
+            "ttl": 3600
+        },
+        {
+            "groupId": "spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:spf.improvmx.com"
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "dkimprovmx1._domainkey",
+            "pointsTo": "dkimprovmx1.improvmx.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "dkimprovmx2._domainkey",
+            "pointsTo": "dkimprovmx2.improvmx.com",
+            "ttl": 3600
+        }
+    ]
+}
