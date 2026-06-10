@@ -1,0 +1,33 @@
+{
+  "providerId": "sitesplaced.com",
+  "providerName": "SitesPlaced",
+  "serviceId": "hosting",
+  "serviceName": "SitesPlaced Website & Store",
+  "version": 1,
+  "logoUrl": "https://sitesplaced.com/logo.png",
+  "description": "Connects your domain to your SitesPlaced website or online store.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sitesplaced.com",
+  "syncRedirectDomain": "sitesplaced.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%aip%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cnametarget%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_sitesplaced-verify",
+      "data": "%verifytoken%",
+      "ttl": 600
+    }
+  ]
+}
