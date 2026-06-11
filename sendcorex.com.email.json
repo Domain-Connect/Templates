@@ -26,7 +26,7 @@
     {
       "type": "CNAME",
       "host": "bounces",
-      "pointsTo": "bounces.emailsbit.com",
+      "pointsTo": "bounce.emailsbit.com",
       "ttl": 60
     },
     {
