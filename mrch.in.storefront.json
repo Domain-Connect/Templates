@@ -1,0 +1,41 @@
+{
+    "providerId": "mrch.in",
+    "providerName": "mrch.in",
+    "serviceId": "storefront",
+    "serviceName": "mrch.in Storefront",
+    "version": 1,
+    "description": "Connects your domain to your mrch.in dropshipping storefront",
+    "variableDescription": "txtvalue is the per-store Cloudflare custom-hostname ownership token issued by mrch.in when the store owner saves their domain.",
+    "syncPubKeyDomain": "mrch.in",
+    "records": [
+        {
+            "type": "TXT",
+            "groupId": "verify",
+            "host": "_cf-custom-hostname",
+            "data": "%txtvalue%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "CNAME",
+            "groupId": "verify",
+            "host": "_acme-challenge",
+            "pointsTo": "%fqdn%.2a6776d49bfee91d.dcv.cloudflare.com",
+            "ttl": 600
+        },
+        {
+            "type": "A",
+            "groupId": "golive",
+            "host": "@",
+            "pointsTo": "104.21.27.109",
+            "ttl": 600
+        },
+        {
+            "type": "A",
+            "groupId": "golive",
+            "host": "@",
+            "pointsTo": "172.67.169.32",
+            "ttl": 600
+        }
+    ]
+}
