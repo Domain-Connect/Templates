@@ -4,7 +4,7 @@
     "serviceId": "point-to-server",
     "serviceName": "Pointer le domaine vers le serveur migre",
     "version": 1,
-    "logoUrl": "https://migrationtool.fr/icon.png",
+    "logoUrl": "https://migrationtool.fr/favicon.ico",
     "description": "Configure les enregistrements A du domaine (racine + www) pour pointer vers le serveur de destination apres une migration MigrationTOOL.",
     "variableDescription": "adresse IPv4 du serveur de destination",
     "syncPubKeyDomain": "migrationtool.fr",
