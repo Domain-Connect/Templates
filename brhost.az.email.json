@@ -5,19 +5,17 @@
   "serviceName": "BRHost Email",
   "version": 1,
   "logoUrl": "https://brhost.az/brhost-logo.svg",
-  "description": "BRHost email hosting üçün MX, SPF, DKIM, DMARC və avtomatik konfiqurasiya recordları.",
+  "description": "BRHost email hosting: MX, SPF, DKIM, DMARC, TLS-RPT and autoconfig records.",
   "syncPubKeyDomain": "brhost.az",
-  "syncRedirectDomain": "brhost.az",
-  "syncBlock": false,
   "records": [
-    { "groupId": "mx",          "type": "MX",    "host": "@",                "pointsTo": "mail.%domain%", "priority": 10, "ttl": 3600 },
-    { "groupId": "mail",        "type": "A",     "host": "mail",             "pointsTo": "%ip%",          "ttl": 3600 },
-    { "groupId": "webmail",     "type": "A",     "host": "webmail",          "pointsTo": "%ip%",          "ttl": 3600 },
-    { "groupId": "spf",         "type": "TXT",   "host": "@",                "data": "v=spf1 a mx include:brhost.az ~all", "ttl": 3600 },
-    { "groupId": "dkim",        "type": "TXT",   "host": "mail._domainkey",  "data": "%dkim%",            "ttl": 3600 },
-    { "groupId": "dmarc",       "type": "TXT",   "host": "_dmarc",           "data": "v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc@%domain%", "ttl": 3600 },
-    { "groupId": "tlsrpt",      "type": "TXT",   "host": "_smtp._tls",       "data": "v=TLSRPTv1; rua=mailto:tls-report@%domain%", "ttl": 3600 },
-    { "groupId": "autodiscover","type": "CNAME", "host": "autodiscover",     "pointsTo": "mail.%domain%", "ttl": 3600 },
-    { "groupId": "autoconfig",  "type": "CNAME", "host": "autoconfig",       "pointsTo": "mail.%domain%", "ttl": 3600 }
+    { "groupId": "mx",          "type": "MX",    "host": "@",               "pointsTo": "mail.%domain%", "priority": 10, "ttl": 3600 },
+    { "groupId": "mail",        "type": "A",     "host": "mail",            "pointsTo": "%ip%",          "ttl": 3600 },
+    { "groupId": "webmail",     "type": "A",     "host": "webmail",         "pointsTo": "%ip%",          "ttl": 3600 },
+    { "groupId": "spf",         "type": "SPFM",  "host": "@",               "spfRules": "a mx include:brhost.az ~all", "ttl": 3600 },
+    { "groupId": "dkim",        "type": "TXT",   "host": "mail._domainkey", "data": "%dkim%",            "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "groupId": "dmarc",       "type": "TXT",   "host": "_dmarc",          "data": "v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc@%domain%", "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "OnApply" },
+    { "groupId": "tlsrpt",      "type": "TXT",   "host": "_smtp._tls",      "data": "v=TLSRPTv1; rua=mailto:tls-report@%domain%", "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "OnApply" },
+    { "groupId": "autodiscover","type": "CNAME", "host": "autodiscover",    "pointsTo": "mail.%domain%", "ttl": 3600 },
+    { "groupId": "autoconfig",  "type": "CNAME", "host": "autoconfig",      "pointsTo": "mail.%domain%", "ttl": 3600 }
   ]
 }
