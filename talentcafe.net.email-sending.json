@@ -1,0 +1,32 @@
+{
+  "providerId": "talentcafe.net",
+  "providerName": "TalentCafe",
+  "serviceId": "email-sending",
+  "serviceName": "Email Sending Setup",
+  "version": 1,
+  "logoUrl": "https://talentcafe.net/logo.png",
+  "description": "This will configure your SPF, DKIM, and MX records to send emails via TalentCafe.",
+  "syncRedirectSupported": true,
+  "syncPubKeyDomain": "talentcafe.net",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "text": "v=spf1 include:amazonses.com ~all",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "text": "%dkim_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
