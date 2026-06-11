@@ -19,12 +19,14 @@
       "type": "TXT",
       "host": "_cf-custom-hostname",
       "data": "%cf_ownership%",
+      "txtConflictMatchingMode": "All",
       "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "_acme-challenge",
       "data": "%acme_challenge%",
+      "txtConflictMatchingMode": "All",
       "ttl": 3600
     }
   ]
