@@ -6,6 +6,7 @@
   "version": 1,
   "logoUrl": "https://talentcafe.net/logo.png",
   "description": "This will configure your SPF, DKIM, and MX records to send emails via TalentCafe.",
+  "variableDescription": "dkim_value represents the string value for the DKIM TXT record public key.",
   "syncRedirectSupported": true,
   "syncPubKeyDomain": "talentcafe.net",
   "records": [
@@ -18,7 +19,7 @@
     {
       "type": "TXT",
       "host": "resend._domainkey",
-      "text": "%dkim_value%",
+      "data": "%dkim_value%",
       "ttl": 3600
     },
     {
