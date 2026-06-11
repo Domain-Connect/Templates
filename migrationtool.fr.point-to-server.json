@@ -1,0 +1,16 @@
+  {
+    "providerId": "migrationtool.fr",
+    "providerName": "MigrationTOOL",
+    "serviceId": "point-to-server",
+    "serviceName": "Pointer le domaine vers le serveur migre",
+    "version": 1,
+    "logoUrl": "https://migrationtool.fr/icon.png",
+    "description": "Configure les enregistrements A du domaine (racine + www) pour pointer vers le serveur de destination apres une migration MigrationTOOL.",
+    "variableDescription": "adresse IPv4 du serveur de destination",
+    "syncPubKeyDomain": "migrationtool.fr",
+    "syncRedirectDomain": "migrationtool.fr",
+    "records": [
+      { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 300 },
+      { "type": "A", "host": "www", "pointsTo": "%ip%", "ttl": 300 }
+    ]
+  }
