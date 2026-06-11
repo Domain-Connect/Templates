@@ -1,0 +1,48 @@
+name: Review Labels
+
+on:
+  pull_request_target:
+    branches:
+      - master
+    types: [synchronize]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  changes-requested:
+    # When a review with "changes requested" is submitted, add the
+    # "review issues" label.
+    if: >-
+      github.event_name == 'pull_request_review' &&
+      github.event.review.state == 'changes_requested'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Add "review issues" label
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr edit "${{ github.event.pull_request.number }}" \
+            --repo "${{ github.repository }}" \
+            --add-label "review issues" \
+            --remove-label "new review needed"
+
+  new-commits:
+    # When new commits are pushed to the PR, remove the "review issues"
+    # label and add "new review needed".
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Swap labels after new commits
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr edit "${{ github.event.pull_request.number }}" \
+            --repo "${{ github.repository }}" \
+            --remove-label "review issues" \
+            --add-label "new review needed"
