@@ -39,10 +39,20 @@ jobs:
       issues: write
     steps:
       - name: Swap labels after new commits
+        # Only act when the PR already has "review issues" (i.e. a reviewer
+        # requested changes). Otherwise do nothing, so PRs that were never
+        # reviewed don't get "new review needed".
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh pr edit "${{ github.event.pull_request.number }}" \
-            --repo "${{ github.repository }}" \
+          pr_number="${{ github.event.pull_request.number }}"
+          repo="${{ github.repository }}"
+          has_label=$(gh pr view "$pr_number" --repo "$repo" \
+            --json labels --jq '.labels[].name | select(. == "review issues")')
+          if [ -z "$has_label" ]; then
+            echo "PR does not have the \"review issues\" label; nothing to do."
+            exit 0
+          fi
+          gh pr edit "$pr_number" --repo "$repo" \
             --remove-label "review issues" \
             --add-label "new review needed"
