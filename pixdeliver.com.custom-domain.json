@@ -1,0 +1,24 @@
+{
+    "providerId": "pixdeliver.com",
+    "providerName": "PixDeliver",
+    "serviceId": "custom-domain",
+    "serviceName": "Custom domain",
+    "version": 1,
+    "description": "Connects a sub-domain to PixDeliver client photo galleries",
+    "syncPubKeyDomain": "pixdeliver.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cname.pixdeliver.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "%txthost%",
+            "data": "%txtvalue%",
+            "ttl": 3600
+        }
+    ]
+}
