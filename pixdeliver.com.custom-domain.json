@@ -4,6 +4,7 @@
     "serviceId": "custom-domain",
     "serviceName": "Custom domain",
     "version": 1,
+    "logoUrl": "https://pixdeliver.com/logo-black.svg",
     "description": "Connects a sub-domain to PixDeliver client photo galleries",
     "syncPubKeyDomain": "pixdeliver.com",
     "hostRequired": true,
