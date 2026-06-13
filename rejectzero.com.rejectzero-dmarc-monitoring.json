@@ -9,7 +9,6 @@
   "variableDescription": "rua_mailbox - The RejectZero aggregate report mailbox used in the DMARC rua tag.",
   "syncRedirectDomain": "app.rejectzero.com",
   "syncPubKeyDomain": "app.rejectzero.com",
-  "warnPhishing": false,
   "records": [
     {
       "type": "TXT",
