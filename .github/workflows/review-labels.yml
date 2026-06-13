@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Download task artifact
         id: download
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: label-task
           path: ./label-task
