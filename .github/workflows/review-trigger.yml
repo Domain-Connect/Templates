@@ -1,0 +1,56 @@
+name: Review Labels (trigger)
+
+# This workflow only DETECTS what label change is needed and hands it off
+# to the "Review Labels (apply)" workflow via an artifact. It does NOT
+# write labels itself, because the pull_request_review event runs with a
+# read-only token for PRs from forks. The apply workflow runs on
+# workflow_run, which always has a writable token in the base-repo context.
+
+on:
+  pull_request_review:
+    types: [submitted]
+  pull_request_target:
+    branches:
+      - master
+    types: [synchronize]
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Determine action
+        id: detect
+        run: |
+          pr_number=""
+          action=""
+
+          if [ "${{ github.event_name }}" = "pull_request_review" ]; then
+            if [ "${{ github.event.review.state }}" = "changes_requested" ]; then
+              pr_number="${{ github.event.pull_request.number }}"
+              action="changes_requested"
+            fi
+          elif [ "${{ github.event_name }}" = "pull_request_target" ]; then
+            pr_number="${{ github.event.pull_request.number }}"
+            action="new_commits"
+          fi
+
+          if [ -z "$action" ]; then
+            echo "No relevant action; skipping."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          mkdir -p ./label-task
+          {
+            echo "pr_number=$pr_number"
+            echo "action=$action"
+          } > ./label-task/task.txt
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+
+      - name: Upload task artifact
+        if: steps.detect.outputs.skip == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: label-task
+          path: ./label-task/
+          retention-days: 1

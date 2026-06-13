@@ -1,58 +1,78 @@
-name: Review Labels
+name: Review Labels (apply)
+
+# Runs after "Review Labels (trigger)" completes. Because workflow_run runs
+# in the base-repo context, github.token is writable even for PRs from
+# forks -- so the actual label edits happen here.
 
 on:
-  pull_request_target:
-    branches:
-      - master
-    types: [synchronize]
-  pull_request_review:
-    types: [submitted]
+  workflow_run:
+    workflows: ["Review Labels (trigger)"]
+    types: [completed]
 
 jobs:
-  changes-requested:
-    # When a review with "changes requested" is submitted, add the
-    # "review issues" label.
-    if: >-
-      github.event_name == 'pull_request_review' &&
-      github.event.review.state == 'changes_requested'
+  apply:
     runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
     permissions:
       pull-requests: write
       issues: write
     steps:
-      - name: Add "review issues" label
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh pr edit "${{ github.event.pull_request.number }}" \
-            --repo "${{ github.repository }}" \
-            --add-label "review issues" \
-            --remove-label "new review needed"
+      - name: Download task artifact
+        id: download
+        uses: actions/download-artifact@v4
+        with:
+          name: label-task
+          path: ./label-task
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+        continue-on-error: true
 
-  new-commits:
-    # When new commits are pushed to the PR, remove the "review issues"
-    # label and add "new review needed".
-    if: github.event_name == 'pull_request_target'
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      issues: write
-    steps:
-      - name: Swap labels after new commits
-        # Only act when the PR already has "review issues" (i.e. a reviewer
-        # requested changes). Otherwise do nothing, so PRs that were never
-        # reviewed don't get "new review needed".
+      - name: Apply labels
+        if: steps.download.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          pr_number="${{ github.event.pull_request.number }}"
-          repo="${{ github.repository }}"
-          has_label=$(gh pr view "$pr_number" --repo "$repo" \
-            --json labels --jq '.labels[].name | select(. == "review issues")')
-          if [ -z "$has_label" ]; then
-            echo "PR does not have the \"review issues\" label; nothing to do."
+          task_file="./label-task/task.txt"
+          if [ ! -f "$task_file" ]; then
+            echo "No task artifact; nothing to do."
             exit 0
           fi
-          gh pr edit "$pr_number" --repo "$repo" \
-            --remove-label "review issues" \
-            --add-label "new review needed"
+
+          pr_number=$(grep '^pr_number=' "$task_file" | cut -d= -f2-)
+          action=$(grep '^action=' "$task_file" | cut -d= -f2-)
+          repo="${{ github.repository }}"
+
+          if [ -z "$pr_number" ] || [ -z "$action" ]; then
+            echo "Incomplete task; nothing to do."
+            exit 0
+          fi
+
+          echo "PR #$pr_number, action: $action"
+
+          case "$action" in
+            changes_requested)
+              # A reviewer requested changes -> flag the PR.
+              gh pr edit "$pr_number" --repo "$repo" \
+                --add-label "review issues"
+              gh pr edit "$pr_number" --repo "$repo" \
+                --remove-label "new review needed" 2>/dev/null || true
+              ;;
+            new_commits)
+              # New commits pushed -> only swap labels if the PR was
+              # previously flagged with "review issues". Otherwise PRs that
+              # were never reviewed would wrongly get "new review needed".
+              has_label=$(gh pr view "$pr_number" --repo "$repo" \
+                --json labels --jq '.labels[].name | select(. == "review issues")')
+              if [ -z "$has_label" ]; then
+                echo "PR does not have \"review issues\"; nothing to do."
+                exit 0
+              fi
+              gh pr edit "$pr_number" --repo "$repo" \
+                --add-label "new review needed"
+              gh pr edit "$pr_number" --repo "$repo" \
+                --remove-label "review issues" 2>/dev/null || true
+              ;;
+            *)
+              echo "Unknown action: $action"
+              ;;
+          esac
