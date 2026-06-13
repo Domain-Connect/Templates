@@ -9,7 +9,6 @@
   "variableDescription": "dmarc_record - The full safely merged DMARC TXT value.",
   "syncRedirectDomain": "app.rejectzero.com",
   "syncPubKeyDomain": "app.rejectzero.com",
-  "warnPhishing": false,
   "records": [
     {
       "type": "TXT",
