@@ -12,7 +12,12 @@ on:
 jobs:
   apply:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success'
+    # Only act on successful runs of the trigger workflow that were started
+    # by one of the events we expect. Anything else is ignored outright.
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      (github.event.workflow_run.event == 'pull_request_review' ||
+       github.event.workflow_run.event == 'pull_request_target')
     permissions:
       pull-requests: write
       issues: write
@@ -44,6 +49,34 @@ jobs:
 
           if [ -z "$pr_number" ] || [ -z "$action" ]; then
             echo "Incomplete task; nothing to do."
+            exit 0
+          fi
+
+          # --- Security hardening (workflow_run trust boundary) ---
+          # The artifact comes from a workflow that can be triggered by fork
+          # PRs. Validate everything before acting so a forged/malformed task
+          # cannot be used to mislabel an arbitrary PR or inject gh arguments.
+
+          # pr_number must be a plain positive integer.
+          if ! printf '%s' "$pr_number" | grep -Eq '^[1-9][0-9]*$'; then
+            echo "Invalid pr_number: '$pr_number'; aborting."
+            exit 0
+          fi
+
+          # action must be one of the known values.
+          case "$action" in
+            changes_requested|new_commits) ;;
+            *) echo "Invalid action: '$action'; aborting."; exit 0 ;;
+          esac
+
+          # The artifact's PR must match the head SHA that the triggering
+          # workflow_run actually ran on. This binds the task to the run that
+          # produced it, so a fork run cannot hand off a different PR's number.
+          run_sha="${{ github.event.workflow_run.head_sha }}"
+          pr_sha=$(gh pr view "$pr_number" --repo "$repo" \
+            --json headRefOid --jq '.headRefOid' 2>/dev/null || true)
+          if [ -n "$run_sha" ] && [ "$pr_sha" != "$run_sha" ]; then
+            echo "PR #$pr_number head ($pr_sha) does not match triggering run ($run_sha); aborting."
             exit 0
           fi
 
