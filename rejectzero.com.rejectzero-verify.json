@@ -9,7 +9,6 @@
   "variableDescription": "verification_token - The RejectZero domain verification token.",
   "syncRedirectDomain": "app.rejectzero.com",
   "syncPubKeyDomain": "app.rejectzero.com",
-  "warnPhishing": false,
   "records": [
     {
       "type": "TXT",
