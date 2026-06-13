@@ -15,7 +15,8 @@
       "host": "_dmarc",
       "data": "%dmarc_record%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "All",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
       "essential": "OnApply"
     }
   ]
