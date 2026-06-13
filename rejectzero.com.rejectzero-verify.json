@@ -6,17 +6,17 @@
   "version": 1,
   "logoUrl": "https://rejectzero.com/public_9a9a_42ab50d35a9c4975ac4b2e1401292b9e.png",
   "description": "Adds a RejectZero TXT record to verify domain ownership.",
-  "variableDescription": "verification_token - The RejectZero domain verification token.",
+  "variableDescription": "challenge_token - The RejectZero domain verification token.",
   "syncRedirectDomain": "app.rejectzero.com",
   "syncPubKeyDomain": "app.rejectzero.com",
   "records": [
     {
       "type": "TXT",
       "host": "_rejectzero",
-      "data": "rejectzero-verification=%verification_token%",
+      "data": "rejectzero-verify=%challenge_token%",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "rejectzero-verification=",
+      "txtConflictMatchingPrefix": "rejectzero-verify=",
       "essential": "OnApply"
     }
   ]
