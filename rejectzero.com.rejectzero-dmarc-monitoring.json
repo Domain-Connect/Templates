@@ -6,16 +6,17 @@
   "version": 1,
   "logoUrl": "https://rejectzero.com/public_9a9a_42ab50d35a9c4975ac4b2e1401292b9e.png",
   "description": "Adds a DMARC monitoring policy for RejectZero using p=none.",
-  "variableDescription": "rua_mailbox - The RejectZero aggregate report mailbox used in the DMARC rua tag.",
+  "variableDescription": "rua - The RejectZero aggregate report mailbox used in the DMARC rua tag.",
   "syncRedirectDomain": "app.rejectzero.com",
   "syncPubKeyDomain": "app.rejectzero.com",
   "records": [
     {
       "type": "TXT",
       "host": "_dmarc",
-      "data": "v=DMARC1; p=none; rua=mailto:%rua_mailbox%",
+      "data": "v=DMARC1; p=none; rua=mailto:%rua%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "All",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
       "essential": "OnApply"
     }
   ]
