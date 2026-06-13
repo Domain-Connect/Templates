@@ -36,6 +36,7 @@
       "host": "_dmarc",
       "data": "v=DMARC1; p=none; rua=mailto:dmarc@sixuse.com",
       "ttl": 3600,
+      "essential": "OnApply",
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1"
     },
