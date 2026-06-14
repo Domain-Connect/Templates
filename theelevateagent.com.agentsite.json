@@ -6,9 +6,9 @@
     "description": "Connects your domain to your Coldwell Banker Elevate agent website.",
     "logoUrl": "https://theelevateagent.com/email-logo.png",
     "version": 1,
-    "syncBlock": false,
-    "warnPhishing": true,
-    "shared": false,  
+    "syncPubKeyDomain": "theelevateagent.com",
+    "syncRedirectDomain": "theelevateagent.com",
+    "shared": false,
     "records": [
       { "type": "CNAME", "host": "www", "pointsTo": "agents.the-elevate-team.com", "ttl": 3600
   }
