@@ -1,0 +1,13 @@
+{
+  "providerId": "olvr.pro",
+  "providerName": "olvr",
+  "serviceId": "connect",
+  "serviceName": "Connect your domain to olvr",
+  "version": 1,
+  "description": "Connect a subdomain to your olvr community, with automatic HTTPS.",
+  "warnPhishing": true,
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "cname.olvr.pro", "ttl": 300 }
+  ]
+}
