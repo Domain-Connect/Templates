@@ -1,0 +1,44 @@
+{
+  "providerId": "wayfront.com",
+  "providerName": "Wayfront",
+  "serviceId": "email-domain",
+  "serviceName": "Wayfront Email Sending Domain",
+  "version": 1,
+  "logoUrl": "https://wayfront.com/assets/brand/wayfront.png",
+  "description": "Sets up DNS records for sending emails from your custom domain via Wayfront.",
+  "variableDescription": "mailFromHost: the workspace sub-domain label for the SES MAIL FROM records (e.g. clients). mxRegion: the AWS SES region (e.g. us-east-1). dkim1, dkim2, dkim3: the SES DKIM selector tokens.",
+  "syncPubKeyDomain": "wayfront.com",
+  "syncRedirectDomain": "wayfront.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "mail.%mailFromHost%",
+      "pointsTo": "feedback-smtp.%mxRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "mail.%mailFromHost%",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

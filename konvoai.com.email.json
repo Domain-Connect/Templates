@@ -1,0 +1,36 @@
+{
+	"providerId": "konvoai.com",
+	"providerName": "KonvoAI",
+	"serviceId": "email",
+	"serviceName": "Custom email domain",
+	"version": 2,
+	"syncPubKeyDomain": "konvo.to",
+	"syncRedirectDomain": "konvoai.com",
+	"description": "DNS records for sending email from your domain with KonvoAI (Resend / Amazon SES).",
+	"logoUrl": "https://k2.konvoai.com/favicon.svg",
+	"variableDescription": "dkimKey: Resend DKIM public key (the base64 value after p= in the resend._domainkey TXT record); region: SES region parsed from the send MX record.",
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "TXT",
+			"host": "resend._domainkey",
+			"data": "p=%dkimKey%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "outbound-mx",
+			"type": "MX",
+			"host": "send",
+			"pointsTo": "feedback-smtp.%region%.amazonses.com",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "outbound-spf",
+			"type": "SPFM",
+			"host": "send",
+			"spfRules": "include:amazonses.com",
+			"ttl": 3600
+		}
+	]
+}
