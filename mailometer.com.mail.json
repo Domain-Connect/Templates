@@ -1,0 +1,75 @@
+{
+  "providerId": "mailometer.com",
+  "providerName": "Mailometer",
+  "serviceId": "mail",
+  "serviceName": "Mailometer Email",
+  "version": 2,
+  "logoUrl": "https://mail.mailometer.com/bimi/mailometer.com.svg",
+  "description": "Configures DNS to send and receive email through Mailometer: inbound MX to the Mailometer mail host, SPF, Mailu DKIM, DMARC at enforcement, the Resend (Amazon SES) sending subdomain, and mail-client autodiscovery (autoconfig/autodiscover).",
+  "variableDescription": "dkim: the Mailu DKIM public key (RSA, base64) for dkim._domainkey. resendDkim: the Resend DKIM public key value for resend._domainkey.",
+  "syncBlock": false,
+  "shared": false,
+  "multiInstance": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.mailometer.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject; sp=reject; adkim=r; aspf=r; pct=100",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%resendDkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p="
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mail.mailometer.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mail.mailometer.com",
+      "ttl": 3600
+    }
+  ]
+}
