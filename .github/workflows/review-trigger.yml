@@ -30,6 +30,24 @@ jobs:
               action="changes_requested"
             fi
           elif [ "${{ github.event_name }}" = "pull_request_target" ]; then
+            # Skip "Update branch" merge commits (base branch merged into PR).
+            # These have two parents where the second parent is the base branch
+            # tip -- they represent no new author work, so labels should not swap.
+            head_sha="${{ github.event.pull_request.head.sha }}"
+            repo="${{ github.repository }}"
+            parent_count=$(gh api "repos/$repo/commits/$head_sha" \
+              --jq '.parents | length')
+            if [ "$parent_count" -ge 2 ]; then
+              second_parent=$(gh api "repos/$repo/commits/$head_sha" \
+                --jq '.parents[1].sha')
+              base_sha=$(gh api "repos/$repo/git/refs/heads/master" \
+                --jq '.object.sha')
+              if [ "$second_parent" = "$base_sha" ]; then
+                echo "Head commit is an \"Update branch\" merge; skipping."
+                echo "skip=true" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+            fi
             pr_number="${{ github.event.pull_request.number }}"
             action="new_commits"
           fi
