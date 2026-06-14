@@ -17,9 +17,13 @@ on:
 jobs:
   detect:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Determine action
         id: detect
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           pr_number=""
           action=""
