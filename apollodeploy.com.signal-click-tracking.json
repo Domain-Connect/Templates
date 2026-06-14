@@ -1,0 +1,22 @@
+{
+  "providerId": "apollodeploy.com",
+  "providerName": "Apollo Signal",
+  "serviceId": "signal-click-tracking",
+  "serviceName": "Click & open tracking",
+  "version": 1,
+  "logoUrl": "https://apollodeploy.com/favicon.ico",
+  "description": "Configures a custom tracking subdomain for Apollo Signal click and open tracking. Apply after apollodeploy.com.signal-sending or apollodeploy.com.signal-sending-cname.",
+  "variableDescription": "%trackingSubdomain%: tracking subdomain (e.g. track); %trackingCnameTarget%: tracking CNAME target hostname provided by Apollo Signal",
+  "syncPubKeyDomain": "keys.apollodeploy.com",
+  "syncRedirectDomain": "signal.apollodeploy.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "%trackingSubdomain%",
+      "pointsTo": "%trackingCnameTarget%",
+      "ttl": 3600
+    }
+  ]
+}
