@@ -8,7 +8,7 @@
   "logoUrl": "https://mailtosh.com/logo.svg",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.mailtosh.com",
-  "syncRedirectDomain": "mailtosh.com, app.mailtosh.com",
+  "syncRedirectDomain": "app.mailtosh.com",
   "variableDescription": "%dkimSelector%: DKIM selector; %dkimPublicKey%: DKIM public key; %emailRegion%: email delivery region, for example us-east-1",
   "records": [
     {
