@@ -7,7 +7,7 @@
   "version": 1,
   "logoUrl": "https://draft2live.ai/logo-domain-connect.svg",
   "syncBlock": false,
-  "syncPubKeyDomain": "_dc.draft2live.ai",
+  "syncPubKeyDomain": "domainconnect.draft2live.ai",
   "syncRedirectDomain": "draft2live.ai",
   "hostRequired": true,
   "variableDescription": "slug = the tenant's draft2blog.com subdomain; token = the per-attempt verification token Draft2Live generated for this domain.",
