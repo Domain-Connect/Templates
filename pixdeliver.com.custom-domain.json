@@ -17,7 +17,7 @@
         },
         {
             "type": "TXT",
-            "host": "%txthost%",
+            "host": "_cf-custom-hostname",
             "data": "%txtvalue%",
             "ttl": 3600
         }
