@@ -3,12 +3,12 @@
   "providerName": "Keplars",
   "serviceId": "email",
   "serviceName": "Email",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.keplersmail.com/keplars-logo-main.svg",
   "description": "Configures your domain to send email through Keplars Mail Service. Sets up SPF, DKIM, DMARC, and bounce handling automatically.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.keplars.net",
-  "syncRedirectDomain": "keplars.com",
+  "syncRedirectDomain": "dash.keplars.com",
   "variableDescription": "%dkimSelector%: DKIM selector name; %dkimPublicKey%: Full DKIM TXT record value; %region%: AWS SES region code (e.g. us-east-1)",
   "records": [
     {
