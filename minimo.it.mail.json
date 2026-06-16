@@ -1,0 +1,50 @@
+{
+  "providerId": "minimo.it",
+  "providerName": "Minimo",
+  "serviceId": "mail",
+  "serviceName": "Email",
+  "version": 1,
+  "description": "Configure email sending for your domain through Minimo (SES domain verification, DKIM and DMARC).",
+  "variableDescription": "dnsToken: Minimo domain-ownership verification token (always mn- prefixed). dkim1/dkim2/dkim3: the three Amazon SES easy-DKIM selectors.",
+  "syncPubKeyDomain": "minimo.it",
+  "syncRedirectDomain": "minimo.it",
+  "syncBlock": false,
+  "shared": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%dnsToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mn-"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
