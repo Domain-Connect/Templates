@@ -4,7 +4,6 @@
   "serviceId": "mail",
   "serviceName": "Email",
   "version": 1,
-  "logoUrl": "https://www.minimo.it/logo-black.svg",
   "description": "Configure email sending for your domain through Minimo (SES domain verification, DKIM and DMARC).",
   "variableDescription": "dnsToken: Minimo domain-ownership verification token (always mn- prefixed). dkim1/dkim2/dkim3: the three Amazon SES easy-DKIM selectors.",
   "syncPubKeyDomain": "minimo.it",
