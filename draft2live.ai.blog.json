@@ -1,0 +1,32 @@
+{
+  "providerId": "draft2live.ai",
+  "providerName": "Draft2Live",
+  "serviceId": "blog",
+  "serviceName": "Draft2Live Hosted Blog",
+  "description": "Connect a custom domain to a Draft2Live hosted blog so visitors reach it as https://example.com instead of https://your-blog.draft2blog.com. Records: one CNAME pointing the apex at the tenant's Draft2Live edge plus one TXT for ownership verification.",
+  "version": 1,
+  "logoUrl": "https://draft2live.ai/logo-domain-connect.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.draft2live.ai",
+  "syncRedirectDomain": "draft2live.ai",
+  "hostRequired": true,
+  "variableDescription": "slug = the tenant's draft2blog.com subdomain; token = the per-attempt verification token Draft2Live generated for this domain.",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "blog",
+      "host": "@",
+      "pointsTo": "%slug%.draft2blog.com",
+      "ttl": 1800
+    },
+    {
+      "type": "TXT",
+      "groupId": "blog",
+      "host": "_draft2live-verify",
+      "data": "draft2live-verify=%token%",
+      "ttl": 1800,
+      "txtConflictMatchingMode": "All",
+      "txtConflictMatchingPrefix": "draft2live-verify="
+    }
+  ]
+}
