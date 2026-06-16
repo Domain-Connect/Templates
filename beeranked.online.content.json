@@ -1,0 +1,15 @@
+{
+  "providerId": "beeranked.online",
+  "providerName": "BeeRanked",
+  "serviceId": "content",
+  "serviceName": "BeeRanked Content",
+  "version": 1,
+  "logoUrl": "https://beeranked.online/android-chrome-512.png",
+  "description": "Serve your BeeRanked content on a subdomain of your site, with an automatic HTTPS certificate on BeeRanked's edge.",
+  "syncPubKeyDomain": "beeranked.online",
+  "hostRequired": true,
+  "syncBlock": false,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "connect.beeranked.online", "ttl": 3600 }
+  ]
+}
