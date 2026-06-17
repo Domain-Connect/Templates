@@ -1,0 +1,53 @@
+{
+  "providerId": "mailkube.com",
+  "providerName": "Mailkube",
+  "serviceId": "email",
+  "serviceName": "Mailkube Email Authentication",
+  "version": 1,
+  "logoUrl": "https://cdn.mailkube.com/public/logos/domainconnect/packv1.png",
+  "syncPubKeyDomain": "mailkube.com",
+  "syncRedirectDomain": "app.mailkube.com",
+  "description": "Configures DKIM, SPF, DMARC, inbound MX, and bounces MX records for sending and receiving email via Mailkube.",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spfRules%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%dmarcPolicy%; rua=mailto:%dmarcRua%; ruf=mailto:%dmarcRuf%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mx_inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxPointsTo%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mx_bounces",
+      "type": "MX",
+      "host": "bounces",
+      "pointsTo": "%bouncesPointsTo%",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
