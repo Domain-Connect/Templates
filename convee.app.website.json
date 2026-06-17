@@ -14,7 +14,7 @@
     {
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "funnels.convee.app",
+      "pointsTo": "connect.convee-dns.com",
       "ttl": 3600
     }
   ]
