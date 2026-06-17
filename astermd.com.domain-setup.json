@@ -1,0 +1,26 @@
+{
+  "providerId": "astermd.com",
+  "providerName": "AsterMD",
+  "serviceId": "domain-setup",
+  "serviceName": "AsterMD Custom Domain",
+  "version": 1,
+  "logoUrl": "https://www.astermd.com/logo-cf.svg",
+  "description": "Connect your custom domain to AsterMD. Adds a CNAME pointing to your CloudFront distribution and a TXT record for CloudFront domain ownership verification.",
+  "variableDescription": "cloudfront_domain: The CloudFront distribution domain assigned to your AsterMD tenant (e.g. xxxxx.cloudfront.net).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.astermd.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cloudfront_domain%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-challenge",
+      "data": "%cloudfront_domain%",
+      "ttl": 3600
+    }
+  ]
+}
