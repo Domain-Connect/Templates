@@ -1,0 +1,21 @@
+{
+    "providerId": "zblocks.app",
+    "providerName": "zblocks",
+    "serviceId": "website",
+    "serviceName": "zblocks Website Hosting",
+    "version": 1,
+    "logoUrl": "https://zblocks.app/logo.png",
+    "description": "Connect your domain to your zblocks website",
+    "syncPubKeyDomain": "domainconnect.zblocks.app",
+    "syncRedirectDomain": "zblocks.app",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "groupId": "cname",
+            "host": "@",
+            "pointsTo": "sites.zblocks.app",
+            "ttl": "3600"
+        }
+    ]
+}

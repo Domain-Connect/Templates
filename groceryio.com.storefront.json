@@ -1,0 +1,21 @@
+{
+  "providerId": "groceryio.com",
+  "providerName": "GroceryIO",
+  "serviceId": "storefront",
+  "serviceName": "GroceryIO Storefront",
+  "version": 1,
+  "description": "Connects a custom domain or subdomain to a GroceryIO storefront.",
+  "variableDescription": "",
+  "syncBlock": false,
+  "syncPubKeyDomain": "groceryio.com",
+  "syncRedirectDomain": "groceryio.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "store.groceryio.com",
+      "ttl": 3600
+    }
+  ]
+}

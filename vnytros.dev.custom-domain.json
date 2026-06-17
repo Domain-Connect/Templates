@@ -1,0 +1,77 @@
+{
+  "providerId": "vnytros.dev",
+  "providerName": "Vnytros",
+  "serviceId": "custom-domain",
+  "serviceName": "Connect Custom Domain",
+  "version": 2,
+  "logoUrl": "https://public.assets.vnytros.dev/vnytros_logo.svg",
+  "description": "Connect your custom domain to Vnytros.",
+  "variableDescription": "%ip%: server IPv4 address; %ipv6%: server IPv6 address; %target%: CNAME destination hostname; %txt%: domain verification token; %mx_host%: mail server hostname; %dkim_key%: DKIM RSA public key base64; %dmarc_email%: email address for DMARC aggregate reports",
+  "syncPubKeyDomain": "vnytros.dev",
+  "syncRedirectDomain": "vnytros.dev",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600,
+      "groupId": "web"
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "%ipv6%",
+      "ttl": 3600,
+      "groupId": "web"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "groupId": "web"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "vnytros-verify=%txt%",
+      "ttl": 300,
+      "groupId": "web",
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx_host%",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "mail"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mail.vnytros.dev",
+      "ttl": 3600,
+      "groupId": "mail"
+    },
+    {
+      "type": "TXT",
+      "host": "vnytros._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkim_key%",
+      "ttl": 3600,
+      "groupId": "mail",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:%dmarc_email%",
+      "ttl": 3600,
+      "groupId": "mail",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;"
+    }
+  ]
+}

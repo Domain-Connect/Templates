@@ -1,0 +1,21 @@
+{
+	"providerId": "resend.com",
+	"providerName": "Resend",
+	"serviceId": "domain-verification",
+  	"serviceName": "Domain Verification",
+	"version": 1,
+	"syncPubKeyDomain": "resend.com",
+	"syncRedirectDomain": "resend.com",
+	"description": "Verify domain ownership.",
+	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
+	"records": [
+		{
+			"type": "TXT",
+			"host": "@",
+			"ttl": 3600,
+			"data": "resend-domain-verification=%verificationToken%",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "resend-domain-verification="
+		}
+	]
+}

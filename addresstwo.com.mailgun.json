@@ -1,0 +1,41 @@
+{
+  "providerId": "addresstwo.com",
+  "providerName": "AddressTwo",
+  "serviceId": "mailgun",
+  "serviceName": "Email Verification",
+  "version": 2,
+  "logoUrl": "https://app.addresstwo.com/assets/images/adTwoAccessBarLogo.png",
+  "description": "Automatically configures DNS records so your domain can send and receive email via Mailgun.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cdn.addresstwo.com",
+  "syncRedirectDomain": "addresstwo.com",
+  "variableDescription": "%dkimValue%: Full DKIM TXT record value; %dkimSelector%: Full DKIM Selector value",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "a2email",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600
+    }, 
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

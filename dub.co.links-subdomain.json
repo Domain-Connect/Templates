@@ -1,0 +1,30 @@
+{
+  "providerId": "dub.co",
+  "providerName": "Dub",
+  "serviceId": "links-subdomain",
+  "serviceName": "Dub Links (subdomain)",
+  "version": 1,
+  "logoUrl": "https://assets.dub.co/brand/logo.svg",
+  "syncPubKeyDomain": "dub.co",
+  "syncRedirectDomain": "app.dub.co,preview.dub.co,dub.co",
+  "syncBlock": false,
+  "hostRequired": true,
+  "description": "CNAME on the Domain Connect host label (e.g. www or go) to cname.dub.co; optional ownership TXT.",
+  "variableDescription": "Set Domain Connect host to the DNS label (e.g. www for apex+CNAME, or go for go.example.com). CNAME record uses @ relative to that host. verification group: txtHost and txtValue must match Dub custom domain setup.",
+  "records": [
+    {
+      "groupId": "subdomain",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.dub.co",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "%txtHost%",
+      "data": "%txtValue%",
+      "ttl": 3600
+    }
+  ]
+}
