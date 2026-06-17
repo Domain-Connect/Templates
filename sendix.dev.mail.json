@@ -1,0 +1,48 @@
+{
+  "providerId": "sendix.dev",
+  "providerName": "Sendix",
+  "serviceId": "mail",
+  "serviceName": "Mail",
+  "version": 1,
+  "syncPubKeyDomain": "sendix.dev",
+  "syncRedirectDomain": "sendix.dev",
+  "description": "Configure DNS records for sending email with Sendix.",
+  "logoUrl": "https://sendix.dev/brand/sendix-wordmark.png",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "ttl": 3600,
+      "data": "%dkimPublicKey%"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "%spfHost%",
+      "ttl": 3600,
+      "spfRules": "%spfRules%"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "%dmarcHost%",
+      "ttl": 3600,
+      "data": "%dmarcValue%"
+    },
+    {
+      "groupId": "return-path",
+      "type": "CNAME",
+      "host": "%returnPathHost%",
+      "ttl": 3600,
+      "pointsTo": "%returnPathTarget%"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "%trackingHost%",
+      "ttl": 3600,
+      "pointsTo": "%trackingTarget%"
+    }
+  ]
+}
