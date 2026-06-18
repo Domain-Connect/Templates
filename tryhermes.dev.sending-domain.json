@@ -1,0 +1,51 @@
+{
+  "providerId": "tryhermes.dev",
+  "providerName": "Hermes",
+  "serviceId": "sending-domain",
+  "serviceName": "Hermes Sending Domain",
+  "version": 1,
+  "logoUrl": "https://tryhermes.dev/logo.svg",
+  "description": "Configure DNS records so Hermes can send authenticated email and route replies for your domain.",
+  "variableDescription": "%dkimToken1%/%dkimToken2%/%dkimToken3%: Amazon SES DKIM tokens; %replyHost%: reply host relative to the domain, usually reply; %dmarcRua%: DMARC aggregate report mailbox.",
+  "syncPubKeyDomain": "domainconnect.tryhermes.dev",
+  "syncRedirectDomain": "tryhermes.dev",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%dmarcRua%",
+      "ttl": 600
+    },
+    {
+      "type": "MX",
+      "host": "%replyHost%",
+      "pointsTo": "inbound-smtp.us-east-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 600
+    }
+  ]
+}
