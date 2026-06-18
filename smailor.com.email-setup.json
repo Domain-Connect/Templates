@@ -3,12 +3,10 @@
     "providerName": "Smailor",
     "serviceId": "email-setup",
     "serviceName": "Smailor Email Routing",
+    "version": 1,
     "logoUrl": "https://smailor.com/logo.png",
     "description": "Configure DNS records for Smailor email routing and deliverability",
     "variableDescription": "%VERIFY_TOKEN%: domain ownership verification token; %RELAY_HOST%: Smailor mail relay hostname; %DKIM_SELECTOR%: DKIM key selector; %DKIM_VALUE%: DKIM public key (base64 encoded)",
-    "syncBlock": false,
-    "hostRequired": false,
-    "version": 1,
     "syncPubKeyDomain": "smailor.com",
     "syncRedirectDomain": "smailor.com",
     "records": [
@@ -32,7 +30,8 @@
             "groupId": "smailor-spf",
             "type": "SPFM",
             "host": "@",
-            "spfRules": "include:%RELAY_HOST%"
+            "spfRules": "include:%RELAY_HOST%",
+            "ttl": 3600
         },
         {
             "groupId": "smailor-dkim",
@@ -48,7 +47,8 @@
             "host": "_dmarc",
             "data": "v=DMARC1; p=none; rua=mailto:dmarc@%RELAY_HOST%",
             "ttl": 3600,
-            "txtConflictMatchingMode": "All",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
             "essential": "OnApply"
         }
     ]
