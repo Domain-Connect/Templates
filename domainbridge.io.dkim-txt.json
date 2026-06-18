@@ -1,0 +1,22 @@
+{
+  "providerId": "domainbridge.io",
+  "providerName": "DomainBridge",
+  "serviceId": "dkim-txt",
+  "serviceName": "DKIM Record (TXT)",
+  "version": 1,
+  "logoUrl": "https://domainbridge.io/logo.svg",
+  "description": "Sets a DKIM TXT record at selector._domainkey for providers that publish the key directly",
+  "syncPubKeyDomain": "domainbridge.io",
+  "syncRedirectDomain": "domainbridge.io,api.domainbridge.io,app.domainbridge.io",
+  "variableDescription": "dkimHost is DKIM selector (e.g. s1, google), dkimValue is DKIM TXT record value (the full key string)",
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimHost%._domainkey",
+      "ttl": 14400,
+      "data": "%dkimValue%"
+    }
+  ]
+}

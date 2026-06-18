@@ -1,0 +1,23 @@
+{
+  "providerId": "dmarcdrift.com",
+  "providerName": "dmarcdrift",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC Monitoring",
+  "version": 1,
+  "syncPubKeyDomain": "keys.dmarcdrift.com",
+  "syncRedirectDomain": "api.dmarcdrift.com",
+  "logoUrl": "https://dmarcdrift.com/icon-512.png",
+  "description": "Sets DMARC aggregate reporting for your domain, routing reports to your dmarcdrift inbox.",
+  "variableDescription": "dmarc_record: full DMARC TXT record value to set at _dmarc (e.g. 'v=DMARC1; p=none; rua=mailto:d-{id}@in.dmarcdrift.com'). Pre-filled by dmarcdrift.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_record%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

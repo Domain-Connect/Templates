@@ -1,0 +1,34 @@
+{
+  "providerId": "apollodeploy.com",
+  "providerName": "Apollo Signal",
+  "serviceId": "signal-sending",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://apollodeploy.com/favicon.ico",
+  "description": "Configures the DNS records required to send email with Apollo Signal: DKIM authentication, MAIL FROM MX, and SPF for the bounce subdomain.",
+  "variableDescription": "%dkimSelector%: DKIM selector label; %dkimValue%: DKIM TXT record value; %mailFromSubdomain%: MAIL FROM subdomain (e.g. bounce); %mailFromMx%: MX target hostname; %mailFromPriority%: MX priority; %spfInclude%: SPF include domain",
+  "syncPubKeyDomain": "keys.apollodeploy.com",
+  "syncRedirectDomain": "signal.apollodeploy.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "ttl": 3600,
+      "data": "%dkimValue%"
+    },
+    {
+      "type": "MX",
+      "host": "%mailFromSubdomain%",
+      "pointsTo": "%mailFromMx%",
+      "priority": "%mailFromPriority%",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "%mailFromSubdomain%",
+      "spfRules": "include:%spfInclude%",
+      "ttl": 3600
+    }
+  ]
+}

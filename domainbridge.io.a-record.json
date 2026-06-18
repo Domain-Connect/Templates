@@ -1,0 +1,21 @@
+{
+  "providerId": "domainbridge.io",
+  "providerName": "DomainBridge",
+  "serviceId": "a-record",
+  "serviceName": "A Record",
+  "version": 1,
+  "logoUrl": "https://domainbridge.io/logo.svg",
+  "description": "Single A record pointing the root domain to an IPv4 address.",
+  "syncPubKeyDomain": "domainbridge.io",
+  "syncRedirectDomain": "domainbridge.io,api.domainbridge.io,app.domainbridge.io",
+  "variableDescription": "ip is IPv4 address to point the domain to",
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "ttl": 3600,
+      "pointsTo": "%ip%"
+    }
+  ]
+}

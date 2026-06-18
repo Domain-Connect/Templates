@@ -1,0 +1,24 @@
+{
+  "providerId": "vohtrah.com",
+  "providerName": "Vohtrah",
+  "serviceId": "dmarc-record",
+  "serviceName": "DMARC reporting record",
+  "version": 1,
+  "logoUrl": "https://vohtrah.com/logo.svg",
+  "description": "Adds the recommended DMARC TXT record for an email sending domain or subdomain.",
+  "variableDescription": "%dmarcReportMailbox%: mailbox that should receive DMARC aggregate and forensic reports.",
+  "syncPubKeyDomain": "domainconnect.vohtrah.com",
+  "syncRedirectDomain": "vohtrah.com,www.vohtrah.com,app.vohtrah.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; sp=none; adkim=r; aspf=r; pct=100; fo=1; rua=mailto:%dmarcReportMailbox%; ruf=mailto:%dmarcReportMailbox%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 	"providerName": "Resend",
 	"serviceId": "mail-send-and-receive",
 	"serviceName": "Mail (Sending & Receiving)",
-	"version": 2,
+	"version": 3,
 	"syncPubKeyDomain": "resend.com",
 	"syncRedirectDomain": "resend.com",
 	"description": "Full email configuration for both sending and receiving emails.",
@@ -38,6 +38,13 @@
 			"pointsTo": "inbound-smtp.%region%.amazonaws.com",
 			"ttl": 3600,
 			"priority": "%inboundMXPriority%"
+		},
+		{
+			"groupId": "click-tracking",
+			"type": "CNAME",
+			"host": "%clickTrackingSubdomain%",
+			"pointsTo": "%clickTrackingCnameTarget%.resend-dns.com",
+			"ttl": 3600
 		}
 	]
 }

@@ -1,0 +1,29 @@
+{
+  "providerId": "wegic.ai",
+  "providerName": "WEGIC",
+  "serviceId": "website-apex",
+  "serviceName": "WEGIC Websites",
+  "version": 1,
+  "logoUrl": "https://cdn.wegic.ai/assets/logo.png",
+  "description": "Enables a root domain to work with WEGIC",
+  "variableDescription": "%apex_ip%: apex A record target IP; %target%: canonical hostname for the www alias",
+  "syncPubKeyDomain": "domainconnect.wegic.ai",
+  "syncRedirectDomain": "wegic.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "website",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%apex_ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "website",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 600
+    }
+  ]
+}

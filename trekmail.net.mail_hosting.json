@@ -1,0 +1,92 @@
+{
+    "providerId": "trekmail.net",
+    "providerName": "TrekMail",
+    "serviceId": "mail_hosting",
+    "serviceName": "TrekMail Email Hosting",
+    "version": 1,
+    "logoUrl": "https://trekmail.net/images/Logo.png",
+    "description": "Configure DNS records for email hosting with TrekMail.",
+    "variableDescription": "dkimValue: DKIM public key for domain signing",
+    "syncPubKeyDomain": "trekmail.net",
+    "syncRedirectDomain": "trekmail.net",
+    "syncBlock": false,
+    "records": [
+        {
+            "groupId": "trekmail-mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mail.trekmail.net",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "trekmail-spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:spf.trekmail.net"
+        },
+        {
+            "groupId": "trekmail-dkim",
+            "type": "TXT",
+            "host": "dkim._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimValue%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "trekmail-dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@trekmail.net",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "trekmail-tlsrpt",
+            "type": "TXT",
+            "host": "_smtp._tls",
+            "data": "v=TLSRPTv1; rua=mailto:tlsrpt@trekmail.net",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=TLSRPTv1"
+        },
+        {
+            "groupId": "trekmail-mta-sts-txt",
+            "type": "TXT",
+            "host": "_mta-sts",
+            "data": "v=STSv1; id=2025112401",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=STSv1"
+        },
+        {
+            "groupId": "trekmail-mta-sts",
+            "type": "CNAME",
+            "host": "mta-sts",
+            "pointsTo": "mta-sts.trekmail.net",
+            "ttl": 3600
+        },
+        {
+            "groupId": "trekmail-autoconfig",
+            "type": "CNAME",
+            "host": "autoconfig",
+            "pointsTo": "autoconfig.trekmail.net",
+            "ttl": 3600
+        },
+        {
+            "groupId": "trekmail-autodiscover",
+            "type": "CNAME",
+            "host": "autodiscover",
+            "pointsTo": "autodiscover.trekmail.net",
+            "ttl": 3600
+        },
+        {
+            "groupId": "trekmail-smtp",
+            "type": "CNAME",
+            "host": "smtp",
+            "pointsTo": "smtp.trekmail.net",
+            "ttl": 3600
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+  "providerId": "commercit.com",
+  "providerName": "Commercit",
+  "serviceId": "storefront-apex",
+  "serviceName": "Online storefront",
+  "version": 1,
+  "logoUrl": "https://admin.commercit.com/favicon.ico",
+  "description": "Connect an apex domain to a Commercit storefront.",
+  "variableDescription": "%edgeip% is the Commercit Google edge IP, %cnameTarget% is the Commercit storefront CNAME target, and %verification% is the shop-specific DNS ownership token.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.commercit.com",
+  "syncRedirectDomain": "admin.commercit.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%edgeip%",
+      "ttl": 300,
+      "groupId": "storefront"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 300,
+      "groupId": "storefront"
+    },
+    {
+      "type": "TXT",
+      "host": "_commercit-verify",
+      "data": "%verification%",
+      "ttl": 300,
+      "groupId": "verification",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

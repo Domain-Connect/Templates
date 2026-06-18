@@ -1,0 +1,32 @@
+{
+    "providerId": "monpetitbistro.com",
+    "providerName": "MonPetitBistro",
+    "serviceId": "website",
+    "serviceName": "MonPetitBistro Website",
+    "version": 1,
+    "logoUrl": "https://monpetitbistro.com/logo-mpb.svg",
+    "description": "Connect your domain to your MonPetitBistro website with automatic SSL.",
+    "variableDescription": "target: hostname for routing (e.g. edge.monpetitbistro.com). dcv_target: Cloudflare DCV target (e.g. <token>.dcv.cloudflare.com).",
+    "syncPubKeyDomain": "monpetitbistro.com",
+    "syncRedirectDomain": "monpetitbistro.com",
+    "records": [
+        {
+            "type": "APEXCNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%target%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "_acme-challenge",
+            "pointsTo": "%dcv_target%",
+            "ttl": 3600
+        }
+    ]
+}
