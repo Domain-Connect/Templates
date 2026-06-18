@@ -48,6 +48,7 @@
             "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@smailor.com",
             "ttl": 3600,
             "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
             "essential": "OnApply"
         }
     ]
