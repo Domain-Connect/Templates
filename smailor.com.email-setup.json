@@ -45,7 +45,7 @@
             "groupId": "smailor-dmarc",
             "type": "TXT",
             "host": "_dmarc",
-            "data": "v=DMARC1; p=none; rua=mailto:dmarc@%RELAY_HOST%",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@smailor.com",
             "ttl": 3600,
             "txtConflictMatchingMode": "Prefix",
             "essential": "OnApply"
