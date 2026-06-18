@@ -17,8 +17,7 @@
             "host": "@",
             "data": "smailor-verify-%VERIFY_TOKEN%",
             "ttl": 3600,
-            "txtConflictMatchingMode": "Prefix",
-            "txtConflictMatchingPrefix": "smailor-verify-"
+            "txtConflictMatchingMode": "Replace"
         },
         {
             "groupId": "smailor-mx",
