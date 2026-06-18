@@ -1,0 +1,56 @@
+{
+    "providerId": "smailor.com",
+    "providerName": "Smailor",
+    "serviceId": "email-setup",
+    "serviceName": "Smailor Email Routing",
+    "logoUrl": "https://smailor.com/logo.png",
+    "description": "Configure DNS records for Smailor email routing and deliverability",
+    "variableDescription": "%VERIFY_TOKEN%: domain ownership verification token; %RELAY_HOST%: Smailor mail relay hostname; %DKIM_SELECTOR%: DKIM key selector; %DKIM_VALUE%: DKIM public key (base64)",
+    "syncBlock": false,
+    "hostRequired": false,
+    "version": 1,
+    "syncPubKeyDomain": "smailor.com",
+    "syncRedirectDomain": "smailor.com",
+    "records": [
+        {
+            "groupId": "smailor-verification",
+            "type": "TXT",
+            "host": "@",
+            "data": "smailor-verify-%VERIFY_TOKEN%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "smailor-verify-"
+        },
+        {
+            "groupId": "smailor-mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "%RELAY_HOST%",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "smailor-spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:%RELAY_HOST%"
+        },
+        {
+            "groupId": "smailor-dkim",
+            "type": "TXT",
+            "host": "%DKIM_SELECTOR%._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%DKIM_VALUE%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Replace"
+        },
+        {
+            "groupId": "smailor-dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc@%RELAY_HOST%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply"
+        }
+    ]
+}
