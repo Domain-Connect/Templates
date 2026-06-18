@@ -3,14 +3,14 @@
   "providerName": "Draft2Live",
   "serviceId": "blog",
   "serviceName": "Draft2Live Hosted Blog",
-  "description": "Connect a custom domain to a Draft2Live hosted blog so visitors reach it as https://example.com instead of https://your-blog.draft2blog.com. Records: one CNAME pointing the apex at the tenant's Draft2Live edge plus one TXT for ownership verification.",
-  "version": 1,
+  "description": "Connect a custom domain to a Draft2Live hosted blog so visitors reach it as https://example.com instead of https://your-blog.draft2blog.com. Records: one CNAME pointing the host at the tenant's Draft2Live edge, one TXT for ownership verification, and one CNAME for automatic SSL certificate issuance via Cloudflare DCV delegation.",
+  "version": 2,
   "logoUrl": "https://draft2live.ai/logo-domain-connect.svg",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.draft2live.ai",
   "syncRedirectDomain": "draft2live.ai",
   "hostRequired": true,
-  "variableDescription": "slug = the tenant's draft2blog.com subdomain; token = the per-attempt verification token Draft2Live generated for this domain.",
+  "variableDescription": "slug = the tenant's draft2blog.com subdomain; token = the per-attempt verification token Draft2Live generated for this domain; fqdn = the full hostname the customer is connecting (e.g. blog.example.com or example.com for apex) — used to build the DCV delegation CNAME for cert issuance.",
   "records": [
     {
       "type": "CNAME",
@@ -27,6 +27,13 @@
       "ttl": 1800,
       "txtConflictMatchingMode": "All",
       "txtConflictMatchingPrefix": "draft2live-verify="
+    },
+    {
+      "type": "CNAME",
+      "groupId": "blog",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.e93d1f45befd4080.dcv.cloudflare.com",
+      "ttl": 300
     }
   ]
 }
