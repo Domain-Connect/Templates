@@ -6,6 +6,7 @@
 	"version": 1,
 	"syncBlock": false,
 	"syncPubKeyDomain": "tellam.app",
+	"syncRedirectDomain": "tellam.app",
 	"description": "Authorize the DNS records Tellam needs to send email from your domain (DKIM, SPF, DMARC).",
 	"logoUrl": "https://tellam.app/android-icon-192x192.png",
 	"records": [
@@ -14,7 +15,8 @@
 			"type": "TXT",
 			"host": "unosend._domainkey",
 			"ttl": 3600,
-			"data": "v=DKIM1; k=rsa; p=%domainKey%"
+			"data": "v=DKIM1; k=rsa; p=%domainKey%",
+			"txtConflictMatchingMode": "All"
 		},
 		{
 			"groupId": "spf",
@@ -28,7 +30,9 @@
 			"type": "TXT",
 			"host": "_dmarc",
 			"ttl": 3600,
-			"data": "v=DMARC1; p=none; rua=mailto:dmarc@%mailDomain%"
+			"data": "v=DMARC1; p=none; rua=mailto:dmarc@%mailDomain%",
+			"txtConflictMatchingMode": "All",
+			"essential": "OnApply"
 		}
 	]
 }
