@@ -16,7 +16,7 @@
             "host": "@",
             "data": "smailor-verify-%VERIFY_TOKEN%",
             "ttl": 3600,
-            "txtConflictMatchingMode": "Replace"
+            "txtConflictMatchingMode": "All"
         },
         {
             "groupId": "smailor-mx",
@@ -39,7 +39,7 @@
             "host": "%DKIM_SELECTOR%._domainkey",
             "data": "v=DKIM1; k=rsa; p=%DKIM_VALUE%",
             "ttl": 3600,
-            "txtConflictMatchingMode": "Replace"
+            "txtConflictMatchingMode": "All"
         },
         {
             "groupId": "smailor-dmarc",
@@ -47,7 +47,7 @@
             "host": "_dmarc",
             "data": "v=DMARC1; p=none; rua=mailto:dmarc@%RELAY_HOST%",
             "ttl": 3600,
-            "txtConflictMatchingMode": "Replace",
+            "txtConflictMatchingMode": "Prefix",
             "essential": "OnApply"
         }
     ]
