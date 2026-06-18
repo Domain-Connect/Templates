@@ -10,6 +10,7 @@
     "hostRequired": false,
     "version": 1,
     "syncPubKeyDomain": "smailor.com",
+    "syncRedirectDomain": "smailor.com",
     "records": [
         {
             "groupId": "smailor-verification",
