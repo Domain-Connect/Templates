@@ -21,7 +21,7 @@
     {
       "type": "CNAME",
       "host": "www",
-      "pointsTo": "@",
+      "pointsTo": "dwbw2ozui8j03.cloudfront.net",
       "ttl": 3600
     }
   ]
