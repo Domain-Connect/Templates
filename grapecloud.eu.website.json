@@ -15,13 +15,6 @@
       "host": "@",
       "pointsTo": "%ip%",
       "ttl": 3600
-    },
-    {
-      "type": "A",
-      "groupId": "subdomain",
-      "host": "%subdomain%",
-      "pointsTo": "%ip%",
-      "ttl": 3600
     }
   ]
 }
