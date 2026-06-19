@@ -10,7 +10,7 @@
   "hostRequired": false,
   "description": "Enable email authentication and tracking for Senderz (SPF, DKIM, DMARC, MAIL-FROM, tracking CNAME) via Amazon SES.",
   "variableDescription": "%dkimSelector%: DKIM selector; %dkimValue%: Full DKIM TXT value (v=DKIM1; k=rsa; p=...); %dmarcValue%: Full DMARC TXT value; %trackingSubdomain%: Tracking subdomain label; %trackingTarget%: Tracking CNAME target; %mailFromSubdomain%: MAIL-FROM subdomain label; %mxExchange%: SES feedback SMTP host",
-  "logoUrl": "https://senderz.app/logo-text-dark.png",
+  "logoUrl": "https://senderz.app/logo-text-primary.png",
   "records": [
     {
       "groupId": "authentication",
