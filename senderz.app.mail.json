@@ -6,7 +6,10 @@
   "version": 1,
   "syncPubKeyDomain": "senderz.app",
   "syncRedirectDomain": "senderz.app",
-  "description": "Enable email authentication and tracking for Senderz.",
+  "syncBlock": false,
+  "hostRequired": false,
+  "description": "Enable email authentication and tracking for Senderz (SPF, DKIM, DMARC, MAIL-FROM, tracking CNAME) via Amazon SES.",
+  "variableDescription": "%dkimSelector%: DKIM selector; %dkimValue%: Full DKIM TXT value (v=DKIM1; k=rsa; p=...); %dmarcValue%: Full DMARC TXT value; %trackingSubdomain%: Tracking subdomain label; %trackingTarget%: Tracking CNAME target; %mailFromSubdomain%: MAIL-FROM subdomain label; %mxExchange%: SES feedback SMTP host",
   "logoUrl": "https://senderz.app/logo-text-dark.png",
   "records": [
     {
@@ -28,7 +31,10 @@
       "type": "TXT",
       "host": "_dmarc",
       "ttl": 3600,
-      "data": "%dmarcValue%"
+      "data": "%dmarcValue%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     },
     {
       "groupId": "tracking",
