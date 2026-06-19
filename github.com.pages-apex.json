@@ -1,0 +1,76 @@
+{
+    "providerId": "github.com",
+    "providerName": "GitHub",
+    "serviceId": "pages-apex",
+    "serviceName": "GitHub Pages (Apex Domain)",
+    "version": 1,
+    "logoUrl": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+    "description": "Connect an apex domain to GitHub Pages by pointing it to GitHub's published IP addresses. Also sets a www CNAME so both the root and www subdomain resolve to your Pages site.",
+    "variableDescription": "%username%: GitHub username or organization name that owns the Pages site (e.g. octocat for octocat.github.io)",
+    "warnPhishing": true,
+    "records": [
+        {
+            "groupId": "ipv4",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "185.199.108.153",
+            "ttl": 3600
+        },
+        {
+            "groupId": "ipv4",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "185.199.109.153",
+            "ttl": 3600
+        },
+        {
+            "groupId": "ipv4",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "185.199.110.153",
+            "ttl": 3600
+        },
+        {
+            "groupId": "ipv4",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "185.199.111.153",
+            "ttl": 3600
+        },
+        {
+            "groupId": "ipv6",
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "2606:50c0:8000::153",
+            "ttl": 3600
+        },
+        {
+            "groupId": "ipv6",
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "2606:50c0:8001::153",
+            "ttl": 3600
+        },
+        {
+            "groupId": "ipv6",
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "2606:50c0:8002::153",
+            "ttl": 3600
+        },
+        {
+            "groupId": "ipv6",
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "2606:50c0:8003::153",
+            "ttl": 3600
+        },
+        {
+            "groupId": "www",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%username%.github.io",
+            "ttl": 3600
+        }
+    ]
+}

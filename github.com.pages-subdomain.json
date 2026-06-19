@@ -1,0 +1,20 @@
+{
+    "providerId": "github.com",
+    "providerName": "GitHub",
+    "serviceId": "pages-subdomain",
+    "serviceName": "GitHub Pages (Subdomain)",
+    "version": 1,
+    "logoUrl": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+    "description": "Connect a subdomain (e.g. www, blog, docs) to GitHub Pages using a CNAME record pointing to your GitHub Pages site.",
+    "variableDescription": "%username%: GitHub username or organization name that owns the Pages site (e.g. octocat for octocat.github.io)",
+    "warnPhishing": true,
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%username%.github.io",
+            "ttl": 3600
+        }
+    ]
+}
