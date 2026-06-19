@@ -3,7 +3,7 @@
   "providerName": "Convee",
   "serviceId": "website",
   "serviceName": "Funnels",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://convee.app/favicon.svg",
   "description": "Enables a custom domain to work with Convee Funnels",
   "syncBlock": false,
@@ -14,7 +14,7 @@
     {
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "funnels.convee.app",
+      "pointsTo": "connect.convee-dns.com",
       "ttl": 3600
     }
   ]
