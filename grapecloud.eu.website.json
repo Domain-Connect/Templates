@@ -1,0 +1,27 @@
+{
+  "providerId": "grapecloud.eu",
+  "providerName": "GrapeCloud",
+  "serviceId": "website",
+  "serviceName": "GrapeCloud Websites",
+  "version": 4,
+  "description": "Allows customers to connect their domain to GrapeCloud",
+  "syncPubKeyDomain": "domainconnect.grapecloud.eu",
+  "syncRedirectDomain": "grapecloud.eu",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "A",
+      "groupId": "apex",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "subdomain",
+      "host": "%subdomain%",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}
