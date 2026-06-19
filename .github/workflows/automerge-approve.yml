@@ -1,0 +1,41 @@
+name: Automerge Approve
+
+# Triggered when the "automerge-possible" label is added to a PR.
+# Submits an approving review via github-actions[bot] and enables auto-merge.
+#
+# Prerequisites:
+#   - Repo/org setting "Allow GitHub Actions to create and approve pull requests"
+#     must be enabled (Settings > Actions > General > Workflow permissions).
+#   - Auto-merge must be enabled on the repository.
+
+on:
+  pull_request_target:
+    branches:
+      - master
+    types: [labeled]
+
+jobs:
+  approve-and-queue:
+    if: github.event.label.name == 'automerge-possible'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - name: Approve PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh pr review "$PR_NUMBER" --repo "$REPO" --approve \
+            --body "Linter passed all checks — approving for auto-merge."
+
+      - name: Enable auto-merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh pr merge "$PR_NUMBER" --repo "$REPO" --auto --squash
