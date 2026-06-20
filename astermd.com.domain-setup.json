@@ -9,6 +9,7 @@
   "variableDescription": "cloudfront_domain: The CloudFront distribution domain assigned to your AsterMD tenant (e.g. xxxxx.cloudfront.net).",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.astermd.com",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
