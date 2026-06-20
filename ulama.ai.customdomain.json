@@ -1,0 +1,26 @@
+{
+  "providerId": "ulama.ai",
+  "providerName": "Ulama",
+  "serviceId": "customdomain",
+  "serviceName": "Ulama Custom Domain",
+  "version": 1,
+  "logoUrl": "https://app.ulama.ai/icon.png",
+  "description": "Connects a custom domain (apex or subdomain) to an Ulama site and adds the ownership verification record.",
+  "variableDescription": "%token%: ownership verification token issued by Ulama for the domain.",
+  "syncPubKeyDomain": "keys.ulama.ai",
+  "syncRedirectDomain": "app.ulama.ai",
+  "records": [
+    {
+      "type": "APEXCNAME",
+      "pointsTo": "app.ulama.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_ulama-verification",
+      "data": "%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
