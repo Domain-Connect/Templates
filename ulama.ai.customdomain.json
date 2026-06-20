@@ -12,7 +12,7 @@
   "records": [
     {
       "type": "APEXCNAME",
-      "pointsTo": "app.ulama.ai",
+      "pointsTo": "connect.ulama.ai",
       "ttl": 3600
     },
     {
