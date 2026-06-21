@@ -38,4 +38,11 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
           REPO: ${{ github.repository }}
         run: |
-          gh pr merge "$PR_NUMBER" --repo "$REPO" --merge-queue
+          # gh --merge-queue requires gh 2.40+; use the GraphQL API directly instead.
+          node_id=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json id --jq '.id')
+          gh api graphql -f query='
+            mutation($id: ID!) {
+              enqueuePullRequest(input: { pullRequestId: $id }) {
+                mergeQueueEntry { position }
+              }
+            }' -f id="$node_id"
