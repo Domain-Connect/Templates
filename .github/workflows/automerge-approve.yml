@@ -32,7 +32,7 @@ jobs:
         run: |
           pr_number=$(gh pr list --repo "$REPO" --state open \
             --json number,headRefOid \
-            --jq --arg sha "$HEAD_SHA" '.[] | select(.headRefOid == $sha) | .number')
+            --jq ".[] | select(.headRefOid == \"$HEAD_SHA\") | .number")
           if [ -z "$pr_number" ]; then
             echo "No open PR found for SHA $HEAD_SHA; skipping."
             echo "skip=true" >> "$GITHUB_OUTPUT"
