@@ -9,7 +9,6 @@
   "variableDescription": "Points www at your bytxt site and validates the HTTPS certificate.",
   "syncPubKeyDomain": "bytxt.co",
   "syncRedirectDomain": "bytxt.co",
-  "warnPhishing": true,
   "records": [
     {
       "type": "CNAME",
