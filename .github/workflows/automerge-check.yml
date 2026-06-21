@@ -78,31 +78,6 @@ jobs:
           echo "Linter passed, adding automerge-possible label"
           gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "automerge-possible"
 
-      - name: Approve PR
-        if: steps.linter-check.outputs.linter_passed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          REPO: ${{ github.repository }}
-        run: |
-          gh pr review "$PR_NUMBER" --repo "$REPO" --approve \
-            --body "Linter passed all checks — approving for auto-merge."
-
-      - name: Add to merge queue
-        if: steps.linter-check.outputs.linter_passed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          REPO: ${{ github.repository }}
-        run: |
-          node_id=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json id --jq '.id')
-          gh api graphql -f query='
-            mutation($id: ID!) {
-              enqueuePullRequest(input: { pullRequestId: $id }) {
-                mergeQueueEntry { position }
-              }
-            }' -f id="$node_id"
-
       - name: Remove automerge-possible label on failure
         if: steps.linter-check.outputs.linter_passed == 'false'
         env:
