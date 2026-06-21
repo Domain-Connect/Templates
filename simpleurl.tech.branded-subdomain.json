@@ -1,0 +1,20 @@
+{
+  "providerId": "simpleurl.tech",
+  "providerName": "SimpleURL",
+  "serviceId": "branded-subdomain",
+  "serviceName": "SimpleURL Branded Domains",
+  "version": 1,
+  "logoUrl": "https://www.simpleurl.tech/favicon.ico",
+  "description": "Configures a custom subdomain to point to SimpleURL's edge network for branded short links and QR codes.",
+  "syncPubKeyDomain": "www.simpleurl.tech",
+  "syncRedirectDomain": "www.simpleurl.tech",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.simpleurl.tech",
+      "ttl": 3600
+    }
+  ]
+}
