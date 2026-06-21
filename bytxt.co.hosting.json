@@ -1,0 +1,26 @@
+{
+  "providerId": "bytxt.co",
+  "providerName": "bytxt",
+  "serviceId": "hosting",
+  "serviceName": "bytxt website hosting",
+  "version": 1,
+  "logoUrl": "https://www.bytxt.co/assets/brandmark.png",
+  "description": "Connect your domain to your bytxt-hosted website",
+  "variableDescription": "Points www at your bytxt site and validates the HTTPS certificate.",
+  "syncPubKeyDomain": "bytxt.co",
+  "syncRedirectDomain": "bytxt.co",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "customers.bytxt.co",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge.www",
+      "data": "%acmetxt%",
+      "ttl": 3600
+    }
+  ]
+}
