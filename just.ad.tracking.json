@@ -8,10 +8,9 @@
   "description": "Connect a first-party tracking subdomain for JustAd analytics.",
   "syncRedirectDomain": "app.just.ad,stg.justad.ai,stream.just.ad,stream-stg.justad.ai",
   "syncPubKeyDomain": "just.ad",
-  "warnPhishing": true,
   "shared": false,
   "records": [
-    { "type": "CNAME", "host": "%host%", "pointsTo": "events.just-ad.com", "ttl": 300 },
+    { "type": "CNAME", "host": "@", "pointsTo": "events.just-ad.com", "ttl": 300 },
     { "type": "TXT",   "host": "%tx0host%", "data": "%tx0value%", "ttl": 300 },
     { "type": "TXT",   "host": "%tx1host%", "data": "%tx1value%", "ttl": 300 }
   ]
