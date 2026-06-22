@@ -1,0 +1,20 @@
+{
+  "providerId": "furlough.ai",
+  "providerName": "Furlough",
+  "serviceId": "custom-domain",
+  "serviceName": "Furlough Custom Domain",
+  "version": 1,
+  "logoUrl": "https://app.furlough.ai/logo.svg",
+  "description": "Point your branded sign-in domain at Furlough.",
+  "syncPubKeyDomain": "furlough.ai",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy.furlough.ai",
+      "ttl": 3600
+    }
+  ]
+}
