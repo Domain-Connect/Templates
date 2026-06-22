@@ -1,0 +1,51 @@
+{
+  "providerId": "xnying.xyz",
+  "providerName": "xnying Dev",
+  "serviceId": "dns-test",
+  "serviceName": "Test Records",
+
+  "version": 1,
+
+  "warnPhishing": true,
+  "syncPubKeyDomain": "xnying.xyz",
+  "syncRedirectDomain": "xnying.xyz",
+
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_xnying-challenge",
+      "data": "%verification_token%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%cert_validation_host%",
+      "pointsTo": "%cert_validation_target%",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%edge_ip_1%",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%edge_ip_2%",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%edge_ip_3%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%subdomain%",
+      "pointsTo": "%edge_hostname%",
+      "ttl": 300
+    }
+  ]
+}

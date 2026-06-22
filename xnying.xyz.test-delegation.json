@@ -1,0 +1,39 @@
+{
+  "providerId": "xnying.xyz",
+  "providerName": "xnying Dev",
+  "serviceId": "test-delegation",
+  "serviceName": "Test NS Delegation",
+
+  "version": 1,
+
+  "warnPhishing": true,
+  "syncPubKeyDomain": "xnying.xyz",
+  "syncRedirectDomain": "xnying.xyz",
+
+  "records": [
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns_1%",
+      "ttl": 300
+    },
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns_2%",
+      "ttl": 300
+    },
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns_3%",
+      "ttl": 300
+    },
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns_4%",
+      "ttl": 300
+    }
+  ]
+}
