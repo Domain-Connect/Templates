@@ -1,0 +1,20 @@
+{
+  "providerId": "destaff.ai",
+  "providerName": "Destaff",
+  "serviceId": "mailgun-sync",
+  "serviceName": "Destaff Email (Mailgun sending subdomain)",
+  "version": 1,
+  "logoUrl": "https://destaff.ai/logo.svg",
+  "description": "Connects your sending subdomain (sync.<domain>) so Destaff can send and receive support email for you. Adds SPF, DKIM, MX and a tracking CNAME.",
+  "syncPubKeyDomain": "destaff.ai",
+  "syncRedirectDomain": "destaff.ai",
+  "warnPhishing": true,
+  "hostRequired": true,
+  "records": [
+    { "type": "SPFM", "host": "@", "spfRules": "%spf%", "ttl": 3600 },
+    { "type": "TXT", "host": "%dkimSelector%", "data": "%dkim%", "ttl": 3600 },
+    { "type": "MX", "host": "@", "pointsTo": "%mxa%", "priority": 10, "ttl": 3600 },
+    { "type": "MX", "host": "@", "pointsTo": "%mxb%", "priority": 20, "ttl": 3600 },
+    { "type": "CNAME", "host": "%trackingHost%", "pointsTo": "%tracking%", "ttl": 3600 }
+  ]
+}
