@@ -1,0 +1,34 @@
+{
+  "providerId": "wesender.nl",
+  "providerName": "WeSender",
+  "serviceId": "email",
+  "serviceName": "E-mail authenticatie",
+  "version": 1,
+  "logoUrl": "https://wesender.nl/favicon.svg",
+  "description": "Adds SPF, DKIM and DMARC so your domain can send email via WeSender.",
+  "syncPubKeyDomain": "dc.wesender.nl",
+  "syncRedirectDomain": "app.wesender.nl",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.wesender.nl",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "postal-wesender._domainkey",
+      "data": "%DKIM_KEY%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@wesender.nl",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}
