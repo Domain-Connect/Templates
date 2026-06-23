@@ -1,0 +1,88 @@
+{
+  "providerId": "nexudo.email",
+  "providerName": "Nex Mail",
+  "serviceId": "mail",
+  "serviceName": "Business mail (MX, SPF, DKIM, DMARC)",
+  "version": 1,
+  "logoUrl": "https://cdn.nexudo.email/nex-mail-public/brand/logo.png",
+  "description": "Configures mail DNS records (MX, SPF, DKIM, DMARC) for Nex Mail deliverability on your domain.",
+  "syncPubKeyDomain": "domainconnect.nexudo.email",
+  "syncRedirectDomain": "nexudo.email",
+  "hostRequired": false,
+  "warnPhishing": false,
+  "variables": [
+    {
+      "name": "mx_host",
+      "description": "Mail server hostname (MX target)",
+      "dataType": "STRING"
+    },
+    {
+      "name": "mail_a_host",
+      "description": "Mail subdomain (e.g. mail)",
+      "dataType": "STRING"
+    },
+    {
+      "name": "server_ip",
+      "description": "Mail server IPv4 address",
+      "dataType": "STRING"
+    },
+    {
+      "name": "spf",
+      "description": "SPF record value",
+      "dataType": "STRING"
+    },
+    {
+      "name": "dkim_selector",
+      "description": "DKIM selector (e.g. mail)",
+      "dataType": "STRING"
+    },
+    {
+      "name": "dkim_txt",
+      "description": "DKIM public key TXT value",
+      "dataType": "STRING"
+    },
+    {
+      "name": "dmarc",
+      "description": "DMARC policy TXT value",
+      "dataType": "STRING"
+    }
+  ],
+  "records": [
+    {
+      "type": "MX",
+      "groupId": "mail-mx",
+      "host": "@",
+      "pointsTo": "%mx_host%",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "groupId": "mail-a",
+      "host": "%mail_a_host%",
+      "pointsTo": "%server_ip%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "mail-spf",
+      "host": "@",
+      "data": "%spf%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "mail-dkim",
+      "host": "%dkim_selector%._domainkey",
+      "data": "%dkim_txt%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "mail-dmarc",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 300
+    }
+  ]
+}
