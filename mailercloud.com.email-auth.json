@@ -1,0 +1,56 @@
+{
+  "providerId": "mailercloud.com",
+  "providerName": "Mailercloud",
+  "serviceId": "email-auth",
+  "serviceName": "Mailercloud Email Authentication",
+  "version": 1,
+  "logoUrl": "https://www.mailercloud.com/mailercloud-logo.png",
+  "description": "Authenticate your domain or subdomain to send email with Mailercloud (tracking, DKIM, SPF, DMARC).",
+  "syncPubKeyDomain": "dns-connect.mailercloud.com",
+  "syncRedirectDomain": "app.mailercloud.com",
+  "multiInstance": true,
+  "variableDescription": "cloudnskey: per-account tracking key. track_host/dkim_host/img_host/spf_host/dmarc_host: server-computed relative hosts (apex mc / k1._domainkey / img<key> / @ / _dmarc; subdomain adds the sub-label; occupied-subdomain tracking mc-<label>). img_value: img<key>.<imgdomain>. dmarc_value: server-computed DMARC TXT (merged with existing policy, or default policy with rua/ruf@trackdomain).",
+  "records": [
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "%track_host%",
+      "pointsTo": "mc%cloudnskey%.mlrcloud.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_host%",
+      "pointsTo": "dkim.mlrcloud.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "img",
+      "type": "CNAME",
+      "host": "%img_host%",
+      "pointsTo": "%img_value%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "%spf_host%",
+      "spfRules": "include:mlrcloud.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "%dmarc_host%",
+      "data": "%dmarc_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
