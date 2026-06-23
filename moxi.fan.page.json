@@ -10,7 +10,7 @@
   "syncPubKeyDomain": "moxi.fan",
   "syncRedirectDomain": "moxi.fan",
   "records": [
-    { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600, "groupId": "moxi" },
-    { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com.", "ttl": 3600, "groupId": "moxi" }
+    { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com.", "ttl": 3600 }
   ]
 }
