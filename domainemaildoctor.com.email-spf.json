@@ -1,0 +1,20 @@
+{
+  "providerId": "domainemaildoctor.com",
+  "providerName": "Domain Email Doctor",
+  "serviceId": "email-spf",
+  "serviceName": "Email SPF fix",
+  "version": 1,
+  "logoUrl": "https://domainemaildoctor.com/icon.svg",
+  "description": "Adds or merges the SPF record for the domain's email sender so legitimate mail passes SPF.",
+  "variableDescription": "spfRules: the SPF mechanisms for the sending provider, without the leading 'v=spf1', e.g. 'include:_spf.google.com ~all'.",
+  "syncPubKeyDomain": "domainemaildoctor.com",
+  "syncRedirectDomain": "domainemaildoctor.com",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spfRules%",
+      "ttl": 3600
+    }
+  ]
+}
