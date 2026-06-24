@@ -6,83 +6,51 @@
   "version": 1,
   "logoUrl": "https://cdn.nexudo.email/nex-mail-public/brand/logo.png",
   "description": "Configures mail DNS records (MX, SPF, DKIM, DMARC) for Nex Mail deliverability on your domain.",
+  "variableDescription": "%mxHost%: MX target hostname (e.g. mail.nexudo.email); %serverIp%: IPv4 for the mail A record; %spfRules%: SPF rules without the v=spf1 prefix (e.g. include:mail.nexudo.email ~all); %dkimSelector%: DKIM selector (e.g. mail); %dkimTxt%: full DKIM TXT value (v=DKIM1; k=rsa; p=...); %dmarc%: full DMARC TXT value (v=DMARC1; p=none; rua=...)",
   "syncPubKeyDomain": "domainconnect.nexudo.email",
   "syncRedirectDomain": "nexudo.email",
   "hostRequired": false,
   "warnPhishing": false,
-  "variables": [
-    {
-      "name": "mx_host",
-      "description": "Mail server hostname (MX target)",
-      "dataType": "STRING"
-    },
-    {
-      "name": "mail_a_host",
-      "description": "Mail subdomain (e.g. mail)",
-      "dataType": "STRING"
-    },
-    {
-      "name": "server_ip",
-      "description": "Mail server IPv4 address",
-      "dataType": "STRING"
-    },
-    {
-      "name": "spf",
-      "description": "SPF record value",
-      "dataType": "STRING"
-    },
-    {
-      "name": "dkim_selector",
-      "description": "DKIM selector (e.g. mail)",
-      "dataType": "STRING"
-    },
-    {
-      "name": "dkim_txt",
-      "description": "DKIM public key TXT value",
-      "dataType": "STRING"
-    },
-    {
-      "name": "dmarc",
-      "description": "DMARC policy TXT value",
-      "dataType": "STRING"
-    }
-  ],
+  "syncBlock": false,
   "records": [
     {
-      "type": "MX",
       "groupId": "mail-mx",
+      "type": "MX",
       "host": "@",
-      "pointsTo": "%mx_host%",
+      "pointsTo": "%mxHost%",
       "priority": 10,
       "ttl": 300
     },
     {
-      "type": "A",
       "groupId": "mail-a",
-      "host": "%mail_a_host%",
-      "pointsTo": "%server_ip%",
+      "type": "A",
+      "host": "mail",
+      "pointsTo": "%serverIp%",
       "ttl": 300
     },
     {
-      "type": "TXT",
       "groupId": "mail-spf",
+      "type": "SPFM",
       "host": "@",
-      "data": "%spf%",
+      "spfRules": "%spfRules%",
       "ttl": 300
     },
     {
-      "type": "TXT",
       "groupId": "mail-dkim",
-      "host": "%dkim_selector%._domainkey",
-      "data": "%dkim_txt%",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimTxt%",
       "ttl": 300
     },
     {
-      "type": "TXT",
       "groupId": "mail-dmarc",
+      "type": "TXT",
       "host": "_dmarc",
       "data": "%dmarc%",
-      "ttl": 300
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     }
   ]
 }
