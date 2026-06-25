@@ -1,0 +1,20 @@
+{
+  "providerId": "unitops.app",
+  "providerName": "UnitOps",
+  "serviceId": "portal",
+  "serviceName": "Storage rentals & tenant portal",
+  "version": 1,
+  "logoUrl": "https://unitops.app/images/logo.svg",
+  "description": "Point your custom domain at your UnitOps rentals & tenant portal.",
+  "variableDescription": "target is the UnitOps hostname the CNAME points to (e.g. unitops.app).",
+  "syncPubKeyDomain": "unitops.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
