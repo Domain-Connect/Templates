@@ -1,0 +1,24 @@
+{
+  "providerId": "rvn-app.com",
+  "providerName": "Revyn Media",
+  "serviceId": "branded-site",
+  "serviceName": "Branded Website",
+  "version": 1,
+  "logoUrl": "https://media.rvn-app.com/brand/logo.png",
+  "description": "Point your domain at your Revyn Media branded site.",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "rvn-website.pages.dev",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "%redirectTarget%",
+      "ttl": 3600
+    }
+  ]
+}
