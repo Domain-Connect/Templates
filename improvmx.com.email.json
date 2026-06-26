@@ -3,9 +3,9 @@
     "providerName": "ImprovMX",
     "serviceId": "email",
     "serviceName": "Email Forwarding",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://improvmx-public-assets.s3.eu-west-3.amazonaws.com/improvmx_logo.svg",
-    "description": "Set up the DNS records needed to forward emails for your domain with ImprovMX: MX records for inbound mail, SPF for forwarding, and DKIM for sending through ImprovMX SMTP.",
+    "description": "Set up the DNS records needed to forward emails for your domain with ImprovMX: MX records for inbound mail, SPF for forwarding, DKIM for sending through ImprovMX SMTP, and a DMARC policy.",
     "syncBlock": false,
     "hostRequired": false,
     "syncPubKeyDomain": "improvmx.com",
@@ -46,6 +46,16 @@
             "host": "dkimprovmx2._domainkey",
             "pointsTo": "dkimprovmx2.improvmx.com",
             "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
         }
     ]
 }
