@@ -3,7 +3,7 @@
   "providerName": "Senderz",
   "serviceId": "mail",
   "serviceName": "Mail",
-  "version": 1,
+  "version": 2,
   "syncPubKeyDomain": "senderz.app",
   "syncRedirectDomain": "senderz.app",
   "syncBlock": false,
