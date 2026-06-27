@@ -9,7 +9,6 @@
   "variableDescription": "%ip% = the public IPv4 address of your Vanta Panel hosting server.",
   "syncPubKeyDomain": "vantapanel.com",
   "syncBlock": false,
-  "warnPhishing": true,
   "records": [
     {
       "type": "A",
@@ -45,6 +44,9 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=none;",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
       "ttl": 3600
     }
   ]
