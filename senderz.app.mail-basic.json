@@ -1,15 +1,15 @@
 {
   "providerId": "senderz.app",
   "providerName": "Senderz",
-  "serviceId": "mail",
-  "serviceName": "Mail",
+  "serviceId": "mail-basic",
+  "serviceName": "Mail (basic)",
   "version": 1,
   "syncPubKeyDomain": "senderz.app",
   "syncRedirectDomain": "senderz.app",
   "syncBlock": false,
   "hostRequired": false,
-  "description": "Enable email authentication and tracking for Senderz (SPF, DKIM, DMARC, MAIL-FROM, tracking CNAME) via Amazon SES.",
-  "variableDescription": "%dkimSelector%: DKIM selector; %domainKey1..7%: KMS DKIM public key chunks (concatenated in the TXT record); %dmarcValue%: Full DMARC TXT value; %trackingSubdomain%: Tracking subdomain label; %trackingTarget%: Tracking CNAME target; %mailFromSubdomain%: MAIL-FROM subdomain label; %mxExchange%: SES feedback SMTP host; %sesDkimToken1..3%: Amazon SES Easy-DKIM CNAME labels",
+  "description": "Enable email authentication and tracking for Senderz without Amazon SES Easy-DKIM CNAMEs.",
+  "variableDescription": "%dkimSelector%: DKIM selector; %domainKey1..7%: KMS DKIM public key chunks (concatenated in the TXT record); %dmarcValue%: Full DMARC TXT value; %trackingSubdomain%: Tracking subdomain label; %trackingTarget%: Tracking CNAME target; %mailFromSubdomain%: MAIL-FROM subdomain label; %mxExchange%: SES feedback SMTP host",
   "logoUrl": "https://senderz.app/logo-text-primary.png",
   "records": [
     {
@@ -25,27 +25,6 @@
       "host": "%dkimSelector%._domainkey",
       "ttl": 3600,
       "data": "v=DKIM1; k=rsa; p=%domainKey1%%domainKey2%%domainKey3%%domainKey4%%domainKey5%%domainKey6%%domainKey7%"
-    },
-    {
-      "groupId": "authentication",
-      "type": "CNAME",
-      "host": "%sesDkimToken1%._domainkey",
-      "pointsTo": "%sesDkimToken1%.dkim.amazonses.com",
-      "ttl": 3600
-    },
-    {
-      "groupId": "authentication",
-      "type": "CNAME",
-      "host": "%sesDkimToken2%._domainkey",
-      "pointsTo": "%sesDkimToken2%.dkim.amazonses.com",
-      "ttl": 3600
-    },
-    {
-      "groupId": "authentication",
-      "type": "CNAME",
-      "host": "%sesDkimToken3%._domainkey",
-      "pointsTo": "%sesDkimToken3%.dkim.amazonses.com",
-      "ttl": 3600
     },
     {
       "groupId": "authentication",
