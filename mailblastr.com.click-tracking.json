@@ -1,0 +1,28 @@
+{
+  "providerId": "mailblastr.com",
+  "providerName": "MailBlastr",
+  "serviceId": "click-tracking",
+  "serviceName": "Custom Open/Click Tracking Domain",
+  "version": 1,
+  "syncPubKeyDomain": "mailblastr.com",
+  "syncRedirectDomain": "www.mailblastr.com",
+  "description": "Configure a custom domain for open and click tracking — links render on your own subdomain instead of the shared host (better domain alignment + reputation isolation).",
+  "variableDescription": "trackinghost is the tracking subdomain label (e.g. t); trackingedge is the MailBlastr tracking edge the CNAME points to (the host that terminates TLS for customer tracking subdomains).",
+  "logoUrl": "https://www.mailblastr.com/logo.svg",
+  "records": [
+    {
+      "groupId": "click-tracking",
+      "type": "CNAME",
+      "host": "%trackinghost%",
+      "pointsTo": "%trackingedge%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "caa",
+      "type": "CAA",
+      "host": "%trackinghost%",
+      "data": "0 issue \"amazon.com\"",
+      "ttl": 3600
+    }
+  ]
+}
