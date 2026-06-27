@@ -6,17 +6,17 @@
   "version": 1,
   "logoUrl": "https://vantapanel.com/assets/icon-512.png",
   "description": "Point your domain at your Vanta Panel hosting server: website, mail, and email authentication (SPF, DKIM, DMARC).",
-  "variableDescription": "ip = the hosting server's public IPv4; dashes = your domain with dots replaced by dashes (for Brevo DKIM).",
+  "variableDescription": "ip = the hosting server public IPv4; dashes = your domain with dots replaced by dashes (used for the Brevo DKIM CNAMEs).",
+  "syncPubKeyDomain": "vantapanel.com",
   "syncBlock": false,
-  "warnPhishing": true,
   "records": [
-    { "type": "A",     "host": "@",                  "pointsTo": "%ip%",                         "ttl": 3600 },
-    { "type": "A",     "host": "www",                "pointsTo": "%ip%",                         "ttl": 3600 },
-    { "type": "A",     "host": "mail",               "pointsTo": "%ip%",                         "ttl": 3600 },
-    { "type": "MX",    "host": "@",                  "pointsTo": "mail.%domain%", "priority": 10, "ttl": 3600 },
-    { "type": "TXT",   "host": "@",                  "data": "v=spf1 a mx include:spf.brevo.com ~all", "ttl": 3600 },
-    { "type": "TXT",   "host": "_dmarc",             "data": "v=DMARC1; p=none;",                "ttl": 3600 },
-    { "type": "CNAME", "host": "brevo1._domainkey",  "pointsTo": "b1.%dashes%.dkim.brevo.com",   "ttl": 3600 },
-    { "type": "CNAME", "host": "brevo2._domainkey",  "pointsTo": "b2.%dashes%.dkim.brevo.com",   "ttl": 3600 }
+    { "type": "A",     "host": "@",                 "pointsTo": "%ip%",                          "ttl": 3600 },
+    { "type": "A",     "host": "www",               "pointsTo": "%ip%",                          "ttl": 3600 },
+    { "type": "A",     "host": "mail",              "pointsTo": "%ip%",                          "ttl": 3600 },
+    { "type": "MX",    "host": "@",                 "pointsTo": "mail.%domain%", "priority": 10,  "ttl": 3600 },
+    { "type": "SPFM",  "host": "@",                 "spfRules": "a mx include:spf.brevo.com" },
+    { "type": "TXT",   "host": "_dmarc",            "data": "v=DMARC1; p=none;",                 "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "OnApply" },
+    { "type": "CNAME", "host": "brevo1._domainkey", "pointsTo": "b1.%dashes%.dkim.brevo.com",    "ttl": 3600 },
+    { "type": "CNAME", "host": "brevo2._domainkey", "pointsTo": "b2.%dashes%.dkim.brevo.com",    "ttl": 3600 }
   ]
 }
