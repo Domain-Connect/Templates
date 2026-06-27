@@ -1,0 +1,19 @@
+{
+  "providerId": "cloudbac.org",
+  "providerName": "CloudBac",
+  "serviceId": "customdomain",
+  "serviceName": "CloudBac Custom Domain",
+  "syncPubKeyDomain": "cloudbac.org",
+  "syncRedirectDomain": "app-sites.cloudbac.com",
+  "version": 1,
+  "logoUrl": "https://app-sites.cloudbac.com/cloudbac-symbol.svg",
+  "description": "Point your domain at your CloudBac website and validate its SSL certificate.",
+  "variableDescription": "cnametarget - CNAME target for routing traffic to CloudBac; ownervalue - Cloudflare custom hostname ownership token; acmevalue - ACME SSL validation (DCV) token",
+  "hostRequired": true,
+  "syncBlock": false,
+  "records": [
+    { "type": "CNAME", "groupId": "cname",      "host": "@",                   "pointsTo": "%cnametarget%", "ttl": 300 },
+    { "type": "TXT",   "groupId": "ownership",  "host": "_cf-custom-hostname", "data": "%ownervalue%", "txtConflictMatchingMode": "All", "ttl": 300 },
+    { "type": "TXT",   "groupId": "ssl",        "host": "_acme-challenge",     "data": "%acmevalue%",  "txtConflictMatchingMode": "All", "ttl": 300 }
+  ]
+}
