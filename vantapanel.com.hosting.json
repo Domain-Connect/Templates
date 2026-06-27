@@ -7,14 +7,45 @@
   "logoUrl": "https://vantapanel.com/assets/icon-512.png",
   "description": "Point your domain at your Vanta Panel hosting server: website (A records), mail (MX + mail host), and email authentication (SPF + DMARC).",
   "variableDescription": "%ip% = the public IPv4 address of your Vanta Panel hosting server.",
+  "syncPubKeyDomain": "vantapanel.com",
   "syncBlock": false,
   "warnPhishing": true,
   "records": [
-    { "type": "A",    "host": "@",      "pointsTo": "%ip%",          "ttl": 3600 },
-    { "type": "A",    "host": "www",    "pointsTo": "%ip%",          "ttl": 3600 },
-    { "type": "A",    "host": "mail",   "pointsTo": "%ip%",          "ttl": 3600 },
-    { "type": "MX",   "host": "@",      "pointsTo": "mail.%domain%", "priority": 10, "ttl": 3600 },
-    { "type": "SPFM", "host": "@",      "spfRules": "a mx include:spf.brevo.com" },
-    { "type": "TXT",  "host": "_dmarc", "data": "v=DMARC1; p=none;",  "ttl": 3600 }
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "mail",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.%domain%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a mx include:spf.brevo.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600
+    }
   ]
 }
