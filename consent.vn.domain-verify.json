@@ -1,0 +1,22 @@
+{
+  "providerId": "consent.vn",
+  "providerName": "Consent.vn",
+  "serviceId": "domain-verify",
+  "serviceName": "Consent.vn Domain Ownership Verification",
+  "version": 1,
+  "description": "Creates the TXT record that proves you control this domain for Consent.vn consent management.",
+  "logoUrl": "https://consent.vn/icon-512.png",
+  "syncPubKeyDomain": "consent.vn",
+  "syncRedirectDomain": "app.consent.vn",
+  "syncBlock": false,
+  "variableDescription": "token: the one-time verification token issued by Consent.vn.",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_consent-vn-verify",
+      "ttl": 300,
+      "data": "consent-vn-verify=%token%"
+    }
+  ]
+}

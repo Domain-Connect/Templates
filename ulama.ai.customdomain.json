@@ -1,0 +1,28 @@
+{
+  "providerId": "ulama.ai",
+  "providerName": "Ulama",
+  "serviceId": "customdomain",
+  "serviceName": "Ulama Custom Domain (subdomain)",
+  "version": 2,
+  "logoUrl": "https://ulama.ai/assets/logo.svg",
+  "description": "Connects a custom subdomain (e.g. www) to an Ulama site and adds the ownership verification record.",
+  "variableDescription": "%token%: ownership verification token issued by Ulama for the domain.",
+  "syncPubKeyDomain": "keys.ulama.ai",
+  "syncRedirectDomain": "app.ulama.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.ulama.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_ulama-verification",
+      "data": "%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
