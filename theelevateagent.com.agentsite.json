@@ -1,16 +1,17 @@
 {
-    "providerId": "theelevateagent.com",
-    "providerName": "Coldwell Banker Elevate",
-    "serviceId": "agentsite",
-    "name": "Elevate Agent Website",
-    "description": "Connects your domain to your Coldwell Banker Elevate agent website.",
-    "logoUrl": "https://theelevateagent.com/email-logo.png",
-    "version": 1,
-    "syncPubKeyDomain": "theelevateagent.com",
-    "syncRedirectDomain": "theelevateagent.com",
-    "shared": false,
-    "records": [
-      { "type": "CNAME", "host": "www", "pointsTo": "agents.the-elevate-team.com", "ttl": 3600
-  }
-    ]
-  }
+  "providerId": "theelevateagent.com",
+  "providerName": "Coldwell Banker Elevate",
+  "serviceId": "agentsite",
+  "serviceName": "Elevate Agent Website",
+  "version": 2,
+  "logoUrl": "https://theelevateagent.com/email-logo.png",
+  "description": "Connects your domain to your Coldwell Banker Elevate agent website.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "theelevateagent.com",
+  "syncRedirectDomain": "theelevateagent.com",
+  "hostRequired": true,
+  "warnPhishing": true,
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "agents.the-elevate-team.com", "ttl": 3600 }
+  ]
+}
