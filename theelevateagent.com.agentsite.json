@@ -9,8 +9,6 @@
   "syncBlock": false,
   "syncPubKeyDomain": "theelevateagent.com",
   "syncRedirectDomain": "theelevateagent.com",
-  "hostRequired": true,
-  "warnPhishing": true,
   "records": [
     { "type": "CNAME", "host": "www", "pointsTo": "agents.the-elevate-team.com", "ttl": 3600 }
   ]
