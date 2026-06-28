@@ -11,6 +11,6 @@
   "logoUrl": "https://www.mailblastr.com/logo.svg",
   "hostRequired": true,
   "records": [
-    { "groupId": "click-tracking", "type": "CNAME", "host": "@", "pointsTo": "%trackingedge%", "ttl": 3600 }
+    { "type": "CNAME", "host": "@", "pointsTo": "%trackingedge%", "ttl": 3600 }
   ]
 }
