@@ -6,10 +6,11 @@
   "version": 1,
   "syncPubKeyDomain": "mailblastr.com",
   "syncRedirectDomain": "www.mailblastr.com",
-  "description": "Configure a custom domain for open and click tracking — links render on your own subdomain instead of the shared host (better domain alignment + reputation isolation).",
-  "variableDescription": "trackinghost is the tracking subdomain label (e.g. t); trackingedge is the MailBlastr tracking edge the CNAME points to (the host that terminates TLS for the customer's tracking subdomain).",
+  "description": "Configure a custom domain for open and click tracking — links render on your own subdomain instead of the shared host (better domain alignment + reputation isolation). Apply this template at the tracking subdomain (the host parameter).",
+  "variableDescription": "trackingedge is the MailBlastr tracking edge the CNAME points to (the host that terminates TLS for the customer's tracking subdomain).",
   "logoUrl": "https://www.mailblastr.com/logo.svg",
+  "hostRequired": true,
   "records": [
-    { "groupId": "click-tracking", "type": "CNAME", "host": "%trackinghost%", "pointsTo": "%trackingedge%", "ttl": 3600 }
+    { "groupId": "click-tracking", "type": "CNAME", "host": "@", "pointsTo": "%trackingedge%", "ttl": 3600 }
   ]
 }
