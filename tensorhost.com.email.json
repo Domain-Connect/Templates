@@ -1,0 +1,46 @@
+{
+  "providerId": "tensorhost.com",
+  "providerName": "TensorHost",
+  "serviceId": "email",
+  "serviceName": "TensorHost Email",
+  "version": 1,
+  "description": "Points your domain's email at TensorHost by adding the MX, SPF, DKIM and DMARC records needed to send and receive mail. Your website records are left untouched.",
+  "variableDescription": "dkimselector: the DKIM selector Stalwart generated for this domain. dkimkey: the base64 public key (the p= value of the DKIM record).",
+  "syncPubKeyDomain": "tensorhost.com",
+  "syncRedirectDomain": "tensorhost.com,console.tensorhost.com",
+  "records": [
+    {
+      "type": "MX",
+      "groupId": "email",
+      "host": "@",
+      "pointsTo": "mail.tensorhost.com",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "SPFM",
+      "groupId": "email",
+      "host": "@",
+      "spfRules": "a:mail.tensorhost.com"
+    },
+    {
+      "type": "TXT",
+      "groupId": "email",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "groupId": "email",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
