@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://everinbox.com.br/everinbox-logo-dark.svg",
   "description": "Configures domain authentication, DKIM, DMARC and link tracking records for email delivery on a subdomain",
-  "variableDescription": "SUBDOMAIN is the sending subdomain (e.g., 'marketing' for marketing.yourdomain.com), MAIL_SUBDOMAIN is the mail routing subdomain, MAIL_TARGET is the mail server target, DKIM_SELECTOR1/DKIM_SELECTOR2 are DKIM selectors, DKIM_TARGET1/DKIM_TARGET2 are DKIM targets, DMARC_POLICY is the DMARC policy, URL_TRACKING_SUBDOMAIN is the URL tracking subdomain, URL_TRACKING_TARGET is the URL tracking target, CLICK_TRACKING_SUBDOMAIN is the click tracking subdomain, CLICK_TRACKING_TARGET is the click tracking target",
+  "variableDescription": "SUBDOMAIN is the sending subdomain (e.g., 'marketing' for marketing.yourdomain.com), MAIL_SUBDOMAIN is the mail routing subdomain, MAIL_TARGET is the mail server target, DKIM_SELECTOR1/DKIM_SELECTOR2 are DKIM selectors, DKIM_TARGET1/DKIM_TARGET2 are DKIM targets, DMARC_POLICY is the DMARC policy, TRACKING_SUBDOMAIN is the tracking subdomain, TRACKING_TARGET is the tracking target",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.everinbox.com.br",
   "syncRedirectDomain": "everinbox.com.br",
@@ -45,15 +45,8 @@
     {
       "groupId": "tracking",
       "type": "CNAME",
-      "host": "%URL_TRACKING_SUBDOMAIN%.%SUBDOMAIN%",
-      "pointsTo": "%URL_TRACKING_TARGET%",
-      "ttl": 3600
-    },
-    {
-      "groupId": "tracking",
-      "type": "CNAME",
-      "host": "%CLICK_TRACKING_SUBDOMAIN%.%SUBDOMAIN%",
-      "pointsTo": "%CLICK_TRACKING_TARGET%",
+      "host": "%TRACKING_SUBDOMAIN%.%SUBDOMAIN%",
+      "pointsTo": "%TRACKING_TARGET%",
       "ttl": 3600
     }
   ]
