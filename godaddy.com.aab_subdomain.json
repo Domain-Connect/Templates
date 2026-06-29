@@ -1,0 +1,25 @@
+{
+  "providerId": "godaddy.com",
+  "providerName": "GoDaddy",
+  "serviceId": "aab_subdomain",
+  "serviceName": "Airo App Builder Subdomain",
+  "version": 1,
+  "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2020/02/godaddy_logo_new.png",
+  "description": "Enables a sub-domain to work with GoDaddy Airo App Builder",
+  "variableDescription": "v1 is the IP address of the server. dcv is the certificate validation CNAME value for SSL provisioning.",
+  "syncPubKeyDomain": "domain-attach.api.godaddy.com",
+  "records": [
+    {
+      "pointsTo": "%v1%",
+      "type": "A",
+      "host": "@",
+      "ttl": 3600
+    },
+    {
+      "pointsTo": "%dcv%",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "ttl": 3600
+    }
+  ]
+}

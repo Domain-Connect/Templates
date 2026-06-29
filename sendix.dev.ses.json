@@ -1,0 +1,75 @@
+{
+  "providerId": "sendix.dev",
+  "providerName": "Sendix",
+  "serviceId": "ses",
+  "serviceName": "Amazon SES Sending",
+  "version": 1,
+  "syncPubKeyDomain": "sendix.dev",
+  "syncRedirectDomain": "sendix.dev",
+  "description": "Configure Amazon SES DNS records for sending email with Sendix.",
+  "logoUrl": "https://sendix.dev/brand/sendix-wordmark.svg",
+  "variableDescription": "%sesVerificationValue%: Amazon SES domain verification token. %dkimToken1%, %dkimToken2%, %dkimToken3%: Amazon SES DKIM tokens. %awsRegion%: Amazon SES region, for example eu-central-1.",
+  "records": [
+    {
+      "groupId": "ses-verification",
+      "type": "TXT",
+      "host": "_amazonses",
+      "ttl": 3600,
+      "data": "%sesVerificationValue%",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "ses-dkim-1",
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "ttl": 3600,
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com"
+    },
+    {
+      "groupId": "ses-dkim-2",
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "ttl": 3600,
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com"
+    },
+    {
+      "groupId": "ses-dkim-3",
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "ttl": 3600,
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@sendix.dev; aspf=r; adkim=r",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "groupId": "ses-mail-from-mx",
+      "type": "MX",
+      "host": "ses-bounce",
+      "ttl": 3600,
+      "priority": 10,
+      "pointsTo": "feedback-smtp.%awsRegion%.amazonses.com"
+    },
+    {
+      "groupId": "ses-mail-from-spf",
+      "type": "SPFM",
+      "host": "ses-bounce",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "click",
+      "ttl": 3600,
+      "pointsTo": "track.sendix.dev"
+    }
+  ]
+}
