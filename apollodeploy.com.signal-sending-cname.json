@@ -3,21 +3,37 @@
   "providerName": "Apollo Signal",
   "serviceId": "signal-sending-cname",
   "serviceName": "Email sending (CNAME DKIM)",
-  "version": 1,
+  "version": 4,
   "logoUrl": "https://apollodeploy.com/favicon.ico",
-  "description": "Configures the DNS records required to send email with Apollo Signal when DKIM uses a CNAME selector: CNAME DKIM, MAIL FROM MX, and SPF for the bounce subdomain.",
-  "variableDescription": "%dkimSelector%: DKIM selector label; %dkimPointsTo%: CNAME target hostname; %mailFromSubdomain%: MAIL FROM subdomain (e.g. bounce); %mailFromMx%: MX target hostname; %mailFromPriority%: MX priority; %spfInclude%: SPF include domain",
+  "description": "Configures the DNS records required to send email with Apollo Signal when DKIM uses CNAME selectors: three CNAME DKIM records, MAIL FROM MX, SPF for the bounce subdomain, and DMARC. Apply apollodeploy.com.signal-click-tracking separately to enable open/click tracking.",
+  "variableDescription": "%dkimSelector1%, %dkimSelector2%, %dkimSelector3%: DKIM selector labels; %dkimPointsTo1%, %dkimPointsTo2%, %dkimPointsTo3%: CNAME target hostnames; %mailFromSubdomain%: MAIL FROM subdomain (e.g. bounce); %mailFromMx%: MX target hostname; %mailFromPriority%: MX priority; %spfInclude%: SPF include domain; %dmarcPolicy%: DMARC policy (none|quarantine|reject); %dmarcRuaEmail%: DMARC aggregate report email",
   "syncPubKeyDomain": "keys.apollodeploy.com",
   "syncRedirectDomain": "signal.apollodeploy.com",
   "syncBlock": false,
   "records": [
     {
+      "groupId": "dkim",
       "type": "CNAME",
-      "host": "%dkimSelector%._domainkey",
-      "pointsTo": "%dkimPointsTo%",
+      "host": "%dkimSelector1%._domainkey",
+      "pointsTo": "%dkimPointsTo1%",
       "ttl": 3600
     },
     {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimSelector2%._domainkey",
+      "pointsTo": "%dkimPointsTo2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimSelector3%._domainkey",
+      "pointsTo": "%dkimPointsTo3%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
       "type": "MX",
       "host": "%mailFromSubdomain%",
       "pointsTo": "%mailFromMx%",
@@ -25,10 +41,21 @@
       "ttl": 3600
     },
     {
+      "groupId": "outbound",
       "type": "SPFM",
       "host": "%mailFromSubdomain%",
       "spfRules": "include:%spfInclude%",
       "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "essential": "OnApply",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%dmarcPolicy%; pct=100; rua=mailto:%dmarcRuaEmail%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
     }
   ]
 }
