@@ -1,0 +1,62 @@
+{
+  "providerId": "senderz.app",
+  "providerName": "Senderz",
+  "serviceId": "mail-basic",
+  "serviceName": "Mail (basic)",
+  "version": 1,
+  "syncPubKeyDomain": "senderz.app",
+  "syncRedirectDomain": "senderz.app",
+  "syncBlock": false,
+  "hostRequired": false,
+  "description": "Enable email authentication and tracking for Senderz without Amazon SES Easy-DKIM CNAMEs.",
+  "variableDescription": "%dkimSelector%: DKIM selector; %domainKey1..7%: KMS DKIM public key chunks (concatenated in the TXT record); %dmarcValue%: Full DMARC TXT value; %trackingSubdomain%: Tracking subdomain label; %trackingTarget%: Tracking CNAME target; %mailFromSubdomain%: MAIL-FROM subdomain label; %mxExchange%: SES feedback SMTP host",
+  "logoUrl": "https://senderz.app/logo-text-primary.png",
+  "records": [
+    {
+      "groupId": "authentication",
+      "type": "SPFM",
+      "host": "@",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "authentication",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "ttl": 3600,
+      "data": "v=DKIM1; k=rsa; p=%domainKey1%%domainKey2%%domainKey3%%domainKey4%%domainKey5%%domainKey6%%domainKey7%"
+    },
+    {
+      "groupId": "authentication",
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "%dmarcValue%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "%trackingSubdomain%",
+      "pointsTo": "%trackingTarget%",
+      "ttl": 300
+    },
+    {
+      "groupId": "returnPath",
+      "type": "SPFM",
+      "host": "%mailFromSubdomain%",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "returnPath",
+      "type": "MX",
+      "host": "%mailFromSubdomain%",
+      "pointsTo": "%mxExchange%",
+      "ttl": 3600,
+      "priority": 10
+    }
+  ]
+}
