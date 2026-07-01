@@ -2,18 +2,17 @@
   "providerId": "gofarther.dev",
   "providerName": "Go Farther",
   "serviceId": "email",
-  "serviceName": "Go Farther — send email from your domain (Sendra)",
-  "version": 1,
-  "description": "Adds the DNS records that let Go Farther / Sendra send email from your domain (Amazon SES DKIM + a DMARC policy).",
-  "variableDescription": "Your domain's three Amazon SES DKIM tokens.",
+  "serviceName": "Go Farther — send email from your domain",
+  "version": 2,
+  "description": "Adds the DNS records that let Go Farther send email from your domain: a DKIM key, an SPF include, and a DMARC policy.",
+  "variableDescription": "Your domain's DKIM public key (issued by Go Farther when you add the domain).",
   "syncBlock": false,
   "shared": false,
   "syncRedirectDomain": "gofarther.dev,lkpfeqrelvziltfwpuxi.supabase.co",
-  "syncPubKeyDomain": "gofarther.dev",
+  "syncPubKeyDomain": "gofarther.dev", 
   "records": [
-    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
-    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
-    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
-    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none;", "ttl": 3600 }
+    { "type": "TXT", "host": "s1._domainkey", "data": "v=DKIM1; k=rsa; p=%dkimp%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "SPFM", "host": "@", "spfRules": "include:_spf.gofarther.dev", "ttl": 3600 },
+    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none; rua=mailto:dmarc@gofarther.dev", "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "OnApply" }
   ]
 }
