@@ -1,0 +1,18 @@
+{
+  "providerId": "opalinkapp.com",
+  "providerName": "OPA! Connect",
+  "serviceId": "storefront-apex",
+  "serviceName": "OPA! Connect storefront (root domain)",
+  "version": 1,
+  "syncPubKeyDomain": "opalinkapp.com",
+  "description": "Point your root domain (e.g. yourbrand.com) at your OPA! Connect storefront.",
+  "variableDescription": "Connects your root domain to your OPA! Connect store via an A record.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    }
+  ]
+}
