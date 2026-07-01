@@ -9,6 +9,7 @@
   "syncBlock": false,
   "shared": false,
   "syncRedirectDomain": "gofarther.dev,lkpfeqrelvziltfwpuxi.supabase.co",
+  "syncPubKeyDomain": "gofarther.dev"
   "records": [
     { "type": "TXT", "host": "s1._domainkey", "data": "v=DKIM1; k=rsa; p=%dkimp%", "ttl": 3600, "txtConflictMatchingMode": "All" },
     { "type": "SPFM", "host": "@", "spfRules": "include:_spf.gofarther.dev", "ttl": 3600 },
