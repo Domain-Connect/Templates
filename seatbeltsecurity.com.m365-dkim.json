@@ -1,0 +1,29 @@
+{
+  "providerId": "seatbeltsecurity.com",
+  "providerName": "Seatbelt Security",
+  "serviceId": "m365-dkim",
+  "serviceName": "Microsoft 365 DKIM",
+  "description": "Publishes the two Microsoft 365 DKIM (selector1/selector2) CNAME records so Microsoft can sign your outbound email and it passes DMARC.",
+  "logoUrl": "https://seatbeltsecurity.com/marketing/seatbelt-logo-dc.png",
+  "version": 1,
+  "hostRequired": false,
+  "syncPubKeyDomain": "seatbeltsecurity.com",
+  "syncRedirectDomain": "seatbeltsecurity.com",
+  "variableDescription": "dkimtarget1 / dkimtarget2: the tenant-specific selector1 / selector2 CNAME targets read from Microsoft 365 (e.g. selector1-example-com._domainkey.<tenant>.<n>-v1.dkim.mail.microsoft). Not derivable from the domain name.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%dkimtarget1%",
+      "ttl": 3600,
+      "groupId": "m365-dkim"
+    },
+    {
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%dkimtarget2%",
+      "ttl": 3600,
+      "groupId": "m365-dkim"
+    }
+  ]
+}
