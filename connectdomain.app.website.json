@@ -1,0 +1,25 @@
+{
+    "providerId": "connectdomain.app",
+    "providerName": "Connect Domain",
+    "serviceId": "website",
+    "serviceName": "Website",
+    "version": 1,
+    "logoUrl": "https://connectdomain.app/logo.svg",
+    "description": "Connects a domain to a website served through the Connect Domain edge",
+    "syncPubKeyDomain": "connectdomain.app",
+    "syncRedirectDomain": "api.connectdomain.app,app.connectdomain.app,connectdomain.app",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "54.152.166.195",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "edge.connectdomain.app",
+            "ttl": 3600
+        }
+    ]
+}
