@@ -1,0 +1,21 @@
+{
+  "providerId": "xonark.com",
+  "providerName": "Xonark",
+  "serviceId": "aeo",
+  "serviceName": "Xona AEO",
+  "version": 1,
+  "logoUrl": "https://aeo.xonark.com/logo.png",
+  "description": "Serves your existing website through the Xona AEO edge so AI assistants (ChatGPT, Perplexity, Google AI) can read and recommend your business. One CNAME; your site keeps working exactly as before, fail-open.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "xonark.com",
+  "syncRedirectDomain": "aeo.xonark.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.xonark.com",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
