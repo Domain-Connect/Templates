@@ -1,0 +1,28 @@
+{
+    "providerId": "clonadorpro.com",
+    "providerName": "Clonador Pro",
+    "serviceId": "cloaker",
+    "serviceName": "Clonador Pro Elite Cloaker",
+    "version": 1,
+    "logoUrl": "https://clonadorpro.com/icon.png",
+    "description": "Configura o teu domínio para utilizar o motor de camuflagem e proteção do Clonador Pro.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "",
+    "syncRedirectDomain": "clonadorpro.com",
+    "warnPhishing": true,
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "76.76.21.21",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "cname.vercel-dns.com",
+            "ttl": 3600
+        }
+    ]
+}
