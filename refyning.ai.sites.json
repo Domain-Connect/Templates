@@ -1,0 +1,18 @@
+{
+  "providerId": "refyning.ai",
+  "providerName": "Refyning",
+  "serviceId": "sites",
+  "serviceName": "Refyning Sites",
+  "version": 1,
+  "logoUrl": "https://refyning.ai/favicon.svg",
+  "description": "Connects your domain to your site hosted on Refyning (www CNAME).",
+  "syncPubKeyDomain": "refyning.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.refyning.ai",
+      "ttl": 3600
+    }
+  ]
+}
