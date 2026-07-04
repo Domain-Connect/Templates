@@ -1,0 +1,43 @@
+{
+  "providerId": "flowtag.dev",
+  "providerName": "Flowtag",
+  "serviceId": "status-page-subdomain",
+  "serviceName": "Flowtag Status Page (Subdomain)",
+  "version": 1,
+  "logoUrl": "https://flowtag.dev/icon.svg",
+  "description": "Connect a subdomain (e.g. status.example.com) to a Flowtag status page.",
+  "variableDescription": "verify-token is the per-status-page ownership token. ipv4 and ipv6 are Flowtag status page anycast addresses when using A/AAAA routing instead of CNAME.",
+  "syncPubKeyDomain": "domainconnect.flowtagservices.com",
+  "syncRedirectDomain": "flowtag.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "__flowtag",
+      "data": "flowtag-verify=%verify-token%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname",
+      "host": "@",
+      "pointsTo": "status.flowtagservices.com",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "groupId": "a",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 600
+    },
+    {
+      "type": "AAAA",
+      "groupId": "aaaa",
+      "host": "@",
+      "pointsTo": "%ipv6%",
+      "ttl": 600
+    }
+  ]
+}
