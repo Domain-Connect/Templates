@@ -4,7 +4,7 @@
   "serviceId": "status-page-subdomain",
   "serviceName": "Flowtag Status Page (Subdomain)",
   "version": 1,
-  "logoUrl": "https://flowtag.dev/icon.svg",
+  "logoUrl": "https://flowtag.dev/icon.png",
   "description": "Connect a subdomain (e.g. status.example.com) to a Flowtag status page.",
   "variableDescription": "verify-token is the per-status-page ownership token. ipv4 and ipv6 are Flowtag status page anycast addresses when using A/AAAA routing instead of CNAME.",
   "syncPubKeyDomain": "domainconnect.flowtagservices.com",
