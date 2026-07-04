@@ -6,10 +6,10 @@
 	"version": 1,
 	"syncBlock": false,
 	"logoUrl": "https://reply.cv/icon-512.png",
-	"description": "Sets up sending and receiving email on your domain with reply.cv: DKIM signing, inbound MX, SPF, and DMARC.",
+	"description": "Sets up sending and receiving email on your domain with reply.cv: DKIM signing, inbound MX, SPF (SPFM merge), and DMARC.",
+	"variableDescription": "%dkimtarget%: the DKIM CNAME target supplied by reply.cv (a full hostname). %mxtarget%: the inbound MX host (a full hostname). %mailfrommx%: the custom MAIL FROM MX host (a full hostname).",
 	"syncRedirectDomain": "reply.cv",
 	"syncPubKeyDomain": "reply.cv",
-	"warnPhishing": true,
 	"records": [
 		{
 			"groupId": "dkim",
@@ -36,9 +36,9 @@
 		},
 		{
 			"groupId": "mailfrom",
-			"type": "TXT",
+			"type": "SPFM",
 			"host": "mail",
-			"data": "v=spf1 include:spf.reply.cv ~all",
+			"spfRules": "include:spf.reply.cv",
 			"ttl": 3600
 		},
 		{
@@ -46,7 +46,10 @@
 			"type": "TXT",
 			"host": "_dmarc",
 			"data": "v=DMARC1; p=none; rua=mailto:dmarc@reply.cv",
-			"ttl": 3600
+			"ttl": 3600,
+			"essential": "OnApply",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1"
 		}
 	]
 }
