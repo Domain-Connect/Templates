@@ -12,7 +12,7 @@
     {
       "type": "TXT",
       "groupId": "subdomain-verification",
-      "host": "__flowtag.%subdomain%",
+      "host": "__flowtag",
       "data": "flowtag-verify=%verify-token%",
       "ttl": 600
     },
@@ -26,21 +26,21 @@
     {
       "type": "CNAME",
       "groupId": "cname",
-      "host": "%subdomain%",
+      "host": "@",
       "pointsTo": "status.flowtagservices.com",
       "ttl": 600
     },
     {
       "type": "A",
       "groupId": "a",
-      "host": "%subdomain%",
+      "host": "@",
       "pointsTo": "%ipv4%",
       "ttl": 600
     },
     {
       "type": "AAAA",
       "groupId": "aaaa",
-      "host": "%subdomain%",
+      "host": "@",
       "pointsTo": "%ipv6%",
       "ttl": 600
     }
