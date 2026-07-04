@@ -1,0 +1,48 @@
+{
+  "providerId": "flowtag.dev",
+  "providerName": "Flowtag",
+  "serviceId": "status-page",
+  "serviceName": "Flowtag Status Page",
+  "version": 1,
+  "description": "Connect a custom domain to a Flowtag status page",
+  "syncPubKeyDomain": "domainconnect.flowtagservices.com",
+  "syncRedirectDomain": "flowtag.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "subdomain-verification",
+      "host": "__flowtag.%subdomain%",
+      "data": "flowtag-verify=%verify-token%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "groupId": "apex-verification",
+      "host": "__flowtag",
+      "data": "flowtag-verify=%verify-token%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname",
+      "host": "%subdomain%",
+      "pointsTo": "status.flowtagservices.com",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "groupId": "a",
+      "host": "%subdomain%",
+      "pointsTo": "%ipv4%",
+      "ttl": 600
+    },
+    {
+      "type": "AAAA",
+      "groupId": "aaaa",
+      "host": "%subdomain%",
+      "pointsTo": "%ipv6%",
+      "ttl": 600
+    }
+  ]
+}
