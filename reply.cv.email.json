@@ -1,0 +1,52 @@
+{
+	"providerId": "reply.cv",
+	"providerName": "reply.cv",
+	"serviceId": "email",
+	"serviceName": "reply.cv Email",
+	"version": 1,
+	"syncBlock": false,
+	"logoUrl": "https://reply.cv/icon-512.png",
+	"description": "Sets up sending and receiving email on your domain with reply.cv: DKIM signing, inbound MX, SPF, and DMARC.",
+	"syncRedirectDomain": "reply.cv",
+	"syncPubKeyDomain": "reply.cv",
+	"warnPhishing": true,
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "reply._domainkey",
+			"pointsTo": "%dkimtarget%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "mx",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "%mxtarget%",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "mailfrom",
+			"type": "MX",
+			"host": "mail",
+			"pointsTo": "%mailfrommx%",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "mailfrom",
+			"type": "TXT",
+			"host": "mail",
+			"data": "v=spf1 include:spf.reply.cv ~all",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dmarc",
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "v=DMARC1; p=none; rua=mailto:dmarc@reply.cv",
+			"ttl": 3600
+		}
+	]
+}
