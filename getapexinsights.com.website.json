@@ -6,8 +6,8 @@
     "version": 1,
     "description": "Connect your domain to your website hosted by Apex Insights.",
     "syncBlock": false,
+    "syncPubKeyDomain": "getapexinsights.com",
     "syncRedirectDomain": "getapexinsights.com",
-    "warnPhishing": true,
     "records": [
         {
             "type": "A",
