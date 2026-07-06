@@ -6,11 +6,10 @@
   "version": 1,
   "logoUrl": "https://app.mailsoftly.com/mailsoftly_dark_logo.png",
   "description": "Authenticates your domain for sending email with Mailsoftly: DKIM, SPF, custom MAIL FROM and DMARC.",
-  "variableDescription": "dkim1/dkim2/dkim3 are the Amazon SES DKIM tokens generated for the domain; byodkimvalue is the DKIM public key TXT value; mailfrom is the custom MAIL FROM subdomain (default: news).",
+  "variableDescription": "dkim1/dkim2/dkim3 are the Amazon SES DKIM tokens generated for the domain; byodkimvalue is the DKIM public key TXT value.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.mailsoftly.com",
   "syncRedirectDomain": "app.mailsoftly.com",
-  "warnPhishing": true,
   "hostRequired": false,
   "records": [
     {
@@ -67,14 +66,14 @@
     {
       "groupId": "mailfrom",
       "type": "SPFM",
-      "host": "%mailfrom=news%",
+      "host": "news",
       "spfRules": "include:amazonses.com",
       "ttl": 3600
     },
     {
       "groupId": "mailfrom",
       "type": "MX",
-      "host": "%mailfrom=news%",
+      "host": "news",
       "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
       "priority": 10,
       "ttl": 3600
@@ -86,7 +85,8 @@
       "data": "v=DMARC1; p=none;",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1"
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     }
   ]
 }
