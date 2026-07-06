@@ -1,0 +1,67 @@
+{
+  "providerId": "trunktransfer.com",
+  "providerName": "TrunkTransfer",
+  "serviceId": "custom-domain",
+  "serviceName": "TrunkTransfer Custom Domain",
+  "version": 1,
+  "logoUrl": "https://trunktransfer.com/logo.png",
+  "description":
+    "Connect your domain to TrunkTransfer for branded file delivery",
+  "syncPubKeyDomain": "domainconnect.trunktransfer.com",
+  "syncRedirectDomain": "trunktransfer.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "fallback.trunktransfer.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "%cf_own_name%",
+      "data": "%cf_own_value%",
+      "ttl": 300,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "%cf_ssl_name%",
+      "data": "%cf_ssl_value%",
+      "ttl": 300,
+      "essential": "OnApply"
+    }
+  ],
+  "variables": [
+    {
+      "name": "host",
+      "dataType": "STRING",
+      "required": true,
+      "description": "Delivery subdomain (e.g. files)"
+    },
+    {
+      "name": "cf_own_name",
+      "dataType": "STRING",
+      "required": true,
+      "description": "Cloudflare ownership record host (relative)"
+    },
+    {
+      "name": "cf_own_value",
+      "dataType": "STRING",
+      "required": true,
+      "description": "Cloudflare ownership record value"
+    },
+    {
+      "name": "cf_ssl_name",
+      "dataType": "STRING",
+      "required": false,
+      "description": "Cloudflare SSL TXT record host (relative)"
+    },
+    {
+      "name": "cf_ssl_value",
+      "dataType": "STRING",
+      "required": false,
+      "description": "Cloudflare SSL TXT record value"
+    }
+  ]
+}
