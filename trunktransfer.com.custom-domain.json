@@ -31,37 +31,5 @@
       "ttl": 300,
       "essential": "OnApply"
     }
-  ],
-  "variables": [
-    {
-      "name": "host",
-      "dataType": "STRING",
-      "required": true,
-      "description": "Delivery subdomain (e.g. files)"
-    },
-    {
-      "name": "cf_own_name",
-      "dataType": "STRING",
-      "required": true,
-      "description": "Cloudflare ownership record host (relative)"
-    },
-    {
-      "name": "cf_own_value",
-      "dataType": "STRING",
-      "required": true,
-      "description": "Cloudflare ownership record value"
-    },
-    {
-      "name": "cf_ssl_name",
-      "dataType": "STRING",
-      "required": false,
-      "description": "Cloudflare SSL TXT record host (relative)"
-    },
-    {
-      "name": "cf_ssl_value",
-      "dataType": "STRING",
-      "required": false,
-      "description": "Cloudflare SSL TXT record value"
-    }
   ]
 }
