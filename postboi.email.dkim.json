@@ -6,7 +6,7 @@
 	"version": 1,
 	"logoUrl": "https://raw.githubusercontent.com/darbymanning/postboi/refs/heads/main/static/logo.svg",
 	"description": "Verifies your domain for sending with Postboi by adding three Amazon SES DKIM CNAME records.",
-	"syncPubKeyDomain": "_dc.postboi.email",
+	"syncPubKeyDomain": "postboi.email",
 	"syncRedirectDomain": "postboi.email",
 	"syncBlock": false,
 	"shared": false,
