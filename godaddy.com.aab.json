@@ -28,9 +28,9 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "v=spf1 include:secureserver.net -all",
+      "spfRules": "include:secureserver.net",
       "ttl": 3600
     },
     {
