@@ -30,8 +30,7 @@
     {
       "type": "SPFM",
       "host": "@",
-      "spfRules": "include:secureserver.net",
-      "ttl": 3600
+      "spfRules": "include:secureserver.net"
     },
     {
       "type": "CNAME",
@@ -48,6 +47,9 @@
     {
       "type": "TXT",
       "host": "_dmarc",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;",
       "data": "v=DMARC1; p=reject; rua=mailto:dmarc_rua@onsecureserver.net; adkim=r; aspf=r;",
       "ttl": 3600
     }
