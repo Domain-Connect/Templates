@@ -1,0 +1,37 @@
+{
+	"providerId": "postboi.email",
+	"providerName": "Postboi",
+	"serviceId": "dkim",
+	"serviceName": "Postboi domain verification (DKIM)",
+	"version": 1,
+	"logoUrl": "https://raw.githubusercontent.com/darbymanning/postboi/refs/heads/main/static/logo.svg",
+	"description": "Verifies your domain for sending with Postboi by adding three Amazon SES DKIM CNAME records.",
+	"syncPubKeyDomain": "_dc.postboi.email",
+	"syncRedirectDomain": "postboi.email",
+	"syncBlock": false,
+	"shared": false,
+	"hostRequired": false,
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkim1%._domainkey",
+			"pointsTo": "%dkim1%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkim2%._domainkey",
+			"pointsTo": "%dkim2%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkim3%._domainkey",
+			"pointsTo": "%dkim3%.dkim.amazonses.com",
+			"ttl": 3600
+		}
+	]
+}
