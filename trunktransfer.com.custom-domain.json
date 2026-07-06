@@ -9,6 +9,7 @@
     "Connect your domain to TrunkTransfer for branded file delivery",
   "syncPubKeyDomain": "domainconnect.trunktransfer.com",
   "syncRedirectDomain": "trunktransfer.com",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
