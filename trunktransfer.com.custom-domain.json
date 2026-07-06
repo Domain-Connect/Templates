@@ -12,7 +12,7 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "%record_host%",
       "pointsTo": "fallback.trunktransfer.com",
       "ttl": 3600,
       "essential": "Always"
