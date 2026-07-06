@@ -1,0 +1,92 @@
+{
+  "providerId": "mailsoftly.com",
+  "providerName": "Mailsoftly",
+  "serviceId": "email-auth",
+  "serviceName": "Mailsoftly Email Authentication",
+  "version": 1,
+  "logoUrl": "https://app.mailsoftly.com/mailsoftly_dark_logo.png",
+  "description": "Authenticates your domain for sending email with Mailsoftly: DKIM, SPF, custom MAIL FROM and DMARC.",
+  "variableDescription": "dkim1/dkim2/dkim3 are the Amazon SES DKIM tokens generated for the domain; byodkimvalue is the DKIM public key TXT value; mailfrom is the custom MAIL FROM subdomain (default: news).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.mailsoftly.com",
+  "syncRedirectDomain": "app.mailsoftly.com",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "byodkim",
+      "type": "TXT",
+      "host": "mailsoftly._domainkey",
+      "data": "p=%byodkimvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p="
+    },
+    {
+      "groupId": "delivery",
+      "type": "CNAME",
+      "host": "ms101",
+      "pointsTo": "ms101.%fqdn%.mailsoftly.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "delivery",
+      "type": "CNAME",
+      "host": "s1._domainkey",
+      "pointsTo": "s1._domainkey.%fqdn%.mailsoftly.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "delivery",
+      "type": "CNAME",
+      "host": "s2._domainkey",
+      "pointsTo": "s2._domainkey.%fqdn%.mailsoftly.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "%mailfrom=news%",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "%mailfrom=news%",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
