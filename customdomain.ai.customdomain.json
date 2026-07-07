@@ -1,22 +1,20 @@
 {
-  "providerId": "customdomain.ai",
-  "providerName": "justeasy",
-  "serviceId": "customdomain",
-  "serviceName": "Custom Domain Connect",
-  "version": 1,
-  "logoUrl": "https://customdomain.ai/logos/customdomain.svg",
-  "description": "Point this host at the justeasy edge so your custom domain serves the connected application with automatic SSL.",
-  "syncPubKeyDomain": "customdomain.ai",
-  "syncRedirectDomain": "customdomain.ai",
-  "sharedProviderName": true,
-  "hostRequired": true,
-  "records": [
-    {
-      "type": "CNAME",
-      "host": "@",
-      "pointsTo": "edge.customdomain.ai",
-      "ttl": 3600,
-      "groupId": "a1"
-    }
-  ]
+    "providerId": "customdomain.ai",
+    "providerName": "Customdomain",
+    "serviceId": "customdomain",
+    "serviceName": "Custom domain",
+    "version": 1,
+    "logoUrl": "https://customdomain.ai/logo.svg",
+    "description": "Points this host at the Customdomain edge so the custom domain serves the connected application with automatic SSL",
+    "syncPubKeyDomain": "customdomain.ai",
+    "syncRedirectDomain": "api.customdomain.ai,app.customdomain.ai,customdomain.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "edge.customdomain.ai",
+            "ttl": 3600
+        }
+    ]
 }
