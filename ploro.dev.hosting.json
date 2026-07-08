@@ -1,0 +1,20 @@
+{
+	"providerId": "ploro.dev",
+	"providerName": "Ploro",
+	"serviceId": "hosting",
+	"serviceName": "App hosting",
+	"version": 1,
+	"logoUrl": "https://ploro.dev/favicon.ico",
+	"description": "Connects a domain to an app built on Ploro: routes traffic to the app and pre-validates its HTTPS certificate.",
+	"variableDescription": "target: the Cloudflare-for-SaaS routing hostname the CNAME points to. owntxt: the custom-hostname ownership token. dcv1/dcv2: the ACME (DCV) certificate-validation tokens. All four values are issued per hostname by Ploro and passed on the apply URL.",
+	"warnPhishing": true,
+	"syncBlock": false,
+	"syncRedirectDomain": "ploro.dev",
+	"hostRequired": true,
+	"records": [
+		{ "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 3600 },
+		{ "type": "TXT", "host": "_cf-custom-hostname", "data": "%owntxt%", "ttl": 600, "txtConflictMatchingMode": "All" },
+		{ "type": "TXT", "host": "_acme-challenge", "data": "%dcv1%", "ttl": 600, "txtConflictMatchingMode": "All" },
+		{ "type": "TXT", "host": "_acme-challenge", "data": "%dcv2%", "ttl": 600, "txtConflictMatchingMode": "All" }
+	]
+}
