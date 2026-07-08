@@ -1,0 +1,19 @@
+{
+  "providerId": "customdomain.ai",
+  "providerName": "Customdomain",
+  "serviceId": "subdomain",
+  "serviceName": "Point a subdomain",
+  "version": 1,
+  "logoUrl": "https://customdomain.ai/logo.svg",
+  "description": "Point a chosen subdomain (for example app or shop) at Customdomain with a CNAME to the Customdomain edge. You pick the subdomain label during setup and Customdomain places the record at that host.",
+  "syncPubKeyDomain": "customdomain.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.customdomain.ai",
+      "ttl": 3600
+    }
+  ]
+}
