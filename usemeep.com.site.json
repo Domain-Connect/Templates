@@ -1,0 +1,22 @@
+{
+  "providerId": "usemeep.com",
+  "providerName": "Meep",
+  "serviceId": "site",
+  "serviceName": "Meep Website",
+  "version": 1,
+  "logoUrl": "https://usemeep.com/favicon.svg",
+  "description": "Points your domain's website record at your Meep site. Email and other records are not touched.",
+  "variableDescription": "host is the subdomain (e.g. www) that will serve the Meep site.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.usemeep.com",
+  "syncRedirectDomain": "usemeep.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "meep-sites.pages.dev",
+      "ttl": 3600
+    }
+  ]
+}
