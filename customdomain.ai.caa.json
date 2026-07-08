@@ -1,0 +1,26 @@
+{
+  "providerId": "customdomain.ai",
+  "providerName": "Customdomain",
+  "serviceId": "caa",
+  "serviceName": "Authorize SSL issuance (CAA)",
+  "version": 1,
+  "logoUrl": "https://customdomain.ai/logo.svg",
+  "description": "Authorize Let's Encrypt to issue TLS certificates for your domain by adding the CAA records automatic SSL requires. Without these records, a pre-existing CAA policy on your domain can silently block certificate issuance.",
+  "syncPubKeyDomain": "customdomain.ai",
+  "records": [
+    {
+      "type": "CAA",
+      "host": "@",
+      "data": "0 issue \"letsencrypt.org\"",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CAA",
+      "host": "@",
+      "data": "0 issuewild \"letsencrypt.org\"",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
