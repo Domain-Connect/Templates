@@ -1,0 +1,21 @@
+{
+    "providerId": "nouncify",
+    "providerName": "Nouncify",
+    "serviceId": "brand-profile",
+    "serviceName": "Nouncify Brand Profile",
+    "version": 1,
+    "description": "Connect your custom subdomain to your Nouncify Brand Profile.",
+    "variableDescription": "Configure the subdomain to point to Nouncify.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "nouncify.com",
+    "syncRedirectDomain": "nouncify.com",
+    "warnMessage": "This will change the DNS settings for your subdomain to point to Nouncify.",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "custom.nouncify.com",
+            "ttl": 3600
+        }
+    ]
+}
