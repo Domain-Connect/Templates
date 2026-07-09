@@ -15,7 +15,7 @@
       "type": "SRV",
       "service": "_minecraft",
       "protocol": "_tcp",
-      "name": "",
+      "name": "@",
       "priority": 0,
       "weight": 0,
       "port": "%port%",
