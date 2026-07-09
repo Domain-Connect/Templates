@@ -5,7 +5,7 @@
   "serviceName": "Xona AEO (root domain)",
   "version": 1,
   "logoUrl": "https://aeo.xonark.com/logo.png",
-  "description": "Serves your existing website through the Xona AEO edge so AI assistants (ChatGPT, Perplexity, Google AI) can read and recommend your business. Points the root domain (@) at the Xona edge with a flattened apex alias (APEXCNAME) — for DNS providers that support CNAME flattening (ALIAS/ANAME) at the apex. Your site keeps working exactly as before, fail-open.",
+  "description": "Serves your existing website through the Xona AEO edge so AI assistants (ChatGPT, Perplexity, Google AI) can read and recommend your business. Points the root domain (@) at the Xona edge with a flattened apex alias (APEXCNAME) for DNS providers that support CNAME flattening (ALIAS/ANAME) at the apex. Your site keeps working exactly as before, fail-open.",
   "syncBlock": false,
   "syncPubKeyDomain": "xonark.com",
   "syncRedirectDomain": "aeo.xonark.com",
