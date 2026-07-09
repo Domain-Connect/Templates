@@ -10,6 +10,7 @@
     "syncPubKeyDomain": "nouncify.com",
     "syncRedirectDomain": "nouncify.com",
     "warnMessage": "This will change the DNS settings for your subdomain to point to Nouncify.",
+    "hostRequired": true,
     "records": [
         {
             "type": "CNAME",
