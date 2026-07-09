@@ -20,14 +20,14 @@
     },
     {
       "type": "TXT",
-      "host": "%cf_own_name%",
+      "host": "_cf-custom-hostname",
       "data": "%cf_own_value%",
       "ttl": 300,
       "essential": "Always"
     },
     {
       "type": "TXT",
-      "host": "%cf_ssl_name%",
+      "host": "_acme-challenge",
       "data": "%cf_ssl_value%",
       "ttl": 300,
       "essential": "OnApply"
