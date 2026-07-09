@@ -1,0 +1,20 @@
+{
+  "providerId": "customdomain.ai",
+  "providerName": "Customdomain",
+  "serviceId": "email-mx",
+  "serviceName": "Email MX",
+  "version": 1,
+  "logoUrl": "https://customdomain.ai/logo.svg",
+  "description": "Route inbound mail for this domain to your mail provider by publishing an MX record at the apex. The record directs delivery to the provider's mail host at priority 10.",
+  "syncPubKeyDomain": "customdomain.ai",
+  "variableDescription": "%mxHost%: Mail host your provider receives inbound mail at (the MX target).",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxHost%",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

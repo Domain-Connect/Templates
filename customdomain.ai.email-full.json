@@ -1,0 +1,44 @@
+{
+  "providerId": "customdomain.ai",
+  "providerName": "Customdomain",
+  "serviceId": "email-full",
+  "serviceName": "Full email setup",
+  "version": 1,
+  "logoUrl": "https://customdomain.ai/logo.svg",
+  "description": "Configure this domain for a mail provider in one step: route inbound mail (MX), authorize sending by merging an SPF include, publish the DKIM selector CNAME for signing, and add a starter DMARC monitoring policy. All records apply together as one group.",
+  "syncPubKeyDomain": "customdomain.ai",
+  "variableDescription": "%mxHost%: Mail host your provider receives inbound mail at (the MX target). %spfInclude%: SPF include domain for your outbound mail provider (the value placed after include:). %dkimSelector%: DKIM selector label your mail provider assigned (placed before ._domainkey). %dkimTarget%: Hostname your mail provider hosts the DKIM public key at (the CNAME target). %dmarcRua%: Email address that DMARC aggregate (rua) reports are sent to.",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxHost%",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "email"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%spfInclude%",
+      "ttl": 3600,
+      "groupId": "email"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimSelector%._domainkey",
+      "pointsTo": "%dkimTarget%",
+      "ttl": 3600,
+      "groupId": "email"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%dmarcRua%",
+      "ttl": 3600,
+      "groupId": "email",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

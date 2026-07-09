@@ -3,10 +3,10 @@
   "providerName": "GoDaddy",
   "serviceId": "aab",
   "serviceName": "Airo App Builder",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2020/02/godaddy_logo_new.png",
   "description": "Enables a domain to work with GoDaddy Airo App Builder",
-  "variableDescription": "v1 is the IP address of the server. dcv is the certificate validation CNAME value for SSL provisioning.",
+  "variableDescription": "v1 is the IP address of the server. dcv is the certificate validation CNAME value for SSL provisioning. dkimSuffix is the domain-specific DKIM identifier (e.g. example_com.c98).",
   "syncPubKeyDomain": "domain-attach.api.godaddy.com",
   "records": [
     {
@@ -25,6 +25,32 @@
       "pointsTo": "%dcv%",
       "type": "CNAME",
       "host": "_acme-challenge",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:secureserver.net"
+    },
+    {
+      "type": "CNAME",
+      "host": "secureserver1._domainkey",
+      "pointsTo": "s1.dkim.%dkimSuffix%.onsecureserver.net",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "secureserver2._domainkey",
+      "pointsTo": "s2.dkim.%dkimSuffix%.onsecureserver.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;",
+      "data": "v=DMARC1; p=reject; rua=mailto:dmarc_rua@onsecureserver.net; adkim=r; aspf=r;",
       "ttl": 3600
     }
   ]
