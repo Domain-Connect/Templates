@@ -1,0 +1,27 @@
+{
+  "providerId": "vproxy.cloud",
+  "providerName": "AtomRoute Global Network",
+  "serviceId": "gamecloud-java",
+  "serviceName": "Minecraft Game Server (Java Edition)",
+  "version": 1,
+  "logoUrl": "https://vproxy.cloud/vProxyCloud-Logo.png",
+  "description": "Connect your domain to your vProxy Cloud gamecloud (Minecraft Java Edition, SRV record).",
+  "variableDescription": "target = game server hostname, port = game server port",
+  "syncBlock": false,
+  "syncPubKeyDomain": "v1.domainconnect.vproxy.cloud",
+  "syncRedirectDomain": "cocodigit.com,vproxy.cloud,atomroute.com",
+  "records": [
+    {
+      "type": "SRV",
+      "service": "_minecraft",
+      "protocol": "_tcp",
+      "name": "",
+      "priority": 0,
+      "weight": 0,
+      "port": "%port%",
+      "target": "%target%",
+      "ttl": 300,
+      "essential": "Always"
+    }
+  ]
+}
