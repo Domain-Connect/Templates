@@ -1,11 +1,11 @@
 {
 	"providerId": "postboi.email",
 	"providerName": "Postboi",
-	"serviceId": "dkim",
-	"serviceName": "Postboi domain verification (DKIM + MAIL FROM)",
-	"version": 2,
+	"serviceId": "dkim-dmarc",
+	"serviceName": "Postboi domain verification (DKIM + MAIL FROM + DMARC)",
+	"version": 1,
 	"logoUrl": "https://raw.githubusercontent.com/postboi-mail/postboi/refs/heads/main/static/logo.svg",
-	"description": "Verifies your domain for sending with Postboi: three Amazon SES DKIM CNAME records, plus MX and SPF records on the bounce subdomain for an aligned MAIL FROM.",
+	"description": "Verifies your domain for sending with Postboi: three Amazon SES DKIM CNAME records, MX and SPF records on the bounce subdomain for an aligned MAIL FROM, and a starter DMARC monitoring policy. Postboi only offers this template for domains with no existing DMARC record.",
 	"syncPubKeyDomain": "postboi.email",
 	"syncRedirectDomain": "postboi.email",
 	"syncBlock": false,
@@ -41,6 +41,12 @@
 			"type": "TXT",
 			"host": "bounce",
 			"data": "v=spf1 include:amazonses.com ~all",
+			"ttl": 3600
+		},
+		{
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "v=DMARC1; p=none;",
 			"ttl": 3600
 		}
 	]
