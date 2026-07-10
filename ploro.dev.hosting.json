@@ -7,7 +7,7 @@
 	"logoUrl": "https://ploro.dev/favicon.ico",
 	"description": "Connects a domain to an app built on Ploro: routes traffic to the app and pre-validates its HTTPS certificate.",
 	"variableDescription": "target: the Cloudflare-for-SaaS routing hostname the CNAME points to. owntxt: the custom-hostname ownership token. dcv1/dcv2: the ACME (DCV) certificate-validation tokens. All four values are issued per hostname by Ploro and passed on the apply URL.",
-	"warnPhishing": true,
+	"syncPubKeyDomain": "ploro.dev",
 	"syncBlock": false,
 	"syncRedirectDomain": "ploro.dev",
 	"hostRequired": true,
