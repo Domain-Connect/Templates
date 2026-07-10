@@ -1,0 +1,26 @@
+{
+  "providerId": "advancedsending.com",
+  "providerName": "Advanced Sending Connect",
+  "serviceId": "cname",
+  "serviceName": "Custom domain (CNAME)",
+  "version": 1,
+  "logoUrl": "https://connect.advancedsending.com/static/logo.svg",
+  "description": "Points a subdomain at a hostname via a CNAME record — for custom domains, branded links, open/click tracking, CDNs and similar.",
+  "variableDescription": "%target%: the hostname the subdomain should point to. The subdomain label is supplied via the host parameter (hostRequired).",
+  "syncBlock": false,
+  "warnPhishing": false,
+  "hostRequired": true,
+  "sharedProviderName": true,
+  "sharedServiceName": true,
+  "syncRedirectDomain": "advancedsending.com",
+  "syncPubKeyDomain": "connect.advancedsending.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
