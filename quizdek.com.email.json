@@ -1,0 +1,20 @@
+{
+  "providerId": "quizdek.com",
+  "providerName": "Quizdek",
+  "serviceId": "email",
+  "serviceName": "Quizdek Email Link Tracking",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "quizdek.com",
+  "syncRedirectDomain": "quizdek.com,builder.betterly.academy",
+  "description": "Enables branded email link tracking for your Quizdek funnel emails.",
+  "variableDescription": "tracktarget is the email link-tracking endpoint host your Quizdek workspace uses.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "links",
+      "pointsTo": "%tracktarget%",
+      "ttl": 3600
+    }
+  ]
+}
