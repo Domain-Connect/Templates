@@ -4,7 +4,7 @@
 	"serviceId": "dkim",
 	"serviceName": "Postboi domain verification (DKIM + MAIL FROM)",
 	"version": 2,
-	"logoUrl": "https://raw.githubusercontent.com/postboi-mail/postboi/refs/heads/main/static/logo.svg",
+	"logoUrl": "https://postboi.email/logo.svg",
 	"description": "Verifies your domain for sending with Postboi: three Amazon SES DKIM CNAME records, plus MX and SPF records on the bounce subdomain for an aligned MAIL FROM.",
 	"syncPubKeyDomain": "postboi.email",
 	"syncRedirectDomain": "postboi.email",
@@ -38,10 +38,9 @@
 			"ttl": 3600
 		},
 		{
-			"type": "TXT",
+			"type": "SPFM",
 			"host": "bounce",
-			"data": "v=spf1 include:amazonses.com ~all",
-			"ttl": 3600
+			"spfRules": "include:amazonses.com"
 		}
 	]
 }
