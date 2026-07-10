@@ -8,7 +8,6 @@
   "description": "Points a subdomain at a hostname via a CNAME record — for custom domains, branded links, open/click tracking, CDNs and similar.",
   "variableDescription": "%target%: the hostname the subdomain should point to. The subdomain label is supplied via the host parameter (hostRequired).",
   "syncBlock": false,
-  "warnPhishing": false,
   "hostRequired": true,
   "sharedProviderName": true,
   "sharedServiceName": true,
