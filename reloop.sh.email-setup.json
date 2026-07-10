@@ -37,7 +37,7 @@
       "type": "MX",
       "host": "@",
       "pointsTo": "reloop.sh",
-      "priority": "10",
+      "priority": 10,
       "ttl": 3600
     },
     {
