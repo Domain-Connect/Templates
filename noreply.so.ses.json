@@ -8,7 +8,7 @@
     "description": "Enables sending email from your domain through NoReply: DKIM signing, a custom MAIL FROM subdomain, SPF authorization, and a DMARC policy.",
     "variableDescription": "%dkim1%, %dkim2%, %dkim3%: DKIM token CNAMEs issued for your domain; %region%: AWS SES region used for sending; %mailFromSubdomain%: subdomain used as the MAIL FROM address",
     "syncPubKeyDomain": "noreply.so",
-    "warnPhishing": false,
+    "syncRedirectDomain": "noreply.so",
     "records": [
         {
             "groupId": "dkim",
@@ -41,10 +41,10 @@
         },
         {
             "groupId": "mailfrom",
-            "type": "TXT",
+            "type": "SPFM",
             "host": "%mailFromSubdomain%",
             "ttl": "3600",
-            "data": "v=spf1 include:amazonses.com -all"
+            "spfRules": "include:amazonses.com"
         },
         {
             "groupId": "spf",
@@ -58,7 +58,9 @@
             "type": "TXT",
             "host": "_dmarc",
             "ttl": "3600",
-            "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%fqdn%; fo=1"
+            "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%fqdn%; fo=1",
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply"
         }
     ]
 }
