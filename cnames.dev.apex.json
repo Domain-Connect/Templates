@@ -1,0 +1,33 @@
+{
+  "providerId": "cnames.dev",
+  "providerName": "cnames.dev",
+  "serviceId": "apex",
+  "serviceName": "Connect a root domain",
+  "version": 1,
+  "logoUrl": "https://cnames.dev/logo.png",
+  "description": "Point a root/apex domain (example.com + www) at cnames.dev",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "cnames.dev",
+  "syncRedirectDomain": "app.cnames.dev",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%edge%",
+      "ttl": 300
+    }
+  ]
+}
