@@ -1,0 +1,32 @@
+{
+  "providerId": "quizdek.com",
+  "providerName": "Quizdek",
+  "serviceId": "hosting",
+  "serviceName": "Quizdek Quiz Hosting",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "quizdek.com",
+  "syncRedirectDomain": "quizdek.com,builder.betterly.academy",
+  "description": "Connects your domain to your Quizdek quiz funnel: the quiz host plus the first-party tracking gateways.",
+  "variableDescription": "ip is the IPv4 address of the Quizdek origin serving the quiz and tracking gateways.",
+  "records": [
+    {
+      "type": "A",
+      "host": "quiz",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "conversions",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "t",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}

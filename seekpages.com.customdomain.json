@@ -1,0 +1,25 @@
+{
+  "providerId": "seekpages.com",
+  "providerName": "SeekPages",
+  "serviceId": "customdomain",
+  "serviceName": "SeekPages Custom Domain",
+  "version": 1,
+  "description": "Connects your domain to your SeekPages site: www points at SeekPages and the root domain forwards to www.",
+  "logoUrl": "https://app.seekpages.com/logo-full.svg",
+  "syncPubKeyDomain": "seekpages.com",
+  "syncRedirectDomain": "app.seekpages.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.seekpages.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%domain%"
+    }
+  ]
+}
