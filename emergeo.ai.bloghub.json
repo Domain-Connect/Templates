@@ -1,0 +1,20 @@
+{
+  "providerId": "emergeo.ai",
+  "providerName": "Emergeo",
+  "serviceId": "bloghub",
+  "serviceName": "Emergeo Content Hub",
+  "version": 1,
+  "logoUrl": "https://emergeo.ai/icon-mark.png",
+  "description": "Connects your domain to your Emergeo AI-visibility content hub, published at blog.<yourdomain> so AI search engines cite your own domain.",
+  "syncBlock": false,
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "blog",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
