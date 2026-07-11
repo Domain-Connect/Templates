@@ -7,7 +7,7 @@
     "logoUrl": "https://smailor.com/logo.png",
     "description": "Configure DNS records for Smailor email routing and deliverability",
     "variableDescription": "%VERIFY_TOKEN%: domain ownership verification token; %DKIM_SELECTOR%: DKIM key selector; %DKIM_VALUE%: DKIM public key (base64 encoded)",
-    "syncPubKeyDomain": "smailor.com",
+    "syncPubKeyDomain": "domainconnect.smailor.com",
     "syncRedirectDomain": "smailor.com",
     "records": [
         {
@@ -53,4 +53,3 @@
         }
     ]
 }
- 
