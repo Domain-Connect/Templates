@@ -1,19 +1,18 @@
-{
-  "providerId": "mailname.top",
-  "providerName": "Mailname",
-  "serviceId": "email",
-  "serviceName": "Mailname 企业邮箱",
-  "version": 1,
-  "logoUrl": "https://mailname.top/logo.svg",
-  "description": "一键为你的域名配置 Mailname 邮箱（MX / SPF / DKIM / DMARC）",
-  "variableDescription": "邮箱子域、投递主机与签名密钥",
-  "syncBlock": false,
-  "warnPhishing": true,
-  "records": [
-    { "type": "MX",   "host": "%mailsub%",        "pointsTo": "%mailhost%", "priority": 10, "ttl": 3600 },
-    { "type": "SPFM", "host": "%mailsub%",        "spfRules": "mx include:%mailhost%",        "ttl": 3600 },
-    { "type": "TXT",  "host": "%dkimhost%",       "data": "%dkimval%",                        "ttl": 3600 },
-    { "type": "TXT",  "host": "_dmarc.%mailsub%", "data": "%dmarc%",                          "ttl": 3600 },
-    { "type": "TXT",  "host": "%mailsub%",        "data": "%verify%",                         "ttl": 3600 }
-  ]
-}
+{                                                                                                                                                                                                                                                                                                                 
+  "providerId": "mailname.top",                                                                                                                                                                                                                                                                                   
+  "providerName": "Mailname",                                                                                                                                                                                                                                                                                     
+  "serviceId": "email",                                                                                                                                                                                                                                                                                           
+  "serviceName": "Mailname Email",                                                                                                                                                                                                                                                                                
+  "version": 1,                                                                                                                                                                                                                                                                                                   
+  "logoUrl": "https://mailname.top/logo.svg",                                                                                                                                                                                                                                                                     
+  "description": "Set up Mailname email (MX, SPF, DKIM, DMARC) on your domain",                                                                                                                                                                                                                                   
+  "syncPubKeyDomain": "mailname.top",                                                                                                                                                                                                                                                                             
+  "syncRedirectDomain": "admin.mailname.top",                                                                                                                                                                                                                                                                     
+  "records": [                                                                                                                                                                                                                                                                                                    
+    { "type": "MX",   "host": "mail", "pointsTo": "mail.mailname.top", "priority": 10, "ttl": 3600 },                                                                                                                                                                                                             
+    { "type": "SPFM", "host": "mail", "spfRules": "mx include:mailname.top", "ttl": 3600 },                                                                                                                                                                                                                       
+    { "type": "TXT",  "host": "%dkimselector%._domainkey.mail", "data": "v=DKIM1; k=rsa; p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All" },                                                                                                                                                           
+    { "type": "TXT",  "host": "_dmarc.mail", "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%", "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "OnApply" },                                                                                                                           
+    { "type": "TXT",  "host": "mail", "data": "mailname-verify=%verifytoken%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "mailname-verify=" }                                                                                                                                
+  ]                                                                                                                                                                                                                                                                                                               
+} 
