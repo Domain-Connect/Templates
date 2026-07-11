@@ -1,0 +1,29 @@
+{
+  "providerId": "nexusbuild.ai",
+  "providerName": "NexusBuild",
+  "serviceId": "hosting",
+  "serviceName": "NexusBuild website hosting",
+  "version": 1,
+  "logoUrl": "https://nexusbuild.ai/apple-icon.png",
+  "description": "Points your domain (and www) at your website hosted on NexusBuild.",
+  "syncBlock": false,
+  "syncRedirectDomain": "nexusbuild.ai",
+  "warnPhishing": true,
+  "shared": false,
+  "records": [
+    {
+      "groupId": "hosting",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "16.58.11.126",
+      "ttl": 600
+    },
+    {
+      "groupId": "hosting",
+      "type": "A",
+      "host": "www",
+      "pointsTo": "16.58.11.126",
+      "ttl": 600
+    }
+  ]
+}
