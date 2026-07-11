@@ -6,9 +6,8 @@
   "version": 1,
   "logoUrl": "https://nexusbuild.ai/apple-icon.png",
   "description": "Points your domain (and www) at your website hosted on NexusBuild.",
-  "syncBlock": false,
+  "syncPubKeyDomain": "nexusbuild.ai",
   "syncRedirectDomain": "nexusbuild.ai",
-  "warnPhishing": true,
   "shared": false,
   "records": [
     {
