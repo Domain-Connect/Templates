@@ -4,7 +4,7 @@
   "serviceId": "email",
   "serviceName": "Auri Digital Email Authentication",
   "version": 1,
-  "logoUrl": "https://crm.auridigital.com/icon.png",
+  "logoUrl": "https://auridigital.com/logo.png",
   "description": "Configures DKIM, a custom MAIL FROM (MX + SPF), and DMARC so email sent on your behalf through Auri Digital (Amazon SES) authenticates.",
   "variableDescription": "dkim1/dkim2/dkim3 = the three Amazon SES Easy-DKIM CNAME tokens; region = the SES region for the MAIL FROM feedback host.",
   "syncPubKeyDomain": "dcsig.aurisend.com",
