@@ -3,46 +3,30 @@
   "providerName": "Nextune Solutions",
   "serviceId": "cloud-application-domain",
   "serviceName": "Nextune Cloud Application Domain",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://www.nextunesolutions.com/logo.png",
   "description": "Connect a custom domain to a Nextune Cloud application.",
-  "variableDescription": "target: CNAME endpoint. loadBalancerIp: apex A record IP. verifyHost: relative TXT host (e.g. _nextuneapps-verification or _nextuneapps-verification.www). verification: ownership token. Apply ONE group only: routing_a (apex) OR cname (subdomain) — never both.",
+  "variableDescription": "target is the CNAME endpoint. verifyHost is the TXT record host for ownership verification. verification is the verification token.",
   "syncBlock": false,
   "syncPubKeyDomain": "nextunesolutions.com",
   "syncRedirectDomain": "www.nextunesolutions.com",
   "hostRequired": true,
   "records": [
     {
-      "type": "TXT",
-      "groupId": "routing_a",
-      "host": "%verifyHost%",
-      "ttl": 3600,
-      "data": "nextuneapps-txt-verification=%verification%",
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "nextuneapps-txt-verification="
-    },
-    {
-      "type": "A",
-      "groupId": "routing_a",
-      "host": "@",
-      "pointsTo": "%loadBalancerIp%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "groupId": "cname",
-      "host": "%verifyHost%",
-      "ttl": 3600,
-      "data": "nextuneapps-txt-verification=%verification%",
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "nextuneapps-txt-verification="
-    },
-    {
       "type": "CNAME",
       "groupId": "cname",
       "host": "@",
       "pointsTo": "%target%",
       "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "%verifyHost%",
+      "ttl": 3600,
+      "data": "nextuneapps-txt-verification=%verification%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "nextuneapps-txt-verification="
     }
   ]
 }
