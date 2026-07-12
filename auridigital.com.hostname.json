@@ -8,6 +8,7 @@
   "description": "Points your domain at your Auri Digital website or funnel. SSL is issued automatically once connected.",
   "variableDescription": "No variables - the record target is fixed. The host parameter selects the subdomain to connect.",
   "syncRedirectDomain": "crm.auridigital.com",
+  "syncPubKeyDomain": "dcsig.aurisend.com",
   "syncBlock": false,
   "records": [
     {
