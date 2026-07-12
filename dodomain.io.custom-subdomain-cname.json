@@ -1,0 +1,22 @@
+{
+  "providerId": "dodomain.io",
+  "providerName": "DoDomain",
+  "serviceId": "custom-subdomain-cname",
+  "serviceName": "Custom domain (CNAME)",
+  "version": 1,
+  "description": "Points one subdomain at a SaaS product via a single CNAME. Used by DoDomain (domain-connect-as-a-service) on behalf of its integrator applications; the CNAME target is the only variable.",
+  "variableDescription": "target = the CNAME destination host provided by the integrator application (e.g. cname.integrator-app.com).",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "_dckeys.dodomain.io",
+  "syncRedirectDomain": "app.dodomain.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "connect",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
