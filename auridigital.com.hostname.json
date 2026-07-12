@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://auridigital.com/logo.png",
   "description": "Points your domain at your Auri Digital website or funnel. SSL is issued automatically once connected.",
-  "variableDescription": "No variables \u2014 the record target is fixed. The host parameter selects the subdomain to connect.",
+  "variableDescription": "No variables - the record target is fixed. The host parameter selects the subdomain to connect.",
   "syncRedirectDomain": "crm.auridigital.com",
   "syncBlock": false,
   "records": [
