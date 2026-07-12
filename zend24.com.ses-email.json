@@ -1,0 +1,66 @@
+{
+  "providerId": "zend24.com",
+  "providerName": "Zend24",
+  "serviceId": "ses-email",
+  "serviceName": "Zend24 — Email sending (Amazon SES)",
+  "version": 1,
+  "description": "Verify your sending domain for Zend24 (zend24.com): Amazon SES DKIM, custom MAIL FROM (SPF/MX) and DMARC.",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "send",
+      "data": "v=spf1 include:amazonses.com ~all",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600
+    }
+  ],
+  "variableDescriptions": [
+    {
+      "name": "dkim1",
+      "description": "Primer token DKIM generado por Amazon SES"
+    },
+    {
+      "name": "dkim2",
+      "description": "Segundo token DKIM generado por Amazon SES"
+    },
+    {
+      "name": "dkim3",
+      "description": "Tercer token DKIM generado por Amazon SES"
+    },
+    {
+      "name": "region",
+      "description": "Región AWS del identity (p. ej. eu-west-1)"
+    }
+  ]
+}
