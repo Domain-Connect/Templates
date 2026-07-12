@@ -1,18 +1,19 @@
-{                                                                                                                                                                                                                                                                                                                 
-  "providerId": "mailname.top",                                                                                                                                                                                                                                                                                   
-  "providerName": "Mailname",                                                                                                                                                                                                                                                                                     
-  "serviceId": "email",                                                                                                                                                                                                                                                                                           
-  "serviceName": "Mailname Email",                                                                                                                                                                                                                                                                                
-  "version": 1,                                                                                                                                                                                                                                                                                                   
-  "logoUrl": "https://mailname.top/logo.svg",                                                                                                                                                                                                                                                                     
-  "description": "Set up Mailname email (MX, SPF, DKIM, DMARC) on your domain",                                                                                                                                                                                                                                   
-  "syncPubKeyDomain": "mailname.top",                                                                                                                                                                                                                                                                             
-  "syncRedirectDomain": "admin.mailname.top",                                                                                                                                                                                                                                                                     
-  "records": [                                                                                                                                                                                                                                                                                                    
-    { "type": "MX",   "host": "mail", "pointsTo": "mail.mailname.top", "priority": 10, "ttl": 3600 },                                                                                                                                                                                                             
-    { "type": "SPFM", "host": "mail", "spfRules": "mx include:mailname.top", "ttl": 3600 },                                                                                                                                                                                                                       
-    { "type": "TXT",  "host": "%dkimselector%._domainkey.mail", "data": "v=DKIM1; k=rsa; p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All" },                                                                                                                                                           
-    { "type": "TXT",  "host": "_dmarc.mail", "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%", "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "OnApply" },                                                                                                                           
-    { "type": "TXT",  "host": "mail", "data": "mailname-verify=%verifytoken%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "mailname-verify=" }                                                                                                                                
-  ]                                                                                                                                                                                                                                                                                                               
-} 
+{
+  "providerId": "mailname.top",
+  "providerName": "Mailname",
+  "serviceId": "email",
+  "serviceName": "Mailname Email",
+  "version": 1,
+  "logoUrl": "https://mailname.top/logo.svg",
+  "description": "Set up Mailname email (MX, SPF, DKIM, DMARC) on your domain",
+  "syncPubKeyDomain": "mailname.top",
+  "syncRedirectDomain": "admin.mailname.top",
+  "hostRequired": true,
+  "records": [
+    { "type": "MX",   "host": "@", "pointsTo": "mail.mailname.top", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "@", "spfRules": "mx a", "ttl": 3600 },
+    { "type": "TXT",  "host": "%dkimselector%._domainkey", "data": "v=DKIM1; k=rsa; p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "TXT",  "host": "_dmarc", "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%", "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "OnApply" },
+    { "type": "TXT",  "host": "@", "data": "mailname-verify=%verifytoken%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "mailname-verify=" }
+  ]
+}
