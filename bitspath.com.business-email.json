@@ -1,0 +1,127 @@
+{
+  "providerId": "bitspath.com",
+  "providerName": "BitsPath",
+  "serviceId": "business-email",
+  "syncBlock": false,
+  "serviceName": "BitsPath Business Email",
+  "version": 1,
+  "logoUrl": "https://bitspath.com/logo.png",
+  "description": "Publish the mail records for hosted business email on your domain: inbound delivery (MX), sender authentication (SPF, DKIM, DMARC), the Postal outbound relay records, and mail client autodiscovery.",
+  "variableDescription": "mx = mail host; mxpriority = MX priority; spf = full SPF policy; dmarc = full DMARC policy; dkim-ed25519 / dkim-rsa = Stalwart DKIM public keys with their selectors; postal-dkim = Postal relay DKIM key with its selector; psrp-host / psrp = Postal return-path CNAME. All values are generated per domain and delivered on the signed apply URL.",
+  "syncPubKeyDomain": "bitspath.com",
+  "syncRedirectDomain": "bitspath.com",
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx%",
+      "priority": "%mxpriority%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spf%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkim-ed25519-selector%._domainkey",
+      "data": "%dkim-ed25519%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkim-rsa-selector%._domainkey",
+      "data": "%dkim-rsa%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "%postal-dkim-selector%._domainkey",
+      "data": "%postal-dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "%psrp-host%",
+      "pointsTo": "%psrp%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "%mx%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "%mx%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "%mx%",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "host": "@",
+      "service": "_imaps",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 993,
+      "target": "%mx%",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "host": "@",
+      "service": "_submissions",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 465,
+      "target": "%mx%",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "host": "@",
+      "service": "_pop3s",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 995,
+      "target": "%mx%",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "host": "@",
+      "service": "_jmap",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 443,
+      "target": "%mx%",
+      "ttl": 3600
+    }
+  ]
+}
