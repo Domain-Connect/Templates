@@ -1,1 +1,45 @@
-{"providerId":"nextsurplus.com","providerName":"Next Surplus","serviceId":"email-authentication","serviceName":"Business Email Authentication","version":1,"logoUrl":"https://nextsurplus.com/logo.png","description":"Standard email authentication for this domain. Adds SPF, DKIM, and DMARC records so outbound business email passes modern authentication checks.","variableDescription":"Adds the DNS records required for this domain to pass SPF, DKIM, and DMARC authentication on Gmail, Yahoo, Outlook, and other major email providers.","syncBlock":true,"shared":false,"warning":null,"records":[{"type":"TXT","host":"send","pointsTo":"v=spf1 include:%spf_include% ~all","ttl":300,"groupId":"spf-sending"},{"type":"TXT","host":"%dkim_selector%._domainkey","pointsTo":"%dkim_value%","ttl":300,"groupId":"dkim-signing"},{"type":"MX","host":"send","pointsTo":"%mx_host%","priority":10,"ttl":300,"groupId":"return-path"},{"type":"TXT","host":"_dmarc","pointsTo":"v=DMARC1; p=none; rua=mailto:%dmarc_rua%","ttl":300,"groupId":"dmarc-monitoring"}]}
+{
+  "providerId": "nextsurplus.com",
+  "providerName": "Next Surplus",
+  "serviceId": "email-authentication",
+  "serviceName": "Business Email Authentication",
+  "version": 1,
+  "logoUrl": "https://nextsurplus.com/logo.png",
+  "description": "Adds the DNS records this domain needs to send authenticated business email through Next Surplus (SPF, DKIM, MX return-path, DMARC).",
+  "variableDescription": "spfInclude: SPF include target that authorizes Next Surplus to send. dkimSelector: DKIM selector label for this domain. dkimPublicKey: DKIM public key value returned by Next Surplus after domain provisioning. returnPathTarget: MX return-path host for bounce processing.",
+  "warnPhishing": true,
+  "records": [
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%spfInclude%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimPublicKey%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "return-path",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%returnPathTarget%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
