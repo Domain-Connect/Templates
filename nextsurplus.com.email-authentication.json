@@ -7,7 +7,7 @@
   "logoUrl": "https://nextsurplus.com/logo.png",
   "description": "Adds the DNS records this domain needs to send authenticated business email through Next Surplus (SPF, DKIM, MX return-path, DMARC).",
   "variableDescription": "spfInclude: SPF include target that authorizes Next Surplus to send. dkimSelector: DKIM selector label for this domain. dkimPublicKey: DKIM public key value returned by Next Surplus after domain provisioning. returnPathTarget: MX return-path host for bounce processing.",
-  "warnPhishing": true,
+  "syncPubKeyDomain": "nextsurplus.com",
   "records": [
     {
       "groupId": "spf",
