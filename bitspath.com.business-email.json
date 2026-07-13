@@ -7,10 +7,9 @@
   "version": 1,
   "logoUrl": "https://bitspath.com/logo.png",
   "description": "Publish the mail records for hosted business email on your domain: inbound delivery (MX), sender authentication (SPF, DKIM, DMARC), the Postal outbound relay records, and mail client autodiscovery.",
-  "variableDescription": "mx = mail host; mxpriority = MX priority; spf = full SPF policy; dmarc = full DMARC policy; dkim-ed25519 / dkim-rsa = Stalwart DKIM public keys with their selectors; postal-dkim = Postal relay DKIM key with its selector; psrp-host / psrp = Postal return-path CNAME. All values are generated per domain and delivered on the signed apply URL.",
+  "variableDescription": "mx = mail host; mxpriority = MX priority; spfrules = SPF merge mechanisms (e.g. include:spf.postal.lonesock.pro); dmarc = full DMARC policy; dkim-ed25519 / dkim-rsa = Stalwart DKIM public keys with their selectors; postal-dkim = Postal relay DKIM key with its selector; psrp-host / psrp = Postal return-path CNAME. All values are generated per domain and delivered on the signed apply URL.",
   "syncPubKeyDomain": "bitspath.com",
   "syncRedirectDomain": "bitspath.com",
-  "warnPhishing": false,
   "records": [
     {
       "type": "MX",
@@ -20,19 +19,18 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "%spf%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1"
+      "spfRules": "%spfrules%",
+      "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "_dmarc",
       "data": "%dmarc%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "All"
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
     },
     {
       "type": "TXT",
@@ -81,7 +79,7 @@
     },
     {
       "type": "SRV",
-      "host": "@",
+      "name": "@",
       "service": "_imaps",
       "protocol": "_tcp",
       "priority": 0,
@@ -92,7 +90,7 @@
     },
     {
       "type": "SRV",
-      "host": "@",
+      "name": "@",
       "service": "_submissions",
       "protocol": "_tcp",
       "priority": 0,
@@ -103,7 +101,7 @@
     },
     {
       "type": "SRV",
-      "host": "@",
+      "name": "@",
       "service": "_pop3s",
       "protocol": "_tcp",
       "priority": 0,
@@ -114,7 +112,7 @@
     },
     {
       "type": "SRV",
-      "host": "@",
+      "name": "@",
       "service": "_jmap",
       "protocol": "_tcp",
       "priority": 0,
