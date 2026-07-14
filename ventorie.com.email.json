@@ -11,10 +11,9 @@
   "syncPubKeyDomain": "ventorie.com",
   "records": [
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "send",
-      "data": "v=spf1 include:amazonses.com ~all",
-      "ttl": 3600
+      "spfRules": "include:amazonses.com"
     },
     {
       "type": "MX",
@@ -27,6 +26,7 @@
       "type": "TXT",
       "host": "resend._domainkey",
       "data": "%dkim%",
+      "txtConflictMatchingMode": "All",
       "ttl": 3600
     },
     {
@@ -37,10 +37,9 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "send.reply",
-      "data": "v=spf1 include:amazonses.com ~all",
-      "ttl": 3600
+      "spfRules": "include:amazonses.com"
     },
     {
       "type": "MX",
@@ -53,6 +52,7 @@
       "type": "TXT",
       "host": "resend._domainkey.reply",
       "data": "%replydkim%",
+      "txtConflictMatchingMode": "All",
       "ttl": 3600
     }
   ]
