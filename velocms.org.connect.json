@@ -1,0 +1,31 @@
+{
+  "providerId": "velocms.org",
+  "providerName": "VeloCMS",
+  "serviceId": "connect",
+  "serviceName": "VeloCMS Blog (subdomain)",
+  "version": 1,
+  "logoUrl": "https://velocms.org/logo.png",
+  "description": "Point your subdomain at your VeloCMS blog and prove ownership so we can issue your SSL certificate.",
+  "variableDescription": "txtValue = the domain-ownership verification token VeloCMS issues so we can validate the domain and provision its SSL certificate. The subdomain being connected is supplied as the standard Domain Connect Host parameter (records apply relative to it).",
+  "syncBlock": true,
+  "syncPubKeyDomain": "velocms.org",
+  "syncRedirectDomain": "velocms.org",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "routing",
+      "host": "@",
+      "pointsTo": "proxy.velocms.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_cf-custom-hostname",
+      "data": "%txtValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
