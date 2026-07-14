@@ -1,0 +1,28 @@
+{
+    "providerId": "grok.com",
+    "providerName": "Grok",
+    "serviceId": "app-builder",
+    "serviceName": "App Builder",
+    "version": 1,
+    "logoUrl": "https://grok.com/images/favicon.svg",
+    "description": "Point a custom domain at an app deployed with Grok App Builder.",
+    "variableDescription": "verificationtoken: the domain-verification value issued by Grok App Builder when the domain is added.",
+    "syncPubKeyDomain": "domainconnect.grok.com",
+    "syncRedirectDomain": "grok.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "76.76.21.21",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_vercel",
+            "data": "vc-domain-verify=%verificationtoken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply"
+        }
+    ]
+}
