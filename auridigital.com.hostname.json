@@ -1,0 +1,22 @@
+{
+  "providerId": "auridigital.com",
+  "providerName": "Auri Digital",
+  "serviceId": "hostname",
+  "serviceName": "Auri Digital Website",
+  "version": 1,
+  "logoUrl": "https://auridigital.com/logo.png",
+  "description": "Points your domain at your Auri Digital website or funnel. SSL is issued automatically once connected.",
+  "variableDescription": "No variables - the record target is fixed. The host parameter selects the subdomain to connect.",
+  "syncRedirectDomain": "crm.auridigital.com",
+  "syncPubKeyDomain": "dcsig.aurisend.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.aurisend.com",
+      "ttl": 3600
+    }
+  ],
+  "hostRequired": true
+}
