@@ -13,21 +13,18 @@
   "syncRedirectDomain": "app.sendvoya.com,sendvoya.com",
   "records": [
     {
-      "groupId": "mail",
       "type": "SPFM",
       "host": "@",
       "spfRules": "include:_spf.sendvoya.com",
       "ttl": 3600
     },
     {
-      "groupId": "mail",
       "type": "SPFM",
       "host": "svy",
       "spfRules": "include:_spf.sendvoya.com",
       "ttl": 3600
     },
     {
-      "groupId": "mail",
       "type": "TXT",
       "host": "%dkimselector%._domainkey",
       "data": "v=DKIM1; k=rsa; p=%dkimpublickey%",
@@ -36,7 +33,6 @@
       "txtConflictMatchingPrefix": "v=DKIM1"
     },
     {
-      "groupId": "mail",
       "type": "MX",
       "host": "bounce-svy",
       "pointsTo": "mta01.mx.sendvoya.com",
@@ -44,14 +40,12 @@
       "ttl": 3600
     },
     {
-      "groupId": "mail",
       "type": "SPFM",
       "host": "bounce-svy",
       "spfRules": "include:_spf.sendvoya.com",
       "ttl": 3600
     },
     {
-      "groupId": "mail",
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=none; sp=none; adkim=r; aspf=r;",
@@ -61,7 +55,6 @@
       "essential": "OnApply"
     },
     {
-      "groupId": "mail",
       "type": "CNAME",
       "host": "go-svy",
       "pointsTo": "track.sendvoya.com",
