@@ -41,9 +41,12 @@ jobs:
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           MERGER: ${{ github.event.pull_request.merged_by.login }}
+          SUBMITTER: ${{ github.event.pull_request.user.login }}
         run: |
           {
-            echo "Thanks @${MERGER} for reviewing and merging this contribution! 🎉"
+            echo "Thanks @${SUBMITTER} for contributing to the template. 🎉"
+            echo
+            echo "This template has been reviewed and merged by @${MERGER}. 🙌"
             echo
             echo "This Template repository and its review process are maintained by independent individuals in their spare time, not as part of a paid role. If your company benefits from this protocol and its tooling, please consider showing some appreciation by sponsoring @${MERGER}: https://github.com/sponsors/${MERGER}"
           } > body.txt
