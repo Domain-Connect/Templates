@@ -1,0 +1,43 @@
+name: Thank Maintainer
+
+# Thanks a maintainer (as listed in .github/FUNDING.yml) after they merge a PR,
+# and reminds contributors/companies that the review process is maintained by
+# independent individuals in their spare time.
+
+on:
+  pull_request_target:
+    types: [closed]
+
+jobs:
+  thank-maintainer:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check if merger is a listed sponsor and get link
+        id: funding
+        env:
+          MERGER: ${{ github.event.pull_request.merged_by.login }}
+        run: |
+          is_sponsor=$(yq -r '(.github // []) | (if (. | type) == "!!str" then [.] else . end) | any(. == env(MERGER))' .github/FUNDING.yml)
+          echo "is_sponsor=$is_sponsor" >> "$GITHUB_OUTPUT"
+
+      - name: Thank maintainer
+        if: steps.funding.outputs.is_sponsor == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          MERGER: ${{ github.event.pull_request.merged_by.login }}
+        run: |
+          {
+            echo "Thanks @${MERGER} for reviewing and merging this contribution! 🎉"
+            echo
+            echo "This Template repository and its review process are maintained by independent individuals in their spare time, not as part of a paid role. If your company benefits from this protocol and its tooling, please consider showing some appreciation by sponsoring @${MERGER}: https://github.com/sponsors/${MERGER}"
+          } > body.txt
+          gh pr comment "$PR_NUMBER" --repo "$REPO" --body-file body.txt
