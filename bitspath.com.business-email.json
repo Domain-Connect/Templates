@@ -76,50 +76,6 @@
       "host": "mta-sts",
       "pointsTo": "%mx%",
       "ttl": 3600
-    },
-    {
-      "type": "SRV",
-      "name": "@",
-      "service": "_imaps",
-      "protocol": "_tcp",
-      "priority": 0,
-      "weight": 1,
-      "port": 993,
-      "target": "%mx%",
-      "ttl": 3600
-    },
-    {
-      "type": "SRV",
-      "name": "@",
-      "service": "_submissions",
-      "protocol": "_tcp",
-      "priority": 0,
-      "weight": 1,
-      "port": 465,
-      "target": "%mx%",
-      "ttl": 3600
-    },
-    {
-      "type": "SRV",
-      "name": "@",
-      "service": "_pop3s",
-      "protocol": "_tcp",
-      "priority": 0,
-      "weight": 1,
-      "port": 995,
-      "target": "%mx%",
-      "ttl": 3600
-    },
-    {
-      "type": "SRV",
-      "name": "@",
-      "service": "_jmap",
-      "protocol": "_tcp",
-      "priority": 0,
-      "weight": 1,
-      "port": 443,
-      "target": "%mx%",
-      "ttl": 3600
     }
   ]
 }
