@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
 
       - name: Check if merger is a listed sponsor and get link
         id: funding
