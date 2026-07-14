@@ -5,19 +5,19 @@
   "serviceName": "Ventorie email (sending + replies)",
   "version": 1,
   "logoUrl": "https://ventorie.com/logo.svg",
-  "description": "Sets up verified-domain email for Ventorie: outbound sending (SPF, DKIM) and the reply subdomain that routes vendor replies back into your Ventorie inbox. No records are written on the domain apex, so existing mailboxes (Google Workspace, Microsoft 365) are untouched.",
+  "description": "Sets up verified-domain email for Ventorie: outbound sending (SPF, DKIM, return-path on the vsend subdomain) and the reply subdomain that routes vendor replies back into your Ventorie inbox. No records are written on the domain apex, so existing mailboxes (Google Workspace, Microsoft 365) are untouched.",
   "syncBlock": false,
   "syncRedirectDomain": "app.ventorie.com",
   "syncPubKeyDomain": "ventorie.com",
   "records": [
     {
       "type": "SPFM",
-      "host": "send",
+      "host": "vsend",
       "spfRules": "include:amazonses.com"
     },
     {
       "type": "MX",
-      "host": "send",
+      "host": "vsend",
       "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
       "priority": 10,
       "ttl": 3600
@@ -38,12 +38,12 @@
     },
     {
       "type": "SPFM",
-      "host": "send.reply",
+      "host": "vsend.reply",
       "spfRules": "include:amazonses.com"
     },
     {
       "type": "MX",
-      "host": "send.reply",
+      "host": "vsend.reply",
       "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
       "priority": 10,
       "ttl": 3600
