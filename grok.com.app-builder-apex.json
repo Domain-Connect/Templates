@@ -1,0 +1,20 @@
+{
+    "providerId": "grok.com",
+    "providerName": "Grok",
+    "serviceId": "app-builder-apex",
+    "serviceName": "App Builder (apex domain)",
+    "version": 1,
+    "logoUrl": "https://grok.com/images/favicon.svg",
+    "description": "Point an apex (root) domain at an app deployed with Grok App Builder.",
+    "variableDescription": "vercelapex: the A-record IP for the apex domain issued by Grok App Builder (from Vercel), e.g. 76.76.21.21",
+    "syncPubKeyDomain": "domainconnect.grok.com",
+    "syncRedirectDomain": "grok.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%vercelapex%",
+            "ttl": 3600
+        }
+    ]
+}
