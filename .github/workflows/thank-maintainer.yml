@@ -24,7 +24,14 @@ jobs:
         env:
           MERGER: ${{ github.event.pull_request.merged_by.login }}
         run: |
-          is_sponsor=$(yq -r '(.github // []) | (if (. | type) == "!!str" then [.] else . end) | any(. == env(MERGER))' .github/FUNDING.yml)
+          mapfile -t maintainers < <(yq -r '.github[]' .github/FUNDING.yml)
+          is_sponsor=false
+          for maintainer in "${maintainers[@]}"; do
+            if [ "$maintainer" = "$MERGER" ]; then
+              is_sponsor=true
+              break
+            fi
+          done
           echo "is_sponsor=$is_sponsor" >> "$GITHUB_OUTPUT"
 
       - name: Thank maintainer
