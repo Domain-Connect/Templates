@@ -1,0 +1,32 @@
+{
+  "providerId": "convertly.sh",
+  "providerName": "Convertly",
+  "serviceId": "image-cdn",
+  "serviceName": "Convertly Image CDN",
+  "version": 1,
+  "logoUrl": "https://convertly.sh/logomark-color.png",
+  "description": "Connects a custom domain to Convertly Image CDN.",
+  "variableDescription": "cnameTarget is the Convertly CDN target. verificationToken proves ownership of the custom hostname.",
+  "syncPubKeyDomain": "domainconnect.convertly.sh",
+  "syncRedirectDomain": "convertly.sh",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "cdn",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_convertly-verify",
+      "data": "convertly-domain-verify=%verificationToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "convertly-domain-verify="
+    }
+  ]
+}
