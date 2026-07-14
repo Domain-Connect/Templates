@@ -5,24 +5,17 @@
     "serviceName": "App Builder",
     "version": 1,
     "logoUrl": "https://grok.com/images/favicon.svg",
-    "description": "Point a custom domain at an app deployed with Grok App Builder.",
-    "variableDescription": "verificationtoken: the domain-verification value issued by Grok App Builder when the domain is added.",
+    "description": "Point a custom subdomain at an app deployed with Grok App Builder.",
+    "variableDescription": "vercelcname: the per-project CNAME target issued by Grok App Builder (from Vercel), e.g. d1d4fc829fe7bc7c.vercel-dns-017.com",
     "syncPubKeyDomain": "domainconnect.grok.com",
     "syncRedirectDomain": "grok.com",
+    "hostRequired": true,
     "records": [
         {
-            "type": "A",
+            "type": "CNAME",
             "host": "@",
-            "pointsTo": "76.76.21.21",
+            "pointsTo": "%vercelcname%",
             "ttl": 3600
-        },
-        {
-            "type": "TXT",
-            "host": "_vercel",
-            "data": "vc-domain-verify=%verificationtoken%",
-            "ttl": 3600,
-            "txtConflictMatchingMode": "All",
-            "essential": "OnApply"
         }
     ]
 }
