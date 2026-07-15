@@ -1,0 +1,37 @@
+{
+  "providerId": "nept.cloud",
+  "providerName": "Nept Cloud",
+  "serviceId": "hosting",
+  "serviceName": "Nept Cloud custom domain",
+  "version": 1,
+  "logoUrl": "https://nept.cloud/icon.svg",
+  "description": "Connects a custom hostname to an application hosted by Nept Cloud and adds the required ownership and certificate validation records.",
+  "variableDescription": "ownershipToken is the Cloudflare custom-hostname ownership token; sslValidation is the certificate validation token.",
+  "syncPubKeyDomain": "nept.cloud",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "origin.nept.cloud",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownershipToken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%sslValidation%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
