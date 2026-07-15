@@ -10,22 +10,25 @@
   "syncPubKeyDomain": "caskstack.com",
   "records": [
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "txt": "v=spf1 include:mailgun.org include:postmarkapp.com ~all",
+      "spfRules": "include:mailgun.org include:postmarkapp.com",
       "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "krs._domainkey",
-      "txt": "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3sDFN2v0Xf5zN9Z41XvK8W09u+Bpy6n4tMhG6O2R62bZ7p6fXzN9Z41XvK8W09u+Bpy6n4tMhG6O2R62bZ7p6fXzN9Z41XvK8W09u+Bpy6n4tMhG6O2R62bZ7p6fXzN9Z41XvK8W09u+Bpy6n4tMhG6O2R62bZ7p6fXzN9Z41XvK8W09u+Bpy6n4t",
+      "data": "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3sDFN2v0Xf5zN9Z41XvK8W09u+Bpy6n4tMhG6O2R62bZ7p6fXzN9Z41XvK8W09u+Bpy6n4tMhG6O2R62bZ7p6fXzN9Z41XvK8W09u+Bpy6n4tMhG6O2R62bZ7p6fXzN9Z41XvK8W09u+Bpy6n4t",
       "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "_dmarc",
-      "txt": "v=DMARC1; p=none; pct=100; rua=mailto:dmarc@%domain%",
-      "ttl": 3600
+      "data": "v=DMARC1; p=none; pct=100; rua=mailto:dmarc@%domain%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     }
   ]
 }
