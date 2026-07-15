@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://velocms.org/logo.png",
   "description": "Point your subdomain at your VeloCMS blog and prove ownership so we can issue your SSL certificate.",
-  "variableDescription": "txtValue = the domain-ownership verification token VeloCMS issues so we can validate the domain and provision its SSL certificate. The subdomain being connected is supplied as the standard Domain Connect Host parameter (records apply relative to it).",
+  "variableDescription": "target = the per-domain CNAME target VeloCMS provides for this subdomain. txthost + txt = the domain-ownership verification TXT record (name + value) VeloCMS issues so we can validate the domain and provision its SSL certificate. The subdomain being connected is supplied as the standard Domain Connect Host parameter (records apply relative to it).",
   "syncBlock": true,
   "syncPubKeyDomain": "velocms.org",
   "syncRedirectDomain": "velocms.org",
@@ -16,14 +16,14 @@
       "type": "CNAME",
       "groupId": "routing",
       "host": "@",
-      "pointsTo": "proxy.velocms.org",
+      "pointsTo": "%target%",
       "ttl": 3600
     },
     {
       "type": "TXT",
       "groupId": "ownership",
-      "host": "_cf-custom-hostname",
-      "data": "%txtValue%",
+      "host": "%txthost%",
+      "data": "%txt%",
       "ttl": 3600,
       "txtConflictMatchingMode": "All"
     }
