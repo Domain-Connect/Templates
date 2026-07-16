@@ -11,31 +11,31 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "%siteHost%.",
+      "host": "@",
       "pointsTo": "%siteTarget%",
       "ttl": 3600
     },
     {
       "type": "TXT",
-      "host": "asuid.%siteHost%.",
+      "host": "asuid",
       "data": "%asuidValue%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "%sgHost1%.",
+      "host": "%sgHost1%",
       "pointsTo": "%sgTarget1%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "%sgHost2%.",
+      "host": "%sgHost2%",
       "pointsTo": "%sgTarget2%",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "host": "%sgHost3%.",
+      "host": "%sgHost3%",
       "pointsTo": "%sgTarget3%",
       "ttl": 3600
     }
