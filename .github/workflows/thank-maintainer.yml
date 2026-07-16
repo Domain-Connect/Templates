@@ -50,6 +50,6 @@ jobs:
             echo
             echo "This template has been reviewed and merged by @${MERGER}. 🙌"
             echo
-            echo "This Template repository and its review process are maintained by independent individuals in their spare time, not as part of a paid role. If your company benefits from this protocol and its tooling, please consider showing some appreciation by sponsoring @${MERGER}: https://github.com/sponsors/${MERGER}"
+            echo "This template repository and its review process are maintained by independent individuals in their spare time, not as part of a paid role. If you or your company benefit from this protocol and its tools, please show your appreciation by buying a beer for @${MERGER}: https://github.com/sponsors/${MERGER}"
           } > body.txt
           gh pr comment "$PR_NUMBER" --repo "$REPO" --body-file body.txt
