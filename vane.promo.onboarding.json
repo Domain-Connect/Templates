@@ -37,7 +37,7 @@
       "groupId": "vercel-verification",
       "type": "TXT",
       "host": "_vercel",
-      "data": "vc-domain-verify=rewards.%domain%,%vercelVerificationToken%",
+      "data": "vc-domain-verify=rewards.%fqdn%,%vercelVerificationToken%",
       "ttl": 600,
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "vc-domain-verify=rewards.",
