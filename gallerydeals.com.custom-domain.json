@@ -1,0 +1,43 @@
+{
+  "providerId": "gallerydeals.com",
+  "providerName": "Gallery Deals",
+  "serviceId": "custom-domain",
+  "serviceName": "Gallery Deals Custom Domain + Email",
+  "version": 1,
+  "logoUrl": "https://gallerydeals.com/logo.png",
+  "description": "Points your domain at the Gallery Deals platform (site + SSL) and authenticates it for sending auction email.",
+  "syncPubKeyDomain": "gallerydeals.com",
+  "syncRedirectDomain": "gallerydeals.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%siteHost%.",
+      "pointsTo": "%siteTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "asuid.%siteHost%.",
+      "data": "%asuidValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sgHost1%.",
+      "pointsTo": "%sgTarget1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sgHost2%.",
+      "pointsTo": "%sgTarget2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sgHost3%.",
+      "pointsTo": "%sgTarget3%",
+      "ttl": 3600
+    }
+  ]
+}
