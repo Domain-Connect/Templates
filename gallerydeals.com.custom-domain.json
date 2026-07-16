@@ -4,6 +4,7 @@
   "serviceId": "custom-domain",
   "serviceName": "Gallery Deals Custom Domain + Email",
   "version": 1,
+  "hostRequired": true,
   "description": "Points your domain at the Gallery Deals platform (site + SSL) and authenticates it for sending auction email.",
   "syncPubKeyDomain": "gallerydeals.com",
   "syncRedirectDomain": "gallerydeals.com",
