@@ -3,7 +3,7 @@
     "providerName": "VibeHost",
     "serviceId": "hosting",
     "serviceName": "VibeHost Custom Domain",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://vibehost.vn/image.svg",
     "description": "Trỏ tên miền của bạn về máy chủ hosting VibeHost",
     "variableDescription": "%ip%: IPv4 của máy chủ hosting VibeHost mà tên miền cần trỏ về",
