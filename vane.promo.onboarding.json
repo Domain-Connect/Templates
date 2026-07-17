@@ -1,0 +1,47 @@
+{
+  "providerId": "vane.promo",
+  "providerName": "Vane",
+  "serviceId": "onboarding",
+  "serviceName": "Vane Rewards and Email",
+  "version": 1,
+  "logoUrl": "https://vane.promo/favicon.ico",
+  "description": "Connects rewards.<customer-domain> to Vane and authenticates the customer domain for email sent through Vane.",
+  "variableDescription": "%postmarkDkimSelector%: Postmark DKIM selector; %postmarkDkimPublicKey%: Postmark RSA public key without the k=rsa;p= prefix; %vercelCnameTarget%: project-specific CNAME target returned by Vercel; %vercelVerificationToken%: optional Vercel ownership token without the rewards.<customer-domain>, prefix.",
+  "syncPubKeyDomain": "vane.promo",
+  "syncRedirectDomain": "vane.promo",
+  "records": [
+    {
+      "groupId": "postmark",
+      "type": "TXT",
+      "host": "%postmarkDkimSelector%._domainkey",
+      "data": "k=rsa;p=%postmarkDkimPublicKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "k=rsa;p="
+    },
+    {
+      "groupId": "postmark",
+      "type": "CNAME",
+      "host": "pm-bounces",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "vercel-routing",
+      "type": "CNAME",
+      "host": "rewards",
+      "pointsTo": "%vercelCnameTarget%",
+      "ttl": 600
+    },
+    {
+      "groupId": "vercel-verification",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=rewards.%fqdn%,%vercelVerificationToken%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vc-domain-verify=rewards.",
+      "essential": "OnApply"
+    }
+  ]
+}
