@@ -1,14 +1,14 @@
 {
-    "providerId": "interfere.domains",
-    "providerName": "Interfere",
-    "serviceId": "tracking-domain",
-    "serviceName": "Interfere Proxy Domains",
-    "version": 1,
-    "logoUrl": "https://ojlajfkioceqxno6.public.blob.vercel-storage.com/internal/domain-connect-logo/logo.jpg",
-    "syncPubKeyDomain": "_dckeys.interfere.domains",
-    "syncRedirectDomain": "interfere.com",
-    "hostRequired": true,
-    "records": [
-      { "type": "CNAME", "host": "@", "pointsTo": "proxy.interfere.domains", "ttl": 3600 }
-    ]
-  }
+  "providerId": "interfere.domains",
+  "providerName": "Interfere",
+  "serviceId": "tracking-domain",
+  "serviceName": "Interfere Proxy Domains",
+  "version": 1,
+  "logoUrl": "https://ojlajfkioceqxno6.public.blob.vercel-storage.com/internal/domain-connect-logo/logo.jpg",
+  "syncPubKeyDomain": "dckeys.interfere.domains",
+  "syncRedirectDomain": "interfere.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "proxy.interfere.domains", "ttl": 3600 }
+  ]
+}
