@@ -1,0 +1,15 @@
+{
+  "providerId": "theelevateagent.com",
+  "providerName": "Coldwell Banker Elevate",
+  "serviceId": "agentsite",
+  "serviceName": "Elevate Agent Website",
+  "version": 2,
+  "logoUrl": "https://theelevateagent.com/email-logo.png",
+  "description": "Connects your domain to your Coldwell Banker Elevate agent website.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "theelevateagent.com",
+  "syncRedirectDomain": "theelevateagent.com",
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "agents.the-elevate-team.com", "ttl": 3600 }
+  ]
+}
