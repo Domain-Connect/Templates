@@ -3,10 +3,10 @@
     "providerName": "VibeHost",
     "serviceId": "hosting",
     "serviceName": "VibeHost Custom Domain",
-    "version": 1,
-    "logoUrl": "https://vibehost.vn/image.png",
+    "version": 2,
+    "logoUrl": "https://vibehost.vn/image.svg",
     "description": "Trỏ tên miền của bạn về máy chủ hosting VibeHost",
-    "variableDescription": "%ip%: IPv4 của máy chủ hosting VibeHost mà tên miền cần trỏ về",
+    "variableDescription": "%ip%: IPv4 của máy chủ hosting VibeHost mà tên miền cần trỏ về; %ttl%: TTL cho bản ghi DNS, khuyến nghị 300 giây",
     "syncBlock": false,
     "syncPubKeyDomain": "vibehost.vn",
     "syncRedirectDomain": "vibehost.vn",
@@ -15,7 +15,7 @@
             "type": "A",
             "host": "@",
             "pointsTo": "%ip%",
-            "ttl": 3600
+            "ttl": "%ttl%"
         }
     ]
 }
