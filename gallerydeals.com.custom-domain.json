@@ -4,7 +4,6 @@
   "serviceId": "custom-domain",
   "serviceName": "Gallery Deals Custom Domain + Email",
   "version": 1,
-  "logoUrl": "https://gallerydeals.com/logo.png",
   "description": "Points your domain at the Gallery Deals platform (site + SSL) and authenticates it for sending auction email.",
   "variableDescription": "%sgMailHost%: SendGrid mail CNAME label (e.g. em1234); %sgLink%: SendGrid account link prefix (e.g. u17558810.wl061).",
   "syncPubKeyDomain": "gallerydeals.com",
