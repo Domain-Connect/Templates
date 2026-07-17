@@ -34,7 +34,8 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=none;",
-      "ttl": 300
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
     }
   ]
 }
