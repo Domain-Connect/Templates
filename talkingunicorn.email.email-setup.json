@@ -1,0 +1,43 @@
+{
+  "providerId": "talkingunicorn.email",
+  "providerName": "Talking Unicorn",
+  "serviceId": "email-setup",
+  "serviceName": "Email at your domain",
+  "version": 5,
+  "syncBlock": false,
+  "syncPubKeyDomain": "_domainconnect.talkingunicorn.email",
+  "shared": false,
+  "logoUrl": "https://talkingunicorn.email/static/icons/gold-alicorn.png",
+  "description": "Configure your domain to send and receive email through Talking Unicorn.",
+  "variableDescription": "We'll set up MX (mail routing), SPF (sender authorization), DKIM (signature verification), and DMARC (deliverability policy) records on your domain. These are the standard four DNS records every business email service uses; without them your mail won't reach Gmail/Outlook reliably.",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.talkingunicorn.email",
+      "priority": 10,
+      "ttl": 1800
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.talkingunicorn.email",
+      "ttl": 1800
+    },
+    {
+      "type": "TXT",
+      "host": "mail._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimpub%",
+      "ttl": 1800,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@talkingunicorn.email; adkim=r; aspf=r",
+      "ttl": 1800,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
