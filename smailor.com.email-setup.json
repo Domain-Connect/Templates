@@ -3,7 +3,7 @@
     "providerName": "Smailor",
     "serviceId": "email-setup",
     "serviceName": "Smailor Email Routing",
-    "version": 1,
+    "version": 1.1.2,
     "logoUrl": "https://smailor.com/logo.png",
     "description": "Configure DNS records for Smailor email routing and deliverability",
     "variableDescription": "%VERIFY_TOKEN%: domain ownership verification token; %DKIM_SELECTOR%: DKIM key selector; %DKIM_VALUE%: DKIM public key (base64 encoded)",
