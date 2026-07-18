@@ -7,7 +7,7 @@
 	"syncPubKeyDomain": "inbox-works.com",
 	"syncRedirectDomain": "app.inbox-works.com",
 	"description": "Enable email signing and specify authorized senders for Inbox Works.",
-	"logoUrl": "https://app.inbox-works.com/brand/inbox-works-logotype.svg",
+	"logoUrl": "https://app.inbox-works.com/brand/inbox-works-logo.svg",
 	"records": [
 		{
 			"groupId": "outbound",
