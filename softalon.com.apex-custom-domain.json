@@ -1,0 +1,24 @@
+{
+  "providerId": "softalon.com",
+  "providerName": "Softalon",
+  "serviceId": "apex-custom-domain",
+  "serviceName": "Custom Domain (Apex)",
+  "version": 1,
+  "logoUrl": "https://softalon-production.s3.us-east-1.amazonaws.com/public/logo.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "softalon.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_softalon-verification",
+      "data": "%verification_token%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%server_ip%",
+      "ttl": 3600
+    }
+  ]
+}
