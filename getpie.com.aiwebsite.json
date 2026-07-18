@@ -1,0 +1,20 @@
+{
+  "providerId": "getpie.com",
+  "providerName": "Pie",
+  "serviceId": "aiwebsite",
+  "serviceName": "Pie AI Website",
+  "version": 1,
+  "logoUrl": "https://ai.getpie.info/logo.png",
+  "description": "Points ai.<yourdomain> at your Pie AI website so AI search engines can find and recommend your business.",
+  "variableDescription": "target = your Pie AI website host (assigned by Pie)",
+  "syncPubKeyDomain": "getpie.com",
+  "syncRedirectDomain": "app.getpie.co",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "ai",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
