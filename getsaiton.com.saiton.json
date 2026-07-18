@@ -1,0 +1,21 @@
+{
+    "providerId": "getsaiton.com",
+    "providerName": "Saiton",
+    "serviceId": "saiton",
+    "serviceName": "Saiton website",
+    "version": 1,
+    "logoUrl": "https://getsaiton.com/logo.png",
+    "description": "Connects your domain to your Saiton website.",
+    "variableDescription": "target is the name (subdomain) of the Saiton site, forming target.getsaiton.com.",
+    "syncPubKeyDomain": "getsaiton.com",
+    "syncRedirectDomain": "getsaiton.com,saiton.bg",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%.getsaiton.com",
+            "ttl": 3600
+        }
+    ]
+}
