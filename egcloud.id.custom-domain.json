@@ -1,0 +1,26 @@
+{
+  "providerId": "egcloud.id",
+  "providerName": "egcloud",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom Domain",
+  "version": 1,
+  "logoUrl": "https://egcloud.id/logo.svg",
+  "description": "Connect your custom domain to your egcloud deployment.",
+  "variableDescription": "Enter your egcloud verification token.",
+  "syncPubKeyDomain": "egcloud.id",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_caas-verify",
+      "data": "%verifytoken%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "caas-origin.egcloud.id",
+      "ttl": 300
+    }
+  ]
+}
