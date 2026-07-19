@@ -1,0 +1,34 @@
+{
+  "providerId": "zaroz.cloud",
+  "serviceId": "fivem-srv",
+  "serviceName": "Zaroz FiveM Hosting",
+  "logoUrl": "https://zaroz.cloud/favicon.png",
+  "syncPubKeyDomain": "kernel.zaroz.cloud",
+  "syncRedirectDomain": "kernel.zaroz.cloud",
+  "syncBlock": false,
+  "version": 1,
+  "providerName": "Zaroz Cloud",
+  "description": "Connect a domain you own to a FiveM server hosted on Zaroz Cloud",
+  "variableDescription": "target: the server's public IP address; port: the server's external port",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%target%",
+      "essential": "Always",
+      "ttl": "300"
+    },
+    {
+      "type": "SRV",
+      "name": "@",
+      "service": "_cfx",
+      "protocol": "_udp",
+      "priority": "0",
+      "weight": "0",
+      "port": "%port%",
+      "target": "%fqdn%.",
+      "essential": "Always",
+      "ttl": "3600"
+    }
+  ]
+}
