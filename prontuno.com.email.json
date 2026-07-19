@@ -1,0 +1,60 @@
+{
+  "providerId": "prontuno.com",
+  "providerName": "Prontuno",
+  "serviceId": "email",
+  "serviceName": "Prontuno Email",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.prontuno.com",
+  "syncRedirectDomain": "app.prontuno.com",
+  "description": "Configure your domain for email sending via Prontuno",
+  "variableDescription": "%domainId%: unique identifier for this domain in Prontuno, used as the host label for the bounce CNAME and to scope the DKIM selector records; %trackingDomain%: subdomain label for the branded open/click tracking CNAME (e.g. 't' for t.yourdomain.com); %trackingCname%: Prontuno-assigned target label under prontunolinks.net that your tracking subdomain points to",
+  "logoUrl": "https://app.prontuno.com/images/domain-connect/logo.svg",
+  "records": [
+    {
+      "groupId": "bounce",
+      "type": "CNAME",
+      "host": "%domainId%",
+      "pointsTo": "bounce.prontuno.net",
+      "ttl": 86400
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "prontuno1._domainkey.%domainId%",
+      "pointsTo": "prontuno1.%domainId%.dkim.prontuno.net",
+      "ttl": 86400
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "prontuno2._domainkey.%domainId%",
+      "pointsTo": "prontuno2.%domainId%.dkim.prontuno.net",
+      "ttl": 86400
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound.prontuno.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "%trackingSubdomain%",
+      "pointsTo": "%trackingCname%.prontunolinks.net",
+      "ttl": 3600
+    }
+  ]
+}
