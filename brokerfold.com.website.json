@@ -1,0 +1,38 @@
+{
+  "providerId": "brokerfold.com",
+  "providerName": "BrokerFold",
+  "serviceId": "website",
+  "serviceName": "BrokerFold website",
+  "version": 1,
+  "logoUrl": "https://www.brokerfold.com/brokerfold-logo.svg",
+  "description": "Connects your domain to your BrokerFold real-estate website. Your site serves on www; verification uses a per-connection ownership token.",
+  "variableDescription": "ownershiptxt: per-connection hostname-ownership token for www.<domain> (Cloudflare custom-hostname pre-validation). apexownershiptxt: ownership token for the bare domain — only requested by support-assisted migrations via groupId=apexverify.",
+  "syncPubKeyDomain": "brokerfold.com",
+  "syncRedirectDomain": "brokerfold.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "connect",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "domains.brokerfold.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "connect",
+      "type": "TXT",
+      "host": "_cf-custom-hostname.www",
+      "data": "%ownershiptxt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "apexverify",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%apexownershiptxt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
