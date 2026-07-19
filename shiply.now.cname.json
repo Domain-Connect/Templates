@@ -1,0 +1,14 @@
+{
+    "providerId": "shiply.now",
+    "providerName": "Shiply",
+    "serviceId": "cname",
+    "serviceName": "Shiply Custom Domain",
+    "version": 1,
+    "logoUrl": "https://shiply.now/icon.svg",
+    "description": "Point a subdomain at your Shiply site.",
+    "syncBlock": false,
+    "syncRedirectDomain": "shiply.now",
+    "records": [
+          { "type": "CNAME", "host": "%host%", "pointsTo": "cname.shiply.now", "ttl": 1800 }
+    ]
+}
