@@ -1,0 +1,19 @@
+{
+  "providerId": "hibubo.ai",
+  "providerName": "HiBubo",
+  "serviceId": "proxy",
+  "serviceName": "HiBubo AI Visibility Proxy",
+  "version": 1,
+  "logoUrl": "https://hibubo.ai/favicon.png",
+  "description": "Connects your domain to the HiBubo rendering proxy so AI crawlers (ChatGPT, Perplexity, Claude, Gemini) receive fully rendered pages. Adds a single CNAME record pointing to proxy.hibubo.ai.",
+  "syncRedirectDomain": "hibubo.ai,hibubo-dashboard.vercel.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy.hibubo.ai",
+      "ttl": 3600
+    }
+  ]
+}
