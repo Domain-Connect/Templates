@@ -1,0 +1,39 @@
+{
+  "providerId": "benchkey.com",
+  "providerName": "BenchKey",
+  "serviceId": "resend-email",
+  "serviceName": "BenchKey shop email",
+  "version": 1,
+  "logoUrl": "https://app.benchkey.com/favicon-192.png",
+  "description": "DNS records that let a BenchKey repair shop send and receive email from its own domain (DKIM signing, SPF, and the return-path MX).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dck1.benchkey.com",
+  "syncRedirectDomain": "app.benchkey.com,staging.benchkey.com",
+  "records": [
+    {
+      "groupId": "email",
+      "type": "TXT",
+      "host": "%dkim1host%",
+      "data": "%dkim1value%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "email",
+      "type": "TXT",
+      "host": "%spfhost%",
+      "data": "%spfvalue%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "email",
+      "type": "MX",
+      "host": "%mxhost%",
+      "pointsTo": "%mxvalue%",
+      "priority": "%mxpriority%",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
