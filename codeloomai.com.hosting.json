@@ -1,0 +1,23 @@
+{
+  "providerId": "codeloomai.com",
+  "providerName": "CodeLoom AI",
+  "serviceId": "hosting",
+  "serviceName": "CodeLoom AI App Hosting",
+  "version": 1,
+  "description": "Connect your domain to your published CodeLoom AI app.",
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "APEXCNAME",
+      "host": "@",
+      "pointsTo": "code-companion-ai-brandonjayden86.replit.app",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "code-companion-ai-brandonjayden86.replit.app",
+      "ttl": 3600
+    }
+  ]
+}
