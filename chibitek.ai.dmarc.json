@@ -1,0 +1,22 @@
+{
+    "providerId": "chibitek.ai",
+    "providerName": "Chibitek Domain Security",
+    "serviceId": "dmarc",
+    "serviceName": "Managed DMARC",
+    "version": 1,
+    "logoUrl": "https://skippy.chibitek.com/chibitek-mark.png",
+    "description": "Delegates the domain's DMARC policy to Chibitek Domain Security. Chibitek hosts and maintains the DMARC record, ingests the aggregate reports receivers send back, and ramps the policy safely as the data proves every legitimate sender is authenticated.",
+    "variableDescription": "target is the Chibitek-hosted DMARC record for this domain, e.g. example-com._dmarc.dmarc.chibitek.ai",
+    "syncPubKeyDomain": "chibitek.ai",
+    "syncRedirectDomain": "skippy.chibitek.com",
+    "warnPhishing": true,
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "_dmarc",
+            "pointsTo": "%target%",
+            "ttl": "3600"
+        }
+    ]
+}
