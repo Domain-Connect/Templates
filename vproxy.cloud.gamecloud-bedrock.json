@@ -1,0 +1,23 @@
+{
+  "providerId": "vproxy.cloud",
+  "providerName": "AtomRoute Global Network",
+  "serviceId": "gamecloud-bedrock",
+  "serviceName": "Minecraft Game Server (Bedrock / CNAME)",
+  "version": 1,
+  "logoUrl": "https://vproxy.cloud/vProxyCloud-Logo.png",
+  "description": "Point a subdomain to your vProxy Cloud gamecloud (CNAME record).",
+  "variableDescription": "target = game server hostname",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "v1.domainconnect.vproxy.cloud",
+  "syncRedirectDomain": "cocodigit.com,vproxy.cloud,atomroute.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300,
+      "essential": "Always"
+    }
+  ]
+}
