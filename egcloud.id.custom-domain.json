@@ -9,6 +9,7 @@
   "variableDescription": "Enter your egcloud verification token.",
   "syncPubKeyDomain": "egcloud.id",
   "syncBlock": false,
+  "hostRequired": true,
   "records": [
     {
       "type": "TXT",
