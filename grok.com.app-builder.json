@@ -1,0 +1,21 @@
+{
+    "providerId": "grok.com",
+    "providerName": "Grok",
+    "serviceId": "app-builder",
+    "serviceName": "App Builder",
+    "version": 1,
+    "logoUrl": "https://grok.com/images/favicon.svg",
+    "description": "Point a custom subdomain at an app deployed with Grok App Builder.",
+    "variableDescription": "vercelcname: the per-project CNAME target issued by Grok App Builder (from Vercel), e.g. d1d4fc829fe7bc7c.vercel-dns-017.com",
+    "syncPubKeyDomain": "domainconnect.grok.com",
+    "syncRedirectDomain": "grok.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%vercelcname%",
+            "ttl": 3600
+        }
+    ]
+}
