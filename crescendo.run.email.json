@@ -4,7 +4,7 @@
     "serviceId": "email",
     "serviceName": "Crescendo Email Service",
     "version": 1,
-    "logoUrl": "https://crescendo.run/logo.svg",
+    "logoUrl": "https://app.crescendo.run/logo.svg",
     "description": "Configures domain ownership verification, SPF, DKIM, and DMARC for Crescendo email delivery.",
     "variableDescription": "%token%: verification token for domain ownership; %dkim_pub_key%: Public key for DKIM signature",
     "syncPubKeyDomain": "keys.crescendo.run",
