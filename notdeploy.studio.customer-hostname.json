@@ -9,6 +9,7 @@
   "variableDescription": "%target%: the signed notdeploy studio CNAME destination for the selected environment.",
   "syncPubKeyDomain": "domainconnect.notdeploy.studio",
   "syncRedirectDomain": "studio.notdeploy.studio, sandbox-studio.notdeploy.studio",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
