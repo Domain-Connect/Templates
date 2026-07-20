@@ -1,0 +1,45 @@
+{
+    "providerId": "crescendo.run",
+    "providerName": "Crescendo",
+    "serviceId": "email",
+    "serviceName": "Crescendo Email Service",
+    "version": 1,
+    "logoUrl": "https://crescendo.run/logo.svg",
+    "description": "Configures domain ownership verification, SPF, DKIM, and DMARC for Crescendo email delivery.",
+    "variableDescription": "%token%: verification token for domain ownership; %dkim_pub_key%: Public key for DKIM signature",
+    "syncPubKeyDomain": "keys.crescendo.run",
+    "syncRedirectDomain": "app.crescendo.run",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_crescendo-verify",
+            "ttl": 3600,
+            "data": "crescendo-verify=%token%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "crescendo-verify="
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "ttl": 3600,
+            "spfRules": "include:spf.crescendo.run"
+        },
+        {
+            "type": "TXT",
+            "host": "crescendo._domainkey",
+            "ttl": 3600,
+            "data": "v=DKIM1; k=rsa; p=%dkim_pub_key%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DKIM1"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "ttl": 3600,
+            "data": "v=DMARC1; p=none;",
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        }
+    ]
+}
