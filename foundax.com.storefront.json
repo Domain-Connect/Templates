@@ -3,6 +3,7 @@
   "providerName": "Foundax",
   "serviceId": "storefront",
   "serviceName": "Foundax Storefront",
+  "logoUrl": "https://foundax.com/images/logo-foundax.svg",
   "description": "Connect a domain to a Foundax storefront, verify ownership, and configure the www alias.",
   "version": 1,
   "hostRequired": false,
