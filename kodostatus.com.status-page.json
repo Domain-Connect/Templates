@@ -1,0 +1,19 @@
+{
+    "providerId": "kodostatus.com",
+    "providerName": "Kodo",
+    "serviceId": "status-page",
+    "serviceName": "Status page",
+    "version": 1,
+    "logoUrl": "https://kodostatus.com/apple-touch-icon.png",
+    "description": "Configures a sub-domain for use as a Kodo status page",
+    "syncPubKeyDomain": "kodostatus.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "kodostatus.com",
+            "ttl": 3600
+        }
+    ]
+}
