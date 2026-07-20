@@ -1,0 +1,35 @@
+{
+  "providerId": "foundax.com",
+  "providerName": "Foundax",
+  "serviceId": "storefront",
+  "serviceName": "Foundax Storefront",
+  "description": "Connect a domain to a Foundax storefront, verify ownership, and configure the www alias.",
+  "version": 1,
+  "hostRequired": false,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.foundax.com",
+  "syncRedirectDomain": "foundax.com",
+  "variableDescription": "IP is the Foundax shared ingress IPv4 address, TARGET is the site-specific Foundax ingress hostname, and VERIFY is the one-time ownership verification token.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%TARGET%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_foundax-verify",
+      "data": "foundax-verification=%VERIFY%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "foundax-verification=",
+      "ttl": 3600
+    }
+  ]
+}
