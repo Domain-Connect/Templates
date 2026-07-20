@@ -1,19 +1,19 @@
 {
   "providerId": "notdeploy.studio",
   "providerName": "notdeploy studio",
-  "serviceId": "customer-hostname",
-  "serviceName": "Custom Domain",
+  "serviceId": "customer-hostname-sandbox",
+  "serviceName": "Custom Domain Sandbox",
   "version": 1,
   "logoUrl": "https://studio.notdeploy.studio/assets/domain-connect-logo.svg",
-  "description": "Connects an exact customer-owned subdomain to a published notdeploy studio site.",
+  "description": "Connects an exact customer-owned test subdomain to a Sandbox-published notdeploy studio site.",
   "syncPubKeyDomain": "domainconnect.notdeploy.studio",
-  "syncRedirectDomain": "studio.notdeploy.studio",
+  "syncRedirectDomain": "sandbox-studio.notdeploy.studio",
   "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "customers.notdeploy.studio",
+      "pointsTo": "sandbox-customers.notdeploy.studio",
       "ttl": 300
     }
   ]
