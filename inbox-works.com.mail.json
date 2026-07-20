@@ -29,7 +29,8 @@
 			"type": "TXT",
 			"host": "resend._domainkey",
 			"ttl": 3600,
-			"data": "p=%domainKey%"
+			"data": "p=%domainKey%",
+			"txtConflictMatchingMode": "All"
 		}
 	]
 }
