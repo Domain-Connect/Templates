@@ -1,0 +1,57 @@
+{
+  "providerId": "maillogic.io",
+  "providerName": "MailLogic",
+  "serviceId": "email",
+  "serviceName": "Email Forwarding and Sending",
+  "version": 1,
+  "logoUrl": "https://maillogic.io/static/images/mail-orbit-logo.svg",
+  "description": "Configures inbound email forwarding and outbound email authentication through MailLogic.",
+  "syncPubKeyDomain": "keys.maillogic.io",
+  "syncRedirectDomain": "dc-lab.maillogic.io",
+  "records": [
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.maillogic.io",
+      "ttl": 300,
+      "priority": 10
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.maillogic.io",
+      "ttl": 300,
+      "priority": 10
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "smtp1._domainkey",
+      "pointsTo": "smtp1._domainkey.%fqdn%.maillogic.io",
+      "ttl": 300
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "smtp2._domainkey",
+      "pointsTo": "smtp2._domainkey.%fqdn%.maillogic.io",
+      "ttl": 300
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:smtp.maillogic.io"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
