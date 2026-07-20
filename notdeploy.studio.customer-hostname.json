@@ -4,7 +4,7 @@
   "serviceId": "customer-hostname",
   "serviceName": "Custom Domain",
   "version": 1,
-  "logoUrl": "https://sandbox-studio.notdeploy.studio/assets/domain-connect-logo.svg",
+  "logoUrl": "https://studio.notdeploy.studio/assets/domain-connect-logo.svg",
   "description": "Connects an exact customer-owned subdomain to a published notdeploy studio site.",
   "variableDescription": "%target%: the signed notdeploy studio CNAME destination for the selected environment.",
   "syncPubKeyDomain": "domainconnect.notdeploy.studio",
