@@ -1,0 +1,56 @@
+{
+  "providerId": "useinbox.email",
+  "providerName": "InboxMail",
+  "serviceId": "email-forwarding",
+  "serviceName": "InboxMail Email Forwarding",
+  "version": 1,
+  "logoUrl": "https://www.useinbox.email/logo.svg",
+  "description": "Configure your domain to receive and forward email through InboxMail.",
+  "syncBlock": true,
+  "syncPubKeyDomain": "useinbox.email",
+  "syncRedirectDomain": "app.useinbox.email",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.eu-west-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc@useinbox.email",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
