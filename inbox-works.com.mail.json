@@ -12,7 +12,7 @@
 		{
 			"groupId": "outbound",
 			"type": "MX",
-			"host": "%spfDomain%",
+			"host": "send",
 			"pointsTo": "feedback-smtp.%region%.amazonses.com",
 			"ttl": 3600,
 			"priority": 10
@@ -20,7 +20,7 @@
 		{
 			"groupId": "outbound",
 			"type": "SPFM",
-			"host": "%spfDomain%",
+			"host": "send",
 			"ttl": 3600,
 			"spfRules": "include:amazonses.com"
 		},
