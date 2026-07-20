@@ -8,7 +8,7 @@
   "description": "Connects an exact customer-owned subdomain to a published notdeploy studio site.",
   "variableDescription": "%target%: the signed notdeploy studio CNAME destination for the selected environment.",
   "syncPubKeyDomain": "domainconnect.notdeploy.studio",
-  "syncRedirectDomain": "studio.notdeploy.studio, sandbox-studio.notdeploy.studio",
+  "syncRedirectDomain": "studio.notdeploy.studio,sandbox-studio.notdeploy.studio",
   "hostRequired": true,
   "records": [
     {
