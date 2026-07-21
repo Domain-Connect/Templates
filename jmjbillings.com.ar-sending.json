@@ -1,0 +1,41 @@
+{
+  "providerId": "jmjbillings.com",
+  "providerName": "JMJ Billings",
+  "serviceId": "ar-sending",
+  "serviceName": "JMJ Billings AR Sending Domain",
+  "version": 1,
+  "logoUrl": "https://portal.jmjbillings.com/logo-domainconnect.png",
+  "description": "Sets up the DNS records that let JMJ Billings send accounts-receivable reminder emails from your own domain and receive replies: DKIM signing, Return-Path (bounce handling), and the inbound MX record. All three point at Postmark, our email provider.",
+  "variableDescription": "%dkimHost%: DKIM record host (Postmark selector, unique per domain); %dkimValue%: DKIM public key TXT value (Postmark); %emailSubdomain%: the sending subdomain label, e.g. 'mail'.",
+  "syncPubKeyDomain": "jmjbillings.com",
+  "syncRedirectDomain": "portal.jmjbillings.com",
+  "syncBlock": false,
+  "shared": false,
+  "multiInstance": false,
+  "warnPhishing": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimHost%",
+      "data": "%dkimValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "returnpath",
+      "type": "CNAME",
+      "host": "pm-bounces.%emailSubdomain%",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "%emailSubdomain%",
+      "pointsTo": "inbound.postmarkapp.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
