@@ -1,0 +1,36 @@
+{
+  "providerId": "enwella.com",
+  "providerName": "Enwella",
+  "serviceId": "clinic-website",
+  "serviceName": "Enwella Website",
+  "version": 1,
+  "logoUrl": "https://enwella.com/icon.png",
+  "description": "Connect your domain to your Enwella-hosted clinic website.",
+  "variableDescription": "Points your domain (apex + www) at Enwella and verifies ownership so we can issue an SSL certificate for it.",
+  "syncBlock": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "enwella.com",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_enwella-verify",
+      "data": "%token%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "www",
+      "host": "www",
+      "pointsTo": "%slug%.enwella.com",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "apex",
+      "host": "@",
+      "pointsTo": "35.192.12.29",
+      "ttl": 3600
+    }
+  ]
+}
