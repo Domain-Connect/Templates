@@ -25,6 +25,7 @@ jobs:
         with:
           fetch-depth: 2
           ref: ${{ steps.setup-refs.outputs.head_sha }}
+          allow-unsafe-pr-checkout: true
 
       - name: Get changed JSON files
         id: changed-json-files

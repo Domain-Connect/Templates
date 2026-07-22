@@ -24,6 +24,7 @@ jobs:
         with:
             fetch-depth: 2
             ref: ${{ steps.setup-refs.outputs.head_sha }}
+            allow-unsafe-pr-checkout: true
 
       - name: Dump GitHub context
         env:
