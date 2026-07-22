@@ -8,7 +8,6 @@
   "description": "Connect your domain to your Enwella-hosted clinic website.",
   "variableDescription": "Points your domain (apex + www) at Enwella and verifies ownership so we can issue an SSL certificate for it.",
   "syncBlock": false,
-  "warnPhishing": true,
   "hostRequired": false,
   "syncPubKeyDomain": "enwella.com",
   "records": [
