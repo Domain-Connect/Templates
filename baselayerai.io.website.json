@@ -1,0 +1,33 @@
+{
+    "providerId": "baselayerai.io",
+    "providerName": "Base Layer",
+    "serviceId": "website",
+    "serviceName": "Base Layer Website",
+    "version": 1,
+    "logoUrl": "https://try.baselayerai.io/baselayer-favicon.png",
+    "description": "Connects a domain to the customer's Base Layer website",
+    "syncRedirectDomain": "baselayerai.io",
+    "records": [
+        {
+            "type": "A",
+            "groupId": "apex",
+            "host": "@",
+            "pointsTo": "76.76.21.21",
+            "ttl": 600
+        },
+        {
+            "type": "CNAME",
+            "groupId": "www",
+            "host": "www",
+            "pointsTo": "cname.vercel-dns.com",
+            "ttl": 600
+        },
+        {
+            "type": "TXT",
+            "groupId": "verify",
+            "host": "_vercel",
+            "data": "%vercelverify%",
+            "ttl": 600
+        }
+    ]
+}
