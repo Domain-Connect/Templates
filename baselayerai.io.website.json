@@ -1,0 +1,38 @@
+{
+    "providerId": "baselayerai.io",
+    "providerName": "Base Layer",
+    "serviceId": "website",
+    "serviceName": "Base Layer Website",
+    "version": 2,
+    "logoUrl": "https://try.baselayerai.io/baselayer-favicon.png",
+    "description": "Connects a domain to the customer's Base Layer website",
+    "variableDescription": "vercelverify is the domain ownership verification token for the underlying hosting platform (record value becomes vc-domain-verify=<token>). Only applied when the verify group is requested.",
+    "syncPubKeyDomain": "baselayerai.io",
+    "syncRedirectDomain": "baselayerai.io",
+    "records": [
+        {
+            "type": "A",
+            "groupId": "apex",
+            "host": "@",
+            "pointsTo": "76.76.21.21",
+            "ttl": 600
+        },
+        {
+            "type": "CNAME",
+            "groupId": "www",
+            "host": "www",
+            "pointsTo": "cname.vercel-dns.com",
+            "ttl": 600
+        },
+        {
+            "type": "TXT",
+            "groupId": "verify",
+            "host": "_vercel",
+            "data": "vc-domain-verify=%vercelverify%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "vc-domain-verify=",
+            "essential": "OnApply"
+        }
+    ]
+}
