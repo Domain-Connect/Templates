@@ -1,0 +1,20 @@
+{
+  "providerId": "simpleurl.tech",
+  "providerName": "SimpleURL",
+  "serviceId": "branded-rootdomain",
+  "serviceName": "SimpleURL Branded Domains (Apex)",
+  "version": 1,
+  "logoUrl": "https://www.simpleurl.tech/favicon.ico",
+  "description": "Configures your root domain to point to SimpleURL's edge network for branded short links and QR codes.",
+  "syncPubKeyDomain": "www.simpleurl.tech",
+  "syncRedirectDomain": "www.simpleurl.tech",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%server_ip%",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+	"providerId": "anypost.com",
+	"providerName": "Anypost",
+	"serviceId": "mail",
+	"serviceName": "Mail",
+	"version": 1,
+	"syncBlock": false,
+	"syncPubKeyDomain": "anypost.com",
+	"syncRedirectDomain": "anypost.com",
+	"description": "Verify your domain for sending and enable DKIM signing.",
+	"logoUrl": "https://anypost.com/brand/wordmark.svg",
+	"records": [
+		{
+			"groupId": "verification",
+			"type": "CNAME",
+			"host": "anypost",
+			"pointsTo": "%label%.c.anypost.email",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "s1._domainkey.anypost",
+			"pointsTo": "s1._domainkey.%label%.c.anypost.email",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "s2._domainkey.anypost",
+			"pointsTo": "s2._domainkey.%label%.c.anypost.email",
+			"ttl": 3600
+		}
+	]
+}

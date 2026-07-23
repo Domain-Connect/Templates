@@ -1,0 +1,22 @@
+{
+  "providerId": "church-flow.com",
+  "providerName": "Church Flow",
+  "serviceId": "portal",
+  "serviceName": "Church Flow Portal",
+  "version": 1,
+  "logoUrl": "https://church-flow.com/branding/monogram.svg",
+  "description": "Connects your own domain to your Church Flow portal.",
+  "variableDescription": "%target% is the tenant identifier of the Church Flow portal (the subdomain prefix of the tenant's <tenant>.church-flow.com address).",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "dc.church-flow.com",
+  "syncRedirectDomain": "church-flow.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%.church-flow.com",
+      "ttl": 3600
+    }
+  ]
+}

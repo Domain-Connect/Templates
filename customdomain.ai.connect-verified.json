@@ -1,0 +1,30 @@
+{
+  "providerId": "customdomain.ai",
+  "providerName": "Customdomain",
+  "serviceId": "connect-verified",
+  "serviceName": "Connect + verify (one step)",
+  "version": 1,
+  "logoUrl": "https://customdomain.ai/logo.svg",
+  "description": "Connect your domain to Customdomain and prove ownership in a single step: point the apex at the Customdomain edge and publish the ownership token together, applied atomically so serving and verification go live at once.",
+  "syncPubKeyDomain": "customdomain.ai",
+  "variableDescription": "%edgeIp%: Customdomain edge IPv4 address for this domain. %verificationToken%: One-time domain-ownership verification token issued by Customdomain for this domain.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%edgeIp%",
+      "ttl": 3600,
+      "groupId": "connect"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "customdomain-verify=%verificationToken%",
+      "ttl": 300,
+      "groupId": "connect",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "customdomain-verify="
+    }
+  ]
+}

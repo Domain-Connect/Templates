@@ -1,0 +1,46 @@
+{
+	"providerId": "postboi.email",
+	"providerName": "Postboi",
+	"serviceId": "dkim",
+	"serviceName": "Postboi domain verification (DKIM + MAIL FROM)",
+	"version": 2,
+	"logoUrl": "https://postboi.email/logo.svg",
+	"description": "Verifies your domain for sending with Postboi: three Amazon SES DKIM CNAME records, plus MX and SPF records on the bounce subdomain for an aligned MAIL FROM.",
+	"syncPubKeyDomain": "postboi.email",
+	"syncRedirectDomain": "postboi.email",
+	"syncBlock": false,
+	"shared": false,
+	"hostRequired": false,
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "%dkim1%._domainkey",
+			"pointsTo": "%dkim1%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkim2%._domainkey",
+			"pointsTo": "%dkim2%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkim3%._domainkey",
+			"pointsTo": "%dkim3%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "MX",
+			"host": "bounce",
+			"pointsTo": "feedback-smtp.eu-north-1.amazonses.com",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"type": "SPFM",
+			"host": "bounce",
+			"spfRules": "include:amazonses.com"
+		}
+	]
+}

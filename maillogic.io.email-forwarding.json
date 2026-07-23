@@ -1,0 +1,27 @@
+{
+  "providerId": "maillogic.io",
+  "providerName": "MailLogic",
+  "serviceId": "email-forwarding",
+  "serviceName": "Email Forwarding",
+  "version": 1,
+  "logoUrl": "https://maillogic.io/static/images/mail-orbit-logo.svg",
+  "description": "Configures inbound email delivery through MailLogic.",
+  "syncPubKeyDomain": "keys.maillogic.io",
+  "syncRedirectDomain": "dc-lab.maillogic.io",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.maillogic.io",
+      "ttl": 300,
+      "priority": 10
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.maillogic.io",
+      "ttl": 300,
+      "priority": 10
+    }
+  ]
+}
