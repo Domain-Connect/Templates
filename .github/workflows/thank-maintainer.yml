@@ -1,0 +1,55 @@
+name: Thank Maintainer
+
+# Thanks a maintainer (as listed in .github/FUNDING.yml) after they merge a PR,
+# and reminds contributors/companies that the review process is maintained by
+# independent individuals in their spare time.
+
+on:
+  pull_request_target:
+    types: [closed]
+
+jobs:
+  thank-maintainer:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+
+      - name: Check if merger is a listed sponsor and get link
+        id: funding
+        env:
+          MERGER: ${{ github.event.pull_request.merged_by.login }}
+        run: |
+          mapfile -t maintainers < <(yq -r '.github[]' .github/FUNDING.yml)
+          is_sponsor=false
+          for maintainer in "${maintainers[@]}"; do
+            if [ "$maintainer" = "$MERGER" ]; then
+              is_sponsor=true
+              break
+            fi
+          done
+          echo "is_sponsor=$is_sponsor" >> "$GITHUB_OUTPUT"
+
+      - name: Thank maintainer
+        if: steps.funding.outputs.is_sponsor == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          MERGER: ${{ github.event.pull_request.merged_by.login }}
+          SUBMITTER: ${{ github.event.pull_request.user.login }}
+        run: |
+          {
+            echo "Thanks @${SUBMITTER} for contributing to the template. 🎉"
+            echo
+            echo "This template has been reviewed and merged by @${MERGER}. 🙌"
+            echo
+            echo "This template repository and its review process are maintained by independent individuals in their spare time, not as part of a paid role. If you or your company benefit from this protocol and its tools, please show your appreciation by buying a beer for @${MERGER}: https://github.com/sponsors/${MERGER}"
+          } > body.txt
+          gh pr comment "$PR_NUMBER" --repo "$REPO" --body-file body.txt
