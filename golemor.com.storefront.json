@@ -1,0 +1,14 @@
+{
+  "providerId": "golemor.com",
+  "providerName": "Golemor",
+  "serviceId": "storefront",
+  "serviceName": "Golemor storefront",
+  "version": 1,
+  "description": "Connect your domain to your Golemor store. Adds the records that point your domain at your storefront; TLS issues automatically.",
+  "syncPubKeyDomain": "domainconnect.golemor.com",
+  "syncRedirectDomain": "admin.golemor.com",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 }
+  ]
+}
