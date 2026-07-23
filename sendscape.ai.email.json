@@ -1,0 +1,19 @@
+{
+    "providerId": "sendscape.ai",
+    "providerName": "Sendscape",
+    "serviceId": "email",
+    "serviceName": "Sendscape Email",
+    "version": 1,
+    "logoUrl": "https://sendscape.ai/domain-connect-logo.svg",
+    "description": "Verifies your domain for sending email through Sendscape: DKIM CNAMEs plus MX and SPF for the bounce subdomain.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "sendscape.ai",
+    "syncRedirectDomain": "sendscape.ai",
+    "records": [
+        { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+        { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+        { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+        { "type": "MX", "host": "%mailfrom%", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+        { "type": "TXT", "host": "%mailfrom%", "data": "v=spf1 include:amazonses.com ~all", "ttl": 3600, "txtConflictMatchingMode": "All" }
+    ]
+}
