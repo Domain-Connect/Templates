@@ -3,12 +3,13 @@
   "providerName": "Reloop",
   "serviceId": "email-setup",
   "serviceName": "Reloop Email",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://reloop.sh/icon.svg",
   "description": "Configures DNS records for sending and receiving email via Reloop. Sets up DKIM authentication, SPF authorization, DMARC policy, MX routing, and optional click/open tracking.",
   "variableDescription": "domainKey: The DKIM public key material that Reloop generates for this domain at setup time.",
   "syncPubKeyDomain": "reloop.sh",
   "syncRedirectDomain": "reloop.sh",
+  "syncBlock": false,
   "hostRequired": false,
   "records": [
     {
@@ -20,9 +21,17 @@
     },
     {
       "groupId": "sending",
-      "type": "SPFM",
+      "type": "TXT",
       "host": "@",
-      "spfRules": "include:reloop.sh",
+      "data": "v=spf1 include:reloop.sh -all",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "reloop.sh",
+      "priority": 10,
       "ttl": 3600
     },
     {
@@ -36,14 +45,14 @@
       "groupId": "receiving",
       "type": "MX",
       "host": "@",
-      "pointsTo": "reloop.sh",
+      "pointsTo": "inbound.reloop.sh",
       "priority": 10,
       "ttl": 3600
     },
     {
       "groupId": "tracking",
       "type": "CNAME",
-      "host": "tracking",
+      "host": "link",
       "pointsTo": "link.reloop.sh",
       "ttl": 3600
     }
