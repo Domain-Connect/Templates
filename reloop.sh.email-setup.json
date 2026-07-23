@@ -17,7 +17,8 @@
       "type": "TXT",
       "host": "reloop._domainkey",
       "data": "v=DKIM1; k=rsa; p=%domainKey%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
     },
     {
       "groupId": "sending",
@@ -39,7 +40,9 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=reject;",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
     },
     {
       "groupId": "receiving",
