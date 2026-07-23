@@ -1,0 +1,35 @@
+{
+  "providerId": "fastworkload.com",
+  "providerName": "Fastworkload",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom workload domain",
+  "version": 1,
+  "logoUrl": "https://console.fastworkload.com/static/fastworkload.svg",
+  "description": "Routes wildcard workload hostnames to Fastworkload and delegates certificate validation without granting Fastworkload access to your DNS account.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.fastworkload.com",
+  "syncRedirectDomain": "console.fastworkload.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "*",
+      "pointsTo": "ingress.fastworkload.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%challenge%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_fastworkload",
+      "data": "fw-domain-verification=%verification%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "fw-domain-verification=",
+      "ttl": 300
+    }
+  ]
+}
