@@ -3,11 +3,11 @@
   "providerName": "Mailkube",
   "serviceId": "email",
   "serviceName": "Mailkube Email Authentication",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.mailkube.com/public/logos/domainconnect/packv1.png",
   "syncPubKeyDomain": "mailkube.com",
   "syncRedirectDomain": "app.mailkube.com",
-  "description": "Configures DKIM, SPF, DMARC, inbound MX, and bounces MX records for sending and receiving email via Mailkube.",
+  "description": "Configures DKIM and DMARC on the domain, inbound MX, and the send.<domain> return-path records (MX + SPF) for sending and receiving email via Mailkube.",
   "records": [
     {
       "groupId": "dkim",
@@ -20,7 +20,7 @@
     {
       "groupId": "spf",
       "type": "SPFM",
-      "host": "@",
+      "host": "send",
       "spfRules": "%spfRules%",
       "ttl": 3600
     },
@@ -42,10 +42,10 @@
       "ttl": 3600
     },
     {
-      "groupId": "mx_bounces",
+      "groupId": "mx_send",
       "type": "MX",
-      "host": "bounces",
-      "pointsTo": "%bouncesPointsTo%",
+      "host": "send",
+      "pointsTo": "%sendPointsTo%",
       "priority": 10,
       "ttl": 3600
     }
