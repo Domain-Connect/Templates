@@ -22,9 +22,9 @@
     },
     {
       "groupId": "sending",
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "v=spf1 include:reloop.sh -all",
+      "spfRules": "include:reloop.sh",
       "ttl": 3600
     },
     {
