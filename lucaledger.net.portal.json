@@ -8,7 +8,6 @@
   "description": "Point a subdomain (for example portal.yourdomain.com) at your branded LucaLedger client portal. SSL is issued automatically.",
   "variableDescription": "your client portal subdomain",
   "syncBlock": false,
-  "warnPhishing": true,
   "hostRequired": true,
   "syncPubKeyDomain": "_dc.lucaledger.net",
   "syncRedirectDomain": "app.lucaledger.net",
