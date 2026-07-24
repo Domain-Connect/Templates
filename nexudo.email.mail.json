@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://cdn.nexudo.email/nex-mail-public/brand/logo.png",
   "description": "Configures mail DNS records (MX, SPF, DKIM, DMARC) for Nex Mail deliverability on your domain.",
-  "variableDescription": "%mxHost%: MX target hostname (e.g. mail.nexudo.email); %serverIp%: IPv4 for the mail A record; %spfRules%: SPF rules without the v=spf1 prefix (e.g. include:mail.nexudo.email ~all); %dkimSelector%: DKIM selector (e.g. mail); %dkimTxt%: full DKIM TXT value (v=DKIM1; k=rsa; p=...); %dmarc%: full DMARC TXT value (v=DMARC1; p=none; rua=...)",
+  "variableDescription": "%mxHost%: MX target hostname (e.g. mx.nexudo.email); %serverIp%: IPv4 for the mail A record; %spfRules%: SPF rules without the v=spf1 prefix (e.g. include:mx.nexudo.email ~all); %dkimSelector%: DKIM selector (e.g. mail); %dkimTxt%: full DKIM TXT value (v=DKIM1; k=rsa; p=...); %dmarc%: full DMARC TXT value (v=DMARC1; p=none; rua=...)",
   "syncPubKeyDomain": "domainconnect.nexudo.email",
   "syncRedirectDomain": "nexudo.email",
   "hostRequired": false,
