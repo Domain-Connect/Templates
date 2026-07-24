@@ -1,0 +1,15 @@
+{
+  "providerId": "plicklistings.com",
+  "providerName": "Plick Listings",
+  "serviceId": "website",
+  "serviceName": "Plick Listings Website",
+  "version": 1,
+  "hostRequired": true,
+  "syncPubKeyDomain": "plicklistings.com",
+  "syncRedirectDomain": "plicklistings.com",
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "%SUBDOMAIN%.plicklistings.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "%SUBDOMAIN%.plicklistings.com", "ttl": 3600 },
+    { "type": "TXT", "host": "%TXTHOST%", "data": "%TXTVALUE%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}

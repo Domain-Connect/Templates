@@ -1,0 +1,22 @@
+{
+  "providerId": "gameaxiom.com",
+  "providerName": "Game Axiom",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain Verification",
+  "version": 1,
+  "logoUrl": "https://www.gameaxiom.com/icon.svg",
+  "description": "Verify domain ownership in Game Axiom by publishing the Cloudflare custom hostname ownership TXT record.",
+  "variableDescription": "ownership: the per-domain Cloudflare custom hostname ownership verification token issued by Game Axiom.",
+  "syncPubKeyDomain": "gameaxiom.com",
+  "syncRedirectDomain": "gameaxiom.com,www.gameaxiom.com,admin.gameaxiom.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "providerId": "advancedsending.com",
+  "providerName": "Advanced Sending Connect",
+  "serviceId": "domain-authentication",
+  "serviceName": "Domain authentication (verification + SPF + DKIM + DMARC)",
+  "version": 1,
+  "logoUrl": "https://connect.advancedsending.com/static/logo.svg",
+  "description": "One click to fully authenticate a sending domain — an ownership TXT, SPF, DKIM and DMARC. Apply all of it, or any subset via the groupId parameter (verify, spf, dkim, dmarc).",
+  "variableDescription": "%verifyValue%: domain-ownership TXT value; %spfInclude%: SPF include host (e.g. _spf.advancedsending.com); %dkimSelector%: DKIM selector label; %dkimTarget%: DKIM CNAME target host; %dmarcPolicy%: none|quarantine|reject; %dmarcRua%: mailbox for DMARC aggregate reports",
+  "syncBlock": false,
+  "sharedProviderName": true,
+  "sharedServiceName": true,
+  "syncRedirectDomain": "advancedsending.com",
+  "syncPubKeyDomain": "connect.advancedsending.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%verifyValue%",
+      "ttl": 3600,
+      "groupId": "verify",
+      "essential": "OnApply"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%spfInclude%",
+      "groupId": "spf",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimSelector%._domainkey",
+      "pointsTo": "%dkimTarget%",
+      "ttl": 3600,
+      "groupId": "dkim",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%dmarcPolicy%; rua=mailto:%dmarcRua%",
+      "ttl": 3600,
+      "groupId": "dmarc",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
