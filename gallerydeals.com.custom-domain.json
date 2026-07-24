@@ -1,0 +1,48 @@
+{
+  "providerId": "gallerydeals.com",
+  "providerName": "Gallery Deals",
+  "serviceId": "custom-domain",
+  "serviceName": "Gallery Deals Custom Domain + Email",
+  "version": 1,
+  "description": "Points your domain at the Gallery Deals platform (site + SSL) and authenticates it for sending auction email.",
+  "variableDescription": "%sgMailHost%: SendGrid mail CNAME label (e.g. em1234); %sgLink%: SendGrid account link prefix (e.g. u17558810.wl061).",
+  "syncPubKeyDomain": "gallerydeals.com",
+  "syncRedirectDomain": "gallerydeals.com",
+  "records": [
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "bid",
+      "pointsTo": "gallerydeals-web.azurewebsites.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "site",
+      "type": "TXT",
+      "host": "asuid.bid",
+      "data": "BE4A070DAFF02E5BCD6AD3F0232C3B01A515D60C162B803806A021F0C8D3D6A8",
+      "ttl": 3600
+    },
+    {
+      "groupId": "email",
+      "type": "CNAME",
+      "host": "%sgMailHost%",
+      "pointsTo": "%sgLink%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "email",
+      "type": "CNAME",
+      "host": "s1._domainkey",
+      "pointsTo": "s1.domainkey.%sgLink%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "email",
+      "type": "CNAME",
+      "host": "s2._domainkey",
+      "pointsTo": "s2.domainkey.%sgLink%.sendgrid.net",
+      "ttl": 3600
+    }
+  ]
+}
