@@ -1,0 +1,28 @@
+{
+  "providerId": "naia.today",
+  "providerName": "naia",
+  "serviceId": "pages",
+  "serviceName": "naia Pages",
+  "version": 1,
+  "logoUrl": "https://cdn.naia.today/naia-logos/bimi/naia.svg",
+  "description": "Publishes naia Pages on a brand subdomain with a managed TLS certificate",
+  "syncPubKeyDomain": "naia.today",
+  "syncRedirectDomain": "naia.today",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%acmetarget%",
+      "ttl": 300,
+      "essential": "OnApply"
+    }
+  ]
+}
