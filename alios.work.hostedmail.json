@@ -3,11 +3,12 @@
   "providerName": "Alios",
   "serviceId": "hostedmail",
   "serviceName": "Alios Mail Hosting",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://alios.work/vite.svg",
   "description": "Hosted email for your domain on Alios (MX, SPF, DKIM, DMARC and ownership verification).",
   "syncBlock": false,
-  "syncRedirectDomain": "alios.work,localhost",
+  "syncPubKeyDomain": "alios.work",
+  "syncRedirectDomain": "alios.work",
   "records": [
     {
       "type": "TXT",
