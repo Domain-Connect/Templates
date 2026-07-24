@@ -27,14 +27,15 @@ jobs:
         echo "head_sha=${{ github.event.pull_request.head.sha }}${{ github.event.merge_group.head_sha }}" >> "$GITHUB_OUTPUT"
 
     - name: Check out code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v7
       with:
         fetch-depth: 2
         ref: ${{ steps.setup-refs.outputs.head_sha }}
+        allow-unsafe-pr-checkout: true
 
     - name: Get all changed files
       id: changed-all-files
-      uses: tj-actions/changed-files@v45
+      uses: tj-actions/changed-files@v47
 
     - name: Check for unexpected files
       id: check-unexpected-files
@@ -67,13 +68,13 @@ jobs:
 
     - name: Get changed JSON files
       id: changed-json-files
-      uses: tj-actions/changed-files@v45
+      uses: tj-actions/changed-files@v47
       with:
         files: '*.json'
 
     - name: Set up Python ${{ env.PYTHON_VERSION }}
       if: steps.changed-json-files.outputs.any_changed == 'true'
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v7
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
