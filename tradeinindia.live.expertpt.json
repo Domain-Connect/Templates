@@ -1,0 +1,24 @@
+{
+    "providerId": "tradeinindia.live",
+    "providerName": "TradeInIndia",
+    "serviceId": "expertpt",
+    "serviceName": "Expert Paper Trading Platform",
+    "version": 1,
+    "description": "Connects your domain to your Expert Paper Trading platform for SEBI Research Analysts: adminra.<domain> (admin panel) and expertcalls.<domain> (client page).",
+    "variableDescription": "IP is the IPv4 address of the TradeInIndia platform server.",
+    "syncRedirectDomain": "masteradmin.tradeinindia.live",
+    "records": [
+        {
+            "type": "A",
+            "host": "adminra",
+            "pointsTo": "%IP%",
+            "ttl": "3600"
+        },
+        {
+            "type": "A",
+            "host": "expertcalls",
+            "pointsTo": "%IP%",
+            "ttl": "3600"
+        }
+    ]
+}
