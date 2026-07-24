@@ -1,0 +1,30 @@
+{
+  "providerId": "onebookplus.com",
+  "providerName": "OneBookPlus",
+  "serviceId": "website",
+  "serviceName": "OneBookPlus website (subdomain)",
+  "version": 3,
+  "syncPubKeyDomain": "onebookplus.com",
+  "syncRedirectDomain": "onebookplus.com.au",
+  "description": "Connects a subdomain (e.g. www) to a OneBookPlus website: CNAMEs the chosen host at the OneBookPlus edge and publishes the per-tenant ownership-verification TXT record the OneBookPlus domain wizard checks. Deliberately touches no apex records; apex connects use the separate website-apex template.",
+  "variableDescription": "VERIFYTOKEN: per-tenant ownership token issued and shown by the OneBookPlus domain wizard.",
+  "shared": false,
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.onebookplus.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_obp-site-verify",
+      "data": "obp-site-verify=%VERIFYTOKEN%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "providerId": "hikyak.com",
+  "providerName": "Hikyak",
+  "serviceId": "email",
+  "serviceName": "Hikyak Email DNS",
+  "version": 1,
+  "description": "Configures Hikyak outbound authentication and optional inbound mail routing through AWS SES in us-east-1.",
+  "variableDescription": "dkimToken1, dkimToken2, and dkimToken3 are the AWS SES Easy DKIM tokens for the Hikyak domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.hikyak.com",
+  "syncRedirectDomain": "app.hikyak.com",
+  "records": [
+    {
+      "groupId": "outbound",
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "hkbounce",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "hkbounce",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.us-east-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "inbound-wildcard",
+      "type": "MX",
+      "host": "*",
+      "pointsTo": "inbound-smtp.us-east-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
