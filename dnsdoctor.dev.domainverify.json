@@ -1,0 +1,20 @@
+{
+  "providerId": "dnsdoctor.dev",
+  "providerName": "DNS Doctor",
+  "serviceId": "domainverify",
+  "serviceName": "DNS Doctor Domain Verification",
+  "version": 1,
+  "syncPubKeyDomain": "dnsdoctor.dev",
+  "description": "Proves domain ownership for DNS Doctor monitoring by adding a single TXT record.",
+  "variableDescription": "token is the per-domain ownership verification code DNS Doctor issues when you add a domain. Documentation only — never shown to the user.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dnsdoctor-challenge",
+      "data": "dnsdoctor-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dnsdoctor-verify="
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "providerId": "softalon.com",
+  "providerName": "Softalon",
+  "serviceId": "subdomain-custom-domain",
+  "serviceName": "Custom Domain (Subdomain)",
+  "version": 1,
+  "logoUrl": "https://softalon-production.s3.us-east-1.amazonaws.com/public/logo.png",
+  "description": "Connects your subdomain to your Softalon salon.",
+  "variableDescription": "verification_token is the domain ownership verification code",
+  "hostRequired": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "softalon.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_softalon-verification",
+      "data": "%verification_token%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.softalon.com",
+      "ttl": 3600
+    }
+  ]
+}
