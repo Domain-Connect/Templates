@@ -3,12 +3,24 @@
   "providerName": "TalentCafe",
   "serviceId": "web-hosting",
   "serviceName": "Website Custom Domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://talentcafe.net/logo.png",
-  "description": "This will configure your CNAME and verification TXT records to point your custom domain to TalentCafe.",
+  "description": "This will configure your apex A records, www CNAME, and verification TXT records to point your custom domain to TalentCafe.",
   "variableDescription": "cf_ownership represents the Cloudflare custom hostname ownership validation token. acme_challenge represents the SSL certificate validation token.",
   "syncPubKeyDomain": "talentcafe.net",
   "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "104.21.72.156",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "172.67.152.115",
+      "ttl": 3600
+    },
     {
       "type": "CNAME",
       "host": "www",
