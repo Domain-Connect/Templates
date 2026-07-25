@@ -1,0 +1,25 @@
+{
+  "providerId": "hoversite.build",
+  "providerName": "Hoversite",
+  "serviceId": "hosting",
+  "serviceName": "Hoversite Hosting",
+  "version": 1,
+  "logoUrl": "https://assets.hoversite.build/logo.svg",
+  "description": "Points a domain at Hoversite's hosting edge. TLS certificates are issued automatically once DNS resolves.",
+  "syncRedirectDomain": "hoversite.build",
+  "syncPubKeyDomain": "hoversite.build",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "178.105.196.17",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "178.105.196.17",
+      "ttl": 300
+    }
+  ]
+}

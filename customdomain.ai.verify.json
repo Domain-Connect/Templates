@@ -1,0 +1,22 @@
+{
+  "providerId": "customdomain.ai",
+  "providerName": "Customdomain",
+  "serviceId": "verify",
+  "serviceName": "Verify domain ownership",
+  "version": 1,
+  "logoUrl": "https://customdomain.ai/logo.svg",
+  "description": "Prove that you control this domain by publishing a Customdomain ownership token as a TXT record at the apex. Once the token resolves, Customdomain confirms ownership and unlocks provisioning.",
+  "syncPubKeyDomain": "customdomain.ai",
+  "variableDescription": "%verificationToken%: One-time domain-ownership verification token issued by Customdomain for this domain.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "customdomain-verify=%verificationToken%",
+      "ttl": 300,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "customdomain-verify="
+    }
+  ]
+}

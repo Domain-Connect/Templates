@@ -1,0 +1,18 @@
+{
+  "providerId": "mailblastr.com",
+  "providerName": "MailBlastr",
+  "serviceId": "mail-send-and-receive",
+  "serviceName": "Mail (Sending & Receiving)",
+  "version": 1,
+  "syncPubKeyDomain": "mailblastr.com",
+  "syncRedirectDomain": "www.mailblastr.com",
+  "description": "Configure DNS for both sending and receiving email with MailBlastr (Amazon SES): DKIM, SPF, the MAIL FROM MX, and an inbound MX.",
+  "variableDescription": "domainKey is the BYODKIM public key (base64); region is the SES region (e.g. us-east-1); mailfromhost is the custom MAIL FROM subdomain label (e.g. send); inboundMXDomain is the host that should receive inbound mail.",
+  "logoUrl": "https://www.mailblastr.com/logo.svg",
+  "records": [
+    { "groupId": "dkim", "type": "TXT", "host": "mailblastr._domainkey", "data": "v=DKIM1; k=rsa; p=%domainKey%", "ttl": 3600 },
+    { "groupId": "outbound", "type": "MX", "host": "%mailfromhost%", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "groupId": "outbound", "type": "SPFM", "host": "%mailfromhost%", "spfRules": "include:amazonses.com", "ttl": 3600 },
+    { "groupId": "inbound", "type": "MX", "host": "%inboundMXDomain%", "pointsTo": "inbound-smtp.%region%.amazonaws.com", "priority": 10, "ttl": 3600 }
+  ]
+}

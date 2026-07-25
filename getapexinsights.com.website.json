@@ -1,0 +1,25 @@
+{
+    "providerId": "getapexinsights.com",
+    "providerName": "Apex Insights",
+    "serviceId": "website",
+    "serviceName": "Website",
+    "version": 1,
+    "description": "Connect your domain to your website hosted by Apex Insights.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "getapexinsights.com",
+    "syncRedirectDomain": "getapexinsights.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "136.110.150.120",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "host": "www",
+            "pointsTo": "136.110.150.120",
+            "ttl": 3600
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "customdomain.ai",
+  "providerName": "Customdomain",
+  "serviceId": "email-dmarc",
+  "serviceName": "Email DMARC",
+  "version": 1,
+  "logoUrl": "https://customdomain.ai/logo.svg",
+  "description": "Publish a starter DMARC policy at _dmarc so receivers report on messages that fail SPF or DKIM alignment. Starts in monitor mode (p=none) with aggregate reports sent to your chosen address; tighten the policy once reports look clean.",
+  "syncPubKeyDomain": "customdomain.ai",
+  "variableDescription": "%dmarcRua%: Email address that DMARC aggregate (rua) reports are sent to.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%dmarcRua%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

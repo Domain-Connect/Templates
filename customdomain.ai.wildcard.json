@@ -1,0 +1,18 @@
+{
+  "providerId": "customdomain.ai",
+  "providerName": "Customdomain",
+  "serviceId": "wildcard",
+  "serviceName": "Point all subdomains (wildcard)",
+  "version": 1,
+  "logoUrl": "https://customdomain.ai/logo.svg",
+  "description": "Point every subdomain of your domain at Customdomain with a wildcard CNAME (*) to the Customdomain edge, so any host under your domain resolves to Customdomain.",
+  "syncPubKeyDomain": "customdomain.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "*",
+      "pointsTo": "edge.customdomain.ai",
+      "ttl": 3600
+    }
+  ]
+}

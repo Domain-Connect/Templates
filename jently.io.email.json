@@ -1,0 +1,32 @@
+{
+    "providerId": "jently.io",
+    "providerName": "Jently",
+    "serviceId": "email",
+    "serviceName": "Jently E-mail Sending",
+    "version": 1,
+    "logoUrl": "https://jently.io/brand/icon-gradient.svg",
+    "description": "Sets up white-label transactional e-mail sending (MX and SPF on the dedicated send subdomain, plus the DKIM public key) for Jently platform customers.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "jently.io",
+    "records": [
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%dkim%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

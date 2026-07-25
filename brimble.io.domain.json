@@ -1,0 +1,29 @@
+{
+  "providerId": "brimble.io",
+  "providerName": "Brimble",
+  "serviceId": "domain",
+  "serviceName": "Custom Domain",
+  "version": 1,
+  "logoUrl": "https://www.brimble.io/favicon.ico",
+  "description": "Point your custom domain to Brimble so it can serve your project.",
+  "variableDescription": "%cnameTarget%: Brimble gateway hostname for subdomain CNAME records. %ip%: Brimble A record IP for apex domains.",
+  "syncPubKeyDomain": "brimble.io",
+  "syncRedirectDomain": "brimble.io,brimble.app,app.brimble.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "subdomain",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "apex",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}

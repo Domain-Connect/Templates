@@ -1,25 +1,34 @@
 {
-    "providerId": "10ashara.com",
-    "providerName": "10ashara",
-    "serviceId": "lms",
-    "serviceName": "10ashara LMS",
-    "syncPubKeyDomain": "domainconnect.10ashara.com",
-    "version": 1,
-    "logoUrl": "https://cdn.10ashara.com/home_logolight_filehome-logolight-fileashara-logosvgwebp.webp",
-    "description": "Use these DNS records to connect your domain to 10ashara LMS.",
-    "hostRequired": false,
-    "records": [
-        {
-            "type": "A",
-            "host": "@",
-            "pointsTo": "%ip-address%",
-            "ttl": 300
-        },
-        {
-            "type": "CNAME",
-            "host": "www",
-            "pointsTo": "@",
-            "ttl": 300
-        }
-    ]
+  "providerId": "10ashara.com",
+  "providerName": "10ashara",
+  "serviceId": "lms",
+  "serviceName": "10ashara LMS",
+  "version": 2,
+  "logoUrl": "https://cdn.10ashara.com/home_logolight_filehome-logolight-fileashara-logosvgwebp.webp",
+  "description": "Connect your domain to 10ashara LMS. Configures routing and ownership verification.",
+  "variableDescription": "verification-token: Unique subscription verification token. ip-address: Load balancer IP for your package tier.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.10ashara.com",
+  "syncRedirectDomain": "10ashara.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_asharamulti-verify",
+      "data": "%verification-token%",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip-address%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 300
+    }
+  ]
 }

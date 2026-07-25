@@ -1,0 +1,23 @@
+{
+    "providerId": "modulify.ai",
+    "providerName": "Modulify",
+    "serviceId": "connect-www",
+    "serviceName": "Connect your domain (with www) to Modulify",
+    "description": "Points your domain and its www subdomain to your Modulify-hosted site and adds the records needed to issue SSL certificates.",
+    "variableDescription": "IP addresses, ACME challenge targets, and ownership tokens are all supplied by Modulify for your specific site.",
+    "version": 1,
+    "logoUrl": "https://modulify.ai/logo.svg",
+    "syncPubKeyDomain": "modulify.ai",
+    "syncRedirectDomain": "app.modulify.ai",
+    "syncBlock": false,
+    "records": [
+        { "type": "A", "host": "@", "pointsTo": "%rootip%", "ttl": 300 },
+        { "type": "AAAA", "host": "@", "pointsTo": "%rootipv6%", "ttl": 300 },
+        { "type": "CNAME", "host": "_acme-challenge", "pointsTo": "%rootacme%", "ttl": 300 },
+        { "type": "TXT", "host": "_fly-ownership", "data": "%rootowner%", "ttl": 300, "txtConflictMatchingMode": "All" },
+        { "type": "A", "host": "www", "pointsTo": "%wwwip%", "ttl": 300 },
+        { "type": "AAAA", "host": "www", "pointsTo": "%wwwipv6%", "ttl": 300 },
+        { "type": "CNAME", "host": "_acme-challenge.www", "pointsTo": "%wwwacme%", "ttl": 300 },
+        { "type": "TXT", "host": "_fly-ownership.www", "data": "%wwwowner%", "ttl": 300, "txtConflictMatchingMode": "All" }
+    ]
+}

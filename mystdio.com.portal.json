@@ -1,0 +1,20 @@
+{
+  "providerId": "mystdio.com",
+  "providerName": "MyStdio",
+  "serviceId": "portal",
+  "serviceName": "MyStdio Client Portal",
+  "version": 1,
+  "logoUrl": "https://mystdio.com/mystudio-logo.png",
+  "description": "Connects your branded client portal subdomain (for example portal.yourcompany.com) to your MyStdio account.",
+  "syncPubKeyDomain": "dc.mystdio.com",
+  "syncRedirectDomain": "mystdio.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "mystdio.com",
+      "ttl": "3600"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "workrun.app",
+  "providerName": "WorkRun",
+  "serviceId": "custom-domain",
+  "serviceName": "WorkRun Tenant Login",
+  "version": 1,
+  "logoUrl": "https://workrun.app/assets/workrun-logo.png",
+  "description": "Connects a customer-owned hostname to the WorkRun tenant login portal.",
+  "syncPubKeyDomain": "workrun.app",
+  "syncRedirectDomain": "workrun.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "tenant-login",
+      "host": "@",
+      "pointsTo": "login.workrun.app",
+      "ttl": 600
+    }
+  ]
+}

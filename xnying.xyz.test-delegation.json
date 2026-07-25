@@ -1,0 +1,41 @@
+{
+  "providerId": "xnying.xyz",
+  "providerName": "xnying Dev",
+  "serviceId": "test-delegation",
+  "serviceName": "Test NS Delegation",
+
+  "version": 1,
+
+  "syncPubKeyDomain": "xnying.xyz",
+  "syncRedirectDomain": "xnying.xyz",
+
+  "description": "Delegate a subdomain to xnying Dev nameservers for DNS testing.",
+  "variableDescription": "ns_1 through ns_4 are the nameserver hostnames to delegate to.",
+
+  "records": [
+    {
+      "type": "NS",
+      "host": "_xnying",
+      "pointsTo": "%ns_1%.xnying.xyz",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "host": "_xnying",
+      "pointsTo": "%ns_2%.xnying.xyz",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "host": "_xnying",
+      "pointsTo": "%ns_3%.xnying.xyz",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "host": "_xnying",
+      "pointsTo": "%ns_4%.xnying.xyz",
+      "ttl": 3600
+    }
+  ]
+}

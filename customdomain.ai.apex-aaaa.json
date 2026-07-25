@@ -1,0 +1,19 @@
+{
+  "providerId": "customdomain.ai",
+  "providerName": "Customdomain",
+  "serviceId": "apex-aaaa",
+  "serviceName": "Point apex (IPv6)",
+  "version": 1,
+  "logoUrl": "https://customdomain.ai/logo.svg",
+  "description": "Point your root domain at Customdomain over IPv6 by adding an AAAA record at the apex (@) that resolves to the Customdomain edge IPv6 address. Typically paired with the apex A record for dual-stack serving.",
+  "syncPubKeyDomain": "customdomain.ai",
+  "variableDescription": "%edgeIp6%: Customdomain edge IPv6 address to serve the apex domain",
+  "records": [
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "%edgeIp6%",
+      "ttl": 3600
+    }
+  ]
+}

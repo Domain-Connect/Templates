@@ -1,0 +1,29 @@
+{
+  "providerId": "tooldrop.app",
+  "providerName": "Tooldrop",
+  "serviceId": "website",
+  "serviceName": "Tooldrop custom domain",
+  "version": 3,
+  "syncBlock": false,
+  "syncPubKeyDomain": "tooldrop.app",
+  "syncRedirectDomain": "tooldrop.app",
+  "description": "Serves a Tooldrop workspace from a hostname the customer owns.",
+  "variableDescription": "vctxt is the domain-ownership verification token shown in Tooldrop settings (the part after vc-domain-verify=).",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 300,
+      "groupId": "routing"
+    },
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%vctxt%",
+      "ttl": 300,
+      "groupId": "ownership",
+      "essential": "OnApply"
+    }
+  ]
+}

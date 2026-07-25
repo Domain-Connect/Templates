@@ -1,0 +1,18 @@
+{
+  "providerId": "customdomain.ai",
+  "providerName": "Customdomain",
+  "serviceId": "www",
+  "serviceName": "Point www",
+  "version": 1,
+  "logoUrl": "https://customdomain.ai/logo.svg",
+  "description": "Point the www hostname of your domain at Customdomain with a CNAME from www to the Customdomain edge.",
+  "syncPubKeyDomain": "customdomain.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "edge.customdomain.ai",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "providerId": "appaloft.com",
+  "providerName": "Appaloft",
+  "serviceId": "appaloft-domain",
+  "serviceName": "Appaloft Custom Domain",
+  "version": 1,
+  "description": "Connects a custom domain or subdomain to an Appaloft-hosted resource.",
+  "variableDescription": "%target%: IPv4 address currently assigned by Appaloft for this custom domain.",
+  "syncPubKeyDomain": "domainconnect.appaloft.com",
+  "syncRedirectDomain": "app.appaloft.com,appaloft.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "providerId": "fommo.ai",
+  "providerName": "fommo",
+  "serviceId": "website",
+  "serviceName": "fommo website",
+  "version": 1,
+  "description": "Connects a customer domain to their fommo published website (CNAME to fommo's edge).",
+  "syncPubKeyDomain": "fommo.ai",
+  "syncRedirectDomain": "app.fommo.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "domains.fommo.site",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "providerId": "amabrik.com",
+  "providerName": "Amabrik",
+  "serviceId": "site-verification",
+  "serviceName": "Amabrik Site Verification",
+  "version": 1,
+  "logoUrl": "https://amabrik.com/logo.png",
+  "description": "Verify you own this domain so Amabrik can run its security and SEO/AEO scans on it.",
+  "variableDescription": "token: the per-site verification token Amabrik generates",
+  "syncPubKeyDomain": "amabrik.com",
+  "syncRedirectDomain": "app.amabrik.com,amabrik.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "amabrik-site-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "amabrik-site-verification="
+    }
+  ]
+}

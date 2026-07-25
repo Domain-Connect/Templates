@@ -1,0 +1,18 @@
+{
+  "providerId": "justad",
+  "providerName": "JustAd",
+  "serviceId": "justad-tracking",
+  "serviceName": "JustAd",
+  "version": 1,
+  "logoUrl": "https://cdn.just.ad/just-logo.png",
+  "description": "Connect a first-party tracking subdomain for JustAd analytics.",
+  "variableDescription": "%cfownership%: Cloudflare for SaaS hostname ownership verification token (UUID) placed at the _cf-custom-hostname label",
+  "syncRedirectDomain": "app.just.ad,stream.just.ad",
+  "syncPubKeyDomain": "just.ad",
+  "hostRequired": true,
+  "shared": false,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "events.just-ad.com", "ttl": 300 },
+    { "type": "TXT", "host": "_cf-custom-hostname", "data": "%cfownership%", "ttl": 300, "txtConflictMatchingMode": "All", "essential": "OnApply" }
+  ]
+}
