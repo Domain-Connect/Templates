@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://sit-crm.digitaltec-solutions.de/assets/logo-C-2IVJXi.png",
   "description": "Verifiziert eine Absenderdomain fuer den Newsletter-Versand ueber Mailjet: Domain-Ownership-Nachweis, SPF- und DKIM-TXT-Record in einem Schritt.",
-  "variableDescription": "%verifyHost%: Hostname/Subdomain-Label fuer den Domain-Ownership-Nachweis (Mailjet OwnerShipTokenRecordName); %verifyValue%: zugehoeriger TXT-Wert (Mailjet OwnerShipToken); %spfValue%: kompletter SPF-TXT-Wert (Mailjet SPFRecordValue); %dkimValue%: DKIM-TXT-Wert (Mailjet DKIMRecordValue, Host ist immer fest \"mailjet._domainkey\")",
+  "variableDescription": "%verifyHost%: Hostname/Label fuer den Domain-Ownership-Nachweis (Mailjet OwnerShipTokenRecordName - ein zufaelliger, pro Domain von Mailjet vergebener Token, keine vom Nutzer gewaehlte Subdomain); %verifyValue%: zugehoeriger TXT-Wert (Mailjet OwnerShipToken); %dkimValue%: DKIM-TXT-Wert (Mailjet DKIMRecordValue, Host ist immer fest \"mailjet._domainkey\")",
   "syncBlock": false,
   "syncRedirectDomain": "api-sit-crm.digitaltec-solutions.de",
   "syncPubKeyDomain": "connect.digitaltec-solutions.de",
@@ -20,10 +20,9 @@
       "essential": "OnApply"
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "%spfValue%",
-      "ttl": 3600,
+      "spfRules": "include:spf.mailjet.com",
       "groupId": "spf",
       "essential": "OnApply"
     },
