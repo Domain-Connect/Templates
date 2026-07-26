@@ -1,0 +1,39 @@
+{
+  "providerId": "digitaltec-solutions.de",
+  "providerName": "Sahin IT Solutions",
+  "serviceId": "newsletter-domain-auth",
+  "serviceName": "Newsletter-Absenderdomain-Verifizierung (Ownership + SPF + DKIM)",
+  "version": 1,
+  "logoUrl": "https://sit-crm.digitaltec-solutions.de/assets/logo-C-2IVJXi.png",
+  "description": "Verifiziert eine Absenderdomain fuer den Newsletter-Versand ueber Mailjet: Domain-Ownership-Nachweis, SPF- und DKIM-TXT-Record in einem Schritt.",
+  "variableDescription": "%verifyHost%: Hostname/Subdomain-Label fuer den Domain-Ownership-Nachweis (Mailjet OwnerShipTokenRecordName); %verifyValue%: zugehoeriger TXT-Wert (Mailjet OwnerShipToken); %spfValue%: kompletter SPF-TXT-Wert (Mailjet SPFRecordValue); %dkimValue%: DKIM-TXT-Wert (Mailjet DKIMRecordValue, Host ist immer fest \"mailjet._domainkey\")",
+  "syncBlock": false,
+  "syncRedirectDomain": "api-sit-crm.digitaltec-solutions.de",
+  "syncPubKeyDomain": "connect.digitaltec-solutions.de",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%verifyHost%",
+      "data": "%verifyValue%",
+      "ttl": 3600,
+      "groupId": "verify",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spfValue%",
+      "ttl": 3600,
+      "groupId": "spf",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "mailjet._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 3600,
+      "groupId": "dkim",
+      "essential": "OnApply"
+    }
+  ]
+}
