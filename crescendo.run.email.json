@@ -7,6 +7,7 @@
     "logoUrl": "https://app.crescendo.run/logo.svg",
     "description": "Configures domain ownership verification, SPF, DKIM, and DMARC for Crescendo email delivery.",
     "variableDescription": "%token%: verification token for domain ownership; %dkim_pub_key%: Public key for DKIM signature",
+    "syncBlock": false,
     "syncPubKeyDomain": "keys.crescendo.run",
     "syncRedirectDomain": "app.crescendo.run",
     "records": [
