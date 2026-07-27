@@ -7,7 +7,7 @@
   "logoUrl": "https://faivelo.com/logo.png",
   "description": "Point this domain's email at Faivelo — MX, SPF, DKIM, DMARC and autoconfig, all at once.",
   "variableDescription": "SES verification token and the three Easy-DKIM selectors, generated per-domain when the domain is added.",
-  "syncPubKeyDomain": "_dck1.faivelo.com",
+  "syncPubKeyDomain": "domainconnect.faivelo.com",
   "syncRedirectDomain": "faivelo.com",
   "shared": false,
   "records": [
