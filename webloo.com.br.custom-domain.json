@@ -8,6 +8,7 @@
   "description": "Aponta o subdomínio para a Webloo e valida o certificado SSL.",
   "syncRedirectDomain": "dash.webloo.com.br",
   "warnPhishing": true,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
@@ -20,7 +21,7 @@
       "host": "_acme-challenge",
       "data": "%txtvalue%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "required-for-unique-records"
+      "txtConflictMatchingMode": "All"
     }
   ]
 }
