@@ -1,0 +1,24 @@
+{
+  "providerId": "xposureapp.net",
+  "providerName": "Xposure",
+  "serviceId": "portfolio",
+  "serviceName": "Xposure",
+  "syncBlock": false,
+  "logoUrl": "https://xposureapp.net/logo-wordmark.png",
+  "description": "Connect your custom domain to your Xposure portfolio.",
+  "variableDescription": "Points your domain at your Xposure portfolio and adds the record that proves you own it.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%cnamehost%",
+      "pointsTo": "proxy.xposureapp.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_xposure-verify",
+      "data": "%verifytoken%",
+      "ttl": 3600
+    }
+  ]
+}
