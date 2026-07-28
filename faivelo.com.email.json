@@ -79,6 +79,39 @@
       "type": "SPFM",
       "host": "bounce",
       "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "SRV",
+      "service": "_imaps",
+      "protocol": "_tcp",
+      "name": "@",
+      "target": "mx.faivelo.com",
+      "priority": 0,
+      "weight": 1,
+      "port": 993,
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "service": "_submission",
+      "protocol": "_tcp",
+      "name": "@",
+      "target": "mx.faivelo.com",
+      "priority": 0,
+      "weight": 1,
+      "port": 587,
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "service": "_autodiscover",
+      "protocol": "_tcp",
+      "name": "@",
+      "target": "mx.faivelo.com",
+      "priority": 0,
+      "weight": 0,
+      "port": 443,
+      "ttl": 3600
     }
   ]
 }
