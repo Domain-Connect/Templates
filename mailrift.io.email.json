@@ -6,54 +6,44 @@
   "version": 1,
   "logoUrl": "https://mailrift.io/logo.png",
   "description": "Configure MX, SPF, DMARC and DKIM so MailRift can send and receive email for your domain.",
-  "variableDescription": "MailRift SES region, DKIM tokens and policy records for your domain.",
+  "variableDescription": "Per-domain DKIM selectors and DMARC reporting address.",
   "syncBlock": false,
   "warnPhishing": true,
+  "syncRedirectDomain": "mailrift.io,mailrift.ch",
   "hostRequired": false,
   "records": [
     {
       "type": "MX",
       "host": "@",
-      "pointsTo": "%mxinbound%",
+      "pointsTo": "inbound-smtp.eu-central-1.amazonaws.com",
       "priority": 10,
       "ttl": 300
     },
     {
       "type": "MX",
       "host": "mail",
-      "pointsTo": "%mxfeedback%",
+      "pointsTo": "feedback-smtp.eu-central-1.amazonses.com",
       "priority": 10,
       "ttl": 300
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "%spf%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1"
+      "spfRules": "include:amazonses.com"
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "mail",
-      "data": "%spf%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1"
+      "spfRules": "include:amazonses.com"
     },
     {
       "type": "TXT",
       "host": "_dmarc",
-      "data": "%dmarc%",
+      "data": "v=DMARC1; p=none; rua=mailto:%dmarcrua%; ruf=mailto:%dmarcrua%; adkim=r; aspf=r; fo=1; pct=100;",
       "ttl": 3600,
+      "essential": "OnApply",
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1"
-    },
-    {
-      "type": "TXT",
-      "host": "_amazonses",
-      "data": "%sesverify%",
-      "ttl": 1800
     },
     {
       "type": "CNAME",
