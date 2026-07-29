@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://trust1.io/wp-content/themes/trust1/assets/images/logo/trust1-logo-ts.png",
   "description": "Enables a domain to work with Email Request Review",
-  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: DKIM token CNAMEs issued for your domain; %region%: AWS SES region used for sending; %mailFromSubdomain%: subdomain used as the MAIL FROM address",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: DKIM token CNAMEs; %region%: AWS SES region",
   "syncPubKeyDomain": "trustshop.io",
   "syncRedirectDomain": "app.trustshop.io",
   "records": [
@@ -34,7 +34,7 @@
     {
       "groupId": "mailfrom",
       "type": "MX",
-      "host": "%mailFromSubdomain%",
+      "host": "@",
       "pointsTo": "feedback-smtp.%region%.amazonses.com",
       "ttl": "3600",
       "priority": "10"
@@ -42,7 +42,7 @@
     {
       "groupId": "mailfrom",
       "type": "SPFM",
-      "host": "%mailFromSubdomain%",
+      "host": "@",
       "ttl": "3600",
       "spfRules": "include:amazonses.com"
     },
