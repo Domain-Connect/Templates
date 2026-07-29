@@ -1,0 +1,20 @@
+{
+  "providerId": "hollaex.com",
+  "providerName": "HollaEx",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "description": "Connects a custom domain to a HollaEx exchange or frontend.",
+  "variableDescription": "%cnameTarget%: the HollaEx Cloudflare for SaaS CNAME target selected for the exchange region or frontend.",
+  "syncPubKeyDomain": "hollaex.com",
+  "syncRedirectDomain": "dash.hollaex.com, dash.testnet.hollaex.com, dashboard.testnet.hollaex.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 3600
+    }
+  ]
+}
