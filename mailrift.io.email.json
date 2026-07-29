@@ -1,0 +1,77 @@
+{
+  "providerId": "mailrift.io",
+  "providerName": "MailRift",
+  "serviceId": "email",
+  "serviceName": "MailRift Email",
+  "version": 1,
+  "logoUrl": "https://mailrift.io/logo.png",
+  "description": "Configure MX, SPF, DMARC and DKIM so MailRift can send and receive email for your domain.",
+  "variableDescription": "MailRift SES region, DKIM tokens and policy records for your domain.",
+  "syncBlock": false,
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxinbound%",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "%mxfeedback%",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spf%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
+    },
+    {
+      "type": "TXT",
+      "host": "mail",
+      "data": "%spf%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%sesverify%",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim0%._domainkey",
+      "pointsTo": "%dkim0%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 1800
+    }
+  ]
+}
