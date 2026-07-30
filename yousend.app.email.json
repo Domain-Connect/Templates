@@ -6,15 +6,14 @@
   "version": 1,
   "logoUrl": "https://app.yousend.app/logo-light.svg",
   "description": "Authorize YouSend to send email from this domain: SPF, DKIM signing, a DMARC policy, and the return-path and click/open tracking hosts.",
+  "syncPubKeyDomain": "yousend.app",
   "syncRedirectDomain": "app.yousend.app",
   "records": [
     {
       "groupId": "sending",
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "v=spf1 include:spf.yousend.app ~all",
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1",
+      "spfRules": "include:spf.yousend.app",
       "ttl": 3600
     },
     {
@@ -31,7 +30,8 @@
       "data": "v=DMARC1; p=none; rua=mailto:dmarc@yousend.app",
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1",
-      "ttl": 3600
+      "ttl": 3600,
+      "essential": "OnApply"
     },
     {
       "groupId": "sending",
