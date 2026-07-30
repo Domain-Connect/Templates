@@ -1,0 +1,41 @@
+{
+  "providerId": "fingerprint.com",
+  "providerName": "Fingerprint",
+  "serviceId": "custom-subdomain",
+  "serviceName": "Custom Subdomain",
+  "version": 1,
+  "description": "Connects a custom subdomain to Fingerprint, verifies ownership, and provisions the SSL certificate",
+  "variableDescription": "Use groupId=base normally, or groupId=base,caa when CAA is required.",
+  "syncRedirectDomain": "fingerprint.com,dashboard.fingerprint.com",
+  "syncPubKeyDomain": "domain-connect.fingerprint.com",
+  "records": [
+    {
+      "type": "A",
+      "groupId": "base",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "groupId": "base",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "groupId": "base",
+      "host": "_acme-challenge.%fqdn%.",
+      "pointsTo": "%fqdn%.%dcv%.",
+      "ttl": 300
+    },
+    {
+      "type": "CAA",
+      "groupId": "caa",
+      "host": "@",
+      "data": "0 issue \"pki.goog\"",
+      "ttl": 300
+    }
+  ]
+}
