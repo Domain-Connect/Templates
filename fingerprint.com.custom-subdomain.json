@@ -35,7 +35,7 @@
       "type": "CAA",
       "groupId": "caa",
       "host": "@",
-      "data": "0 issue \"pki.goog\"",
+      "data": "0 issue \"%caa_issuer%\"",
       "ttl": 300
     }
   ]
