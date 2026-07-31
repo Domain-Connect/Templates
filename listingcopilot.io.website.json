@@ -7,7 +7,7 @@
   "description": "Connects a customer-owned domain to a website hosted by Listing Co-Pilot.",
   "variableDescription": "apexIp is the Vercel IPv4 routing address, wwwTarget is the Vercel CNAME routing target, and verificationValue is an optional Vercel domain ownership challenge.",
   "syncPubKeyDomain": "listingcopilot.io",
-  "syncRedirectDomain": "listingcopilot.io, www.listingcopilot.io",
+  "syncRedirectDomain": "listingcopilot.io,www.listingcopilot.io",
   "records": [
     {
       "groupId": "routing",
