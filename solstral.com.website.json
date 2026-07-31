@@ -8,6 +8,8 @@
   "version": 1,
   "syncBlock": false,
   "syncPubKeyDomain": "_dcsig.solstral.com",
+  "syncRedirectDomain": "solstral.com,app.solstral.com",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
