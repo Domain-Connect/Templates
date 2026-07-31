@@ -1,12 +1,12 @@
 {
   "providerId": "everinbox",
   "providerName": "Everinbox",
-  "serviceId": "domain-auth-tracking",
-  "serviceName": "Domain Authentication with Tracking",
-  "version": 2,
+  "serviceId": "domain-auth-tracking-subdomain",
+  "serviceName": "Domain Authentication with Tracking (Subdomain)",
+  "version": 1,
   "logoUrl": "https://everinbox.com.br/everinbox-logo-dark.svg",
-  "description": "Configures domain authentication, DKIM, DMARC and link tracking records for complete email delivery service",
-  "variableDescription": "MAIL_SUBDOMAIN is the mail routing subdomain, MAIL_TARGET is the mail server target, DKIM_SELECTOR1/DKIM_SELECTOR2 are DKIM selectors, DKIM_TARGET1/DKIM_TARGET2 are DKIM targets, DMARC_POLICY is the DMARC policy, TRACKING_SUBDOMAIN is the tracking subdomain, TRACKING_TARGET is the tracking target",
+  "description": "Configures domain authentication, DKIM, DMARC and link tracking records for email delivery on a subdomain",
+  "variableDescription": "SUBDOMAIN is the sending subdomain (e.g., 'marketing' for marketing.yourdomain.com), MAIL_SUBDOMAIN is the mail routing subdomain, MAIL_TARGET is the mail server target, DKIM_SELECTOR1/DKIM_SELECTOR2 are DKIM selectors, DKIM_TARGET1/DKIM_TARGET2 are DKIM targets, DMARC_POLICY is the DMARC policy, TRACKING_SUBDOMAIN is the tracking subdomain, TRACKING_TARGET is the tracking target",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.everinbox.com.br",
   "syncRedirectDomain": "everinbox.com.br",
@@ -15,28 +15,28 @@
     {
       "groupId": "mail_routing",
       "type": "CNAME",
-      "host": "%MAIL_SUBDOMAIN%",
+      "host": "%MAIL_SUBDOMAIN%.%SUBDOMAIN%",
       "pointsTo": "%MAIL_TARGET%",
       "ttl": 3600
     },
     {
       "groupId": "dkim",
       "type": "CNAME",
-      "host": "%DKIM_SELECTOR1%._domainkey",
+      "host": "%DKIM_SELECTOR1%._domainkey.%SUBDOMAIN%",
       "pointsTo": "%DKIM_TARGET1%",
       "ttl": 3600
     },
     {
       "groupId": "dkim",
       "type": "CNAME",
-      "host": "%DKIM_SELECTOR2%._domainkey",
+      "host": "%DKIM_SELECTOR2%._domainkey.%SUBDOMAIN%",
       "pointsTo": "%DKIM_TARGET2%",
       "ttl": 3600
     },
     {
       "groupId": "dmarc",
       "type": "TXT",
-      "host": "_dmarc",
+      "host": "_dmarc.%SUBDOMAIN%",
       "data": "%DMARC_POLICY%",
       "ttl": 3600,
       "txtConflictMatchingMode": "All",
@@ -45,7 +45,7 @@
     {
       "groupId": "tracking",
       "type": "CNAME",
-      "host": "%TRACKING_SUBDOMAIN%",
+      "host": "%TRACKING_SUBDOMAIN%.%SUBDOMAIN%",
       "pointsTo": "%TRACKING_TARGET%",
       "ttl": 3600
     }
