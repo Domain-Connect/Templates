@@ -1,0 +1,43 @@
+{
+  "providerId": "buckcrm.com",
+  "providerName": "BuckCRM",
+  "serviceId": "email",
+  "serviceName": "BuckCRM Email Sending",
+  "version": 1,
+  "logoUrl": "https://buckcrm.com/brand/buckcrm-logo.png",
+  "description": "Authorizes BuckCRM to send email as this domain (SPF + DKIM) and proves you own it.",
+  "variableDescription": "%token% is a single-use per-domain ownership proof that BuckCRM reads back over DNS before enabling sending. It is signed, as this template sets syncPubKeyDomain. All other values are literals: the SPF mechanism is merged via SPFM so an existing SPF record is never duplicated.",
+  "syncPubKeyDomain": "buckcrm.com",
+  "syncRedirectDomain": "buckcrm.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_buckbeam",
+      "data": "buckbeam-verify=%token%",
+      "ttl": 600,
+      "groupId": "core",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "buckbeam-verify="
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:buckbeam.app",
+      "groupId": "core"
+    },
+    {
+      "type": "CNAME",
+      "host": "bbeam._domainkey",
+      "pointsTo": "bbeam.dkim.buckbeam.app",
+      "ttl": 600,
+      "groupId": "core"
+    },
+    {
+      "type": "CNAME",
+      "host": "link",
+      "pointsTo": "track.buckbeam.app",
+      "ttl": 600,
+      "groupId": "tracking"
+    }
+  ]
+}
