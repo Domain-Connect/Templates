@@ -18,7 +18,8 @@
       "data": "novard-site-verification=%token%",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "novard-site-verification="
+      "txtConflictMatchingPrefix": "novard-site-verification=",
+      "essential": "OnApply"
     }
   ]
 }
