@@ -1,0 +1,31 @@
+{
+  "providerId": "stormapplications.com",
+  "providerName": "StorM",
+  "serviceId": "storefront-subdomain",
+  "serviceName": "Loja web (subdomínio)",
+  "version": 1,
+  "logoUrl": "https://stormapplications.com/favicon.ico",
+  "description": "Conecta um subdomínio à loja web da StorM hospedada na Vercel. Use the Domain Connect host parameter for the shop subdomain (e.g. host=loja).",
+  "variableDescription": "%target% is the Vercel CNAME target (cname.vercel-dns.com). %verifyHost% and %verification% are the Vercel domain ownership TXT name and full value from the Vercel Domains API. Bare verifyHost/verification are required because Vercel dictates the label and complete TXT payload per domain.",
+  "hostRequired": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.stormapplications.com",
+  "syncRedirectDomain": "stormapplications.com,www.stormapplications.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 600,
+      "groupId": "pointing"
+    },
+    {
+      "type": "TXT",
+      "host": "%verifyHost%",
+      "data": "%verification%",
+      "ttl": 600,
+      "groupId": "verification",
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
