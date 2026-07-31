@@ -8,7 +8,6 @@
   "logoUrl": "https://www.grundy.app/grundy-logo-negro.svg",
   "syncPubKeyDomain": "grundy.app",
   "syncRedirectDomain": "grundy.app",
-  "groupNote": "El grupo 'dmarc' se pide aparte (groupIds=core,dmarc en la URL de apply) SOLO cuando checkDmarcAlignment(host) confirma que no hay DMARC previo — nunca se pide si ya existe uno (relajado o estricto), para no arriesgarnos a que el proveedor lo sobreescriba. Ver brief 'Corrección · Carril 2 y árbol de decisión' sección 5.",
   "records": [
     { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600, "groupId": "core" },
     { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 3600, "groupId": "core" },
@@ -16,7 +15,7 @@
     { "type": "CNAME", "host": "%dkim2%._domainkey.mail", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 1800, "groupId": "core" },
     { "type": "CNAME", "host": "%dkim3%._domainkey.mail", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 1800, "groupId": "core" },
     { "type": "MX", "host": "bounce.mail", "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com", "priority": 10, "ttl": 1800, "groupId": "core" },
-    { "type": "SPFM", "host": "bounce.mail", "spfRules": "include:amazonses.com", "ttl": 1800, "groupId": "core" },
+    { "type": "SPFM", "host": "bounce.mail", "spfRules": "include:amazonses.com", "groupId": "core" },
     { "type": "TXT", "host": "@", "data": "v=DMARC1; p=none;", "ttl": 1800, "groupId": "dmarc", "essential": "OnApply", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1" }
   ]
 }
