@@ -7,7 +7,7 @@
   "description": "Point a domain or subdomain at Solstral to serve a website or a white-labelled CRM address.",
   "version": 1,
   "syncBlock": false,
-  "syncPubKeyDomain": "_dcsig.solstral.com",
+  "syncPubKeyDomain": "dcsig.solstral.com",
   "syncRedirectDomain": "solstral.com,app.solstral.com",
   "hostRequired": true,
   "records": [
