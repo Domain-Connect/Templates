@@ -5,7 +5,7 @@
   "serviceName": "Eusend Email",
   "version": 1,
   "logoUrl": "https://eusend.dev/brand/eusend-logo-black.svg",
-  "description": "Authenticate and send email with Eusend: DKIM signing, SPF authorization, a DMARC policy, and an aligned Return-Path for bounce collection.",
+  "description": "Authenticate and send email with Eusend: DKIM signing, a DMARC policy, and an aligned Return-Path for SPF alignment and bounce collection.",
   "variableDescription": "%dkimselector%: DKIM selector Eusend generated for this domain (e.g. 'eusend'); %dkimpub%: base64-encoded RSA-2048 DKIM public key Eusend generated for this domain",
   "syncPubKeyDomain": "eusend.dev",
   "syncRedirectDomain": "eusend.dev",
@@ -18,12 +18,6 @@
       "ttl": 3600,
       "txtConflictMatchingMode": "All",
       "essential": "Always"
-    },
-    {
-      "groupId": "spf",
-      "type": "SPFM",
-      "host": "@",
-      "spfRules": "include:_spf.eusend.dev"
     },
     {
       "groupId": "dmarc",
