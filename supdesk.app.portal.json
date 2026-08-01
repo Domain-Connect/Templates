@@ -1,7 +1,6 @@
 {
   "providerId": "supdesk.app",
   "providerName": "SupDesk",
-  "providerDisplayName": "SupDesk",
   "serviceId": "portal",
   "serviceName": "SupDesk Customer Portal",
   "version": 1,
