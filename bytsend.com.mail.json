@@ -1,0 +1,38 @@
+{
+  "providerId": "bytsend.com",
+  "providerName": "BytSend",
+  "serviceId": "mail",
+  "serviceName": "Mail",
+  "version": 3,
+  "syncPubKeyDomain": "bytsend.com",
+  "syncRedirectDomain": "bytsend.com",
+  "description": "Configure DKIM, SPF and bounce handling for transactional email via BytSend.",
+  "logoUrl": "https://bytsend.com/logo.png",
+  "records": [
+    {
+      "type": "MX",
+      "host": "bounces",
+      "pointsTo": "mail.bytsend.com",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "ttl": 3600,
+      "spfRules": "include:_spf.bytsend.com"
+    },
+    {
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "ttl": 3600,
+      "data": "%dkimValue%"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "v=DMARC1; p=quarantine;"
+    }
+  ]
+}
