@@ -26,13 +26,17 @@
       "type": "TXT",
       "host": "dkim._domainkey",
       "ttl": 3600,
-      "data": "%dkimValue%"
+      "data": "v=DKIM1; k=rsa; p=%dkimValue%",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
     },
     {
       "type": "TXT",
       "host": "_dmarc",
       "ttl": 3600,
-      "data": "v=DMARC1; p=quarantine;"
+      "data": "v=DMARC1; p=quarantine;",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
     }
   ]
 }
