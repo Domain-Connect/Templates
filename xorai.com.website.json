@@ -1,0 +1,22 @@
+{
+  "providerId": "xorai.com",
+  "providerName": "XORAI",
+  "serviceId": "website",
+  "serviceName": "XORAI Website",
+  "version": 1,
+  "logoUrl": "https://xorai.com/logo.png",
+  "description": "Connects your domain to a website hosted on the XORAI platform and lets XORAI validate and issue a TLS certificate for it automatically.",
+  "variableDescription": "RECORD_VALUE is the ACM certificate-validation value XORAI generates for your domain at connect time; it is prescribed by AWS Certificate Manager and cannot carry a fixed prefix.",
+  "syncRedirectDomain": "api.xorai.com",
+  "syncPubKeyDomain": "xorai.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%RECORD_VALUE%",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
