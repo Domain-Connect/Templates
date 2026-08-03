@@ -1,0 +1,24 @@
+{
+  "providerId": "opencartaudit.com",
+  "providerName": "OpenCartAudit",
+  "serviceId": "domain-verification",
+  "serviceName": "Free scan domain verification",
+  "version": 1,
+  "description": "Adds the temporary TXT record required to verify control of a store domain before an OpenCartAudit free security scan.",
+  "variableDescription": "verificationToken is the unique, time-limited token generated for an OpenCartAudit free scan request.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "opencartaudit.com",
+  "syncRedirectDomain": "opencartaudit.com, dev.opencartaudit.com",
+  "logoUrl": "https://opencartaudit.com/opencart-audit-og.svg",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_oca",
+      "ttl": 300,
+      "data": "opencartaudit-verification=%verificationToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "opencartaudit-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}
