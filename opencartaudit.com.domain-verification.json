@@ -8,7 +8,7 @@
   "variableDescription": "verificationToken is the unique, time-limited token generated for an OpenCartAudit free scan request.",
   "syncBlock": false,
   "syncPubKeyDomain": "opencartaudit.com",
-  "syncRedirectDomain": "opencartaudit.com, dev.opencartaudit.com",
+  "syncRedirectDomain": "opencartaudit.com,dev.opencartaudit.com",
   "logoUrl": "https://opencartaudit.com/opencart-audit-og.svg",
   "records": [
     {
