@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://app.tailorhq.ai/images/logo.png",
   "description": "Points a subdomain at Tailor AI, so campaign links and hosted landing pages are served on your own domain.",
-  "variableDescription": "host is the subdomain being connected, for example \"go\" in go.example.com. target is the Tailor AI hostname it points at.",
+  "variableDescription": "host is the subdomain being connected, for example \"go\" in go.example.com. It is pointed at Tailor AI's shared hostname, cname.tailorhq.ai.",
   "syncBlock": false,
   "syncPubKeyDomain": "tailorhq.ai",
   "syncRedirectDomain": "app.tailorhq.ai",
@@ -15,7 +15,7 @@
     {
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "%target%",
+      "pointsTo": "cname.tailorhq.ai",
       "ttl": 300
     }
   ]
