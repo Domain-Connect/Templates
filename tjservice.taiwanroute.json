@@ -1,0 +1,33 @@
+{
+    "providerId": "tjservice",
+    "providerName": "TJService Hosting",
+    "serviceId": "taiwanroute",
+    "serviceName": "TJService Hosting Taiwan Minecraft Route",
+    "version": 1,
+    "logoUrl": "https://client.tjservice.org/assets/img/logo.png",
+    "description": "Point a subdomain of your own domain at your TJService Hosting Minecraft server over the Taiwan route, using a CNAME plus an SRV record.",
+    "variableDescription": "host apply-parameter: the subdomain label to create (e.g. play, or leave empty for apex); %target%: the Taiwan proxy hostname to point at (e.g. taiwan-proxy.tjservice.org); %port%: the Minecraft server port to connect to",
+    "syncPubKeyDomain": "tjservice.org",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "proxy",
+            "pointsTo": "%target%",
+            "ttl": 300,
+            "essential": "Always"
+        },
+        {
+            "type": "SRV",
+            "service": "_minecraft",
+            "protocol": "_tcp",
+            "name": "@",
+            "target": "proxy.%host%.%domain%",
+            "port": "%port%",
+            "priority": 0,
+            "weight": 5,
+            "ttl": 300,
+            "essential": "Always"
+        }
+    ],
+    "hostRequired": true
+}
