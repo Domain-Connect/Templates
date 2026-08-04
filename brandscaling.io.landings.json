@@ -4,10 +4,9 @@
   "serviceId": "landings",
   "serviceName": "Brandscaling Landings",
   "version": 1,
-  "logoUrl": "https://brandscaling.io/logo.png",
   "description": "Conecta tu subdominio para servir tus landings y embudos de Brandscaling (Vercel).",
+  "syncPubKeyDomain": "brandscaling.io",
   "syncBlock": false,
-  "warnPhishing": true,
   "hostRequired": true,
   "records": [
     {
