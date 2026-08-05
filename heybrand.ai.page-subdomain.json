@@ -5,6 +5,7 @@
   "serviceName": "heybrand Page",
   "version": 2,
   "description": "Serve a heybrand page on a subdomain of your domain.",
+  "logoUrl": "https://assets.heybrand.ai/brand/heybrand-favicon-violet-512.png",
   "syncPubKeyDomain": "heybrand.ai",
   "syncRedirectDomain": "heybrand.ai",
   "hostRequired": true,
