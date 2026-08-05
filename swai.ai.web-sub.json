@@ -1,0 +1,22 @@
+{
+  "providerId": "swai.ai",
+  "providerName": "SWAI",
+  "serviceId": "web-sub",
+  "serviceName": "SWAI subdomain hosting",
+  "version": 1,
+  "logoUrl": "https://swai.ai/favicon.ico",
+  "description": "Points a subdomain at your SWAI-hosted site via CNAME to domainservice.swai.ai.",
+  "syncPubKeyDomain": "swai.ai",
+  "syncRedirectDomain": "app.swai.ai",
+  "hostRequired": true,
+  "shared": false,
+  "records": [
+    {
+      "groupId": "hosting",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domainservice.swai.ai",
+      "ttl": 3600
+    }
+  ]
+}

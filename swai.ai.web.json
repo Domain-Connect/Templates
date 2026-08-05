@@ -1,0 +1,28 @@
+{
+  "providerId": "swai.ai",
+  "providerName": "SWAI",
+  "serviceId": "web",
+  "serviceName": "SWAI website hosting",
+  "version": 1,
+  "logoUrl": "https://swai.ai/favicon.ico",
+  "description": "Points your apex domain at your SWAI-hosted site. Optionally also configures the www subdomain.",
+  "syncPubKeyDomain": "swai.ai",
+  "syncRedirectDomain": "app.swai.ai",
+  "shared": false,
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "20.106.230.9",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "domainservice.swai.ai",
+      "ttl": 3600
+    }
+  ]
+}
