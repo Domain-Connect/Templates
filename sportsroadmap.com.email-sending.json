@@ -1,0 +1,35 @@
+{
+  "providerId": "sportsroadmap.com",
+  "providerName": "Sports Roadmap",
+  "serviceId": "email-sending",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://admin.sportsroadmap.com/web-app-manifest-512x512.png",
+  "description": "Lets your Sports Roadmap campaigns send from your own domain, so recipients see your brand and replies come to you.",
+  "variableDescription": "dkimvalue: the base64 body of your domain's DKIM public key (without the leading p=). mxhost: the bounce-feedback host for your sending region.",
+  "syncPubKeyDomain": "sportsroadmap.com",
+  "syncBlock": false,
+  "shared": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mxhost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
