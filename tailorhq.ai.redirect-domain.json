@@ -1,0 +1,22 @@
+{
+  "providerId": "tailorhq.ai",
+  "providerName": "Tailor AI",
+  "serviceId": "redirect-domain",
+  "serviceName": "Tailor AI Custom Domain",
+  "version": 1,
+  "logoUrl": "https://app.tailorhq.ai/images/logo.png",
+  "description": "Points a subdomain at Tailor AI, so campaign links and hosted landing pages are served on your own domain.",
+  "variableDescription": "host is the subdomain being connected, for example \"go\" in go.example.com. It is pointed at Tailor AI's shared hostname, cname.tailorhq.ai.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tailorhq.ai",
+  "syncRedirectDomain": "app.tailorhq.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.tailorhq.ai",
+      "ttl": 300
+    }
+  ]
+}
