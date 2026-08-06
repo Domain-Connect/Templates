@@ -3,7 +3,7 @@
   "providerName": "Faivelo",
   "serviceId": "email",
   "serviceName": "Faivelo Email",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://faivelo.com/logo.png",
   "description": "Point this domain's email at Faivelo — MX, SPF, DKIM, DMARC and autoconfig, all at once.",
   "variableDescription": "SES verification token and the three Easy-DKIM selectors, generated per-domain when the domain is added.",
@@ -26,7 +26,7 @@
     {
       "type": "TXT",
       "host": "_dmarc",
-      "data": "v=DMARC1; p=reject; sp=reject; adkim=r; aspf=r; pct=100; fo=1; rua=mailto:admin@faivelo.com",
+      "data": "v=DMARC1; p=quarantine; sp=quarantine; adkim=r; aspf=r; pct=100; fo=1; rua=mailto:admin@faivelo.com",
       "ttl": 3600,
       "txtConflictMatchingMode": "All",
       "essential": "OnApply"
