@@ -1,0 +1,27 @@
+{
+  "providerId": "knola.ai",
+  "providerName": "Knola",
+  "serviceId": "website",
+  "serviceName": "Knola School Website",
+  "version": 1,
+  "description": "Connects a subdomain to a Knola school website",
+  "variableDescription": "verify is the Knola ownership token; cname is the Knola hosting target.",
+  "syncPubKeyDomain": "domainconnect.knola.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_knola-verify",
+      "data": "knola-verify=%verify%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "website",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    }
+  ]
+}
