@@ -12,7 +12,7 @@
   "records": [
     {
       "type": "TXT",
-      "host": "_buckbeam",
+      "host": "buckbeam-verify",
       "data": "buckbeam-verify=%token%",
       "ttl": 600,
       "groupId": "core",
