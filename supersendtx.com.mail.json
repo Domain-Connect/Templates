@@ -8,7 +8,7 @@
   "logoUrl": "https://app.supersendtx.com/images/logo-tx.svg",
   "description": "Verify domain ownership and enable authenticated transactional email (SPF, DKIM, return-path, DMARC).",
   "syncPubKeyDomain": "supersendtx.com",
-  "syncRedirectDomain": "app.supersendtx.com,localhost",
+  "syncRedirectDomain": "app.supersendtx.com",
   "records": [
     {
       "groupId": "ownership",
