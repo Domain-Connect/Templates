@@ -1,0 +1,32 @@
+{
+    "providerId": "chibitek.ai",
+    "providerName": "Chibitek Domain Security",
+    "serviceId": "transportsecurity",
+    "serviceName": "Managed MTA-STS and TLS Reporting",
+    "version": 1,
+    "logoUrl": "https://skippy.chibitek.com/chibitek-mark.png",
+    "description": "Enables Chibitek-managed transport security: MTA-STS (requires mail to the domain to travel over verified TLS) and TLS-RPT (routes encrypted-delivery failure reports to Chibitek Domain Security monitoring).",
+    "variableDescription": "stsid is the MTA-STS policy id; tlsrua is the TLS report mailbox hosted by Chibitek, e.g. abc123@reports.chibitek.ai",
+    "syncPubKeyDomain": "chibitek.ai",
+    "syncRedirectDomain": "skippy.chibitek.com",
+    "warnPhishing": true,
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_mta-sts",
+            "ttl": "3600",
+            "data": "v=STSv1; id=%stsid%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=STSv1"
+        },
+        {
+            "type": "TXT",
+            "host": "_smtp._tls",
+            "ttl": "3600",
+            "data": "v=TLSRPTv1; rua=mailto:%tlsrua%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=TLSRPTv1"
+        }
+    ]
+}
