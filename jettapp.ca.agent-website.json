@@ -1,0 +1,33 @@
+{
+  "providerId": "jettapp.ca",
+  "providerName": "Jett",
+  "serviceId": "agent-website",
+  "serviceName": "Jett Agent Website",
+  "version": 1,
+  "logoUrl": "https://jettapp.ca/favicon.svg",
+  "description": "Connects a customer-owned domain or subdomain to their managed Jett realtor website and adds a scoped ownership-verification record.",
+  "variableDescription": "%verification%: the 64-character hexadecimal ownership token issued for this exact Jett website domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "jettapp.ca",
+  "syncRedirectDomain": "app.jettapp.ca",
+  "multiInstance": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "45.55.161.106",
+      "ttl": 600
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_meta-agent-verify",
+      "data": "jett-domain-verify=%verification%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "jett-domain-verify="
+    }
+  ]
+}
