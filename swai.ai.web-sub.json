@@ -4,7 +4,7 @@
   "serviceId": "web-sub",
   "serviceName": "SWAI subdomain hosting",
   "version": 1,
-  "logoUrl": "https://swai.ai/favicon.ico",
+  "logoUrl": "https://app.swai.ai/assets/SWAILogo.svg",
   "description": "Points a subdomain at your SWAI-hosted site via CNAME to domainservice.swai.ai.",
   "syncPubKeyDomain": "swai.ai",
   "syncRedirectDomain": "app.swai.ai",

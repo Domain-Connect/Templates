@@ -4,7 +4,7 @@
   "serviceId": "email",
   "serviceName": "SWAI email sending & receiving",
   "version": 1,
-  "logoUrl": "https://swai.ai/favicon.ico",
+  "logoUrl": "https://app.swai.ai/assets/SWAILogo.svg",
   "description": "Adds Amazon SES Easy-DKIM CNAMEs and ownership TXT for SWAI email sending. Optionally adds MX records for inbound receiving.",
   "variableDescription": "dkim1/dkim2/dkim3 = SES Easy-DKIM tokens; verification = SES domain verification TXT value; region = AWS SES region for inbound MX (e.g. us-east-1).",
   "syncPubKeyDomain": "swai.ai",
