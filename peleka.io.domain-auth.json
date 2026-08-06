@@ -3,7 +3,7 @@
   "providerName": "Peleka",
   "serviceId": "domain-auth",
   "serviceName": "Peleka Domain Authentication",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://files.peleka.io/assets/images/text-logo.svg",
   "description": "Configure DNS records for email authentication and improved deliverability",
   "variableDescription": "dkim_selector: Unique DKIM selector for your domain (e.g., 's1', 'peleka')",
@@ -12,17 +12,17 @@
   "syncRedirectDomain": "app.peleka.io",
   "records": [
     {
-      "groupId": "spf",
-      "type": "SPFM",
-      "host": "@",
-      "spfRules": "include:spf.peleka.io",
-      "ttl": 3600
-    },
-    {
       "groupId": "dkim",
       "type": "CNAME",
       "host": "%dkim_selector%._domainkey",
       "pointsTo": "%dkim_selector%.dkim.peleka.io",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail_from",
+      "type": "CNAME",
+      "host": "plesp",
+      "pointsTo": "mailfrom.peleka.io",
       "ttl": 3600
     },
     {
@@ -31,6 +31,7 @@
       "host": "_dmarc",
       "data": "v=DMARC1; p=none; rua=mailto:dmarc@peleka.io",
       "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
       "ttl": 3600
     }
   ]
