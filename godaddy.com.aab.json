@@ -36,13 +36,15 @@
       "type": "CNAME",
       "host": "secureserver1._domainkey",
       "pointsTo": "s1.dkim.%dkimSuffix%.onsecureserver.net",
-      "ttl": 3600
+      "ttl": 3600,
+      "groupId": "dkim"
     },
     {
       "type": "CNAME",
       "host": "secureserver2._domainkey",
       "pointsTo": "s2.dkim.%dkimSuffix%.onsecureserver.net",
-      "ttl": 3600
+      "ttl": 3600,
+      "groupId": "dkim"
     },
     {
       "type": "TXT",
