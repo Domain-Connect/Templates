@@ -1,0 +1,60 @@
+{
+  "providerId": "swai.ai",
+  "providerName": "SWAI",
+  "serviceId": "email",
+  "serviceName": "SWAI email sending & receiving",
+  "version": 1,
+  "logoUrl": "https://swai.ai/favicon.ico",
+  "description": "Adds Amazon SES Easy-DKIM CNAMEs and ownership TXT for SWAI email sending. Optionally adds MX records for inbound receiving.",
+  "variableDescription": "dkim1/dkim2/dkim3 = SES Easy-DKIM tokens; verification = SES domain verification TXT value; region = AWS SES region for inbound MX (e.g. us-east-1).",
+  "syncPubKeyDomain": "swai.ai",
+  "syncRedirectDomain": "app.swai.ai",
+  "syncBlock": false,
+  "shared": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%verification%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
