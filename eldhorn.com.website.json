@@ -1,0 +1,24 @@
+{
+  "providerId": "eldhorn.com",
+  "providerName": "Eldhorn",
+  "serviceId": "website",
+  "serviceName": "Eldhorn Website",
+  "version": 1,
+  "logoUrl": "https://eldhorn.com/assets/eldhorn-mark-128.png",
+  "description": "Verbindet Ihre Domain mit Ihrer von Eldhorn erstellten Website (mit automatischer SSL-Verschlüsselung).",
+  "variableDescription": "",
+  "syncPubKeyDomain": "eldhorn.com",
+  "syncRedirectDomain": "eldhorn.com",
+  "hostRequired": true,
+  "syncBlock": false,
+  "shared": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites-fallback.eldhorn.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
