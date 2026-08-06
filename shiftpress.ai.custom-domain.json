@@ -1,0 +1,18 @@
+{
+  "providerId": "shiftpress.ai",
+  "providerName": "ShiftPress",
+  "serviceId": "custom-domain",
+  "serviceName": "ShiftPress custom domain",
+  "version": 1,
+  "logoUrl": "https://app.shiftpress.ai/icon.png",
+  "description": "Point your domain at your ShiftPress site (adds the routing CNAMEs and the certificate-validation TXT records).",
+  "variableDescription": "your ShiftPress site",
+  "syncRedirectDomain": "app.shiftpress.ai",
+  "warnPhishing": true,
+  "records": [
+    { "type": "APEXCNAME", "pointsTo": "%cname%", "ttl": 3600, "essential": "OnApply" },
+    { "type": "CNAME", "host": "www", "pointsTo": "%cname%", "ttl": 3600, "essential": "OnApply" },
+    { "type": "TXT", "host": "%apextxthost%", "data": "%apextxtvalue%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "TXT", "host": "%wwwtxthost%",  "data": "%wwwtxtvalue%",  "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}
