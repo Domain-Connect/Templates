@@ -1,0 +1,21 @@
+{
+  "providerId": "mallone.ug",
+  "providerName": "MallOne",
+  "serviceId": "storefront",
+  "serviceName": "Storefront",
+  "version": 1,
+  "syncPubKeyDomain": "mallone.ug",
+  "syncBlock": false,
+  "logoUrl": "https://app.mallone.ug/mallone-logo.svg",
+  "description": "Point your custom domain to your MallOne storefront server.",
+  "variableDescription": "pointsTo is the MallOne server IPv4 address. host is the DNS label (@ for apex).",
+  "records": [
+    {
+      "groupId": "storefront",
+      "type": "A",
+      "host": "%host%",
+      "pointsTo": "%pointsTo%",
+      "ttl": 1
+    }
+  ]
+}
