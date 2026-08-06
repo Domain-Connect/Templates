@@ -8,7 +8,7 @@
   "description": "Configure MX, SPF, DMARC and DKIM so MailRift can send and receive email for your domain.",
   "variableDescription": "Per-domain DKIM selectors and DMARC reporting address.",
   "syncBlock": false,
-  "warnPhishing": true,
+  "syncPubKeyDomain": "mailrift.io",
   "syncRedirectDomain": "mailrift.io,mailrift.ch",
   "hostRequired": false,
   "records": [
