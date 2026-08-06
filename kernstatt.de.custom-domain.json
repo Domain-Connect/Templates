@@ -1,0 +1,27 @@
+{
+  "providerId": "kernstatt.de",
+  "providerName": "Kernstatt",
+  "serviceId": "custom-domain",
+  "serviceName": "Eigene Domain verbinden",
+  "version": 1,
+  "hostRequired": true,
+  "description": "Leitet Besucher Ihrer Domain auf Ihre Seite und weist den Besitz der Domain nach.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "kernstatt.de",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fokara.de",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_fokara-verify",
+      "data": "fokara-verify-%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ],
+  "variableDescription": "verifytoken: Eigentumsnachweis-Token, von der Plattform ausgestellt."
+}
