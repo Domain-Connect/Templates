@@ -1,0 +1,21 @@
+{
+  "providerId": "grundy.app",
+  "providerName": "Grundy",
+  "serviceId": "dominio-unificado",
+  "serviceName": "Grundy — Tu dominio (página + correo)",
+  "description": "Conecta tu página y tus correos de Grundy a tu propio dominio en una sola operación.",
+  "variableDescription": "hostPrefix = 'mail' fijo. dkim1/2/3 = tokens DKIM generados por SES al momento de conectar. sesRegion = región activa de AWS SES (ej. us-east-2).",
+  "logoUrl": "https://www.grundy.app/grundy-logo-negro.svg",
+  "syncPubKeyDomain": "grundy.app",
+  "syncRedirectDomain": "grundy.app",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600, "groupId": "core" },
+    { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 3600, "groupId": "core" },
+    { "type": "CNAME", "host": "%dkim1%._domainkey.mail", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 1800, "groupId": "core" },
+    { "type": "CNAME", "host": "%dkim2%._domainkey.mail", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 1800, "groupId": "core" },
+    { "type": "CNAME", "host": "%dkim3%._domainkey.mail", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 1800, "groupId": "core" },
+    { "type": "MX", "host": "bounce.mail", "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com", "priority": 10, "ttl": 1800, "groupId": "core" },
+    { "type": "SPFM", "host": "bounce.mail", "spfRules": "include:amazonses.com", "groupId": "core" },
+    { "type": "TXT", "host": "@", "data": "v=DMARC1; p=none;", "ttl": 1800, "groupId": "dmarc", "essential": "OnApply", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1" }
+  ]
+}
