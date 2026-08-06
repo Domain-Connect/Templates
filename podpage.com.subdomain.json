@@ -7,6 +7,7 @@
     "logoUrl": "https://static.podpage.com/dashboard/images/apple-icon.png",
     "description": "Connects a subdomain (for example podcast.yourdomain.com) to your Podpage podcast website without touching the rest of your domain.",
     "syncBlock": false,
+    "syncPubKeyDomain": "podpage.com",
     "syncRedirectDomain": "podpage.com",
     "hostRequired": true,
     "records": [

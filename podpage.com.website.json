@@ -7,6 +7,7 @@
     "logoUrl": "https://static.podpage.com/dashboard/images/apple-icon.png",
     "description": "Connects www.yourdomain.com and yourdomain.com to your Podpage podcast website.",
     "syncBlock": false,
+    "syncPubKeyDomain": "podpage.com",
     "syncRedirectDomain": "podpage.com",
     "records": [
         {
