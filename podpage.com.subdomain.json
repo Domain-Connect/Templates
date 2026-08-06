@@ -4,7 +4,7 @@
     "serviceId": "subdomain",
     "serviceName": "Podpage Website (subdomain)",
     "version": 1,
-    "logoUrl": "https://www.podpage.com/static/dashboard/images/apple-icon.png",
+    "logoUrl": "https://static.podpage.com/dashboard/images/apple-icon.png",
     "description": "Connects a subdomain (for example podcast.yourdomain.com) to your Podpage podcast website without touching the rest of your domain.",
     "syncBlock": false,
     "syncRedirectDomain": "podpage.com",
