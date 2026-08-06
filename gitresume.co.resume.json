@@ -1,0 +1,20 @@
+{
+  "providerId": "gitresume.co",
+  "providerName": "GitResume",
+  "serviceId": "resume",
+  "serviceName": "Resume Hosting",
+  "version": 1,
+  "logoUrl": "https://gitresume.co/logo.svg",
+  "description": "Connects your domain to your resume hosted on GitResume.",
+  "syncPubKeyDomain": "domainconnect.gitresume.co",
+  "syncRedirectDomain": "gitresume.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.gitresume.co",
+      "ttl": 3600
+    }
+  ]
+}
