@@ -1,0 +1,23 @@
+{
+  "providerId": "drivethrough.dev",
+  "providerName": "Drivethrough",
+  "serviceId": "hosting",
+  "serviceName": "Drivethrough website",
+  "version": 1,
+  "logoUrl": "https://drivethrough.dev/og.png",
+  "description": "Connects your domain to your Drivethrough site by pointing it at your site's Drivethrough address.",
+  "variableDescription": "sitehost is the site's hostname label on drivethrough.site.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "drivethrough.dev",
+  "syncRedirectDomain": "drivethrough.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%sitehost%.drivethrough.site",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
