@@ -7,7 +7,7 @@
   "logoUrl": "https://qrdot.dev/favicon-48x48.png",
   "description": "Point a hostname at go.qrdot.dev for branded short links and ownership verification.",
   "variableDescription": "domainId is the qrdot domain id used in the ownership TXT value.",
-  "syncPubKeyDomain": "_dcpubkey.qrdot.dev",
+  "syncPubKeyDomain": "qrdot.dev",
   "syncRedirectDomain": "app.qrdot.dev",
   "syncBlock": false,
   "hostRequired": true,
