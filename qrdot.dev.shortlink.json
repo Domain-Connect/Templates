@@ -3,7 +3,7 @@
   "providerName": "QR.",
   "serviceId": "shortlink",
   "serviceName": "QR. short links",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://qrdot.dev/favicon-48x48.png",
   "description": "Point a hostname at go.qrdot.dev for branded short links and ownership verification.",
   "variableDescription": "domainId is the qrdot domain id used in the ownership TXT value.",
@@ -14,13 +14,13 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "go.qrdot.dev",
       "ttl": 3600
     },
     {
       "type": "TXT",
-      "host": "_qrdot-verify.%host%",
+      "host": "_qrdot-verify",
       "data": "qrdot-domain-verification=%domainId%",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
