@@ -1,0 +1,17 @@
+{
+  "providerId": "lucaledger.net",
+  "providerName": "LucaLedger",
+  "serviceId": "app",
+  "serviceName": "LucaLedger App (white-label)",
+  "version": 1,
+  "logoUrl": "https://app.lucaledger.net/favicon.svg",
+  "description": "Point a subdomain (for example app.yourdomain.com) at your branded LucaLedger app. SSL is issued automatically.",
+  "variableDescription": "your app subdomain",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "lucaledger.net",
+  "syncRedirectDomain": "app.lucaledger.net",
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "portal-proxy.lucaledger.net", "ttl": 1800 }
+  ]
+}
