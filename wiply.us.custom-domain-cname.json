@@ -1,0 +1,27 @@
+{
+  "providerId": "wiply.us",
+  "providerName": "Wiply Studio",
+  "serviceId": "custom-domain-cname",
+  "serviceName": "Connect a game subdomain",
+  "version": 1,
+  "description": "Verifies a custom game subdomain and routes it to Wiply's managed game edge.",
+  "variableDescription": "ownershipTarget is the Google Certificate Manager authorization target; routingTarget is Wiply's environment-specific game edge hostname.",
+  "syncPubKeyDomain": "domainconnect.wiply.us",
+  "syncRedirectDomain": "platform-studio.wiply.us,platform-studio-staging.wiply.us",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%ownershipTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%routingTarget%",
+      "ttl": 3600
+    }
+  ]
+}
