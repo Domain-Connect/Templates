@@ -7,7 +7,7 @@
   "logoUrl": "https://lighthost.it.kr/logo.png",
   "description": "Configure DNS records for LightHost mail hosting and ZeptoMail outbound authentication.",
   "syncBlock": false,
-  "syncPubKeyDomain": "_domainconnect.lighthost.it.kr",
+  "syncPubKeyDomain": "domainconnect.lighthost.it.kr",
   "syncRedirectDomain": "lighthost.it.kr",
   "records": [
     {
@@ -39,61 +39,6 @@
       "type": "CNAME",
       "host": "autodiscover",
       "pointsTo": "%autodiscover_target%",
-      "ttl": 300
-    },
-    {
-      "type": "SRV",
-      "name": "@",
-      "service": "_autodiscover",
-      "protocol": "_tcp",
-      "target": "%srv_target%",
-      "priority": 0,
-      "weight": 0,
-      "port": 443,
-      "ttl": 300
-    },
-    {
-      "type": "SRV",
-      "name": "@",
-      "service": "_imaps",
-      "protocol": "_tcp",
-      "target": "%srv_target%",
-      "priority": 0,
-      "weight": 0,
-      "port": 993,
-      "ttl": 300
-    },
-    {
-      "type": "SRV",
-      "name": "@",
-      "service": "_pop3s",
-      "protocol": "_tcp",
-      "target": "%srv_target%",
-      "priority": 0,
-      "weight": 0,
-      "port": 995,
-      "ttl": 300
-    },
-    {
-      "type": "SRV",
-      "name": "@",
-      "service": "_smtps",
-      "protocol": "_tcp",
-      "target": "%srv_target%",
-      "priority": 0,
-      "weight": 0,
-      "port": 465,
-      "ttl": 300
-    },
-    {
-      "type": "SRV",
-      "name": "@",
-      "service": "_submission",
-      "protocol": "_tcp",
-      "target": "%srv_target%",
-      "priority": 0,
-      "weight": 0,
-      "port": 587,
       "ttl": 300
     },
     {
