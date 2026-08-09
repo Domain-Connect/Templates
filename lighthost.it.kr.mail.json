@@ -8,6 +8,7 @@
   "description": "Configure DNS records for LightHost mail hosting and ZeptoMail outbound authentication.",
   "syncBlock": false,
   "syncPubKeyDomain": "_domainconnect.lighthost.it.kr",
+  "syncRedirectDomain": "lighthost.it.kr",
   "records": [
     {
       "type": "MX",
@@ -97,7 +98,7 @@
     },
     {
       "type": "TXT",
-      "host": "%zepto_dkim_host%",
+      "host": "%zepto_dkim_selector%._domainkey",
       "data": "%zepto_dkim_value%",
       "ttl": 300,
       "txtConflictMatchingMode": "Prefix",
@@ -105,7 +106,7 @@
     },
     {
       "type": "CNAME",
-      "host": "%zepto_cname_host%",
+      "host": "bounce",
       "pointsTo": "%zepto_cname_target%",
       "ttl": 300
     }
