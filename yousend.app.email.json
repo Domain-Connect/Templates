@@ -1,0 +1,51 @@
+{
+  "providerId": "yousend.app",
+  "providerName": "YouSend",
+  "serviceId": "email",
+  "serviceName": "YouSend Email Sending",
+  "version": 1,
+  "logoUrl": "https://app.yousend.app/logo-light.svg",
+  "description": "Authorize YouSend to send email from this domain: SPF, DKIM signing, a DMARC policy, and the return-path and click/open tracking hosts.",
+  "syncPubKeyDomain": "yousend.app",
+  "syncRedirectDomain": "app.yousend.app",
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.yousend.app",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "ys._domainkey",
+      "pointsTo": "ys._domainkey.%fqdn%.dkim.yousend.app",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@yousend.app",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "bounce",
+      "pointsTo": "mta1.yousend.app",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "track",
+      "pointsTo": "mta1.yousend.app",
+      "ttl": 3600
+    }
+  ]
+}
