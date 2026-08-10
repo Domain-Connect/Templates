@@ -1,0 +1,23 @@
+{
+  "providerId": "rebusai.com",
+  "providerName": "RebusAI",
+  "serviceId": "email",
+  "serviceName": "RebusAI — your email",
+  "version": 1,
+  "logoUrl": "https://www.rebusai.com/brand/icon-192.png",
+  "description": "Send your RebusAI emails from your own domain. Adds records under the 'send' subdomain only — your existing email is untouched.",
+  "variableDescription": "%dkim%: DKIM public key issued for the send subdomain; %mx%: inbound bounce host for the send subdomain; %mxpriority%: MX preference",
+  "syncPubKeyDomain": "rebusai.com",
+  "syncRedirectDomain": "www.rebusai.com",
+  "records": [
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com" },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey.send",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    { "type": "MX", "host": "send", "pointsTo": "%mx%", "priority": "%mxpriority%", "ttl": 3600 }
+  ]
+}

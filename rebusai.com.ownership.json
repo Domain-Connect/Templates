@@ -1,0 +1,22 @@
+{
+  "providerId": "rebusai.com",
+  "providerName": "RebusAI",
+  "serviceId": "ownership",
+  "serviceName": "RebusAI — verify ownership",
+  "version": 1,
+  "logoUrl": "https://www.rebusai.com/brand/icon-192.png",
+  "description": "Prove you own this domain. Adds one verification value; existing values at this name are kept.",
+  "variableDescription": "%verify%: the one-time ownership token issued for this domain",
+  "syncPubKeyDomain": "rebusai.com",
+  "syncRedirectDomain": "www.rebusai.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}
