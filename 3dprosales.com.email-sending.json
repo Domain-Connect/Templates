@@ -1,0 +1,40 @@
+{
+  "providerId": "3dprosales.com",
+  "providerName": "3D Pro Sales",
+  "serviceId": "email-sending",
+  "serviceName": "3D Pro Sales Email Sending",
+  "version": 2,
+  "logoUrl": "https://3dprosales.com/favicon.png",
+  "description": "Automatically configures DNS records so your domain can send email through 3D Pro Sales via Mailgun.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "3dprosales.com",
+  "variableDescription": "%dkimSelector%: DKIM selector name; %dkimValue%: Full DKIM TXT record value",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
