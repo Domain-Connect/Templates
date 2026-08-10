@@ -5,12 +5,12 @@
   "serviceName": "Jett Agent Website",
   "version": 1,
   "logoUrl": "https://jettapp.ca/favicon.svg",
-  "description": "Connects a customer-owned domain or subdomain to their managed Jett realtor website and adds a scoped ownership-verification record.",
+  "description": "Connects a customer-owned domain to their managed Jett realtor website and adds a scoped ownership-verification record. One Jett website per domain.",
   "variableDescription": "%verification%: the 64-character hexadecimal ownership token issued for this exact Jett website domain.",
   "syncBlock": false,
   "syncPubKeyDomain": "jettapp.ca",
   "syncRedirectDomain": "app.jettapp.ca",
-  "multiInstance": true,
+  "multiInstance": false,
   "hostRequired": false,
   "records": [
     {
