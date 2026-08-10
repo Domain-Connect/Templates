@@ -1,0 +1,28 @@
+{
+  "providerId": "bharatgo.com",
+  "providerName": "BharatGo",
+  "serviceId": "storefront",
+  "serviceName": "BharatGo Storefront",
+  "version": 1,
+  "logoUrl": "https://bharatgo-website.s3.ap-south-1.amazonaws.com/static/newLogoMobile.png",
+  "description": "Connect a custom domain to a BharatGo storefront.",
+  "variableDescription": "",
+  "syncBlock": false,
+  "syncPubKeyDomain": "bharatgo.com",
+  "syncRedirectDomain": "seller.bharatgo.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "3.7.220.6",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "3.7.220.6",
+      "ttl": 300
+    }
+  ]
+}
