@@ -20,7 +20,8 @@
       "type": "TXT",
       "host": "%dkimSelector%._domainkey",
       "data": "%dkimValue%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
     },
     {
       "type": "CNAME",
@@ -34,7 +35,8 @@
       "data": "v=DMARC1; p=none;",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1"
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     }
   ]
 }
