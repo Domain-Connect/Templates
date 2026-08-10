@@ -6,7 +6,7 @@
     "version": 1,
     "logoUrl": "https://static.chimeroi.com/servicetool-temp/2023910/17/crm/lofty-Logo.svg",
     "description": "Lofty customers can use their own domain name to send email",
-    "variableDescription": "cNameRecordName1-3 and cNameRecordValue1-3 are the DKIM CNAME host/target pairs AWS SES issues per domain; mxMail is the SES custom MAIL FROM subdomain; dmarcValue is the DMARC policy; loftyIpA1 and loftyIpA2 are the click-tracking gateway addresses.",
+    "variableDescription": "cNameRecordName1-3 and cNameRecordValue1-3 are the DKIM CNAME host/target pairs issued per domain by our mail platform; dmarcValue is the DMARC policy; loftyIpA1 and loftyIpA2 are the click-tracking gateway addresses. The SES custom MAIL FROM label is fixed at \"mail\".",
     "syncBlock": false,
     "syncPubKeyDomain": "lofty.com",
     "syncRedirectDomain": "lofty.com",
@@ -51,7 +51,7 @@
         {
             "type": "MX",
             "groupId": "sending",
-            "host": "%mxMail%",
+            "host": "mail",
             "pointsTo": "feedback-smtp.us-west-2.amazonses.com",
             "priority": 10,
             "ttl": 3600
@@ -84,7 +84,7 @@
         {
             "type": "SPFM",
             "groupId": "sending",
-            "host": "%mxMail%",
+            "host": "mail",
             "spfRules": "include:amazonses.com",
             "ttl": 3600
         }
