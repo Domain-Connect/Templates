@@ -3,7 +3,6 @@
   "providerName": "Genex",
   "serviceId": "game",
   "serviceName": "Connect your domain to your Genex game",
-  "logoUrl": "https://genex.games/genex-logo.svg",
   "hostRequired": true,
   "version": 1,
   "description": "Points a subdomain (for example play.example.com) at the Genex game you chose, adds the record Genex uses to confirm you control the domain; HTTPS is issued and renewed automatically, with no certificate record for you to manage. No other DNS records are changed.",
