@@ -1,0 +1,29 @@
+{
+  "providerId": "10ashara.com",
+  "providerName": "10ashara",
+  "serviceId": "lms-subdomain",
+  "serviceName": "10ashara LMS",
+  "version": 1,
+  "logoUrl": "https://cdn.10ashara.com/home_logolight_filehome-logolight-fileashara-logosvgwebp.webp",
+  "description": "Connect a subdomain to 10ashara LMS. Configures routing and ownership verification.",
+  "variableDescription": "verification-token: Unique subscription verification token. edge-host: Edge hostname for your package tier.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.10ashara.com",
+  "syncRedirectDomain": "10ashara.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_asharamulti-verify",
+      "data": "%verification-token%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%edge-host%",
+      "ttl": 300
+    }
+  ]
+}
