@@ -1,0 +1,73 @@
+{
+    "providerId": "lofty.com",
+    "providerName": "Lofty",
+    "serviceId": "email-cloudflare",
+    "serviceName": "Lofty Sending Email Domain",
+    "version": 1,
+    "logoUrl": "https://static.chimeroi.com/servicetool-temp/2023910/17/crm/lofty-Logo.svg",
+    "description": "Lofty customers can use their own domain name to send email",
+    "variableDescription": "cNameRecordName1-3 / cNameRecordValue1-3 are the DKIM selector CNAMEs issued by AWS SES for this domain; dmarcValue is the DMARC policy; loftyIpA1 / loftyIpA2 are the click-tracking gateway IPs.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "lofty.com",
+    "syncRedirectDomain": "lofty.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "groupId": "sending",
+            "host": "%cNameRecordName1%",
+            "pointsTo": "%cNameRecordValue1%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "groupId": "sending",
+            "host": "%cNameRecordName2%",
+            "pointsTo": "%cNameRecordValue2%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "groupId": "sending",
+            "host": "%cNameRecordName3%",
+            "pointsTo": "%cNameRecordValue3%",
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "groupId": "sending",
+            "host": "@",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "groupId": "sending",
+            "host": "_dmarc",
+            "data": "%dmarcValue%",
+            "txtConflictMatchingMode": "All",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "groupId": "receiving",
+            "host": "@",
+            "pointsTo": "inbound-smtp.us-west-2.amazonaws.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "groupId": "tracking",
+            "host": "@",
+            "pointsTo": "%loftyIpA1%",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "groupId": "tracking",
+            "host": "@",
+            "pointsTo": "%loftyIpA2%",
+            "ttl": 3600
+        }
+    ]
+}
