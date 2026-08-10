@@ -1,0 +1,35 @@
+{
+  "providerId": "samva.dev",
+  "providerName": "Samva",
+  "serviceId": "mail",
+  "serviceName": "Email Sending",
+  "version": 1,
+  "logoUrl": "https://cdn.samva.dev/brand/logo.svg",
+  "description": "Authenticate your domain for sending email with Samva using DKIM signing and a custom MAIL FROM (SPF).",
+  "variableDescription": "domainKey: the DKIM public key (base64) Samva generated for your domain. region: the AWS region hosting your Samva sending identity (used for the MAIL FROM host).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "samva.dev",
+  "syncRedirectDomain": "samva.dev",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "samva._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%domainKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
