@@ -1,0 +1,26 @@
+{
+  "providerId": "genex.games",
+  "providerName": "Genex",
+  "serviceId": "game-apex",
+  "serviceName": "Connect your root domain to your Genex game",
+  "logoUrl": "https://genex.games/genex-logo.svg",
+  "version": 1,
+  "description": "Points a root domain (for example example.com) at the Genex game you chose, adds the record Genex uses to confirm you control the domain; HTTPS is issued and renewed automatically, with no certificate record for you to manage. No other DNS records are changed.",
+  "variableDescription": "%cname%: the Genex edge hostname this domain should point at. %token%: the random half of a per-domain ownership token Genex issues when you connect the domain (the record is written as genex-verify=<token>); it is re-checked daily, and removing it stops the domain serving.",
+  "syncPubKeyDomain": "genex.games",
+  "syncRedirectDomain": "api.genex.games,api-dev.genex.games",
+  "records": [
+    {
+      "type": "APEXCNAME",
+      "pointsTo": "%cname%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_genex-challenge",
+      "data": "genex-verify=%token%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    }
+  ]
+}
