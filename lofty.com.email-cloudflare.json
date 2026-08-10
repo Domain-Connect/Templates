@@ -6,11 +6,27 @@
     "version": 1,
     "logoUrl": "https://static.chimeroi.com/servicetool-temp/2023910/17/crm/lofty-Logo.svg",
     "description": "Lofty customers can use their own domain name to send email",
-    "variableDescription": "cNameRecordName1-3 / cNameRecordValue1-3 are the DKIM selector CNAMEs issued by AWS SES for this domain; dmarcValue is the DMARC policy; loftyIpA1 / loftyIpA2 are the click-tracking gateway IPs.",
+    "variableDescription": "cNameRecordName1-3 and cNameRecordValue1-3 are the DKIM CNAME host/target pairs AWS SES issues per domain; mxMail is the SES custom MAIL FROM subdomain; dmarcValue is the DMARC policy; loftyIpA1 and loftyIpA2 are the click-tracking gateway addresses.",
     "syncBlock": false,
     "syncPubKeyDomain": "lofty.com",
     "syncRedirectDomain": "lofty.com",
     "records": [
+        {
+            "type": "A",
+            "groupId": "tracking",
+            "host": "@",
+            "pointsTo": "%loftyIpA1%",
+            "essential": "OnApply",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "groupId": "tracking",
+            "host": "@",
+            "pointsTo": "%loftyIpA2%",
+            "essential": "OnApply",
+            "ttl": 3600
+        },
         {
             "type": "CNAME",
             "groupId": "sending",
@@ -33,18 +49,11 @@
             "ttl": 3600
         },
         {
-            "type": "SPFM",
+            "type": "MX",
             "groupId": "sending",
-            "host": "@",
-            "spfRules": "include:amazonses.com",
-            "ttl": 3600
-        },
-        {
-            "type": "TXT",
-            "groupId": "sending",
-            "host": "_dmarc",
-            "data": "%dmarcValue%",
-            "txtConflictMatchingMode": "All",
+            "host": "%mxMail%",
+            "pointsTo": "feedback-smtp.us-west-2.amazonses.com",
+            "priority": 10,
             "ttl": 3600
         },
         {
@@ -53,20 +62,30 @@
             "host": "@",
             "pointsTo": "inbound-smtp.us-west-2.amazonaws.com",
             "priority": 10,
+            "essential": "OnApply",
             "ttl": 3600
         },
         {
-            "type": "A",
-            "groupId": "tracking",
-            "host": "@",
-            "pointsTo": "%loftyIpA1%",
+            "type": "TXT",
+            "groupId": "sending",
+            "host": "_dmarc",
+            "data": "%dmarcValue%",
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply",
             "ttl": 3600
         },
         {
-            "type": "A",
-            "groupId": "tracking",
+            "type": "SPFM",
+            "groupId": "sending",
             "host": "@",
-            "pointsTo": "%loftyIpA2%",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "groupId": "sending",
+            "host": "%mxMail%",
+            "spfRules": "include:amazonses.com",
             "ttl": 3600
         }
     ]
