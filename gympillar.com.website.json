@@ -1,0 +1,28 @@
+{
+  "providerId": "gympillar.com",
+  "providerName": "GymPillar",
+  "serviceId": "website",
+  "serviceName": "Gymnastics studio website",
+  "version": 1,
+  "logoUrl": "https://gympillar.com/shots/logo.svg",
+  "description": "Points your domain at your GymPillar studio website and proves you own it.",
+  "syncPubKeyDomain": "gympillar.com",
+  "syncRedirectDomain": "gympillar.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_studio-verify",
+      "data": "studio-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "studio-verify="
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "5.78.92.126",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
