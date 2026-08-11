@@ -1,0 +1,28 @@
+{
+  "providerId": "clawnify.com",
+  "providerName": "Clawnify",
+  "serviceId": "website",
+  "serviceName": "Clawnify Website",
+  "version": 3,
+  "logoUrl": "https://app.clawnify.com/logo.svg",
+  "description": "Connects a subdomain to a Clawnify-hosted website: a CNAME to the Clawnify edge, plus a CNAME that delegates SSL certificate validation to Cloudflare so renewals need no further changes.",
+  "variableDescription": "dcv is the fully-qualified hostname being connected (e.g. www.example.com). Cloudflare publishes this hostname's ACME challenges under our zone's fixed delegation host, so only the leading labels vary.",
+  "syncRedirectDomain": "app.clawnify.com",
+  "syncPubKeyDomain": "dc.clawnify.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.myclawnify.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%dcv%.7bc45adc451e4364.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}
