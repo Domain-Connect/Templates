@@ -1,0 +1,59 @@
+{
+  "providerId": "skode.ai",
+  "providerName": "Skode",
+  "serviceId": "flow-email",
+  "serviceName": "Skode Flow email sending",
+  "version": 1,
+  "logoUrl": "https://flow.skode.ai/icon.png",
+  "description": "Authorises Amazon SES to send email campaigns for your domain on behalf of Skode Flow: DKIM signing, bounce handling (custom MAIL FROM) and a report-only DMARC baseline. Does not affect your website or existing mailboxes.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncRedirectDomain": "flow.skode.ai",
+  "warnPhishing": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "MX",
+      "host": "%bounce%",
+      "pointsTo": "feedback-smtp.%sesregion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "%bounce%",
+      "data": "v=spf1 include:amazonses.com ~all",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%fqdn%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
