@@ -1,0 +1,28 @@
+{
+  "providerId": "groundlio.com",
+  "providerName": "Groundlio",
+  "serviceId": "connect",
+  "serviceName": "Connect your domain to Groundlio",
+  "version": 1,
+  "logoUrl": "https://groundlio.com/favicon.ico",
+  "description": "Points your domain and www at your Groundlio website (Render-hosted, auto-SSL).",
+  "variableDescription": "No variables — the target records are fixed.",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "groundlio.com",
+  "syncRedirectDomain": "groundlio.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.24.57.1",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "groundlio.onrender.com",
+      "ttl": 600
+    }
+  ]
+}
