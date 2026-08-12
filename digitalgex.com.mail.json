@@ -1,0 +1,63 @@
+{
+  "providerId": "digitalgex.com",
+  "providerName": "CursusMail",
+  "serviceId": "mail",
+  "serviceName": "Mail",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "keys.digitalgex.com",
+  "syncRedirectDomain": "cursusmail.digitalgex.com",
+  "description": "Configure CursusMail sending and authentication records.",
+  "records": [
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "%spfDomain%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "%spfDomain%",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "v=DMARC1; p=none;"
+    },
+    {
+      "groupId": "click-tracking",
+      "type": "CNAME",
+      "host": "%clickTrackingSubdomain%",
+      "pointsTo": "%clickTrackingCnameTarget%.awstrack.me",
+      "ttl": 3600
+    }
+  ]
+}
