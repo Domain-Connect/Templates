@@ -1,0 +1,15 @@
+{
+  "providerId": "sikkasoft.com",
+  "providerName": "Sikka Website Builder",
+  "serviceId": "websitebuilder",
+  "serviceName": "Sikka Website Builder",
+  "version": 1,
+  "logoUrl": "https://sikkasoft.com/logo.png",
+  "description": "Connects your domain to the website you built with Sikka's website builder",
+  "variableDescription": "target is the unique CloudFront address for your specific website",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 300 },
+    { "type": "CNAME", "host": "www", "pointsTo": "%target%", "ttl": 300 }
+  ]
+}
