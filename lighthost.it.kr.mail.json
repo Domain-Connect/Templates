@@ -5,7 +5,7 @@
   "serviceName": "LightHost Mail",
   "version": 1,
   "logoUrl": "https://lighthost.it.kr/logo.png",
-  "description": "Configure DNS records for LightHost mail hosting and ZeptoMail outbound authentication.",
+  "description": "Configure DNS records for LightHost Stalwart mail hosting.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.lighthost.it.kr",
   "syncRedirectDomain": "lighthost.it.kr",
@@ -18,9 +18,9 @@
       "ttl": 300
     },
     {
-      "type": "CNAME",
+      "type": "A",
       "host": "mail",
-      "pointsTo": "%mail_target%",
+      "pointsTo": "%mail_ip%",
       "ttl": 300
     },
     {
@@ -42,17 +42,64 @@
       "ttl": 300
     },
     {
-      "type": "TXT",
-      "host": "%zepto_dkim_selector%._domainkey",
-      "data": "%zepto_dkim_value%",
-      "ttl": 300,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "k=rsa;"
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx -all",
+      "ttl": 300
     },
     {
-      "type": "CNAME",
-      "host": "bounce",
-      "pointsTo": "%zepto_cname_target%",
+      "type": "SRV",
+      "name": "",
+      "service": "_autodiscover",
+      "protocol": "_tcp",
+      "target": "%srv_target%",
+      "priority": 0,
+      "weight": 0,
+      "port": 443,
+      "ttl": 300
+    },
+    {
+      "type": "SRV",
+      "name": "",
+      "service": "_imaps",
+      "protocol": "_tcp",
+      "target": "%srv_target%",
+      "priority": 0,
+      "weight": 0,
+      "port": 993,
+      "ttl": 300
+    },
+    {
+      "type": "SRV",
+      "name": "",
+      "service": "_pop3s",
+      "protocol": "_tcp",
+      "target": "%srv_target%",
+      "priority": 0,
+      "weight": 0,
+      "port": 995,
+      "ttl": 300
+    },
+    {
+      "type": "SRV",
+      "name": "",
+      "service": "_smtps",
+      "protocol": "_tcp",
+      "target": "%srv_target%",
+      "priority": 0,
+      "weight": 0,
+      "port": 465,
+      "ttl": 300
+    },
+    {
+      "type": "SRV",
+      "name": "",
+      "service": "_submission",
+      "protocol": "_tcp",
+      "target": "%srv_target%",
+      "priority": 0,
+      "weight": 0,
+      "port": 587,
       "ttl": 300
     }
   ]
