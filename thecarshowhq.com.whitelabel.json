@@ -5,6 +5,7 @@
   "serviceName": "Car Show HQ white-label domain",
   "version": 1,
   "hostRequired": true,
+  "syncPubKeyDomain": "thecarshowhq.com",
   "description": "Points a subdomain (like show.yourclub.org) at your Car Show HQ show pages.",
   "records": [
     {
