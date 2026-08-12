@@ -6,7 +6,7 @@
     "version": 1,
     "logoUrl": "https://static.chimeroi.com/servicetool-temp/2023910/17/crm/lofty-Logo.svg",
     "description": "Lofty customers can use their own domain name to send email",
-    "variableDescription": "cNameRecordName1-3 and cNameRecordValue1-3 are the DKIM CNAME host/target pairs issued per domain by our mail platform; dmarcValue is the DMARC policy; loftyIpA1 and loftyIpA2 are the click-tracking gateway addresses. The SES custom MAIL FROM label is fixed at \"mail\".",
+    "variableDescription": "dkim1-3 are the DKIM selector tokens issued per domain by our mail platform; cNameRecordValue1-3 are the corresponding CNAME targets (their target domain varies by provisioning path, so they cannot carry a fixed suffix); dmarcValue is the DMARC policy; loftyIpA1 and loftyIpA2 are the click-tracking gateway addresses.",
     "syncBlock": false,
     "syncPubKeyDomain": "lofty.com",
     "syncRedirectDomain": "lofty.com",
@@ -30,21 +30,21 @@
         {
             "type": "CNAME",
             "groupId": "sending",
-            "host": "%cNameRecordName1%",
+            "host": "%dkim1%._domainkey",
             "pointsTo": "%cNameRecordValue1%",
             "ttl": 3600
         },
         {
             "type": "CNAME",
             "groupId": "sending",
-            "host": "%cNameRecordName2%",
+            "host": "%dkim2%._domainkey",
             "pointsTo": "%cNameRecordValue2%",
             "ttl": 3600
         },
         {
             "type": "CNAME",
             "groupId": "sending",
-            "host": "%cNameRecordName3%",
+            "host": "%dkim3%._domainkey",
             "pointsTo": "%cNameRecordValue3%",
             "ttl": 3600
         },
