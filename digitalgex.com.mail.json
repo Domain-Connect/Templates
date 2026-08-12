@@ -8,6 +8,7 @@
   "syncPubKeyDomain": "keys.digitalgex.com",
   "syncRedirectDomain": "cursusmail.digitalgex.com",
   "description": "Configure CursusMail sending and authentication records.",
+  "variableDescription": "spfDomain is the SES custom MAIL FROM label; region is the SES region; dkim1, dkim2 and dkim3 are the SES Easy DKIM selectors; clickTrackingSubdomain and clickTrackingCnameTarget are returned by the domain tracking configuration.",
   "records": [
     {
       "groupId": "outbound",
@@ -50,7 +51,10 @@
       "type": "TXT",
       "host": "_dmarc",
       "ttl": 3600,
-      "data": "v=DMARC1; p=none;"
+      "data": "v=DMARC1; p=none;",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     },
     {
       "groupId": "click-tracking",
