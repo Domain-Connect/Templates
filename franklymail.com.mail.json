@@ -5,7 +5,7 @@
   "serviceName": "FranklyMail email",
   "version": 1,
   "logoUrl": "https://franklymail.com/icon-512.png",
-  "syncPubKeyDomain": "_dconn.franklymail.com",
+  "syncPubKeyDomain": "franklymail.com",
   "syncRedirectDomain": "franklymail.com",
   "syncBlock": false,
   "records": [
