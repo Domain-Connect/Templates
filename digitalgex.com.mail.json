@@ -4,7 +4,7 @@
   "serviceId": "mail",
   "serviceName": "Mail",
   "version": 1,
-  "logoUrl": "https://cursusmail.digitalgex.com/brand-kit/svg/cursus-logo-mono-white.svg",
+  "logoUrl": "https://cursusmail.digitalgex.com/brand-kit/svg/cursus-logo-dark.svg",
   "syncBlock": false,
   "syncPubKeyDomain": "keys.digitalgex.com",
   "syncRedirectDomain": "cursusmail.digitalgex.com",
