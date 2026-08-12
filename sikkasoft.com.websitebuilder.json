@@ -4,7 +4,7 @@
   "serviceId": "websitebuilder",
   "serviceName": "Sikka Website Builder",
   "version": 1,
-  "logoUrl": "https://sikkasoft.com/logo.png",
+  "logoUrl": "https://publicweb-sikka-logo.s3.amazonaws.com/2024-sikka-ai-official-logo-usa.svg",
   "description": "Connects your domain to the website you built with Sikka's website builder",
   "variableDescription": "target is the unique CloudFront address for your specific website",
   "hostRequired": true,
