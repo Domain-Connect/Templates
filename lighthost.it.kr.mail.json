@@ -5,7 +5,7 @@
   "serviceName": "LightHost Mail",
   "version": 1,
   "logoUrl": "https://lighthost.it.kr/logo.png",
-  "description": "Configure DNS records for LightHost Stalwart mail hosting.",
+  "description": "Configure DNS records for LightHost Stalwart mail hosting and ZeptoMail SMTP relay authentication.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.lighthost.it.kr",
   "syncRedirectDomain": "lighthost.it.kr",
@@ -100,6 +100,20 @@
       "priority": 0,
       "weight": 0,
       "port": 587,
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "%zepto_dkim_selector%._domainkey",
+      "data": "%zepto_dkim_value%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "k=rsa;"
+    },
+    {
+      "type": "CNAME",
+      "host": "bounce",
+      "pointsTo": "%zepto_cname_target%",
       "ttl": 300
     }
   ]
