@@ -1,0 +1,47 @@
+{
+  "providerId": "leadape.io",
+  "providerName": "LeadApe",
+  "serviceId": "outreach",
+  "serviceName": "Email authentication (SPF + DMARC)",
+  "version": 1,
+  "logoUrl": "https://leadape.io/images/app-icon.svg",
+  "description": "Authorizes the domain owner’s mail provider (Google Workspace or Microsoft 365) to send email for the domain via SPF, and publishes a monitor-only DMARC policy that reports authentication results without affecting delivery. Only the records the domain is currently missing are applied.",
+  "variableDescription": "%rua%: Email address that DMARC aggregate (rua) reports are sent to. Only used by the dmarc_rua group.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "leadape.io",
+  "syncRedirectDomain": "app.leadape.io",
+  "records": [
+    {
+      "groupId": "spf_google",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.google.com"
+    },
+    {
+      "groupId": "spf_microsoft",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.protection.outlook.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "groupId": "dmarc_rua",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%rua%; fo=1;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

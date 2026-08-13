@@ -1,0 +1,23 @@
+{
+  "providerId": "kangarua.net",
+  "providerName": "Kangarua",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC-beleid en rapportage",
+  "version": 1,
+  "logoUrl": "https://kangarua.net/logo.svg",
+  "description": "Publiceert of werkt het DMARC-record bij, zodat nagemaakte e-mail in naam van dit domein tegengehouden wordt en de eigenaar rapporten ontvangt over wie er namens hem verstuurt.",
+  "variableDescription": "dmarcTags - the DMARC tags without the leading v=DMARC1 version tag, for example 'p=quarantine; rua=mailto:...'. Kangarua composes this server-side from the domain's existing record so an existing rua=, ruf= or sp= is preserved.",
+  "syncPubKeyDomain": "kangarua.net",
+  "syncRedirectDomain": "kangarua.net",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarcTags%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
