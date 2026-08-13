@@ -8,8 +8,8 @@
   "syncPubKeyDomain": "dub.co",
   "syncRedirectDomain": "app.dub.co,preview.dub.co,dub.co",
   "syncBlock": false,
-  "description": "MX, SPF (SPFM merge), DKIM (optional dkim2 group), and DMARC for Dub partner email domains.",
-  "variableDescription": "%mxHost%: hostname for the bounce MX (typically send, or send.<subdomain> for subdomain email domains). %mxValue%: MX target (e.g. feedback-smtp.<region>.amazonses.com). %spfTxtHost%: hostname for the SPF policy (typically same as mxHost). %spfTxtValue%: SPFM merge mechanisms only (without the \"v=spf1\" prefix and typically without the trailing \"all\" mechanism); see SPFM merging in the Domain Connect specification. %dkimTxtHost%, %dkim2TxtHost%: full zone-relative DKIM TXT hostnames (e.g. resend._domainkey or resend._domainkey.partners). %dkimTxtValue%, %dkim2TxtValue%: Full DKIM TXT value from Dub (normally starting with \"v=DKIM1;\"). %dmarcHost%: DMARC TXT hostname (_dmarc or _dmarc.<subdomain>).",
+  "description": "MX, SPF (SPFM merge), DKIM (optional dkim2 group), and DMARC for Dub partner email domains. For subdomain email domains (e.g. partners.example.com), set the Domain Connect host parameter to that label (partners); do not encode the subdomain into record host variables.",
+  "variableDescription": "%mxHost%: bounce MX label relative to the email domain (typically send). %mxValue%: MX target (e.g. feedback-smtp.<region>.amazonses.com). %spfTxtHost%: SPF label relative to the email domain (typically same as mxHost). %spfTxtValue%: SPFM merge mechanisms only (without the \"v=spf1\" prefix and typically without the trailing \"all\" mechanism); see SPFM merging in the Domain Connect specification. %dkimSelector%, %dkim2Selector%: DKIM selectors (DNS label before ._domainkey). %dkimTxtValue%, %dkim2TxtValue%: Full DKIM TXT value from Dub (normally starting with \"v=DKIM1;\").",
   "records": [
     {
       "groupId": "mx",
@@ -29,7 +29,7 @@
     {
       "groupId": "dkim",
       "type": "TXT",
-      "host": "%dkimTxtHost%",
+      "host": "%dkimSelector%._domainkey",
       "data": "%dkimTxtValue%",
       "ttl": 3600,
       "essential": "OnApply",
@@ -39,7 +39,7 @@
     {
       "groupId": "dkim2",
       "type": "TXT",
-      "host": "%dkim2TxtHost%",
+      "host": "%dkim2Selector%._domainkey",
       "data": "%dkim2TxtValue%",
       "ttl": 3600,
       "essential": "OnApply",
@@ -49,7 +49,7 @@
     {
       "groupId": "dmarc",
       "type": "TXT",
-      "host": "%dmarcHost%",
+      "host": "_dmarc",
       "data": "v=DMARC1; p=none;",
       "ttl": 3600,
       "essential": "OnApply",
