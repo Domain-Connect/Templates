@@ -8,6 +8,7 @@
   "description": "Connects your domain to the website you built with Sikka's website builder",
   "variableDescription": "target is the unique CloudFront address for your specific website",
   "hostRequired": true,
+  "syncRedirectDomain": "sdp.sikkasoft.com",
   "records": [
     { "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 300 },
     { "type": "CNAME", "host": "www", "pointsTo": "%target%", "ttl": 300 }
