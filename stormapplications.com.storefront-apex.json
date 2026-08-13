@@ -4,7 +4,7 @@
   "serviceId": "storefront-apex",
   "serviceName": "Loja web (domínio raiz)",
   "version": 1,
-  "logoUrl": "https://stormapplications.com/brand/icon.svg"
+  "logoUrl": "https://stormapplications.com/brand/icon.svg",
   "description": "Conecta um domínio raiz à loja web da StorM hospedada na Vercel.",
   "variableDescription": "%ip% is the Vercel anycast IPv4 for the A record. %verifyHost% and %verification% are the Vercel domain ownership TXT name and full value returned by the Vercel Domains API (typically vc-domain-verify=...). Bare variables are required because Vercel dictates both the label and the complete TXT payload.",
   "syncBlock": false,
