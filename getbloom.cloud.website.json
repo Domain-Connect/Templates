@@ -5,7 +5,7 @@
     "serviceName": "Bloom website hosting",
     "version": 1,
     "description": "Connects a subdomain to a Bloom-hosted website and adds Bloom's ownership check. This template does not change email or nameservers.",
-    "variableDescription": "%verification%: Bloom's random domain ownership token",
+    "variableDescription": "%verification%: Bloom's exact domain ownership challenge",
     "hostRequired": true,
     "multiInstance": true,
     "syncPubKeyDomain": "domainconnect-keys.getbloom.cloud",
@@ -14,14 +14,14 @@
             "type": "TXT",
             "host": "_bloom-verification",
             "data": "bloom-site-verification=%verification%",
-            "ttl": 300,
+            "ttl": "300",
             "txtConflictMatchingMode": "All"
         },
         {
             "type": "CNAME",
             "host": "@",
             "pointsTo": "sites.getbloom.cloud",
-            "ttl": 300
+            "ttl": "300"
         }
     ]
 }
