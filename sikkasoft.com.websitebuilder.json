@@ -9,6 +9,7 @@
   "variableDescription": "target is the unique CloudFront address for your specific website",
   "hostRequired": true,
   "syncRedirectDomain": "sdp.sikkasoft.com",
+  "syncPubKeyDomain": "sdp.sikkasoft.com",
   "records": [
     { "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 300 }
   ]
