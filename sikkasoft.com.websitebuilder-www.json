@@ -1,15 +1,14 @@
 {
   "providerId": "sikkasoft.com",
   "providerName": "Sikka Website Builder",
-  "serviceId": "websitebuilder",
-  "serviceName": "Sikka Website Builder",
+  "serviceId": "websitebuilder-www",
+  "serviceName": "Sikka Website Builder (www)",
   "version": 1,
   "logoUrl": "https://publicweb-sikka-logo.s3.amazonaws.com/2024-sikka-ai-official-logo-usa.svg",
-  "description": "Connects your domain to the website you built with Sikka's website builder",
+  "description": "Connects the www version of your domain to the website you built with Sikka's website builder",
   "variableDescription": "target is the unique CloudFront address for your specific website",
-  "hostRequired": true,
   "syncRedirectDomain": "sdp.sikkasoft.com",
   "records": [
-    { "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 300 }
+    { "type": "CNAME", "host": "www", "pointsTo": "%target%", "ttl": 300 }
   ]
 }

@@ -7,7 +7,6 @@
   "logoUrl": "https://publicweb-sikka-logo.s3.amazonaws.com/2024-sikka-ai-official-logo-usa.svg",
   "description": "Verifies domain ownership so Sikka can issue an SSL certificate for your website",
   "variableDescription": "host and value are provided by AWS Certificate Manager and are unique to your domain",
-  "hostRequired": true,
   "syncRedirectDomain": "sdp.sikkasoft.com",
   "records": [
     {
