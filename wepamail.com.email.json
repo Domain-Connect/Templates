@@ -1,0 +1,71 @@
+{
+  "providerId": "wepamail.com",
+  "providerName": "wepamail",
+  "serviceId": "email",
+  "serviceName": "wepamail Email Sending",
+  "version": 1,
+  "logoUrl": "https://wepamail.com/favicon.png",
+  "description": "Authorizes wepamail to send email from this domain by adding the domain ownership, DKIM signing, SPF, return-path and DMARC records.",
+  "syncBlock": false,
+  "shared": false,
+  "syncRedirectDomain": "wepamail.com,www.wepamail.com",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "wepamail",
+      "type": "TXT",
+      "host": "%verifyname%",
+      "data": "%verifyvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "wepamail",
+      "type": "CNAME",
+      "host": "%dkim1name%",
+      "pointsTo": "%dkim1value%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "wepamail",
+      "type": "CNAME",
+      "host": "%dkim2name%",
+      "pointsTo": "%dkim2value%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "wepamail",
+      "type": "CNAME",
+      "host": "%dkim3name%",
+      "pointsTo": "%dkim3value%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "wepamail",
+      "type": "TXT",
+      "host": "%spfname%",
+      "data": "%spfvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
+    },
+    {
+      "groupId": "wepamail",
+      "type": "MX",
+      "host": "%mxname%",
+      "pointsTo": "%mxvalue%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "wepamail",
+      "type": "TXT",
+      "host": "%dmarcname%",
+      "data": "%dmarcvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
