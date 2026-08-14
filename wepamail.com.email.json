@@ -5,67 +5,74 @@
   "serviceName": "wepamail Email Sending",
   "version": 1,
   "logoUrl": "https://wepamail.com/favicon.png",
-  "description": "Authorizes wepamail to send email from this domain by adding the domain ownership, DKIM signing, SPF, return-path and DMARC records.",
-  "syncBlock": false,
-  "shared": false,
+  "description": "Authorizes wepamail to send email from this domain using Amazon SES. Adds domain ownership, DKIM signing, SPF authorization, a custom MAIL FROM return-path, and a DMARC policy in one step.",
+  "variableDescription": "%verifyvalue%: Amazon SES domain ownership token; %dkim1%, %dkim2%, %dkim3%: DKIM selector tokens; %region%: AWS SES region for the feedback MX host; %dmarcvalue%: DMARC policy value",
+  "syncPubKeyDomain": "wepamail.com",
   "syncRedirectDomain": "wepamail.com,www.wepamail.com",
-  "warnPhishing": true,
+  "warnPhishing": false,
+  "syncBlock": false,
   "hostRequired": false,
   "records": [
     {
-      "groupId": "wepamail",
+      "groupId": "verification",
       "type": "TXT",
-      "host": "%verifyname%",
+      "host": "_amazonses",
       "data": "%verifyvalue%",
       "ttl": 3600,
       "txtConflictMatchingMode": "All"
     },
     {
-      "groupId": "wepamail",
+      "groupId": "dkim",
       "type": "CNAME",
-      "host": "%dkim1name%",
-      "pointsTo": "%dkim1value%",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
       "ttl": 3600
     },
     {
-      "groupId": "wepamail",
+      "groupId": "dkim",
       "type": "CNAME",
-      "host": "%dkim2name%",
-      "pointsTo": "%dkim2value%",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
       "ttl": 3600
     },
     {
-      "groupId": "wepamail",
+      "groupId": "dkim",
       "type": "CNAME",
-      "host": "%dkim3name%",
-      "pointsTo": "%dkim3value%",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
       "ttl": 3600
     },
     {
-      "groupId": "wepamail",
-      "type": "TXT",
-      "host": "%spfname%",
-      "data": "%spfvalue%",
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
       "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1"
+      "spfRules": "include:amazonses.com ~all"
     },
     {
-      "groupId": "wepamail",
+      "groupId": "mailfrom",
       "type": "MX",
-      "host": "%mxname%",
-      "pointsTo": "%mxvalue%",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
       "priority": 10,
       "ttl": 3600
     },
     {
-      "groupId": "wepamail",
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "bounce",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com ~all"
+    },
+    {
+      "groupId": "dmarc",
       "type": "TXT",
-      "host": "%dmarcname%",
+      "host": "_dmarc",
       "data": "%dmarcvalue%",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1"
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     }
   ]
 }
