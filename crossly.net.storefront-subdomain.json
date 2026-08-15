@@ -1,0 +1,31 @@
+{
+  "providerId": "crossly.net",
+  "providerName": "Crossly",
+  "serviceId": "storefront-subdomain",
+  "serviceName": "Crossly Storefront",
+  "version": 1,
+  "logoUrl": "https://crossly.net/logo.svg",
+  "description": "Point your subdomain at your Crossly storefront for one-click setup with managed HTTPS.",
+  "variableDescription": "host: the subdomain label (e.g. 'shop'). verifyToken: ownership proof issued by Crossly during the connect flow.",
+  "syncPubKeyDomain": "crossly.net",
+  "syncRedirectDomain": "crossly.net,www.crossly.net",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "storefront",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.crossly.net",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_crossly-verify",
+      "data": "crossly-verify=%verifyToken%",
+      "ttl": 3600
+    }
+  ]
+}
