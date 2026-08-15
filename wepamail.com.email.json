@@ -47,7 +47,7 @@
       "type": "SPFM",
       "host": "@",
       "ttl": 3600,
-      "spfRules": "include:amazonses.com ~all"
+      "spfRules": "include:amazonses.com"
     },
     {
       "groupId": "mailfrom",
@@ -62,7 +62,7 @@
       "type": "SPFM",
       "host": "bounce",
       "ttl": 3600,
-      "spfRules": "include:amazonses.com ~all"
+      "spfRules": "include:amazonses.com"
     },
     {
       "groupId": "dmarc",
