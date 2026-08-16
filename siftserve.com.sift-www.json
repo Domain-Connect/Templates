@@ -15,7 +15,7 @@
     {
       "type": "CNAME",
       "groupId": "service",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "sift-proxy.siftserve.com",
       "ttl": 3600,
       "essential": "Always"
@@ -23,26 +23,29 @@
     {
       "type": "TXT",
       "groupId": "verify",
-      "host": "_cf-custom-hostname.%host%",
+      "host": "_cf-custom-hostname",
       "data": "%cfpre%",
       "ttl": 300,
-      "txtConflictMatchingMode": "None"
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
     },
     {
       "type": "TXT",
       "groupId": "verify",
-      "host": "_acme-challenge.%host%",
+      "host": "_acme-challenge",
       "data": "%acme1%",
       "ttl": 300,
-      "txtConflictMatchingMode": "None"
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
     },
     {
       "type": "TXT",
       "groupId": "verify",
-      "host": "_acme-challenge.%host%",
+      "host": "_acme-challenge",
       "data": "%acme2%",
       "ttl": 300,
-      "txtConflictMatchingMode": "None"
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
     }
   ]
 }
