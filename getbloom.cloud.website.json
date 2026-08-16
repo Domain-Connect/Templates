@@ -7,7 +7,6 @@
     "description": "Connects a subdomain to a Bloom-hosted website and adds Bloom's ownership check. This template does not change email or nameservers.",
     "variableDescription": "%verification%: Bloom's exact domain ownership challenge",
     "hostRequired": true,
-    "multiInstance": true,
     "syncPubKeyDomain": "domainconnect-keys.getbloom.cloud",
     "records": [
         {
