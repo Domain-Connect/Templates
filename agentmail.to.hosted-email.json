@@ -22,8 +22,8 @@
       "groupId": "a",
       "type": "MX",
       "host": "mail",
-      "pointsTo": "%mxtarget2%",
-      "priority": "%mxpriority2%",
+      "pointsTo": "%mxtargetmail%",
+      "priority": "%mxprioritymail%",
       "ttl": 3600
     },
     {
