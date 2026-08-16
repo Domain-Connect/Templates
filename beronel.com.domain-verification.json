@@ -1,0 +1,23 @@
+{
+  "providerId": "beronel.com",
+  "providerName": "Beronel",
+  "serviceId": "domain-verification",
+  "serviceName": "Verify domain ownership",
+  "version": 1,
+  "logoUrl": "https://beronel.com/favicon-32x32.png",
+  "description": "Add a one-time TXT record that verifies domain control for a Beronel app.",
+  "variableDescription": "%verification%: one-time Beronel domain verification token",
+  "syncRedirectDomain": "app.dev.beronel.com,app.beronel.com",
+  "syncPubKeyDomain": "beronel.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_beronel-challenge",
+      "data": "beronel-domain-verification=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "beronel-domain-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}
