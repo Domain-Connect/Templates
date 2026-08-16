@@ -1,0 +1,48 @@
+{
+  "providerId": "siftserve.com",
+  "providerName": "SiftServe",
+  "serviceId": "sift-www",
+  "serviceName": "SiftServe for your site",
+  "version": 1,
+  "logoUrl": "https://siftserve.com/logo.svg",
+  "description": "Serves your site through SiftServe: A Web Infra layer for AI agents, AI agents receive your agent-readable pages, people are passed straight through to your site unchanged.",
+  "variableDescription": "cfpre is the Cloudflare custom-hostname pre-validation token; acme1/acme2 are the certificate validation tokens. All three are generated per-connection by SiftServe.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "siftserve.com",
+  "syncRedirectDomain": "siftserve.com,app.siftserve.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "service",
+      "host": "%host%",
+      "pointsTo": "sift-proxy.siftserve.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_cf-custom-hostname.%host%",
+      "data": "%cfpre%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_acme-challenge.%host%",
+      "data": "%acme1%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_acme-challenge.%host%",
+      "data": "%acme2%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
