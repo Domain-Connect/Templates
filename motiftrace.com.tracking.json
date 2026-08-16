@@ -1,17 +1,17 @@
 {
-  "providerId": "motif.reaktif.io",
+  "providerId": "motiftrace.com",
   "providerName": "motif",
   "serviceId": "tracking",
   "serviceName": "Tracking subdomain",
   "description": "Serves motif's analytics tracker and its event endpoint from a subdomain of your own domain, so both are first-party to your site.",
   "version": 1,
   "syncBlock": false,
-  "syncPubKeyDomain": "dc.motif.reaktif.io",
+  "syncPubKeyDomain": "dc.motiftrace.com",
   "records": [
     {
       "type": "CNAME",
       "host": "m",
-      "pointsTo": "motif.reaktif.io",
+      "pointsTo": "collect.motiftrace.com",
       "ttl": 3600
     }
   ]
