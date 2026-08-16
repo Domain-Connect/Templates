@@ -1,0 +1,29 @@
+{
+  "providerId": "azbrand.ca",
+  "providerName": "AZBrand",
+  "serviceId": "web",
+  "serviceName": "AZBrand website hosting",
+  "version": 1,
+  "logoUrl": "https://azbrand.ca/logo2.webp",
+  "description": "Connect your custom domain to your AZBrand website.",
+  "syncPubKeyDomain": "azbrand.ca",
+  "syncRedirectDomain": "azbrand.ca",
+  "shared": false,
+  "records": [
+    {
+      "groupId": "cname",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.azbrand.ca",
+      "ttl": 300
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%txt_token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
