@@ -8,7 +8,7 @@
   "description": "Points the domain to the static website built by Pixelize: an A record on the apex and a CNAME on www.",
   "variableDescription": "%siteip%: IPv4 address of the static hosting load balancer, applied to the apex; %sitehost%: hostname of the hosted site, target of the www CNAME",
   "syncPubKeyDomain": "agence-pixelize.fr",
-  "syncRedirectDomain": "pixelize-agency.onrender.com, agence-pixelize.fr",
+  "syncRedirectDomain": "pixelize-agency.onrender.com,agence-pixelize.fr",
   "records": [
     {
       "type": "A",
