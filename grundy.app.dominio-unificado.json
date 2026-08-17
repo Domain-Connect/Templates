@@ -3,6 +3,7 @@
   "providerName": "Grundy",
   "serviceId": "dominio-unificado",
   "serviceName": "Grundy — Tu dominio (página + correo)",
+  "version": 1,
   "description": "Conecta tu página y tus correos de Grundy a tu propio dominio en una sola operación.",
   "variableDescription": "hostPrefix = 'mail' fijo. dkim1/2/3 = tokens DKIM generados por SES al momento de conectar. sesRegion = región activa de AWS SES (ej. us-east-2).",
   "logoUrl": "https://www.grundy.app/grundy-logo-negro.svg",
