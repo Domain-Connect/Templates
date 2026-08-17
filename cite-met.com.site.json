@@ -8,6 +8,7 @@
   "description": "Point this domain at your CiteMET site and issue its HTTPS certificate.",
   "syncPubKeyDomain": "cite-met.com",
   "syncRedirectDomain": "cite-met.com",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
