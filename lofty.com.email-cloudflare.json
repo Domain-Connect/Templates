@@ -1,0 +1,92 @@
+{
+    "providerId": "lofty.com",
+    "providerName": "Lofty",
+    "serviceId": "email-cloudflare",
+    "serviceName": "Lofty Sending Email Domain",
+    "version": 1,
+    "logoUrl": "https://static.chimeroi.com/servicetool-temp/2023910/17/crm/lofty-Logo.svg",
+    "description": "Lofty customers can use their own domain name to send email",
+    "variableDescription": "dkim1-3 are the DKIM selector tokens issued per domain by our mail platform; cNameRecordValue1-3 are the corresponding CNAME targets (their target domain varies by provisioning path, so they cannot carry a fixed suffix); dmarcValue is the DMARC policy; loftyIpA1 and loftyIpA2 are the click-tracking gateway addresses.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "lofty.com",
+    "syncRedirectDomain": "lofty.com",
+    "records": [
+        {
+            "type": "A",
+            "groupId": "tracking",
+            "host": "@",
+            "pointsTo": "%loftyIpA1%",
+            "essential": "OnApply",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "groupId": "tracking",
+            "host": "@",
+            "pointsTo": "%loftyIpA2%",
+            "essential": "OnApply",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "groupId": "sending",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%cNameRecordValue1%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "groupId": "sending",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%cNameRecordValue2%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "groupId": "sending",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%cNameRecordValue3%",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "groupId": "sending",
+            "host": "mail",
+            "pointsTo": "feedback-smtp.us-west-2.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "groupId": "receiving",
+            "host": "@",
+            "pointsTo": "inbound-smtp.us-west-2.amazonaws.com",
+            "priority": 10,
+            "essential": "OnApply",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "groupId": "sending",
+            "host": "_dmarc",
+            "data": "%dmarcValue%",
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply",
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "groupId": "sending",
+            "host": "@",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "groupId": "sending",
+            "host": "mail",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        }
+    ]
+}

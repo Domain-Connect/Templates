@@ -3,12 +3,12 @@
   "providerName": "Fingerprint",
   "serviceId": "custom-subdomain",
   "serviceName": "Custom Subdomain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://fingerprint.com/img/email-assets/fingerprint_logo_with_name.png",
   "description": "Connects a custom subdomain to Fingerprint, verifies ownership, and provisions the SSL certificate",
   "variableDescription": "Use groupId=base normally, or groupId=base,caa when CAA is required. %ip1% and %ip2% are two ingress for the customer. %dcv% is the dcv address needed for each customer",
   "syncRedirectDomain": "fingerprint.com,dashboard.fingerprint.com",
-  "syncPubKeyDomain": "domain-connect.fingerprint.com",
+  "syncPubKeyDomain": "fpjs.pro",
   "records": [
     {
       "type": "A",
