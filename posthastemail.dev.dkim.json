@@ -1,0 +1,22 @@
+{
+  "providerId": "posthastemail.dev",
+  "providerName": "Posthaste",
+  "serviceId": "dkim",
+  "serviceName": "Posthaste sending domain",
+  "version": 1,
+  "logoUrl": "https://posthastemail.dev/brand/postmark.png",
+  "description": "Publishes the DKIM key that lets Posthaste sign email as your domain.",
+  "variableDescription": "%selector%: the DKIM selector Posthaste generated for this domain (for example s1); %dkim%: the full DKIM TXT record value, beginning v=DKIM1; k=rsa; p=",
+  "syncPubKeyDomain": "posthastemail.dev",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "%dkim%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
