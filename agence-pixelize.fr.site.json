@@ -1,0 +1,26 @@
+{
+  "providerId": "agence-pixelize.fr",
+  "providerName": "Pixelize",
+  "serviceId": "site",
+  "serviceName": "Site vitrine Pixelize",
+  "version": 1,
+  "logoUrl": "https://pixelize-agency.onrender.com/pixelize-icon-v2-512.png",
+  "description": "Points the domain to the static website built by Pixelize: an A record on the apex and a CNAME on www.",
+  "variableDescription": "%siteip%: IPv4 address of the static hosting load balancer, applied to the apex; %sitehost%: hostname of the hosted site, target of the www CNAME",
+  "syncPubKeyDomain": "agence-pixelize.fr",
+  "syncRedirectDomain": "pixelize-agency.onrender.com, agence-pixelize.fr",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%siteip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%sitehost%",
+      "ttl": 3600
+    }
+  ]
+}
