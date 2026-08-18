@@ -1,0 +1,21 @@
+{
+  "providerId": "dsntry.com",
+  "providerName": "Sentry",
+  "serviceId": "managed-ingest",
+  "serviceName": "Managed ingest",
+  "version": 1,
+  "description": "Routes Sentry SDK telemetry through a managed custom ingest domain.",
+  "variableDescription": "%target% is the Sentry-managed CNAME target for this ingest domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dsntry.com",
+  "syncRedirectDomain": "sentry.io,getsentry.net",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
