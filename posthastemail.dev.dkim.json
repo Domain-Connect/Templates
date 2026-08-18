@@ -6,6 +6,7 @@
   "version": 1,
   "syncPubKeyDomain": "posthastemail.dev",
   "syncRedirectDomain": "app.posthastemail.dev",
+  "logoUrl": "https://posthastemail.dev/icon",
   "description": "Publishes the DKIM public key that lets Posthaste sign mail for this domain.",
   "records": [
     {
