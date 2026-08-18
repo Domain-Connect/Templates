@@ -1,0 +1,19 @@
+{
+  "providerId": "posthastemail.dev",
+  "providerName": "Posthaste",
+  "serviceId": "dkim",
+  "serviceName": "DKIM Signing",
+  "version": 1,
+  "syncPubKeyDomain": "posthastemail.dev",
+  "syncRedirectDomain": "app.posthastemail.dev",
+  "description": "Publishes the DKIM public key that lets Posthaste sign mail for this domain.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "ttl": 3600,
+      "data": "v=DKIM1; k=rsa; p=%dkim%",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
