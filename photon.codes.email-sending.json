@@ -1,0 +1,58 @@
+{
+  "providerId": "photon.codes",
+  "providerName": "Photon",
+  "serviceId": "email-sending",
+  "logoUrl": "https://assets.photon.codes/defaults/domain-connect/photon-icon-primary-v1.svg",
+  "serviceName": "Email sending and receiving",
+  "version": 1,
+  "description": "Configures an exact domain or subdomain to send and receive email through Photon.",
+  "variableDescription": "%dkim1%, %dkim2%, and %dkim3% are Amazon SES Easy DKIM tokens issued for the connected domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.photon.codes",
+  "syncRedirectDomain": "app.photon.codes,app.staging.photon.codes",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "dkim",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "groupId": "mail-from",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.us-west-2.amazonses.com.",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "groupId": "mail-from",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "MX",
+      "groupId": "inbound",
+      "host": "@",
+      "pointsTo": "inbound-smtp.us-west-2.amazonaws.com.",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
