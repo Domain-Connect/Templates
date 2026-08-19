@@ -1,0 +1,28 @@
+{
+    "providerId": "asksoma.ai",
+    "providerName": "AskSoma",
+    "serviceId": "hosting",
+    "serviceName": "Website hosting",
+    "version": 1,
+    "logoUrl": "https://asksoma.ai/AskSoma-ai_Logo.png",
+    "description": "Connects your domain to your AskSoma-powered site: an alias record pointing the domain at the AskSoma edge, plus a TXT record proving you control the domain. The TXT record can be removed after verification completes.",
+    "variableDescription": "%target%: the AskSoma edge hostname this domain aliases to (e.g. ssl.asksoma.xyz). %token%: the per-domain ownership-verification token issued when setup starts in the AskSoma dashboard.",
+    "syncPubKeyDomain": "asksoma.xyz",
+    "records": [
+        {
+            "type": "APEXCNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 600
+        },
+        {
+            "type": "TXT",
+            "host": "_asksoma-verify",
+            "ttl": 600,
+            "data": "asksoma-domain-verification=%token%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "asksoma-domain-verification=",
+            "essential": "OnApply"
+        }
+    ]
+}
