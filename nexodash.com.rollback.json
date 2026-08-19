@@ -1,0 +1,22 @@
+{
+  "providerId": "nexodash.com",
+  "providerName": "NexoDash",
+  "serviceId": "rollback",
+  "serviceName": "Cutover Rollback Verification",
+  "version": 1,
+  "logoUrl": "https://nexodash.com/brand/v1/logo-mark.svg",
+  "syncPubKeyDomain": "nexodash.com",
+  "syncRedirectDomain": "nexodash.com",
+  "description": "Republish the rollback verification record during a www-to-base cutover.",
+  "variableDescription": "%rollbacktoken%: ownership token of the previous www generation.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_nexodash-verify.www",
+      "ttl": 3600,
+      "data": "nexodash-domain-verification=%rollbacktoken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "nexodash-domain-verification="
+    }
+  ]
+}
