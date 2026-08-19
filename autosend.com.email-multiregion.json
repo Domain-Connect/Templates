@@ -1,0 +1,100 @@
+{
+  "providerId": "autosend.com",
+  "providerName": "AutoSend",
+  "serviceId": "email-multiregion",
+  "serviceName": "AutoSend Email (Multi-region)",
+  "version": 1,
+  "logoUrl": "https://d1v739xuxrzdgy.cloudfront.net/brand/logo-full.svg",
+  "description": "Enable email signing and specify authorized senders for AutoSend across all sending regions.",
+  "variableDescription": "%ownershipToken%: domain ownership token; %domainKey%: DKIM public key",
+  "syncPubKeyDomain": "autosend.com",
+  "syncRedirectDomain": "autosend.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_autosend-verify",
+      "data": "%ownershipToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "groupId": "ownership"
+    },
+    {
+      "type": "TXT",
+      "host": "autosend._domainkey",
+      "data": "p=%domainKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p=",
+      "groupId": "dkim"
+    },
+    {
+      "type": "MX",
+      "host": "asend-use1",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "mailfrom"
+    },
+    {
+      "type": "SPFM",
+      "host": "asend-use1",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600,
+      "groupId": "mailfrom"
+    },
+    {
+      "type": "MX",
+      "host": "asend-use2",
+      "pointsTo": "feedback-smtp.us-east-2.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "mailfrom"
+    },
+    {
+      "type": "SPFM",
+      "host": "asend-use2",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600,
+      "groupId": "mailfrom"
+    },
+    {
+      "type": "MX",
+      "host": "asend-aps1",
+      "pointsTo": "feedback-smtp.ap-south-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "mailfrom"
+    },
+    {
+      "type": "SPFM",
+      "host": "asend-aps1",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600,
+      "groupId": "mailfrom"
+    },
+    {
+      "type": "MX",
+      "host": "asend-euc1",
+      "pointsTo": "feedback-smtp.eu-central-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "mailfrom"
+    },
+    {
+      "type": "SPFM",
+      "host": "asend-euc1",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600,
+      "groupId": "mailfrom"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
+      "groupId": "dmarc"
+    }
+  ]
+}

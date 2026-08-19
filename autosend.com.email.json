@@ -1,0 +1,55 @@
+{
+  "providerId": "autosend.com",
+  "providerName": "AutoSend",
+  "serviceId": "email",
+  "serviceName": "AutoSend Email",
+  "version": 1,
+  "logoUrl": "https://d1v739xuxrzdgy.cloudfront.net/brand/logo-full.svg",
+  "description": "Enable email signing and specify authorized senders for AutoSend.",
+  "variableDescription": "%ownershipToken%: domain ownership token; %domainKey%: DKIM public key; %region%: AWS SES region",
+  "syncPubKeyDomain": "autosend.com",
+  "syncRedirectDomain": "autosend.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_autosend-verify",
+      "data": "%ownershipToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "groupId": "ownership"
+    },
+    {
+      "type": "TXT",
+      "host": "autosend._domainkey",
+      "data": "p=%domainKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p=",
+      "groupId": "dkim"
+    },
+    {
+      "type": "MX",
+      "host": "asend",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "mailfrom"
+    },
+    {
+      "type": "SPFM",
+      "host": "asend",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600,
+      "groupId": "mailfrom"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
+      "groupId": "dmarc"
+    }
+  ]
+}
