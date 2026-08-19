@@ -1,0 +1,24 @@
+{
+  "providerId": "clevoxa.com",
+  "providerName": "Clevoxa",
+  "serviceId": "production-site",
+  "serviceName": "Site web de production Clevoxa",
+  "version": 1,
+  "description": "Connecte le domaine principal et www à un site web de production hébergé par Clevoxa.",
+  "syncPubKeyDomain": "clevoxa.com",
+  "syncRedirectDomain": "clevoxa.com,www.clevoxa.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "135.125.109.165",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 600
+    }
+  ]
+}
