@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://d1v739xuxrzdgy.cloudfront.net/brand/logo-full.svg",
   "description": "Enable email signing and specify authorized senders for AutoSend.",
-  "variableDescription": "%ownershipToken%: domain ownership token; %domainKey%: DKIM public key; %region%: AWS SES region",
+  "variableDescription": "%ownershipToken%: domain ownership token; %domainKey%: DKIM public key; %region%: AutoSend region",
   "syncPubKeyDomain": "autosend.com",
   "syncRedirectDomain": "autosend.com",
   "records": [
