@@ -1,0 +1,21 @@
+{
+  "providerId": "crawldrift.com",
+  "providerName": "CrawlDrift",
+  "serviceId": "domain-verification",
+  "serviceName": "CrawlDrift Domain Verification",
+  "version": 1,
+  "logoUrl": "https://www.crawldrift.com/logo-dark-transparent-512.png",
+
+  "syncBlock": false,
+  "syncPubKeyDomain": "crawldrift.com",
+  "syncRedirectDomain": "app.crawldrift.com",
+
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "ttl": 300,
+      "data": "crawldrift-verification=%verification%"
+    }
+  ]
+}
