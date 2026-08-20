@@ -1,0 +1,41 @@
+{
+	"providerId": "resend.com",
+	"providerName": "Resend",
+	"serviceId": "mail-mta",
+	"serviceName": "Mail",
+	"version": 1,
+	"syncPubKeyDomain": "resend.com",
+	"syncRedirectDomain": "resend.com",
+	"description": "Enable email signing and specify authorized senders.",
+	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
+	"records": [
+		{
+			"groupId": "mta",
+			"type": "CNAME",
+			"host": "%mtaSpfDomain%",
+			"pointsTo": "%mtaSpfHost%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "outbound",
+			"type": "CNAME",
+			"host": "%fallbackSpfDomain%",
+			"pointsTo": "%fallbackSpfHost%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "TXT",
+			"host": "resend._domainkey",
+			"ttl": 3600,
+			"data": "p=%domainKey%"
+		},
+		{
+			"groupId": "click-tracking",
+			"type": "CNAME",
+			"host": "%clickTrackingSubdomain%",
+			"pointsTo": "%clickTrackingCnameTarget%.resend-dns.com",
+			"ttl": 3600
+		}
+	]
+}
