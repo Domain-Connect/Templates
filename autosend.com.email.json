@@ -4,7 +4,7 @@
   "serviceId": "email",
   "serviceName": "AutoSend Email",
   "version": 1,
-  "logoUrl": "https://d1v739xuxrzdgy.cloudfront.net/brand/logo-full.svg",
+  "logoUrl": "https://autosend-main-us-east-1.s3.us-east-1.amazonaws.com/brand/logo-full.svg",
   "description": "Enable email signing and specify authorized senders for AutoSend.",
   "variableDescription": "%ownershipToken%: domain ownership token; %domainKey%: DKIM public key; %region%: AutoSend region",
   "syncPubKeyDomain": "autosend.com",
