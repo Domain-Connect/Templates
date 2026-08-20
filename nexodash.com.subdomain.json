@@ -1,0 +1,38 @@
+{
+  "providerId": "nexodash.com",
+  "providerName": "NexoDash",
+  "serviceId": "subdomain",
+  "serviceName": "Custom Domain (subdomain)",
+  "version": 1,
+  "logoUrl": "https://nexodash.com/brand/v2/logo-mark.svg",
+  "hostRequired": true,
+  "syncPubKeyDomain": "nexodash.com",
+  "syncRedirectDomain": "nexodash.com",
+  "description": "Connect a subdomain to your NexoDash site.",
+  "variableDescription": "%cnametarget%: CNAME target issued per-domain by the hosting API; %altcnametarget%: CNAME target for the www alternate form, issued by the same API; %verifytoken%: NexoDash domain-ownership token.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnametarget%",
+      "ttl": 300,
+      "groupId": "core"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%altcnametarget%",
+      "ttl": 300,
+      "groupId": "pair"
+    },
+    {
+      "type": "TXT",
+      "host": "_nexodash-verify",
+      "ttl": 3600,
+      "data": "nexodash-domain-verification=%verifytoken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "nexodash-domain-verification=",
+      "groupId": "core"
+    }
+  ]
+}
