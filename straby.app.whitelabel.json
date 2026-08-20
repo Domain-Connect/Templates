@@ -1,0 +1,15 @@
+{
+  "providerId": "straby.app",
+  "providerName": "Straby",
+  "serviceId": "whitelabel",
+  "serviceName": "Straby digital cards",
+  "version": 1,
+  "logoUrl": "https://straby.app/icon-192.png",
+  "description": "Points a domain or a subdomain at Straby, so digital business cards are served under the customer's own brand.",
+  "variableDescription": "%host%: the label the cards are served from, empty for the domain apex.",
+  "syncBlock": false,
+  "warnPhishing": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "straby.app", "ttl": 3600 }
+  ]
+}
