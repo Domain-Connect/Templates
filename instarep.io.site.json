@@ -7,7 +7,7 @@
   "logoUrl": "https://instarep.io/brand/instarep-apple-icon.png",
   "description": "Point your domain at your InstaRep website.",
   "variableDescription": "",
-  "warnPhishing": true,
+  "syncPubKeyDomain": "instarep.site",
   "syncRedirectDomain": "portal.instarep.io",
   "records": [
     { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600 },
