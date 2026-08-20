@@ -4,6 +4,7 @@
   "serviceId": "app",
   "serviceName": "Custom domain for your app",
   "description": "Points a custom domain at a Zenith-hosted app by adding one CNAME to the deployment's canonical zenith.hosting host.",
+  "logoUrl": "https://zenith.hosting/assets/wordmark.svg",
   "version": 1,
   "syncBlock": false,
   "syncPubKeyDomain": "zenith.hosting",
