@@ -1,0 +1,20 @@
+{
+  "providerId": "zenith.hosting",
+  "providerName": "Zenith Hosting",
+  "serviceId": "app",
+  "serviceName": "Custom domain for your app",
+  "description": "Points a custom domain at a Zenith-hosted app by adding one CNAME to the deployment's canonical zenith.hosting host.",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "zenith.hosting",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "zenith",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ]
+}
