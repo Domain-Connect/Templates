@@ -4,7 +4,7 @@
   "serviceId": "rollback",
   "serviceName": "Cutover Rollback Verification",
   "version": 1,
-  "logoUrl": "https://nexodash.com/brand/v1/logo-mark.svg",
+  "logoUrl": "https://nexodash.com/brand/v2/logo-mark.svg",
   "syncPubKeyDomain": "nexodash.com",
   "syncRedirectDomain": "nexodash.com",
   "description": "Republish the rollback verification record during a www-to-base cutover.",
