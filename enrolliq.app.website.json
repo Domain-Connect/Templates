@@ -1,0 +1,21 @@
+{
+  "providerId": "enrolliq.app",
+  "providerName": "EnrollIQ",
+  "serviceId": "website",
+  "serviceName": "EnrollIQ Website",
+  "version": 1,
+  "description": "Connects your domain to your EnrollIQ website.",
+  "variableDescription": "project is the Cloudflare Pages project that serves the EnrollIQ website",
+  "syncBlock": false,
+  "syncPubKeyDomain": "enrolliq.app",
+  "syncRedirectDomain": "enrolliq.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%project%.pages.dev",
+      "ttl": 3600
+    }
+  ]
+}
