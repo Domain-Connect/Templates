@@ -1,0 +1,26 @@
+{
+  "providerId": "affrev.com",
+  "providerName": "AffRev",
+  "serviceId": "funnel-apex",
+  "serviceName": "AffRev Funnel (root domain)",
+  "version": 1,
+  "description": "Connects a root domain to a published AffRev funnel and proves ownership via a TXT record.",
+  "syncRedirectDomain": "affrev.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "152.53.247.216",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "_affrev",
+      "data": "%txt%",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}

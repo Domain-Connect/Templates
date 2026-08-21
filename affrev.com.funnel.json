@@ -1,0 +1,26 @@
+{
+  "providerId": "affrev.com",
+  "providerName": "AffRev",
+  "serviceId": "funnel",
+  "serviceName": "AffRev Funnel (subdomain)",
+  "version": 1,
+  "description": "Connects a subdomain to a published AffRev funnel and proves ownership via a TXT record.",
+  "syncRedirectDomain": "affrev.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "funnels.affrev.io",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "_affrev.%host%",
+      "data": "%txt%",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
