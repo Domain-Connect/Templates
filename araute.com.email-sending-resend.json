@@ -1,8 +1,8 @@
 {
   "providerId": "araute.com",
   "providerName": "Araute",
-  "serviceId": "email-sending",
-  "serviceName": "Araute Email Sending",
+  "serviceId": "email-sending-resend",
+  "serviceName": "Araute Email Sending (Resend)",
   "version": 1,
   "logoUrl": "https://www.araute.com/favicon.svg",
   "description": "Autoriza a Araute a enviar e-mails em nome do seu domínio, com SPF, DKIM e DMARC.",
