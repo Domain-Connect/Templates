@@ -1,0 +1,28 @@
+{
+  "providerId": "tinidy.io",
+  "providerName": "Tinidy",
+  "serviceId": "proxy",
+  "serviceName": "Tinidy Website Translation",
+  "version": 1,
+  "logoUrl": "https://tinidy.io/logo.svg",
+  "description": "Routes your website through Tinidy so your translated pages are served on your own domain.",
+  "variableDescription": "%ip%: IPv4 address of the Tinidy edge proxy that serves this domain. %target%: the per-project Tinidy routing label this domain is attached to; it is always completed by the fixed suffix .route.tinidy.io.",
+  "syncPubKeyDomain": "tinidy.io",
+  "syncRedirectDomain": "tinidy.io,www.tinidy.io",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%.route.tinidy.io",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
