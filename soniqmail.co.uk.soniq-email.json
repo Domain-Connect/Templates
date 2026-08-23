@@ -6,7 +6,7 @@
   "version": 2,
   "description": "Configure your domain to send transactional email through SONIQ.",
   "variableDescription": "",
-  "syncPubKeyDomain": "_dck1.soniqmail.co.uk",
+  "syncPubKeyDomain": "soniqmail.co.uk",
   "syncBlock": true,
   "records": [
     {
