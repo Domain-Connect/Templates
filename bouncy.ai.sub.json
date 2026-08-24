@@ -1,0 +1,22 @@
+{
+  "providerId": "bouncy.ai",
+  "providerName": "Bouncy",
+  "serviceId": "sub",
+  "serviceName": "Bouncy Custom Domain (subdomain)",
+  "version": 1,
+  "logoUrl": "https://bouncy.ai/icon-192.png",
+  "description": "Connects a subdomain to your Bouncy deeplinks and website.",
+  "variableDescription": "target is the CNAME target Vercel assigned to this Bouncy project.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dc.bouncy.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
