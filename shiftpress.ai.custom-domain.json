@@ -4,10 +4,10 @@
   "serviceId": "custom-domain",
   "serviceName": "ShiftPress custom domain",
   "version": 1,
-  "logoUrl": "https://app.shiftpress.ai/icon.png",
+  "logoUrl": "https://shiftpress.ai/icon-512.png",
   "description": "Point your domain at your ShiftPress site (adds the routing CNAMEs and the certificate-validation TXT records).",
   "variableDescription": "your ShiftPress site",
-  "syncRedirectDomain": "app.shiftpress.ai",
+  "syncRedirectDomain": "shiftpress.ai",
   "warnPhishing": true,
   "records": [
     { "type": "APEXCNAME", "pointsTo": "%cname%", "ttl": 3600, "essential": "OnApply" },
