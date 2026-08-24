@@ -1,0 +1,21 @@
+{
+  "providerId": "domivy.app",
+  "providerName": "Domivy",
+  "serviceId": "storefront",
+  "serviceName": "Domivy storefront",
+  "version": 1,
+  "description": "Serves a Domivy booking storefront on a subdomain the operator controls",
+  "logoUrl": "https://domivy.app/icon.svg",
+  "syncPubKeyDomain": "domivy.app",
+  "syncRedirectDomain": "domivy.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "storefront",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    }
+  ]
+}
