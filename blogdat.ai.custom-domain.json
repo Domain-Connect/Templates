@@ -1,0 +1,20 @@
+{
+  "providerId": "blogdat.ai",
+  "providerName": "Blogdat",
+  "serviceId": "custom-domain",
+  "serviceName": "Blog custom domain",
+  "version": 1,
+  "logoUrl": "https://blogdat.ai/images/blogdat_logo_2_light.png",
+  "description": "Points your blog subdomain to Blogdat with a CNAME (DNS only / grey cloud).",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "blogdat.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "blogs.blogdat.ai",
+      "ttl": 3600
+    }
+  ]
+}
