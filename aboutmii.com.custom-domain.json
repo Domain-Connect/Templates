@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://aboutmii.com/favicon.ico",
   "description": "Point your domain to AboutMii (A on apex, CNAME on www).",
-  "syncPubKeyDomain": "aboutmii.com",
+  "syncPubKeyDomain": "aboutmii.com", 
   "syncRedirectDomain": "api.aboutmii.com,aboutmii.com,www.aboutmii.com",
   "records": [
     {
