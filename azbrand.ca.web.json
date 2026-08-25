@@ -4,7 +4,7 @@
   "serviceId": "web",
   "serviceName": "AZBrand website hosting",
   "version": 1,
-  "logoUrl": "https://azbrand.ca/logo2.webp",
+  "logoUrl": "https://azbrand.ca/logo2.svg",
   "description": "Connect your custom domain to your AZBrand website.",
   "syncPubKeyDomain": "azbrand.ca",
   "syncRedirectDomain": "azbrand.ca",
