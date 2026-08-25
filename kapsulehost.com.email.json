@@ -42,61 +42,6 @@
             "host": "autoconfig",
             "pointsTo": "autoconfig.kapsulehost.com",
             "ttl": 3600
-        },
-        {
-            "type": "SRV",
-            "name": "@",
-            "service": "_imaps",
-            "protocol": "_tcp",
-            "target": "mail.kapsulehost.com",
-            "priority": 0,
-            "weight": 1,
-            "port": 993,
-            "ttl": 3600
-        },
-        {
-            "type": "SRV",
-            "name": "@",
-            "service": "_submissions",
-            "protocol": "_tcp",
-            "target": "mail.kapsulehost.com",
-            "priority": 0,
-            "weight": 1,
-            "port": 465,
-            "ttl": 3600
-        },
-        {
-            "type": "SRV",
-            "name": "@",
-            "service": "_autodiscover",
-            "protocol": "_tcp",
-            "target": "autodiscover.kapsulehost.com",
-            "priority": 0,
-            "weight": 0,
-            "port": 443,
-            "ttl": 3600
-        },
-        {
-            "type": "SRV",
-            "name": "@",
-            "service": "_caldavs",
-            "protocol": "_tcp",
-            "target": "mail.kapsulehost.com",
-            "priority": 0,
-            "weight": 1,
-            "port": 443,
-            "ttl": 3600
-        },
-        {
-            "type": "SRV",
-            "name": "@",
-            "service": "_carddavs",
-            "protocol": "_tcp",
-            "target": "mail.kapsulehost.com",
-            "priority": 0,
-            "weight": 1,
-            "port": 443,
-            "ttl": 3600
         }
     ]
 }
