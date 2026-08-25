@@ -1,0 +1,102 @@
+{
+    "providerId": "kapsulehost.com",
+    "providerName": "KapsuleHost",
+    "serviceId": "email",
+    "serviceName": "KapsuleHost email",
+    "version": 1,
+    "logoUrl": "https://kapsulehost.com/logo.png",
+    "description": "Delivers your domain mail to KapsuleHost, with SPF, DMARC and mail client auto-setup.",
+    "syncPubKeyDomain": "kapsulehost.com",
+    "syncRedirectDomain": "kapsulehost.com,kpanel.kapsulehost.com",
+    "syncBlock": false,
+    "records": [
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mail.kapsulehost.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:_spf.kapsulehost.com"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@kapsulehost.com; fo=1",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "type": "CNAME",
+            "host": "autodiscover",
+            "pointsTo": "autodiscover.kapsulehost.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "autoconfig",
+            "pointsTo": "autoconfig.kapsulehost.com",
+            "ttl": 3600
+        },
+        {
+            "type": "SRV",
+            "name": "@",
+            "service": "_imaps",
+            "protocol": "_tcp",
+            "target": "mail.kapsulehost.com",
+            "priority": 0,
+            "weight": 1,
+            "port": 993,
+            "ttl": 3600
+        },
+        {
+            "type": "SRV",
+            "name": "@",
+            "service": "_submissions",
+            "protocol": "_tcp",
+            "target": "mail.kapsulehost.com",
+            "priority": 0,
+            "weight": 1,
+            "port": 465,
+            "ttl": 3600
+        },
+        {
+            "type": "SRV",
+            "name": "@",
+            "service": "_autodiscover",
+            "protocol": "_tcp",
+            "target": "autodiscover.kapsulehost.com",
+            "priority": 0,
+            "weight": 0,
+            "port": 443,
+            "ttl": 3600
+        },
+        {
+            "type": "SRV",
+            "name": "@",
+            "service": "_caldavs",
+            "protocol": "_tcp",
+            "target": "mail.kapsulehost.com",
+            "priority": 0,
+            "weight": 1,
+            "port": 443,
+            "ttl": 3600
+        },
+        {
+            "type": "SRV",
+            "name": "@",
+            "service": "_carddavs",
+            "protocol": "_tcp",
+            "target": "mail.kapsulehost.com",
+            "priority": 0,
+            "weight": 1,
+            "port": 443,
+            "ttl": 3600
+        }
+    ]
+}
