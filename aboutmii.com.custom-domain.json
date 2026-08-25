@@ -12,13 +12,13 @@
     {
       "type": "A",
       "host": "@",
-      "pointsTo": "31.97.207.207",
+      "pointsTo": "%ip%",
       "ttl": 600
     },
     {
       "type": "CNAME",
       "host": "www",
-      "pointsTo": "aboutmii.com",
+      "pointsTo": "%cname%",
       "ttl": 600
     }
   ]
