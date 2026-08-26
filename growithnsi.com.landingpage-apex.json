@@ -1,0 +1,37 @@
+{
+  "providerId": "growithnsi.com",
+  "providerName": "Growith NSI",
+  "serviceId": "landingpage-apex",
+  "serviceName": "Growith NSI Landing Page (root domain)",
+  "version": 1,
+  "logoUrl": "https://growithnsi.com/nsi.png",
+  "description": "Points your root domain and www at your Growith NSI landing page.",
+  "variableDescription": "cnametarget is the Growith NSI hostname the domain is pointed at. ownership is the one-time value Cloudflare uses to confirm you own this domain; it is different for every domain and is only present while the domain is being set up.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "growithnsi.com",
+  "syncRedirectDomain": "growithnsi.com",
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "APEXCNAME",
+      "groupId": "site",
+      "pointsTo": "%cnametarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "site",
+      "host": "www",
+      "pointsTo": "%cnametarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
