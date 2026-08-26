@@ -1,0 +1,32 @@
+{
+  "providerId": "growithnsi.com",
+  "providerName": "Growith NSI",
+  "serviceId": "landingpage",
+  "serviceName": "Growith NSI Landing Page",
+  "version": 1,
+  "logoUrl": "https://growithnsi.com/nsi.png",
+  "description": "Points your domain at your Growith NSI landing page.",
+  "variableDescription": "cnametarget is the Growith NSI hostname the domain is pointed at. ownership is the one-time value Cloudflare uses to confirm you own this domain; it is different for every domain and is only present while the domain is being set up.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "growithnsi.com",
+  "syncRedirectDomain": "growithnsi.com",
+  "hostRequired": true,
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "site",
+      "host": "@",
+      "pointsTo": "%cnametarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
