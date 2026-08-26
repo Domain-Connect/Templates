@@ -4,7 +4,7 @@
     "serviceId": "engage-email",
     "serviceName": "Engage email authentication",
     "version": 1,
-    "logoUrl": "https://app.metorik.com/img/mtk-version-notification-logo.svg",
+    "logoUrl": "https://metorik.com/img/brand/logo-icon.png",
     "description": "Adds DKIM and custom return-path records so Metorik Engage can send authenticated email from this domain.",
     "variableDescription": "%dkimSelector%: the Postmark DKIM selector; %dkimValue%: the Postmark DKIM public key; %returnPathTarget%: the Postmark return-path CNAME target",
     "syncBlock": false,
