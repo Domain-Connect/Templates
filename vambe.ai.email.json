@@ -14,7 +14,8 @@
       "groupId": "outbound",
       "type": "TXT",
       "host": "_vambe-verify",
-      "data": "%verifyToken%",
+      "data": "vmb-verify-%verifyToken%",
+      "txtConflictMatchingMode": "All",
       "ttl": 3600
     },
     {
@@ -27,14 +28,14 @@
     {
       "groupId": "outbound",
       "type": "CNAME",
-      "host": "%dkim1Host%",
+      "host": "%dkim1Selector%._domainkey",
       "pointsTo": "%dkim1Target%",
       "ttl": 3600
     },
     {
       "groupId": "outbound",
       "type": "CNAME",
-      "host": "%dkim2Host%",
+      "host": "%dkim2Selector%._domainkey",
       "pointsTo": "%dkim2Target%",
       "ttl": 3600
     }
