@@ -6,6 +6,7 @@
 	"version": 1,
 	"syncPubKeyDomain": "theeasystreetcrm.com",
 	"syncRedirectDomain": "theeasystreetcrm.com",
+	"logoUrl": "https://app.theeasystreetcrm.com/icon.png",
 	"description": "Verify a domain for newsletter sending from Easy Street CRM. Adds DKIM, SPF and Return-Path records on a subdomain — nothing existing is replaced.",
 	"records": [
 		{
