@@ -1,0 +1,28 @@
+{
+  "providerId": "host.impossibuild.ai",
+  "providerName": "hostimpossibuild",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "description": "Connects a domain the user owns to their app or published site: one CNAME to the platform edge and one ownership-proof TXT record.",
+  "variableDescription": "verify is the hex ownership token the dashboard or CLI shows when the user adds the domain.",
+  "syncPubKeyDomain": "host.impossibuild.ai",
+  "syncRedirectDomain": "host.impossibuild.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "host.impossibuild.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_hostimpossibuild-verify",
+      "data": "hostimpossibuild-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "hostimpossibuild-verify="
+    }
+  ]
+}

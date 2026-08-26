@@ -1,7 +1,7 @@
 {
   "providerId": "hoversite.build",
   "providerName": "Hoversite",
-  "serviceId": "hosting",
+  "serviceId": "hosting-cname",
   "serviceName": "Hoversite Hosting",
   "version": 1,
   "logoUrl": "https://assets.hoversite.build/logo.svg",
@@ -10,15 +10,9 @@
   "syncPubKeyDomain": "hoversite.build",
   "records": [
     {
-      "type": "A",
-      "host": "@",
-      "pointsTo": "178.105.196.17",
-      "ttl": 300
-    },
-    {
-      "type": "A",
+      "type": "CNAME",
       "host": "www",
-      "pointsTo": "178.105.196.17",
+      "pointsTo": "sites.hoversite.build",
       "ttl": 300
     }
   ]

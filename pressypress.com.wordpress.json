@@ -1,0 +1,26 @@
+{
+  "providerId": "pressypress.com",
+  "providerName": "PressyPress",
+  "serviceId": "wordpress",
+  "serviceName": "PressyPress WordPress Hosting",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.pressypress.com",
+  "logoUrl": "https://pressypress.com/domain-connect-logo.png",
+  "syncRedirectDomain": "pressypress.com,www.pressypress.com",
+  "description": "Points a domain at a customer's PressyPress-hosted WordPress site. Both records target the site's own permanent hostname rather than a server address, so the domain keeps working if the site is ever moved to another server or another hosting provider.",
+  "variableDescription": "target is the site's permanent hostname on pressypress.com's own DNS (for example mysite.pressy.site). It is per-site and never changes for the life of the site; PressyPress repoints it internally when a site moves. The value is signed into the apply request.",
+  "records": [
+    {
+      "type": "APEXCNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ]
+}

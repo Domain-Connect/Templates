@@ -1,0 +1,27 @@
+{
+    "providerId": "kapsulehost.com",
+    "providerName": "KapsuleHost",
+    "serviceId": "hosting",
+    "serviceName": "KapsuleHost website hosting",
+    "version": 1,
+    "logoUrl": "https://kapsulehost.com/logo.png",
+    "description": "Points your domain at your KapsuleHost website.",
+    "variableDescription": "%ip%: the IPv4 address of the KapsuleHost server the website is on",
+    "syncPubKeyDomain": "kapsulehost.com",
+    "syncRedirectDomain": "kapsulehost.com,kpanel.kapsulehost.com",
+    "syncBlock": false,
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "host": "www",
+            "pointsTo": "%ip%",
+            "ttl": 3600
+        }
+    ]
+}
