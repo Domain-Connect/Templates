@@ -20,7 +20,7 @@
     },
     {
       "type": "TXT",
-      "host": "_relaydns",
+      "host": "relaydns-verify",
       "data": "relaydns-verify=%token%",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
