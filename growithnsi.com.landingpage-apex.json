@@ -1,6 +1,39 @@
 {
   "providerId": "growithnsi.com",
   "providerName": "Growith NSI",
+  "serviceId": "landingpage",
+  "serviceName": "Growith NSI Landing Page",
+  "version": 1,
+  "logoUrl": "https://growithnsi.com/nsi.png",
+  "description": "Points your domain at your Growith NSI landing page.",
+  "variableDescription": "cnametarget is the Growith NSI hostname the domain is pointed at. ownership is the one-time value Cloudflare uses to confirm you own this domain; it is different for every domain and is only present while the domain is being set up.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "growithnsi.com",
+  "syncRedirectDomain": "growithnsi.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "site",
+      "host": "@",
+      "pointsTo": "%cnametarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
+===
+{
+  "_comment": "UNVERIFIED — PLEASE CHECK THIS BEFORE MERGING. This template uses APEXCNAME. Cloudflare flattens CNAMEs at the zone apex in its own DNS product, but we have not been able to confirm that its Domain Connect implementation accepts the APEXCNAME record type, and we have no way to test that from our side. If it does not, please reject this template rather than merge it — we would much rather learn that here than have a distributor find out in front of their own DNS panel. growithnsi.com.landingpage.json is the subdomain template, uses an ordinary CNAME, and does not depend on this one.",
+  "providerId": "growithnsi.com",
+  "providerName": "Growith NSI",
   "serviceId": "landingpage-apex",
   "serviceName": "Growith NSI Landing Page (root domain)",
   "version": 1,
@@ -10,7 +43,6 @@
   "syncBlock": false,
   "syncPubKeyDomain": "growithnsi.com",
   "syncRedirectDomain": "growithnsi.com",
-  "warnPhishing": true,
   "records": [
     {
       "type": "APEXCNAME",
