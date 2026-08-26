@@ -1,0 +1,22 @@
+{
+  "providerId": "titanshub.app",
+  "providerName": "TitansHub",
+  "serviceId": "domain-full-setup",
+  "serviceName": "TitansHub — Website & Email",
+  "version": 1,
+  "logoUrl": "https://titanshub.app/titanshub-logo-120.png",
+  "description": "Connects your domain to your TitansHub website (SSL issued automatically) and sets up email sending records.",
+  "variableDescription": "ownapex/ownwww: domain ownership proofs. ip1/ip2: edge IPs for the site. dkim: email signing key.",
+  "syncBlock": false,
+  "shared": false,
+  "records": [
+    { "groupId": "hosting", "type": "TXT", "host": "_cf-custom-hostname", "data": "%ownapex%", "ttl": 600 },
+    { "groupId": "hosting", "type": "TXT", "host": "_cf-custom-hostname.www", "data": "%ownwww%", "ttl": 600 },
+    { "groupId": "hosting", "type": "A", "pointsTo": "%ip1%", "host": "@", "ttl": 600 },
+    { "groupId": "hosting", "type": "A", "pointsTo": "%ip2%", "host": "@", "ttl": 600 },
+    { "groupId": "hosting", "type": "CNAME", "host": "www", "pointsTo": "edge.titanshub.app", "ttl": 600 },
+    { "groupId": "email", "type": "TXT", "host": "resend._domainkey", "data": "%dkim%", "ttl": 3600 },
+    { "groupId": "email", "type": "MX", "host": "send", "pointsTo": "feedback-smtp.us-east-1.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "groupId": "email", "type": "TXT", "host": "send", "data": "v=spf1 include:amazonses.com ~all", "ttl": 3600 }
+  ]
+}
