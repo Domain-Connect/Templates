@@ -17,14 +17,16 @@
       "type": "TXT",
       "host": "_cf-custom-hostname",
       "data": "%ownapex%",
-      "ttl": 600
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
     },
     {
       "groupId": "hosting",
       "type": "TXT",
       "host": "_cf-custom-hostname.www",
       "data": "%ownwww%",
-      "ttl": 600
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
     },
     {
       "groupId": "hosting",
@@ -52,7 +54,9 @@
       "type": "TXT",
       "host": "resend._domainkey",
       "data": "p=%dkimp%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p="
     },
     {
       "groupId": "email",
