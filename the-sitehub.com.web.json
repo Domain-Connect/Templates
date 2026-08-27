@@ -1,14 +1,14 @@
 {
-  "providerId": "thesitehub.com",
-  "providerName": "SiteHub",
+  "providerId": "the-sitehub.com",
+  "providerName": "The SiteHub",
   "serviceId": "web",
   "serviceName": "SiteHub Web Hosting",
   "version": 1,
-  "logoUrl": "https://thesitehub.com/favicon.ico",
+  "logoUrl": "https://the-sitehub.com/favicon.ico",
   "description": "Automatically configures DNS verification and routing records for SiteHub websites.",
   "syncBlock": false,
-  "syncPubKeyDomain": "_domainconnect.thesitehub.com",
-  "syncRedirectUrl": "https://thesitehub.com",
+  "syncPubKeyDomain": "_domainconnect.the-sitehub.com",
+  "syncRedirectUrl": "https://the-sitehub.com",
   "records": [
     {
       "type": "TXT",
