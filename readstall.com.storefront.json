@@ -13,7 +13,7 @@
     {
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "%target%",
+      "pointsTo": "cname.readstall.app",
       "ttl": 3600
     }
   ]
