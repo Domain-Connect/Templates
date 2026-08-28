@@ -19,21 +19,22 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "txtData": "v=spf1 mx a:rinpush.com -all",
-      "ttl": 3600
+      "spfRules": "v=spf1 mx a:rinpush.com -all"
     },
     {
       "type": "TXT",
       "host": "rinpush._domainkey",
       "txtData": "%dkim_key%",
+      "txtConflictMatchingMode": "Prefix",
       "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "_dmarc",
       "txtData": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; fo=1; rua=mailto:dmarc@%domain%; ruf=mailto:dmarc@%domain%",
+      "txtConflictMatchingMode": "Prefix",
       "ttl": 3600
     },
     {
