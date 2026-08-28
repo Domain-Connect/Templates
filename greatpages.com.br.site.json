@@ -1,0 +1,26 @@
+{
+    "providerId": "greatpages.com.br",
+    "providerName": "Great Pages",
+    "version": 1,
+    "logoUrl": "https://app.greatpages.com.br/images/great-pages-icon.svg",
+    "syncPubKeyDomain": "greatpages.com.br",
+    "syncRedirectDomain": "greatpages.com.br,greatpages.dev.br",
+    "serviceId": "site",
+    "serviceName": "Great Pages",
+    "description": "Aponta www e o domínio raiz para a página publicada na Great Pages.",
+    "variableDescription": "Sem variáveis.",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "cname.greatssl.com.br",
+            "ttl": 300
+        },
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "104.17.58.49",
+            "ttl": 300
+        }
+    ]
+}
