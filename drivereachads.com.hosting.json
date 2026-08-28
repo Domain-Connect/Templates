@@ -1,0 +1,51 @@
+{
+  "providerId": "drivereachads.com",
+  "providerName": "DriveReachAds",
+  "serviceId": "hosting",
+  "serviceName": "DriveReachAds Dealer Website",
+  "version": 2,
+  "logoUrl": "https://drivereachads.com/favicon.ico",
+  "description": "Connect your domain to your DriveReachAds dealer website.",
+  "variableDescription": "cluster is a signed DriveReachAds edge label; ipv4_1 and ipv4_2 are signed fixed edge addresses.",
+  "syncBlock": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "drivereachads.com",
+  "syncRedirectDomain": "staging.drivereachads.com,drivereachads.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cluster%.drivereachads.com",
+      "ttl": 1800,
+      "groupId": "apex"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4_1%",
+      "ttl": 1800,
+      "groupId": "apex"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4_2%",
+      "ttl": 1800,
+      "groupId": "apex-ha"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4_1%",
+      "ttl": 1800,
+      "groupId": "subdomain"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cluster%.drivereachads.com",
+      "ttl": 1800,
+      "groupId": "subdomain"
+    }
+  ]
+}
