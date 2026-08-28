@@ -22,12 +22,12 @@
     {
       "type": "SPFM",
       "host": "@",
-      "spfRules": "v=spf1 mx a:rinpush.com -all"
+      "txtData": "v=spf1 mx a:rinpush.com -all"
     },
     {
       "type": "TXT",
       "host": "rinpush._domainkey",
-      "txtData": "%dkim_key%",
+      "txtData": "rinpush.dkim=%dkim_key%",
       "txtConflictMatchingMode": "Prefix",
       "ttl": 3600
     },
@@ -36,6 +36,7 @@
       "host": "_dmarc",
       "txtData": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; fo=1; rua=mailto:dmarc@%domain%; ruf=mailto:dmarc@%domain%",
       "txtConflictMatchingMode": "Prefix",
+      "essential": "OnApply",
       "ttl": 3600
     },
     {
