@@ -15,26 +15,26 @@
     {
       "type": "MX",
       "host": "@",
-      "pointsTo": "rinpush.com",
+      "pointsTo": "mail.rinpush.com",
       "priority": 10,
       "ttl": 3600
     },
     {
       "type": "SPFM",
       "host": "@",
-      "txtData": "v=spf1 mx a:rinpush.com -all"
+      "txtData": "v=spf1 mx include:rinpush.com -all"
     },
     {
       "type": "TXT",
       "host": "rinpush._domainkey",
-      "txtData": "rinpush.dkim=%dkim_key%",
+      "txtData": "v=DKIM1; k=rsa; p=%dkim_key%",
       "txtConflictMatchingMode": "Prefix",
       "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "_dmarc",
-      "txtData": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; fo=1; rua=mailto:dmarc@%domain%; ruf=mailto:dmarc@%domain%",
+      "txtData": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%domain%",
       "txtConflictMatchingMode": "Prefix",
       "essential": "OnApply",
       "ttl": 3600
@@ -42,7 +42,7 @@
     {
       "type": "SRV",
       "host": "_submission._tcp",
-      "pointsTo": "rinpush.com",
+      "pointsTo": "mail.rinpush.com",
       "priority": 0,
       "weight": 1,
       "port": 587,
@@ -51,7 +51,7 @@
     {
       "type": "SRV",
       "host": "_imaps._tcp",
-      "pointsTo": "rinpush.com",
+      "pointsTo": "mail.rinpush.com",
       "priority": 0,
       "weight": 1,
       "port": 993,
@@ -60,7 +60,7 @@
     {
       "type": "SRV",
       "host": "_pop3s._tcp",
-      "pointsTo": "rinpush.com",
+      "pointsTo": "mail.rinpush.com",
       "priority": 0,
       "weight": 1,
       "port": 995,
@@ -69,13 +69,13 @@
     {
       "type": "CNAME",
       "host": "autodiscover",
-      "pointsTo": "rinpush.com",
+      "pointsTo": "mail.rinpush.com",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "autoconfig",
-      "pointsTo": "rinpush.com",
+      "pointsTo": "mail.rinpush.com",
       "ttl": 3600
     }
   ]
