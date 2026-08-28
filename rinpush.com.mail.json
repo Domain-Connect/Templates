@@ -41,7 +41,7 @@
     {
       "type": "SRV",
       "host": "_submission._tcp",
-      "target": "rinpush.com",
+      "pointsTo": "rinpush.com",
       "priority": 0,
       "weight": 1,
       "port": 587,
@@ -50,7 +50,7 @@
     {
       "type": "SRV",
       "host": "_imaps._tcp",
-      "target": "rinpush.com",
+      "pointsTo": "rinpush.com",
       "priority": 0,
       "weight": 1,
       "port": 993,
@@ -59,7 +59,7 @@
     {
       "type": "SRV",
       "host": "_pop3s._tcp",
-      "target": "rinpush.com",
+      "pointsTo": "rinpush.com",
       "priority": 0,
       "weight": 1,
       "port": 995,
