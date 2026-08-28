@@ -1,0 +1,37 @@
+{
+  "providerId": "sequenzy.com",
+  "providerName": "Sequenzy",
+  "serviceId": "mail",
+  "serviceName": "Mail",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "sequenzy.com",
+  "syncRedirectDomain": "sequenzy.com,www.sequenzy.com",
+  "description": "Authenticate email sent from your domain with Sequenzy.",
+  "logoUrl": "https://www.sequenzy.com/logo.png",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "sequenzy._domainkey",
+      "data": "p=%domainKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%bounceLabel%.sequenzydns.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:%spfLabel%.sequenzydns.com",
+      "ttl": 3600
+    }
+  ]
+}
