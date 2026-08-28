@@ -27,14 +27,14 @@
     {
       "type": "TXT",
       "host": "rinpush._domainkey",
-      "target": "%dkim_key%",
+      "txtData": "%dkim_key%",
       "txtConflictMatchingMode": "Prefix",
       "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "_dmarc",
-      "target": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; fo=1; rua=mailto:dmarc@%domain%; ruf=mailto:dmarc@%domain%",
+      "txtData": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; fo=1; rua=mailto:dmarc@%domain%; ruf=mailto:dmarc@%domain%",
       "txtConflictMatchingMode": "Prefix",
       "ttl": 3600
     },
