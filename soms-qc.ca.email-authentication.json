@@ -6,9 +6,10 @@
   "version": 1,
   "logoUrl": "https://pipegrid.soms-qc.ca/logo.png",
   "description": "Authorize the DNS records required to authenticate a sending domain for email delivery.",
-  "variableDescription": "%returnPathValue%: SendGrid return-path target; %dkim1Value%: SendGrid DKIM selector s1 target; %dkim2Value%: SendGrid DKIM selector s2 target; %dmarcValue%: DMARC policy supplied by the email service.",
+  "variableDescription": "%returnPathValue%: Email service return-path target; %dkim1Value%: DKIM selector s1 target; %dkim2Value%: DKIM selector s2 target; %spfRules%: SPF authorization rules to merge with the domain's existing SPF record; %dmarcValue%: DMARC policy supplied by the email service.",
   "syncBlock": false,
   "syncRedirectDomain": "crm-api.soms-qc.ca",
+  "syncPubKeyDomain": "crm-api.soms-qc.ca",
   "records": [
     {
       "type": "CNAME",
@@ -31,6 +32,13 @@
       "host": "s2._domainkey",
       "pointsTo": "%dkim2Value%",
       "ttl": 3600,
+      "groupId": "email-authentication",
+      "essential": "OnApply"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spfRules%",
       "groupId": "email-authentication",
       "essential": "OnApply"
     },
