@@ -1,0 +1,25 @@
+{
+  "providerId": "dmarcanalyst.com",
+  "providerName": "DMARC Analyst",
+  "serviceId": "dmarc-monitoring",
+  "serviceName": "DMARC Aggregate Reporting",
+  "version": 1,
+  "logoUrl": "https://dmarcanalyst.com/icon-512.png",
+  "description": "Creates a starter DMARC monitoring record for a domain that does not already publish DMARC, and sends aggregate reports to the domain's unique DMARC Analyst reporting address.",
+  "variableDescription": "%rua%: the unique DMARC Analyst aggregate-reporting mailbox local part assigned to this domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.dmarcanalyst.com",
+  "syncRedirectDomain": "app.dmarcanalyst.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%rua%@rua.dmarcanalyst.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
