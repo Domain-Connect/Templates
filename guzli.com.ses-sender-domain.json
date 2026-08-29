@@ -1,0 +1,46 @@
+{
+  "providerId": "guzli.com",
+  "providerName": "Guzli",
+  "serviceId": "ses-sender-domain",
+  "serviceName": "Guzli Email Sender Domain (SES)",
+  "version": 1,
+  "logoUrl": "https://guzli.com/favicon.svg",
+  "description": "Authorizes Guzli to send email on behalf of your domain via Amazon SES, with DKIM signing and a custom MAIL FROM domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.guzli.com",
+  "syncRedirectDomain": "app.guzli.com",
+  "variableDescription": "%selector1%, %selector2%, %selector3%: the three Easy-DKIM selectors issued by Amazon SES for this domain",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%selector1%._domainkey",
+      "pointsTo": "%selector1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%selector2%._domainkey",
+      "pointsTo": "%selector2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%selector3%._domainkey",
+      "pointsTo": "%selector3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

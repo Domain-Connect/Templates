@@ -1,0 +1,43 @@
+{
+  "providerId": "vambe.ai",
+  "providerName": "Vambe",
+  "serviceId": "email",
+  "serviceName": "Vambe Email Channel",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.vambe.ai",
+  "syncRedirectDomain": "vambeai.com,vambe.ai",
+  "syncBlock": false,
+  "description": "Verify domain ownership and enable email sending through Vambe.",
+  "logoUrl": "https://app.vambeai.com/logos/vambe-logo.svg",
+  "records": [
+    {
+      "groupId": "outbound",
+      "type": "TXT",
+      "host": "_vambe-verify",
+      "data": "vmb-verify-%verifyToken%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "CNAME",
+      "host": "%spfHost%",
+      "pointsTo": "%spfTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "CNAME",
+      "host": "%dkim1Selector%._domainkey",
+      "pointsTo": "%dkim1Target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "CNAME",
+      "host": "%dkim2Selector%._domainkey",
+      "pointsTo": "%dkim2Target%",
+      "ttl": 3600
+    }
+  ]
+}
