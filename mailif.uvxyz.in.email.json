@@ -12,37 +12,40 @@
   "records": [
     {
       "type": "MX",
-      "name": "@",
+      "host": "@",
       "pointsTo": "mx.mailif.uvxyz.in",
       "priority": 10,
       "ttl": 3600
     },
     {
       "type": "SPFM",
-      "name": "@",
+      "host": "@",
       "spfRules": "include:mailif.uvxyz.in"
     },
     {
       "type": "TXT",
-      "name": "_dmarc",
+      "host": "_dmarc",
       "data": "v=DMARC1; p=none;",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "name": "%dkim1%._domainkey",
+      "groupId": "dkim",
+      "host": "%dkim1%._domainkey",
       "pointsTo": "%dkim1%.dkim.mailif.uvxyz.in",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "name": "%dkim2%._domainkey",
+      "groupId": "dkim",
+      "host": "%dkim2%._domainkey",
       "pointsTo": "%dkim2%.dkim.mailif.uvxyz.in",
       "ttl": 3600
     },
     {
       "type": "CNAME",
-      "name": "%dkim3%._domainkey",
+      "groupId": "dkim",
+      "host": "%dkim3%._domainkey",
       "pointsTo": "%dkim3%.dkim.mailif.uvxyz.in",
       "ttl": 3600
     }
