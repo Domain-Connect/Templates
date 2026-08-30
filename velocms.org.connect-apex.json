@@ -1,0 +1,31 @@
+{
+  "providerId": "velocms.org",
+  "providerName": "VeloCMS",
+  "serviceId": "connect-apex",
+  "serviceName": "VeloCMS Blog (root domain)",
+  "version": 1,
+  "logoUrl": "https://velocms.org/logo.png",
+  "description": "Point your root (apex) domain at your VeloCMS blog via www and prove ownership so we can issue your SSL certificate. The apex-to-www redirect stays a manual registrar step.",
+  "variableDescription": "target = the per-domain CNAME target VeloCMS provides for the www host. txthost + txt = the domain-ownership verification TXT record (name + value) VeloCMS issues so we can validate the domain and provision its SSL certificate. This template applies at the zone apex; the site is served via the www record.",
+  "syncBlock": true,
+  "syncPubKeyDomain": "velocms.org",
+  "syncRedirectDomain": "velocms.org",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "routing",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "%txthost%",
+      "data": "%txt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
