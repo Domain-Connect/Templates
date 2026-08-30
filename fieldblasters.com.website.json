@@ -1,0 +1,26 @@
+{
+  "providerId": "fieldblasters.com",
+  "providerName": "Field Blasters",
+  "serviceId": "website",
+  "serviceName": "Field Blasters Website",
+  "version": 1,
+  "syncPubKeyDomain": "fieldblasters.com",
+  "logoUrl": "https://fieldblasters.com/img/logo.png",
+  "description": "Connects your domain to your Field Blasters website. Adds an A record for the root of your domain and a CNAME for www; nothing else on your domain is touched.",
+  "syncBlock": false,
+  "shared": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "75.2.60.5",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "fb-tenant-sites.netlify.app",
+      "ttl": 3600
+    }
+  ]
+}
