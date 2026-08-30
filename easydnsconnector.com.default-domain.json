@@ -4,7 +4,6 @@
   "serviceId": "default-domain",
   "serviceName": "EasyDNSConnector Domain Setup",
   "version": 1,
-  "logoUrl": "https://easydnsconnector.com/icon.png",
   "description": "Configures the DNS records EasyDNSConnector uses for the default hosted-domain setup flow: a domain ownership TXT record and a www CNAME target.",
   "variableDescription": "%domain%: the domain being connected; EasyDNSConnector uses it inside the verification TXT value.",
   "syncPubKeyDomain": "keys.easydnsconnector.com",
