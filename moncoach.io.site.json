@@ -1,0 +1,33 @@
+{
+  "providerId": "moncoach.io",
+  "providerName": "MonCoach",
+  "serviceId": "site",
+  "serviceName": "MonCoach — site en marque blanche",
+  "version": 1,
+  "description": "Connecte un domaine à une plateforme MonCoach : site vitrine, réservation en ligne et espaces de gestion, avec vérification de propriété.",
+  "variableDescription": "ip = adresse du edge MonCoach ; token = preuve de propriété générée par la plateforme",
+  "syncRedirectDomain": "moncoach.io",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "*",
+      "pointsTo": "%domain%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_moncoach-verify",
+      "data": "%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
