@@ -1,0 +1,21 @@
+{
+  "providerId": "podless.app",
+  "providerName": "Podless",
+  "serviceId": "pod",
+  "serviceName": "Custom domain for a Podless app",
+  "version": 1,
+  "logoUrl": "https://podless.app/images/logo.svg",
+  "description": "Points a subdomain of your own domain to the application you run on Podless.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "podless.app",
+  "syncRedirectDomain": "podless.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%pod%.podless.app",
+      "ttl": 300
+    }
+  ]
+}
