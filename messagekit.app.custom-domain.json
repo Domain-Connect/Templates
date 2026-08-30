@@ -1,0 +1,21 @@
+{
+  "providerId": "messagekit.app",
+  "providerName": "Message Kit",
+  "serviceId": "custom-domain",
+  "serviceName": "Message Kit Custom Domain",
+  "version": 1,
+  "logoUrl": "https://www.messagekit.app/main.png",
+  "description": "Points a subdomain custom hostname at Message Kit through Cloudflare for SaaS.",
+  "variableDescription": "host: customer subdomain label, for example bot in bot.example.com",
+  "syncBlock": false,
+  "syncPubKeyDomain": "messagekit.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.messagekit.app",
+      "ttl": 3600
+    }
+  ]
+}
