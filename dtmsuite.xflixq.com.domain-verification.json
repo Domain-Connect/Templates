@@ -1,0 +1,19 @@
+{
+  "providerId": "dtmsuite.xflixq.com",
+  "providerName": "DTM Suite",
+  "serviceId": "domain-verification",
+  "serviceName": "Company domain verification",
+  "version": 1,
+  "syncPubKeyDomain": "dtmsuite.xflixq.com",
+  "syncRedirectDomain": "dtmsuite.xflixq.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dtm-verification",
+      "data": "dtm-verification=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dtm-verification="
+    }
+  ]
+}
