@@ -1,0 +1,58 @@
+{
+  "providerId": "mail.oezer.ch",
+  "providerName": "Oezer Mail",
+  "serviceId": "purelymail",
+  "serviceName": "Purelymail mail",
+  "version": 1,
+  "syncPubKeyDomain": "mail.oezer.ch",
+  "syncRedirectDomain": "mail.oezer.ch",
+  "syncBlock": false,
+  "description": "Configure the MX, SPF, ownership, DKIM, and DMARC records required for a Purelymail domain.",
+  "variableDescription": "%ownershipCode%: the domain ownership proof issued by Purelymail",
+  "logoUrl": "https://mail.oezer.ch/favicon.svg",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mailserver.purelymail.com",
+      "ttl": 3600,
+      "priority": 50
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.purelymail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%ownershipCode%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "purelymail1._domainkey",
+      "pointsTo": "key1.dkimroot.purelymail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "purelymail2._domainkey",
+      "pointsTo": "key2.dkimroot.purelymail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "purelymail3._domainkey",
+      "pointsTo": "key3.dkimroot.purelymail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "dmarcroot.purelymail.com",
+      "ttl": 3600
+    }
+  ]
+}
