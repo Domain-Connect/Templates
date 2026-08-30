@@ -1,0 +1,20 @@
+{
+    "providerId": "greatpages.dev.br",
+    "providerName": "Great Pages LAB",
+    "version": 1,
+    "logoUrl": "https://app.greatpages.com.br/images/great-pages-icon.svg",
+    "syncPubKeyDomain": "greatpages.dev.br",
+    "syncRedirectDomain": "greatpages.dev.br",
+    "serviceId": "site",
+    "serviceName": "Great Pages LAB",
+    "description": "Aponta www para a página publicada na Great Pages (ambiente de laboratório).",
+    "variableDescription": "Sem variáveis.",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "cname.greatssl.dev.br",
+            "ttl": 300
+        }
+    ]
+}
