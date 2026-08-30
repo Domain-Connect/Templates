@@ -1,0 +1,26 @@
+{
+  "providerId": "heygetfound.com",
+  "providerName": "GetFound",
+  "serviceId": "getfound",
+  "serviceName": "GetFound Website",
+  "version": 1,
+  "description": "Points your domain at your GetFound website.",
+  "variableDescription": "ip: the address of the GetFound server that hosts your site",
+  "syncBlock": false,
+  "syncPubKeyDomain": "heygetfound.com",
+  "syncRedirectDomain": "heygetfound.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}
