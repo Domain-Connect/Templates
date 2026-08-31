@@ -1,0 +1,28 @@
+{
+  "providerId": "xposureapp.net",
+  "providerName": "Xposure",
+  "serviceId": "portfolio-apex",
+  "serviceName": "Xposure portfolio (root domain)",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "_dcsync.xposureapp.net",
+  "logoUrl": "https://xposureapp.net/logo-wordmark.png",
+  "description": "Connect your root domain to your Xposure portfolio. Requires a DNS host that supports apex CNAME flattening (ALIAS/ANAME), such as Cloudflare.",
+  "variableDescription": "Points your root domain at your Xposure portfolio and adds the record that proves you own it.",
+  "records": [
+    {
+      "type": "APEXCNAME",
+      "host": "@",
+      "pointsTo": "proxy.xposureapp.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_xposure-verify",
+      "data": "xposure-verify=%verifytoken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "xposure-verify=",
+      "ttl": 3600
+    }
+  ]
+}
