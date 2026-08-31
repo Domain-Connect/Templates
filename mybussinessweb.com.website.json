@@ -11,21 +11,15 @@
   "records": [
     {
       "type": "CNAME",
-      "name": "www",
-      "target": "sites.mybussinessweb.com",
+      "host": "www",
+      "pointsTo": "sites.mybussinessweb.com",
       "ttl": 3600
     },
     {
       "type": "A",
-      "name": "@",
-      "target": "%originIp%",
+      "host": "@",
+      "pointsTo": "165.22.172.169",
       "ttl": 3600
     }
-  ],
-  "variableConstraints": {
-    "originIp": {
-      "type": "ipv4",
-      "defaultValue": "165.22.172.169"
-    }
-  }
+  ]
 }
