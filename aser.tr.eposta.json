@@ -1,0 +1,92 @@
+{
+  "providerId": "aser.tr",
+  "providerName": "aser.tr",
+  "serviceId": "eposta",
+  "serviceName": "aser.tr Business Email",
+  "version": 1,
+  "logoUrl": "https://aser.tr/statik/favicon-32.png",
+  "description": "Connects the domain to aser.tr business email: MX, SPF, DKIM, DMARC, MTA-STS, TLS reporting and automatic client configuration.",
+  "variableDescription": "%dkimselector1%: DKIM selector (Ed25519); %dkimdata1%: DKIM key record; %dkimselector2%: DKIM selector (RSA); %dkimdata2%: DKIM key record; %stsid%: MTA-STS policy id",
+  "syncBlock": false,
+  "syncPubKeyDomain": "aser.tr",
+  "syncRedirectDomain": "panel.aser.tr",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.aser.tr",
+      "priority": 10,
+      "ttl": 300,
+      "essential": "OnApply"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.aser.tr",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector1%._domainkey",
+      "data": "%dkimdata1%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector2%._domainkey",
+      "data": "%dkimdata2%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@aser.tr; fo=1",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "mx1.aser.tr",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_mta-sts",
+      "data": "v=STSv1; id=%stsid%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=STSv1"
+    },
+    {
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "v=TLSRPTv1; rua=mailto:tlsrpt@aser.tr",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=TLSRPTv1"
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mx1.aser.tr",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mx1.aser.tr",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "mail",
+      "pointsTo": "posta.aser.tr",
+      "ttl": 300
+    }
+  ]
+}
