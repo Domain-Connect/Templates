@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://aser.tr/statik/favicon-32.png",
   "description": "Connects the domain to aser.tr business email: MX, SPF, DKIM, DMARC, MTA-STS, TLS reporting and automatic client configuration.",
-  "variableDescription": "%dkimselector1%: DKIM selector (Ed25519); %dkimdata1%: DKIM key record; %dkimselector2%: DKIM selector (RSA); %dkimdata2%: DKIM key record; %stsid%: MTA-STS policy id",
+  "variableDescription": "%dkimselector1%: DKIM selector Ed25519; %dkimdata1%: DKIM key record; %dkimselector2%: DKIM selector RSA; %dkimdata2%: DKIM key record; %stsid%: MTA-STS policy id",
   "syncBlock": false,
   "syncPubKeyDomain": "aser.tr",
   "syncRedirectDomain": "panel.aser.tr",
