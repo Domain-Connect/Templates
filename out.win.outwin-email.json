@@ -1,0 +1,65 @@
+{
+  "providerId": "out.win",
+  "providerName": "Outwin",
+  "serviceId": "outwin-email",
+  "serviceName": "Outwin Email Sending",
+  "version": 1,
+  "description": "Authorizes Outwin (DALMA LLC) to verify this domain and send email on its behalf: domain ownership proof, DKIM signing key, SPF authorization, bounce (return-path) alignment, open/click tracking host, and a baseline DMARC policy.",
+  "variableDescription": "ownershiphost/ownershipvalue: domain ownership TXT proof. dkimhost/dkimvalue: the domain's own DKIM public key (host gets '._domainkey' appended). spfhost/spfvalue: SPF record naming Outwin's mail platform. returnpathhost/returnpathtarget: bounce-alignment CNAME. trackhost/tracktarget: open/click tracking CNAME. dmarcvalue: baseline DMARC policy. All hosts are relative to the domain+host the template is applied at (the sending domain); '@' means the sending domain itself.",
+  "syncPubKeyDomain": "out.win",
+  "syncRedirectDomain": "app.out.win, out.win",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "%ownershiphost%",
+      "data": "%ownershipvalue%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimhost%._domainkey",
+      "data": "%dkimvalue%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "spf",
+      "type": "TXT",
+      "host": "%spfhost%",
+      "data": "%spfvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "return_path",
+      "type": "CNAME",
+      "host": "%returnpathhost%",
+      "pointsTo": "%returnpathtarget%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "track",
+      "type": "CNAME",
+      "host": "%trackhost%",
+      "pointsTo": "%tracktarget%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarcvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ],
+  "logoUrl": "https://out.win/img/outwin-mark-512.png"
+}
