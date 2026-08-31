@@ -1,0 +1,82 @@
+{
+  "providerId": "rinpush.com",
+  "serviceId": "mail",
+  "providerName": "Rinpush Mail",
+  "serviceName": "Configuration automatique de la messagerie Rinpush",
+  "version": 1,
+  "syncPubKeyDomain": "rinpush.com",
+  "variableDefs": {
+    "dkim_key": {
+      "desc": "Clé publique DKIM générée par Rinpush",
+      "required": true
+    }
+  },
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.rinpush.com.",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "txtData": "v=spf1 mx include:rinpush.com -all"
+    },
+    {
+      "type": "TXT",
+      "host": "rinpush._domainkey",
+      "txtData": "p=%dkim_key%",
+      "txtConflictMatchingMode": "Prefix",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "txtData": "v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@rinpush.com",
+      "txtConflictMatchingMode": "Prefix",
+      "essential": "OnApply",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "host": "_submission._tcp",
+      "pointsTo": "mail.rinpush.com.",
+      "priority": 0,
+      "weight": 1,
+      "port": 587,
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "host": "_imaps._tcp",
+      "pointsTo": "mail.rinpush.com.",
+      "priority": 0,
+      "weight": 1,
+      "port": 993,
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "host": "_pop3s._tcp",
+      "pointsTo": "mail.rinpush.com.",
+      "priority": 0,
+      "weight": 1,
+      "port": 995,
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mail.rinpush.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mail.rinpush.com.",
+      "ttl": 3600
+    }
+  ]
+}
