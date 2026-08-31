@@ -4,6 +4,7 @@
   "serviceId": "getfound",
   "serviceName": "GetFound Website",
   "version": 1,
+  "logoUrl": "https://heygetfound.com/assets/brand/getfound-logo.png",
   "description": "Points your domain at your GetFound website.",
   "variableDescription": "ip: the address of the GetFound server that hosts your site",
   "syncBlock": false,
