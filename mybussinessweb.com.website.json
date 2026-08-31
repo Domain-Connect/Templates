@@ -1,0 +1,31 @@
+{
+  "providerId": "mybussinessweb.com",
+  "providerName": "MyBusinessWeb",
+  "serviceId": "website",
+  "serviceName": "MyBusinessWeb Live Website",
+  "version": 1,
+  "logoUrl": "https://mybussinessweb.com/favicon.ico",
+  "description": "Connects your domain to your MyBusinessWeb live website automatically.",
+  "syncPubKeyDomain": "mybussinessweb.com",
+  "syncRedirectUrl": "https://mybussinessweb.com/api/profiles/domain/callback",
+  "records": [
+    {
+      "type": "CNAME",
+      "name": "www",
+      "target": "sites.mybussinessweb.com",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "name": "@",
+      "target": "%originIp%",
+      "ttl": 3600
+    }
+  ],
+  "variableConstraints": {
+    "originIp": {
+      "type": "ipv4",
+      "defaultValue": "165.22.172.169"
+    }
+  }
+}
