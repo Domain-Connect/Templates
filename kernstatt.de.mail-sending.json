@@ -1,0 +1,34 @@
+{
+  "providerId": "kernstatt.de",
+  "providerName": "Kernstatt",
+  "serviceId": "mail-sending",
+  "serviceName": "E-Mail-Versand freigeben",
+  "version": 1,
+  "description": "Erlaubt den Versand von E-Mails unter Ihrer eigenen Domain: signiert Ihre Nachrichten (DKIM), autorisiert unseren Versanddienst (SPF) und leitet Unzustellbarkeits-Meldungen zurueck.",
+  "variableDescription": "dkimselector: DKIM-Selector, vom Versanddienst pro Domain vergeben. dkimkey: oeffentlicher DKIM-Schluessel (base64). spfinclude: SPF-Include des Versanddienstes. bouncetarget: CNAME-Ziel fuer die Bounce-Subdomain.",
+  "syncPubKeyDomain": "kernstatt.de",
+  "syncBlock": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%spfinclude%"
+    },
+    {
+      "groupId": "return-path",
+      "type": "CNAME",
+      "host": "bounce-zem",
+      "pointsTo": "%bouncetarget%",
+      "ttl": 3600
+    }
+  ]
+}
