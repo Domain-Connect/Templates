@@ -1,0 +1,22 @@
+{
+  "providerId": "kissaki.io",
+  "providerName": "Kissaki",
+  "serviceId": "domain-verify",
+  "serviceName": "Kissaki Domain Ownership Verification",
+  "version": 1,
+  "syncPubKeyDomain": "kissaki.io",
+  "syncRedirectDomain": "kissaki.io",
+  "description": "Adds a TXT record proving domain ownership, so Kissaki (an authorized-target security testing platform) can accept the domain into a scoped campaign.",
+  "variableDescription": "%token%: Kissaki ownership-verification token issued for this domain.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "kissaki-verify=%token%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "kissaki-verify="
+    }
+  ]
+}
