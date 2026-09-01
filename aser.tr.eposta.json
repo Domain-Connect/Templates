@@ -5,7 +5,7 @@
   "serviceName": "aser.tr Business Email",
   "version": 1,
   "logoUrl": "https://aser.tr/statik/favicon-32.png",
-  "description": "Connects the domain to aser.tr business email: MX, SPF, DKIM, DMARC, MTA-STS, TLS reporting and automatic client configuration.",
+  "description": "Connects the domain to aser.tr business email: MX, SPF, DKIM, DMARC, MTA-STS and automatic client configuration.",
   "variableDescription": "%dkimselector1%: DKIM selector Ed25519; %dkimdata1%: DKIM key record; %dkimselector2%: DKIM selector RSA; %dkimdata2%: DKIM key record; %stsid%: MTA-STS policy id",
   "syncBlock": false,
   "syncPubKeyDomain": "aser.tr",
@@ -61,14 +61,6 @@
       "ttl": 300,
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=STSv1"
-    },
-    {
-      "type": "TXT",
-      "host": "_smtp._tls",
-      "data": "v=TLSRPTv1; rua=mailto:tlsrpt@aser.tr",
-      "ttl": 300,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=TLSRPTv1"
     },
     {
       "type": "CNAME",
