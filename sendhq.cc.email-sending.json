@@ -1,0 +1,35 @@
+{
+  "providerId": "sendhq.cc",
+  "providerName": "SendHQ",
+  "serviceId": "email-sending",
+  "serviceName": "SendHQ Email Sending",
+  "version": 1,
+  "logoUrl": "https://sendhq.cc/logo.png",
+  "description": "Configures the three Amazon SES Easy DKIM CNAME records required to verify and authenticate a SendHQ sending identity.",
+  "variableDescription": "dkim1, dkim2, and dkim3 are Amazon SES Easy DKIM tokens constrained to fixed _domainkey hosts and dkim.amazonses.com targets.",
+  "syncPubKeyDomain": "sendhq.cc",
+  "syncRedirectDomain": "sendhq.cc",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
