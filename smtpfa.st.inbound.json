@@ -10,6 +10,8 @@
   "syncPubKeyDomain": "smtpfa.st",
   "syncRedirectDomain": "smtpfa.st",
   "syncBlock": false,
+  "warnPhishing": false,
+  "hostRequired": false,
   "records": [
     {
       "groupId": "inbound",
