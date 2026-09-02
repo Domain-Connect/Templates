@@ -3,7 +3,7 @@
   "providerName": "Mailsoftly",
   "serviceId": "email-auth",
   "serviceName": "Mailsoftly Email Authentication",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://app.mailsoftly.com/mailsoftly_dark_logo.png",
   "description": "Authenticates your domain for sending email with Mailsoftly: DKIM, SPF, custom MAIL FROM and DMARC.",
   "variableDescription": "dkim1/dkim2/dkim3 are the Amazon SES DKIM tokens generated for the domain; byodkimvalue is the DKIM public key TXT value.",
@@ -61,6 +61,13 @@
       "type": "CNAME",
       "host": "s2._domainkey",
       "pointsTo": "s2._domainkey.%fqdn%.mailsoftly.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "delivery",
+      "type": "CNAME",
+      "host": "s3._domainkey",
+      "pointsTo": "s3._domainkey.%fqdn%.mailsoftly.net",
       "ttl": 3600
     },
     {
