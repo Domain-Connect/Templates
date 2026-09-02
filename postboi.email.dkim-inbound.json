@@ -51,7 +51,7 @@
 		{
 			"type": "MX",
 			"host": "reply",
-			"pointsTo": "%inboundmx%",
+			"pointsTo": "inbound-smtp.%inboundregion%.amazonaws.com",
 			"priority": 10,
 			"ttl": 3600
 		}
