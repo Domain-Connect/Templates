@@ -1,0 +1,23 @@
+{
+  "providerId": "smtpfa.st",
+  "providerName": "SMTPfast",
+  "serviceId": "inbound",
+  "serviceName": "SMTPfast Inbound Email",
+  "version": 1,
+  "logoUrl": "https://smtpfa.st/logo.png",
+  "description": "Routes incoming email for the domain to SMTPfast inbound receiving by publishing the MX record.",
+  "variableDescription": "region: the SMTPfast receiving region (e.g. eu-west-2), shown in the SMTPfast dashboard when receiving is enabled.",
+  "syncPubKeyDomain": "smtpfa.st",
+  "syncRedirectDomain": "smtpfa.st",
+  "syncBlock": false,
+  "records": [
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
