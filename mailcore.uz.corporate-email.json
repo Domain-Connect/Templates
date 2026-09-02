@@ -1,0 +1,74 @@
+{
+  "providerId": "mailcore.uz",
+  "providerName": "Mailcore",
+  "serviceId": "corporate-email",
+  "serviceName": "Mailcore corporate email",
+  "version": 1,
+  "syncPubKeyDomain": "mailcore.uz",
+  "syncBlock": false,
+  "description": "Configures sending security first and switches inbound corporate email only after separate consent.",
+  "logoUrl": "https://mailcore.uz/assets/brand/mailcore-mark.svg",
+  "variableDescription": "mailuDkimKey is the validated Mailu RSA public key; sesDkim1-3 are validated SES Easy-DKIM tokens used only when the ses-security group is selected.",
+  "records": [
+    {
+      "groupId": "security",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx a:mail.mailcore.uz"
+    },
+    {
+      "groupId": "security",
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "ttl": 300,
+      "data": "v=DKIM1; k=rsa; p=%mailuDkimKey%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "ses-security",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "ses-security",
+      "type": "CNAME",
+      "host": "%sesDkim1%._domainkey",
+      "pointsTo": "%sesDkim1%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "ses-security",
+      "type": "CNAME",
+      "host": "%sesDkim2%._domainkey",
+      "pointsTo": "%sesDkim2%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "ses-security",
+      "type": "CNAME",
+      "host": "%sesDkim3%._domainkey",
+      "pointsTo": "%sesDkim3%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "dmarc-bootstrap",
+      "essential": "OnApply",
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 300,
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%domain%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "groupId": "cutover",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.mailcore.uz",
+      "priority": 10,
+      "ttl": 300
+    }
+  ]
+}
