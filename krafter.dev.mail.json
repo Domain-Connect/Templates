@@ -11,11 +11,48 @@
   "syncPubKeyDomain": "krafter.dev",
   "syncRedirectDomain": "app.krafter.dev",
   "records": [
-    { "groupId": "verification", "type": "TXT",   "host": "_amazonses",           "data": "%sesToken%",                                "ttl": 3600 },
-    { "groupId": "dkim",         "type": "CNAME", "host": "%dkim1%._domainkey",   "pointsTo": "%dkim1%.dkim.amazonses.com",             "ttl": 3600 },
-    { "groupId": "dkim",         "type": "CNAME", "host": "%dkim2%._domainkey",   "pointsTo": "%dkim2%.dkim.amazonses.com",             "ttl": 3600 },
-    { "groupId": "dkim",         "type": "CNAME", "host": "%dkim3%._domainkey",   "pointsTo": "%dkim3%.dkim.amazonses.com",             "ttl": 3600 },
-    { "groupId": "mailfrom",     "type": "MX",    "host": "%mailFrom%",           "pointsTo": "feedback-smtp.%region%.amazonses.com",   "priority": 10, "ttl": 3600 },
-    { "groupId": "mailfrom",     "type": "TXT",   "host": "%mailFrom%",           "data": "v=spf1 include:amazonses.com ~all",          "ttl": 3600 }
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%sesToken%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "%mailFrom%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "%mailFrom%",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
   ]
 }
