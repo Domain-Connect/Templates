@@ -4,7 +4,7 @@
 	"serviceId": "email-postmark",
 	"serviceName": "Wavelinker email",
 	"version": 1,
-	"logoUrl": "https://app.wavelinker.io/logo-square-wavelinker.svg",
+	"logoUrl": "https://app.wavelinker.io/logo-wavelinker-256.svg",
 	"description": "Lets your Wavelinker store send email (order notifications, newsletters and other campaigns) from your own domain: DKIM signing, a custom return-path for bounce handling, and a baseline DMARC policy.",
 	"variableDescription": "%dkimSelector%: DKIM selector issued for your domain; %dkimKey%: DKIM public key issued for your domain",
 	"syncBlock": false,
