@@ -1,0 +1,23 @@
+{
+    "providerId": "naulon.app",
+    "providerName": "naulon",
+    "serviceId": "verify",
+    "serviceName": "Domain verification",
+    "version": 1,
+    "logoUrl": "https://naulon.app/brand-kit/naulon-mark.svg",
+    "description": "Publishes the DNS record that proves you control this domain, so naulon can be authorised to toll AI citations of the content on it.",
+    "variableDescription": "%token%: the one-time verification token naulon issued for this domain",
+    "syncPubKeyDomain": "dcsig.naulon.app",
+    "syncRedirectDomain": "naulon.app",
+    "syncBlock": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_naulon-challenge",
+            "data": "naulon-verify=%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "naulon-verify="
+        }
+    ]
+}
