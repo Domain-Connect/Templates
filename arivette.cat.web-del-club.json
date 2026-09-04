@@ -1,0 +1,27 @@
+{
+  "providerId": "arivette.cat",
+  "providerName": "Arivette",
+  "serviceId": "web-del-club",
+  "serviceName": "Web del club",
+  "version": 1,
+  "logoUrl": "https://arivette.cat/icons/icon-192.png",
+  "description": "Serveix la web del teu club a la teva pròpia adreça.",
+  "variableDescription": "ip: adreça del servidor d'Arivette",
+  "syncPubKeyDomain": "arivette.cat",
+  "syncRedirectDomain": "arivette.cat",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "arivette.cat.",
+      "ttl": 3600
+    }
+  ]
+}
