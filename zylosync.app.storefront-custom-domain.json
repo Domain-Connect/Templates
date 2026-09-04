@@ -3,10 +3,10 @@
   "providerName": "Zylosync",
   "serviceId": "storefront-custom-domain",
   "serviceName": "Zylosync Storefront",
-  "version": 2,
+  "version": 4,
   "logoUrl": "https://zylosync.app/logo.svg",
-  "description": "Configure a custom domain for your Zylosync storefront. Creates a CNAME pointing to our ingress server and a TXT record for Cloudflare for SaaS hostname ownership verification.",
-  "variableDescription": "%cfownership%: Cloudflare for SaaS hostname ownership verification token (UUID) placed at the _cf-custom-domain label",
+  "description": "Configure a custom domain for your Zylosync storefront. Creates a CNAME for traffic routing, a TXT for hostname ownership verification, and a CNAME for DCV delegation to automate certificate issuance and renewal.",
+  "variableDescription": "%cfownership%: Cloudflare for SaaS hostname ownership verification token (UUID) placed at the _cf-custom-hostname label",
   "syncPubKeyDomain": "zylosync.app",
   "syncRedirectDomain": "zylosync.app",
   "hostRequired": true,
@@ -14,17 +14,23 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "@",
+      "host": "%host%",
       "pointsTo": "ingress.zylosync.app",
       "ttl": 300
     },
     {
       "type": "TXT",
-      "host": "_cf-custom-domain",
+      "host": "_cf-custom-hostname.%host%",
       "data": "%cfownership%",
       "ttl": 300,
       "txtConflictMatchingMode": "All",
       "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge.%host%",
+      "pointsTo": "%host%.80250b0cd1cca509.dcv.cloudflare.com",
+      "ttl": 300
     }
   ]
 }
