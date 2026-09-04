@@ -1,0 +1,27 @@
+{
+  "providerId": "rosebudcloudsolutions.co.uk",
+  "providerName": "Rosebud Cloud Solutions",
+  "serviceId": "journey-monitor",
+  "serviceName": "DMARC monitoring by Rosebud",
+  "syncPubKeyDomain": "rosebudcloudsolutions.co.uk",
+  "syncRedirectDomain": "rosebudcloudsolutions.co.uk",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_rcs-verify",
+      "data": "rcs-verify=%vtoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "rcs-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%; rua=mailto:reports@%ruadomain%; ruf=mailto:failures@%ruadomain%; fo=1",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

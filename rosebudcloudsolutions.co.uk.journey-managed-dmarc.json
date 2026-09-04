@@ -1,0 +1,25 @@
+{
+  "providerId": "rosebudcloudsolutions.co.uk",
+  "providerName": "Rosebud Cloud Solutions",
+  "serviceId": "journey-managed-dmarc",
+  "serviceName": "Managed DMARC by Rosebud",
+  "syncPubKeyDomain": "rosebudcloudsolutions.co.uk",
+  "syncRedirectDomain": "rosebudcloudsolutions.co.uk",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_rcs-verify",
+      "data": "rcs-verify=%vtoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "rcs-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%cnametarget%",
+      "ttl": 3600
+    }
+  ]
+}
