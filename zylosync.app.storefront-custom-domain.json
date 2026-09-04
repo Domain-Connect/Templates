@@ -14,13 +14,13 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "",
+      "host": "%host%",
       "pointsTo": "ingress.zylosync.app",
       "ttl": 300
     },
     {
       "type": "TXT",
-      "host": "_cf-custom-hostname",
+      "host": "_cf-custom-hostname.%host%",
       "data": "%cfownership%",
       "ttl": 300,
       "txtConflictMatchingMode": "All",
@@ -28,7 +28,7 @@
     },
     {
       "type": "CNAME",
-      "host": "_acme-challenge",
+      "host": "_acme-challenge.%host%",
       "pointsTo": "%fqdn%.80250b0cd1cca509.dcv.cloudflare.com",
       "ttl": 300
     }
