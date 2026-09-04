@@ -21,7 +21,8 @@
       "data": "v=DMARC1; p=%policy%; rua=mailto:reports@%ruadomain%; ruf=mailto:failures@%ruadomain%; fo=1",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1"
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     }
   ]
 }
