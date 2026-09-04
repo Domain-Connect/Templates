@@ -3,7 +3,7 @@
   "providerName": "Zylosync",
   "serviceId": "storefront-custom-domain",
   "serviceName": "Zylosync Storefront",
-  "version": 5,
+  "version": 6,
   "logoUrl": "https://zylosync.app/logo.svg",
   "description": "Configure a custom domain for your Zylosync storefront. Creates a CNAME for traffic routing, a TXT for hostname ownership verification, and a CNAME for DCV delegation to automate certificate issuance and renewal.",
   "variableDescription": "%cfownership%: Cloudflare for SaaS hostname ownership verification token (UUID) placed at the _cf-custom-hostname label",
@@ -14,7 +14,7 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "@",
+      "host": "",
       "pointsTo": "ingress.zylosync.app",
       "ttl": 300
     },
