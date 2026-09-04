@@ -3,6 +3,7 @@
   "providerName": "Rosebud Cloud Solutions",
   "serviceId": "journey-monitor",
   "serviceName": "DMARC monitoring by Rosebud",
+  "version": 1,
   "syncPubKeyDomain": "rosebudcloudsolutions.co.uk",
   "syncRedirectDomain": "rosebudcloudsolutions.co.uk",
   "records": [

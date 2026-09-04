@@ -3,6 +3,7 @@
   "providerName": "Rosebud Cloud Solutions",
   "serviceId": "journey-verify",
   "serviceName": "Verify domain ownership",
+  "version": 1,
   "syncPubKeyDomain": "rosebudcloudsolutions.co.uk",
   "syncRedirectDomain": "rosebudcloudsolutions.co.uk",
   "records": [
