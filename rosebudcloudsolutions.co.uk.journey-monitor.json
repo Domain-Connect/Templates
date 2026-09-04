@@ -4,6 +4,9 @@
   "serviceId": "journey-monitor",
   "serviceName": "DMARC monitoring by Rosebud",
   "version": 1,
+  "logoUrl": "https://rosebudcloudsolutions.co.uk/apple-touch-icon.png",
+  "description": "Starts the domain on DMARC monitoring. Publishes a p=none DMARC record that sends aggregate and failure reports to Rosebud Cloud Solutions, alongside the one-time ownership verification record. Monitoring observes mail without affecting delivery, and the customer advances the policy themselves as the reports come in.",
+  "variableDescription": "%vtoken%: the one-time verification token Rosebud issued for this domain. %policy%: the DMARC policy to publish, which is none while the domain is monitoring only. %ruadomain%: the Rosebud subdomain that receives this domain's aggregate and failure reports.",
   "syncPubKeyDomain": "rosebudcloudsolutions.co.uk",
   "syncRedirectDomain": "rosebudcloudsolutions.co.uk",
   "records": [

@@ -4,6 +4,9 @@
   "serviceId": "journey-verify",
   "serviceName": "Verify domain ownership",
   "version": 1,
+  "logoUrl": "https://rosebudcloudsolutions.co.uk/apple-touch-icon.png",
+  "description": "Publishes a one-time TXT record that proves control of the domain, so Rosebud Cloud Solutions can activate DMARC reporting for it. It changes nothing about mail delivery, and the record can be deleted once verification completes.",
+  "variableDescription": "%vtoken%: the one-time verification token Rosebud issued for this domain.",
   "syncPubKeyDomain": "rosebudcloudsolutions.co.uk",
   "syncRedirectDomain": "rosebudcloudsolutions.co.uk",
   "records": [
