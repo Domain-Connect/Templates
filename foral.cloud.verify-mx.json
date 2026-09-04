@@ -1,0 +1,40 @@
+{
+    "providerId": "foral.cloud",
+    "providerName": "Foral",
+    "serviceId": "verify-mx",
+    "serviceName": "Foral — domain verification & inbound mail",
+    "version": 2,
+    "logoUrl": "https://foral.cloud/icons/icon-512.png",
+    "description": "Verifies domain ownership and configures inbound email for Foral. Adds a TXT verification record, an MX pointing at our inbound server, and an SPF authorising the AhaSend relay. DKIM records are added separately by the `dkim` template, after ownership has been confirmed.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "foral.cloud",
+    "records": [
+        {
+            "type": "TXT",
+            "groupId": "verification",
+            "host": "_foral-verify",
+            "data": "foral-verify=%verifyToken%",
+            "ttl": 300,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "foral-verify="
+        },
+        {
+            "type": "MX",
+            "groupId": "inbound",
+            "host": "@",
+            "pointsTo": "%mxHost%",
+            "priority": 10,
+            "ttl": 3600,
+            "essential": "Always"
+        },
+        {
+            "type": "SPFM",
+            "groupId": "outbound-spf",
+            "host": "@",
+            "spfRules": "include:%spfInclude%",
+            "ttl": 3600,
+            "essential": "OnApply"
+        }
+    ]
+}
