@@ -1,0 +1,21 @@
+{
+    "providerId": "naulon.app",
+    "providerName": "naulon",
+    "serviceId": "route",
+    "serviceName": "Traffic routing",
+    "version": 1,
+    "logoUrl": "https://naulon.app/brand-kit/naulon-mark.svg",
+    "description": "Points this subdomain at the naulon gate, which serves the site and tolls AI citations of it. Apply this only after the domain has been verified.",
+    "syncPubKeyDomain": "dcsig.naulon.app",
+    "syncRedirectDomain": "naulon.app",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "customers.naulon.app",
+            "ttl": 3600
+        }
+    ]
+}
