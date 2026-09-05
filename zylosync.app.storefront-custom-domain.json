@@ -10,7 +10,7 @@
   "syncPubKeyDomain": "zylosync.app",
   "syncRedirectDomain": "zylosync.app",
   "hostRequired": true,
-  "multiInstance": true,
+  "multiInstance": false,
   "records": [
     {
       "type": "CNAME",
