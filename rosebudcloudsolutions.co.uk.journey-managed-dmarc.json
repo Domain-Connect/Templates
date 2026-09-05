@@ -3,10 +3,11 @@
   "providerName": "Rosebud Cloud Solutions",
   "serviceId": "journey-managed-dmarc",
   "serviceName": "Managed DMARC by Rosebud",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://rosebudcloudsolutions.co.uk/apple-touch-icon.png",
   "description": "Hands the domain's DMARC record to Rosebud Cloud Solutions to manage. Publishes a CNAME at _dmarc pointing at a record Rosebud hosts, alongside the one-time ownership verification record, so Rosebud can advance the policy from monitoring to enforcement without the customer editing DNS again.",
   "variableDescription": "%vtoken%: the one-time verification token Rosebud issued for this domain. %cnametarget%: the Rosebud-hosted DMARC record that this domain's _dmarc name delegates to, derived from the domain name and computed and signed by Rosebud on every request.",
+  "syncBlock": false,
   "syncPubKeyDomain": "rosebudcloudsolutions.co.uk",
   "syncRedirectDomain": "rosebudcloudsolutions.co.uk",
   "records": [
