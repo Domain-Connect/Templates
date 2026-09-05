@@ -1,0 +1,32 @@
+{
+  "providerId": "rosebudcloudsolutions.co.uk",
+  "providerName": "Rosebud Cloud Solutions",
+  "serviceId": "journey-monitor",
+  "serviceName": "DMARC monitoring by Rosebud",
+  "version": 1,
+  "logoUrl": "https://rosebudcloudsolutions.co.uk/apple-touch-icon.png",
+  "description": "Starts the domain on DMARC monitoring. Publishes a p=none DMARC record that sends aggregate and failure reports to Rosebud Cloud Solutions, alongside the one-time ownership verification record. Monitoring observes mail without affecting delivery, and the customer advances the policy themselves as the reports come in.",
+  "variableDescription": "%vtoken%: the one-time verification token Rosebud issued for this domain. %policy%: the DMARC policy to publish, which is none while the domain is monitoring only. %ruadomain%: the Rosebud subdomain that receives this domain's aggregate and failure reports.",
+  "syncPubKeyDomain": "rosebudcloudsolutions.co.uk",
+  "syncRedirectDomain": "rosebudcloudsolutions.co.uk",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_rcs-verify",
+      "data": "rcs-verify=%vtoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "rcs-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%; rua=mailto:reports@%ruadomain%; ruf=mailto:failures@%ruadomain%; fo=1",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
