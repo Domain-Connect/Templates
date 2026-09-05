@@ -1,0 +1,30 @@
+{
+  "providerId": "oriiion.ai",
+  "providerName": "oriiion",
+  "serviceId": "website",
+  "serviceName": "oriiion website",
+  "version": 2,
+  "logoUrl": "https://oriiion.ai/oriiion-logo.png",
+  "description": "Connects your domain to your oriiion-hosted website.",
+  "variableDescription": "target is the site's unique hostname the CNAME points to. verifytoken is the hosting platform's domain-ownership verification value.",
+  "syncPubKeyDomain": "oriiion.ai",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "_railway-verify",
+      "data": "%verifytoken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

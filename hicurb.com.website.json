@@ -1,0 +1,49 @@
+{
+  "providerId": "hicurb.com",
+  "providerName": "Curb",
+  "serviceId": "website",
+  "serviceName": "Curb website",
+  "version": 1,
+  "logoUrl": "https://hicurb.com/favicon.svg",
+  "description": "Points the domain at the website Curb built for the business, and adds the ownership record its TLS certificate is issued against. Email and every other record are left alone.",
+  "variableDescription": "%cf%: the Cloudflare custom-hostname ownership token for this domain, minted per domain when the hostname is created. It is an opaque single-purpose UUID at a fixed underscore host and cannot carry a prefix.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "hicurb.com",
+  "syncRedirectDomain": "app.hicurb.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "172.67.196.198",
+      "ttl": 600,
+      "groupId": "site",
+      "essential": "Always"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "104.21.12.247",
+      "ttl": 600,
+      "groupId": "site",
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "preview.hicurb.com",
+      "ttl": 600,
+      "groupId": "site",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cf%",
+      "ttl": 600,
+      "groupId": "verify",
+      "essential": "Always",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
