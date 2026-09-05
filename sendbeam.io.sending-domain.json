@@ -1,0 +1,17 @@
+{
+  "providerId": "sendbeam.io",
+  "providerName": "SendBeam",
+  "serviceId": "sending-domain",
+  "serviceName": "SendBeam sending domain",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "sendbeam.io",
+  "syncRedirectDomain": "sendbeam.io",
+  "logoUrl": "https://sendbeam.io/brand/sendbeam-wordmark.svg",
+  "description": "Authenticates a domain for sending email with SendBeam. Adds two CNAME records — the DKIM signing key and the return-path (bounce) host — that delegate to records SendBeam manages, so later key rotations never need another DNS change. Nothing is added at the apex; no existing record is changed.",
+  "variableDescription": "%token% — the hosted-record token SendBeam assigns to the domain (8–32 hex characters); both CNAME targets are fixed names around it under dom.sendbeam.io.",
+  "records": [
+    { "groupId": "dkim", "type": "CNAME", "host": "resend._domainkey", "pointsTo": "resend._domainkey.%token%.dom.sendbeam.io", "ttl": 3600 },
+    { "groupId": "return-path", "type": "CNAME", "host": "send", "pointsTo": "send.%token%.dom.sendbeam.io", "ttl": 3600 }
+  ]
+}
