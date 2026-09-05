@@ -1,0 +1,47 @@
+{
+  "providerId": "lootos.com",
+  "providerName": "Loot OS",
+  "serviceId": "storefront",
+  "serviceName": "Loot OS storefront",
+  "version": 1,
+  "logoUrl": "https://lootos.com/domain-connect/logo.svg",
+  "description": "Points a hostname at your Loot OS hosted storefront and lets its sign-in emails come from no-reply@ that hostname. The certificate is issued and renewed automatically once the records resolve.",
+  "variableDescription": "%target% is the storefront edge hostname the CNAME points at (cdn.lootos.com in production). %endpoint% is the CloudFront routing endpoint behind it, which the _cf-challenge record names so CloudFront can confirm the hostname is meant for this storefront. %dkim1%, %dkim2% and %dkim3% are the Amazon SES Easy DKIM tokens issued for the hostname; the three CNAMEs let sign-in emails be signed as no-reply@ the hostname. Every request is signed; the DNS provider verifies the signature against _dck1.lootos.com.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "lootos.com",
+  "syncRedirectDomain": "lootos.com,lootmonsters.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-challenge",
+      "data": "%endpoint%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 300
+    }
+  ]
+}
