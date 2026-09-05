@@ -1,0 +1,29 @@
+{
+	"providerId": "superrelay.ai",
+	"providerName": "Relay",
+	"serviceId": "helpcenter",
+	"serviceName": "Relay help center",
+	"version": 1,
+	"logoUrl": "https://superrelay.ai/favicon.svg",
+	"description": "Serves a Relay help center on your own domain and verifies that you control it.",
+	"variableDescription": "%token%: the verification value shown in the Relay dashboard for this domain (hex, without the relay-verify- prefix).",
+	"syncBlock": false,
+	"syncPubKeyDomain": "domainconnect.superrelay.ai",
+	"syncRedirectDomain": "app.superrelay.ai",
+	"hostRequired": true,
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "docs-cname.rldocs.com",
+			"ttl": 3600
+		},
+		{
+			"type": "TXT",
+			"host": "_relay-verify",
+			"data": "relay-verify-%token%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All"
+		}
+	]
+}
