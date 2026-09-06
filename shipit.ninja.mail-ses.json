@@ -1,0 +1,64 @@
+{
+  "providerId": "shipit.ninja",
+  "providerName": "Shipit",
+  "serviceId": "mail-ses",
+  "serviceName": "Mail",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.shipit.ninja",
+  "description": "Configure DKIM signing, the sending return path and inbound mail for Shipit. Add a monitoring DMARC policy only when none exists.",
+  "logoUrl": "https://app.shipit.ninja/icon.svg",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1Host%",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2Host%",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3Host%",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "%sendingHost%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "%sendingHost%",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "%inboundHost%",
+      "pointsTo": "inbound.shipit.ninja",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "%dmarcHost%",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600
+    }
+  ]
+}
