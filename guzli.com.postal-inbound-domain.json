@@ -15,7 +15,9 @@
       "type": "TXT",
       "host": "@",
       "data": "guzli-verification %verifytoken%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "guzli-verification"
     },
     {
       "type": "MX",
