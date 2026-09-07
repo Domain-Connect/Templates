@@ -6,7 +6,7 @@
 	"version": 1,
 	"syncPubKeyDomain": "usenotix.dev",
 	"syncRedirectDomain": "usenotix.dev",
-	"description": "Authorise Notix to send email from your domain: bounce handling, SPF and DKIM signing, with a recommended DMARC policy.",
+	"description": "Authorise Notix to send email from your domain: bounce handling, SPF and DKIM signing.",
 	"logoUrl": "https://usenotix.dev/icon-512.png",
 	"records": [
 		{
@@ -31,16 +31,6 @@
 			"ttl": 3600,
 			"data": "p=%dkimValue%",
 			"txtConflictMatchingMode": "All"
-		},
-		{
-			"groupId": "dmarc",
-			"type": "TXT",
-			"host": "_dmarc",
-			"ttl": 3600,
-			"data": "v=DMARC1; p=none;",
-			"essential": "OnApply",
-			"txtConflictMatchingMode": "Prefix",
-			"txtConflictMatchingPrefix": "v=DMARC1"
 		}
 	]
 }
