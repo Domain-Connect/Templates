@@ -1,0 +1,26 @@
+{
+  "providerId": "usenubes.app",
+  "providerName": "Nubes",
+  "serviceId": "ingress",
+  "serviceName": "Website and application hosting",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.usenubes.app",
+  "description": "Connect an apex domain or subdomain to Nubes and verify ownership for automatic HTTPS.",
+  "variableDescription": "IP is the Nubes ingress IPv4 address. TOKEN is the ownership token assigned to this hostname by Nubes.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_nubes-verification",
+      "data": "nubes-verification=%TOKEN%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "nubes-verification="
+    }
+  ]
+}
