@@ -4,19 +4,20 @@
   "serviceId": "website",
   "serviceName": "Website",
   "version": 1,
-  "logoUrl": "https://sitenoar.dev/logo-black.svg",
+  "variableDescription": "%ipv4%: current Site no Ar gateway IPv4 address; %ipv6%: current Site no Ar gateway IPv6 address. Both are supplied by the service backend in signed requests.",
+  "logoUrl": "https://sitenoar.dev/logo-filled.svg",
   "description": "Connect a Site no Ar website using selected DNS record groups.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.sitenoar.app",
   "syncRedirectDomain": "app.sitenoar.dev",
   "hostRequired": true,
   "records": [
-    { "groupId": "apex", "type": "A", "host": "@", "pointsTo": "204.8.219.40", "ttl": 300 },
+    { "groupId": "apex", "type": "A", "host": "@", "pointsTo": "%ipv4%", "ttl": 300 },
     {
       "groupId": "apex",
       "type": "AAAA",
       "host": "@",
-      "pointsTo": "2a09:8280:57::136:600c:0",
+      "pointsTo": "%ipv6%",
       "ttl": 300
     },
     {
