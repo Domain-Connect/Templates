@@ -1,0 +1,28 @@
+{
+    "providerId": "presscloud.ai",
+    "providerName": "Presscloud",
+    "serviceId": "delegated-zone",
+    "serviceName": "Presscloud DNS",
+    "version": 1,
+    "logoUrl": "https://presscloud.ai/images/logo/presscloud_logo.svg",
+    "description": "Delegate a subdomain of your domain to Presscloud nameservers so that Presscloud manages its DNS records automatically.",
+    "syncPubKeyDomain": "presscloud.ai",
+    "syncRedirectDomain": "presscloud.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "NS",
+            "host": "@",
+            "pointsTo": "ns1.presscloud.ai",
+            "ttl": 3600,
+            "essential": "Always"
+        },
+        {
+            "type": "NS",
+            "host": "@",
+            "pointsTo": "ns2.presscloud.ai",
+            "ttl": 3600,
+            "essential": "Always"
+        }
+    ]
+}
