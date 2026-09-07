@@ -1,0 +1,20 @@
+{
+  "providerId": "bestcheckout.com",
+  "providerName": "BestCheckout",
+  "serviceId": "checkout-cname-test",
+  "serviceName": "BestCheckout Checkout Domain (Test)",
+  "version": 1,
+  "logoUrl": "https://www.bestcheckout.com/brand-mark.ico",
+  "description": "Connect a test checkout subdomain to BestCheckout.",
+  "hostRequired": true,
+  "syncPubKeyDomain": "hahatest.stream",
+  "syncRedirectDomain": "api.stores.bestfulfill.tech",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "mall-kong-test.bestfulfill.tech",
+      "ttl": 3600
+    }
+  ]
+}
