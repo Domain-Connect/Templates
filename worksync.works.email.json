@@ -1,0 +1,27 @@
+{
+	"providerId": "worksync.works",
+	"providerName": "WorkSync",
+	"serviceId": "email",
+	"serviceName": "WorkSync email sending",
+	"version": 1,
+	"logoUrl": "https://worksync.works/icon.svg",
+	"description": "Authorises WorkSync to send customer-facing email as the domain: the DKIM public key (a TXT record at the selector the mail provider issued for this domain) and the bounce/Return-Path alignment CNAME. Both records are DNS-only; the CNAME must not be proxied. Applied to the sending domain itself (usually the apex); a sending subdomain rides the host parameter.",
+	"variableDescription": "%dkimselector%: the DKIM selector issued for this domain (the label before ._domainkey); %dkimkey%: the base64 RSA public key from that DKIM record (its p= tag).",
+	"syncPubKeyDomain": "worksync.works",
+	"syncRedirectDomain": "worksync.works",
+	"records": [
+		{
+			"type": "TXT",
+			"host": "%dkimselector%._domainkey",
+			"data": "k=rsa;p=%dkimkey%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All"
+		},
+		{
+			"type": "CNAME",
+			"host": "pm-bounces",
+			"pointsTo": "pm.mtasv.net",
+			"ttl": 3600
+		}
+	]
+}
