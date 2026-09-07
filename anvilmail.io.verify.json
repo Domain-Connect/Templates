@@ -1,0 +1,21 @@
+{
+  "providerId": "anvilmail.io",
+  "providerName": "Anvil Mail",
+  "serviceId": "verify",
+  "serviceName": "Domain Ownership Verification",
+  "version": 1,
+  "logoUrl": "https://anvilmail.io/domainconnect/logo.png",
+  "description": "Proves you own this domain so Anvil Mail can monitor and protect its email. This adds one small TXT record; it does not change how your mail or website works.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.anvilmail.io",
+  "syncRedirectDomain": "anvilmail.io",
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_titan-verify.%host%",
+      "data": "%verifyToken%",
+      "ttl": 3600
+    }
+  ]
+}
