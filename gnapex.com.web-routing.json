@@ -6,8 +6,10 @@
   "version": 1,
   "logoUrl": "https://www.gnapex.com/logo.png",
   "description": "Configures DNS records to route traffic to GN-Apex Edge Network.",
+  "variableDescription": "cnameTarget: The target edge hostname for ingress routing.",
   "syncPubKeyDomain": "gnapex.com",
   "syncRedirectDomain": "gnapex.com",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
