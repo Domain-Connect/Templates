@@ -15,7 +15,8 @@
       "type": "CNAME",
       "host": "_dmarc",
       "pointsTo": "%token%._dmarc.dmarcify.top",
-      "ttl": 3600
+      "ttl": 3600,
+      "essential": "OnApply"
     }
   ]
 }
