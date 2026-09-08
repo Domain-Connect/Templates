@@ -1,0 +1,22 @@
+{
+  "providerId": "linker.aquarela.app",
+  "providerName": "linker by aquarela",
+  "serviceId": "verify",
+  "serviceName": "Verify domain ownership",
+  "version": 1,
+  "description": "Verifies domain ownership with a TXT record without changing traffic routing.",
+  "variableDescription": "txt: complete Linker-issued ownership token in the format linker-verification=<token>.",
+  "syncPubKeyDomain": "domainconnect.linker.aquarela.app",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_linker",
+      "data": "%txt%",
+      "ttl": 300,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "linker-verification="
+    }
+  ],
+  "syncRedirectDomain": "linker.aquarela.app"
+}
