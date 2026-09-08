@@ -1,0 +1,29 @@
+{
+  "providerId": "xposureapp.net",
+  "providerName": "Xposure",
+  "serviceId": "portfolio",
+  "serviceName": "Xposure portfolio (subdomain)",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "_dcsync.xposureapp.net",
+  "hostRequired": true,
+  "logoUrl": "https://xposureapp.net/logo-wordmark.png",
+  "description": "Connect a subdomain such as www to your Xposure portfolio.",
+  "variableDescription": "Points your subdomain at your Xposure portfolio and adds the record that proves you own it.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy.xposureapp.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_xposure-verify",
+      "data": "xposure-verify=%verifytoken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "xposure-verify=",
+      "ttl": 3600
+    }
+  ]
+}
