@@ -4,6 +4,7 @@
   "serviceId": "verification",
   "serviceName": "Domain verification",
   "version": 1,
+  "logoUrl": "https://www.domain0.dev/brand/domain0-logo-white.svg",
   "description": "Verify a domain connection with a Domain0-specific TXT record.",
   "syncPubKeyDomain": "domain0.dev",
   "syncRedirectDomain": "domain0.dev",
