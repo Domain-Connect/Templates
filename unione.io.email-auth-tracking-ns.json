@@ -3,7 +3,7 @@
   "providerName": "UniOne",
   "serviceId": "email-auth-tracking-ns",
   "serviceName": "UniOne domain authentication and tracking",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://s.selzy.com/unione/notification/logo-unione-520-180.png",
   "description": "Sets up SPF, DKIM, domain verification, DMARC, and tracking domain (NS).",
   "variableDescription": "dkimKey: RSA public key (p= value). validateHash: ownership hash without the unione-validate-hash= prefix.",
@@ -35,7 +35,7 @@
     {
       "type": "CNAME",
       "host": "_dmarc",
-      "pointsTo": "%domain%.dmarc.unione.io.",
+      "pointsTo": "%fqdn%.dmarc.unione.io.",
       "ttl": 1800
     },
     {
