@@ -1,0 +1,27 @@
+{
+	"providerId": "worksync.works",
+	"providerName": "WorkSync",
+	"serviceId": "hostname",
+	"serviceName": "WorkSync custom domain",
+	"version": 1,
+	"logoUrl": "https://fallback.worksync.works/icon.svg",
+	"description": "Points a customer's own hostname (for example shop.example.com) at the WorkSync edge and delegates the hostname's certificate validation to it, so the TLS certificate issues and renews with no further action at the DNS provider. Both records are DNS-only (unproxied): the target is itself a Cloudflare-for-SaaS fallback origin, and a proxied CNAME in the customer's zone would break that routing. Applied to a subdomain only (hostRequired): the routing record is a CNAME at the applied name.",
+	"variableDescription": "%dcvuuid%: the certificate-validation delegation id of the WorkSync edge zone (a UUID, read live from the edge when the link is minted; embedded in the fixed .dcv.cloudflare.com suffix).",
+	"syncPubKeyDomain": "worksync.works",
+	"syncRedirectDomain": "worksync.works",
+	"hostRequired": true,
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "fallback.worksync.works",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "_acme-challenge",
+			"pointsTo": "%fqdn%.%dcvuuid%.dcv.cloudflare.com",
+			"ttl": 3600
+		}
+	]
+}

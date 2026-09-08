@@ -1,0 +1,36 @@
+{
+	"providerId": "usenotix.dev",
+	"providerName": "Notix",
+	"serviceId": "email",
+	"serviceName": "Email sending",
+	"version": 1,
+	"syncPubKeyDomain": "usenotix.dev",
+	"syncRedirectDomain": "usenotix.dev",
+	"description": "Authorise Notix to send email from your domain: bounce handling, SPF and DKIM signing.",
+	"logoUrl": "https://usenotix.dev/icon-512.png",
+	"records": [
+		{
+			"groupId": "outbound",
+			"type": "MX",
+			"host": "mail",
+			"pointsTo": "feedback-smtp.%region%.amazonses.com",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"groupId": "outbound",
+			"type": "SPFM",
+			"host": "mail",
+			"ttl": 3600,
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"groupId": "dkim",
+			"type": "TXT",
+			"host": "notix._domainkey",
+			"ttl": 3600,
+			"data": "p=%dkimValue%",
+			"txtConflictMatchingMode": "All"
+		}
+	]
+}
