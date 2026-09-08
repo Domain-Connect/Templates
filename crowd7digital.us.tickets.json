@@ -1,0 +1,20 @@
+{
+  "providerId": "crowd7digital.us",
+  "providerName": "Crowd7",
+  "serviceId": "tickets",
+  "serviceName": "Crowd7 Ticket Page",
+  "version": 1,
+  "logoUrl": "",
+  "description": "Points a subdomain, for example tickets.yourfarm.com, at your Crowd7 ticket page.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "crowd7digital.us",
+  "syncRedirectDomain": "crowd7digital.us",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
