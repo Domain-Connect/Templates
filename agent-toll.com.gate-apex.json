@@ -1,0 +1,31 @@
+{
+  "providerId": "agent-toll.com",
+  "providerName": "Agent Tolls",
+  "serviceId": "gate-apex",
+  "serviceName": "Agent Tolls gate (apex)",
+  "version": 1,
+  "logoUrl": "https://agent-toll.com/assets/brand/logo-128.png",
+  "description": "Connects an apex domain to the Agent Tolls gate: publishes the domain-ownership proof and routes the domain's traffic through edge.agent-toll.com (flattened at the apex), so AI agents pay a per-page toll while human visitors browse unaffected.",
+  "variableDescription": "txtvalue = the account-bound ownership token shown in the Agent Tolls dashboard (the part after 'agent-tolls-site-verification=')",
+  "syncBlock": false,
+  "shared": false,
+  "hostRequired": false,
+  "syncRedirectDomain": "app.agent-toll.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_agent-tolls",
+      "data": "agent-tolls-site-verification=%txtvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "agent-tolls-site-verification=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "APEXCNAME",
+      "host": "@",
+      "pointsTo": "edge.agent-toll.com",
+      "ttl": 3600
+    }
+  ]
+}
