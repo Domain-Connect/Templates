@@ -1,0 +1,55 @@
+{
+    "providerId": "presscloud.ai",
+    "providerName": "Presscloud",
+    "serviceId": "email-us",
+    "serviceName": "Presscloud Sending Domain (US)",
+    "version": 1,
+    "logoUrl": "https://presscloud.ai/images/logo/presscloud_logo.svg",
+    "description": "Publish the records that let Presscloud send press releases from your own domain, through Mailgun's US region.",
+    "variableDescription": "%dkimSelector%: the DKIM selector Mailgun generated for this sending domain (e.g. email, krs); %dkim%: the base64 RSA public key for that selector, the p= value of the DKIM record",
+    "syncPubKeyDomain": "presscloud.ai",
+    "syncRedirectDomain": "presscloud.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:mailgun.org"
+        },
+        {
+            "type": "TXT",
+            "host": "%dkimSelector%._domainkey",
+            "data": "k=rsa; p=%dkim%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "email",
+            "pointsTo": "mailgun.org",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mxa.mailgun.org",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mxb.mailgun.org",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=reject; pct=100; fo=1; ri=3600; rua=mailto:140210b3@dmarc.mailgun.org,mailto:5d0582fc@inbox.ondmarc.com; ruf=mailto:140210b3@dmarc.mailgun.org,mailto:5d0582fc@inbox.ondmarc.com;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}
