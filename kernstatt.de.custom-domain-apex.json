@@ -1,0 +1,26 @@
+{
+  "providerId": "kernstatt.de",
+  "providerName": "Kernstatt",
+  "serviceId": "custom-domain-apex",
+  "serviceName": "Eigene Domain verbinden (ohne Subdomain)",
+  "version": 1,
+  "description": "Leitet Besucher Ihrer Domain ohne Subdomain auf Ihre Seite. Eine Domain ohne Subdomain kann keinen CNAME tragen, daher wird ein A-Eintrag gesetzt.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "kernstatt.de",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "159.195.76.181",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_fokara-verify",
+      "data": "fokara-verify-%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ],
+  "variableDescription": "verifytoken: Eigentumsnachweis-Token, von der Plattform ausgestellt."
+}
