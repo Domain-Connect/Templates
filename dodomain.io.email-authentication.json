@@ -38,7 +38,8 @@
       "host": "_dmarc",
       "data": "v=DMARC1; %dmarcTxt%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "All"
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
     }
   ]
 }
