@@ -10,7 +10,6 @@
   "syncPubKeyDomain": "slydeonline.com",
   "syncRedirectDomain": "slydeonline.com",
   "hostRequired": true,
-  "shared": true,
   "records": [
     {
       "type": "CNAME",
