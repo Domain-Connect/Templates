@@ -1,0 +1,48 @@
+{
+  "providerId": "cowliss.com",
+  "providerName": "Cowliss",
+  "serviceId": "sending-domain",
+  "serviceName": "Cowliss sending domain",
+  "version": 1,
+  "logoUrl": "https://cowliss.com/favicon.svg",
+  "description": "Lets Cowliss send email from this domain: the three Amazon SES DKIM keys and the MAIL FROM subdomain that carries bounces.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three DKIM tokens Amazon SES issued for this domain. %region%: the AWS region the SES identity lives in.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cowliss.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
