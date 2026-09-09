@@ -1,0 +1,39 @@
+{
+    "providerId": "waybornusa.com",
+    "providerName": "Wayborn",
+    "serviceId": "mail-delegation",
+    "serviceName": "Wayborn Managed Sending Subdomain",
+    "version": 1,
+    "logoUrl": "https://waybornusa.com/wayborn_white.svg",
+    "description": "Delegates the send subdomain of your domain to Wayborn's nameservers so Wayborn can create and rotate the SPF, DKIM and DMARC records for your marketing sending subdomain automatically. Only send.<your domain> is delegated; no record on your root domain, your website or your existing mail is touched.",
+    "variableDescription": "No variables. The four nameservers are fixed values from a single Amazon Route 53 reusable delegation set shared by every Wayborn customer, so the applied records are identical for every domain.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.waybornusa.com",
+    "syncRedirectDomain": "waybornusa.com",
+    "records": [
+        {
+            "type": "NS",
+            "host": "send",
+            "pointsTo": "ns-944.awsdns-54.net.",
+            "ttl": 3600
+        },
+        {
+            "type": "NS",
+            "host": "send",
+            "pointsTo": "ns-165.awsdns-20.com.",
+            "ttl": 3600
+        },
+        {
+            "type": "NS",
+            "host": "send",
+            "pointsTo": "ns-1831.awsdns-36.co.uk.",
+            "ttl": 3600
+        },
+        {
+            "type": "NS",
+            "host": "send",
+            "pointsTo": "ns-1275.awsdns-31.org.",
+            "ttl": 3600
+        }
+    ]
+}
