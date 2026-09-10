@@ -1,0 +1,34 @@
+{
+  "providerId": "slydeonline.com",
+  "providerName": "Slyde",
+  "serviceId": "email",
+  "serviceName": "Slyde Email Sending",
+  "version": 1,
+  "logoUrl": "https://media.slydeonline.com/sites/cmtlprw9z0001xja0k4xryw3v/logo-dark-1788461145526.png",
+  "description": "Lets a business send its booking confirmations, reminders and payment requests from its own domain through Slyde (slydeonline.com). Adds a DKIM key and an SPF/bounce pair on dedicated subdomains; the domain's existing mail records (MX and SPF at the root) are not touched.",
+  "variableDescription": "dkim: the DKIM public key Slyde issued for this domain. mx: the bounce-handling mail server for the send subdomain (varies by sending region).",
+  "syncPubKeyDomain": "slydeonline.com",
+  "syncRedirectDomain": "slydeonline.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mx%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "send",
+      "data": "v=spf1 include:amazonses.com ~all",
+      "ttl": 3600
+    }
+  ]
+}
