@@ -1,0 +1,18 @@
+{
+    "providerId": "tradesite.ai",
+    "providerName": "TradeSite AI",
+    "serviceId": "website",
+    "serviceName": "TradeSite Website",
+    "version": 1,
+    "logoUrl": "https://tradesite.ai/tradesite-logo.svg",
+    "description": "Connects your domain to your TradeSite website",
+    "variableDescription": "verify is the domain ownership verification token shown in the TradeSite portal",
+    "syncPubKeyDomain": "domainconnect.tradesite.ai",
+    "syncRedirectDomain": "tradesite.ai",
+    "records": [
+        { "type": "A", "groupId": "apex", "host": "@", "pointsTo": "76.76.21.21", "ttl": 600 },
+        { "type": "CNAME", "groupId": "apex", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 600 },
+        { "type": "CNAME", "groupId": "subdomain", "host": "@", "pointsTo": "cname.vercel-dns.com", "ttl": 600 },
+        { "type": "TXT", "groupId": "verify", "host": "_vercel", "data": "vc-domain-verify=%verify%", "ttl": 600 }
+    ]
+}
