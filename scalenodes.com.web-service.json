@@ -1,0 +1,17 @@
+{
+  "providerId": "scalenodes.com",
+  "providerName": "ScaleNodes",
+  "serviceId": "web-service",
+  "serviceName": "ScaleNodes Web Service",
+  "version": 1,
+  "logoUrl": "https://cloud.scalenodes.com/logo.svg",
+  "description": "Connect a customer hostname to its ScaleNodes web service.",
+  "variableDescription": "target is the unique service label assigned by ScaleNodes, without the .scalenodes.app suffix.",
+  "syncBlock": false,
+  "syncRedirectDomain": "scalenodes.com",
+  "syncPubKeyDomain": "domainconnect.scalenodes.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "%target%.scalenodes.app", "ttl": 300, "essential": "OnApply" }
+  ]
+}
