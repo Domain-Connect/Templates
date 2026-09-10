@@ -1,0 +1,28 @@
+{
+    "providerId": "fadehost.com",
+    "providerName": "FadeHost",
+    "serviceId": "minecraft-server",
+    "serviceName": "FadeHost Minecraft server",
+    "version": 1,
+    "logoUrl": "https://fadehost.com/logo.svg",
+    "description": "Lets players join a Minecraft Java Edition server hosted on FadeHost through a subdomain of the customer's own domain, for example play.example.com: one SRV record pointing at the FadeHost node the server runs on and the server's port. A host is required; the apex keeps its manual setup.",
+    "variableDescription": "%node%: the FadeHost node the server runs on, always a label under fadehost.net (e.g. eu1); %port%: the server's port",
+    "syncPubKeyDomain": "fadehost.com",
+    "syncRedirectDomain": "laplace.fadehost.com",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "SRV",
+            "name": "@",
+            "service": "_minecraft",
+            "protocol": "_tcp",
+            "priority": 1,
+            "weight": 5,
+            "port": "%port%",
+            "target": "%node%.fadehost.net.",
+            "ttl": 3600,
+            "essential": "Always"
+        }
+    ]
+}
