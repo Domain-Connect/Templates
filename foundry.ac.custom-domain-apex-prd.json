@@ -4,7 +4,7 @@
   "serviceId": "custom-domain-apex-prd",
   "serviceName": "Foundry custom domain (production apex)",
   "version": 1,
-  "logoUrl": "https://foundry-prod.sfo3.cdn.digitaloceanspaces.com/foundry-brand-identity/Signature_Green.svg",
+  "logoUrl": "https://assets.foundry.ac/brand-identity/logo/icon-only/Icon_Green.svg",
   "description": "Connect an apex domain to Foundry.",
   "variableDescription": "%verificationValue% is a fresh Foundry ownership value for this connection attempt.",
   "syncBlock": false,
