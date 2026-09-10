@@ -1,8 +1,8 @@
 {
   "providerId": "helpdesk-easy.apps.newcraft.dev",
-  "providerName": "Helpdesk Easy",
-  "version": 1,
-  "logoUrl": "https://helpdesk-easy.apps.newcraft.dev/icon.svg",
+  "providerName": "New Reply",
+  "version": 2,
+  "logoUrl": "https://newreply.app/brand/icon.svg",
   "syncBlock": false,
   "syncPubKeyDomain": "helpdesk-easy.apps.newcraft.dev",
   "syncRedirectDomain": "helpdesk-easy.apps.newcraft.dev",
