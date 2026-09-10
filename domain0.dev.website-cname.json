@@ -1,0 +1,22 @@
+{
+  "providerId": "domain0.dev",
+  "providerName": "Domain0",
+  "version": 1,
+  "logoUrl": "https://www.domain0.dev/brand/domain0-logo-white.svg",
+  "syncPubKeyDomain": "domain0.dev",
+  "syncRedirectDomain": "domain0.dev",
+  "serviceId": "website-cname",
+  "serviceName": "Website subdomain connection",
+  "hostRequired": true,
+  "description": "Connect one selected subdomain to the integrating application's saved CNAME destination. Apex CNAME and nameserver changes are not supported.",
+  "variableDescription": "target: the fully qualified CNAME destination from the integrating application's saved DNS intent.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
