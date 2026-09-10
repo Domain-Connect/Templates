@@ -1,0 +1,20 @@
+{
+  "providerId": "vyronhosting.com",
+  "providerName": "Vyron Technologies",
+  "serviceId": "hosting",
+  "serviceName": "Vyron Hosting",
+  "version": 1,
+  "logoUrl": "https://app.vyronhosting.com/favicon.svg",
+  "description": "Connect a domain or subdomain to a Vyron Hosting node.",
+  "syncPubKeyDomain": "domainconnect.vyronhosting.com",
+  "syncRedirectDomain": "app.vyronhosting.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.vyronhosting.com",
+      "ttl": 3600
+    }
+  ]
+}
