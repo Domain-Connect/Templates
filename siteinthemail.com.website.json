@@ -1,0 +1,19 @@
+{
+  "providerId": "siteinthemail.com",
+  "providerName": "Site In The Mail",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://siteinthemail.com/favicon.svg",
+  "description": "Points the customer's www at their Site In The Mail website. One CNAME on the host they choose (always www in our flow); nothing else in the zone is touched, so existing email keeps working.",
+  "syncPubKeyDomain": "siteinthemail.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.siteinthemail.com",
+      "ttl": 3600
+    }
+  ]
+}
