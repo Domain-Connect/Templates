@@ -1,0 +1,35 @@
+{
+  "providerId": "helpdesk-easy.apps.newcraft.dev",
+  "providerName": "Helpdesk Easy",
+  "version": 1,
+  "logoUrl": "https://helpdesk-easy.apps.newcraft.dev/icon.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "helpdesk-easy.apps.newcraft.dev",
+  "syncRedirectDomain": "helpdesk-easy.apps.newcraft.dev",
+  "variableDescription": "mailboxId is the numeric mailbox ID. verificationToken proves ownership for that mailbox. dkimSelector and dkimValue come from the server-side Postmark Domains API. All requests are signed; users cannot choose arbitrary record hosts or targets.",
+  "serviceId": "email-sending",
+  "serviceName": "Verify your support email domain",
+  "description": "Configures Postmark sending authentication and per-mailbox domain ownership. Does not change MX records or configure forwarding.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_helpdesk-%mailboxId%",
+      "data": "%verificationToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "pm-bounces",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": 3600
+    }
+  ]
+}
