@@ -1,0 +1,45 @@
+{
+  "providerId": "dodomain.io",
+  "providerName": "DoDomain",
+  "serviceId": "email-authentication",
+  "serviceName": "Email authentication (SPF, DKIM, DMARC)",
+  "version": 1,
+  "description": "Authorises a SaaS product to send mail for the domain: merges one SPF include mechanism into the zone's SPF record (SPFM), publishes one DKIM selector (as a CNAME to the product's key host, or as the key itself in a TXT), and sets the DMARC policy. Each group is applied independently via groupId; no MX record is ever written by this template. Used by DoDomain (domain-connect-as-a-service) on behalf of its integrator applications.",
+  "variableDescription": "spfInclude = the host of the single SPF include mechanism to merge (e.g. _spf.integrator-app.com); dkimSelector = the DKIM selector label; dkimTarget = the CNAME destination of the selector's key host (group dkim-cname); dkimTxt = the DKIM key record body after the fixed 'v=DKIM1; ' prefix (group dkim-txt); dmarcTxt = the DMARC policy tags after the fixed 'v=DMARC1; ' prefix (group dmarc).",
+  "syncBlock": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "dckeys.dodomain.io",
+  "syncRedirectDomain": "app.dodomain.io",
+  "records": [
+    {
+      "type": "SPFM",
+      "groupId": "spf",
+      "host": "@",
+      "spfRules": "include:%spfInclude%"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim-cname",
+      "host": "%dkimSelector%._domainkey",
+      "pointsTo": "%dkimTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "dkim-txt",
+      "host": "%dkimSelector%._domainkey",
+      "data": "v=DKIM1; %dkimTxt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarcTxt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
