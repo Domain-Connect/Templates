@@ -1,0 +1,20 @@
+{
+  "providerId": "esmolt.com",
+  "providerName": "Esmolt",
+  "serviceId": "website-cname",
+  "serviceName": "Esmolt Website",
+  "version": 1,
+  "description": "Connects a subdomain to an Esmolt website.",
+  "variableDescription": "%target%: exact CNAME routing target issued by Esmolt's hosting provider",
+  "syncPubKeyDomain": "esmolt.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
