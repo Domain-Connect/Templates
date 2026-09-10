@@ -7,7 +7,7 @@
   "logoUrl": "https://looops.ai/logo-domainconnect.svg",
   "description": "Connect your domain to your Looops website (www serves the site; the bare domain redirects to www)",
   "syncPubKeyDomain": "looops.ai",
-  "syncRedirectDomain": "looops.ai, looops.app",
+  "syncRedirectDomain": "looops.ai,looops.app",
   "records": [
     {
       "type": "CNAME",
