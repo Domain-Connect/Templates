@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://media.slydeonline.com/sites/cmtlprw9z0001xja0k4xryw3v/logo-dark-1788461145526.png",
   "description": "Lets a business send its booking confirmations, reminders and payment requests from its own domain through Slyde (slydeonline.com). Adds a DKIM key and an SPF/bounce pair on dedicated subdomains; the domain's existing mail records (MX and SPF at the root) are not touched.",
-  "variableDescription": "dkim: the DKIM public key Slyde issued for this domain. mx: the bounce-handling mail server for the send subdomain (varies by sending region).",
+  "variableDescription": "dkim: the DKIM public key (the p= value) Slyde issued for this domain. region: the Amazon SES region Slyde sends from, e.g. us-east-1.",
   "syncPubKeyDomain": "slydeonline.com",
   "syncRedirectDomain": "slydeonline.com",
   "hostRequired": false,
@@ -14,21 +14,21 @@
     {
       "type": "TXT",
       "host": "resend._domainkey",
-      "data": "%dkim%",
-      "ttl": 3600
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
     },
     {
       "type": "MX",
       "host": "send",
-      "pointsTo": "%mx%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
       "priority": 10,
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "send",
-      "data": "v=spf1 include:amazonses.com ~all",
-      "ttl": 3600
+      "spfRules": "include:amazonses.com"
     }
   ]
 }
