@@ -1,0 +1,21 @@
+{
+  "providerId": "otterdeploy.com",
+  "providerName": "otterdeploy",
+  "serviceId": "connect",
+  "serviceName": "Connect a custom domain",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.otterdeploy.com",
+  "syncRedirectDomain": "get.otterdeploy.com",
+  "logoUrl": "https://otterdeploy.com/favicon.svg",
+  "description": "Connect a custom domain to an otterdeploy server.",
+  "variableDescription": "IP is the public IPv4 address of the user's otterdeploy server.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 300
+    }
+  ]
+}
