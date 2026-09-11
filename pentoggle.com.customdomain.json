@@ -7,7 +7,7 @@
   "logoUrl": "https://pentoggle.com/logo-email.png",
   "description": "Points a domain at the app the user built on Pentoggle: apex A/AAAA records to the Pentoggle custom-domain proxy and www as a CNAME. No variables - the targets are fixed for all users.",
   "syncPubKeyDomain": "pentoggle.com",
-  "syncRedirectDomain": "pentoggle.com,pentoggle-web-staging.fly.dev",
+  "syncRedirectDomain": "pentoggle.com",
   "records": [
     {
       "type": "A",
