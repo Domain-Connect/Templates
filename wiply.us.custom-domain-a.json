@@ -1,0 +1,26 @@
+{
+  "providerId": "wiply.us",
+  "providerName": "Wiply Studio",
+  "serviceId": "custom-domain-a",
+  "serviceName": "Connect an apex game domain",
+  "version": 1,
+  "description": "Verifies a custom apex game domain and routes it to Wiply's managed game edge.",
+  "variableDescription": "ownershipTarget is the Google Certificate Manager authorization target; routingTarget is Wiply's environment-specific game edge IPv4 address.",
+  "syncPubKeyDomain": "domainconnect.wiply.us",
+  "syncRedirectDomain": "platform-studio.wiply.us,platform-studio-staging.wiply.us",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%ownershipTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%routingTarget%",
+      "ttl": 3600
+    }
+  ]
+}
