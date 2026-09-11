@@ -1,0 +1,35 @@
+{
+  "providerId": "calemander.com",
+  "providerName": "Calemander",
+  "serviceId": "email-sending",
+  "serviceName": "Calemander Email Sending",
+  "version": 1,
+  "logoUrl": "https://calemander.com/logo-120.png",
+  "description": "Send booking confirmations, reminders and cancellations from your own domain. Adds a return-path MX, an SPF include and a DKIM key under a fixed 'emailit' label, leaving the domain's own mail records untouched.",
+  "variableDescription": "%dkim%: the full DKIM TXT value minted per domain by the sending provider (v=DKIM1; k=rsa; p=...). It is issued when the domain is added in Calemander and cannot be pre-filled.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "calemander.com",
+  "syncRedirectDomain": "calemander.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "emailit",
+      "pointsTo": "feedback-smtp.ffdc-1.emailit.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "emailit",
+      "spfRules": "include:_spf.emailit.com"
+    },
+    {
+      "type": "TXT",
+      "host": "emailit._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
