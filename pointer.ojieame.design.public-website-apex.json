@@ -1,0 +1,30 @@
+{
+  "providerId": "pointer.ojieame.design",
+  "providerName": "Pointer",
+  "version": 1,
+  "logoUrl": "https://pointer.ojieame.design/favicon.svg",
+  "variableDescription": "%proof%: 32-character hexadecimal Pointer ownership code, without its fixed pointer- prefix",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.pointer.ojieame.design",
+  "syncRedirectDomain": "pointer.ojieame.design",
+  "serviceId": "public-website-apex",
+  "serviceName": "Connect your root domain",
+  "description": "Connect a public website to your root domain with Pointer.",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "165.227.255.44",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_pointer",
+      "data": "pointer-%proof%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "pointer-"
+    }
+  ]
+}
