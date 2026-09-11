@@ -1,0 +1,22 @@
+{
+    "providerId": "folita.me",
+    "providerName": "folita",
+    "serviceId": "domainverify",
+    "serviceName": "folita custom domain verification",
+    "version": 1,
+    "logoUrl": "https://folita.me/assets/favicon.svg",
+    "description": "Proves ownership of a domain to connect it to a folita profile page (folita.me). Adds a single TXT record used only for verification.",
+    "syncPubKeyDomain": "folita.me",
+    "syncRedirectDomain": "accounts.folita.me",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_folita-challenge",
+            "data": "folita-verify=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "folita-verify="
+        }
+    ]
+}
