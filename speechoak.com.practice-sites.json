@@ -1,0 +1,22 @@
+{
+  "providerId": "speechoak.com",
+  "providerName": "Speech Oak",
+  "serviceId": "practice-sites",
+  "serviceName": "Speech Oak practice website",
+  "version": 1,
+  "logoUrl": "https://www.speechoak.com/assets/speechoak-mark.png",
+  "description": "Points a hostname at your Speech Oak practice website.",
+  "variableDescription": "host is the hostname label the site answers on, usually www.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "speechoak.com",
+  "syncRedirectDomain": "app.speechoak.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.speechoak.com",
+      "ttl": 600
+    }
+  ]
+}
