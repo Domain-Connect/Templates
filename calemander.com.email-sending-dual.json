@@ -1,0 +1,62 @@
+{
+  "providerId": "calemander.com",
+  "providerName": "Calemander",
+  "serviceId": "email-sending-dual",
+  "serviceName": "Calemander Email Sending (redundant)",
+  "version": 1,
+  "logoUrl": "https://calemander.com/logo-120.png",
+  "description": "Send booking confirmations, reminders and cancellations from your own domain through two independent sending providers, so an outage at one does not cost you your own address. Group 'emailit' adds a return-path MX, an SPF include and a DKIM key under the fixed 'emailit' label; group 'resend' adds the same three under the fixed 'send' / 'resend._domainkey' labels. Calemander always names the group(s) to apply, matching the providers the domain was registered with. The domain's own apex MX and SPF are never touched.",
+  "variableDescription": "%dkim%: the full DKIM TXT value minted for this domain by Emailit (v=DKIM1; k=rsa; p=...), which is prescribed by the provider and cannot carry a prefix. %resend_dkim%: the base64 public key Resend mints for the same domain, written as p=... exactly as Resend's own templates do. Both are issued when the domain is added in Calemander and cannot be pre-filled.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "calemander.com",
+  "syncRedirectDomain": "calemander.com",
+  "records": [
+    {
+      "groupId": "emailit",
+      "type": "MX",
+      "host": "emailit",
+      "pointsTo": "feedback-smtp.ffdc-1.emailit.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "emailit",
+      "type": "SPFM",
+      "host": "emailit",
+      "spfRules": "include:_spf.emailit.com"
+    },
+    {
+      "groupId": "emailit",
+      "type": "TXT",
+      "host": "emailit._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "resend",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "resend",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "resend",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%resend_dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p=",
+      "essential": "OnApply"
+    }
+  ]
+}
