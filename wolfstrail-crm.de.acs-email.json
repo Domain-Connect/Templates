@@ -1,0 +1,49 @@
+{
+  "providerId": "wolfstrail-crm.de",
+  "providerName": "Wolfstrail",
+  "serviceId": "acs-email",
+  "serviceName": "Wolfstrail Kampagnen (E-Mail-Versand)",
+  "version": 1,
+  "logoUrl": "https://app.wolfstrail-crm.de/logo.png",
+  "description": "Authentifiziert eine Absender-Domain für den E-Mail-Versand über Wolfstrail (Azure Communication Services): Domain-Ownership-TXT, SPF und DKIM (2 Selektoren).",
+  "variableDescription": "%verify%: Wert des ms-domain-verification-TXT der Domain aus Azure Communication Services.",
+  "syncBlock": false,
+  "sharedProviderName": true,
+  "sharedServiceName": true,
+  "syncRedirectDomain": "app.wolfstrail-crm.de",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "ms-domain-verification=%verify%",
+      "ttl": 3600,
+      "groupId": "verify",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ms-domain-verification="
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.protection.outlook.com",
+      "groupId": "spf",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "selector1-azurecomm-prod-net._domainkey",
+      "pointsTo": "selector1-azurecomm-prod-net._domainkey.azurecomm.net",
+      "ttl": 3600,
+      "groupId": "dkim",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "selector2-azurecomm-prod-net._domainkey",
+      "pointsTo": "selector2-azurecomm-prod-net._domainkey.azurecomm.net",
+      "ttl": 3600,
+      "groupId": "dkim",
+      "essential": "OnApply"
+    }
+  ]
+}
