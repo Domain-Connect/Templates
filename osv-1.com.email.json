@@ -5,7 +5,7 @@
   "serviceName": "Email sending and receiving",
   "version": 1,
   "logoUrl": "https://app.osv-1.com/domain-connect/logo.svg",
-  "description": "Send and receive your organization's email through OSV-1: signing, bounce handling, reply delivery, and spoofing protection on the hostname you choose.",
+  "description": "Send and receive your organization's email through OSV-1: signing, bounce handling, the sending host the email provider checks, reply delivery, and spoofing protection on the hostname you choose.",
   "variableDescription": "region is the Resend (Amazon SES) region the domain was registered in, for example us-east-1. dkim is the DKIM public key Resend issued for the domain (the value after p=).",
   "syncBlock": false,
   "syncPubKeyDomain": "osv-1.com",
@@ -33,6 +33,13 @@
       "type": "SPFM",
       "host": "send",
       "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
       "ttl": 3600
     },
     {
