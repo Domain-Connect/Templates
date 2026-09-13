@@ -6,15 +6,15 @@
   "version": 1,
   "hostRequired": true,
   "logoUrl": "https://app.helm.biz/brand/helm-icon-512.svg",
-  "description": "Points a subdomain (the applied host, e.g. shop.example.com) at the Helm-hosted site with a CNAME, and, in the email group, lets the site send mail from that subdomain: the signing key at resend._domainkey, the bounce return path at send (MX + SPF), and a monitor-only DMARC policy applied only when the name has none. Requires host: the apex form of this template is helm.biz.site.",
-  "variableDescription": "%dkim%: the base64 public half of the per-domain DKIM key the mail provider minted (without the leading p=); %region%: the mail provider's sending region, e.g. us-east-1",
+  "description": "Points a subdomain (the applied host, e.g. shop.example.com) at the Helm-hosted site with a CNAME to the target Helm assigned it, and, in the email group, lets the site send mail from that subdomain: the signing key at resend._domainkey, the bounce return path at send (MX + SPF), and a monitor-only DMARC policy applied only when the name has none. Requires host: the apex form of this template is helm.biz.site.",
+  "variableDescription": "%cname%: the hosting CNAME target Helm assigned this site (Vercel recommends a per-project target, e.g. abc123.vercel-dns-016.com); %dkim%: the base64 public half of the per-domain DKIM key the mail provider minted (without the leading p=); %region%: the mail provider's sending region, e.g. us-east-1",
   "syncPubKeyDomain": "helm.biz",
   "syncRedirectDomain": "app.helm.biz,helm.biz,helm-hq.vercel.app",
   "records": [
     {
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "cname.vercel-dns.com",
+      "pointsTo": "%cname%",
       "ttl": 3600,
       "groupId": "site"
     },
