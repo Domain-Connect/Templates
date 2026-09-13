@@ -1,0 +1,28 @@
+{
+  "providerId": "statoss.com",
+  "providerName": "StatOSS",
+  "serviceId": "status-page-apex",
+  "serviceName": "Status page on a bare domain",
+  "version": 1,
+  "logoUrl": "https://statoss.com/images/statoss-mark-64.png",
+  "description": "Points a bare domain such as example.com at a StatOSS status page with A and AAAA records, since a bare domain cannot carry a CNAME.",
+  "variableDescription": "ipv4 and ipv6 are the current addresses of edge.statoss.com. The aaaa group is only applied when the edge host has an IPv6 address.",
+  "syncPubKeyDomain": "statoss.com",
+  "syncRedirectDomain": "statoss.com",
+  "records": [
+    {
+      "type": "A",
+      "groupId": "a",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 300
+    },
+    {
+      "type": "AAAA",
+      "groupId": "aaaa",
+      "host": "@",
+      "pointsTo": "%ipv6%",
+      "ttl": 300
+    }
+  ]
+}
