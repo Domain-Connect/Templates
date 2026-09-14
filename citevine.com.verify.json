@@ -1,0 +1,24 @@
+{
+  "providerId": "citevine.com",
+  "providerName": "Citevine",
+  "serviceId": "verify",
+  "serviceName": "Google Search Console verification",
+  "version": 1,
+  "description": "Creates the Google Search Console verification TXT record Citevine needs to enable search-performance reporting for the domain.",
+  "syncPubKeyDomain": "citevine.com",
+  "syncRedirectDomain": "citevine.com",
+  "syncBlock": false,
+  "variableDescription": "verificationCode is the Google Search Console site-verification token issued for this domain.",
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "ttl": 600,
+      "data": "google-site-verification=%verificationCode%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "google-site-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}
