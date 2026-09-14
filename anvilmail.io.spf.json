@@ -1,0 +1,20 @@
+{
+  "providerId": "anvilmail.io",
+  "providerName": "Anvil Mail",
+  "serviceId": "spf",
+  "serviceName": "Hosted SPF",
+  "version": 1,
+  "logoUrl": "https://anvilmail.io/domainconnect/logo.png",
+  "description": "Adds Anvil Mail's hosted SPF include to your SPF record so your sender list stays under the 10-lookup limit automatically. Your existing senders keep working.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.anvilmail.io",
+  "syncRedirectDomain": "anvilmail.io",
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "%host%",
+      "spfRules": "include:%spfInclude%"
+    }
+  ]
+}
