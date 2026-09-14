@@ -1,0 +1,22 @@
+{
+	"providerId": "worksync.works",
+	"providerName": "WorkSync",
+	"serviceId": "inbound",
+	"serviceName": "WorkSync inbound mail",
+	"version": 1,
+	"logoUrl": "https://fallback.worksync.works/icon.svg",
+	"description": "Routes mail sent to one WorkSync mail name (for example mail.example.com) into the shop's Intake queue and Shop Inbox, by adding the single MX record the mail provider receives on. Applied to that mail name only (hostRequired): the record is an MX at the applied name, never at the domain itself, so an existing mailbox provider at the apex is left exactly as it is.",
+	"variableDescription": "None — the MX target and priority are fixed values of the WorkSync mail provider.",
+	"syncPubKeyDomain": "worksync.works",
+	"syncRedirectDomain": "worksync.works",
+	"hostRequired": true,
+	"records": [
+		{
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "inbound.postmarkapp.com",
+			"priority": 10,
+			"ttl": 3600
+		}
+	]
+}
