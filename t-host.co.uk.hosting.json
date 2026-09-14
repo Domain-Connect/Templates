@@ -1,0 +1,45 @@
+{
+  "providerId": "t-host.co.uk",
+  "providerName": "THOST",
+  "serviceId": "hosting",
+  "serviceName": "THOST web and email hosting",
+  "version": 1,
+  "logoUrl": "https://www.t-host.co.uk/og-image.png",
+  "description": "Points your domain at your THOST hosting account: website, www, email delivery, SPF and webmail.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "t-host.co.uk",
+  "syncRedirectDomain": "www.t-host.co.uk",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "176.20.131.224",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "176.20.131.224",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.t-host.co.uk",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a:mail.t-host.co.uk include:spf.smtp2go.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "webmail",
+      "pointsTo": "webmail.t-host.co.uk",
+      "ttl": 3600
+    }
+  ]
+}
