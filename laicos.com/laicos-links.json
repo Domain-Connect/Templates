@@ -1,0 +1,23 @@
+{
+  "providerId": "laicos.com",
+  "providerName": "Laicos Links",
+  "serviceId": "links",
+  "version": 1,
+  "logoUrl": "https://laicos.com/favicon.svg",
+  "description": "Connect a domain for branded Laicos links",
+  "syncPubKeyDomain": "laicos.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.laicos.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_laicos",
+      "data": "laicos-verify=%verification%",
+      "ttl": 3600
+    }
+  ]
+}
