@@ -1,0 +1,29 @@
+{
+  "providerId": "talkee.chat",
+  "providerName": "talkee web",
+  "serviceId": "website",
+  "serviceName": "Website Hosting",
+  "version": 1,
+  "logoUrl": "https://web.talkee.chat/assets/talkee-header.png",
+  "description": "Points the apex and www of the customer's domain to the talkee web hosting load balancer (two A records, fixed IP, no variables). Mail (MX), TXT and all other records are left untouched. Every apply request is RS256-signed; public key at _dcpubkeyv1.talkee.chat.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "talkee.chat",
+  "syncRedirectDomain": "web.talkee.chat",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "75.2.60.5",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "75.2.60.5",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
