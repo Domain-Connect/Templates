@@ -1,0 +1,54 @@
+{
+  "providerId": "helm.biz",
+  "providerName": "Helm",
+  "serviceId": "site",
+  "serviceName": "Helm site and email",
+  "version": 1,
+  "logoUrl": "https://app.helm.biz/brand/helm-icon-512.svg",
+  "description": "Points the domain at the Helm-hosted site (A record on the apex) and, in the email group, lets the site send mail from the domain: the signing key at resend._domainkey, the bounce return path at send (MX + SPF), and a monitor-only DMARC policy applied only when the domain has none.",
+  "variableDescription": "%ip%: the anycast IPv4 of the host serving the site (read live from the host at connect time and signed); %dkim%: the base64 public half of the per-domain DKIM key the mail provider minted (without the leading p=); %region%: the mail provider's sending region, e.g. us-east-1",
+  "syncPubKeyDomain": "helm.biz",
+  "syncRedirectDomain": "app.helm.biz,helm.biz,helm-hq.vercel.app",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600,
+      "groupId": "site"
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "groupId": "email"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "email"
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600,
+      "groupId": "email"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "groupId": "dmarc"
+    }
+  ]
+}
