@@ -1,0 +1,20 @@
+{
+  "providerId": "onpack.link",
+  "providerName": "Onpack",
+  "serviceId": "resolver",
+  "serviceName": "Onpack barcode resolver",
+  "version": 1,
+  "syncBlock": false,
+  "hostRequired": true,
+  "description": "Points a hostname at Onpack, the free GS1 Digital Link resolver, so printed barcodes resolve under the brand's own name. The certificate is issued automatically once the record is live.",
+  "syncPubKeyDomain": "onpack.link",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "saas.onpack.link",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
