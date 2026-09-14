@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "providerId": "smtpzen.com.br",
+  "providerName": "SMTP Zen",
+  "serviceId": "email",
+  "serviceName": "SMTP Zen — assinatura DKIM",
+  "logoUrl": "https://smtpzen.com.br/logo.png",
+  "description": "Publica a chave DKIM que assina os e-mails transacionais enviados pelo SMTP Zen.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "smtpzen.com.br",
+  "syncRedirectDomain": "app.smtpzen.com.br",
+  "sharedProviderName": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
