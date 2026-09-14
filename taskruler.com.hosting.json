@@ -1,0 +1,19 @@
+{
+  "providerId": "taskruler.com",
+  "providerName": "TaskRuler",
+  "serviceId": "hosting",
+  "serviceName": "TaskRuler custom domain",
+  "version": 1,
+  "description": "Point a subdomain at your TaskRuler workspace so your public pages (booking, checkout, e-signature, landing pages) serve on your own domain.",
+  "syncPubKeyDomain": "taskruler.com",
+  "syncRedirectDomain": "taskruler.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
