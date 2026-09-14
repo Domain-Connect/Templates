@@ -1,0 +1,22 @@
+{
+  "providerId": "redagents.io",
+  "providerName": "RedAgents",
+  "serviceId": "blog",
+  "serviceName": "RedAgents Blog Autopilot",
+  "version": 1,
+  "logoUrl": "https://www.redagents.io/icon.png",
+  "description": "Point a subdomain at your RedAgents blog",
+  "variableDescription": "No variables. Static template.",
+  "syncPubKeyDomain": "redagents.io",
+  "syncRedirectDomain": "redagents.io",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "providerId": "redagents.io",
+  "providerName": "RedAgents",
+  "serviceId": "website",
+  "serviceName": "RedAgents Website",
+  "version": 1,
+  "logoUrl": "https://www.redagents.io/icon.png",
+  "description": "Point your domain at your RedAgents website",
+  "variableDescription": "No variables. Static template.",
+  "syncPubKeyDomain": "redagents.io",
+  "syncRedirectDomain": "redagents.io",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.150.1.1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
