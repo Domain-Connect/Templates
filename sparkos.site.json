@@ -1,0 +1,30 @@
+{
+  "providerId": "sparkos",
+  "providerName": "SparkOS",
+  "serviceId": "site",
+  "serviceName": "SparkOS website",
+  "version": 1,
+  "hostRequired": true,
+  "syncPubKeyDomain": "thesparkos.io",
+  "syncRedirectDomain": "sparkhostapp.com",
+  "logoUrl": "https://sparkhostapp.com/logo.png",
+  "description": "Point a subdomain of your domain (for example www.yourdomain.com or stay.yourdomain.com) at the website SparkOS publishes for you: one CNAME to SparkOS's edge, plus one TXT that proves you own the hostname so the SSL certificate is issued automatically. Nothing is added at the apex and no other record is changed.",
+  "variableDescription": "%ownership% - the hostname ownership token issued when the website is connected in SparkOS (published as the _cf-custom-hostname TXT under the chosen subdomain; one token per hostname).",
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.connectsparkos.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
