@@ -1,0 +1,58 @@
+{
+  "providerId": "sapt.ai",
+  "providerName": "Sapt",
+  "serviceId": "domain",
+  "serviceName": "Sapt website, email and analytics",
+  "version": 1,
+  "logoUrl": "https://sapt.ai/icon-512.png",
+  "description": "Connects a business domain to Sapt. The website group points www at Sapt's hosting. The analytics group points the m subdomain, which serves first-party analytics, at the same place. The email group adds the three Amazon SES DKIM signing records and the ownership token that lets Sapt send mail from the domain. Each group is applied only when the customer has turned that use on in Sapt.",
+  "variableDescription": "%target%: the Sapt hostname www and m point at; %dkim1%, %dkim2%, %dkim3%: the three Amazon SES DKIM selectors for this domain; %verify%: the domain ownership token Sapt issued, written after the fixed sapt-domain-verification= prefix",
+  "syncPubKeyDomain": "sapt.ai",
+  "syncRedirectDomain": "app.sapt.ai",
+  "records": [
+    {
+      "groupId": "website",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 300
+    },
+    {
+      "groupId": "analytics",
+      "type": "CNAME",
+      "host": "m",
+      "pointsTo": "%target%",
+      "ttl": 300
+    },
+    {
+      "groupId": "email",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "email",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "email",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "email",
+      "type": "TXT",
+      "host": "_sapt-verification",
+      "data": "sapt-domain-verification=%verify%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "sapt-domain-verification="
+    }
+  ]
+}
