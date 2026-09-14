@@ -1,0 +1,27 @@
+{
+  "providerId": "git.staylively.us",
+  "providerName": "git.staylively",
+  "serviceId": "hosting-verification",
+  "serviceName": "Domain ownership and certificate DNS",
+  "version": 1,
+  "description": "Verify a customer hostname and delegate certificate validation for a Stay Lively hosted website. Cloudflare must onboard this template with proxying disabled (DNS-only).",
+  "variableDescription": "verification is the existing portal-generated ownership proof; certificate is the portal-generated domain identifier. Certificate destinations are restricted to acme.staylively.us.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.git.staylively.us",
+  "syncRedirectDomain": "git.staylively.us",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_staylively-verify",
+      "data": "%verification%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%certificate%.acme.staylively.us",
+      "ttl": 300
+    }
+  ]
+}

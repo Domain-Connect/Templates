@@ -1,0 +1,13 @@
+{
+  "providerId": "git.staylively.us",
+  "providerName": "git.staylively",
+  "serviceId": "hosting-traffic",
+  "serviceName": "Website connection",
+  "version": 1,
+  "description": "Point the approved hostname to the Stay Lively hosting origin. Cloudflare must onboard this template with proxying enabled. A records avoid cross-account CNAME restrictions.",
+  "variableDescription": "ip is the current public IPv4 address read by the hosting worker from the platform's Cloudflare zone. It cannot be supplied by the portal user.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.git.staylively.us",
+  "syncRedirectDomain": "git.staylively.us",
+  "records": [{ "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 300 }]
+}
