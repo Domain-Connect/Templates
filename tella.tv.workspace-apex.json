@@ -1,0 +1,18 @@
+{
+  "providerId": "tella.tv",
+  "providerName": "Tella",
+  "serviceId": "workspace-apex",
+  "serviceName": "Tella Workspace (Apex Domain)",
+  "version": 1,
+  "syncPubKeyDomain": "tella.tv",
+  "syncRedirectDomain": "tella.tv",
+  "description": "Connect your domain to your Tella workspace.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    }
+  ]
+}
