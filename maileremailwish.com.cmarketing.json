@@ -1,0 +1,37 @@
+{
+  "providerId": "maileremailwish.com",
+  "providerName": "EmailWish",
+  "serviceId": "cmarketing",
+  "serviceName": "EmailWish Marketing DNS",
+  "version": 1,
+  "logoUrl": "https://emailwish.com/favicon.ico",
+  "description": "Configure EmailWish marketing DNS: verification TXT and delegated subdomain nameservers.",
+  "variableDescription": "txtHost/txtData for ownership verification; nsHost/nsTarget1/nsTarget2 for subdomain NS delegation (not apex).",
+  "syncPubKeyDomain": "maileremailwish.com",
+  "syncRedirectDomain": "emailwish.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "%txtHost%",
+      "ttl": 3600,
+      "data": "%txtData%",
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "delegation",
+      "type": "NS",
+      "host": "%nsHost%",
+      "ttl": 3600,
+      "pointsTo": "%nsTarget1%"
+    },
+    {
+      "groupId": "delegation",
+      "type": "NS",
+      "host": "%nsHost%",
+      "ttl": 3600,
+      "pointsTo": "%nsTarget2%"
+    }
+  ]
+}
