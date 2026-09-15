@@ -1,0 +1,33 @@
+{
+    "providerId": "revendo.no",
+    "providerName": "Revendo",
+    "serviceId": "campaign-apex",
+    "serviceName": "Revendo campaign website (apex)",
+    "version": 1,
+    "logoUrl": "https://revendo.no/icon.png",
+    "description": "Points a bare domain at the Revendo campaign pages hosted by Revendo's hosting platform: group apex adds the A record, group verify adds the platform's ownership record when it asks for one.",
+    "variableDescription": "ip: the IPv4 address given by the hosting platform. verification: the ownership verification token (the value after vc-domain-verify=).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "revendo.no",
+    "syncRedirectDomain": "app.revendo.no,revendo.no",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "apex",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_vercel",
+            "data": "vc-domain-verify=%verification%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "vc-domain-verify=",
+            "essential": "OnApply"
+        }
+    ]
+}
