@@ -1,0 +1,28 @@
+{
+    "providerId": "glowforms.com",
+    "providerName": "GlowForms",
+    "serviceId": "website",
+    "serviceName": "GlowForms custom domain",
+    "version": 1,
+    "logoUrl": "https://my.glowforms.com/glowforms.svg",
+    "description": "Point your domain at your GlowForms site.",
+    "variableDescription": "IP is the GlowForms origin. CNAME is the GlowForms hostname for www.",
+    "syncPubKeyDomain": "glowforms.com",
+    "syncBlock": false,
+    "records": [
+        {
+            "groupId": "site",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%IP%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "site",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%CNAME%",
+            "ttl": 3600
+        }
+    ]
+}
