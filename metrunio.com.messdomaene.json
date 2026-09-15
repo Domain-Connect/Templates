@@ -1,0 +1,30 @@
+{
+  "providerId": "metrunio.com",
+  "providerName": "Metrunio",
+  "serviceId": "messdomaene",
+  "serviceName": "Metrunio measurement domain",
+  "version": 1,
+  "logoUrl": "https://metrunio.com/logo.svg",
+  "description": "Sets up a measurement subdomain for Metrunio analytics: a CNAME that routes measurement traffic, and a TXT record proving you control the domain.",
+  "variableDescription": "dnstarget: the Metrunio host label your subdomain points to; the template appends .metrunio.com. token: a one-time random value that proves you control the domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "metrunio.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%dnstarget%.metrunio.com",
+      "ttl": 300,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_metrunio",
+      "data": "metrunio-verify-%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "metrunio-verify-"
+    }
+  ]
+}
