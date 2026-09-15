@@ -10,14 +10,19 @@
   "syncPubKeyDomain": "mailsocialloop.com",
   "syncRedirectDomain": "socialloop.ai",
   "hostRequired": false,
+  "variableDescription": "dkim: the DKIM public key Resend issued for the selector resend._domainkey. mxhost: the return-path MX host (a region-specific SES feedback host). spfrules: the SPF mechanisms for the return-path subdomain, merged into any SPF already there. rsend: the CNAME target for the tracking host.",
   "records": [
     {
+      "groupId": "core",
       "type": "TXT",
       "host": "resend._domainkey",
       "data": "%dkim%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "Always"
     },
     {
+      "groupId": "core",
       "type": "MX",
       "host": "send",
       "pointsTo": "%mxhost%",
@@ -25,22 +30,27 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "groupId": "core",
+      "type": "SPFM",
       "host": "send",
-      "data": "%spf%",
-      "ttl": 3600
+      "spfRules": "%spfrules%"
     },
     {
+      "groupId": "core",
       "type": "CNAME",
       "host": "rsend",
       "pointsTo": "%rsend%",
       "ttl": 3600
     },
     {
+      "groupId": "dmarc",
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@mailsocialloop.com",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     }
   ]
 }
