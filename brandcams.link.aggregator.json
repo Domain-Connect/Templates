@@ -1,0 +1,21 @@
+{
+  "providerId": "brandcams.link",
+  "providerName": "BrandCams",
+  "serviceId": "aggregator",
+  "serviceName": "BrandCams aggregator site",
+  "version": 1,
+  "logoUrl": "https://brandcams.link/assets/platform/icon.svg",
+  "description": "Points a partner's own domain (or a subdomain of it) at the BrandCams edge with a single CNAME record. The record target is fixed in the template on purpose: nothing about the destination is taken from the query string. The apply request is always signed (syncPubKeyDomain); the redirect_uri returns the partner to the BrandCams dashboard, where the record is then verified through DNS.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "brandcams.link",
+  "syncRedirectDomain": "brandcams.link",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.brandcams.link",
+      "ttl": 3600
+    }
+  ]
+}
