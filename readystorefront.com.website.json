@@ -1,0 +1,17 @@
+{
+  "providerId": "readystorefront.com",
+  "providerName": "Ready StoreFront",
+  "serviceId": "website",
+  "serviceName": "Ready StoreFront website",
+  "version": 1,
+  "logoUrl": "https://readystorefront.com/email/mark.png",
+  "description": "Points a domain at the customer's Ready StoreFront website (apex A record + www CNAME). Hosted on Vercel; the values are Vercel's anycast IP and CNAME target.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "readystorefront.com",
+  "syncRedirectDomain": "readystorefront.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600, "essential": "Always" },
+    { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 3600, "essential": "Always" }
+  ]
+}
