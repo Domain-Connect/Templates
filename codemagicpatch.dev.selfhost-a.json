@@ -6,7 +6,6 @@
   "version": 1,
   "description": "Point one hostname to the operator's self-hosted Codemagic Patch server for update delivery.",
   "variableDescription": "%target%: public IPv4 address of the operator's self-hosted Patch server.",
-  "warnPhishing": true,
   "records": [
     {
       "type": "A",
