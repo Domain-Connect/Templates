@@ -1,0 +1,19 @@
+{
+  "providerId": "codemagicpatch.dev",
+  "providerName": "Codemagic Patch",
+  "serviceId": "selfhost-a",
+  "serviceName": "Self-hosted Patch A record",
+  "version": 1,
+  "description": "Point one hostname to the operator's self-hosted Codemagic Patch server for update delivery.",
+  "variableDescription": "%target%: public IPv4 address of the operator's self-hosted Patch server.",
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300,
+      "essential": "OnApply"
+    }
+  ]
+}

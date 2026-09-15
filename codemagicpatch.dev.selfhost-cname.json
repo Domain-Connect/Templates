@@ -1,0 +1,20 @@
+{
+  "providerId": "codemagicpatch.dev",
+  "providerName": "Codemagic Patch",
+  "serviceId": "selfhost-cname",
+  "serviceName": "Self-hosted Patch CNAME record",
+  "version": 1,
+  "description": "Configure one subdomain for self-hosted Codemagic Patch download delivery or AWS ACM certificate validation.",
+  "variableDescription": "%target%: fully qualified DNS name assigned to the operator's CloudFront distribution or ACM validation record.",
+  "warnPhishing": true,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300,
+      "essential": "OnApply"
+    }
+  ]
+}
