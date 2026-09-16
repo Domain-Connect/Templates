@@ -1,0 +1,14 @@
+{
+  "providerId": "buildpane.com",
+  "providerName": "Buildpane",
+  "serviceId": "subdomain",
+  "serviceName": "Buildpane website (subdomain)",
+  "version": 1,
+  "description": "Connects one subdomain, such as shop.example.com, to a website hosted by Buildpane. Only that one record is touched.",
+  "syncPubKeyDomain": "buildpane.com",
+  "syncRedirectDomain": "my.buildpane.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "sites.buildpane.site", "ttl": 3600 }
+  ]
+}
