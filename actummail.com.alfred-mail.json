@@ -1,0 +1,67 @@
+{
+  "providerId": "actummail.com",
+  "providerName": "Alfred Pierce",
+  "serviceId": "alfred-mail",
+  "serviceName": "Alfred Pierce mailbox",
+  "version": 1,
+  "logoUrl": "https://alfredpierce.com/assets/app-icon-512.png",
+  "description": "Gives your AI employee Alfred a mailbox on this domain: ownership proof, mail routing, sending authorization (SPF, DKIM, relay) and DMARC monitoring.",
+  "variableDescription": "zone: the Alfred mail zone (actummail.com, or dev.actummail.com for development). id: the per-domain identifier below dns.<zone>. token: the ownership proof issued for this domain. dmarc: the DMARC tags after v=DMARC1; (the domain's existing policy, or p=none).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "actummail.com",
+  "syncRedirectDomain": "app.alfredpierce.com,app.dev.alfredpierce.com",
+  "shared": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_actum-verify",
+      "data": "actum-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+      "essential": "Always"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.%zone%",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.%zone%"
+    },
+    {
+      "type": "CNAME",
+      "host": "actum1._domainkey",
+      "pointsTo": "actum1.%id%.dns.%zone%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "actum2._domainkey",
+      "pointsTo": "actum2.%id%.dns.%zone%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "_mailchannels",
+      "pointsTo": "relay.%id%.dns.%zone%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
