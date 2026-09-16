@@ -8,8 +8,6 @@
   "description": "Point your domain at your WebGhost site: A records for @ and * to the WebGhost edge.",
   "variableDescription": "ip = the WebGhost edge IPv4 address the site is served from",
   "syncPubKeyDomain": "webghost.ghost-net.site",
-  "syncRedirectDomain": "webghost.ghost-net.site",
-  "warnPhishing": true,
   "records": [
     { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 300 },
     { "type": "A", "host": "*", "pointsTo": "%ip%", "ttl": 300 }
