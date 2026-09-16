@@ -3,12 +3,12 @@
 	"providerName": "KonvoAI",
 	"serviceId": "email",
 	"serviceName": "Custom email domain",
-	"version": 3,
+	"version": 4,
 	"syncPubKeyDomain": "konvo.to",
 	"syncRedirectDomain": "konvoai.com",
 	"description": "DNS records for sending email from your domain with KonvoAI (Resend / Amazon SES).",
 	"logoUrl": "https://k2.konvoai.com/favicon.svg",
-	"variableDescription": "dkimKey: Resend DKIM public key (the base64 value after p= in the resend._domainkey TXT record); region: SES region parsed from the konvo MX record.",
+	"variableDescription": "dkimKey: Resend DKIM public key (the base64 value after p= in the resend._domainkey TXT record); region: SES region parsed from the konvo MX record. The rkonvo CNAME is Resend's second (fallback) sending host and has no variables.",
 	"records": [
 		{
 			"groupId": "dkim",
@@ -30,6 +30,13 @@
 			"type": "SPFM",
 			"host": "konvo",
 			"spfRules": "include:amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "outbound-cname",
+			"type": "CNAME",
+			"host": "rkonvo",
+			"pointsTo": "send.forge.rmta.net",
 			"ttl": 3600
 		}
 	]
