@@ -1,0 +1,22 @@
+{
+    "providerId": "orgo.space",
+    "providerName": "Orgo",
+    "serviceId": "app",
+    "serviceName": "Orgo community domain",
+    "version": 1,
+    "logoUrl": "https://app.orgo.space/img/orgo-logo.svg",
+    "description": "Points a community's own domain at Orgo, so members reach it on the organisation's own address.",
+    "variableDescription": "apigw is the Orgo gateway the domain resolves to. The subdomain the community is reached at is passed as the Domain Connect host parameter.",
+    "syncPubKeyDomain": "dc.orgo.space",
+    "syncRedirectDomain": "orgo.space",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%apigw%",
+            "ttl": "300"
+        }
+    ]
+}
