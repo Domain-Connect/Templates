@@ -1,0 +1,35 @@
+{
+  "providerId": "sportsletix.com",
+  "providerName": "Sportsletix",
+  "serviceId": "portal-host",
+  "serviceName": "Sportsletix Portal",
+  "version": 1,
+  "description": "Connects a customer-managed subdomain to a Sportsletix portal and delegates certificate renewal validation.",
+  "variableDescription": "ROUTING_TARGET is the portal routing target, DCV_TARGET delegates certificate validation, and OWNERSHIP_TOKEN proves control of the custom hostname.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sportsletix.com",
+  "syncRedirectDomain": "sportsletix360.com",
+  "hostRequired": true,
+  "multiInstance": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%ROUTING_TARGET%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%DCV_TARGET%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%OWNERSHIP_TOKEN%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
