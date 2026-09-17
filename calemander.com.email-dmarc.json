@@ -1,0 +1,23 @@
+{
+  "providerId": "calemander.com",
+  "providerName": "Calemander",
+  "serviceId": "email-dmarc",
+  "serviceName": "Calemander DMARC Policy",
+  "version": 1,
+  "logoUrl": "https://calemander.com/logo-120.png",
+  "description": "Publishes a monitoring-only DMARC policy (v=DMARC1; p=none;) for a domain that sends booking email through Calemander. It asks receivers to take no action on mail that fails DMARC and requests no reports. Calemander offers it only after checking that the domain has no DMARC record of its own and inherits none from a parent domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "calemander.com",
+  "syncRedirectDomain": "calemander.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
