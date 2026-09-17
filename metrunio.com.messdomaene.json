@@ -3,10 +3,10 @@
   "providerName": "Metrunio",
   "serviceId": "messdomaene",
   "serviceName": "Metrunio measurement domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://metrunio.com/logo.svg",
-  "description": "Sets up a measurement subdomain for Metrunio analytics: a CNAME that routes measurement traffic, and a TXT record proving you control the domain.",
-  "variableDescription": "dnstarget: the Metrunio host label your subdomain points to; the template appends .metrunio.com. token: a one-time random value that proves you control the domain.",
+  "description": "Sets up a measurement subdomain for Metrunio analytics: a CNAME that routes measurement traffic, a TXT record proving you control the domain, and a CNAME that lets Google issue the TLS certificate for the subdomain.",
+  "variableDescription": "dnstarget: the Metrunio host label your subdomain points to; the template appends .metrunio.com. token: a one-time random value that proves you control the domain. acme: the Google Certificate Manager authorization label; the template appends .authorize.certificatemanager.goog.",
   "syncBlock": false,
   "syncPubKeyDomain": "metrunio.com",
   "hostRequired": true,
@@ -25,6 +25,12 @@
       "ttl": 300,
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "metrunio-verify-"
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%acme%.authorize.certificatemanager.goog",
+      "ttl": 300
     }
   ]
 }
