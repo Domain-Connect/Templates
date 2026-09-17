@@ -15,7 +15,9 @@
       "type": "TXT",
       "host": "_readyowner-verification",
       "ttl": 300,
-      "data": "readyowner-verification=%verification%"
+      "data": "readyowner-verification=%verification%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "readyowner-verification="
     }
   ]
 }
