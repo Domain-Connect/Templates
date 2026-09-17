@@ -3,9 +3,10 @@
   "providerName": "Handoff",
   "serviceId": "links",
   "serviceName": "Client links",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://app.handoff.ai/logo512.png",
   "description": "Serve your Handoff proposals, invoices, documents and client portal from your own subdomain, so the links your clients open show your brand instead of ours.",
+  "variableDescription": "verificationtoken proves which Handoff organization requested this hostname, so it cannot be claimed by a different customer.",
   "hostRequired": true,
   "syncBlock": false,
   "syncPubKeyDomain": "go.handoff.ai",
@@ -15,6 +16,14 @@
       "host": "@",
       "pointsTo": "dhhylw5u6q0sl.cloudfront.net",
       "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_handoff-verify",
+      "data": "handoff-domain-verification=%verificationtoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "handoff-domain-verification="
     }
   ]
 }
