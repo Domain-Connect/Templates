@@ -3,9 +3,9 @@
   "providerName": "Omucloud",
   "serviceId": "email",
   "serviceName": "Omucloud Email",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://www.alano.ai/domain-connect-logo.png",
-  "description": "Publishes the DKIM, SPF and MX records that let a domain send and receive mail through Omucloud.",
+  "description": "Publishes the DKIM, SPF, return-path and MX records that let a domain send and receive mail through Omucloud.",
   "variableDescription": "dkim = this domain's DKIM public key, without the leading p= tag. region = the sending region, e.g. us-east-1.",
   "syncPubKeyDomain": "dcsig.omucloud.co",
   "syncRedirectDomain": "omucloud.co",
@@ -32,6 +32,13 @@
       "type": "SPFM",
       "host": "send",
       "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "returnpath",
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
       "ttl": 3600
     },
     {
