@@ -1,0 +1,32 @@
+{
+    "providerId": "elmob.ai",
+    "providerName": "Elmob",
+    "serviceId": "emailsending",
+    "serviceName": "Email sending",
+    "version": 1,
+    "logoUrl": "https://elmob.ai/favicon.svg",
+    "description": "Authenticates the business's domain for email sent through Elmob (SendGrid domain authentication with automated security: a return-path CNAME and two DKIM CNAMEs).",
+    "variableDescription": "sguser: the SendGrid account number in the u<number> label; sgwl: the SendGrid domain label number in the wl<number> label",
+    "syncBlock": false,
+    "syncPubKeyDomain": "elmob.ai",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "mail",
+            "pointsTo": "u%sguser%.wl%sgwl%.sendgrid.net",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "s1._domainkey",
+            "pointsTo": "s1.domainkey.u%sguser%.wl%sgwl%.sendgrid.net",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "s2._domainkey",
+            "pointsTo": "s2.domainkey.u%sguser%.wl%sgwl%.sendgrid.net",
+            "ttl": 3600
+        }
+    ]
+}
