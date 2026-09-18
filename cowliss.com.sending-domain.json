@@ -3,13 +3,21 @@
   "providerName": "Cowliss",
   "serviceId": "sending-domain",
   "serviceName": "Cowliss sending domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cowliss.com/favicon.svg",
-  "description": "Lets Cowliss send email from this domain: the three Amazon SES DKIM keys and the MAIL FROM subdomain that carries bounces.",
-  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three DKIM tokens Amazon SES issued for this domain. %region%: the AWS region the SES identity lives in.",
+  "description": "Lets Cowliss send email from this domain: the three Amazon SES DKIM keys, the MAIL FROM subdomain that carries bounces, and the record that proves this domain belongs to your workspace.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three DKIM tokens Amazon SES issued for this domain. %region%: the AWS region the SES identity lives in. %challenge%: the token that proves this domain belongs to your Cowliss workspace rather than another one that typed the same name.",
   "syncBlock": false,
   "syncPubKeyDomain": "cowliss.com",
   "records": [
+    {
+      "type": "TXT",
+      "host": "_cowliss-challenge",
+      "data": "cowliss-verification=%challenge%",
+      "txtConflictMatchingMode": "None",
+      "ttl": 3600,
+      "essential": "Always"
+    },
     {
       "type": "CNAME",
       "host": "%dkim1%._domainkey",
