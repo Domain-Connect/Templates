@@ -3,6 +3,7 @@
   "providerName": "Ambiguous",
   "serviceId": "mail",
   "serviceName": "Mail",
+  "logoUrl": "https://app.ambiguous.ai/favicon.svg",
   "version": 1,
   "syncPubKeyDomain": "ambiguous.ai",
   "syncRedirectDomain": "api.ambiguous.ai",
