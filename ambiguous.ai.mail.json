@@ -1,0 +1,23 @@
+{
+  "providerId": "ambiguous.ai",
+  "providerName": "Ambiguous",
+  "serviceId": "mail",
+  "serviceName": "Mail",
+  "version": 1,
+  "syncPubKeyDomain": "ambiguous.ai",
+  "syncRedirectDomain": "api.ambiguous.ai",
+  "description": "Configure sending, receiving, authentication, and client discovery for Ambiguous Mail.",
+  "records": [
+    { "groupId": "signing", "type": "CNAME", "host": "%dkim1Selector%._domainkey", "pointsTo": "%dkim1Selector%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "signing", "type": "CNAME", "host": "%dkim2Selector%._domainkey", "pointsTo": "%dkim2Selector%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "signing", "type": "CNAME", "host": "%dkim3Selector%._domainkey", "pointsTo": "%dkim3Selector%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "sending", "type": "SPFM", "host": "@", "spfRules": "include:amazonses.com", "ttl": 3600 },
+    { "groupId": "sending", "type": "MX", "host": "mail", "pointsTo": "feedback-smtp.%mailFromRegion%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "groupId": "sending", "type": "SPFM", "host": "mail", "spfRules": "include:amazonses.com", "ttl": 3600 },
+    { "groupId": "receiving", "type": "MX", "host": "@", "pointsTo": "inbound-smtp.%inboundRegion%.amazonaws.com", "priority": 10, "ttl": 3600 },
+    { "groupId": "policy", "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@ambi.cc; fo=1; adkim=r; aspf=r", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "discovery", "type": "SRV", "name": "", "service": "_autodiscover", "protocol": "_tcp", "priority": 0, "weight": 0, "port": 443, "target": "app.ambiguous.ai.", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "calendar", "type": "SRV", "name": "", "service": "_caldavs", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 443, "target": "app.ambiguous.ai", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "calendar", "type": "TXT", "host": "_caldavs._tcp", "data": "path=/caldav/", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "path=", "essential": "OnApply", "ttl": 3600 }
+  ]
+}
