@@ -3,7 +3,7 @@
   "providerName": "Handoff",
   "serviceId": "links",
   "serviceName": "Client links",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://app.handoff.ai/logo512.png",
   "description": "Serve your Handoff proposals, invoices, documents and client portal from your own subdomain, so the links your clients open show your brand instead of ours.",
   "variableDescription": "verificationtoken proves which Handoff organization requested this hostname, so it cannot be claimed by a different customer.",
@@ -14,7 +14,7 @@
     {
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "dhhylw5u6q0sl.cloudfront.net",
+      "pointsTo": "cname.go.handoff.ai",
       "ttl": 3600
     },
     {
