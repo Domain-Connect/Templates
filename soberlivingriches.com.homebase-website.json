@@ -1,0 +1,12 @@
+{
+  "providerId": "soberlivingriches.com",
+  "providerName": "Homebase by Sober Living Riches",
+  "serviceId": "homebase-website",
+  "serviceName": "Homebase website",
+  "version": 1,
+  "logoUrl": "https://homebase.soberlivingriches.com/brand/homebase-wordmark-slr-gold-v2.png",
+  "description": "Connect a domain to a published Homebase website.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "soberlivingriches.com",
+  "records": [{ "type": "A", "host": "@", "pointsTo": "136.68.43.46", "ttl": 600 }]
+}
