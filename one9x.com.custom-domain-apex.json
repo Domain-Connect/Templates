@@ -1,0 +1,28 @@
+{
+  "providerId": "one9x.com",
+  "providerName": "One9x",
+  "serviceId": "custom-domain-apex",
+  "serviceName": "One9x custom domain (root)",
+  "version": 1,
+  "logoUrl": "https://one9x.com/brand/one9x-logo.svg",
+  "description": "Points a root domain at a One9x site and proves you own it",
+  "syncPubKeyDomain": "domainconnect.one9x.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_one9x-challenge",
+      "data": "%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "route",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "167.104.222.9",
+      "ttl": 600
+    }
+  ]
+}
