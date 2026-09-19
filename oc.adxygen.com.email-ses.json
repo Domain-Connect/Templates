@@ -1,0 +1,52 @@
+{
+  "providerId": "oc.adxygen.com",
+  "providerName": "ADXYGEN",
+  "serviceId": "email-ses",
+  "serviceName": "Dedicated email sending domain",
+  "version": 1,
+  "syncPubKeyDomain": "oc.adxygen.com",
+  "syncBlock": false,
+  "description": "Configure ownership verification, DKIM and bounce routing for an ADXYGEN dedicated sending subdomain.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_adxygen",
+      "data": "adxygen-verification=%ownership%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.%signingZone%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.%signingZone%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.%signingZone%",
+      "ttl": 300
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 300
+    }
+  ],
+  "syncRedirectDomain": "oc.adxygen.com",
+  "logoUrl": "https://oc.adxygen.com/admin/domain-connect/adxygen-logo.png"
+}
