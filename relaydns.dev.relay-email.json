@@ -2,23 +2,17 @@
   "providerId": "relaydns.dev",
   "providerName": "RelayDNS",
   "serviceId": "relay-email",
-  "serviceName": "Set up a sending domain",
-  "version": 1,
+  "serviceName": "Set up email on this domain",
+  "version": 2,
   "logoUrl": "https://relaydns.dev/relaydns-logo-on-light.svg",
-  "description": "Adds the DKIM, SPF, DMARC and bounce records a domain needs before it can send authenticated email.",
-  "variableDescription": "selector: the DKIM selector the sending platform issued for this domain. dkimkey: the base64 public half of that DKIM keypair. region: the AWS region the sending infrastructure runs in, for example eu-north-1. dmarcto: the mailbox DMARC aggregate reports are sent to.",
+  "description": "Adds the records a domain needs to send authenticated email, to be reached by click tracking, and to receive mail. Each part is a separate group, applied only when asked for.",
+  "variableDescription": "region: the AWS region the mail infrastructure runs in, for example eu-north-1. dmarcpolicy: none, quarantine or reject. dmarcto: the mailbox DMARC aggregate reports are sent to. selector and dkimkey: for a sender supplying its own DKIM key. dkim1, dkim2, dkim3: the three CNAME tokens issued when the key is generated for you instead. trackinglabel: the per-setup label in connect.relaydns.dev that click tracking resolves through.",
   "syncPubKeyDomain": "relaydns.dev",
   "syncBlock": false,
   "syncRedirectDomain": "api.relaydns.dev,relaydns.dev",
   "records": [
     {
-      "type": "TXT",
-      "host": "%selector%._domainkey",
-      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "All"
-    },
-    {
+      "groupId": "core",
       "type": "MX",
       "host": "mail",
       "pointsTo": "feedback-smtp.%region%.amazonses.com",
@@ -26,18 +20,64 @@
       "ttl": 3600
     },
     {
+      "groupId": "core",
       "type": "SPFM",
       "host": "mail",
       "spfRules": "include:amazonses.com",
       "ttl": 3600
     },
     {
+      "groupId": "core",
       "type": "TXT",
       "host": "_dmarc",
-      "data": "v=DMARC1; p=quarantine; rua=mailto:%dmarcto%; adkim=s; aspf=s",
+      "data": "v=DMARC1; p=%dmarcpolicy%; rua=mailto:%dmarcto%; adkim=s; aspf=s",
       "ttl": 3600,
       "txtConflictMatchingMode": "All",
       "essential": "OnApply"
+    },
+    {
+      "groupId": "byodkim",
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "easydkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "easydkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "easydkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "link",
+      "pointsTo": "%trackinglabel%.connect.relaydns.dev",
+      "ttl": 3600
+    },
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
     }
   ]
 }
