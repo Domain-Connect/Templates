@@ -3,21 +3,22 @@
   "providerName": "NodeDistro Minecraft Hosting",
   "serviceId": "minecraft-join",
   "serviceName": "Minecraft join hostname",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://nodedistrominecrafthosting.com/icon.png",
-  "description": "Configures DNS so players can join your Minecraft server via a custom hostname (Java + optional Bedrock/Geyser). A and SRV records are created with CDN/proxy disabled.",
-  "variableDescription": "IP is the join target IPv4. JAVAPORT is the Java edition port. BEDROCKPORT is the Bedrock/Geyser UDP port (omit group bedrock if unused). TARGET is the hostname SRV points at (usually the same join FQDN).",
+  "description": "Lets players join a Minecraft Java Edition server (and optional Bedrock/Geyser) through a subdomain of the customer's own domain, for example play.example.com: an A record to the join IP plus Minecraft SRV records. A host is required; the apex keeps its manual setup. CDN/proxy must stay off.",
+  "variableDescription": "%IP%: the join target IPv4 address; %JAVAPORT%: the Java edition TCP port; %BEDROCKPORT%: the Bedrock/Geyser UDP port when groupId bedrock is applied",
   "syncBlock": false,
   "syncPubKeyDomain": "nodedistrominecrafthosting.com",
   "syncRedirectDomain": "nodedistrominecrafthosting.com",
-  "warnPhishing": true,
+  "hostRequired": true,
   "records": [
     {
       "groupId": "java",
       "type": "A",
       "host": "@",
       "pointsTo": "%IP%",
-      "ttl": 300
+      "ttl": 300,
+      "essential": "Always"
     },
     {
       "groupId": "java",
@@ -25,11 +26,12 @@
       "name": "@",
       "service": "_minecraft",
       "protocol": "_tcp",
-      "priority": 0,
+      "priority": 1,
       "weight": 5,
       "port": "%JAVAPORT%",
-      "target": "%TARGET%",
-      "ttl": 300
+      "target": "%fqdn%.",
+      "ttl": 3600,
+      "essential": "Always"
     },
     {
       "groupId": "bedrock",
@@ -37,11 +39,12 @@
       "name": "@",
       "service": "_minecraft",
       "protocol": "_udp",
-      "priority": 0,
+      "priority": 1,
       "weight": 5,
       "port": "%BEDROCKPORT%",
-      "target": "%TARGET%",
-      "ttl": 300
+      "target": "%fqdn%.",
+      "ttl": 3600,
+      "essential": "Always"
     }
   ]
 }
