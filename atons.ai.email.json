@@ -1,0 +1,42 @@
+{
+  "providerId": "atons.ai",
+  "providerName": "Atons",
+  "serviceId": "email",
+  "serviceName": "E-mail pelo Atons",
+  "version": 1,
+  "logoUrl": "https://atons.ai/apple-icon.png",
+  "description": "Lets Atons send email on behalf of the domain: ownership check, SPF, DKIM and bounce address.",
+  "variableDescription": "token: the domain verification code shown in Atons",
+  "syncBlock": false,
+  "syncPubKeyDomain": "atons.ai",
+  "syncRedirectDomain": "app.atons.ai",
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_atons",
+      "data": "atons-verificacao=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "atons-verificacao="
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.atons.ai"
+    },
+    {
+      "type": "CNAME",
+      "host": "atons._domainkey",
+      "pointsTo": "atons.dkim.atons.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "envio",
+      "pointsTo": "envio.atons.ai",
+      "ttl": 3600
+    }
+  ]
+}
