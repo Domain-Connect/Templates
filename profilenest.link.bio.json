@@ -8,6 +8,7 @@
   "description": "Connect a custom hostname to a ProfileNest Bio page.",
   "syncBlock": false,
   "syncPubKeyDomain": "profilenest.link",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
