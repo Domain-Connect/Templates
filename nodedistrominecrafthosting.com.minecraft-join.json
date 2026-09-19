@@ -1,0 +1,47 @@
+{
+  "providerId": "nodedistrominecrafthosting.com",
+  "providerName": "NodeDistro Minecraft Hosting",
+  "serviceId": "minecraft-join",
+  "serviceName": "Minecraft join hostname",
+  "version": 1,
+  "logoUrl": "https://nodedistrominecrafthosting.com/icon.png",
+  "description": "Configures DNS so players can join your Minecraft server via a custom hostname (Java + optional Bedrock/Geyser). A and SRV records are created with CDN/proxy disabled.",
+  "variableDescription": "IP is the join target IPv4. JAVAPORT is the Java edition port. BEDROCKPORT is the Bedrock/Geyser UDP port (omit group bedrock if unused). TARGET is the hostname SRV points at (usually the same join FQDN).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "nodedistrominecrafthosting.com",
+  "syncRedirectDomain": "nodedistrominecrafthosting.com",
+  "warnPhishing": true,
+  "records": [
+    {
+      "groupId": "java",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 300
+    },
+    {
+      "groupId": "java",
+      "type": "SRV",
+      "name": "@",
+      "service": "_minecraft",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 5,
+      "port": "%JAVAPORT%",
+      "target": "%TARGET%",
+      "ttl": 300
+    },
+    {
+      "groupId": "bedrock",
+      "type": "SRV",
+      "name": "@",
+      "service": "_minecraft",
+      "protocol": "_udp",
+      "priority": 0,
+      "weight": 5,
+      "port": "%BEDROCKPORT%",
+      "target": "%TARGET%",
+      "ttl": 300
+    }
+  ]
+}
