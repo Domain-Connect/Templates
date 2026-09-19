@@ -1,0 +1,35 @@
+{
+  "providerId": "knoxcall.com",
+  "providerName": "KnoxCall",
+  "serviceId": "sending-domain",
+  "serviceName": "KnoxCall sending domain",
+  "version": 1,
+  "logoUrl": "https://knoxcall.com/knoxcall-v2-icon.svg",
+  "description": "Lets KnoxCall send email (workflow mail, alerts and invitations) from this domain by publishing the DKIM key, return-path MX and SPF include its mail provider requires.",
+  "variableDescription": "dkim: the DKIM public key body issued for this domain (the value after p=). mx: the return-path MX host for the domain’s mail region, e.g. feedback-smtp.us-east-1.amazonses.com.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "knoxcall.com",
+  "syncRedirectDomain": "knoxcall.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mx%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
