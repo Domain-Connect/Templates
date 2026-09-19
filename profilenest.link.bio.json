@@ -20,7 +20,8 @@
       "type": "TXT",
       "host": "_profilenest-verification",
       "data": "%verification%",
-      "ttl": 300
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
     }
   ]
 }
