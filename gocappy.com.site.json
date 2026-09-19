@@ -1,0 +1,18 @@
+{
+  "providerId": "gocappy.com",
+  "providerName": "GoCappy",
+  "serviceId": "site",
+  "serviceName": "GoCappy website",
+  "version": 1,
+  "logoUrl": "https://gocappy.com/brand/cap-g-96.png",
+  "description": "Points your domain at the website GoCappy built for you (root domain plus www).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gocappy.com",
+  "syncRedirectDomain": "gocappy.com",
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 600 }
+  ]
+}
