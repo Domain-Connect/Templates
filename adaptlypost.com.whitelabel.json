@@ -1,0 +1,20 @@
+{
+  "providerId": "adaptlypost.com",
+  "providerName": "AdaptlyPost",
+  "serviceId": "whitelabel",
+  "serviceName": "White-label custom domain",
+  "syncRedirectDomain": "adaptlypost.com",
+  "syncPubKeyDomain": "domainconnect.adaptlypost.com",
+  "hostRequired": true,
+  "version": 1,
+  "logoUrl": "https://adaptlypost.com/logo_small.png",
+  "description": "Points a subdomain at the AdaptlyPost white-label app.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "wl.adaptlypost.com",
+      "ttl": 3600
+    }
+  ]
+}
