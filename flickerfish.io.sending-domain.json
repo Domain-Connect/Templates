@@ -1,0 +1,72 @@
+{
+  "providerId": "flickerfish.io",
+  "providerName": "Flickerfish",
+  "serviceId": "sending-domain",
+  "serviceName": "Flickerfish sending domain",
+  "version": 1,
+  "description": "Publishes the DKIM, bounce, SPF and DMARC records that let Flickerfish send email as your domain.",
+  "variableDescription": "%slug%: the stable identifier Flickerfish assigns to this sending domain, used only inside record targets under flickerfishmail.com",
+  "syncBlock": false,
+  "syncPubKeyDomain": "flickerfish.io",
+  "logoUrl": "https://flickerfish.io/brand/flickerfish-logo.svg",
+  "syncRedirectDomain": "flickerfish.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "ff1._domainkey",
+      "groupId": "core",
+      "ttl": 3600,
+      "pointsTo": "ff1.%slug%.dkim.flickerfishmail.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "ffp1._domainkey",
+      "groupId": "core",
+      "ttl": 3600,
+      "pointsTo": "ffp1.%slug%.dkim.flickerfishmail.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "ffd1._domainkey",
+      "groupId": "core",
+      "ttl": 3600,
+      "pointsTo": "ffd1.%slug%.dkim.flickerfishmail.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "ff2._domainkey",
+      "groupId": "core",
+      "ttl": 3600,
+      "pointsTo": "ff2.%slug%.dkim.flickerfishmail.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "ffd2._domainkey",
+      "groupId": "core",
+      "ttl": 3600,
+      "pointsTo": "ffd2.%slug%.dkim.flickerfishmail.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "ffbounce",
+      "groupId": "core",
+      "ttl": 3600,
+      "pointsTo": "bounce.%slug%.flickerfishmail.com"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "groupId": "core",
+      "ttl": 3600,
+      "spfRules": "include:spf.flickerfishmail.com include:spf.protection.outlook.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "groupId": "dmarc",
+      "ttl": 3600,
+      "pointsTo": "%slug%._dmarc.flickerfishmail.com",
+      "essential": "OnApply"
+    }
+  ]
+}
