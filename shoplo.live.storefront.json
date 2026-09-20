@@ -4,11 +4,12 @@
   "serviceId": "storefront",
   "serviceName": "Shoplo storefront",
   "version": 1,
-  "description": "Points a domain at a Shoplo storefront.",
-  "variableDescription": "cnameTarget is the Shoplo hostname. The host query parameter is www or omitted for the root. txtHost and txtValue are optional ownership records under that host.",
+  "description": "Points a subdomain at a Shoplo storefront.",
+  "variableDescription": "cnameTarget is the Shoplo edge hostname. txtValue is the Cloudflare ownership token for _cf-custom-hostname under the host being connected (usually www).",
   "syncPubKeyDomain": "shoplo.live",
   "syncRedirectDomain": "shoplo.app",
   "syncBlock": false,
+  "hostRequired": true,
   "records": [
     {
       "groupId": "routing",
@@ -20,7 +21,7 @@
     {
       "groupId": "verify",
       "type": "TXT",
-      "host": "%txtHost%",
+      "host": "_cf-custom-hostname",
       "data": "%txtValue%",
       "ttl": 300,
       "txtConflictMatchingMode": "All"
