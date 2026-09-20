@@ -1,0 +1,26 @@
+{
+  "providerId": "offerpress.ai",
+  "providerName": "OfferPress",
+  "serviceId": "website",
+  "serviceName": "OfferPress funnels",
+  "version": 1,
+  "logoUrl": "https://app.offerpress.ai/favicon.ico",
+  "description": "Connects your bare domain (yourdomain.com) to OfferPress and adds the ownership record we verify.",
+  "variableDescription": "%verify%: the ownership token shown on your OfferPress Domains screen. It is unique to your domain.",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "185.158.133.1",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_offerpress",
+      "data": "verify=%verify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
