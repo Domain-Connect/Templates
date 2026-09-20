@@ -4,7 +4,7 @@
   "serviceId": "subdomain",
   "serviceName": "OfferPress funnels (subdomain)",
   "version": 1,
-  "logoUrl": "https://app.offerpress.ai/favicon.ico",
+  "logoUrl": "https://app.offerpress.ai/offerpress-logo.svg",
   "description": "Connects a subdomain (e.g. go.yourdomain.com) to OfferPress.",
   "hostRequired": true,
   "syncBlock": false,

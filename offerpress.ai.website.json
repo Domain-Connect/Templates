@@ -4,7 +4,7 @@
   "serviceId": "website",
   "serviceName": "OfferPress funnels",
   "version": 1,
-  "logoUrl": "https://app.offerpress.ai/favicon.ico",
+  "logoUrl": "https://app.offerpress.ai/offerpress-logo.svg",
   "description": "Connects your bare domain (yourdomain.com) to OfferPress and adds the ownership record we verify.",
   "variableDescription": "%verify%: the ownership token shown on your OfferPress Domains screen. It is unique to your domain.",
   "syncBlock": false,
