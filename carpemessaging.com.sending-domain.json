@@ -12,44 +12,51 @@
       "type": "CNAME",
       "host": "%t1%._domainkey",
       "ttl": 3600,
-      "pointsTo": "%t1%.%zone%"
+      "pointsTo": "%t1%.%zone%",
+      "groupId": "email"
     },
     {
       "type": "CNAME",
       "host": "%t2%._domainkey",
       "ttl": 3600,
-      "pointsTo": "%t2%.%zone%"
+      "pointsTo": "%t2%.%zone%",
+      "groupId": "email"
     },
     {
       "type": "CNAME",
       "host": "%t3%._domainkey",
       "ttl": 3600,
-      "pointsTo": "%t3%.%zone%"
+      "pointsTo": "%t3%.%zone%",
+      "groupId": "email"
     },
     {
       "type": "MX",
       "host": "send",
       "ttl": 3600,
       "pointsTo": "feedback-smtp.%region%.amazonses.com",
-      "priority": 10
+      "priority": 10,
+      "groupId": "email"
     },
     {
       "type": "SPFM",
       "host": "send",
       "ttl": 3600,
-      "spfRules": "include:amazonses.com"
+      "spfRules": "include:amazonses.com",
+      "groupId": "email"
     },
     {
       "type": "CNAME",
       "host": "%golabel%",
       "ttl": 3600,
-      "pointsTo": "links.carpemessaging.com"
+      "pointsTo": "links.carpemessaging.com",
+      "groupId": "email"
     },
     {
       "type": "CNAME",
       "host": "%smslabel%",
       "ttl": 3600,
-      "pointsTo": "links.carpemessaging.com"
+      "pointsTo": "links.carpemessaging.com",
+      "groupId": "sms"
     }
   ]
 }
