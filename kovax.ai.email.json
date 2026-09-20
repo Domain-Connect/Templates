@@ -1,0 +1,54 @@
+{
+  "providerId": "kovax.ai",
+  "providerName": "Kovax",
+  "serviceId": "email",
+  "serviceName": "Kovax Email",
+  "version": 1,
+  "description": "Adds the DNS records Kovax needs to send and receive email for your store.",
+  "syncPubKeyDomain": "kovax.ai",
+  "syncRedirectDomain": "app.kovax.ai",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "mg",
+      "spfRules": "include:mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey.mg",
+      "data": "%dkimvalue%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "mg",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "mg",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "email.mg",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc.mg",
+      "data": "v=DMARC1; p=none;",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 3600
+    }
+  ]
+}
