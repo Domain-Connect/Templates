@@ -1,0 +1,29 @@
+{
+  "providerId": "shoplo.live",
+  "providerName": "Shoplo",
+  "serviceId": "storefront",
+  "serviceName": "Shoplo storefront",
+  "version": 1,
+  "description": "Points a domain at a Shoplo storefront.",
+  "variableDescription": "cnameTarget is the Shoplo hostname. The host query parameter is www or omitted for the root. txtHost and txtValue are optional ownership records under that host.",
+  "syncPubKeyDomain": "shoplo.live",
+  "syncRedirectDomain": "shoplo.app",
+  "syncBlock": false,
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 300
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "%txtHost%",
+      "data": "%txtValue%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
