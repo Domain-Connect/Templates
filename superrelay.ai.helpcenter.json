@@ -8,7 +8,7 @@
 	"description": "Serves a Relay help center on your own domain and verifies that you control it.",
 	"variableDescription": "%token%: the verification value shown in the Relay dashboard for this domain (hex, without the relay-verify- prefix).",
 	"syncBlock": false,
-	"syncPubKeyDomain": "domainconnect.superrelay.ai",
+	"syncPubKeyDomain": "domainconnect.superrelay.com",
 	"syncRedirectDomain": "app.superrelay.com",
 	"hostRequired": true,
 	"records": [
