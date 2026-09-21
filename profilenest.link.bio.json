@@ -1,0 +1,27 @@
+{
+  "providerId": "profilenest.link",
+  "providerName": "ProfileNest",
+  "serviceId": "bio",
+  "serviceName": "ProfileNest Bio",
+  "version": 1,
+  "logoUrl": "https://profilenest.link/bot-logo.webp",
+  "description": "Connect a custom hostname to a ProfileNest Bio page.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "profilenest.link",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "bios.profilenest.link",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_profilenest-verification",
+      "data": "%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
