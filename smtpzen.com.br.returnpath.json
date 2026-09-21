@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "providerId": "smtpzen.com.br",
   "providerName": "SMTP Zen",
   "serviceId": "returnpath",
