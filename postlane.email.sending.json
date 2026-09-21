@@ -1,0 +1,55 @@
+{
+  "providerId": "postlane.email",
+  "providerName": "Postlane",
+  "serviceId": "sending",
+  "serviceName": "Transactional email",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "postlane.email",
+  "syncRedirectDomain": "www.postlane.email",
+  "logoUrl": "https://www.postlane.email/logo.svg",
+  "variableDescription": "%token%: ownership token Postlane issued for this domain",
+  "description": "Authorize DNS records so Postlane can send transactional email from this domain.",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_postlane",
+      "ttl": 3600,
+      "data": "postlane-send=%token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "postlane-send="
+    },
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "cf-bounce",
+      "pointsTo": "isaac.mx.cloudflare.net",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "cf-bounce",
+      "pointsTo": "linda.mx.cloudflare.net",
+      "ttl": 3600,
+      "priority": 20
+    },
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "cf-bounce",
+      "pointsTo": "amir.mx.cloudflare.net",
+      "ttl": 3600,
+      "priority": 30
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "cf-bounce",
+      "ttl": 3600,
+      "spfRules": "include:_spf.mx.cloudflare.net"
+    }
+  ]
+}
