@@ -3,50 +3,17 @@
   "providerName": "Postfleet",
   "serviceId": "email",
   "serviceName": "Custom email domain",
-  "version": 1,
+  "version": 2,
   "description": "Configure the email authentication, return path, and optional tracking and receiving records shown in your Postfleet dashboard.",
   "syncPubKeyDomain": "keys.postfleet.ai",
   "syncRedirectDomain": "postfleet.ai",
   "syncBlock": false,
-  "variableDescription": "DKIM_KEY: provider-issued public DKIM key without p= prefix. SEND_REGION and RECEIVE_REGION: AWS region names from\n    provider MX targets. SEND_PRIORITY and RECEIVE_PRIORITY: provider MX priorities. Use the standard host parameter for subdomains. Select sending\n    and optional tracking/receiving groups only when present in provider records.",
+  "variableDescription": "DKIM_KEY: provider-issued public DKIM key without p= prefix. SEND_REGION and RECEIVE_REGION: AWS region names from provider MX targets. SEND_PRIORITY and RECEIVE_PRIORITY: provider MX priorities. Use the standard host parameter for subdomains. Select sending and optional tracking/receiving groups only when present in provider records.",
   "records": [
-    {
-      "groupId": "sending",
-      "type": "TXT",
-      "host": "resend._domainkey",
-      "data": "p=%DKIM_KEY%",
-      "txtConflictMatchingMode": "All",
-      "ttl": 300
-    },
-    {
-      "groupId": "sending",
-      "type": "SPFM",
-      "host": "send",
-      "spfRules": "include:amazonses.com",
-      "ttl": 300
-    },
-    {
-      "groupId": "sending",
-      "type": "MX",
-      "host": "send",
-      "pointsTo": "feedback-smtp.%SEND_REGION%.amazonses.com",
-      "priority": "%SEND_PRIORITY%",
-      "ttl": 300
-    },
-    {
-      "groupId": "tracking",
-      "type": "CNAME",
-      "host": "rsend",
-      "pointsTo": "send.forge.rmta.net",
-      "ttl": 300
-    },
-    {
-      "groupId": "receiving",
-      "type": "MX",
-      "host": "@",
-      "pointsTo": "inbound-smtp.%RECEIVE_REGION%.amazonaws.com",
-      "priority": "%RECEIVE_PRIORITY%",
-      "ttl": 300
-    }
+    { "groupId": "sending", "type": "TXT", "host": "resend._domainkey", "data": "p=%DKIM_KEY%", "txtConflictMatchingMode": "All", "ttl": 300 },
+    { "groupId": "sending", "type": "TXT", "host": "send", "data": "v=spf1 include:amazonses.com ~all", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=spf1", "ttl": 300 },
+    { "groupId": "sending", "type": "MX", "host": "send", "pointsTo": "feedback-smtp.%SEND_REGION%.amazonses.com", "priority": "%SEND_PRIORITY%", "ttl": 300 },
+    { "groupId": "tracking", "type": "CNAME", "host": "rsend", "pointsTo": "send.forge.rmta.net", "ttl": 300 },
+    { "groupId": "receiving", "type": "MX", "host": "@", "pointsTo": "inbound-smtp.%RECEIVE_REGION%.amazonaws.com", "priority": "%RECEIVE_PRIORITY%", "ttl": 300 }
   ]
 }
