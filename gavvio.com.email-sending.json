@@ -3,7 +3,7 @@
   "providerName": "Gavvio",
   "serviceId": "email-sending",
   "serviceName": "Gavvio E-mail Sending",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://app.gavvio.com/v1/brand/mark.svg",
   "description": "Authenticates e-mail that Gavvio sends on the customer's behalf: a DKIM CNAME to a Gavvio-hosted key, a MAIL FROM (bounce) subdomain with its MX and SPF, and a starter DMARC policy that Gavvio only requests when the domain has none. Apply with host= to set up a sending subdomain.",
   "variableDescription": "dkimkey: the per-domain DKIM key label Gavvio publishes under dkim.gavvio.com (e.g. claudiabarddal-com-br-4863db6c). region: the AWS SES region that receives bounces for the MAIL FROM MX (e.g. us-east-1).",
@@ -28,10 +28,12 @@
     },
     {
       "groupId": "mailfrom",
-      "type": "SPFM",
+      "type": "TXT",
       "host": "bounce",
-      "spfRules": "include:spf.gavvio.com",
-      "ttl": 3600
+      "data": "v=spf1 include:spf.gavvio.com ~all",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
     },
     {
       "groupId": "dmarc",
