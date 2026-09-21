@@ -6,15 +6,15 @@
   "version": 4,
   "logoUrl": "https://www.thaibulksms.com/assets/images/og-tbs-main.jpg",
   "description": "Configure the DKIM and SPF records required to verify a ThaiBulkMail sending domain.",
-  "variableDescription": "dkimHost1..4 are relative DKIM owner names. dkimTarget1..4 are the corresponding fully-qualified CNAME targets issued by ThaiBulkMail.",
+  "variableDescription": "dkimSelector1..4 are the DKIM selectors issued by ThaiBulkMail.",
   "syncPubKeyDomain": "thaibulksms.com",
   "syncBlock": false,
   "syncRedirectDomain": "thaibulksms.com",
   "records": [
-    { "groupId": "dkim", "type": "CNAME", "host": "%dkimHost1%", "pointsTo": "%dkimTarget1%", "ttl": 3600 },
-    { "groupId": "dkim", "type": "CNAME", "host": "%dkimHost2%", "pointsTo": "%dkimTarget2%", "ttl": 3600 },
-    { "groupId": "dkim", "type": "CNAME", "host": "%dkimHost3%", "pointsTo": "%dkimTarget3%", "ttl": 3600 },
-    { "groupId": "dkim", "type": "CNAME", "host": "%dkimHost4%", "pointsTo": "%dkimTarget4%", "ttl": 3600 },
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkimSelector1%._domainkey", "pointsTo": "%dkimSelector1%._domainkey.v.thaibulkmail.com", "ttl": 3600 },
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkimSelector2%._domainkey", "pointsTo": "%dkimSelector2%._domainkey.v.thaibulkmail.com", "ttl": 3600 },
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkimSelector3%._domainkey", "pointsTo": "%dkimSelector3%._domainkey.v.thaibulkmail.com", "ttl": 3600 },
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkimSelector4%._domainkey", "pointsTo": "%dkimSelector4%._domainkey.v.thaibulkmail.com", "ttl": 3600 },
     { "groupId": "spf", "type": "SPFM", "host": "@", "spfRules": "include:v.thaibulkmail.com" }
   ]
 }
