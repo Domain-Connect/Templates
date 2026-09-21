@@ -27,9 +27,12 @@
       "ttl": 3600
     },
     {
-      "type": "SPFM",
+      "type": "TXT",
       "host": "send",
-      "spfRules": "include:amazonses.com"
+      "data": "v=spf1 include:amazonses.com ~all",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
     },
     {
       "type": "CNAME",
