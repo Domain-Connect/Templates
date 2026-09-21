@@ -27,10 +27,12 @@
       "ttl": 3600
     },
     {
-      "type": "SPFM",
+      "type": "TXT",
       "host": "send",
-      "spfRules": "include:%spfhost%",
-      "ttl": 3600
+      "data": "v=spf1 include:%spfhost% ~all",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
     }
   ]
 }
