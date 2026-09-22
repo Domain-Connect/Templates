@@ -1,0 +1,22 @@
+{
+  "providerId": "markplat.com",
+  "providerName": "MARKPLAT",
+  "serviceId": "website",
+  "serviceName": "MARKPLAT website, funnel or blog",
+  "version": 1,
+  "logoUrl": "https://markplat.com/icon",
+  "description": "Points your domain or subdomain at the website, funnel or blog you built on MARKPLAT.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "markplat.com",
+  "syncRedirectDomain": "markplat.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "213.199.43.156",
+      "ttl": 300
+    }
+  ]
+}
