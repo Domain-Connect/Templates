@@ -21,7 +21,7 @@
     {
       "type": "REDIR301",
       "host": "@",
-      "target": "https://www.%domain%"
+      "target": "https://www.%fqdn%"
     }
   ]
 }
