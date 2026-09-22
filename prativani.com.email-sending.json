@@ -1,0 +1,32 @@
+{
+  "providerId": "prativani.com",
+  "providerName": "Prativani",
+  "serviceId": "email-sending",
+  "serviceName": "Email sending domain",
+  "version": 1,
+  "logoUrl": "https://prativani.com/images/logo.svg",
+  "description": "Lets Prativani send email as your own domain. Adds three DKIM CNAME records and nothing else.",
+  "variableDescription": "dkim1, dkim2 and dkim3 are the three DKIM selectors Amazon SES issues for this domain. Each appears in both the host and the target of its own record.",
+  "syncPubKeyDomain": "prativani.com",
+  "syncRedirectDomain": "prativani.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": "3600"
+    }
+  ]
+}
