@@ -1,16 +1,16 @@
 {
   "providerId": "buildpane.com",
   "providerName": "Buildpane",
-  "serviceId": "website",
-  "serviceName": "Buildpane website",
-  "version": 2,
-  "description": "Connects a domain and its www name to a website hosted by Buildpane. Only the two website records are touched; mail and other records are left alone.",
+  "serviceId": "website-cloudflare",
+  "serviceName": "Buildpane website for Cloudflare DNS",
+  "version": 1,
+  "description": "Connects a domain and its www name to a website hosted by Buildpane. Only the two website records and their ownership checks are touched; mail and other records are left alone.",
   "variableDescription": "apexToken and wwwToken are the per-hostname ownership-verification values Buildpane receives from Cloudflare for SaaS.",
   "syncPubKeyDomain": "buildpane.com",
   "syncRedirectDomain": "my.buildpane.com",
-  "hostRequired": false,
+  "hostRequired": true,
   "records": [
-    { "type": "APEXCNAME", "host": "@", "pointsTo": "sites.buildpane.site", "ttl": 3600 },
+    { "type": "CNAME", "host": "@", "pointsTo": "sites.buildpane.site", "ttl": 3600 },
     { "type": "TXT", "host": "_cf-custom-hostname", "data": "%apexToken%", "ttl": 3600, "txtConflictMatchingMode": "All" },
     { "type": "CNAME", "host": "www", "pointsTo": "sites.buildpane.site", "ttl": 3600 },
     { "type": "TXT", "host": "_cf-custom-hostname.www", "data": "%wwwToken%", "ttl": 3600, "txtConflictMatchingMode": "All" }
