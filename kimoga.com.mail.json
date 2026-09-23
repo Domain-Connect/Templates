@@ -1,0 +1,47 @@
+{
+  "providerId": "kimoga.com",
+  "providerName": "Kimoga",
+  "serviceId": "mail",
+  "serviceName": "Kimoga Mail",
+  "version": 1,
+  "logoUrl": "https://kimoga.com/favicon.ico",
+  "description": "Host email for this domain on Kimoga Inbox. Applies MX, SPF, DKIM, and DMARC so mail can be received and authenticated.",
+  "variableDescription": "%selector%: DKIM selector (usually mail). %dkimkey%: RSA public key material for the DKIM TXT (p= value). %dmarc%: full DMARC TXT for this domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "kimoga.com",
+  "syncRedirectDomain": "kimoga.com",
+  "records": [
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.kimoga.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.kimoga.com"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
