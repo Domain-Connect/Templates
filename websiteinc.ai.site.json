@@ -4,7 +4,7 @@
   "serviceId": "site",
   "serviceName": "Website",
   "version": 1,
-  "logoUrl": "https://my.we.inc/logo-mark.svg",
+  "logoUrl": "https://my.we.inc/favicon-256x256.png",
   "description": "Points a subdomain (usually www) at a website built and hosted on Website Inc.",
   "variableDescription": "No variables. The subdomain is taken from the host parameter.",
   "syncBlock": false,
