@@ -3,9 +3,9 @@
   "providerName": "Flickerfish",
   "serviceId": "sending-domain",
   "serviceName": "Flickerfish sending domain",
-  "version": 1,
+  "version": 3,
   "description": "Publishes the DKIM, bounce, SPF and DMARC records that let Flickerfish send email as your domain.",
-  "variableDescription": "%slug%: the stable identifier Flickerfish assigns to this sending domain, used only inside record targets under flickerfishmail.com",
+  "variableDescription": "%slug%: the stable identifier Flickerfish assigns to this sending domain, used only inside record targets under flickerfishmail.com. %acsverify%: the domain verification value issued for this sending domain, published after a fixed prefix in a TXT record at the sending name itself.",
   "syncBlock": false,
   "syncPubKeyDomain": "flickerfish.io",
   "logoUrl": "https://flickerfish.io/brand/flickerfish-logo.svg",
@@ -56,7 +56,7 @@
     {
       "type": "SPFM",
       "host": "@",
-      "groupId": "core",
+      "groupId": "spfmerge",
       "ttl": 3600,
       "spfRules": "include:spf.flickerfishmail.com include:spf.protection.outlook.com"
     },
@@ -67,6 +67,29 @@
       "ttl": 3600,
       "pointsTo": "%slug%._dmarc.flickerfishmail.com",
       "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "selector1-azurecomm-prod-net._domainkey",
+      "groupId": "acs",
+      "ttl": 3600,
+      "pointsTo": "selector1-azurecomm-prod-net._domainkey.azurecomm.net"
+    },
+    {
+      "type": "CNAME",
+      "host": "selector2-azurecomm-prod-net._domainkey",
+      "groupId": "acs",
+      "ttl": 3600,
+      "pointsTo": "selector2-azurecomm-prod-net._domainkey.azurecomm.net"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "groupId": "acs",
+      "ttl": 3600,
+      "data": "ms-domain-verification=%acsverify%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ms-domain-verification="
     }
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "providerId": "goxnp.com",
+  "providerName": "XNP",
+  "serviceId": "website-subdomain",
+  "serviceName": "XNP Website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://goxnp.com/assets/xnp-favicon.svg",
+  "description": "Points one subdomain at the website XNP builds and hosts for the domain owner (served by Vercel)",
+  "variableDescription": "%cname%: the CNAME target Vercel assigns to the site's project",
+  "syncBlock": false,
+  "syncPubKeyDomain": "goxnp.com",
+  "syncRedirectDomain": "app.goxnp.com,admin.goxnp.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    }
+  ]
+}
