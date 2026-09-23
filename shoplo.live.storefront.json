@@ -1,0 +1,30 @@
+{
+  "providerId": "shoplo.live",
+  "providerName": "Shoplo",
+  "serviceId": "storefront",
+  "serviceName": "Shoplo storefront",
+  "version": 1,
+  "description": "Points a subdomain at a Shoplo storefront.",
+  "variableDescription": "cnameTarget is the Shoplo edge hostname. txtValue is the Cloudflare ownership token for _cf-custom-hostname under the host being connected (usually www).",
+  "syncPubKeyDomain": "shoplo.live",
+  "syncRedirectDomain": "shoplo.app",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 300
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%txtValue%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
