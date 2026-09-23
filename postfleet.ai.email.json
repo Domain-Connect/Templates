@@ -8,7 +8,7 @@
   "syncPubKeyDomain": "keys.postfleet.ai",
   "syncRedirectDomain": "postfleet.ai",
   "syncBlock": false,
-  "variableDescription": "DKIM_KEY: provider-issued public DKIM key without p= prefix. SEND_REGION and RECEIVE_REGION: AWS region names from\n    provider MX targets. SEND_PRIORITY and RECEIVE_PRIORITY: provider MX priorities. Use the standard host parameter for subdomains. Select sending\n    and optional tracking/receiving groups only when present in provider records.",
+  "variableDescription": "DKIM_KEY: provider-issued public DKIM key without p= prefix. SEND_REGION and RECEIVE_REGION: AWS region names from provider MX targets. SEND_PRIORITY and RECEIVE_PRIORITY: provider MX priorities. Use the standard host parameter for subdomains. Select sending and optional tracking/receiving groups only when present in provider records.",
   "records": [
     {
       "groupId": "sending",
