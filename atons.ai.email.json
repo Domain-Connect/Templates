@@ -3,7 +3,7 @@
   "providerName": "Atons",
   "serviceId": "email",
   "serviceName": "E-mail pelo Atons",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://atons.ai/atons-logo.svg",
   "description": "Lets Atons send email on behalf of the domain: ownership check, SPF, DKIM and bounce address.",
   "variableDescription": "token: the domain verification code shown in Atons",
@@ -22,12 +22,9 @@
       "txtConflictMatchingPrefix": "atons-verificacao="
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "@",
-      "data": "v=spf1 include:spf.atons.ai ~all",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1"
+      "spfRules": "include:spf.atons.ai"
     },
     {
       "type": "CNAME",
