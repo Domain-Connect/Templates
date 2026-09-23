@@ -1,0 +1,20 @@
+{
+  "providerId": "authproblem.com",
+  "providerName": "AuthSMTP",
+  "serviceId": "authsmtp-dkim",
+  "serviceName": "AuthSMTP DKIM",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.authproblem.com",
+  "syncRedirectDomain": "authproblem.authsmtp.com",
+  "logoUrl": "https://authproblem.com/favicon.svg",
+  "description": "Publishes the AuthSMTP DKIM CNAME for a domain and selector.",
+  "variableDescription": "dkimkey is the AuthSMTP DKIM selector and target is the exact AuthSMTP-hosted CNAME destination supplied for the signed check.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkimkey%._domainkey",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
