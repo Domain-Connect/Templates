@@ -4,7 +4,7 @@
   "serviceId": "site-www",
   "serviceName": "Website (www and root)",
   "version": 1,
-  "logoUrl": "https://my.we.inc/favicon-256x256.png",
+  "logoUrl": "https://my.we.inc/logo-mark.svg",
   "description": "Points www at a website hosted on Website Inc and forwards the bare domain to www.",
   "variableDescription": "No variables.",
   "syncBlock": false,
