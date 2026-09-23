@@ -1,0 +1,15 @@
+{
+  "providerId": "westernwebco.com",
+  "providerName": "Western Web Company",
+  "serviceId": "website",
+  "serviceName": "Western Web Company Website Publishing",
+  "version": 1,
+  "description": "Connects a domain and its www subdomain to a website published with Western Web Company.",
+  "variableDescription": "target is the Western Web Company website host to point the domain at.",
+  "syncPubKeyDomain": "westernwebco.com",
+  "syncRedirectDomain": "app.westernwebco.com,westernwebco.com,www.westernwebco.com",
+  "warnPhishing": true,
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "%target%", "ttl": 3600 }
+  ]
+}
