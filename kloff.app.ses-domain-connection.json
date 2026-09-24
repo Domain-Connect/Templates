@@ -41,7 +41,7 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=none;",
-      "txtConflictMatchingMode": "prefix",
+      "txtConflictMatchingMode": "Prefix",
       "ttl": 3600
     }
   ]
