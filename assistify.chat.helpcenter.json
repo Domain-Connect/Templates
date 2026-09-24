@@ -11,7 +11,6 @@
   "syncPubKeyDomain": "assistify.chat",
   "syncRedirectDomain": "dash.assistify.chat",
   "hostRequired": true,
-  "warnPhishing": true,
   "records": [
     {
       "groupId": "routing",
@@ -26,7 +25,8 @@
       "host": "_cf-custom-hostname",
       "data": "%ownership%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "All"
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
     },
     {
       "groupId": "certificate",
@@ -34,7 +34,8 @@
       "host": "_acme-challenge",
       "data": "%certificate%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "All"
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
     }
   ]
 }
