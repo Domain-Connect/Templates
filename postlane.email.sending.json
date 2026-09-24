@@ -7,7 +7,7 @@
   "syncBlock": false,
   "syncPubKeyDomain": "postlane.email",
   "syncRedirectDomain": "www.postlane.email",
-  "logoUrl": "https://www.postlane.email/logo.svg",
+  "logoUrl": "https://raw.githubusercontent.com/zwebso/Templates/brand-assets/logo.svg",
   "variableDescription": "%token%: ownership token Postlane issued for this domain",
   "description": "Authorize DNS records so Postlane can send transactional email from this domain.",
   "records": [
