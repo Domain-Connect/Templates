@@ -1,0 +1,32 @@
+{
+  "providerId": "onevetos.com",
+  "providerName": "OneVet",
+  "serviceId": "email",
+  "serviceName": "OneVet — send email from your own domain",
+  "version": 2,
+  "logoUrl": "https://onevetos.com/brand/logos/drawn-paw-transparent.svg",
+  "description": "Lets your practice send email from your own domain. Adds sending authentication only, on the send subdomain and the DKIM key. It does not touch your MX records, so where your email arrives does not change.",
+  "variableDescription": "%dkimkey%: the public DKIM key issued for this domain, without the leading p=",
+  "syncBlock": true,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
