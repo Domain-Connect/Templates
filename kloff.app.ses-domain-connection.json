@@ -9,7 +9,7 @@
   "syncBlock": false,
   "syncPubKeyDomain": "kloff.app",
   "syncRedirectDomain": "kloff.app",
-  "variableDescription": "%selector1%: the Easy-DKIM selector issued by Amazon SES for this domain, %region% is aws region",
+  "variableDescription": "%selector1%: DKIM selector, %dkimPublicKey%: DKIM public key, %region%: AWS SES region",
   "records": [
     {
       "type": "TXT",
@@ -22,6 +22,25 @@
       "host": "@",
       "pointsTo": "inbound-smtp.%region%.amazonaws.com",
       "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "%mailFromSubdomain%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "%mailFromSubdomain%",
+      "spfRules": "include:amazonses.com ~all",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
       "ttl": 3600
     }
   ]
