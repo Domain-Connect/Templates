@@ -1,0 +1,22 @@
+{
+  "providerId": "workweek.com",
+  "providerName": "Workweek",
+  "serviceId": "customdomain",
+  "serviceName": "Newsletter website",
+  "version": 1,
+  "logoUrl": "https://workweek-public.s3.us-east-2.amazonaws.com/brand/workweek-logo-512.png",
+  "description": "Points a subdomain (usually www) at your Workweek newsletter website.",
+  "variableDescription": "zone: your community's domain on Workweek, for example finitynetwork.com; the subdomain points to fallback.<zone>",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.workweek.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.%zone%",
+      "ttl": 3600
+    }
+  ]
+}
