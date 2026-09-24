@@ -26,21 +26,22 @@
     },
     {
       "type": "MX",
-      "host": "%mailFromSubdomain%",
+      "host": "send",
       "pointsTo": "feedback-smtp.%region%.amazonses.com",
       "priority": 10,
       "ttl": 3600
     },
     {
       "type": "SPFM",
-      "host": "%mailFromSubdomain%",
-      "spfRules": "include:amazonses.com ~all",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
       "ttl": 3600
     },
     {
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=none;",
+      "txtConflictMatchingMode": "prefix",
       "ttl": 3600
     }
   ]
