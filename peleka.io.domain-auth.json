@@ -4,7 +4,7 @@
   "serviceId": "domain-auth",
   "serviceName": "Peleka Domain Authentication",
   "version": 2,
-  "logoUrl": "https://files.peleka.io/assets/images/text-logo.svg",
+  "logoUrl": "https://files.peleka.io/assets/images/logo.svg",
   "description": "Configure DNS records for email authentication and improved deliverability",
   "variableDescription": "dkim_selector: Unique DKIM selector for your domain (e.g., 's1', 'peleka')",
   "syncBlock": false,
