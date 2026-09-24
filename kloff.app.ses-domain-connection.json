@@ -1,0 +1,28 @@
+{
+  "providerId": "kloff.app",
+  "providerName": "Kloff",
+  "serviceId": "ses-domain-connection",
+  "serviceName": "Kloff domain auto connection",
+  "version": 1,
+  "logoUrl": "https://assets.kloff.app/brand/icon.svg",
+  "description": "Configure DNS records required for Kloff email sending and receiving.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "kloff.app",
+  "syncRedirectDomain": "kloff.app",
+  "variableDescription": "%selector1%: the Easy-DKIM selector issued by Amazon SES for this domain, %region% is aws region",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%selector1%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimPublicKey%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
