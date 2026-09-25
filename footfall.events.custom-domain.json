@@ -1,0 +1,19 @@
+{
+  "providerId": "footfall.events",
+  "providerName": "Footfall",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom website domain",
+  "version": 1,
+  "description": "Connect a branded website hostname to Footfall.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.footfall.events",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "footfall.events",
+      "ttl": 3600
+    }
+  ]
+}
