@@ -4,7 +4,7 @@
   "serviceId": "mail",
   "serviceName": "Kimoga Mail",
   "version": 1,
-  "logoUrl": "https://kimoga.com/favicon.ico",
+  "logoUrl": "https://kimoga.com/assets/kimoga-mark.svg",
   "description": "Host email for this domain on Kimoga Inbox. Applies MX, SPF, DKIM, and DMARC so mail can be received and authenticated.",
   "variableDescription": "%selector%: DKIM selector (usually mail). %dkimkey%: RSA public key material for the DKIM TXT (p= value). %dmarc%: full DMARC TXT for this domain.",
   "syncBlock": false,
