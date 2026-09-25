@@ -25,8 +25,7 @@
       "type": "TXT",
       "host": "resend._domainkey",
       "data": "%DKIMVALUE%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Exact"
+      "ttl": 3600
     }
   ]
 }
