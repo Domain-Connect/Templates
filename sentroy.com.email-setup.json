@@ -10,6 +10,7 @@
     "syncBlock": false,
     "hostRequired": false,
     "syncPubKeyDomain": "sentroy.com",
+    "syncRedirectDomain": "mail.sentroy.com, sentroy.com",
     "records": [
         {
             "groupId": "sentroy-spf",
