@@ -2,11 +2,11 @@
     "providerId": "sentroy.com",
     "providerName": "Sentroy",
     "serviceId": "email-setup",
-    "serviceName": "Sentroy Email",
-    "version": 1,
+    "serviceName": "Sentroy DNS Setup",
+    "version": 2,
     "logoUrl": "https://sentroy.com/business/sentroy-logo-light.png",
-    "description": "Configure DNS records for Sentroy self-hosted email service",
-    "variableDescription": "serverIp: mail server IP address, dkimSelector: DKIM selector name, dkimPublicKey: DKIM public key, dmarcEmail: email for DMARC reports",
+    "description": "Configure Sentroy Mail DNS or verify a Contral website; each flow selects only its own record groups",
+    "variableDescription": "serverIp: mail server IP address, dkimSelector: DKIM selector name, dkimPublicKey: DKIM public key, dmarcEmail: email for DMARC reports, token: Contral domain verification challenge (Contral group only)",
     "syncBlock": false,
     "hostRequired": false,
     "syncPubKeyDomain": "sentroy.com",
@@ -47,6 +47,16 @@
             "type": "A",
             "host": "mail",
             "pointsTo": "%serverIp%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sentroy-contral-verification",
+            "type": "TXT",
+            "host": "_contral-verification",
+            "data": "contral-verification=%token%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "contral-verification=",
+            "essential": "OnApply",
             "ttl": 3600
         }
     ]
