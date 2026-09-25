@@ -1,0 +1,29 @@
+{
+  "providerId": "scrunchio.com",
+  "providerName": "Scrunchio",
+  "serviceId": "customdomain",
+  "serviceName": "Studio website and booking",
+  "version": 1,
+  "description": "Points a wellness studio's own domain (e.g. www.theirstudio.com) at its Scrunchio website and booking app, and delegates certificate validation to Cloudflare for SaaS so HTTPS is issued and renewed without further DNS changes. The studio keeps its domain.",
+  "variableDescription": "No custom variables. host is the name the studio connects, e.g. www; the bare domain is not supported (hostRequired).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.scrunchio.com",
+  "syncRedirectDomain": "app.scrunchio.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "certificate",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.af1b60f8ec9910f7.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.scrunchio.com",
+      "ttl": 3600
+    }
+  ]
+}
