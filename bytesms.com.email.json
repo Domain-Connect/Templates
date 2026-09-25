@@ -1,0 +1,39 @@
+{
+  "providerId": "bytesms.com",
+  "providerName": "Bytesms",
+  "serviceId": "email",
+  "serviceName": "Bytesms Transactional Email",
+  "version": 3,
+  "description": "One-click DNS setup for sending transactional email through Bytesms (in-house SMTP relay): a DKIM TXT record, a CNAME record pointing the return-path subdomain (default send, customer-chosen) to mta.bytesms.com (custom return path that carries SPF and routes bounces; the apex SPF record is left untouched) and a DMARC record.",
+  "variableDescription": "dkimselector: the DKIM selector shown on the Bytesms domain page (default bytesms). dkimkey: the DKIM public key (base64 SPKI, the p= value). rpsubdomain: the return-path subdomain label shown on the Bytesms domain page (default send; a single DNS label).",
+  "logoUrl": "https://bytesms.com/domain-connect-logo.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "bytesms.com",
+  "syncRedirectDomain": "bytesms.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; h=sha256; k=rsa; p=%dkimkey%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mta",
+      "type": "CNAME",
+      "host": "%rpsubdomain%",
+      "pointsTo": "mta.bytesms.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
