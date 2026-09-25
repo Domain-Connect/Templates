@@ -1,0 +1,32 @@
+{
+  "providerId": "footfall.events",
+  "providerName": "Footfall",
+  "serviceId": "custom-email",
+  "serviceName": "Branded email sending",
+  "version": 1,
+  "description": "Connect the DNS records required for branded Footfall email sending.",
+  "variableDescription": "MXTARGET is the provider return-path MX target. DKIMVALUE is the provider DKIM public key value.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.footfall.events",
+  "records": [
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%MXTARGET%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%DKIMVALUE%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Exact"
+    }
+  ]
+}
