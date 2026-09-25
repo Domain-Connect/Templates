@@ -3,60 +3,18 @@
   "providerName": "ThaiBulkSMS",
   "serviceId": "email",
   "serviceName": "ThaiBulkMail Email Service",
-  "version": 3,
+  "version": 4,
   "logoUrl": "https://www.thaibulksms.com/assets/images/og-tbs-main.jpg",
-  "description": "Complete email authentication setup for ThaiBulkMail: DKIM, SPF, DMARC. Required for Gmail, Outlook, and Yahoo deliverability.",
-  "variableDescription": "dkimSelector: DKIM selector (default: 'default'). dkimSelector1/2/3: Additional DKIM selectors for key rotation.",
+  "description": "Configure the DKIM and SPF records required to verify a ThaiBulkMail sending domain.",
+  "variableDescription": "dkimSelector1..4 are the DKIM selectors issued by ThaiBulkMail.",
   "syncPubKeyDomain": "thaibulksms.com",
   "syncBlock": false,
   "syncRedirectDomain": "thaibulksms.com",
   "records": [
-    {
-      "groupId": "dkim",
-      "type": "CNAME",
-      "host": "%dkimSelector%._domainkey",
-      "pointsTo": "%dkimSelector%._domainkey.%fqdn%.v.thaibulkmail.com",
-      "ttl": 3600
-    },
-    {
-      "groupId": "dkim",
-      "type": "CNAME",
-      "host": "%dkimSelector1%._domainkey",
-      "pointsTo": "%dkimSelector1%._domainkey.v.thaibulkmail.com",
-      "ttl": 3600
-    },
-    {
-      "groupId": "dkim",
-      "type": "CNAME",
-      "host": "%dkimSelector2%._domainkey",
-      "pointsTo": "%dkimSelector2%._domainkey.v.thaibulkmail.com",
-      "ttl": 3600
-    },
-    {
-      "groupId": "dkim",
-      "type": "CNAME",
-      "host": "%dkimSelector3%._domainkey",
-      "pointsTo": "%dkimSelector3%._domainkey.v.thaibulkmail.com",
-      "ttl": 3600
-    },
-    {
-      "groupId": "spf",
-      "type": "SPFM",
-      "host": "@",
-      "spfRules": "include:_spf.thaibulkmail.com"
-    },
-    {
-      "groupId": "dmarc",
-      "type": "CNAME",
-      "host": "_dmarc",
-      "pointsTo": "_dmarc.%fqdn%.v.thaibulkmail.com",
-      "ttl": 3600
-    },
-    {
-      "groupId": "mailfrom",
-      "type": "SPFM",
-      "host": "mail",
-      "spfRules": "include:_spf.thaibulkmail.com"
-    }
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkimSelector1%._domainkey", "pointsTo": "%dkimSelector1%._domainkey.v.thaibulkmail.com", "ttl": 3600 },
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkimSelector2%._domainkey", "pointsTo": "%dkimSelector2%._domainkey.v.thaibulkmail.com", "ttl": 3600 },
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkimSelector3%._domainkey", "pointsTo": "%dkimSelector3%._domainkey.v.thaibulkmail.com", "ttl": 3600 },
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkimSelector4%._domainkey", "pointsTo": "%dkimSelector4%._domainkey.v.thaibulkmail.com", "ttl": 3600 },
+    { "groupId": "spf", "type": "SPFM", "host": "@", "spfRules": "include:v.thaibulkmail.com" }
   ]
 }

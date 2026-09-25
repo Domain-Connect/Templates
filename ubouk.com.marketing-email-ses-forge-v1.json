@@ -1,0 +1,41 @@
+{
+  "providerId": "ubouk.com",
+  "providerName": "Ubouk",
+  "serviceId": "marketing-email-ses-forge-v1",
+  "serviceName": "Marketing email",
+  "version": 1,
+  "description": "Connect your domain to send marketing emails with Ubouk. Your existing mailbox stays with your current mail provider.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.ubouk.com",
+  "syncRedirectDomain": "ubouk.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com.",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim1Value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net.",
+      "ttl": 3600
+    }
+  ],
+  "variableDescription": "region: Amazon SES region supplied by Resend; dkim1Value: RSA public key supplied by Resend. The rsend CNAME target and DKIM host are fixed. Ubouk validates all four records and signs the request.",
+  "logoUrl": "https://ubouk.com/brand-wordmark.png"
+}
