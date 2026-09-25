@@ -3,7 +3,7 @@
   "providerName": "Carpe Messaging",
   "serviceId": "sending-domain",
   "serviceName": "Send from your own domain",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://carpemessaging.com/domain-connect-logo.svg",
   "syncBlock": false,
   "syncPubKeyDomain": "carpemessaging.com",
@@ -12,21 +12,21 @@
       "type": "CNAME",
       "host": "%t1%._domainkey",
       "ttl": 3600,
-      "pointsTo": "%t1%.%zone%",
+      "pointsTo": "%t1%.%dkimzone%",
       "groupId": "email"
     },
     {
       "type": "CNAME",
       "host": "%t2%._domainkey",
       "ttl": 3600,
-      "pointsTo": "%t2%.%zone%",
+      "pointsTo": "%t2%.%dkimzone%",
       "groupId": "email"
     },
     {
       "type": "CNAME",
       "host": "%t3%._domainkey",
       "ttl": 3600,
-      "pointsTo": "%t3%.%zone%",
+      "pointsTo": "%t3%.%dkimzone%",
       "groupId": "email"
     },
     {

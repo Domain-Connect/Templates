@@ -3,10 +3,10 @@
     "providerName": "Postra",
     "serviceId": "mail",
     "serviceName": "Postra Mail",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://postra.it/assets/postra-logo.svg",
     "description": "Configures a domain for Postra email hosting: ownership verification, inbound MX, SPF, DKIM, outbound relay authentication and DMARC.",
-    "variableDescription": "%token%: Postra ownership verification token; %dkimkey%: Ed25519 DKIM public key (p= value) for the postra selector; %relaydkimselector%: outbound relay (SMTP2GO) DKIM selector, e.g. s123456",
+    "variableDescription": "%token%: Postra ownership verification token; %dkimkey%: Ed25519 DKIM public key (p= value) for the postra selector",
     "syncBlock": false,
     "syncPubKeyDomain": "postra.it",
     "syncRedirectDomain": "panel.postra.it",
@@ -52,7 +52,7 @@
         {
             "groupId": "mail",
             "type": "CNAME",
-            "host": "%relaydkimselector%._domainkey",
+            "host": "s797385._domainkey",
             "pointsTo": "dkim.smtp2go.net",
             "ttl": 3600
         },
