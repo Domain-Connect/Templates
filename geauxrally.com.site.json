@@ -1,0 +1,22 @@
+{
+  "providerId": "geauxrally.com",
+  "providerName": "Rally",
+  "serviceId": "site",
+  "serviceName": "Rally Site",
+  "version": 1,
+  "logoUrl": "https://geauxrally.com/favicon.png",
+  "description": "Points www at a Rally-hosted business website. Only the www CNAME is added; every other record is left as it is.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "geauxrally.com",
+  "syncRedirectDomain": "geauxrally.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.geauxrally.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

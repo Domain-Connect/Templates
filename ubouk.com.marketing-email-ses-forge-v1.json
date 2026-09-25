@@ -3,7 +3,7 @@
   "providerName": "Ubouk",
   "serviceId": "marketing-email-ses-forge-v1",
   "serviceName": "Marketing email",
-  "version": 1,
+  "version": 2,
   "description": "Connect your domain to send marketing emails with Ubouk. Your existing mailbox stays with your current mail provider.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.ubouk.com",
@@ -12,7 +12,7 @@
     {
       "type": "MX",
       "host": "send",
-      "pointsTo": "feedback-smtp.%region%.amazonses.com.",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
       "priority": 10,
       "ttl": 3600
     },
@@ -32,7 +32,7 @@
     {
       "type": "CNAME",
       "host": "rsend",
-      "pointsTo": "send.forge.rmta.net.",
+      "pointsTo": "send.forge.rmta.net",
       "ttl": 3600
     }
   ],
