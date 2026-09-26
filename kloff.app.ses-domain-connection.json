@@ -42,6 +42,7 @@
       "host": "_dmarc",
       "data": "v=DMARC1; p=none;",
       "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
       "ttl": 3600
     }
   ]
