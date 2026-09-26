@@ -3,14 +3,14 @@
     "providerName": "Sentroy",
     "serviceId": "email-setup",
     "serviceName": "Sentroy DNS Setup",
-    "version": 2,
+    "version": 3,
     "logoUrl": "https://sentroy.com/business/sentroy-logo-light.png",
     "description": "Configure Sentroy Mail DNS or verify a Contral website; each flow selects only its own record groups",
     "variableDescription": "serverIp: mail server IP address, dkimSelector: DKIM selector name, dkimPublicKey: DKIM public key, dmarcEmail: email for DMARC reports, token: Contral domain verification challenge (Contral group only)",
     "syncBlock": false,
     "hostRequired": false,
     "syncPubKeyDomain": "sentroy.com",
-    "syncRedirectDomain": "mail.sentroy.com, sentroy.com",
+    "syncRedirectDomain": "mail.sentroy.com,sentroy.com",
     "records": [
         {
             "groupId": "sentroy-spf",
