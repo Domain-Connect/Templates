@@ -1,0 +1,31 @@
+{
+  "providerId": "runlite.in",
+  "providerName": "RunLite",
+  "serviceId": "customdomain",
+  "serviceName": "RunLite custom domain",
+  "version": 1,
+  "logoUrl": "https://runlite.in/icon.png",
+  "description": "Connects a hostname (e.g. www) to a website hosted on RunLite: proves ownership for its HTTPS certificate, then points the hostname at RunLite's CDN.",
+  "variableDescription": "acmToken/acmTarget: the variable parts of the AWS Certificate Manager ownership CNAME (_<acmToken> -> _<acmTarget>.acm-validations.aws). cfTarget: the site's CloudFront distribution label (<cfTarget>.cloudfront.net).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "runlite.in",
+  "syncRedirectDomain": "app.runlite.in",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "validate",
+      "type": "CNAME",
+      "host": "_%acmToken%",
+      "pointsTo": "_%acmTarget%.acm-validations.aws",
+      "ttl": 3600
+    },
+    {
+      "groupId": "point",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cfTarget%.cloudfront.net",
+      "ttl": 3600
+    }
+  ]
+}
