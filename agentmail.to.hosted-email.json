@@ -1,0 +1,53 @@
+{
+  "providerId": "agentmail.to",
+  "providerName": "AgentMail",
+  "serviceId": "hosted-email",
+  "serviceName": "Hosted Email",
+  "version": 1,
+  "logoUrl": "https://www.agentmail.to/favicon.ico",
+  "description": "Sets up the MX, SPF, DKIM, and DMARC records required to receive and send email for your domain through AgentMail hosted email.",
+  "syncPubKeyDomain": "inboxtopia.com",
+  "syncRedirectDomain": "inboxtopia.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "a",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxtarget%",
+      "priority": "%mxpriority%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a",
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "%mxtargetmail%",
+      "priority": "%mxprioritymail%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a",
+      "type": "TXT",
+      "host": "agentmail._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimp%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "a",
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "a",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject; rua=mailto:dmarc@%domain%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
