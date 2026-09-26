@@ -1,0 +1,21 @@
+{
+  "providerId": "anvilmail.io",
+  "providerName": "Anvil Mail",
+  "serviceId": "dmarc",
+  "serviceName": "Managed DMARC",
+  "version": 1,
+  "logoUrl": "https://anvilmail.io/domainconnect/logo.png",
+  "description": "Delegates your DMARC record to Anvil Mail with one CNAME, so your provider can manage policy and reporting for you without further DNS edits. Your existing mail flow is not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.anvilmail.io",
+  "syncRedirectDomain": "anvilmail.io",
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%dmarcTarget%",
+      "ttl": 3600
+    }
+  ]
+}
