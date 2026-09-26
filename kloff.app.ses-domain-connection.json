@@ -1,0 +1,49 @@
+{
+  "providerId": "kloff.app",
+  "providerName": "Kloff",
+  "serviceId": "ses-domain-connection",
+  "serviceName": "Kloff domain auto connection",
+  "version": 1,
+  "logoUrl": "https://assets.kloff.app/brand/icon.svg",
+  "description": "Configure DNS records required for Kloff email sending and receiving.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "kloff.app",
+  "syncRedirectDomain": "kloff.app",
+  "variableDescription": "%selector1%: DKIM selector, %dkimPublicKey%: DKIM public key, %region%: AWS SES region",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%selector1%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimPublicKey%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "ttl": 3600
+    }
+  ]
+}
