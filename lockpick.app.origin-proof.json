@@ -1,0 +1,23 @@
+{
+  "providerId": "lockpick.app",
+  "providerName": "Lockpick",
+  "serviceId": "origin-proof",
+  "serviceName": "Lockpick origin verification",
+  "version": 1,
+  "description": "Publishes the TXT record Lockpick uses to confirm you control a site before assessing it.",
+  "logoUrl": "https://www.lockpick.app/brand/lockpick-wordmark.svg",
+  "variableDescription": "proof: the 64-character hex token Lockpick issued for this site",
+  "syncBlock": false,
+  "syncPubKeyDomain": "lockpick.app",
+  "syncRedirectDomain": "www.lockpick.app,staging.lockpick.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_lockpick-challenge",
+      "data": "lockpick-verification=%proof%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
