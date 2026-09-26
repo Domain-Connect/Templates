@@ -1,0 +1,20 @@
+{
+  "providerId": "cypacky.com",
+  "providerName": "Cypacky",
+  "serviceId": "team-domain-verification",
+  "serviceName": "Team domain verification",
+  "version": 1,
+  "syncPubKeyDomain": "cypacky.com",
+  "syncRedirectDomain": "dash.cypacky.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_cypacky-verify",
+      "data": "%verifytxt%",
+      "ttl": 300,
+      "groupId": "verification",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "cypacky-verify="
+    }
+  ]
+}
