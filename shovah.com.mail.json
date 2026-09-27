@@ -1,0 +1,103 @@
+{
+  "providerId": "shovah.com",
+  "providerName": "Shovah",
+  "serviceId": "mail",
+  "serviceName": "Shovah Mail",
+  "version": 1,
+  "description": "Connects a domain to Shovah mailboxes: the ownership record, MX, SPF (merged), DKIM, DMARC and the settings records of mail programs. Each group applies on its own: DMARC only when the domain has none, and MX only for a domain that receives mail.",
+  "variableDescription": "%verifytoken%: the random token that proves the ownership of the domain (letters and digits). %dnslabel%: the random label of the domain in the names of Shovah (letters and digits).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "app.shovah.com",
+  "syncRedirectDomain": "app.shovah.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_shovah-verify",
+      "data": "shovah-verify=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.shovah.com",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.shovah.com"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "shovah1._domainkey",
+      "pointsTo": "shovah1.%dnslabel%.dkim.shovah.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%dnslabel%@dmarc.shovah.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "autoconfig",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mail.shovah.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "autoconfig",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mail.shovah.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "autoconfig",
+      "type": "SRV",
+      "name": "@",
+      "service": "_imaps",
+      "protocol": "_tcp",
+      "target": "mail.shovah.com",
+      "ttl": 3600,
+      "priority": 0,
+      "weight": 1,
+      "port": 993
+    },
+    {
+      "groupId": "autoconfig",
+      "type": "SRV",
+      "name": "@",
+      "service": "_submissions",
+      "protocol": "_tcp",
+      "target": "mail.shovah.com",
+      "ttl": 3600,
+      "priority": 0,
+      "weight": 1,
+      "port": 465
+    },
+    {
+      "groupId": "autoconfig",
+      "type": "SRV",
+      "name": "@",
+      "service": "_submission",
+      "protocol": "_tcp",
+      "target": "mail.shovah.com",
+      "ttl": 3600,
+      "priority": 0,
+      "weight": 1,
+      "port": 587
+    }
+  ]
+}
