@@ -4,9 +4,12 @@
   "serviceId": "email",
   "serviceName": "E-mail",
   "version": 1,
-  "description": "Publica os registros de e-mail e os apelidos deste domínio. NS e SOA ficam com o provedor de DNS.",
+  "logoUrl": "https://criamos.site/app/logo_primary.png",
+  "description": "Publishes this domain's mail records: service CNAMEs, apex addresses, MX, SPF, DKIM, DMARC and autodiscover. NS and SOA stay with the DNS provider.",
+  "variableDescription": "CNAME, A, MX and SRV targets are the full destinations published by the mail platform. spfRules is the SPF mechanisms without v=spf1 and without the all qualifier. DKIM data is the full TXT value required by RFC 6376. DMARC data is the full TXT value required by RFC 7489. DKIM hosts are selector._domainkey.",
   "syncBlock": false,
   "syncPubKeyDomain": "criamos.site",
+  "syncRedirectDomain": "criamos.site",
   "records": [
     {
       "groupId": "www",
@@ -129,22 +132,25 @@
     {
       "groupId": "dkim1",
       "type": "TXT",
-      "host": "%dkim1Host%",
+      "host": "%dkim1Selector%._domainkey",
       "data": "%dkim1Data%",
+      "txtConflictMatchingMode": "All",
       "ttl": 7200
     },
     {
       "groupId": "dkim2",
       "type": "TXT",
-      "host": "%dkim2Host%",
+      "host": "%dkim2Selector%._domainkey",
       "data": "%dkim2Data%",
+      "txtConflictMatchingMode": "All",
       "ttl": 7200
     },
     {
       "groupId": "dkim3",
       "type": "TXT",
-      "host": "%dkim3Host%",
+      "host": "%dkim3Selector%._domainkey",
       "data": "%dkim3Data%",
+      "txtConflictMatchingMode": "All",
       "ttl": 7200
     },
     {
@@ -152,6 +158,9 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "%dmarcData%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
       "ttl": 7200
     }
   ]
