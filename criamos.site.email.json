@@ -5,19 +5,12 @@
   "serviceName": "E-mail",
   "version": 1,
   "logoUrl": "https://criamos.site/app/logo_primary.png",
-  "description": "Publishes this domain's mail records: service CNAMEs, apex addresses, MX, SPF, DKIM, DMARC and autodiscover. NS and SOA stay with the DNS provider.",
-  "variableDescription": "CNAME, A, MX and SRV targets are the full destinations published by the mail platform. spfRules is the SPF mechanisms without v=spf1 and without the all qualifier. DKIM data is the full TXT value required by RFC 6376. DMARC data is the full TXT value required by RFC 7489. DKIM hosts are selector._domainkey.",
+  "description": "Publishes this domain's mail records: mail CNAMEs, MX, SPF, DKIM, DMARC and autodiscover. Site records such as www, ftp and apex addresses stay out. NS and SOA stay with the DNS provider.",
+  "variableDescription": "CNAME, MX and SRV targets are the full destinations published by the mail platform. spfRules is the SPF mechanisms without v=spf1 and without the all qualifier. DKIM data is the full TXT value required by RFC 6376. DMARC data is the full TXT value required by RFC 7489. DKIM hosts are selector._domainkey.",
   "syncBlock": false,
   "syncPubKeyDomain": "criamos.site",
   "syncRedirectDomain": "criamos.site",
   "records": [
-    {
-      "groupId": "www",
-      "type": "CNAME",
-      "host": "www",
-      "pointsTo": "%wwwTarget%",
-      "ttl": 7200
-    },
     {
       "groupId": "webmail",
       "type": "CNAME",
@@ -61,13 +54,6 @@
       "ttl": 7200
     },
     {
-      "groupId": "ftp",
-      "type": "CNAME",
-      "host": "ftp",
-      "pointsTo": "%ftpTarget%",
-      "ttl": 7200
-    },
-    {
       "groupId": "autoconfig",
       "type": "CNAME",
       "host": "autoconfig",
@@ -79,20 +65,6 @@
       "type": "CNAME",
       "host": "autodiscover",
       "pointsTo": "%autodiscoverTarget%",
-      "ttl": 7200
-    },
-    {
-      "groupId": "a",
-      "type": "A",
-      "host": "@",
-      "pointsTo": "%aTarget%",
-      "ttl": 7200
-    },
-    {
-      "groupId": "aAlt",
-      "type": "A",
-      "host": "@",
-      "pointsTo": "%aAltTarget%",
       "ttl": 7200
     },
     {
