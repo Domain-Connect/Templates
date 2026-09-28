@@ -13,7 +13,7 @@
       "type": "MX",
       "host": "@",
       "pointsTo": "%mx1target%",
-      "priority": "%mx1prio%",
+      "priority": "%mxPrio%",
       "ttl": 3600
     },
     {
@@ -21,7 +21,7 @@
       "type": "MX",
       "host": "@",
       "pointsTo": "%mx2target%",
-      "priority": "%mx2prio%",
+      "priority": "%mxAltPrio%",
       "ttl": 3600
     },
     {
