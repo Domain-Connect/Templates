@@ -10,11 +10,28 @@
   "syncBlock": false,
   "sharedProviderName": false,
   "syncPubKeyDomain": "maxwep.in",
-  "syncRedirectDomain": "affilix.maxwep.in,affilix.pages.dev",
+  "syncRedirectDomain": "affilix.pages.dev,affilix.maxwep.in",
   "hostRequired": true,
   "records": [
-    { "type": "CNAME", "host": "@", "pointsTo": "frm.maxwep.in", "ttl": 3600 },
-    { "type": "TXT", "host": "_acme-challenge", "data": "%dcv1%", "ttl": 300, "txtConflictMatchingMode": "None" },
-    { "type": "TXT", "host": "_acme-challenge", "data": "%dcv2%", "ttl": 300, "txtConflictMatchingMode": "None" }
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "frm.maxwep.in",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%dcv1%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%dcv2%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
   ]
 }
