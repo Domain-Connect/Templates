@@ -1,0 +1,36 @@
+{
+  "providerId": "maxwep.in",
+  "providerName": "Affilix",
+  "serviceId": "customdomain",
+  "serviceName": "Custom offer domain",
+  "version": 1,
+  "description": "Points a subdomain at Affilix offer pages and publishes the TXT records that validate its TLS certificate.",
+  "variableDescription": "target: the Affilix hostname the CNAME points at. dcv1, dcv2: certificate validation tokens (one per certificate of a dual ECC/RSA pair).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "maxwep.in",
+  "syncRedirectDomain": "affilix.pages.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%dcv1%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%dcv2%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
