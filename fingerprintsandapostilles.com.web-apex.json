@@ -1,0 +1,20 @@
+{
+  "providerId": "fingerprintsandapostilles.com",
+  "providerName": "Fingerprints and Apostilles",
+  "serviceId": "web-apex",
+  "serviceName": "Order page (bare domain)",
+  "version": 1,
+  "logoUrl": "https://fingerprintsandapostilles.com/images/logo.png",
+  "description": "Points a partner's bare domain (for example example.com) at their white-labelled order page with one A record. Applied without a host; the web template covers a subdomain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "fingerprintsandapostilles.com",
+  "syncRedirectDomain": "partners.fingerprintsandapostilles.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    }
+  ]
+}

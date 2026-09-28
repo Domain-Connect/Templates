@@ -1,0 +1,20 @@
+{
+  "providerId": "netivo.co.ke",
+  "providerName": "Netivo",
+  "serviceId": "netivo",
+  "serviceName": "Netivo Sitemap Hosting",
+  "version": 1,
+  "syncBlock": false,
+  "logoUrl": "https://studio.netivo.co.ke/static/img/netivo-logo.svg",
+  "description": "Hosts a sitemap for the domain at nse.<domain>/sitemap.xml, served over HTTPS.",
+  "syncPubKeyDomain": "netivo.co.ke",
+  "syncRedirectDomain": "studio.netivo.co.ke",
+  "records": [
+    {
+      "type": "A",
+      "host": "nse",
+      "pointsTo": "167.233.254.126",
+      "ttl": "3600"
+    }
+  ]
+}

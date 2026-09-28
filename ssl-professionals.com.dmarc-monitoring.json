@@ -1,0 +1,24 @@
+{
+  "providerId": "ssl-professionals.com",
+  "providerName": "SSL Professionals",
+  "serviceId": "dmarc-monitoring",
+  "serviceName": "DMARC monitoring",
+  "version": 1,
+  "logoUrl": "https://ssl-professionals.com/images/logo-dark.svg",
+  "description": "Publish a monitoring-only DMARC policy with aggregate reports sent to the approved reporting mailbox.",
+  "variableDescription": "rua_mailbox: the approved mailbox that receives DMARC aggregate reports, without the mailto: prefix.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.ssl-professionals.com",
+  "syncRedirectDomain": "ssl-professionals.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%rua_mailbox%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+    "providerId": "wisp.gg",
+    "providerName": "Wisp",
+    "serviceId": "webgateway",
+    "serviceName": "Web Gateway",
+    "version": 1,
+    "hostRequired": true,
+    "logoUrl": "https://cdn.wisp.gg/assets/connect/square.svg",
+    "description": "Serves a website for your game server through the Wisp web gateway, with automatic HTTPS.",
+    "variableDescription": "target is the hostname of the web gateway assigned by the Wisp panel managing the game server (for example gateway.physgun.com). Wisp is a multi-tenant, white-label platform, so the gateway hostname differs per hosting company and cannot be fixed in the template; apply requests are signed (syncPubKeyDomain).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "dc.wisp.gg",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 3600,
+            "essential": "Always"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+  "providerId": "peachjam.dev",
+  "providerName": "PeachJam",
+  "serviceId": "custom-domain-subdomain",
+  "serviceName": "PeachJam custom domain",
+  "version": 1,
+  "logoUrl": "https://peachjam.dev/favicon.svg",
+  "description": "Connects a subdomain to a PeachJam project and adds the ownership verification record.",
+  "variableDescription": "target is the PeachJam routing host prefix. verification is the project's ownership verification value.",
+  "syncPubKeyDomain": "peachjam.dev",
+  "syncRedirectDomain": "peachjam.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%.peachjam.dev",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_peachjam-challenge",
+      "data": "peachjam-site-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "peachjam-site-verification="
+    }
+  ]
+}

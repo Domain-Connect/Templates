@@ -1,0 +1,20 @@
+{
+  "providerId": "pointer.ojieame.design",
+  "providerName": "Pointer",
+  "serviceId": "public-website",
+  "serviceName": "Connect your website",
+  "version": 1,
+  "logoUrl": "https://pointer.ojieame.design/favicon.svg",
+  "description": "Connect a verified public website to your chosen subdomain with Pointer.",
+  "variableDescription": "%target%: operator-selected Pointer delivery hostname; %proof%: 32-character hexadecimal Pointer ownership code without its fixed prefix; %ownership%: Cloudflare-issued hostname ownership token; %certificate%: Cloudflare-issued certificate validation token",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.pointer.ojieame.design",
+  "syncRedirectDomain": "pointer.ojieame.design",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 300 },
+    { "type": "TXT", "host": "_pointer", "data": "pointer-%proof%", "ttl": 300, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "pointer-" },
+    { "type": "TXT", "host": "_cf-custom-hostname", "data": "%ownership%", "ttl": 300, "txtConflictMatchingMode": "All" },
+    { "type": "TXT", "host": "_acme-challenge", "data": "%certificate%", "ttl": 300, "txtConflictMatchingMode": "None", "essential": "OnApply" }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "providerId": "mailcore.uz",
+  "providerName": "Mailcore",
+  "serviceId": "domain-verification",
+  "serviceName": "Mailcore domain verification",
+  "version": 1,
+  "syncPubKeyDomain": "mailcore.uz",
+  "syncBlock": false,
+  "description": "Verifies control of a domain before Mailcore corporate email onboarding.",
+  "logoUrl": "https://mailcore.uz/assets/brand/mailcore-mark.svg",
+  "variableDescription": "verification is the 32-character lowercase hexadecimal token from a server-generated Mailcore ownership challenge.",
+  "records": [
+    {
+      "essential": "OnApply",
+      "type": "TXT",
+      "host": "@",
+      "ttl": 300,
+      "data": "mailcore-verify=%verification%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mailcore-verify="
+    }
+  ]
+}

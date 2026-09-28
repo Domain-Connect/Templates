@@ -1,0 +1,36 @@
+{
+  "providerId": "neoo.io",
+  "providerName": "Neoo",
+  "serviceId": "forge-site",
+  "serviceName": "Neoo Forge",
+  "version": 1,
+  "logoUrl": "https://neoo.io/assets/favicon.svg",
+  "description": "Connects a domain to a Neoo Forge application: www is served by Neoo and the root domain redirects to it.",
+  "variableDescription": "proof: Neoo Forge ownership proof for this project",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "neoo.io",
+  "syncRedirectDomain": "forge.neoo.io,registry.neoo.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.neoo.io",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_neoo-challenge.www",
+      "data": "neoo-site=%proof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "185.47.31.21",
+      "ttl": 3600
+    }
+  ]
+}

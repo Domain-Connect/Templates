@@ -1,0 +1,53 @@
+{
+  "providerId": "servicelocal.ai",
+  "providerName": "ServiceLocal",
+  "serviceId": "email",
+  "serviceName": "Agency sending domain",
+  "version": 1,
+  "description": "Authenticate a dedicated subdomain for agency email sending. Existing root-domain mailboxes are unchanged.",
+  "variableDescription": "token1, token2 and token3 are AWS SES DKIM tokens; region is the SES region; proof is the unique connection ownership token. ServiceLocal signs all values.",
+  "syncPubKeyDomain": "domainconnect.servicelocal.ai",
+  "syncRedirectDomain": "app.servicelocal.ai,app.servicelocal.fyi,app.servicelocal.eu",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_servicelocal",
+      "data": "%proof%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "%token1%._domainkey",
+      "pointsTo": "%token1%.dkim.amazonses.com",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%token2%._domainkey",
+      "pointsTo": "%token2%.dkim.amazonses.com",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "%token3%._domainkey",
+      "pointsTo": "%token3%.dkim.amazonses.com",
+      "ttl": 600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ],
+  "logoUrl": "https://servicelocal.ai/logo.svg"
+}

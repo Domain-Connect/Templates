@@ -1,0 +1,21 @@
+{
+  "providerId": "linker.aquarela.app",
+  "providerName": "linker by aquarela",
+  "serviceId": "route",
+  "serviceName": "Connect subdomain to Linker",
+  "version": 1,
+  "description": "Routes subdomain traffic to the origin prepared for linker by aquarela.",
+  "variableDescription": "target: public hostname of the origin configured by the service operator.",
+  "syncPubKeyDomain": "domainconnect.linker.aquarela.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300,
+      "essential": "OnApply"
+    }
+  ],
+  "syncRedirectDomain": "linker.aquarela.app",
+  "hostRequired": true
+}

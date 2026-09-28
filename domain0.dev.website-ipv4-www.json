@@ -1,0 +1,28 @@
+{
+  "providerId": "domain0.dev",
+  "providerName": "Domain0",
+  "version": 1,
+  "logoUrl": "https://www.domain0.dev/brand/domain0-logo-white.svg",
+  "syncPubKeyDomain": "domain0.dev",
+  "syncRedirectDomain": "domain0.dev",
+  "serviceId": "website-ipv4-www",
+  "serviceName": "Website IPv4 and www connection",
+  "description": "Connect the selected hostname by A record and its www child by CNAME only when both records are in the integrating application's saved intent. Does not provision HTTP redirects.",
+  "variableDescription": "ipv4: the saved IPv4 destination. target: the saved fully qualified destination for the www CNAME.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

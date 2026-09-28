@@ -1,0 +1,25 @@
+{
+  "providerId": "krynox.net",
+  "providerName": "Krynox",
+  "serviceId": "domain-verification",
+  "serviceName": "Krynox domain verification",
+  "logoUrl": "https://krynox.net/favicon-light.png",
+  "description": "Add the DNS record that proves you control this domain so Krynox Captcha can issue challenges for it.",
+  "variableDescription": "token: the one-time verification value Krynox generated for this domain",
+  "syncBlock": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "krynox.net",
+  "multiInstance": false,
+  "version": 1,
+  "records": [
+    {
+      "groupId": "krynox-challenge",
+      "type": "TXT",
+      "host": "_krynox-challenge",
+      "data": "krynox-verify=%token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "krynox-verify=",
+      "ttl": 3600
+    }
+  ]
+}

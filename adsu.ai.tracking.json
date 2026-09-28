@@ -1,0 +1,27 @@
+{
+    "providerId": "adsu.ai",
+    "providerName": "Adsu",
+    "serviceId": "tracking",
+    "serviceName": "Adsu first-party tracking",
+    "version": 1,
+    "description": "Serves Adsu's first-party tracking script from the gym's own subdomain (e.g. track.yourgym.com) and proves domain ownership, so ad-click attribution survives browser tracking protections.",
+    "syncPubKeyDomain": "adsu.ai",
+    "syncRedirectDomain": "app.adsu.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cname.adsu.ai",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_adsu-verify",
+            "data": "adsu-verify=%verifytoken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "adsu-verify="
+        }
+    ]
+}

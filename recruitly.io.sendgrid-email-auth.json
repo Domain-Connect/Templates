@@ -1,0 +1,17 @@
+{
+  "providerId": "recruitly.io",
+  "providerName": "Recruitly",
+  "serviceId": "sendgrid-email-auth",
+  "serviceName": "Recruitly Email Authentication",
+  "version": 1,
+  "description": "Authenticates a sending domain for Recruitly (SendGrid-backed) by adding the three link-branding / DKIM CNAME records. All three are applied together via the synchronous flow.",
+  "variableDescription": "%mailhost%/%mailtarget%: link-branding (em####) CNAME name + target; %dkim1target%/%dkim2target%: the two DKIM CNAME targets. The DKIM host names are fixed (rly._domainkey / rly2._domainkey) — Recruitly's SendGrid account uses a constant custom DKIM selector — so only their targets vary per-domain (supplied from the SendGrid domain-authentication API).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dcsig.recruitly.io",
+  "syncRedirectDomain": "dnsconnect.recruitly.app",
+  "records": [
+    { "type": "CNAME", "host": "%mailhost%", "pointsTo": "%mailtarget%", "ttl": 3600 },
+    { "type": "CNAME", "host": "rly._domainkey", "pointsTo": "%dkim1target%", "ttl": 3600 },
+    { "type": "CNAME", "host": "rly2._domainkey", "pointsTo": "%dkim2target%", "ttl": 3600 }
+  ]
+}

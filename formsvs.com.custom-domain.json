@@ -1,0 +1,20 @@
+{
+  "providerId": "formsvs.com",
+  "providerName": "FormsVS",
+  "serviceId": "custom-domain",
+  "serviceName": "Domínio próprio no FormsVS",
+  "version": 1,
+  "description": "Publica os formulários da sua empresa num endereço seu, como formularios.suaempresa.com.br",
+  "syncBlock": false,
+  "syncPubKeyDomain": "formsvs.com",
+  "syncRedirectDomain": "app.formsvs.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.formsvs.com",
+      "ttl": 3600
+    }
+  ]
+}

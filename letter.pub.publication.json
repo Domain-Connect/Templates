@@ -1,0 +1,20 @@
+{
+  "providerId": "letter.pub",
+  "providerName": "Letter",
+  "serviceId": "publication",
+  "serviceName": "Custom publication domain",
+  "version": 1,
+  "logoUrl": "https://letter.md/icons/icon-192x192.svg",
+  "description": "Connect a customer-owned subdomain to a Letter publication.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "letter.pub",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.letter.pub.",
+      "ttl": "3600"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "providerId": "vonza.com",
+  "providerName": "Vonza",
+  "serviceId": "custom-domain",
+  "serviceName": "Vonza Custom Domain",
+  "version": 1,
+  "logoUrl": "https://vonza.com/images/logo.png",
+  "description": "Connect your domain to your Vonza website or landing page, including SSL certificate validation.",
+  "variableDescription": "ip: the Vonza load balancer IP assigned to this customer's platform. acmhost: label of the AWS ACM SSL-validation CNAME, without its leading underscore, unique per domain. acmtarget: value of the AWS ACM SSL-validation CNAME, without the fixed .acm-validations.aws suffix, unique per domain.",
+  "syncPubKeyDomain": "vonza.com",
+  "syncRedirectDomain": "vonza.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "hosting",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "hosting",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 600
+    },
+    {
+      "groupId": "ssl",
+      "type": "CNAME",
+      "host": "_%acmhost%",
+      "pointsTo": "%acmtarget%.acm-validations.aws",
+      "ttl": 600
+    }
+  ]
+}

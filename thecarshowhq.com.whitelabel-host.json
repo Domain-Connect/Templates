@@ -1,0 +1,18 @@
+{
+  "providerId": "thecarshowhq.com",
+  "providerName": "Car Show HQ",
+  "serviceId": "whitelabel-host",
+  "serviceName": "Car Show HQ white-label subdomain",
+  "version": 1,
+  "hostRequired": true,
+  "syncPubKeyDomain": "thecarshowhq.com",
+  "description": "Points a subdomain (like show.yourclub.org) at your organization's Car Show HQ site.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

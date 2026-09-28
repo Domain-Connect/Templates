@@ -3,8 +3,10 @@
   "providerName": "DNS Doctor",
   "serviceId": "domainverify",
   "serviceName": "DNS Doctor Domain Verification",
-  "version": 1,
+  "logoUrl": "https://dnsdoctor.dev/icon.png",
+  "version": 2,
   "syncPubKeyDomain": "dnsdoctor.dev",
+  "syncRedirectDomain": "dnsdoctor.dev",
   "description": "Proves domain ownership for DNS Doctor monitoring by adding a single TXT record.",
   "variableDescription": "token is the per-domain ownership verification code DNS Doctor issues when you add a domain. Documentation only — never shown to the user.",
   "records": [

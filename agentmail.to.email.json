@@ -1,0 +1,90 @@
+{
+    "providerId": "agentmail.to",
+    "providerName": "AgentMail",
+    "serviceId": "email",
+    "serviceName": "AgentMail Email",
+    "version": 1,
+    "description": "Configure DNS records for AgentMail custom-domain email: inbound routing, sending authentication (DKIM), SPF, and DMARC.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "agentmail.to",
+    "syncRedirectDomain": "console.agentmail.to",
+    "records": [
+        {
+            "groupId": "inbound",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "core",
+            "type": "MX",
+            "host": "mail",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "core",
+            "type": "SPFM",
+            "host": "mail",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "core",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=reject; rua=mailto:%dmarcrua%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "byodkim",
+            "type": "TXT",
+            "host": "%selector%._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DKIM1"
+        },
+        {
+            "groupId": "subdomains",
+            "type": "MX",
+            "host": "*",
+            "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "tracking",
+            "type": "CNAME",
+            "host": "link",
+            "pointsTo": "%trackingtarget%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "easydkim",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "easydkim",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "easydkim",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        }
+    ]
+}

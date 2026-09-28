@@ -1,0 +1,29 @@
+{
+	"providerId": "postboi.email",
+	"providerName": "Postboi",
+	"serviceId": "forms",
+	"serviceName": "Postboi hosted forms on your own domain",
+	"version": 1,
+	"logoUrl": "https://postboi.email/logo.svg",
+	"description": "Serves your Postboi form endpoints from forms.<yourdomain> instead of postboi.app: a CNAME handing that subdomain to Postboi's edge, plus the TXT record that validates its TLS certificate.",
+	"syncPubKeyDomain": "postboi.email",
+	"syncRedirectDomain": "postboi.email,postboi.app",
+	"syncBlock": false,
+	"shared": false,
+	"hostRequired": false,
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "forms",
+			"pointsTo": "forms.postboi.app",
+			"ttl": 3600
+		},
+		{
+			"type": "TXT",
+			"host": "%dvlabel%.forms",
+			"data": "%dvvalue%",
+			"txtConflictMatchingMode": "All",
+			"ttl": 3600
+		}
+	]
+}

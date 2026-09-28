@@ -1,0 +1,23 @@
+{
+  "providerId": "towerview.site",
+  "providerName": "Towerview",
+  "serviceId": "website",
+  "serviceName": "Towerview website",
+  "version": 1,
+  "logoUrl": "https://towerview.ai/favicon.svg",
+  "description": "Points a subdomain (for example sites.yourfirm.com) at the websites your organisation publishes on Towerview.",
+  "variableDescription": "org: your organisation's Towerview label, e.g. acme, so the record points at acme.towerview.site.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "towerview.site",
+  "syncRedirectDomain": "origin.towerview.ai,staging.towerview.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%org%.towerview.site",
+      "ttl": 3600
+    }
+  ]
+}
