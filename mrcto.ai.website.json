@@ -5,10 +5,12 @@
     "serviceName": "Website",
     "version": 1,
     "logoUrl": "https://www.mrcto.ai/icon.png",
-    "description": "Points a small business domain (apex and www) at the new website we built for it, hosted on Vercel. Only the apex A record(s) and the www CNAME are written; the template has no MX, TXT, SPFM, SRV or NS records, so email and verification records are never touched.",
+    "description": "Points a small business domain (apex and www) at the new website built for it, hosted on Vercel. Only the apex A record(s) and the www CNAME are written; the template has no MX, TXT, SPFM, SRV or NS records, so email and verification records are never touched. sharedProviderName is set so a platform that sells the website can show its own name beside ours on the consent screen; the name is passed on the signed apply URL.",
     "variableDescription": "%ip1%: first apex IPv4 address Vercel assigns the project (from Vercel's domain config API); %ip2%: second apex IPv4 address when Vercel assigns two (group apex2, applied only then); %wwwcname%: the project-specific CNAME target Vercel assigns, e.g. 0123456789abcdef.vercel-dns-016.com",
     "syncPubKeyDomain": "domainconnect.mrcto.ai",
     "syncRedirectDomain": "mrcto.ai,www.mrcto.ai",
+    "sharedProviderName": true,
+    "shared": true,
     "records": [
         {
             "groupId": "apex",
