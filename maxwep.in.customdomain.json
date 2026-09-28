@@ -4,33 +4,17 @@
   "serviceId": "customdomain",
   "serviceName": "Custom offer domain",
   "version": 1,
+  "logoUrl": "https://affilix.maxwep.in/affilix.svg",
   "description": "Points a subdomain at Affilix offer pages and publishes the TXT records that validate its TLS certificate.",
-  "variableDescription": "target: the Affilix hostname the CNAME points at. dcv1, dcv2: certificate validation tokens (one per certificate of a dual ECC/RSA pair).",
+  "variableDescription": "dcv1, dcv2: ACME certificate validation tokens, one per certificate of a dual ECC/RSA pair.",
   "syncBlock": false,
   "sharedProviderName": false,
   "syncPubKeyDomain": "maxwep.in",
-  "syncRedirectDomain": "affilix.pages.dev",
+  "syncRedirectDomain": "affilix.maxwep.in,affilix.pages.dev",
   "hostRequired": true,
   "records": [
-    {
-      "type": "CNAME",
-      "host": "@",
-      "pointsTo": "%target%",
-      "ttl": 3600
-    },
-    {
-      "type": "TXT",
-      "host": "_acme-challenge",
-      "data": "%dcv1%",
-      "ttl": 300,
-      "txtConflictMatchingMode": "None"
-    },
-    {
-      "type": "TXT",
-      "host": "_acme-challenge",
-      "data": "%dcv2%",
-      "ttl": 300,
-      "txtConflictMatchingMode": "None"
-    }
+    { "type": "CNAME", "host": "@", "pointsTo": "frm.maxwep.in", "ttl": 3600 },
+    { "type": "TXT", "host": "_acme-challenge", "data": "%dcv1%", "ttl": 300, "txtConflictMatchingMode": "None" },
+    { "type": "TXT", "host": "_acme-challenge", "data": "%dcv2%", "ttl": 300, "txtConflictMatchingMode": "None" }
   ]
 }
