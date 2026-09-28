@@ -1,0 +1,22 @@
+{
+  "providerId": "domailo.app",
+  "providerName": "Domailo",
+  "serviceId": "domain-ownership",
+  "serviceName": "Verificação de domínio",
+  "version": 1,
+  "logoUrl": "https://domailo.app/favicon.svg",
+  "description": "Comprova que o domínio é seu para criar endereços de e-mail no Domailo.",
+  "variableDescription": "%token%: código de verificação que o Domailo gerou para este domínio",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domailo.app",
+  "syncRedirectDomain": "domailo.app",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_domailo",
+      "data": "domailo-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
