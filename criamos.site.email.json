@@ -1,0 +1,90 @@
+{
+  "providerId": "criamos.site",
+  "providerName": "Criamos.site",
+  "serviceId": "email",
+  "serviceName": "E-mail",
+  "version": 1,
+  "description": "Publica os registros de e-mail deste domínio.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "criamos.site",
+  "records": [
+    {
+      "groupId": "mx1",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx1target%",
+      "priority": "%mx1prio%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mx2",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx2target%",
+      "priority": "%mx2prio%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spfRules%"
+    },
+    {
+      "groupId": "dkim1",
+      "type": "TXT",
+      "host": "%dkim1Host%",
+      "data": "%dkim1Data%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim2",
+      "type": "TXT",
+      "host": "%dkim2Host%",
+      "data": "%dkim2Data%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim3",
+      "type": "TXT",
+      "host": "%dkim3Host%",
+      "data": "%dkim3Data%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarcData%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "CNAME",
+      "host": "mail",
+      "pointsTo": "%mailTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "webmail",
+      "type": "CNAME",
+      "host": "webmail",
+      "pointsTo": "%webmailTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "autoconfig",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "%autoconfigTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "%autodiscoverTarget%",
+      "ttl": 3600
+    }
+  ]
+}
