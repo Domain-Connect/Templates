@@ -4,25 +4,109 @@
   "serviceId": "email",
   "serviceName": "E-mail",
   "version": 1,
-  "description": "Publica os registros de e-mail deste domínio.",
+  "description": "Publica os registros de e-mail e os apelidos deste domínio. NS e SOA ficam com o provedor de DNS.",
   "syncBlock": false,
   "syncPubKeyDomain": "criamos.site",
   "records": [
     {
-      "groupId": "mx1",
-      "type": "MX",
-      "host": "@",
-      "pointsTo": "%mx1target%",
-      "priority": "%mxPrio%",
-      "ttl": 3600
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%wwwTarget%",
+      "ttl": 7200
     },
     {
-      "groupId": "mx2",
+      "groupId": "webmail",
+      "type": "CNAME",
+      "host": "webmail",
+      "pointsTo": "%webmailTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "smtp",
+      "type": "CNAME",
+      "host": "smtp",
+      "pointsTo": "%smtpTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "pop3",
+      "type": "CNAME",
+      "host": "pop3",
+      "pointsTo": "%pop3Target%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "pop",
+      "type": "CNAME",
+      "host": "pop",
+      "pointsTo": "%popTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "mail",
+      "type": "CNAME",
+      "host": "mail",
+      "pointsTo": "%mailTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "imap",
+      "type": "CNAME",
+      "host": "imap",
+      "pointsTo": "%imapTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "ftp",
+      "type": "CNAME",
+      "host": "ftp",
+      "pointsTo": "%ftpTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "autoconfig",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "%autoconfigTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "%autodiscoverTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "a",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%aTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "aAlt",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%aAltTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "mx",
       "type": "MX",
       "host": "@",
-      "pointsTo": "%mx2target%",
+      "pointsTo": "%mxTarget%",
+      "priority": "%mxPrio%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "mxAlt",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxAltTarget%",
       "priority": "%mxAltPrio%",
-      "ttl": 3600
+      "ttl": 7200
     },
     {
       "groupId": "spf",
@@ -31,60 +115,44 @@
       "spfRules": "%spfRules%"
     },
     {
+      "groupId": "srv",
+      "type": "SRV",
+      "service": "_autodiscover",
+      "protocol": "_tcp",
+      "name": "@",
+      "target": "%srvTarget%",
+      "priority": "%srvPrio%",
+      "weight": "%srvWeight%",
+      "port": "%srvPort%",
+      "ttl": 7200
+    },
+    {
       "groupId": "dkim1",
       "type": "TXT",
       "host": "%dkim1Host%",
       "data": "%dkim1Data%",
-      "ttl": 3600
+      "ttl": 7200
     },
     {
       "groupId": "dkim2",
       "type": "TXT",
       "host": "%dkim2Host%",
       "data": "%dkim2Data%",
-      "ttl": 3600
+      "ttl": 7200
     },
     {
       "groupId": "dkim3",
       "type": "TXT",
       "host": "%dkim3Host%",
       "data": "%dkim3Data%",
-      "ttl": 3600
+      "ttl": 7200
     },
     {
       "groupId": "dmarc",
       "type": "TXT",
       "host": "_dmarc",
       "data": "%dmarcData%",
-      "ttl": 3600
-    },
-    {
-      "groupId": "mail",
-      "type": "CNAME",
-      "host": "mail",
-      "pointsTo": "%mailTarget%",
-      "ttl": 3600
-    },
-    {
-      "groupId": "webmail",
-      "type": "CNAME",
-      "host": "webmail",
-      "pointsTo": "%webmailTarget%",
-      "ttl": 3600
-    },
-    {
-      "groupId": "autoconfig",
-      "type": "CNAME",
-      "host": "autoconfig",
-      "pointsTo": "%autoconfigTarget%",
-      "ttl": 3600
-    },
-    {
-      "groupId": "autodiscover",
-      "type": "CNAME",
-      "host": "autodiscover",
-      "pointsTo": "%autodiscoverTarget%",
-      "ttl": 3600
+      "ttl": 7200
     }
   ]
 }
