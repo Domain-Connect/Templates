@@ -1,0 +1,26 @@
+{
+  "providerId": "arythmatic.cloud",
+  "providerName": "Arythmatic LMS",
+  "serviceId": "lms-custom-domain",
+  "serviceName": "Arythmatic LMS — custom domain",
+  "version": 1,
+  "description": "Point a subdomain at your Arythmatic LMS portal. Adds a CNAME to the Arythmatic edge and a TXT record proving you control the domain.",
+  "variableDescription": "verifycode: a one-time, per-domain verification token issued by Arythmatic (not a secret) — it only proves the request came from the LMS tenant that asked to connect this domain.",
+  "syncRedirectDomain": "lms-manage.arythmatic.cloud",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.lms.arythmatic.cloud",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_arythmatic-verify",
+      "data": "arythmatic-tenant-verify=%verifycode%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 300
+    }
+  ]
+}
