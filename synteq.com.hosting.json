@@ -1,0 +1,48 @@
+{
+  "providerId": "synteq.com",
+  "providerName": "Synteq",
+  "serviceId": "hosting",
+  "serviceName": "Synteq Apps & Functions",
+  "version": 1,
+  "logoUrl": "https://synteq.com/domain-connect/logo.png",
+  "description": "Points a domain or subdomain at your Synteq app or function and proves you own it.",
+  "syncPubKeyDomain": "synteq.com",
+  "syncRedirectDomain": "cloud.synteq.com,staging.cloud.synteq.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "A",
+      "groupId": "apex",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "apex",
+      "host": "_synteq-challenge",
+      "data": "synteq-verify=%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "synteq-verify="
+    },
+    {
+      "type": "CNAME",
+      "groupId": "subdomain",
+      "host": "%subdomain%",
+      "pointsTo": "%target%",
+      "ttl": 600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "subdomain",
+      "host": "_synteq-challenge.%subdomain%",
+      "data": "synteq-verify=%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "synteq-verify="
+    }
+  ]
+}
