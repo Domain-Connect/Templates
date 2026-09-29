@@ -1,0 +1,18 @@
+{
+  "providerId": "sitesmith.cloud",
+  "providerName": "SiteSmith",
+  "serviceId": "blog-apex",
+  "serviceName": "SiteSmith Blog (whole domain)",
+  "version": 1,
+  "logoUrl": "https://sitesmith.cloud/icon.png",
+  "description": "Points a domain at a SiteSmith blog and proves you own it.",
+  "variableDescription": "verifyToken: ownership token; ip: the blog server's IPv4 address",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.sitesmith.cloud",
+  "syncRedirectDomain": "workspace.sitesmith.cloud",
+  "hostRequired": false,
+  "records": [
+    { "type": "TXT", "host": "_sitesmith-verify", "data": "sitesmith-verify=%verifyToken%", "ttl": 600, "txtConflictMatchingMode": "All" },
+    { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 600 }
+  ]
+}
