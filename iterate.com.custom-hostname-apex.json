@@ -1,17 +1,17 @@
 {
     "providerId": "iterate.com",
     "providerName": "iterate",
-    "serviceId": "custom-hostname",
-    "serviceName": "iterate custom hostname",
-    "version": 2,
+    "serviceId": "custom-hostname-apex",
+    "serviceName": "iterate custom hostname (root domain)",
+    "version": 1,
     "logoUrl": "https://os.iterate.com/iterate-logo.svg",
-    "description": "Serve an iterate project on a subdomain of your domain: the subdomain and every name under it point at iterate, its TLS certificate is validated by Cloudflare through delegated DCV, and a TXT record names the iterate project, proving the domain's owner chose it.",
+    "description": "Serve an iterate project on your root domain, for DNS providers that support ALIAS/CNAME flattening at the apex: the domain and every name under it point at iterate, its TLS certificate is validated by Cloudflare through delegated DCV, and a TXT record names the iterate project, proving the domain's owner chose it.",
+    "variableDescription": "%project%: the id of the iterate project the hostname is for, like prj_0123456789abcdef",
     "syncPubKeyDomain": "iterate.com",
     "syncRedirectDomain": "dash.iterate.com",
-    "hostRequired": true,
     "records": [
         {
-            "type": "CNAME",
+            "type": "APEXCNAME",
             "host": "@",
             "pointsTo": "cname.iterate.app",
             "ttl": 300
@@ -35,6 +35,5 @@
             "ttl": 300,
             "txtConflictMatchingMode": "All"
         }
-    ],
-    "variableDescription": "%project%: the id of the iterate project the hostname is for, like prj_0123456789abcdef"
+    ]
 }

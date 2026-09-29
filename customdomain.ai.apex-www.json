@@ -3,10 +3,11 @@
   "providerName": "Customdomain",
   "serviceId": "apex-www",
   "serviceName": "Point apex + www",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://customdomain.ai/logo.svg",
   "description": "Point both your root domain and its www hostname at Customdomain in one step: an A record at the apex (@) to the Customdomain edge IPv4 address plus a CNAME from www to the Customdomain edge. Both records apply together.",
   "syncPubKeyDomain": "customdomain.ai",
+  "syncRedirectDomain": "api.customdomain.ai,app.customdomain.ai,customdomain.ai",
   "variableDescription": "%edgeIp%: Customdomain edge IPv4 address to serve the apex domain",
   "records": [
     {

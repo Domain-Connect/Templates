@@ -1,0 +1,68 @@
+{
+    "providerId": "botinbox.dev",
+    "providerName": "BotInbox",
+    "serviceId": "send",
+    "serviceName": "BotInbox Email Sending",
+    "version": 1,
+    "logoUrl": "https://botinbox.dev/brand/botinbox-icon.svg",
+    "description": "Connects a domain (or subdomain passed as host) to BotInbox for sending email only: ownership TXT, three DKIM CNAMEs, a bounce (MAIL FROM) subdomain with MX and SPF, and a starting DMARC policy. It adds no MX record and no SPF record at the domain itself, so existing email (for example Google Workspace or Microsoft 365) is not affected.",
+    "variableDescription": "%verifyToken%: BotInbox domain ownership token (hex); %region%: mail region for the bounce MX, e.g. us-east-1; %dkim1%, %dkim2%, %dkim3%: DKIM selector tokens issued for the domain",
+    "syncPubKeyDomain": "domainconnect.botinbox.dev",
+    "syncRedirectDomain": "botinbox.dev",
+    "records": [
+        {
+            "groupId": "ownership",
+            "type": "TXT",
+            "host": "@",
+            "data": "botinbox-verify=%verifyToken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "botinbox-verify="
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; adkim=r; aspf=r",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}
