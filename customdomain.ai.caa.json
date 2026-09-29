@@ -3,10 +3,11 @@
   "providerName": "Customdomain",
   "serviceId": "caa",
   "serviceName": "Authorize SSL issuance (CAA)",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://customdomain.ai/logo.svg",
   "description": "Authorize Let's Encrypt to issue TLS certificates for your domain by adding the CAA records automatic SSL requires. Without these records, a pre-existing CAA policy on your domain can silently block certificate issuance.",
   "syncPubKeyDomain": "customdomain.ai",
+  "syncRedirectDomain": "api.customdomain.ai,app.customdomain.ai,customdomain.ai",
   "records": [
     {
       "type": "CAA",
