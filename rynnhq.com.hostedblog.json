@@ -5,7 +5,7 @@
   "serviceName": "Rynn Hosted Blog",
   "version": 1,
   "description": "Point a subdomain you own (e.g. blog.yourdomain.com) at your Rynn-hosted blog. Sets the CNAME plus the ownership TXT record so the site goes live and its certificate can issue.",
-  "variableDescription": "host: the subdomain label being connected (e.g. blog). cnametarget: the Rynn fallback-origin CNAME target. txtvalue: the Cloudflare custom-hostname ownership token.",
+  "variableDescription": "cnametarget: the Rynn hosted-blog CNAME target. txtvalue: the ownership verification token issued for your subdomain.",
   "hostRequired": true,
   "syncPubKeyDomain": "rynnhq.com",
   "syncRedirectDomain": "rynnhq.com",
@@ -13,17 +13,16 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "%cnametarget%",
       "ttl": 3600
     },
     {
       "type": "TXT",
-      "host": "_cf-custom-hostname.%host%",
+      "host": "_cf-custom-hostname",
       "data": "%txtvalue%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": ""
+      "txtConflictMatchingMode": "All"
     }
   ]
 }
