@@ -8,7 +8,7 @@
   "description": "Points a domain or subdomain at your Synteq app or function and proves you own it.",
   "syncPubKeyDomain": "synteq.com",
   "syncRedirectDomain": "cloud.synteq.com,staging.cloud.synteq.com",
-  "hostRequired": true,
+  "hostRequired": false,
   "records": [
     {
       "type": "A",
