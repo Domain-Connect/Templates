@@ -1,0 +1,23 @@
+{
+  "providerId": "synteq.com",
+  "providerName": "Synteq",
+  "serviceId": "domain-verification",
+  "serviceName": "Synteq Organization Domain Verification",
+  "version": 1,
+  "logoUrl": "https://synteq.com/domain-connect/logo.png",
+  "description": "Verifies that your organization owns an email domain, so people who sign in with an address on it can find and join the organization.",
+  "variableDescription": "token: the ownership challenge Synteq generated for this domain.",
+  "syncPubKeyDomain": "synteq.com",
+  "syncRedirectDomain": "cloud.synteq.com,staging.cloud.synteq.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "synteq-verify=%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "synteq-verify="
+    }
+  ]
+}
