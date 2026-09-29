@@ -3,10 +3,11 @@
   "providerName": "Customdomain",
   "serviceId": "apex-a",
   "serviceName": "Point apex (A record)",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://customdomain.ai/logo.svg",
   "description": "Point your root domain at Customdomain by adding an A record at the apex (@) that resolves to the Customdomain edge IPv4 address. Use this when your DNS host cannot flatten a CNAME at the apex.",
   "syncPubKeyDomain": "customdomain.ai",
+  "syncRedirectDomain": "api.customdomain.ai,app.customdomain.ai,customdomain.ai",
   "variableDescription": "%edgeIp%: Customdomain edge IPv4 address to serve the apex domain",
   "records": [
     {
