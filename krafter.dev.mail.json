@@ -1,0 +1,58 @@
+{
+  "providerId": "krafter.dev",
+  "providerName": "Krafter",
+  "serviceId": "mail",
+  "serviceName": "Krafter Mail — sending domain",
+  "version": 1,
+  "logoUrl": "https://app.krafter.dev/images/krafter-mark.svg",
+  "description": "Configures a domain to send email through Krafter Mail (Amazon SES underneath): SES domain verification, three DKIM CNAMEs, and a custom MAIL FROM subdomain with its MX and SPF. DMARC is intentionally left out so an existing _dmarc record is never duplicated.",
+  "variableDescription": "sesToken: the SES domain verification token. dkim1, dkim2, dkim3: the three SES Easy DKIM selectors. mailFrom: the MAIL FROM subdomain label (default 'send'). region: the SES region (eu-central-1).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "krafter.dev",
+  "syncRedirectDomain": "app.krafter.dev",
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%sesToken%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "%mailFrom%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "%mailFrom%",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

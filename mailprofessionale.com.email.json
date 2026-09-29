@@ -1,0 +1,72 @@
+{
+  "providerId": "mailprofessionale.com",
+  "providerName": "MailProfessionale",
+  "logoUrl": "https://clienti.mailprofessionale.com/domain-connect/logo.svg",
+  "syncPubKeyDomain": "mailprofessionale.com",
+  "syncRedirectDomain": "clienti.mailprofessionale.com",
+  "serviceId": "email",
+  "serviceName": "MailProfessionale Email",
+  "version": 1,
+  "description": "Connects a domain to MailProfessionale email hosting: incoming mail (MX), sender authentication (SPF, DKIM, DMARC).",
+  "variableDescription": "dkimRsaKey - base64 public key of the domain's RSA DKIM selector mp1 (the p= value); dkimEd25519Key - base64 public key of the domain's Ed25519 DKIM selector mped1 (the p= value)",
+  "records": [
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.mailprofessionale.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.mailprofessionale.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx3.mailprofessionale.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a:mx1.mailprofessionale.com a:mx2.mailprofessionale.com a:mx3.mailprofessionale.com a:relay.mailprofessionale.com"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "mp1._domainkey",
+      "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimRsaKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "mped1._domainkey",
+      "data": "v=DKIM1; k=ed25519; h=sha256; p=%dkimEd25519Key%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@reports.mailprofessionale.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

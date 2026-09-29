@@ -1,0 +1,36 @@
+{
+  "providerId": "neogenic.ai",
+  "providerName": "Neogenic",
+  "serviceId": "sendgrid-domain-authentication",
+  "serviceName": "Neogenic sending domain",
+  "version": 1,
+  "logoUrl": "https://neogenic.ai/assets/brand/orb-color.svg",
+  "description": "Adds the three CNAME records required to authenticate a Neogenic sending domain with SendGrid.",
+  "variableDescription": "MAIL_CNAME_HOST is SendGrid's provider-assigned mail label. MAIL_CNAME_VALUE, DKIM1_VALUE, and DKIM2_VALUE are the exact CNAME targets issued by SendGrid for this sending domain.",
+  "syncBlock": false,
+  "syncRedirectDomain": "neogenic.ai, neogenic-staging.vercel.app",
+  "syncPubKeyDomain": "neogenic.ai",
+  "records": [
+    {
+      "groupId": "sendgrid",
+      "type": "CNAME",
+      "host": "%MAIL_CNAME_HOST%",
+      "pointsTo": "%MAIL_CNAME_VALUE%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendgrid",
+      "type": "CNAME",
+      "host": "s1._domainkey",
+      "pointsTo": "%DKIM1_VALUE%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendgrid",
+      "type": "CNAME",
+      "host": "s2._domainkey",
+      "pointsTo": "%DKIM2_VALUE%",
+      "ttl": 3600
+    }
+  ]
+}

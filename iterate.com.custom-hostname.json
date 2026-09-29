@@ -1,0 +1,32 @@
+{
+    "providerId": "iterate.com",
+    "providerName": "iterate",
+    "serviceId": "custom-hostname",
+    "serviceName": "iterate custom hostname",
+    "version": 1,
+    "logoUrl": "https://os.iterate.com/iterate-logo.svg",
+    "description": "Serve an iterate project on a subdomain of your domain: the subdomain and every name under it point at iterate, and its TLS certificate is validated by Cloudflare through delegated DCV.",
+    "syncPubKeyDomain": "iterate.com",
+    "syncRedirectDomain": "dash.iterate.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cname.iterate.app",
+            "ttl": 300
+        },
+        {
+            "type": "CNAME",
+            "host": "*",
+            "pointsTo": "cname.iterate.app",
+            "ttl": 300
+        },
+        {
+            "type": "CNAME",
+            "host": "_acme-challenge",
+            "pointsTo": "%fqdn%.248299803bb79c97.dcv.cloudflare.com",
+            "ttl": 300
+        }
+    ]
+}

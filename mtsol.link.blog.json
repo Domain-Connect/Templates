@@ -1,0 +1,30 @@
+{
+  "providerId": "mtsol.link",
+  "providerName": "Maranatha Tech Solutions",
+  "serviceId": "blog",
+  "serviceName": "MTS Customer Blog",
+  "version": 1,
+  "logoUrl": "https://maranathatechsolutions.com/favicon.svg",
+  "description": "Connect your subdomain to your customer-branded MTS blog.",
+  "variableDescription": "site is the assigned MTS blog hostname label. verification is the domain ownership verification token.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.mtsol.link",
+  "syncRedirectDomain": "seo.maranathats.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%site%.mtsol.link",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_mts-verify",
+      "data": "mts-verify=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mts-verify="
+    }
+  ]
+}

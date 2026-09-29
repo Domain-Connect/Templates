@@ -1,0 +1,28 @@
+{
+    "providerId": "myblkworldhq.com",
+    "providerName": "MyBLKWorldHQ",
+    "serviceId": "blkbuilder-site",
+    "serviceName": "BLKBUILDER website",
+    "version": 1,
+    "logoUrl": "https://myblkworldhq.com/blkblog-crown.svg",
+    "description": "Points a domain at a website built and published with BLKBUILDER on MyBLKWorldHQ.",
+    "variableDescription": "site: the published website's name on onrender.com (www points at <site>.onrender.com)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "myblkworldhq.com",
+    "syncRedirectDomain": "myblkworldhq.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "216.24.57.1",
+            "ttl": 600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%site%.onrender.com",
+            "ttl": 600
+        }
+    ]
+}

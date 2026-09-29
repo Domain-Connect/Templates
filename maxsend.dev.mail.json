@@ -1,0 +1,69 @@
+{
+	"providerId": "maxsend.dev",
+	"providerName": "Maxsend",
+	"serviceId": "mail",
+	"serviceName": "Mail",
+	"version": 1,
+	"syncBlock": false,
+	"syncPubKeyDomain": "maxsend.dev",
+	"syncRedirectDomain": "maxsend.dev",
+	"description": "Sign email with DKIM, authorise Maxsend to send through Amazon SES, and optionally receive email with Maxsend.",
+	"variableDescription": "dkim1, dkim2, dkim3: Amazon SES Easy DKIM tokens; region: Amazon SES region; inboundHost: Maxsend inbound mail host label",
+	"logoUrl": "https://maxsend.dev/logo.svg",
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkim1%._domainkey",
+			"pointsTo": "%dkim1%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkim2%._domainkey",
+			"pointsTo": "%dkim2%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%dkim3%._domainkey",
+			"pointsTo": "%dkim3%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "outbound",
+			"type": "MX",
+			"host": "send",
+			"pointsTo": "feedback-smtp.%region%.amazonses.com",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"groupId": "outbound",
+			"type": "SPFM",
+			"host": "send",
+			"ttl": 3600,
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"groupId": "dmarc",
+			"type": "TXT",
+			"host": "_dmarc",
+			"ttl": 3600,
+			"data": "v=DMARC1; p=none;",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1",
+			"essential": "OnApply"
+		},
+		{
+			"groupId": "inbound",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "%inboundHost%.maxsend.dev",
+			"ttl": 3600,
+			"priority": 10
+		}
+	]
+}

@@ -1,0 +1,37 @@
+{
+  "providerId": "cite-met.com",
+  "providerName": "CiteMET",
+  "serviceId": "site",
+  "serviceName": "CiteMET Site",
+  "version": 1,
+  "logoUrl": "https://platform.cite-met.com/logo.png",
+  "description": "Point this domain at your CiteMET site and issue its HTTPS certificate.",
+  "syncPubKeyDomain": "cite-met.com",
+  "syncRedirectDomain": "cite-met.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%project%.cite-met.dev",
+      "ttl": 3600,
+      "groupId": "site",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.693d7acb2bcecfe5.dcv.cloudflare.com",
+      "ttl": 3600,
+      "groupId": "site"
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "groupId": "ownership",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

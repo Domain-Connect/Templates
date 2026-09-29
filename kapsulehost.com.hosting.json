@@ -3,7 +3,7 @@
     "providerName": "KapsuleHost",
     "serviceId": "hosting",
     "serviceName": "KapsuleHost website hosting",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://kapsulehost.com/logo.png",
     "description": "Points your domain at your KapsuleHost website.",
     "variableDescription": "%ip%: the IPv4 address of the KapsuleHost server the website is on",
@@ -15,13 +15,13 @@
             "type": "A",
             "host": "@",
             "pointsTo": "%ip%",
-            "ttl": 3600
+            "ttl": 300
         },
         {
             "type": "A",
             "host": "www",
             "pointsTo": "%ip%",
-            "ttl": 3600
+            "ttl": 300
         }
     ]
 }

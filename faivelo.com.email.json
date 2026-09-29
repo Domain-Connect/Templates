@@ -3,7 +3,7 @@
   "providerName": "Faivelo",
   "serviceId": "email",
   "serviceName": "Faivelo Email",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://faivelo.com/logo.png",
   "description": "Point this domain's email at Faivelo — MX, SPF, DKIM, DMARC and autoconfig, all at once.",
   "variableDescription": "SES verification token and the three Easy-DKIM selectors, generated per-domain when the domain is added.",
@@ -71,7 +71,7 @@
     {
       "type": "MX",
       "host": "bounce",
-      "pointsTo": "feedback-smtp.eu-central-1.amazonses.com",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
       "priority": 10,
       "ttl": 3600
     },

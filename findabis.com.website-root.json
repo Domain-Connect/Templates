@@ -1,0 +1,18 @@
+{
+  "providerId": "findabis.com",
+  "providerName": "Findabis",
+  "serviceId": "website-root",
+  "serviceName": "Findabis website (whole domain)",
+  "version": 1,
+  "logoUrl": "https://findabis.com/domain-connect/logo.png",
+  "description": "Points your domain (yourclinic.co.uk and www.yourclinic.co.uk) at the website you run on Findabis. Email and other records are not changed.",
+  "syncPubKeyDomain": "findabis.com",
+  "syncRedirectDomain": "findabis.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%ip4%", "ttl": 3600 },
+    { "type": "AAAA", "host": "@", "pointsTo": "%ip6%", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "portal.findabis.com", "ttl": 3600 }
+  ]
+}

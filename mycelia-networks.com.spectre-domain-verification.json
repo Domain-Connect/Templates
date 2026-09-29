@@ -1,0 +1,24 @@
+{
+  "providerId": "mycelia-networks.com",
+  "providerName": "Mycelia Networks",
+  "serviceId": "spectre-domain-verification",
+  "serviceName": "Spectre domain ownership verification",
+  "version": 1,
+  "logoUrl": "https://mycelia-networks.com/brand/mycelia-icon.svg",
+  "description": "Adds the single TXT record Spectre uses to confirm you control this domain. Spectre reads the record back from your zone and grants nothing until it resolves.",
+  "variableDescription": "token: the 48-character hexadecimal ownership challenge issued by Spectre for this domain. It is not a credential and grants no access on its own.",
+  "syncPubKeyDomain": "domainconnect.mycelia-networks.com",
+  "syncRedirectDomain": "mycelia-networks.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_spectre-ownership",
+      "data": "spectre-ownership=%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "spectre-ownership="
+    }
+  ]
+}

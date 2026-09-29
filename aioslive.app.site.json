@@ -1,0 +1,20 @@
+{
+  "providerId": "aioslive.app",
+  "providerName": "AIOS",
+  "serviceId": "site",
+  "serviceName": "AIOS Sites",
+  "version": 1,
+  "logoUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://aioshq.com&size=128",
+  "description": "Point a domain at a site published with AIOS Sites.",
+  "syncPubKeyDomain": "aioslive.app",
+  "syncRedirectDomain": "aioslive.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.aioslive.app",
+      "ttl": 3600
+    }
+  ]
+}

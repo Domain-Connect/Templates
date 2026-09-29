@@ -1,0 +1,21 @@
+{
+  "providerId": "shopiyz.com",
+  "providerName": "Shopiyz",
+  "version": 1,
+  "logoUrl": "https://superadmin.shopiyz.com/brand/shopiyz-logo-black.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "shopiyz.com",
+  "syncRedirectDomain": "superadmin.shopiyz.com",
+  "serviceId": "storefront-routing",
+  "serviceName": "Website traffic connection",
+  "description": "Connect the selected customer website hostname to Shopiyz after ownership and TLS verification. Cloudflare also supports the zone apex through its CNAME flattening extension.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.myshopiyz.com",
+      "ttl": 600
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+    "providerId": "mailermine.com",
+    "providerName": "MailerMine",
+    "serviceId": "email-sending",
+    "serviceName": "MailerMine Email Sending",
+    "version": 1,
+    "logoUrl": "https://www.mailermine.com/images/brand/logo-black.png",
+    "description": "Authenticates your domain so MailerMine can send email on your behalf.",
+    "variableDescription": "Adds the MailerMine domain verification record and DKIM signing records for your domain.",
+    "syncPubKeyDomain": "mailermine.com",
+    "syncBlock": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_amazonses",
+            "data": "%verificationToken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        }
+    ],
+    "syncRedirectDomain": "mailermine.com"
+}

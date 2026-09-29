@@ -1,0 +1,31 @@
+{
+  "providerId": "foundry.ac",
+  "providerName": "Foundry",
+  "serviceId": "custom-domain-apex-prd",
+  "serviceName": "Foundry custom domain (production apex)",
+  "version": 1,
+  "logoUrl": "https://assets.foundry.ac/brand-identity/logo/icon-only/Icon_Green.svg",
+  "description": "Connect an apex domain to Foundry.",
+  "variableDescription": "%verificationValue% is a fresh Foundry ownership value for this connection attempt.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "keys.foundry.ac",
+  "syncRedirectDomain": "app.foundry.ac",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "168.220.93.165",
+      "ttl": "300"
+    },
+    {
+      "type": "TXT",
+      "host": "_foundry-verification",
+      "data": "foundry-verification=%verificationValue%",
+      "ttl": "300",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "foundry-verification="
+    }
+  ]
+}

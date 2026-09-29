@@ -1,0 +1,14 @@
+{
+  "providerId": "adway.ai",
+  "providerName": "Adway",
+  "serviceId": "career-site",
+  "serviceName": "Adway career site",
+  "version": 1,
+  "logoUrl": "https://app-dev.adway.ai/adway-icon-light.svg",
+  "description": "Connect a subdomain to your Adway career site.",
+  "syncPubKeyDomain": "domainconnect-keys.adway.ai",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "ssl.adway.ai", "ttl": 300 }
+  ]
+}

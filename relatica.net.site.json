@@ -1,0 +1,40 @@
+{
+    "providerId": "relatica.net",
+    "providerName": "Relatica",
+    "serviceId": "site",
+    "serviceName": "Clinic website",
+    "version": 1,
+    "logoUrl": "https://relatica.net/relatica-icon.png",
+    "description": "Points the domain at a clinic website hosted by Relatica: an A record on the apex and a CNAME on www, plus an optional Vercel ownership TXT.",
+    "variableDescription": "%txt%: Vercel domain ownership token (the part after vc-domain-verify=), only used with the verify group",
+    "syncBlock": false,
+    "syncPubKeyDomain": "relatica.net",
+    "syncRedirectDomain": "relatica.net",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "site",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "76.76.21.21",
+            "ttl": 600
+        },
+        {
+            "groupId": "site",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "cname.vercel-dns.com",
+            "ttl": 600
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_vercel",
+            "data": "vc-domain-verify=%txt%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "vc-domain-verify=",
+            "essential": "OnApply"
+        }
+    ]
+}

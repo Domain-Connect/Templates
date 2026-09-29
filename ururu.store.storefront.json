@@ -1,0 +1,19 @@
+{
+  "providerId": "ururu.store",
+  "providerName": "ururu",
+  "serviceId": "storefront",
+  "serviceName": "ururu storefront",
+  "version": 1,
+  "description": "Connects a subdomain to your ururu store.",
+  "syncPubKeyDomain": "ururu.store",
+  "syncRedirectDomain": "ururu.store",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "_saas.ururu.store",
+      "ttl": 3600
+    }
+  ]
+}

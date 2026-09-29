@@ -1,0 +1,33 @@
+{
+  "providerId": "agent-loadout.com",
+  "providerName": "Agent Loadout",
+  "serviceId": "email-dkim",
+  "serviceName": "Custom subdomain DKIM",
+  "version": 1,
+  "logoUrl": "https://agent-loadout.com/favicon.svg",
+  "description": "Add the three Easy DKIM CNAMEs issued after ownership is verified.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: SES Easy DKIM tokens",
+  "syncBlock": false,
+  "syncPubKeyDomain": "agent-loadout.com",
+  "syncRedirectDomain": "agent-loadout.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
