@@ -1,0 +1,35 @@
+{
+  "providerId": "appwizards.ca",
+  "providerName": "App Wizards Digital Solutions",
+  "serviceId": "website",
+  "serviceName": "Business website",
+  "version": 1,
+  "logoUrl": "https://appwizards.ca/appwizards-mark.png",
+  "description": "Connects a business's domain to its App Wizards website in two steps: first a record that proves ownership so a security certificate can be issued, then, once the certificate is ready, the records that point the domain to the website.",
+  "variableDescription": "%acmeid%: the identifier of the certificate authorization issued for this domain; the full target is fixed to authorize.certificatemanager.goog",
+  "syncPubKeyDomain": "domainconnect.appwizards.ca",
+  "syncRedirectDomain": "appwizards.ca",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%acmeid%.authorize.certificatemanager.goog",
+      "ttl": 300
+    },
+    {
+      "groupId": "cutover",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "8.233.236.192",
+      "ttl": 300
+    },
+    {
+      "groupId": "cutover",
+      "type": "A",
+      "host": "www",
+      "pointsTo": "8.233.236.192",
+      "ttl": 300
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "providerId": "ifova.com",
+  "providerName": "ifova",
+  "serviceId": "storefront",
+  "serviceName": "ifova Storefront",
+  "version": 1,
+  "logoUrl": "https://ifova.com/domain-connect/logo.png",
+  "description": "Connects a custom domain to an ifova online store: apex A record(s) to the ifova edge, www CNAME to the ifova edge host, and an ownership-verification TXT record at a fixed host.",
+  "variableDescription": "ip1: first IPv4 address of the ifova edge (group apex-a1). ip2: second IPv4 address of the ifova edge (group apex-a2; the group is omitted when only one address is in use). connectLabel: label under ifova.com that the www CNAME points to, e.g. connect (group www). token: opaque ownership-verification token issued by ifova for this store and domain (group ownership; omitted once the domain is verified).",
+  "syncPubKeyDomain": "ifova.com",
+  "syncRedirectDomain": "app.ifova.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "apex-a1",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "apex-a2",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%connectLabel%.ifova.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_ifova-challenge",
+      "data": "ifova-domain-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ifova-domain-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}
