@@ -1,0 +1,17 @@
+{
+    "providerId": "modulify.ai",
+    "providerName": "Modulify",
+    "serviceId": "connect-v2",
+    "serviceName": "Connect your domain to Modulify",
+    "description": "Points your domain to your Modulify-hosted site. The SSL certificate is issued automatically once the records are in place.",
+    "variableDescription": "The IP addresses are supplied by Modulify for your specific site.",
+    "version": 1,
+    "logoUrl": "https://modulify.ai/logo.svg",
+    "syncPubKeyDomain": "modulify.ai",
+    "syncRedirectDomain": "app.modulify.ai",
+    "syncBlock": false,
+    "records": [
+        { "type": "A", "host": "@", "pointsTo": "%rootip%", "ttl": 300 },
+        { "type": "AAAA", "host": "@", "pointsTo": "%rootipv6%", "ttl": 300 }
+    ]
+}
