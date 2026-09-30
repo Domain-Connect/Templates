@@ -12,7 +12,6 @@
   "hostRequired": false,
   "syncPubKeyDomain": "nxtlevel-tech.com",
   "syncRedirectDomain": "app.nxtlevel-tech.com",
-  "warnPhishing": true,
   "records": [
     { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 3600 }
   ]
