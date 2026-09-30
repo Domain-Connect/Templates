@@ -4,6 +4,7 @@
   "serviceId": "managed-proxy",
   "serviceName": "Managed reverse proxy",
   "version": 1,
+  "logoUrl": "https://swetrix.com/assets/logo/dark.svg",
   "description": "Connect a subdomain to your Swetrix managed reverse proxy.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.swetrix.com",
