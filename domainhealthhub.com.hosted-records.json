@@ -1,0 +1,72 @@
+{
+  "providerId": "domainhealthhub.com",
+  "providerName": "Domain Health Hub",
+  "serviceId": "hosted-records",
+  "serviceName": "Domain Health Hub hosted email records",
+  "version": 1,
+  "logoUrl": "https://domainhealthhub.com/mark.svg",
+  "description": "Points a domain's DMARC, TLS-RPT, MTA-STS and DKIM records at Domain Health Hub, which hosts them, and adds a TXT record proving the customer controls the domain. Applied one group at a time: verify first, dkim only once the domain is verified and its existing DKIM selectors are hosted, mtasts only once the policy host serves a valid certificate. SPF is not included: it stays a manual step.",
+  "variableDescription": "verifytoken: the workspace's domain verification token (32 lower-case hex characters), published as dhh-verify=<token>; recordtoken: the domain's record token (16 lower-case base32 characters), which selects the domain's hosted records under hosted.domainhealthhub.com",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.domainhealthhub.com",
+  "syncRedirectDomain": "app.domainhealthhub.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_dhh-verify",
+      "data": "dhh-verify=%verifytoken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim",
+      "type": "NS",
+      "host": "_domainkey",
+      "pointsTo": "ns1.dkim.domainhealthhub.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim",
+      "type": "NS",
+      "host": "_domainkey",
+      "pointsTo": "ns2.dkim.domainhealthhub.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%recordtoken%._dmarc.hosted.domainhealthhub.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "tlsrpt",
+      "type": "CNAME",
+      "host": "_smtp._tls",
+      "pointsTo": "%recordtoken%._smtp._tls.hosted.domainhealthhub.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mtasts-host",
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "%recordtoken%.mta-sts.hosted.domainhealthhub.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mtasts",
+      "type": "CNAME",
+      "host": "_mta-sts",
+      "pointsTo": "%recordtoken%._mta-sts.hosted.domainhealthhub.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
