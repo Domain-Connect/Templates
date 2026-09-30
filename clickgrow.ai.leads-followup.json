@@ -1,0 +1,60 @@
+{
+  "providerId": "clickgrow.ai",
+  "providerName": "ClickGrow",
+  "serviceId": "leads-followup",
+  "serviceName": "ClickGrow Follow-Up Email",
+  "version": 1,
+  "logoUrl": "https://app-assets.s3.clickgrow.ai/public/lovable-uploads/bc0d29e0-e8d1-43c1-accd-54408fda86c2.png",
+  "description": "Adds SendGrid domain authentication CNAMEs, link branding CNAMEs, and a reply subdomain MX so ClickGrow Follow-Up can send and receive email on the business owner's domain.",
+  "variableDescription": "%mailCnameTarget%: SendGrid mail_cname / return-path CNAME target from createWhitelabelDomain (automatic_security). %dkim1Target% / %dkim2Target%: SendGrid dkim1 / dkim2 CNAME targets (hosts fixed as s1._domainkey / s2._domainkey). %linkDomainTarget%: SendGrid link domain_cname target (host fixed as url). %linkOwnerHost% / %linkOwnerTarget%: SendGrid owner_cname host label + target (owner host is a SendGrid-assigned verification label with no fixed suffix — bare host variable required). Reply MX host is fixed as reply → mx.sendgrid.net priority 10 (never apex MX). All variable values come from stored SendGrid WhitelabelDnsRecord blobs; never invent targets.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "keys.clickgrow.ai",
+  "syncRedirectDomain": "clickgrow.ai,sandbox.clickgrow.ai,clickgrow-dev.pages.dev,clickgrow-sandbox.pages.dev",
+  "shared": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "domain-auth",
+      "type": "CNAME",
+      "host": "em",
+      "pointsTo": "%mailCnameTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "domain-auth",
+      "type": "CNAME",
+      "host": "s1._domainkey",
+      "pointsTo": "%dkim1Target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "domain-auth",
+      "type": "CNAME",
+      "host": "s2._domainkey",
+      "pointsTo": "%dkim2Target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "link-branding",
+      "type": "CNAME",
+      "host": "url",
+      "pointsTo": "%linkDomainTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "link-branding",
+      "type": "CNAME",
+      "host": "%linkOwnerHost%",
+      "pointsTo": "%linkOwnerTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "reply",
+      "type": "MX",
+      "host": "reply",
+      "pointsTo": "mx.sendgrid.net",
+      "ttl": 3600,
+      "priority": 10
+    }
+  ]
+}
