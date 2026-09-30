@@ -1,0 +1,19 @@
+{
+  "providerId": "nxtlevel-tech.com",
+  "providerName": "NXTLEVEL Tech",
+  "serviceId": "website",
+  "serviceName": "Autonoma website hosting",
+  "version": 1,
+  "logoUrl": "https://nxtlevel-tech.com/brand/nxtlevel-mark.svg",
+  "description": "Points a domain, or one name within it, at a company website hosted on Autonoma by NXTLEVEL Tech.",
+  "variableDescription": "ip: the IPv4 address of the hosting server",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "nxtlevel-tech.com",
+  "syncRedirectDomain": "app.nxtlevel-tech.com",
+  "warnPhishing": true,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 3600 }
+  ]
+}
