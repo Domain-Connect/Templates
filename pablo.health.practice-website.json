@@ -1,0 +1,27 @@
+{
+  "providerId": "pablo.health",
+  "providerName": "Pablo Health",
+  "serviceId": "practice-website",
+  "serviceName": "Pablo practice website",
+  "version": 1,
+  "logoUrl": "https://pablo.health/images/pablo-avatar.png",
+  "description": "Points your domain and www.<your domain> at your practice website on Pablo.",
+  "syncPubKeyDomain": "dc.pablo.health",
+  "syncRedirectDomain": "app.pablo.health,dev.pablo.health",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%siteip%", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "@", "ttl": 3600 },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%certauth%.authorize.certificatemanager.goog",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge.www",
+      "pointsTo": "%certauthwww%.authorize.certificatemanager.goog",
+      "ttl": 3600
+    }
+  ]
+}
