@@ -4,7 +4,7 @@
   "serviceId": "tradecopilot",
   "serviceName": "Trade Copilot website",
   "version": 1,
-  "logoUrl": "https://bongobean.com/assets/favicon-180.png",
+  "logoUrl": "https://bongobean.com/assets/bb-icon-d-180.png",
   "description": "Points www at the Trade Copilot site host and forwards the bare domain to www.",
   "syncPubKeyDomain": "bongobean.com",
   "syncRedirectDomain": "fitnesscopilot.co,tradecopilot.co",
