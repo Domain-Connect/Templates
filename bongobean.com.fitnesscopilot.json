@@ -1,0 +1,25 @@
+{
+  "providerId": "bongobean.com",
+  "providerName": "BongoBean",
+  "serviceId": "fitnesscopilot",
+  "serviceName": "Fitness Copilot website",
+  "version": 1,
+  "logoUrl": "https://bongobean.com/assets/favicon-180.png",
+  "description": "Points www at the Fitness Copilot site host and forwards the bare domain to www.",
+  "syncPubKeyDomain": "bongobean.com",
+  "syncRedirectDomain": "fitnesscopilot.co,tradecopilot.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.fitnesscopilot.co",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}
