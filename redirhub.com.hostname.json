@@ -1,0 +1,23 @@
+{
+    "providerId": "redirhub.com",
+    "providerName": "RedirHub",
+    "serviceId": "hostname",
+    "serviceName": "Custom hostname",
+    "version": 1,
+    "logoUrl": "https://dcr3565853rcg.cloudfront.net/brand-kit/v1/svg/redirhub-logo-horizontal.svg",
+    "description": "Points a custom subdomain to RedirHub so it can serve redirects and short links with HTTPS.",
+    "variableDescription": "%hashid%: RedirHub workspace identifier used in the CNAME target",
+    "syncBlock": false,
+    "syncPubKeyDomain": "redirhub.com",
+    "syncRedirectDomain": "dash.redirhub.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%hashid%.rediredge.com",
+            "ttl": 600,
+            "essential": "OnApply"
+        }
+    ]
+}
