@@ -1,0 +1,31 @@
+{
+  "providerId": "pablo.health",
+  "providerName": "Pablo Health",
+  "serviceId": "practice-domain",
+  "serviceName": "Pablo client portal and practice email",
+  "version": 1,
+  "logoUrl": "https://pablo.health/images/pablo-avatar.png",
+  "description": "Serves your Pablo client portal at portal.<your domain> and lets Pablo send your practice's reminders from your domain.",
+  "syncPubKeyDomain": "dc.pablo.health",
+  "syncRedirectDomain": "app.pablo.health,dev.pablo.health",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_pablo-verify",
+      "data": "pablo-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "pablo-verify="
+    },
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "portal", "pointsTo": "%portaltarget%.pablo.health", "ttl": 3600 },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge.portal",
+      "pointsTo": "%certauth%.authorize.certificatemanager.goog",
+      "ttl": 3600
+    }
+  ]
+}
