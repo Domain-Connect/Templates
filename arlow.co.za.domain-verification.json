@@ -3,8 +3,8 @@
   "providerName": "Arlow Cyber Assurance",
   "serviceId": "domain-verification",
   "serviceName": "Cyber Assurance domain verification",
-  "version": 1,
-  "logoUrl": "https://arlow.co.za/favicon.ico",
+  "version": 2,
+  "logoUrl": "https://www.arlow.co.za/images/ArlowLogoLight.svg",
   "description": "Adds a constrained TXT record so Arlow Cyber Assurance can verify control of a domain before passive security evidence collection.",
   "variableDescription": "verification is the unique, short-lived domain ownership challenge issued by Arlow Cyber Assurance",
   "syncBlock": false,
@@ -18,8 +18,6 @@
       "host": "_cyber-assurance",
       "data": "cca-verification=%verification%",
       "ttl": 300,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "cca-verification=",
       "essential": "OnApply"
     }
   ]
