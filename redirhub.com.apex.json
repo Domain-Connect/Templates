@@ -1,0 +1,31 @@
+{
+    "providerId": "redirhub.com",
+    "providerName": "RedirHub",
+    "serviceId": "apex",
+    "serviceName": "Custom root domain",
+    "version": 1,
+    "logoUrl": "https://dcr3565853rcg.cloudfront.net/brand-kit/v1/svg/redirhub-logo-horizontal.svg",
+    "description": "Points a root domain to RedirHub so it can serve redirects and short links with HTTPS.",
+    "variableDescription": "%ip%: IPv4 address of the RedirHub edge cluster; %hashid%: RedirHub workspace identifier used in the verification token",
+    "syncBlock": false,
+    "syncPubKeyDomain": "redirhub.com",
+    "syncRedirectDomain": "dash.redirhub.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 600,
+            "essential": "OnApply"
+        },
+        {
+            "type": "TXT",
+            "host": "@",
+            "data": "rehd-verify=%hashid%.rediredge.com",
+            "ttl": 600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "rehd-verify=",
+            "essential": "OnApply"
+        }
+    ]
+}

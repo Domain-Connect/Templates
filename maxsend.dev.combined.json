@@ -1,0 +1,48 @@
+{
+	"providerId": "maxsend.dev",
+	"providerName": "Maxsend",
+	"serviceId": "combined",
+	"serviceName": "Maxsend email (combined)",
+	"version": 1,
+	"logoUrl": "https://maxsend.dev/logo.svg",
+	"description": "Sends email for this domain through Maxsend: one DKIM key and a return path that work for every Maxsend sending route, plus optional receiving.",
+	"variableDescription": "selector: the DKIM selector (e.g. mx1); dkimkey: the domain's key label in Maxsend's key zone; inboundHost: the Maxsend inbound host label (e.g. mx).",
+	"syncBlock": false,
+	"syncPubKeyDomain": "maxsend.dev",
+	"syncRedirectDomain": "maxsend.dev",
+	"hostRequired": false,
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "%selector%._domainkey",
+			"pointsTo": "%dkimkey%.dkim.maxsend.dev",
+			"ttl": 3600
+		},
+		{
+			"groupId": "outbound",
+			"type": "CNAME",
+			"host": "send",
+			"pointsTo": "rp.maxsend.dev",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dmarc",
+			"type": "TXT",
+			"host": "_dmarc",
+			"ttl": 3600,
+			"data": "v=DMARC1; p=none;",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1",
+			"essential": "OnApply"
+		},
+		{
+			"groupId": "inbound",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "%inboundHost%.maxsend.dev",
+			"ttl": 3600,
+			"priority": 10
+		}
+	]
+}
