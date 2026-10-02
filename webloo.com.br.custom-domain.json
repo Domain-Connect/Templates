@@ -1,0 +1,27 @@
+{
+  "providerId": "webloo.com.br",
+  "providerName": "Webloo",
+  "serviceId": "custom-domain",
+  "serviceName": "Conectar domínio à Webloo",
+  "version": 1,
+  "logoUrl": "https://www.webloo.com.br/icon.svg",
+  "description": "Aponta o subdomínio para a Webloo e valida o certificado SSL.",
+  "syncRedirectDomain": "dash.webloo.com.br",
+  "warnPhishing": true,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.webloo.com.br",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%txtvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
