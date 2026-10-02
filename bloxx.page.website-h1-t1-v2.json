@@ -1,0 +1,34 @@
+{
+  "providerId": "bloxx.page",
+  "providerName": "Bloxx",
+  "serviceId": "website-h1-t1-v2",
+  "serviceName": "Bloxx website",
+  "version": 1,
+  "syncPubKeyDomain": "bloxx.page",
+  "syncRedirectDomain": "app.bloxx.page",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "validation",
+      "host": "_bloxx-verify",
+      "data": "%ownership%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "groupId": "validation",
+      "host": "%certificateHost0%",
+      "data": "%certificateValue0%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "traffic",
+      "host": "@",
+      "pointsTo": "customers.bloxx.page",
+      "ttl": 600
+    }
+  ],
+  "hostRequired": true
+}
