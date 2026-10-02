@@ -1,0 +1,38 @@
+{
+  "providerId": "getsteeple.com",
+  "providerName": "Steeple",
+  "serviceId": "website",
+  "serviceName": "Steeple Website",
+  "version": 1,
+  "logoUrl": "https://www.getsteeple.com/logo/steeple-logo-on-light.svg",
+  "description": "Points this domain at the church's Steeple website and publishes the record Steeple checks to confirm the church owns the address. Mail records are not part of this template: no MX, no SPF, no DKIM, no DMARC, and nothing written at the apex except the A record.",
+  "variableDescription": "%apexip%: the IPv4 address Steeple's hosting provider returns for this domain once it is attached to Steeple's project. Read from the provider's API per church at the moment the link is built, because the provider assigns it per account and documents that it can change. %wwwtarget%: the CNAME target the same provider returns for the www name. It is per-project and unique to each project, so it cannot be a literal. %verify%: a random 32-character hexadecimal ownership token, minted fresh for each church on each connection attempt and never reused.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "getsteeple.com",
+  "syncRedirectDomain": "getsteeple.com,www.getsteeple.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%apexip%",
+      "ttl": 600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%wwwtarget%",
+      "ttl": 600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "_steeple-verify",
+      "data": "steeple-domain-verify=%verify%",
+      "ttl": 600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "steeple-domain-verify="
+    }
+  ]
+}
