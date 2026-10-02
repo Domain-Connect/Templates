@@ -1,0 +1,35 @@
+{
+  "providerId": "pancakes.design",
+  "providerName": "Pancakes",
+  "serviceId": "website",
+  "serviceName": "Website and automatic HTTPS",
+  "version": 1,
+  "description": "Connect your website and enable automatic certificate renewal.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.pancakes.design",
+  "syncRedirectDomain": "pancakes.design",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_pancakes-verify",
+      "data": "%ownership%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.pcake.app",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%delegation%",
+      "ttl": 300
+    }
+  ],
+  "hostRequired": true,
+  "logoUrl": "https://pancakes.design/pancakes-app-icon.svg",
+  "variableDescription": "ownership: exact Pancakes domain ownership token; delegation: exact Cloudflare-issued DCV delegation hostname, ending in .dcv.cloudflare.com."
+}
