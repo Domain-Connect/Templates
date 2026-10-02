@@ -1,0 +1,19 @@
+{
+  "providerId": "onevetos.com",
+  "providerName": "OneVet",
+  "serviceId": "website",
+  "serviceName": "OneVet — your practice page on your own domain",
+  "version": 2,
+  "logoUrl": "https://onevetos.com/brand/logos/drawn-paw-transparent.svg",
+  "description": "Points www on your domain at your OneVet practice page. Adds one web record only. It does not touch your MX, SPF, DKIM or DMARC records, so your email keeps working exactly as it does now.",
+  "variableDescription": "",
+  "syncBlock": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "onevetos.netlify.app",
+      "ttl": 3600
+    }
+  ]
+}
