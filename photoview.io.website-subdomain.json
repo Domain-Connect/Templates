@@ -1,0 +1,21 @@
+{
+  "providerId": "photoview.io",
+  "providerName": "PhotoView.io",
+  "serviceId": "website-subdomain",
+  "serviceName": "PhotoView.io website",
+  "version": 1,
+  "logoUrl": "https://photoview.io/brand/photoview-logo-horizontal-transparent.png",
+  "syncPubKeyDomain": "photoview.io",
+  "syncRedirectDomain": "photoview.io",
+  "hostRequired": true,
+  "description": "Connects a subdomain to a published PhotoView.io photography website.",
+  "variableDescription": "%cname% is the signed CNAME destination recommended for this domain by PhotoView.io's hosting provider.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 3600
+    }
+  ]
+}

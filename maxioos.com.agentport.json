@@ -1,0 +1,20 @@
+{
+  "providerId": "maxioos.com",
+  "providerName": "Maxioos",
+  "serviceId": "agentport",
+  "serviceName": "AgentPort Domain Identity",
+  "version": 1,
+  "description": "Connects a business-owned AgentPort subdomain to the AgentPort gateway with one CNAME record.",
+  "hostRequired": true,
+  "syncPubKeyDomain": "maxioos.com",
+  "syncRedirectDomain": "agentport.maxioos.com,agentport-staging.maxioos.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "gateway.agentport.maxioos.com",
+      "ttl": 3600
+    }
+  ]
+}

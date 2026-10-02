@@ -1,0 +1,28 @@
+{
+  "providerId": "conbool.com",
+  "providerName": "Conbool",
+  "serviceId": "mailflow",
+  "serviceName": "Conbool Mailweg",
+  "version": 1,
+  "logoUrl": "https://conbool.com/logo-blue.png",
+  "description": "Leitet den eingehenden Mailweg der Domäne über das für diesen Mandanten zuständige Gateway und ergänzt den Sendeweg im SPF. Der vorhandene SPF bleibt erhalten, ergänzt wird nur der Conbool-Include. Diese Vorlage verändert die Zustellung und wird deshalb getrennt von der Authentifizierung angeboten.",
+  "variableDescription": "%mx%: das Gateway, über das die Mails dieses Mandanten laufen. In der Conbool-Cloud mail.conbool.com, in einem Partner-Pool dessen Host, auf einer eigenen Installation der dort eingerichtete.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "conbool.com",
+  "syncRedirectDomain": "conbool.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx%",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%mx%"
+    }
+  ]
+}

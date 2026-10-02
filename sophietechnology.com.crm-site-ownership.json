@@ -1,0 +1,16 @@
+{
+  "providerId": "sophietechnology.com",
+  "providerName": "Sophie Technology",
+  "serviceId": "crm-site-ownership",
+  "serviceName": "CRM website domain ownership",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "sophietechnology.com",
+  "syncRedirectDomain": "fluxos.sophietechnology.com",
+  "logoUrl": "https://sophietechnology.com/assets/sophietechnology-logo.png",
+  "description": "Verify the customer's website hostname before provisioning hosting. Does not redirect website traffic.",
+  "variableDescription": "proof is the exact verification token stored for this tenant's website hostname. Existing Sophie website proofs have no text prefix.",
+  "records": [
+    { "type": "TXT", "host": "_sophie", "data": "%proof%", "ttl": 3600 }
+  ]
+}

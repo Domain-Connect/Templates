@@ -1,0 +1,23 @@
+{
+  "providerId": "vallit.net",
+  "providerName": "Vallit",
+  "serviceId": "verification",
+  "serviceName": "Vallit domain verification",
+  "version": 1,
+  "logoUrl": "https://app.vallit.net/logo.svg",
+  "description": "Proves to Vallit that you own this domain by adding one TXT record. Vallit reads nothing else and changes nothing else.",
+  "variableDescription": "%txt%: the verification code Vallit shows you (the part after vallit-verification=)",
+  "syncPubKeyDomain": "vallit.net",
+  "syncRedirectDomain": "app.vallit.net",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_vallit",
+      "data": "vallit-verification=%txt%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vallit-verification="
+    }
+  ]
+}

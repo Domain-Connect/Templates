@@ -1,0 +1,34 @@
+{
+  "providerId": "carbon.ms",
+  "providerName": "Carbon",
+  "serviceId": "byoc",
+  "serviceName": "Carbon Custom Domain",
+  "version": 1,
+  "description": "Connect a custom domain to a self-hosted Carbon deployment.",
+  "variableDescription": "target is the hostname of the deployment's load balancer. ip is the address of the deployment's load balancer. challenge is the Carbon-managed name that answers certificate checks.",
+  "syncPubKeyDomain": "carbon.ms",
+  "syncRedirectDomain": "console.carbon.ms",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "cname",
+      "host": "*",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "a",
+      "host": "*",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "acme",
+      "host": "_acme-challenge",
+      "pointsTo": "%challenge%",
+      "ttl": 3600
+    }
+  ]
+}

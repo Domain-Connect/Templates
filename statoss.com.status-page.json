@@ -1,0 +1,20 @@
+{
+  "providerId": "statoss.com",
+  "providerName": "StatOSS",
+  "serviceId": "status-page",
+  "serviceName": "Status page",
+  "version": 1,
+  "logoUrl": "https://statoss.com/images/statoss-mark-64.png",
+  "description": "Points a subdomain such as status.example.com at a StatOSS status page with one CNAME.",
+  "syncPubKeyDomain": "statoss.com",
+  "syncRedirectDomain": "statoss.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.statoss.com",
+      "ttl": 300
+    }
+  ]
+}

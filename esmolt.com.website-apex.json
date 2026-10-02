@@ -1,0 +1,19 @@
+{
+  "providerId": "esmolt.com",
+  "providerName": "Esmolt",
+  "serviceId": "website-apex",
+  "serviceName": "Esmolt Website",
+  "version": 1,
+  "description": "Connects an apex domain to an Esmolt website.",
+  "variableDescription": "%target%: exact IPv4 routing target issued by Esmolt's hosting provider",
+  "syncPubKeyDomain": "esmolt.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

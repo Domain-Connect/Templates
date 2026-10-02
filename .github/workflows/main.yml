@@ -14,7 +14,7 @@ env:
 jobs:
   validate_json_schema:
     name: Validate JSON Schema
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions:
       pull-requests: write
       issues: write
@@ -33,44 +33,12 @@ jobs:
         ref: ${{ steps.setup-refs.outputs.head_sha }}
         allow-unsafe-pr-checkout: true
 
-    - name: Get all changed files
-      id: changed-all-files
-      uses: tj-actions/changed-files@v47
-
-    - name: Check for unexpected files
-      id: check-unexpected-files
-      if: github.event_name == 'pull_request_target'
-      continue-on-error: true
-      env:
-        ALL_CHANGED_FILES: ${{ steps.changed-all-files.outputs.all_changed_files }}
-      run: |
-        errors=()
-        for file in ${ALL_CHANGED_FILES}; do
-          if [[ "$file" == */* ]]; then
-            errors+=("File in subdirectory not allowed: \`$file\`")
-            continue
-          fi
-          if [[ "$file" != *.json ]]; then
-            errors+=("Non-JSON file not allowed: \`$file\`")
-          fi
-        done
-        if [ ${#errors[@]} -gt 0 ]; then
-          {
-            echo "unexpected_files_output<<EOF"
-            for err in "${errors[@]}"; do
-              echo "- $err"
-            done
-            echo "EOF"
-          } >> "$GITHUB_ENV"
-          exit 1
-        fi
-        echo "All changed files are valid root-level JSON files."
-
     - name: Get changed JSON files
       id: changed-json-files
-      uses: tj-actions/changed-files@v47
+      uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
       with:
         files: '*.json'
+        files_ignore: '.github/**'
 
     - name: Set up Python ${{ env.PYTHON_VERSION }}
       if: steps.changed-json-files.outputs.any_changed == 'true'
@@ -140,29 +108,27 @@ jobs:
         } >> "$GITHUB_ENV"
         exit $exit_code
 
-    - name: Comment PR - filename/unexpected files failed
+    - name: Comment PR - filename check failed
       if: >
         github.event_name == 'pull_request_target' &&
-        (steps.check-unexpected-files.outcome == 'failure' ||
-         steps.validate-filenames.outcome == 'failure')
-      uses: thollander/actions-comment-pull-request@v2
+        steps.validate-filenames.outcome == 'failure'
+      uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
       with:
         message: |
           ❌  **JSON Filename Check Failed**
 
-          ${{ env.unexpected_files_output }}${{ env.filename_output }}
-        comment_tag: json_filename_check
+          ${{ env.filename_output }}
+        comment-tag: json_filename_check
         mode: upsert
 
-    - name: Comment PR - filename/unexpected files passed
+    - name: Comment PR - filename check passed
       if: >
         github.event_name == 'pull_request_target' &&
-        steps.check-unexpected-files.outcome != 'failure' &&
         steps.validate-filenames.outcome != 'failure'
-      uses: thollander/actions-comment-pull-request@v2
+      uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
       with:
         message: "✅  **JSON Filename Check Passed**"
-        comment_tag: json_filename_check
+        comment-tag: json_filename_check
         mode: upsert
 
     - name: Label PR - add filename-error / remove on fix
@@ -171,7 +137,7 @@ jobs:
         GH_TOKEN: ${{ github.token }}
         PR_NUMBER: ${{ github.event.pull_request.number }}
         REPO: ${{ github.repository }}
-        FILENAME_FAILED: ${{ steps.check-unexpected-files.outcome == 'failure' || steps.validate-filenames.outcome == 'failure' }}
+        FILENAME_FAILED: ${{ steps.validate-filenames.outcome == 'failure' }}
       run: |
         if [ "$FILENAME_FAILED" = "true" ]; then
           gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "filename-error"
@@ -183,7 +149,7 @@ jobs:
       if: >
         github.event_name == 'pull_request_target' &&
         steps.validate-schema.outcome == 'failure'
-      uses: thollander/actions-comment-pull-request@v2
+      uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
       with:
         message: |
           ❌  **JSON Schema Validation Failed**
@@ -195,17 +161,17 @@ jobs:
           ```
 
           </details>
-        comment_tag: json_schema_check
+        comment-tag: json_schema_check
         mode: upsert
 
     - name: Comment PR - schema validation passed
       if: >
         github.event_name == 'pull_request_target' &&
         steps.validate-schema.outcome != 'failure'
-      uses: thollander/actions-comment-pull-request@v2
+      uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
       with:
         message: "✅  **JSON Schema Validation Passed**"
-        comment_tag: json_schema_check
+        comment-tag: json_schema_check
         mode: upsert
 
     - name: Label PR - add schema-error / remove on fix
@@ -224,7 +190,6 @@ jobs:
 
     - name: Fail job if any check failed
       if: >
-        steps.check-unexpected-files.outcome == 'failure' ||
         steps.validate-schema.outcome == 'failure' ||
         steps.validate-filenames.outcome == 'failure'
       run: exit 1

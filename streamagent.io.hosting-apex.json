@@ -1,0 +1,21 @@
+{
+  "providerId": "streamagent.io",
+  "providerName": "StreamAgent",
+  "version": 1,
+  "syncPubKeyDomain": "streamagent.io",
+  "syncRedirectDomain": "app.streamagent.io",
+  "syncBlock": false,
+  "serviceId": "hosting-apex",
+  "serviceName": "StreamAgent custom domain",
+  "logoUrl": "https://app.streamagent.io/icon.svg",
+  "description": "Points the customer's apex domain at their StreamAgent workspace, so their video pages, landing pages, and routes serve from their own domain.",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 600
+    }
+  ]
+}

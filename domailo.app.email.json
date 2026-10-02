@@ -1,0 +1,56 @@
+{
+  "providerId": "domailo.app",
+  "providerName": "Domailo",
+  "serviceId": "email",
+  "serviceName": "E-mail do Domailo",
+  "version": 1,
+  "logoUrl": "https://domailo.app/favicon.svg",
+  "description": "Permite enviar e receber e-mails do domínio no Domailo, com SPF, DKIM, DMARC e MX.",
+  "variableDescription": "%sendMx%: servidor de retorno da região de envio; %dkim%: chave pública DKIM emitida para o domínio; %inboundMx%: servidor de recebimento",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domailo.app",
+  "syncRedirectDomain": "domailo.app",
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%sendMx%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%inboundMx%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

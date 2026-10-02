@@ -1,0 +1,28 @@
+{
+  "providerId": "wondeya.com",
+  "providerName": "wondeya",
+  "serviceId": "connect",
+  "serviceName": "wondeya landing page",
+  "version": 1,
+  "description": "Connect your domain to your wondeya conversational landing page.",
+  "variableDescription": "No template variables: the routing target and the certificate DCV delegation are fixed for wondeya's Cloudflare-for-SaaS zone.",
+  "syncPubKeyDomain": "domainconnect.wondeya.app",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.wondeya.app",
+      "ttl": 3600
+    },
+    {
+      "groupId": "certificate",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.3d36317d5c29f8d5.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}

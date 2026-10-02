@@ -1,0 +1,33 @@
+{
+  "providerId": "shopiyz.com",
+  "providerName": "Shopiyz",
+  "version": 1,
+  "logoUrl": "https://superadmin.shopiyz.com/brand/shopiyz-logo-black.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "shopiyz.com",
+  "syncRedirectDomain": "superadmin.shopiyz.com",
+  "serviceId": "storefront-verification",
+  "serviceName": "Website ownership and TLS verification",
+  "description": "Verify a customer-owned website hostname and prepare its TLS certificate before moving website traffic to Shopiyz.",
+  "variableDescription": "ownership and certificate are exact per-hostname opaque tokens returned by Cloudflare for SaaS. Their prescribed values cannot contain a service prefix. They are restricted to fixed verification labels in signed requests.",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "certificate",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}

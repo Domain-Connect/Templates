@@ -1,0 +1,21 @@
+{
+  "providerId": "domainee.dev",
+  "providerName": "Domainee",
+  "serviceId": "edge-subdomain",
+  "serviceName": "Domainee Custom Domain (subdomain)",
+  "version": 1,
+  "logoUrl": "https://domainee.dev/logo.png",
+  "description": "Point a subdomain at Domainee's edge with a single CNAME. Domainee issues and renews the TLS certificate automatically.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainee.dev",
+  "syncRedirectDomain": "domainee.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 300
+    }
+  ]
+}

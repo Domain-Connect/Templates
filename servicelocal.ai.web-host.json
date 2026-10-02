@@ -1,0 +1,29 @@
+{
+  "providerId": "servicelocal.ai",
+  "providerName": "ServiceLocal",
+  "serviceId": "web-host",
+  "serviceName": "Dashboard or client website",
+  "version": 1,
+  "description": "Connect one subdomain to your ServiceLocal dashboard or client website.",
+  "variableDescription": "target is the environment hosting target; proof is the unique connection ownership token. Both are supplied by ServiceLocal in a signed request.",
+  "syncPubKeyDomain": "domainconnect.servicelocal.ai",
+  "syncRedirectDomain": "app.servicelocal.ai,app.servicelocal.fyi,app.servicelocal.eu",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_servicelocal",
+      "data": "%proof%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    }
+  ],
+  "logoUrl": "https://servicelocal.ai/logo.svg"
+}

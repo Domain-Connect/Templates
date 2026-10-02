@@ -1,0 +1,21 @@
+{
+    "providerId": "destevo.com",
+    "providerName": "Destevo",
+    "serviceId": "helpdesk",
+    "serviceName": "Destevo Help Center",
+    "version": 1,
+    "logoUrl": "https://destevo.com/icon.svg",
+    "description": "Points a subdomain such as support.yourdomain.com at the Destevo help center, so your support articles are served from your own domain.",
+    "syncPubKeyDomain": "domainconnect.destevo.com",
+    "syncRedirectDomain": "app.destevo.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cname.destevo.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        }
+    ]
+}

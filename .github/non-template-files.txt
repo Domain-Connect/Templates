@@ -1,0 +1,16 @@
+# Non-template files that a PR may change in addition to templates.
+# Changes to any of them require manual maintainer approval, see
+# .github/workflows/non-template-changes.yml.
+#
+# One bash glob pattern per line, matched against the repo-relative path.
+# "*" also matches "/", so "dir/*" covers everything below dir/.
+# Blank lines and lines starting with "#" are ignored.
+#
+# The list is always read from the base branch, so changes to it take
+# effect only after they are merged.
+
+README.md
+AGENTS.md
+.github/*
+template.schema
+

@@ -1,0 +1,56 @@
+{
+  "providerId": "cyberinsight.us",
+  "providerName": "Cyberinsight",
+  "serviceId": "mail",
+  "serviceName": "Cyberinsight Mail",
+  "version": 1,
+  "logoUrl": "https://cyberinsight.us/logo/cyberinsight-horizontal-black.svg",
+  "description": "MX, SPF, DKIM, DMARC and autodiscover/autoconfig records for Cyberinsight Mail hosted business email.",
+  "variableDescription": "dkimkey: base64 RSA public key for the domain's DKIM selector 'default', generated per domain by our mail server",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "cyberinsight.us",
+  "syncRedirectDomain": "cyberinsight.us",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.cyberinsight.us",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx a:mail.cyberinsight.us"
+    },
+    {
+      "type": "TXT",
+      "host": "default._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:admin@%domain%; fo=1; adkim=s; aspf=s; pct=100",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mail.cyberinsight.us",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mail.cyberinsight.us",
+      "ttl": 3600
+    }
+  ]
+}

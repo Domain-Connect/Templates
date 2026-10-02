@@ -1,0 +1,19 @@
+{
+  "providerId": "brandscaling.io",
+  "providerName": "Brandscaling",
+  "serviceId": "landings",
+  "serviceName": "Brandscaling Landings",
+  "version": 1,
+  "description": "Conecta tu subdominio para servir tus landings y embudos de Brandscaling (Vercel).",
+  "syncPubKeyDomain": "brandscaling.io",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 300
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+    "providerId": "wildventures.ai",
+    "providerName": "Syndicate",
+    "serviceId": "linkdomain",
+    "serviceName": "Branded short links",
+    "version": 1,
+    "description": "Connects a customer-owned subdomain to the customer's dedicated Syndicate link endpoint: a CNAME pointing the subdomain at the endpoint, plus an ownership-verification TXT record used to issue the TLS certificate. Only ever applied on a subdomain (hostRequired), never the apex.",
+    "variableDescription": "target: the label of the customer's dedicated link endpoint; the CNAME destination is always <target>.up.railway.app. verify: the TLS ownership-verification token; the TXT value is always railway-verify=<verify>.",
+    "syncPubKeyDomain": "wildventures.ai",
+    "syncRedirectDomain": "syndicate-betterman.netlify.app",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%.up.railway.app",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_railway-verify",
+            "data": "railway-verify=%verify%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "providerId": "fadehost.com",
+    "providerName": "FadeHost",
+    "serviceId": "community-website",
+    "serviceName": "FadeHost community website",
+    "version": 1,
+    "logoUrl": "https://fadehost.com/logo.svg",
+    "description": "Serves a FadeHost community website (server join page, live map, player leaderboard) on a subdomain of the customer's own domain, for example play.example.com: one CNAME to join.fadehost.net; FadeHost issues the certificate at its edge. A host is required because the Domain Connect standard does not place CNAME records on the apex. No variables.",
+    "syncPubKeyDomain": "fadehost.com",
+    "syncRedirectDomain": "laplace.fadehost.com",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "join.fadehost.net",
+            "ttl": 3600,
+            "essential": "Always"
+        }
+    ]
+}

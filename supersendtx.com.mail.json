@@ -1,0 +1,56 @@
+{
+  "providerId": "supersendtx.com",
+  "providerName": "SuperSend TX",
+  "serviceId": "mail",
+  "serviceName": "Transactional email",
+  "version": 1,
+  "syncBlock": false,
+  "logoUrl": "https://app.supersendtx.com/images/logo-tx.svg",
+  "description": "Verify domain ownership and enable authenticated transactional email (SPF, DKIM, return-path, DMARC).",
+  "syncPubKeyDomain": "supersendtx.com",
+  "syncRedirectDomain": "app.supersendtx.com",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_supersendtx",
+      "ttl": 3600,
+      "data": "%verificationToken%"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "ttl": 3600,
+      "data": "%dkimValue%"
+    },
+    {
+      "groupId": "return-path",
+      "type": "CNAME",
+      "host": "%returnPathHost%",
+      "pointsTo": "%returnPathTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "ttl": 3600,
+      "spfRules": "include:spf.supersendtx.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "%dmarcValue%"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "%trackingHost%",
+      "pointsTo": "%trackingTarget%",
+      "ttl": 3600
+    }
+  ]
+}

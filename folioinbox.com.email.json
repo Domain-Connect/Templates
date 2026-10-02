@@ -1,0 +1,64 @@
+{
+  "providerId": "folioinbox.com",
+  "providerName": "Folio",
+  "serviceId": "email",
+  "serviceName": "Folio email — receive, send, and DMARC",
+  "version": 1,
+  "logoUrl": "https://folioinbox.com/pwa-192.png",
+  "description": "Connects a domain to Folio (folioinbox.com): inbound MX, SPF, a per-domain DKIM key, an enforced DMARC policy, the Amazon SES ownership proof, and the SES custom MAIL FROM pair. Applying this template replaces any MX at the apex, which moves incoming mail to Folio — the user is told so before they reach this screen.",
+  "variableDescription": "dkimselector: the DKIM selector Folio generated for this domain (e.g. k3f9a2). dkimpubkey: the base64 public key for that selector — the template supplies the surrounding v=DKIM1; k=rsa; p= prefix. sestoken: the Amazon SES ownership token for _amazonses.<domain>.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "folioinbox.com",
+  "syncRedirectDomain": "folioinbox.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound.wm.emcognito.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:emcognito.com include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimpubkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=r; rua=mailto:dmarc-rua@%fqdn%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%sestoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
