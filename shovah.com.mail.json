@@ -3,8 +3,8 @@
   "providerName": "Shovah",
   "serviceId": "mail",
   "serviceName": "Shovah Mail",
-  "version": 2,
-  "description": "Connects a domain to Shovah mailboxes: MX, SPF (merged), DKIM, which also proves the ownership of the domain, DMARC, the settings records of mail programs and of calendar and contacts programs. Each group applies on its own: DMARC only when the domain has none, and MX only for a domain that receives mail.",
+  "version": 3,
+  "description": "Connects a domain to Shovah mailboxes: MX, SPF (merged), DKIM, which also proves the ownership of the domain, DMARC, the settings records of mail programs and of calendar and contacts programs, and the DKIM record of the optional marketing subdomain news.<domain>. Each group applies on its own: DMARC only when the domain has none, and MX only for a domain that receives mail.",
   "variableDescription": "%dnslabel%: the random label of the domain in the names of Shovah (letters and digits).",
   "syncBlock": false,
   "syncPubKeyDomain": "app.shovah.com",
@@ -127,6 +127,13 @@
       "type": "TXT",
       "host": "_carddavs._tcp",
       "data": "path=/.well-known/carddav",
+      "ttl": 3600
+    },
+    {
+      "groupId": "marketing",
+      "type": "CNAME",
+      "host": "shovah1._domainkey.news",
+      "pointsTo": "shovah1.%dnslabel%.dkim.shovah.com",
       "ttl": 3600
     }
   ]
