@@ -1,0 +1,24 @@
+{
+  "providerId": "loksetudigital.com",
+  "providerName": "LokSetuDigital",
+  "serviceId": "portal",
+  "serviceName": "LokSetuDigital Representative Portal",
+  "version": 1,
+  "logoUrl": "https://loksetudigital.com/assets/loksetudigital-mark-Uy6Hu0zT.png",
+  "description": "Connects your custom domain to your LokSetuDigital representative portal.",
+  "syncRedirectDomain": "loksetudigital.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "123.45.67.89",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "representatives.loksetudigital.com",
+      "ttl": 3600
+    }
+  ]
+}
