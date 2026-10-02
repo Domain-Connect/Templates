@@ -36,9 +36,10 @@ jobs:
 
       - name: Get changed JSON files
         id: changed-json-files
-        uses: tj-actions/changed-files@v47
+        uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
         with:
           files: '*.json'
+          files_ignore: '.github/**'
 
       # PRs changing non-template files always go to manual review.
       - name: Decide whether to run the linter

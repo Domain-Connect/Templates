@@ -35,9 +35,10 @@ jobs:
 
     - name: Get changed JSON files
       id: changed-json-files
-      uses: tj-actions/changed-files@v47
+      uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
       with:
         files: '*.json'
+        files_ignore: '.github/**'
 
     - name: Set up Python ${{ env.PYTHON_VERSION }}
       if: steps.changed-json-files.outputs.any_changed == 'true'
@@ -111,23 +112,23 @@ jobs:
       if: >
         github.event_name == 'pull_request_target' &&
         steps.validate-filenames.outcome == 'failure'
-      uses: thollander/actions-comment-pull-request@v2
+      uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
       with:
         message: |
           ❌  **JSON Filename Check Failed**
 
           ${{ env.filename_output }}
-        comment_tag: json_filename_check
+        comment-tag: json_filename_check
         mode: upsert
 
     - name: Comment PR - filename check passed
       if: >
         github.event_name == 'pull_request_target' &&
         steps.validate-filenames.outcome != 'failure'
-      uses: thollander/actions-comment-pull-request@v2
+      uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
       with:
         message: "✅  **JSON Filename Check Passed**"
-        comment_tag: json_filename_check
+        comment-tag: json_filename_check
         mode: upsert
 
     - name: Label PR - add filename-error / remove on fix
@@ -148,7 +149,7 @@ jobs:
       if: >
         github.event_name == 'pull_request_target' &&
         steps.validate-schema.outcome == 'failure'
-      uses: thollander/actions-comment-pull-request@v2
+      uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
       with:
         message: |
           ❌  **JSON Schema Validation Failed**
@@ -160,17 +161,17 @@ jobs:
           ```
 
           </details>
-        comment_tag: json_schema_check
+        comment-tag: json_schema_check
         mode: upsert
 
     - name: Comment PR - schema validation passed
       if: >
         github.event_name == 'pull_request_target' &&
         steps.validate-schema.outcome != 'failure'
-      uses: thollander/actions-comment-pull-request@v2
+      uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
       with:
         message: "✅  **JSON Schema Validation Passed**"
-        comment_tag: json_schema_check
+        comment-tag: json_schema_check
         mode: upsert
 
     - name: Label PR - add schema-error / remove on fix

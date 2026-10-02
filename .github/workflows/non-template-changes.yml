@@ -91,7 +91,7 @@ jobs:
 
       - name: Comment PR - unexpected files
         if: steps.classify.outcome == 'failure'
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           message: |
             ❌  **Unexpected Files**
@@ -99,17 +99,17 @@ jobs:
             Only template JSON files in the repository root may be changed.
 
             ${{ env.unexpected_files_output }}
-          comment_tag: unexpected_files
+          comment-tag: unexpected_files
           mode: upsert
 
       - name: Remove unexpected files comment
         if: steps.classify.outcome != 'failure'
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           message: "No unexpected files"
-          comment_tag: unexpected_files
+          comment-tag: unexpected_files
           mode: delete
-          create_if_not_exists: false
+          create-if-not-exists: false
 
       - name: Fail job if unexpected files found
         if: steps.classify.outcome == 'failure'
