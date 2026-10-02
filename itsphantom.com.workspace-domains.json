@@ -1,0 +1,61 @@
+{
+  "providerId": "itsphantom.com",
+  "providerName": "Phantom",
+  "serviceId": "workspace-domains",
+  "serviceName": "Phantom email and signup-form domains",
+  "version": 1,
+  "logoUrl": "https://app.itsphantom.com/phantom_brand_assets_v2/v2/brand/mark-transparent-512.png",
+  "description": "Adds the records Phantom needs to send a promoter's email campaigns from their own domain (SendGrid domain authentication), publish a DMARC monitoring record, and serve tracked links and signup forms from their own hostnames. Applied at the zone; every host is relative to it.",
+  "variableDescription": "MAILHOST, DKIM1HOST and DKIM2HOST are the sending domain's SendGrid CNAME names relative to the zone (for example em1234.shows, s1._domainkey.shows, s2._domainkey.shows) and MAILTARGET, DKIM1TARGET and DKIM2TARGET the exact targets SendGrid issued for them. DMARCHOST is _dmarc plus the sending subdomain and DMARCVALUE the monitoring-only record (v=DMARC1; p=none; rua=...). CLICKHOST and PUBLICHOST are the promoter's click-tracking and signup-form hostnames relative to the zone; both always point at clicks.itsphantom.com.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "itsphantom.com",
+  "syncRedirectDomain": "app.itsphantom.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%MAILHOST%",
+      "pointsTo": "%MAILTARGET%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%DKIM1HOST%",
+      "pointsTo": "%DKIM1TARGET%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%DKIM2HOST%",
+      "pointsTo": "%DKIM2TARGET%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "%DMARCHOST%",
+      "data": "%DMARCVALUE%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "click",
+      "type": "CNAME",
+      "host": "%CLICKHOST%",
+      "pointsTo": "clicks.itsphantom.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "public",
+      "type": "CNAME",
+      "host": "%PUBLICHOST%",
+      "pointsTo": "clicks.itsphantom.com",
+      "ttl": 3600
+    }
+  ]
+}
