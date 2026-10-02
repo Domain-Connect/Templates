@@ -4,7 +4,7 @@
   "serviceId": "glass",
   "serviceName": "SurgeLab AI visit codes",
   "version": 1,
-  "logoUrl": "https://surgelab.co/favicon.png",
+  "logoUrl": "https://www.surgelab.co/assets/img/apple-touch-icon.png",
   "description": "Points the www address of a website at SurgeLab, which passes every visitor straight through to the existing site and gives recognised AI assistants a one-off code when they read a page.",
   "syncBlock": false,
   "syncPubKeyDomain": "surgelab.co",
@@ -14,7 +14,7 @@
     {
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "%target%",
+      "pointsTo": "glass.surgelab.dev",
       "ttl": 3600
     }
   ]
