@@ -8,7 +8,7 @@
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.outboxstack.app",
   "syncRedirectDomain": "outboxstack.app",
-  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: SES Easy DKIM selectors; %region%: SES region; %mailFromSubdomain%: custom MAIL FROM subdomain.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: SES Easy DKIM selectors; %region%: SES region.",
   "records": [
     {
       "groupId": "dkim",
@@ -34,7 +34,7 @@
     {
       "groupId": "mailfrom",
       "type": "MX",
-      "host": "%mailFromSubdomain%",
+      "host": "bounce",
       "pointsTo": "feedback-smtp.%region%.amazonses.com",
       "priority": 10,
       "ttl": 3600
@@ -42,7 +42,7 @@
     {
       "groupId": "mailfrom",
       "type": "SPFM",
-      "host": "%mailFromSubdomain%",
+      "host": "bounce",
       "spfRules": "include:amazonses.com",
       "ttl": 3600
     }
