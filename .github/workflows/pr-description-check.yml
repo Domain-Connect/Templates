@@ -9,13 +9,51 @@ on:
     branches:
       - master    
 jobs:
+  detect:
+    # skip on merge queue, because PR context not available to make any checks
+    if: github.event_name != 'merge_group'
+    uses: ./.github/workflows/detect-non-template-changes.yml
+    permissions:
+      contents: read
+      pull-requests: read
+
+  # PRs changing non-template files go to manual review: don't check the
+  # description, and clear labels and comments left by earlier runs.
+  skip-non-template:
+    needs: detect
+    if: needs.detect.outputs.non_template_changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Remove PR description labels
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Non-template files changed, skipping PR description check"
+          for label in "PR description incomplete" "Checklist of common problems not complete" "Test links missing"; do
+            gh pr edit "$PR_NUMBER" --repo "$REPO" --remove-label "$label" 2>/dev/null || true
+          done
+
+      - name: Comment PR - delete fail comment
+        continue-on-error: true
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          comment_tag: pr_description_check
+          mode: delete
+
   check-description:
+    needs: detect
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
       issues: write
     # skip on merge queue, because PR context not available to make any checks
-    if: github.event_name != 'merge_group'
+    if: github.event_name != 'merge_group' && needs.detect.outputs.non_template_changed != 'true'
 
     steps:
       - name: Check out code
