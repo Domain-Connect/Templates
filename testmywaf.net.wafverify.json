@@ -1,0 +1,21 @@
+{
+  "providerId": "testmywaf.net",
+  "providerName": "Test My WAF",
+  "serviceId": "wafverify",
+  "serviceName": "WAF ownership verification",
+  "version": 1,
+  "logoUrl": "https://app.testmywaf.net/icon-512.png",
+  "description": "Adds the _waf-verify CNAME that proves domain ownership for a Test My WAF scan.",
+  "variableDescription": "token = the per-scan verification token shown in the Test My WAF UI",
+  "syncBlock": false,
+  "syncPubKeyDomain": "verify.testmywaf.net",
+  "syncRedirectDomain": "testmywaf.net",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_waf-verify",
+      "pointsTo": "%token%.verify.testmywaf.net",
+      "ttl": 300
+    }
+  ]
+}
