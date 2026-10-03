@@ -1,0 +1,44 @@
+{
+  "providerId": "rshift.com",
+  "providerName": "RShift",
+  "serviceId": "sites",
+  "serviceName": "RShift Sites",
+  "version": 1,
+  "logoUrl": "https://app.rshift.com/brand-logos/rshift-mark.svg",
+  "description": "Connect a custom domain to RShift Sites and configure its DNS verification records.",
+  "variableDescription": "target: routing hostname label under shift.fyi; ownership: Cloudflare for SaaS ownership TXT; certificate1 and certificate2: Cloudflare-issued ACME TXT values. Select only groups required by the current domain check.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.rshift.com",
+  "syncRedirectDomain": "app.rshift.com",
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%.shift.fyi",
+      "ttl": 600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 600
+    },
+    {
+      "groupId": "certificate1",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate1%",
+      "ttl": 600
+    },
+    {
+      "groupId": "certificate2",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate2%",
+      "ttl": 600
+    }
+  ],
+  "hostRequired": true
+}
