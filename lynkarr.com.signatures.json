@@ -1,0 +1,28 @@
+{
+  "providerId": "lynkarr.com",
+  "providerName": "Lynkarr",
+  "serviceId": "signatures",
+  "serviceName": "Lynkarr email signatures",
+  "version": 1,
+  "logoUrl": "https://lynkarr.com/brand/mark.png",
+  "description": "Lets Lynkarr add your company's email signature to outgoing mail: publishes the DKIM key Lynkarr signs your mail with, and adds Lynkarr's relay to your SPF record.",
+  "variableDescription": "%dkimkey%: the base64 public key Lynkarr generated for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "lynkarr.com",
+  "syncRedirectDomain": "lynkarr.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "lynkarr._domainkey",
+      "data": "v=DKIM1; h=sha256; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a:relay.lynkarr.com",
+      "ttl": 3600
+    }
+  ]
+}
