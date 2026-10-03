@@ -1,0 +1,32 @@
+{
+  "providerId": "addqart.com",
+  "providerName": "AddQart Commerce",
+  "serviceId": "email-auth",
+  "serviceName": "AddQart Custom Email Authentication",
+  "version": 1,
+  "logoUrl": "https://cdn.addqart.com/files/logos/AddQart-Logo-transparent.png",
+  "description": "Automatically configures cryptographic DKIM and DMARC records to allow AddQart Commerce to dispatch verified branded order emails from your custom domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "addqart.com",
+  "syncRedirectUrl": "https://app.addqart.com/settings/email?dc=success",
+  "records": [
+    {
+      "type": "CNAME",
+      "name": "aq1._domainkey",
+      "data": "aq1.addqartemail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "name": "aq2._domainkey",
+      "data": "aq2.addqartemail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "name": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600
+    }
+  ]
+}
