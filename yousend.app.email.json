@@ -3,9 +3,10 @@
   "providerName": "YouSend",
   "serviceId": "email",
   "serviceName": "YouSend Email Sending",
-  "version": 1,
+  "version": 2,
+  "syncBlock": false,
   "logoUrl": "https://app.yousend.app/logo-light.svg",
-  "description": "Authorize YouSend to send email from this domain: SPF, DKIM signing, a DMARC policy, and the return-path and click/open tracking hosts.",
+  "description": "Authorize YouSend to send email from this domain: SPF, DKIM signing, and the return-path and click/open tracking hosts. Existing DMARC policy and reporting remain under the domain owner's control.",
   "syncPubKeyDomain": "yousend.app",
   "syncRedirectDomain": "app.yousend.app",
   "records": [
@@ -22,16 +23,6 @@
       "host": "ys._domainkey",
       "pointsTo": "ys._domainkey.%fqdn%.dkim.yousend.app",
       "ttl": 3600
-    },
-    {
-      "groupId": "sending",
-      "type": "TXT",
-      "host": "_dmarc",
-      "data": "v=DMARC1; p=none; rua=mailto:dmarc@yousend.app",
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1",
-      "ttl": 3600,
-      "essential": "OnApply"
     },
     {
       "groupId": "sending",
