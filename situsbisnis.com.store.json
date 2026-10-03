@@ -1,0 +1,27 @@
+{
+  "providerId": "situsbisnis.com",
+  "providerName": "SitusBisnis",
+  "serviceId": "store",
+  "serviceName": "Toko Online SitusBisnis",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "situsbisnis.com",
+  "syncRedirectDomain": "situsbisnis.com",
+  "logoUrl": "https://situsbisnis.com/favicon.ico",
+  "description": "Menghubungkan domain ke etalase toko online SitusBisnis secara otomatis.",
+  "variableDescription": "cnameTarget: Target CNAME toko SitusBisnis (misal toko.sibi.my.id)\nverifyToken: Token verifikasi kepemilikan domain (sb-verify=...)",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_domain-verify",
+      "data": "%verifyToken%",
+      "ttl": 3600
+    }
+  ]
+}
