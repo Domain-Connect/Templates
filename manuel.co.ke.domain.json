@@ -1,0 +1,33 @@
+{
+  "providerId": "manuel.co.ke",
+  "providerName": "Manuel",
+  "serviceId": "domain",
+  "serviceName": "Manuel Custom Domain",
+  "version": 1,
+  "logoUrl": "https://manuel.co.ke/icon-512.png",
+  "description": "Connects a custom domain to a Manuel site \u2014 a CNAME to the platform ingress plus an ownership-verification TXT.",
+  "variableDescription": "token = Manuel domain-verification token (dmv-...) shown in the dashboard",
+  "syncRedirectDomain": "manuel.co.ke",
+  "syncPubKeyDomain": "manuel.co.ke",
+  "sharedServiceName": false,
+  "multiInstance": false,
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "APEXCNAME",
+      "host": "@",
+      "pointsTo": "shops.manuel.co.ke",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_manuel-verify",
+      "data": "dmv-%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "essential": "OnApply",
+      "txtConflictMatchingPrefix": "dmv-"
+    }
+  ]
+}
