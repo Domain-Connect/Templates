@@ -1,0 +1,29 @@
+{
+  "providerId": "addqart.com",
+  "providerName": "AddQart Commerce",
+  "serviceId": "web",
+  "serviceName": "AddQart Storefront Ingress",
+  "version": 1,
+  "logoUrl": "https://cdn.addqart.com/files/logos/AddQart-Logo-transparent.png",
+  "description": "Connects your custom domain securely to your AddQart online store with automated cryptographic ownership verification and SSL.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "addqart.com",
+  "syncRedirectUrl": "https://app.addqart.com/settings/domains?dc=success",
+  "variableDescription": {
+    "aq_token": "Cryptographic ownership verification challenge token for AddQart"
+  },
+  "records": [
+    {
+      "type": "CNAME",
+      "name": "www",
+      "data": "cname.addqart.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "name": "_addqart",
+      "data": "%aq_token%",
+      "ttl": 3600
+    }
+  ]
+}
