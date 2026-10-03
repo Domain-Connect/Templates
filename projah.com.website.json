@@ -3,13 +3,13 @@
   "providerName": "Projah",
   "serviceId": "website",
   "serviceName": "Website Hosting",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6971b866b80b6272fafe2403/cefb20087_projah_logo_no_bg.png",
   "description": "Points the domain at Projah's Vercel hosting platform and adds the Vercel ownership verification record.",
   "variableDescription": "%verification%: the Vercel domain ownership verification value, minted per domain when the domain is added to Vercel.",
+  "syncPubKeyDomain": "projah.com",
   "syncBlock": false,
   "syncRedirectDomain": "projah.base44.app",
-  "warnPhishing": true,
   "hostRequired": false,
   "records": [
     {
