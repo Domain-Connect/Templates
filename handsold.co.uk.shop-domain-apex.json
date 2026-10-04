@@ -9,6 +9,7 @@
   "variableDescription": "No variables.",
   "syncBlock": false,
   "syncPubKeyDomain": "handsold.co.uk",
+  "syncRedirectDomain": "sell.handsold.co.uk",
   "records": [
     {
       "type": "A",

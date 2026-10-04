@@ -9,6 +9,8 @@
   "variableDescription": "No variables: applied with the host parameter set to the subdomain, like shop.",
   "syncBlock": false,
   "syncPubKeyDomain": "handsold.co.uk",
+  "syncRedirectDomain": "sell.handsold.co.uk",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
