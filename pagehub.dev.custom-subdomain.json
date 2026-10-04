@@ -1,0 +1,21 @@
+{
+  "providerId": "pagehub.dev",
+  "providerName": "PageHub",
+  "serviceId": "custom-subdomain",
+  "serviceName": "PageHub website (subdomain)",
+  "version": 1,
+  "logoUrl": "https://pagehub.dev/logo.svg",
+  "description": "Connects a subdomain to your PageHub website.",
+  "variableDescription": "%cname%: per-project Vercel CNAME target for the subdomain (e.g. d1a2b3c4.vercel-dns-017.com)",
+  "syncPubKeyDomain": "domainconnect.pagehub.dev",
+  "syncRedirectDomain": "pagehub.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    }
+  ]
+}
