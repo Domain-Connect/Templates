@@ -3,7 +3,7 @@
 	"providerName": "MailBluster",
 	"serviceId": "sender-verification-mailbluster-smtp",
 	"serviceName": "MailBluster Email Sender Verification (MailBluster SMTP)",
-	"version": 1,
+	"version": 2,
 	"logoUrl": "https://mailbluster.com/wp-content/themes/mailbluster/resources/assets/images/mailbluster-logo.svg",
 	"description": "Configures DKIM, DMARC, Return Path, and Tracking DNS records for MailBluster email sender verification using MailBluster SMTP",
 	"syncPubKeyDomain": "mailbluster.com",
