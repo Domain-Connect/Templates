@@ -1,0 +1,26 @@
+{
+  "providerId": "handsold.co.uk",
+  "providerName": "Handsold",
+  "serviceId": "shop-domain-apex",
+  "serviceName": "Your shop on your own domain",
+  "version": 1,
+  "logoUrl": "https://handsold.co.uk/brand/handsold-mark.svg",
+  "description": "Points your domain (like yourname.co.uk) and its www at your Handsold shop.",
+  "variableDescription": "No variables.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "handsold.co.uk",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
