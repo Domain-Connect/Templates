@@ -1,0 +1,35 @@
+{
+  "providerId": "circulr.io",
+  "providerName": "Circulr",
+  "serviceId": "email",
+  "serviceName": "Email from your domain",
+  "version": 1,
+  "logoUrl": "https://circulr.io/brand/circulr/email/circulr-lockup-on-light@2x.png",
+  "description": "Lets your publication send email from your own domain through Circulr: a DKIM key, and a return-path subdomain (send.) with its MX and SPF records.",
+  "variableDescription": "dkim: the public DKIM key issued for this domain (the text after p=).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "circulr.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
