@@ -1,0 +1,28 @@
+{
+  "providerId": "secondpage.cc",
+  "providerName": "SecondPage",
+  "serviceId": "custom-domain",
+  "serviceName": "SecondPage Custom Domain",
+  "version": 1,
+  "logoUrl": "https://secondpage.cc/brand/secondpage-p2.svg",
+  "description": "Connect a subdomain so public SecondPage pages can be served from the customer's own domain.",
+  "variableDescription": "target: SecondPage custom-domain CNAME target; token: SecondPage ownership verification token.",
+  "syncPubKeyDomain": "domainconnect.secondpage.cc",
+  "syncRedirectDomain": "secondpage.cc",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_secondpage",
+      "data": "%token%",
+      "ttl": 3600
+    }
+  ]
+}

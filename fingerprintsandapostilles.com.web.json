@@ -1,0 +1,21 @@
+{
+  "providerId": "fingerprintsandapostilles.com",
+  "providerName": "Fingerprints and Apostilles",
+  "serviceId": "web",
+  "serviceName": "Order page (subdomain)",
+  "version": 1,
+  "logoUrl": "https://fingerprintsandapostilles.com/images/logo.png",
+  "description": "Points a partner's subdomain (for example orders.example.com) at their white-labelled order page with one CNAME. Always applied with a host; the web-apex template covers a bare domain.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "fingerprintsandapostilles.com",
+  "syncRedirectDomain": "partners.fingerprintsandapostilles.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

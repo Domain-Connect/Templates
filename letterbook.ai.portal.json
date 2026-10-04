@@ -1,0 +1,23 @@
+{
+    "providerId": "letterbook.ai",
+    "providerName": "Letterbook",
+    "serviceId": "portal",
+    "serviceName": "Portal custom domain",
+    "version": 1,
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.letterbook.ai",
+    "syncRedirectDomain": "app.letterbook.ai",
+    "logoUrl": "https://app.letterbook.ai/letterbook-logo-dark-favicon.svg",
+    "description": "Connects a custom domain to a Letterbook-hosted user portal, in place of the provisioned default {org_slug}.letterbook.ai. For examples of a hosted customer portal, see https://guide.letterbook.ai (note: this is not a custom domain)",
+    "variableDescription": "",
+    "hostRequired": true,
+    "records": [
+      {
+        "type": "CNAME",
+        "host": "@",
+        "pointsTo": "custom-domains.letterbook.ai",
+        "ttl": 300
+      }
+    ]
+  }
+  

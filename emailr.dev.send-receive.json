@@ -3,7 +3,7 @@
   "providerName": "emailr",
   "serviceId": "send-receive",
   "serviceName": "emailr Mail Send and Receive",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://emailr.dev/black_logo.svg",
   "description": "Configure email sending and receiving DNS records for emailr.dev",
   "syncBlock": false,
@@ -21,7 +21,7 @@
     },
     {
       "type": "SPFM",
-      "host": "@",
+      "host": "%spfDomain%",
       "spfRules": "include:amazonses.com"
     },
     {

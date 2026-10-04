@@ -1,0 +1,20 @@
+{
+  "providerId": "maxout.ai",
+  "providerName": "MaxOut AI",
+  "serviceId": "custom-domain",
+  "serviceName": "White-label custom domain",
+  "version": 1,
+  "description": "Connects a reseller subdomain to MaxOut AI white-label hosting.",
+  "variableDescription": "siteId is the Firebase Hosting site ID returned by MaxOut AI. The standard Domain Connect host parameter is the customer subdomain label.",
+  "syncPubKeyDomain": "dcsig.maxout.ai",
+  "syncRedirectDomain": "staging.maxout.ai,preprod.maxout.ai,maxout.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%siteId%.web.app",
+      "ttl": 3600
+    }
+  ]
+}

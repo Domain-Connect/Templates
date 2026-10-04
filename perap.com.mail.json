@@ -1,0 +1,63 @@
+{
+    "providerId": "perap.com",
+    "providerName": "PerapMail",
+    "serviceId": "mail",
+    "serviceName": "PerapMail kurumsal e-posta",
+    "version": 1,
+    "logoUrl": "https://inbox.perap.com/assets/img/favicon.svg",
+    "description": "MX, SPF, DKIM, DMARC and autoconfig records for PerapMail business email.",
+    "variableDescription": "rsaselector/rsakey: RSA DKIM selector and public key; edselector/edkey: Ed25519 DKIM selector and public key (both generated per domain by our mail server)",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "syncPubKeyDomain": "perap.com",
+    "syncRedirectDomain": "inbox.perap.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx1.perap.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:spf.perap.com"
+        },
+        {
+            "type": "TXT",
+            "host": "%rsaselector%._domainkey",
+            "data": "v=DKIM1; k=rsa; h=sha256; p=%rsakey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "TXT",
+            "host": "%edselector%._domainkey",
+            "data": "v=DKIM1; k=ed25519; h=sha256; p=%edkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply"
+        },
+        {
+            "type": "CNAME",
+            "host": "autoconfig",
+            "pointsTo": "mx1.perap.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "autodiscover",
+            "pointsTo": "mx1.perap.com",
+            "ttl": 3600
+        }
+    ]
+}

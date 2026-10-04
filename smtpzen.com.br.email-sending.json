@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "providerId": "smtpzen.com.br",
+  "providerName": "SMTP Zen",
+  "serviceId": "email-sending",
+  "serviceName": "SMTP Zen — envio de e-mail",
+  "logoUrl": "https://smtpzen.com.br/logo.png",
+  "description": "Autoriza o SMTP Zen a enviar e-mails em nome do seu domínio: publica a chave DKIM e o MX e SPF do subdomínio send, que recebe as devoluções.",
+  "variableDescription": "%dkimselector%: seletor da chave DKIM emitida para este domínio; %dkimkey%: chave pública DKIM em base64; %mxhost%: servidor que recebe as devoluções; %spfhost%: host do include: de SPF",
+  "syncBlock": false,
+  "syncPubKeyDomain": "smtpzen.com.br",
+  "syncRedirectDomain": "app.smtpzen.com.br",
+  "sharedProviderName": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mxhost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:%spfhost%",
+      "ttl": 3600
+    }
+  ]
+}

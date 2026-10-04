@@ -1,0 +1,29 @@
+{
+  "providerId": "seatbeltsecurity.com",
+  "providerName": "Seatbelt Security",
+  "serviceId": "dkim",
+  "serviceName": "DKIM Email Signing",
+  "description": "Publishes two DKIM (selector1/selector2) CNAME records so your email provider can DKIM-sign your outbound email and it passes DMARC.",
+  "logoUrl": "https://seatbeltsecurity.com/marketing/seatbelt-logo-dc.png",
+  "version": 1,
+  "hostRequired": false,
+  "syncPubKeyDomain": "seatbeltsecurity.com",
+  "syncRedirectDomain": "seatbeltsecurity.com",
+  "variableDescription": "dkimtarget1 / dkimtarget2: the tenant-specific selector1 / selector2 CNAME targets supplied by your email provider at setup time. Not derivable from the domain name.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%dkimtarget1%",
+      "ttl": 3600,
+      "groupId": "dkim"
+    },
+    {
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%dkimtarget2%",
+      "ttl": 3600,
+      "groupId": "dkim"
+    }
+  ]
+}

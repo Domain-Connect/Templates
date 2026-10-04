@@ -1,0 +1,23 @@
+{
+    "providerId": "ctxlay.ai",
+    "providerName": "CtxLay",
+    "serviceId": "domain-verification",
+    "serviceName": "CtxLay Domain Verification",
+    "version": 1,
+    "logoUrl": "https://ctxlay.ai/logo.png",
+    "description": "Verify ownership of a domain to lock it to SSO on CtxLay.",
+    "variableDescription": "verification is the domain-ownership token issued by CtxLay.",
+    "syncPubKeyDomain": "domainconnect.ctxlay.ai",
+    "syncRedirectDomain": "ctxlay.ai",
+    "records": [
+        {
+            "type": "TXT",
+            "groupId": "verification",
+            "host": "_ctxlay-verify",
+            "ttl": "3600",
+            "data": "ctxlay-domain-verify=%verification%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "ctxlay-domain-verify="
+        }
+    ]
+}

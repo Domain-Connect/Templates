@@ -1,0 +1,47 @@
+{
+  "providerId": "franchisesystems.ai",
+  "providerName": "Franchise Systems AI",
+  "serviceId": "email-sending",
+  "serviceName": "Franchise Systems AI email sending",
+  "version": 1,
+  "syncPubKeyDomain": "franchisesystems.ai",
+  "syncRedirectDomain": "app.franchisesystems.ai",
+  "logoUrl": "https://app.franchisesystems.ai/logo.svg",
+  "description": "Configures the DNS records required to send email from your domain via Franchise Systems AI.",
+  "variableDescription": "%mx% is the return-path MX target for the send subdomain; %dkim% is the DKIM public key material (base64, without the p= prefix \u2014 the template adds it).",
+  "records": [
+    {
+      "groupId": "return-path",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mx%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

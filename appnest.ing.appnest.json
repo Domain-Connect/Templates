@@ -1,0 +1,21 @@
+{
+  "providerId": "appnest.ing",
+  "providerName": "AppNest",
+  "serviceId": "appnest",
+  "serviceName": "AppNest app",
+  "version": 1,
+  "logoUrl": "https://appnest.ing/favicon.svg",
+  "description": "Serves an app built on AppNest (appnest.ing) at the user's subdomain. One CNAME to AppNest's Cloudflare-for-SaaS fallback origin; the TLS certificate is issued automatically via HTTP domain-control validation once the record resolves. Removing the CNAME detaches the subdomain from AppNest.",
+  "variableDescription": "This template uses no custom variables. The standard domain and host parameters select the subdomain the CNAME is written for.",
+  "syncPubKeyDomain": "appnest.ing",
+  "syncRedirectDomain": "dashboard.appnest.ing",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.appnest.ing",
+      "ttl": 3600
+    }
+  ]
+}

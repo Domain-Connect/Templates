@@ -1,0 +1,18 @@
+{
+  "providerId": "webuno.es",
+  "providerName": "Webuno",
+  "serviceId": "site",
+  "serviceName": "Webuno website",
+  "version": 1,
+  "logoUrl": "https://webuno.es/favicon.svg",
+  "description": "Connects a domain to its Webuno website (Cloudflare Pages). Adds two CNAME records only; never touches MX/TXT/NS.",
+  "variableDescription": "cname = the Cloudflare Pages hostname for the site's template family, e.g. webuno-sites-tapas.pages.dev",
+  "syncPubKeyDomain": "webuno.io",
+  "syncRedirectDomain": "webuno.es,webuno.io",
+  "shared": false,
+  "hostRequired": false,
+  "records": [
+    { "type": "APEXCNAME", "groupId": "1", "pointsTo": "%cname%", "ttl": 3600 },
+    { "type": "CNAME", "groupId": "1", "host": "www", "pointsTo": "%cname%", "ttl": 3600 }
+  ]
+}

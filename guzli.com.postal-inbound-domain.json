@@ -1,0 +1,30 @@
+{
+  "providerId": "guzli.com",
+  "providerName": "Guzli",
+  "serviceId": "postal-inbound-domain",
+  "serviceName": "Guzli Inbound Email Domain",
+  "version": 1,
+  "logoUrl": "https://guzli.com/favicon.svg",
+  "description": "Verifies your domain with Guzli and routes its inbound email to Guzli's mail receiver so replies to your Guzli-sent messages reach your workspace.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.guzli.com",
+  "syncRedirectDomain": "app.guzli.com",
+  "variableDescription": "%verifytoken%: the domain verification token issued by Guzli for this domain; %mxhost%: the Guzli inbound mail exchanger host; %mxpriority%: the MX priority for that host",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "guzli-verification %verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "guzli-verification"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxhost%",
+      "priority": "%mxpriority%",
+      "ttl": 3600
+    }
+  ]
+}

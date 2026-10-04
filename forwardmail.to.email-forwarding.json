@@ -1,0 +1,55 @@
+{
+  "providerId": "forwardmail.to",
+  "providerName": "ForwardMailTo",
+  "serviceId": "email-forwarding",
+  "serviceName": "Email forwarding",
+  "version": 1,
+  "logoUrl": "https://forwardmail.to/icon-512.png",
+  "description": "Receives mail for your domain and forwards it to your inbox, with DKIM and SPF so replies are delivered.",
+  "variableDescription": "verification: ForwardMailTo domain ownership token. dkim1, dkim2, dkim3: Amazon SES DKIM tokens for the domain.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "forwardmail.to",
+  "syncRedirectDomain": "forwardmail.to",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.us-east-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=forwardmailto1 token=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=forwardmailto1"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

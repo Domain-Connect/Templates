@@ -1,0 +1,20 @@
+{
+    "providerId": "hintoric.com",
+    "providerName": "Hintoric",
+    "serviceId": "caa",
+    "serviceName": "Authorize SSL issuance (CAA)",
+    "version": 1,
+    "logoUrl": "https://cdn.hintoric.com/assets/logo/dc/black.svg",
+    "description": "Authorizes Amazon to issue the SSL certificate for a subdomain used with Hintoric",
+    "syncPubKeyDomain": "hintoric.com",
+    "syncRedirectDomain": "hintoric.com",
+    "records": [
+        {
+            "type": "CAA",
+            "host": "@",
+            "data": "0 issue \"amazon.com\"",
+            "ttl": 3600,
+            "essential": "OnApply"
+        }
+    ]
+}

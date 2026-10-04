@@ -1,0 +1,16 @@
+{
+  "providerId": "replyplex.com",
+  "providerName": "ReplyPlex",
+  "serviceId": "resend",
+  "serviceName": "ReplyPlex email (Resend)",
+  "version": 1,
+  "logoUrl": "https://replyplex.com/logo.svg",
+  "description": "Configures Resend (Amazon SES-backed) sending records for a ReplyPlex inbox.",
+  "syncPubKeyDomain": "replyplex.com",
+  "syncRedirectDomain": "desk.replyplex.com",
+  "records": [
+    { "type": "MX", "host": "send", "pointsTo": "%mx%", "priority": 10, "ttl": 3600 },
+    { "type": "TXT", "host": "resend._domainkey", "data": "%dkim%", "ttl": 3600 },
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com", "ttl": 3600 }
+  ]
+}

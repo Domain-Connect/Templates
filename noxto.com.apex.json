@@ -1,0 +1,19 @@
+{
+  "providerId": "noxto.com",
+  "providerName": "Noxto",
+  "serviceId": "apex",
+  "serviceName": "Noxto site (root domain and www)",
+  "version": 1,
+  "logoUrl": "https://cdn.noxto.com/assets/brand/emblem-dark.png",
+  "description": "Points a root domain such as example.com at a site hosted on Noxto (A record to Noxto's edge), adds www as a CNAME to the same edge, and proves ownership of both names with TXT records that Noxto checks.",
+  "variableDescription": "token: the ownership token Noxto issued for the root domain. wwwtoken: the ownership token for www.",
+  "syncPubKeyDomain": "noxto.com",
+  "syncRedirectDomain": "admin.noxto.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "146.190.3.92", "ttl": 3600 },
+    { "type": "TXT", "host": "_noxto", "data": "noxto-verify=%token%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "noxto-verify=" },
+    { "type": "CNAME", "host": "www", "pointsTo": "edge.noxto.io", "ttl": 3600 },
+    { "type": "TXT", "host": "_noxto.www", "data": "noxto-verify=%wwwtoken%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "noxto-verify=" }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "providerId": "bundly.innolope.com",
+  "providerName": "Bundly",
+  "serviceId": "bundle",
+  "serviceName": "Bundly Bundle",
+  "version": 1,
+  "logoUrl": "https://bundly.innolope.com/icon.svg",
+  "description": "Connects a customer domain to a Bundly bundle by adding ownership verification and service host records.",
+  "variableDescription": "%serverIp%: Bundly VM IPv4 address; %verificationToken%: Bundly domain ownership verification token",
+  "syncPubKeyDomain": "domainconnect-keys.bundly.innolope.com",
+  "syncRedirectDomain": "bundly.innolope.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_bundly-verify",
+      "ttl": 600,
+      "data": "bundly-verification=%verificationToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "bundly-verification="
+    },
+    {
+      "type": "A",
+      "host": "sign",
+      "pointsTo": "%serverIp%",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "book",
+      "pointsTo": "%serverIp%",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "meet",
+      "pointsTo": "%serverIp%",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "admin",
+      "pointsTo": "%serverIp%",
+      "ttl": 600
+    }
+  ]
+}

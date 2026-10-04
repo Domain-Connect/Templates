@@ -1,0 +1,21 @@
+{
+  "providerId": "inkysites.com",
+  "providerName": "InkySites",
+  "serviceId": "cert",
+  "serviceName": "InkySites website certificate",
+  "version": 1,
+  "logoUrl": "https://inkysites.com/images/brand/inky-mark.svg",
+  "description": "Lets Google Certificate Manager issue the HTTPS certificate for a website InkySites hosts. Adds one CNAME record at _acme-challenge and changes nothing else.",
+  "variableDescription": "acme: the per-domain label Google Certificate Manager issues for the DNS authorization, for example 0f1e2d3c-4b5a-6978-8796-a5b4c3d2e1f0.11",
+  "syncBlock": false,
+  "syncPubKeyDomain": "inkysites.com",
+  "syncRedirectDomain": "app.inkysites.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%acme%.authorize.certificatemanager.goog",
+      "ttl": 3600
+    }
+  ]
+}

@@ -3,7 +3,7 @@
     "providerName": "PostHog",
     "serviceId": "email-verification-eu",
     "serviceName": "PostHog Email Sending (EU)",
-    "version": 1,
+    "version": 2,
     "syncBlock": false,
     "logoUrl": "https://posthog.com/brand/posthog-logo.svg",
     "description": "Configures DNS records for PostHog email sending (domain verification, DKIM, SPF, MAIL FROM)",
@@ -47,6 +47,13 @@
             "type": "SPFM",
             "host": "%mailFromSub%",
             "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
             "ttl": 3600
         }
     ]

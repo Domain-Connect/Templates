@@ -1,0 +1,27 @@
+{
+  "providerId": "easydnsconnector.com",
+  "providerName": "EasyDNSConnector",
+  "serviceId": "default-domain",
+  "serviceName": "EasyDNSConnector Domain Setup",
+  "version": 1,
+  "description": "Configures the DNS records EasyDNSConnector uses for the default hosted-domain setup flow: a domain ownership TXT record and a www CNAME target.",
+  "variableDescription": "%domain%: the domain being connected; EasyDNSConnector uses it inside the verification TXT value.",
+  "syncPubKeyDomain": "keys.easydnsconnector.com",
+  "syncRedirectDomain": "api.easydnsconnector.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_easydnsconnector",
+      "data": "easydnsconnector-verification=%domain%",
+      "ttl": "3600",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "easydnsconnector-verification="
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "proxy.easydnsconnector.com",
+      "ttl": "3600"
+    }
+  ]
+}

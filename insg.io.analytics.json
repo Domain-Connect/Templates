@@ -1,0 +1,20 @@
+{
+  "providerId": "insg.io",
+  "providerName": "INSG",
+  "serviceId": "analytics",
+  "serviceName": "INSG Analytics",
+  "version": 1,
+  "logoUrl": "https://insg.io/favicon.svg",
+  "description": "Serve INSG analytics from your own subdomain so it is not blocked as third-party tracking.",
+  "syncPubKeyDomain": "insg.io",
+  "syncRedirectDomain": "insg.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy.sbda.io",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "providerId": "shopiyz.com",
+  "providerName": "Shopiyz",
+  "serviceId": "mail-sending",
+  "serviceName": "Mail Sending",
+  "version": 1,
+  "logoUrl": "https://superadmin.shopiyz.com/brand/shopiyz-logo-black.svg",
+  "description": "Configure authentication, return-path, DMARC and tracking DNS records for a Shopiyz store.",
+  "variableDescription": "The signed Shopiyz request supplies the DKIM selector and public key. Resend-backed domains additionally supply the sending region and tracking cluster.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "shopiyz.com",
+  "syncRedirectDomain": "superadmin.shopiyz.com",
+  "records": [
+    {
+      "groupId": "sendvoya-add-dmarc",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.sendvoya.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendvoya-add-dmarc",
+      "type": "SPFM",
+      "host": "svy",
+      "spfRules": "include:_spf.sendvoya.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendvoya-add-dmarc",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimpublickey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "sendvoya-add-dmarc",
+      "type": "MX",
+      "host": "bounce-svy",
+      "pointsTo": "mta01.mx.sendvoya.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendvoya-add-dmarc",
+      "type": "SPFM",
+      "host": "bounce-svy",
+      "spfRules": "include:_spf.sendvoya.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendvoya-add-dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; sp=none; adkim=r; aspf=r;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "sendvoya-add-dmarc",
+      "type": "CNAME",
+      "host": "go-svy",
+      "pointsTo": "track.sendvoya.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendvoya-preserve-dmarc",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.sendvoya.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendvoya-preserve-dmarc",
+      "type": "SPFM",
+      "host": "svy",
+      "spfRules": "include:_spf.sendvoya.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendvoya-preserve-dmarc",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimpublickey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "sendvoya-preserve-dmarc",
+      "type": "MX",
+      "host": "bounce-svy",
+      "pointsTo": "mta01.mx.sendvoya.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendvoya-preserve-dmarc",
+      "type": "SPFM",
+      "host": "bounce-svy",
+      "spfRules": "include:_spf.sendvoya.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendvoya-preserve-dmarc",
+      "type": "CNAME",
+      "host": "go-svy",
+      "pointsTo": "track.sendvoya.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "resend-add-dmarc",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%resendregion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "resend-add-dmarc",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "resend-add-dmarc",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "p=%dkimpublickey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p="
+    },
+    {
+      "groupId": "resend-add-dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; sp=none; adkim=r; aspf=r;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "resend-add-dmarc",
+      "type": "CNAME",
+      "host": "links",
+      "pointsTo": "links%resendtrackingcluster%.resend-dns.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "resend-preserve-dmarc",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%resendregion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "resend-preserve-dmarc",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "resend-preserve-dmarc",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "p=%dkimpublickey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p="
+    },
+    {
+      "groupId": "resend-preserve-dmarc",
+      "type": "CNAME",
+      "host": "links",
+      "pointsTo": "links%resendtrackingcluster%.resend-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

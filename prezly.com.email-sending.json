@@ -1,0 +1,43 @@
+{
+    "providerId": "prezly.com",
+    "providerName": "Prezly",
+    "serviceId": "email-sending",
+    "serviceName": "Email sending",
+    "version": 1,
+    "logoUrl": "https://cdn.prezly.com/img/logo.svg",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.prezly.com",
+    "syncRedirectDomain": "rock.prezly.com",
+    "description": "Verify this domain for sending email campaigns through Prezly.",
+    "variableDescription": "%mailTarget%: Prezly return-path host; %dkim1%/%dkim2%: DKIM selectors; %dkim1Target%/%dkim2Target%: DKIM hosts; %dmarcTarget%: DMARC policy host. All values are assigned per account by Prezly.",
+    "records": [
+        {
+            "groupId": "mail",
+            "type": "CNAME",
+            "host": "prezly-email",
+            "pointsTo": "%mailTarget%",
+            "ttl": 300
+        },
+        {
+            "groupId": "dkim1",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1Target%",
+            "ttl": 300
+        },
+        {
+            "groupId": "dkim2",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2Target%",
+            "ttl": 300
+        },
+        {
+            "groupId": "dmarc",
+            "type": "CNAME",
+            "host": "_dmarc",
+            "pointsTo": "%dmarcTarget%",
+            "ttl": 300
+        }
+    ]
+}

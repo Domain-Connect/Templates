@@ -1,0 +1,23 @@
+{
+    "providerId": "attackerview.com",
+    "providerName": "AttackerView",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain ownership verification",
+    "version": 1,
+    "logoUrl": "https://attackerview.com/app-icon.svg",
+    "description": "Adds one TXT record that proves you own this domain to AttackerView.",
+    "variableDescription": "token: per-domain verification token",
+    "syncBlock": false,
+    "syncPubKeyDomain": "attackerview.com",
+    "syncRedirectDomain": "attackerview.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_attackerview-verify",
+            "data": "attackerview-verify=av_%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "None"
+        }
+    ]
+}

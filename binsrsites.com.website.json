@@ -1,0 +1,20 @@
+{
+  "providerId": "binsrsites.com",
+  "providerName": "BINSR Inspect Websites",
+  "serviceId": "website",
+  "serviceName": "Connect your inspection website domain",
+  "version": 1,
+  "description": "Points your custom domain at your BINSR Inspect website so visitors reach your inspection site over your own domain.",
+  "syncPubKeyDomain": "binsrsites.com",
+  "syncRedirectDomain": "binsrinspect.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.binsrsites.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

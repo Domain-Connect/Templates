@@ -1,0 +1,21 @@
+{
+  "providerId": "lnkflow.io",
+  "providerName": "LnkFlow",
+  "serviceId": "custom-domain",
+  "serviceName": "Branded link domain",
+  "version": 1,
+  "logoUrl": "https://app.lnkflow.io/favicon.svg",
+  "description": "Connect a subdomain to LnkFlow for branded campaign links.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.lnkflow.io",
+  "syncRedirectDomain": "app.lnkflow.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.lnkflow.io",
+      "ttl": 3600
+    }
+  ]
+}

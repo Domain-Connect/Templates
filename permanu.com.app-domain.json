@@ -1,0 +1,49 @@
+{
+  "providerId": "permanu.com",
+  "providerName": "Deploy by Permanu",
+  "serviceId": "app-domain",
+  "serviceName": "Permanu App Domain",
+  "version": 2,
+  "description": "Connect a domain or subdomain to an application deployed on Permanu.",
+  "variableDescription": "ip is the IPv4 address of the Permanu server. apex-verification is the ownership verification token for apex domains. subdomain-verification is the ownership verification token for subdomains. Subdomain mappings use the standard Domain Connect host apply parameter.",
+  "syncPubKeyDomain": "domainconnect.permanu.com",
+  "syncRedirectDomain": "permanu.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "groupId": "apex",
+      "essential": "OnApply",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "groupId": "subdomain",
+      "essential": "OnApply",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "groupId": "apex-verification",
+      "essential": "OnApply",
+      "host": "_deploy-verification",
+      "data": "%apex-verification%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "groupId": "subdomain-verification",
+      "essential": "OnApply",
+      "host": "_deploy-verification",
+      "data": "%subdomain-verification%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 600
+    }
+  ]
+}

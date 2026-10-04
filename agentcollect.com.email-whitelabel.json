@@ -1,0 +1,36 @@
+{
+    "providerId": "agentcollect.com",
+    "providerName": "AgentCollect",
+    "serviceId": "email-whitelabel",
+    "serviceName": "AgentCollect White-Label Billing Email",
+    "version": 1,
+    "logoUrl": "https://agentcollect.com/logo-512.png",
+    "description": "Authenticates a billing subdomain (DKIM via SendGrid) so AgentCollect can send accounts-receivable emails from the customer's own domain.",
+    "variableDescription": "%emLabel%: SendGrid-generated mail CNAME label (e.g. em6456); %sgTarget%: SendGrid account link prefix (e.g. u17558810.wl061).",
+    "syncPubKeyDomain": "agentcollect.com",
+    "syncRedirectDomain": "dashboard.agentcollect.com,backend.widr.app",
+    "hostRequired": true,
+    "records": [
+        {
+            "groupId": "sendgrid",
+            "type": "CNAME",
+            "host": "%emLabel%",
+            "pointsTo": "%sgTarget%.sendgrid.net",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sendgrid",
+            "type": "CNAME",
+            "host": "aco._domainkey",
+            "pointsTo": "aco.domainkey.%sgTarget%.sendgrid.net",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sendgrid",
+            "type": "CNAME",
+            "host": "aco2._domainkey",
+            "pointsTo": "aco2.domainkey.%sgTarget%.sendgrid.net",
+            "ttl": 3600
+        }
+    ]
+}

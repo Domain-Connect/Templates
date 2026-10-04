@@ -1,0 +1,33 @@
+{
+  "providerId": "notealy.com",
+  "providerName": "Notealy",
+  "serviceId": "email-domain",
+  "serviceName": "Notealy Email Domain",
+  "version": 1,
+  "logoUrl": "https://www.notealy.com/images/logo-brand-notealy.svg",
+  "description": "Configures DNS records to enable email sending with Notealy",
+  "variableDescription": "Sets up DNS records for email authentication and sending",
+  "syncPubKeyDomain": "notealy.com",
+  "syncRedirectDomain": "app.notealy.com,notealy.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%DKIM_HOST%",
+      "data": "%DKIM_VALUE%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "%MAIL_FROM_HOST%",
+      "pointsTo": "%MAIL_FROM_VALUE%",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "type": "TXT",
+      "host": "%SPF_HOST%",
+      "data": "%SPF_VALUE%",
+      "ttl": 3600
+    }
+  ]
+}

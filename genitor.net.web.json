@@ -1,0 +1,17 @@
+{
+  "providerId": "genitor.net",
+  "providerName": "Genitor",
+  "serviceId": "web",
+  "serviceName": "Genitor Website",
+  "version": 1,
+  "logoUrl": "https://genitor.net/logo.svg",
+  "description": "Connect your domain to a Genitor website. Adds the Cloudflare-for-SaaS apex A records, the www CNAME, and the per-cert SSL ownership validation CNAME issued for this hostname.",
+  "syncPubKeyDomain": "genitor.net",
+  "syncRedirectDomain": "genitor.net",
+  "records": [
+    { "type": "A",     "host": "@",               "pointsTo": "188.114.96.3",         "ttl": 300 },
+    { "type": "A",     "host": "@",               "pointsTo": "188.114.97.3",         "ttl": 300 },
+    { "type": "CNAME", "host": "www",             "pointsTo": "fallback.genitor.net", "ttl": 300 },
+    { "type": "CNAME", "host": "_acme-challenge", "pointsTo": "%DCV_TARGET%",         "ttl": 300 }
+  ]
+}

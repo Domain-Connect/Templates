@@ -1,0 +1,56 @@
+{
+  "providerId": "mailercloud.com",
+  "providerName": "Mailercloud",
+  "serviceId": "email-auth",
+  "serviceName": "Mailercloud Email Authentication",
+  "version": 1,
+  "logoUrl": "https://www.mailercloud.com/mailercloud-logo.png",
+  "description": "Authenticate your domain or subdomain to send email with Mailercloud (tracking, DKIM, SPF, DMARC).",
+  "syncPubKeyDomain": "dns-connect.mailercloud.com",
+  "syncRedirectDomain": "app.mailercloud.com",
+  "multiInstance": true,
+  "variableDescription": "cloudnskey: per-account tracking key. track_host/img_host/spf_host: server-computed relative hosts (apex mc / img<key> / @; subdomain adds the sub-label; occupied-subdomain tracking mc-<label>). dkim_selector: DKIM selector (e.g. k1). dkim_suffix: subdomain suffix after ._domainkey (empty at apex, .<sub> for a subdomain) — the ._domainkey label is fixed in the template. dmarc_suffix: subdomain suffix after _dmarc (empty at apex, .<sub>) — _dmarc is fixed in the template. img_value: img<key>.<imgdomain>. dmarc_value: server-computed DMARC TXT (existing policy preserved, with rua/ruf@trackdomain).",
+  "records": [
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "%track_host%",
+      "pointsTo": "mc%cloudnskey%.mlrcloud.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim_selector%._domainkey%dkim_suffix%",
+      "pointsTo": "dkim.mlrcloud.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "img",
+      "type": "CNAME",
+      "host": "%img_host%",
+      "pointsTo": "%img_value%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "%spf_host%",
+      "spfRules": "include:mlrcloud.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc%dmarc_suffix%",
+      "data": "%dmarc_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

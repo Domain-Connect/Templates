@@ -1,0 +1,20 @@
+{
+  "providerId": "juudd.com",
+  "providerName": "juudd",
+  "serviceId": "site",
+  "serviceName": "Point a domain at a juudd site",
+  "version": 1,
+  "logoUrl": "https://juudd.com/logo.svg",
+  "description": "Adds the CNAME that makes a domain serve a site deployed on juudd.",
+  "syncPubKeyDomain": "domainconnect.juudd.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites-fallback.juudd.app",
+      "ttl": 3600
+    }
+  ]
+}

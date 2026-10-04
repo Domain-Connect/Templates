@@ -1,0 +1,25 @@
+{
+  "providerId": "minilaunch.app",
+  "providerName": "MiniLaunch",
+  "serviceId": "site",
+  "serviceName": "MiniLaunch custom domain",
+  "version": 1,
+  "description": "Connect a custom domain to a MiniLaunch published site.",
+  "syncPubKeyDomain": "minilaunch.app",
+  "syncRedirectDomain": "minilaunch.app",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

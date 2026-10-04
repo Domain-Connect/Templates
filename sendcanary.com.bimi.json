@@ -3,12 +3,12 @@
   "providerName": "SendCanary",
   "serviceId": "bimi",
   "serviceName": "BIMI Brand Logo",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://sendcanary.com/logo.png",
-  "description": "Add a BIMI record so your brand logo appears next to your emails in supported inboxes like Gmail and Apple Mail.",
-  "variableDescription": "logo_url: Public HTTPS URL to your SVG brand logo",
+  "description": "SendCanary BIMI setup: publishes a BIMI TXT record so your verified brand logo appears next to authenticated emails in Gmail, Apple Mail, Yahoo, and other BIMI-aware inboxes. BIMI requires DMARC at quarantine or reject; set that up first via SendCanary's DMARC template. SendCanary (https://sendcanary.com) is an email authentication platform that monitors DMARC reports, detects spoofing, and automates DNS remediation for domain owners.",
+  "variableDescription": "logo_url: Public HTTPS URL to your trademark-verified SVG logo (BIMI SVG-P/S format). Typical value: https://brand.example.com/bimi-logo.svg",
   "syncPubKeyDomain": "sendcanary.com",
-  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com,api.sendcanary.com",
   "records": [
     {
       "type": "TXT",

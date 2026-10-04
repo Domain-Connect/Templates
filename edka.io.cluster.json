@@ -1,0 +1,141 @@
+{
+    "providerId": "edka.io",
+    "providerName": "Edka",
+    "serviceId": "cluster",
+    "serviceName": "Cluster domain",
+    "version": 1,
+    "logoUrl": "https://assets.edka.io/logo.svg",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.edka.io",
+    "syncRedirectDomain": "console.edka.io",
+    "description": "Point a hostname or wildcard domain to an Edka cluster and delegate DNS-01 certificate validation.",
+    "variableDescription": "%tlsTarget%: Edka ACME delegation target; %ip4_1% to %ip4_4%: cluster IPv4 addresses; %ip6_1% to %ip6_4%: cluster IPv6 addresses; %cnameTarget%: cluster hostname target for wildcard records.",
+    "records": [
+        {
+            "groupId": "tls",
+            "type": "CNAME",
+            "host": "_acme-challenge",
+            "pointsTo": "%tlsTarget%",
+            "ttl": 300
+        },
+        {
+            "groupId": "apex-a-1",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip4_1%",
+            "ttl": 300
+        },
+        {
+            "groupId": "apex-a-2",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip4_2%",
+            "ttl": 300
+        },
+        {
+            "groupId": "apex-a-3",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip4_3%",
+            "ttl": 300
+        },
+        {
+            "groupId": "apex-a-4",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip4_4%",
+            "ttl": 300
+        },
+        {
+            "groupId": "apex-aaaa-1",
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "%ip6_1%",
+            "ttl": 300
+        },
+        {
+            "groupId": "apex-aaaa-2",
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "%ip6_2%",
+            "ttl": 300
+        },
+        {
+            "groupId": "apex-aaaa-3",
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "%ip6_3%",
+            "ttl": 300
+        },
+        {
+            "groupId": "apex-aaaa-4",
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "%ip6_4%",
+            "ttl": 300
+        },
+        {
+            "groupId": "wildcard-a-1",
+            "type": "A",
+            "host": "*",
+            "pointsTo": "%ip4_1%",
+            "ttl": 300
+        },
+        {
+            "groupId": "wildcard-a-2",
+            "type": "A",
+            "host": "*",
+            "pointsTo": "%ip4_2%",
+            "ttl": 300
+        },
+        {
+            "groupId": "wildcard-a-3",
+            "type": "A",
+            "host": "*",
+            "pointsTo": "%ip4_3%",
+            "ttl": 300
+        },
+        {
+            "groupId": "wildcard-a-4",
+            "type": "A",
+            "host": "*",
+            "pointsTo": "%ip4_4%",
+            "ttl": 300
+        },
+        {
+            "groupId": "wildcard-aaaa-1",
+            "type": "AAAA",
+            "host": "*",
+            "pointsTo": "%ip6_1%",
+            "ttl": 300
+        },
+        {
+            "groupId": "wildcard-aaaa-2",
+            "type": "AAAA",
+            "host": "*",
+            "pointsTo": "%ip6_2%",
+            "ttl": 300
+        },
+        {
+            "groupId": "wildcard-aaaa-3",
+            "type": "AAAA",
+            "host": "*",
+            "pointsTo": "%ip6_3%",
+            "ttl": 300
+        },
+        {
+            "groupId": "wildcard-aaaa-4",
+            "type": "AAAA",
+            "host": "*",
+            "pointsTo": "%ip6_4%",
+            "ttl": 300
+        },
+        {
+            "groupId": "wildcard-cname",
+            "type": "CNAME",
+            "host": "*",
+            "pointsTo": "%cnameTarget%",
+            "ttl": 300
+        }
+    ]
+}

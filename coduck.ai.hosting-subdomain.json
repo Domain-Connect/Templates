@@ -1,0 +1,27 @@
+{
+  "providerId": "coduck.ai",
+  "providerName": "CoDuck",
+  "serviceId": "hosting-subdomain",
+  "serviceName": "Connect your domain to your CoDuck site (subdomain)",
+  "version": 1,
+  "description": "Points a subdomain (e.g. app.example.com) at your CoDuck-hosted site, and adds a verification record so CoDuck can confirm the connection. No other DNS records are changed.",
+  "variableDescription": "%token%: per-domain ownership verification token issued by CoDuck when the domain is added to a project. %target%: the coduck.app subdomain label assigned to the CoDuck project this domain routes to.",
+  "syncPubKeyDomain": "coduck.ai",
+  "syncRedirectDomain": "coduck.ai,app.coduck.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_coduck-verify",
+      "data": "coduck-verify=%token%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%.coduck.app",
+      "ttl": 3600
+    }
+  ]
+}

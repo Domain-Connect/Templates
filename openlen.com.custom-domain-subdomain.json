@@ -1,0 +1,26 @@
+{
+  "providerId": "openlen.com",
+  "providerName": "OpenLen",
+  "serviceId": "custom-domain-subdomain",
+  "serviceName": "OpenLen Custom Subdomain",
+  "syncPubKeyDomain": "dc.openlen.com",
+  "version": 1,
+  "logoUrl": "https://openlen.com/icon.svg",
+  "description": "Connect a subdomain (e.g. landing.yoursite.com) to your OpenLen landing page.",
+  "variableDescription": "token is the per-claim verification value generated when the user adds the domain in OpenLen.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom.openlen.com",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_openlen-challenge",
+      "data": "%token%",
+      "ttl": 300
+    }
+  ]
+}

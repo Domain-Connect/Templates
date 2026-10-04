@@ -1,0 +1,76 @@
+{
+  "providerId": "mail-o-mail.com",
+  "providerName": "Mail-o-Mail",
+  "serviceId": "momv1",
+  "serviceName": "Mail-o-Mail email sending",
+  "version": 1,
+  "logoUrl": "https://mail-o-mail.com/static/images/logo-inverted.png",
+  "description": "Authorizes Mail-o-Mail (mail-o-mail.com) to send email for the domain: SES domain verification, DKIM (Amazon SES tokens), SPF via the mom-controlled include, DMARC with a hosted report address, plus a pre-provisioned relay DKIM selector CNAME and return-path CNAME (inert until activated; no MX records).",
+  "variableDescription": "%sesverify%: the Amazon SES domain verification token; %dkim1%/%dkim2%/%dkim3%: the three Amazon SES DKIM tokens issued for the domain; %dmarctoken%: the customer's DMARC report inbox token at dmarc.mail-o-mail.com; %relaytoken%: the per-domain relay DKIM key handle under dkim.puma.mail-o-mail.com.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mail-o-mail.com",
+  "syncRedirectDomain": "mail-o-mail.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%sesverify%",
+      "ttl": 3600,
+      "groupId": "verify",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.mail-o-mail.com",
+      "groupId": "spf"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "dkim"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "dkim"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "dkim"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%dmarctoken%@dmarc.mail-o-mail.com",
+      "ttl": 3600,
+      "groupId": "dmarc",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "mom1._domainkey",
+      "pointsTo": "%relaytoken%.dkim.puma.mail-o-mail.com",
+      "ttl": 3600,
+      "groupId": "relay",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "psrp",
+      "pointsTo": "puma.mail-o-mail.com",
+      "ttl": 3600,
+      "groupId": "relay",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "gemiq.com",
+  "providerName": "GemIQ",
+  "serviceId": "storefront-test",
+  "serviceName": "GemIQ Online Storefront (Test)",
+  "version": 1,
+  "logoUrl": "https://gembox.app/static/domain-connect/logo.png",
+  "description": "Connects a subdomain of the customer's domain to the GemIQ pre-production storefront environment. Used by GemIQ for pre-release verification of the Domain Connect flow.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gemiq.com",
+  "syncRedirectDomain": "gemlightbox.com,cloud.picupmedia.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "prestage.gembox.app",
+      "ttl": 3600
+    }
+  ]
+}

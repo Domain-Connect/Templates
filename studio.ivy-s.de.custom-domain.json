@@ -1,0 +1,25 @@
+{
+  "providerId": "studio.ivy-s.de",
+  "providerName": "Ivy's Studio",
+  "serviceId": "custom-domain",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://studio.ivy-s.de/static/brand-logo-256.png",
+  "description": "Points your domain at your Ivy's Studio website.",
+  "syncPubKeyDomain": "dcsig.studio.ivy-s.de",
+  "syncRedirectDomain": "studio.ivy-s.de",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}

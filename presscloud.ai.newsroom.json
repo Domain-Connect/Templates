@@ -1,0 +1,21 @@
+{
+    "providerId": "presscloud.ai",
+    "providerName": "Presscloud",
+    "serviceId": "newsroom",
+    "serviceName": "Presscloud Newsroom",
+    "version": 1,
+    "logoUrl": "https://presscloud.ai/images/logo/presscloud_logo.svg",
+    "description": "Point a subdomain of your domain at your Presscloud newsroom.",
+    "syncPubKeyDomain": "presscloud.ai",
+    "syncRedirectDomain": "presscloud.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "newsroom.presscloud.ai",
+            "ttl": 3600,
+            "essential": "Always"
+        }
+    ]
+}

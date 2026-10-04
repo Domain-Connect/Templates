@@ -1,0 +1,36 @@
+{
+  "providerId": "studio360.art",
+  "providerName": "studio360",
+  "serviceId": "website",
+  "serviceName": "studio360 Artist Website",
+  "version": 1,
+  "logoUrl": "https://studio360.art/admin/favicon.ico",
+  "description": "Connect an artist-owned domain to a studio360 public artist website hosted on Vercel.",
+  "variableDescription": "apexIp1 and apexIp2 are Vercel apex A record targets; wwwTarget is the Vercel www CNAME target.",
+  "syncPubKeyDomain": "domainconnect.studio360.art",
+  "syncRedirectDomain": "studio360.art",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%apexIp1%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%apexIp2%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%wwwTarget%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

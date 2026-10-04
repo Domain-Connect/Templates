@@ -1,0 +1,31 @@
+{
+  "providerId": "treadcommand.com",
+  "providerName": "TreadCommand",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom Domain",
+  "version": 3,
+  "logoUrl": "https://www.treadcommand.com/logo.png",
+  "description": "Connect your domain to your TreadCommand-powered tire shop storefront.",
+  "syncPubKeyDomain": "treadcommand.com",
+  "syncRedirectDomain": "www.treadcommand.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "customers.treadcommand.com",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "104.26.12.191",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "104.26.13.191",
+      "ttl": 3600
+    }
+  ]
+}

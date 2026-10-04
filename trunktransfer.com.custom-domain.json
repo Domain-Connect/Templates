@@ -1,0 +1,36 @@
+{
+  "providerId": "trunktransfer.com",
+  "providerName": "TrunkTransfer",
+  "serviceId": "custom-domain",
+  "serviceName": "TrunkTransfer Custom Domain",
+  "version": 1,
+  "logoUrl": "https://trunktransfer.com/logo.png",
+  "description":
+    "Connect your domain to TrunkTransfer for branded file delivery",
+  "syncPubKeyDomain": "domainconnect.trunktransfer.com",
+  "syncRedirectDomain": "trunktransfer.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.trunktransfer.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cf_own_value%",
+      "ttl": 300,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%cf_ssl_value%",
+      "ttl": 300,
+      "essential": "OnApply"
+    }
+  ]
+}

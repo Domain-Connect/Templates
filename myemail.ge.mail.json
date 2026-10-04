@@ -1,0 +1,58 @@
+{
+  "providerId": "myemail.ge",
+  "providerName": "myemail.ge",
+  "serviceId": "mail",
+  "serviceName": "myemail.ge mailboxes",
+  "version": 1,
+  "logoUrl": "https://myemail.ge/myemail-logo.svg",
+  "description": "Point this domain's email at myemail.ge and turn on DKIM signing and DMARC.",
+  "variableDescription": "token: the ownership value from the customer’s panel. mailhost: the mail server their plan was provisioned on. dkimselector and dkimvalue: the DKIM key generated for this domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "myemail.ge",
+  "syncRedirectDomain": "my.myemail.ge",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "myserv-verification=%token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "myserv-verification=",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "delivery",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mailhost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "delivery",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx"
+    },
+    {
+      "groupId": "signing",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "%dkimvalue%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "groupId": "policy",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject; rua=mailto:postmaster@%domain%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

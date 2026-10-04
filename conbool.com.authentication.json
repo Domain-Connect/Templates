@@ -1,0 +1,45 @@
+{
+  "providerId": "conbool.com",
+  "providerName": "Conbool",
+  "serviceId": "authentication",
+  "serviceName": "Conbool Mail-Authentifizierung",
+  "version": 1,
+  "logoUrl": "https://conbool.com/logo-blue.png",
+  "description": "Weist die Domäne dem Mandanten nach und richtet DKIM und DMARC für sie ein. DKIM läuft über zwei Verweise auf die Conbool-Zone, damit Schlüsselwechsel später ohne erneute Änderung im DNS möglich sind. DMARC startet im Beobachtungsmodus und sendet die Berichte an die feste Conbool-Adresse dieses Mandanten. Eine bereits eingetragene Berichtsadresse der Domäne bleibt daneben bestehen. Der Mailweg bleibt unberührt.",
+  "variableDescription": "%policy%: die DMARC-Richtlinie, none beim Einrichten und später quarantine oder reject, wenn die Zahlen es hergeben. %accountid%: die Kennung des Mandanten, mit der die Domäne ihm zugeordnet wird. %rua%: die Berichtsziele als DMARC-Liste, kommagetrennt. An erster Stelle steht immer die feste Conbool-Adresse dieses Mandanten, in der Cloud unter dmarc.conbool.com und auf einer eigenen Installation unter der dort eingerichteten Berichtsdomäne. Trägt die Domäne bereits eine eigene Berichtsadresse, bleibt sie dahinter erhalten, denn DMARC lässt mehrere Ziele ausdrücklich zu und ein Überschreiben nähme dem bisherigen Empfänger die Berichte, ohne dass es auffiele. Die DKIM-Ziele stehen fest und nutzen nur die implizite Variable %fqdn%.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "conbool.com",
+  "syncRedirectDomain": "conbool.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_verification",
+      "data": "conbool-verification=%accountid%",
+      "ttl": 3600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "conbool1._domainkey",
+      "pointsTo": "conbool1.%fqdn%.dkim.conbool.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "conbool2._domainkey",
+      "pointsTo": "conbool2.%fqdn%.dkim.conbool.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%; rua=%rua%; pct=100",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+    "providerId": "letterbook.ai",
+    "providerName": "Letterbook",
+    "serviceId": "forwarding-replies",
+    "serviceName": "Forwarding replies",
+    "version": 1,
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.letterbook.ai",
+    "syncRedirectDomain": "app.letterbook.ai",
+    "logoUrl": "https://app.letterbook.ai/letterbook-logo-dark-favicon.svg",
+    "description": "Configures Amazon SES DKIM records required to send replies from a forwarding address in Letterbook.",
+    "variableDescription": "dkimSelector1/dkimSelector2/dkimSelector3: Amazon SES DKIM selector tokens.",
+    "records": [
+      {
+        "type": "CNAME",
+        "host": "%dkimSelector1%._domainkey",
+        "pointsTo": "%dkimSelector1%.dkim.amazonses.com",
+        "ttl": 300
+      },
+      {
+        "type": "CNAME",
+        "host": "%dkimSelector2%._domainkey",
+        "pointsTo": "%dkimSelector2%.dkim.amazonses.com",
+        "ttl": 300
+      },
+      {
+        "type": "CNAME",
+        "host": "%dkimSelector3%._domainkey",
+        "pointsTo": "%dkimSelector3%.dkim.amazonses.com",
+        "ttl": 300
+      }
+    ]
+  }
+  

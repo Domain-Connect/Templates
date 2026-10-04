@@ -1,0 +1,22 @@
+{
+  "providerId": "cnames.dev",
+  "providerName": "cnames.dev",
+  "serviceId": "custom-domain",
+  "serviceName": "Connect a custom domain",
+  "version": 1,
+  "logoUrl": "https://cnames.dev/logo.png",
+  "description": "Point a subdomain (e.g. app.example.com) at cnames.dev",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "cnames.dev",
+  "syncRedirectDomain": "app.cnames.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%edge%",
+      "ttl": 300
+    }
+  ]
+}

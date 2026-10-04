@@ -1,0 +1,17 @@
+{
+  "providerId": "mailblastr.com",
+  "providerName": "MailBlastr",
+  "serviceId": "email",
+  "serviceName": "MailBlastr Email Sending",
+  "version": 1,
+  "syncPubKeyDomain": "mailblastr.com",
+  "syncRedirectDomain": "www.mailblastr.com",
+  "description": "Enable email signing (DKIM) and specify authorized senders (SPF) for sending through MailBlastr (Amazon SES).",
+  "variableDescription": "domainKey is the BYODKIM public key (base64); region is the SES region (e.g. us-east-1); mailfromhost is the custom MAIL FROM subdomain label (e.g. send).",
+  "logoUrl": "https://www.mailblastr.com/logo.svg",
+  "records": [
+    { "groupId": "outbound", "type": "MX", "host": "%mailfromhost%", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "groupId": "outbound", "type": "SPFM", "host": "%mailfromhost%", "spfRules": "include:amazonses.com", "ttl": 3600 },
+    { "groupId": "dkim", "type": "TXT", "host": "mailblastr._domainkey", "data": "v=DKIM1; k=rsa; p=%domainKey%", "ttl": 3600 }
+  ]
+}

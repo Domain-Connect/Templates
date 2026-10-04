@@ -1,0 +1,20 @@
+{
+  "providerId": "wayfront.com",
+  "providerName": "Wayfront",
+  "serviceId": "custom-domain",
+  "serviceName": "Wayfront Custom Workspace Domain",
+  "version": 1,
+  "logoUrl": "https://wayfront.com/assets/brand/wayfront.png",
+  "description": "Sets up a custom domain for your Wayfront workspace.",
+  "syncPubKeyDomain": "wayfront.com",
+  "syncRedirectDomain": "wayfront.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "app.wayfront.com",
+      "ttl": 3600
+    }
+  ]
+}

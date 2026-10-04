@@ -1,0 +1,24 @@
+{
+  "providerId": "sendcanary.com",
+  "providerName": "SendCanary",
+  "serviceId": "dkim-txt",
+  "serviceName": "DKIM Email Signing (TXT record)",
+  "version": 1,
+  "logoUrl": "https://sendcanary.com/logo.png",
+  "description": "SendCanary DKIM setup (1 TXT record): publishes a DKIM public key as a TXT record under %selector%._domainkey.<your-domain>. Use this when your email provider hands you a TXT-style DKIM key rather than a CNAME - most commonly Google Workspace, Resend, Mailgun, Brevo, and Zoho Mail. DKIM is required for DMARC alignment and improves deliverability. SendCanary (https://sendcanary.com) is an email authentication platform that monitors DMARC reports, detects spoofing, and automates DNS remediation for domain owners.",
+  "variableDescription": "selector: DKIM selector label prefixed to _domainkey (e.g. google, resend, mail, zmail). value: the full TXT record value your email provider gave you, typically 'v=DKIM1; k=rsa; p=<base64-public-key>'. Host becomes %selector%._domainkey.<your-domain>.",
+  "syncPubKeyDomain": "sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com,api.sendcanary.com",
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "%value%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    }
+  ]
+}

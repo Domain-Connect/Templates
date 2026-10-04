@@ -1,0 +1,42 @@
+{
+  "providerId": "peloran.com",
+  "providerName": "Peloran",
+  "serviceId": "email",
+  "serviceName": "Email",
+  "version": 1,
+  "syncPubKeyDomain": "peloran.com",
+  "syncRedirectDomain": "app.peloran.com",
+  "description": "Configure DKIM, SPF, MX, and optional click-tracking CNAME for transactional email.",
+  "logoUrl": "https://www.peloran.com/peloran-logo3b.svg",
+  "records": [
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "%spfDomain%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "%spfDomain%",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "ttl": 3600,
+      "data": "p=%domainKey%"
+    },
+    {
+      "groupId": "click-tracking",
+      "type": "CNAME",
+      "host": "%clickTrackingSubdomain%",
+      "pointsTo": "%clickTrackingCnameTarget%.resend-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

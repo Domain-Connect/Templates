@@ -1,0 +1,22 @@
+{
+  "providerId": "terragamingmedia.com",
+  "providerName": "TerraGaming Media",
+  "serviceId": "terragamingmedia",
+  "serviceName": "TerraGaming Media ad serving",
+  "version": 1,
+  "description": "Points a subdomain you choose (e.g. tgmads) at the TerraGaming Media ad ingress so ads, frequency capping and measurement run first-party on your site.",
+  "variableDescription": "No variables: the subdomain is the host you choose.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "terragamingmedia.com",
+  "syncRedirectDomain": "terragamingmedia.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "ingress.terragamingmedia.com",
+      "ttl": 3600
+    }
+  ]
+}

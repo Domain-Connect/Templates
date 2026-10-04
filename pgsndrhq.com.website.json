@@ -1,0 +1,21 @@
+{
+    "providerId": "pgsndrhq.com",
+    "providerName": "PageSender",
+    "serviceId": "website",
+    "serviceName": "Website",
+    "version": 1,
+    "logoUrl": "https://cdn.pgsndrhq.cloud/pgsndrhq/pgsender-logo.svg",
+    "description": "Points a customer subdomain (for example www or shop) at the platform so a website, funnel, store, form or course portal is served on it. Subdomains only: the platform does not support apex domains.",
+    "variableDescription": "%edge%: the platform edge label under pgsndr.com that serves the site (for example funnels).",
+    "syncPubKeyDomain": "pgsndrhq.com",
+    "syncRedirectDomain": "pgsndrhq.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%edge%.pgsndr.com",
+            "ttl": "3600"
+        }
+    ]
+}

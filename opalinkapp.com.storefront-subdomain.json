@@ -1,0 +1,19 @@
+{
+  "providerId": "opalinkapp.com",
+  "providerName": "OPA! Connect",
+  "serviceId": "storefront-subdomain",
+  "serviceName": "OPA! Connect storefront (subdomain)",
+  "version": 1,
+  "syncPubKeyDomain": "opalinkapp.com",
+  "description": "Point a subdomain (e.g. shop.yourbrand.com) at your OPA! Connect storefront.",
+  "variableDescription": "Connects the chosen subdomain to your OPA! Connect store via a CNAME.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

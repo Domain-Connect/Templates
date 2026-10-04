@@ -1,0 +1,28 @@
+{
+    "providerId": "outfound.ai",
+    "providerName": "Outfound",
+    "serviceId": "sending-subdomain",
+    "serviceName": "Outfound email sending",
+    "version": 1,
+    "logoUrl": "https://outfound.ai/brand/outfound-logo-color.png",
+    "description": "Delegates the email sending subdomain (for example send.example.com) to Outfound nameservers, which publish its SPF, DKIM, DMARC, MX and click-tracking records. Records of the main domain are not changed.",
+    "syncPubKeyDomain": "domainconnect.outfound.ai",
+    "syncRedirectDomain": "app.outfound.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "NS",
+            "host": "@",
+            "pointsTo": "ns1.outfoundmail.com",
+            "ttl": 3600,
+            "essential": "Always"
+        },
+        {
+            "type": "NS",
+            "host": "@",
+            "pointsTo": "ns2.outfoundmail.com",
+            "ttl": 3600,
+            "essential": "Always"
+        }
+    ]
+}
