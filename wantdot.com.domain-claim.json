@@ -1,0 +1,23 @@
+{
+  "providerId": "wantdot.com",
+  "providerName": "WantDot",
+  "serviceId": "domain-claim",
+  "serviceName": "WantDot domain ownership verification",
+  "version": 1,
+  "description": "Adds the TXT record that proves you own the domain, so you can claim its page on WantDot and say whether you'd sell it.",
+  "logoUrl": "https://wantdot.com/logo.svg",
+  "syncPubKeyDomain": "wantdot.com",
+  "syncRedirectDomain": "wantdot.com",
+  "syncBlock": false,
+  "variableDescription": "claimToken is the one-time token shown on the WantDot claim page for this domain.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_wantdot",
+      "ttl": "3600",
+      "data": "wantdot-claim=%claimToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "wantdot-claim="
+    }
+  ]
+}

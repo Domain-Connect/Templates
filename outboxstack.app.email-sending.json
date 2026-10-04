@@ -1,0 +1,51 @@
+{
+  "providerId": "outboxstack.app",
+  "providerName": "Outbox Stack",
+  "serviceId": "email-sending",
+  "serviceName": "Outbox Stack Email Sending",
+  "version": 1,
+  "description": "Configures DKIM signing and a custom bounce domain for sending email through Outbox Stack.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.outboxstack.app",
+  "syncRedirectDomain": "outboxstack.app",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: SES Easy DKIM selectors; %region%: SES region.",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ],
+  "logoUrl": "https://outboxstack.app/logo.svg"
+}

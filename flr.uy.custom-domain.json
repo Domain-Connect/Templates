@@ -1,0 +1,22 @@
+{
+  "providerId": "flr.uy",
+  "providerName": "FLR",
+  "serviceId": "custom-domain",
+  "serviceName": "Sitio web FLR en tu dominio",
+  "version": 1,
+  "logoUrl": "https://flr.uy/flr-logo.png",
+  "description": "Conecta un subdominio de tu dominio (ej. www.tudominio.com) con tu sitio web de FLR creando un registro CNAME.",
+  "variableDescription": "slug: identificador de tu sitio en FLR; el subdominio apunta a <slug>.flr.uy (ej. tuempresa).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "flr.uy",
+  "syncRedirectDomain": "flr.uy",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%slug%.flr.uy",
+      "ttl": 3600
+    }
+  ]
+}

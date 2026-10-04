@@ -3,9 +3,9 @@
   "providerName": "Carbon",
   "serviceId": "byoc",
   "serviceName": "Carbon Custom Domain",
-  "version": 1,
+  "version": 2,
   "description": "Connect a custom domain to a self-hosted Carbon deployment.",
-  "variableDescription": "target is the hostname of the deployment's load balancer. ip is the address of the deployment's load balancer. challenge is the Carbon-managed name that answers certificate checks.",
+  "variableDescription": "target is the hostname of the deployment's load balancer. ip is the address of the deployment's load balancer. challenge is the Carbon-managed name that answers certificate checks. dkim1, dkim2 and dkim3 are the DKIM tokens Amazon SES issued for the domain, and dkimdomain is SES's DKIM domain in the deployment's region (dkim.amazonses.com in most).",
   "syncPubKeyDomain": "carbon.ms",
   "syncRedirectDomain": "console.carbon.ms",
   "records": [
@@ -28,6 +28,27 @@
       "groupId": "acme",
       "host": "_acme-challenge",
       "pointsTo": "%challenge%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "ses",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.%dkimdomain%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "ses",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.%dkimdomain%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "ses",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.%dkimdomain%",
       "ttl": 3600
     }
   ]
