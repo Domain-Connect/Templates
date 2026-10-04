@@ -1,0 +1,24 @@
+{
+  "providerId": "tenantward.com",
+  "providerName": "TenantWard",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC policy",
+  "version": 1,
+  "logoUrl": "https://www.tenantward.com/icon-512.png",
+  "description": "Publishes the domain's DMARC policy, telling receivers what to do with email that fakes the domain. The policy is %policy% (none, quarantine or reject).",
+  "variableDescription": "policy: none, quarantine or reject. rua: where aggregate reports are sent (mailto: address).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tenantward.com",
+  "syncRedirectDomain": "www.tenantward.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%; rua=%rua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

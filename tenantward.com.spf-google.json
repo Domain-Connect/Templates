@@ -1,0 +1,20 @@
+{
+  "providerId": "tenantward.com",
+  "providerName": "TenantWard",
+  "serviceId": "spf-google",
+  "serviceName": "SPF for Google Workspace",
+  "version": 1,
+  "logoUrl": "https://www.tenantward.com/icon-512.png",
+  "description": "Adds Google Workspace to the domain's SPF record so its email isn't marked as spoofed. Existing SPF entries are kept.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tenantward.com",
+  "syncRedirectDomain": "www.tenantward.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.google.com"
+    }
+  ]
+}

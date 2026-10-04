@@ -1,0 +1,28 @@
+{
+  "providerId": "tenantward.com",
+  "providerName": "TenantWard",
+  "serviceId": "dkim-microsoft365",
+  "serviceName": "DKIM for Microsoft 365",
+  "version": 1,
+  "logoUrl": "https://www.tenantward.com/icon-512.png",
+  "description": "Publishes the two DKIM records Microsoft 365 gives for the domain, so email it sends can be verified as genuine.",
+  "variableDescription": "selector1 and selector2: the CNAME targets shown by Microsoft 365 for this domain (ending in onmicrosoft.com or dkim.mail.microsoft).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tenantward.com",
+  "syncRedirectDomain": "www.tenantward.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%selector1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%selector2%",
+      "ttl": 3600
+    }
+  ]
+}
