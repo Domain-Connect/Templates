@@ -1,0 +1,29 @@
+{
+  "providerId": "clarflow.com",
+  "providerName": "Clarflow",
+  "serviceId": "funnels",
+  "serviceName": "Funnel hosting",
+  "version": 1,
+  "logoUrl": "https://cdn.prd.clarflow.com/email/clarflow-logo-square.png",
+  "description": "Serve your Clarflow funnels from your own subdomain over HTTPS.",
+  "variableDescription": "%acmtoken%: label of the AWS Certificate Manager DNS validation record, without its leading underscore; %acmtarget%: ACM validation target, without the fixed .acm-validations.aws suffix; %cftarget%: Amazon CloudFront distribution name, without the fixed .cloudfront.net suffix",
+  "syncPubKeyDomain": "clarflow.com",
+  "syncRedirectDomain": "clarflow.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "ssl",
+      "type": "CNAME",
+      "host": "_%acmtoken%",
+      "pointsTo": "%acmtarget%.acm-validations.aws",
+      "ttl": 3600
+    },
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cftarget%.cloudfront.net",
+      "ttl": 3600
+    }
+  ]
+}

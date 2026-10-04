@@ -1,0 +1,22 @@
+{
+  "providerId": "sending.dev",
+  "providerName": "Sending",
+  "serviceId": "inbound",
+  "serviceName": "Sending Inbound Email",
+  "version": 1,
+  "logoUrl": "https://sending.dev/logos/sending-mark.svg",
+  "description": "Points the domain MX to Sending so incoming email is delivered to your agent inboxes. Apply only on a domain dedicated to Sending: it redirects all inbound mail for that domain.",
+  "variableDescription": "region: AWS region that receives the mail",
+  "syncPubKeyDomain": "sending.dev",
+  "syncRedirectDomain": "sending.dev,sending-umber.vercel.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

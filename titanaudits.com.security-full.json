@@ -1,0 +1,35 @@
+{
+  "providerId": "titanaudits.com",
+  "providerName": "InstantDMARC",
+  "serviceId": "security-full",
+  "serviceName": "InstantDMARC (Full Security Suite)",
+  "version": 1,
+  "logoUrl": "https://img.plasmic.app/img-optimizer/v1/img/8e5e377d6700a6e005cda1483ddd5e1f.png",
+  "syncRedirectDomain": "titanaudits.com",
+  "syncPubKeyDomain": "domainconnect.titanaudits.com",
+  "description": "Automatically configures SPF, DMARC, and TLS-RPT to protect your domain from spoofing and improve deliverability.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_policy%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "%tls_policy%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=TLSRPTv1"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spf_record%"
+    }
+  ]
+}
+

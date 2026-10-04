@@ -1,0 +1,38 @@
+{
+  "providerId": "swarmixai.com",
+  "providerName": "Swarmix AI",
+  "serviceId": "resend-sending",
+  "serviceName": "Swarmix AI verified sending domain",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "swarmixai.com",
+  "syncRedirectDomain": "swarmixai.com",
+  "hostRequired": true,
+  "logoUrl": "https://swarmixai.com/icon.png",
+  "description": "Configure the Resend DNS records Swarmix AI needs to send approved outbound email from a workspace-owned domain.",
+  "variableDescription": "Use the Domain Connect host parameter for the Resend return-path host, usually send. %returnPathMx% and %returnPathPriority% are the Resend MX target and priority. %dkimSelector% and %dkimValue% are the Resend DKIM TXT selector and public key value.",
+  "records": [
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "return-path",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%returnPathMx%",
+      "priority": "%returnPathPriority%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey.%domain%.",
+      "data": "%dkimValue%",
+      "ttl": 3600
+    }
+  ]
+}

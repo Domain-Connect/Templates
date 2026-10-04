@@ -3,7 +3,7 @@
   "providerName": "Leed, Inc.",
   "serviceId": "generative-cms",
   "serviceName": "Leed Generative CMS",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://leed.ai/static/images/logo/leed-light.svg",
   "description": "Configure your company domain to run on Leed",
   "syncBlock": false,
@@ -15,17 +15,16 @@
       "type": "CNAME",
       "groupId": "website",
       "host": "@",
-      "pointsTo": "%PUBLIC_PAGES_PROJECT%.pages.dev",
+      "pointsTo": "%INGRESS_HOST%",
       "ttl": 1
     },
     {
       "type": "CNAME",
       "groupId": "website",
-      "host": "%PREVIEW_SUBDOMAIN%",
-      "pointsTo": "%PREVIEW_PAGES_PROJECT%.pages.dev",
+      "host": "staging",
+      "pointsTo": "%INGRESS_HOST%",
       "ttl": 1
     },
-
     {
       "type": "CNAME",
       "groupId": "mail",
@@ -51,7 +50,7 @@
       "type": "MX",
       "groupId": "mail",
       "host": "leed-mail",
-      "pointsTo": "feedback-smtp.us-east-2.amazonses.com",
+      "pointsTo": "%SMTP_HOST%",
       "priority": 10,
       "ttl": 1
     },

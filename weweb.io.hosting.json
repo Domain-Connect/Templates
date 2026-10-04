@@ -1,0 +1,30 @@
+{
+  "providerId": "weweb.io",
+  "providerName": "WeWeb",
+  "serviceId": "hosting",
+  "serviceName": "WeWeb Hosting",
+  "version": 1,
+  "logoUrl": "https://weweb-public.s3.us-east-1.amazonaws.com/weweb-logo-icon-black.svg",
+  "description": "Connect your domain to your WeWeb app",
+  "variableDescription": "%ssltoken%: per-customer ACM validation host token. %sslvalidation%: per-customer ACM validation target token.",
+  "syncPubKeyDomain": "domainconnect.weweb.io",
+  "syncRedirectDomain": "weweb.io,dashboard.weweb.io",
+  "hostRequired": true,
+  "shared": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "weweb-custom-domain",
+      "host": "_%ssltoken%",
+      "pointsTo": "_%sslvalidation%.jkddzztszm.acm-validations.aws",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "groupId": "weweb-custom-domain",
+      "host": "@",
+      "pointsTo": "dy77iyzdvs1r7.cloudfront.net",
+      "ttl": 1800
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "daveloper.ai",
+  "providerName": "Daveloper",
+  "serviceId": "website",
+  "serviceName": "Daveloper Website",
+  "version": 1,
+  "syncPubKeyDomain": "daveloper.ai",
+  "syncRedirectDomain": "daveloper.ai",
+  "description": "Connect your domain to the website you built on Daveloper.",
+  "variableDescription": "`target` is the Daveloper hostname your site is served from (for example daveloper-xxxxxxxx.pages.dev), supplied by Daveloper.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

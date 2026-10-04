@@ -1,0 +1,36 @@
+{
+  "providerId": "pabbly.com",
+  "providerName": "Pabbly",
+  "serviceId": "email-sending",
+  "serviceName": "Pabbly Email Marketing Sending Domain",
+  "version": 1,
+  "logoUrl": "https://www.pabbly.com/favicon.ico",
+  "description": "Authenticates your domain so campaigns sent through Pabbly Email Marketing pass DKIM and DMARC checks.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "pabbly.com",
+  "syncRedirectDomain": "pabbly.com",
+  "variableDescription": "%uid%: unique sender identifier issued by Pabbly for this sending domain; %dmarcrua%: mailbox that receives DMARC aggregate reports",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%uid%",
+      "pointsTo": "mserv.pabbly.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "pabbly._domainkey",
+      "pointsTo": "pabbly._domainkey.mserv.pabbly.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%dmarcrua%; pct=10;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

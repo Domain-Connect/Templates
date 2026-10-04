@@ -1,0 +1,27 @@
+{
+  "providerId": "spidee.ai",
+  "providerName": "Spidee",
+  "serviceId": "custom-domain",
+  "serviceName": "Connect your domain to your Spidee site",
+  "version": 1,
+  "logoUrl": "https://spidee.ai/logo.png",
+  "description": "Points your domain at your Spidee website by adding two A records. Your email and everything else on your domain stay exactly as they are.",
+  "syncPubKeyDomain": "spidee.ai",
+  "syncRedirectDomain": "spidee.ai",
+  "syncBlock": false,
+  "shared": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "75.2.60.5",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "75.2.60.5",
+      "ttl": 3600
+    }
+  ]
+}

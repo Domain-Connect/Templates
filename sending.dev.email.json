@@ -1,0 +1,50 @@
+{
+  "providerId": "sending.dev",
+  "providerName": "Sending",
+  "serviceId": "email",
+  "serviceName": "Sending Email Authentication",
+  "version": 1,
+  "logoUrl": "https://sending.dev/logos/sending-mark.svg",
+  "description": "Publishes the DKIM, custom MAIL FROM and SPF records required to send authenticated email with Sending.",
+  "variableDescription": "dkim1, dkim2, dkim3: Amazon SES DKIM tokens for the domain; region: SES region of the sending identity",
+  "syncPubKeyDomain": "sending.dev",
+  "syncRedirectDomain": "sending.dev,sending-umber.vercel.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

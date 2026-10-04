@@ -1,0 +1,32 @@
+{
+  "providerId": "coduck.ai",
+  "providerName": "CoDuck",
+  "serviceId": "hosting-apex",
+  "serviceName": "Connect your domain to your CoDuck site (root domain)",
+  "version": 1,
+  "description": "Points your root domain (e.g. example.com) and its www variant at your CoDuck-hosted site, and adds a verification record so CoDuck can confirm the connection. No other DNS records are changed.",
+  "variableDescription": "%token%: per-domain ownership verification token issued by CoDuck when the domain is added to a project.",
+  "syncPubKeyDomain": "coduck.ai",
+  "syncRedirectDomain": "coduck.ai,app.coduck.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_coduck-verify",
+      "data": "coduck-verify=%token%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "170.205.30.188",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}

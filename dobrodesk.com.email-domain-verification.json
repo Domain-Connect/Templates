@@ -1,0 +1,21 @@
+{
+  "providerId": "dobrodesk.com",
+  "providerName": "DobroDesk",
+  "serviceId": "email-domain-verification",
+  "serviceName": "Verify a support email domain",
+  "version": 1,
+  "logoUrl": "https://dobrodesk.com/brand/logo-mark.svg",
+  "description": "Verify ownership of a support email domain in DobroDesk. This does not change existing mail delivery or activate email sending.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.dobrodesk.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dobrodesk",
+      "data": "dobrodesk-verification=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dobrodesk-verification="
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "providerId": "notdeploy.studio",
+  "providerName": "notdeploy studio",
+  "serviceId": "customer-hostname",
+  "serviceName": "Custom Domain",
+  "version": 1,
+  "logoUrl": "https://studio.notdeploy.studio/assets/domain-connect-logo.svg",
+  "description": "Connects an exact customer-owned subdomain to a published notdeploy studio site.",
+  "syncPubKeyDomain": "domainconnect.notdeploy.studio",
+  "syncRedirectDomain": "studio.notdeploy.studio",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.notdeploy.studio",
+      "ttl": 300
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "providerId": "cataloghub.in",
+  "providerName": "CatalogHub",
+  "serviceId": "customdomain",
+  "serviceName": "CatalogHub Custom Domain",
+  "version": 1,
+  "logoUrl": "https://cataloghub.in/lovable-uploads/b3316a01-8a3e-471d-a288-212bef5dccd6.png",
+  "description": "Connects a seller's apex domain or chosen subdomain to their CatalogHub store. Points the applied hostname through Cloudflare, which terminates and auto-renews TLS at the edge and proxies to the store; verifies the seller's ownership of the hostname for the Cloudflare custom hostname; and delegates ACME validation to Cloudflare so the certificate renews automatically without any further DNS changes.",
+  "variableDescription": "token = the per-hostname ownership-verification value CatalogHub obtains from Cloudflare when it creates the custom hostname (proves the seller controls it). host (built-in, optional) = the chosen subdomain label; omit it to connect the apex. fqdn (built-in) = the complete hostname being connected; used to build the Cloudflare DCV-delegation CNAME for automatic certificate issuance and renewal.",
+  "syncPubKeyDomain": "domainconnect.cataloghub.in",
+  "records": [
+    {
+      "type": "A",
+      "groupId": "customdomain",
+      "host": "@",
+      "pointsTo": "104.21.12.49",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "customdomain",
+      "host": "@",
+      "pointsTo": "172.67.193.171",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "customdomain",
+      "host": "_cf-custom-hostname",
+      "data": "%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "customdomain",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.23c1c60ae5862988.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}

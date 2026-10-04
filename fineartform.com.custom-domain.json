@@ -1,0 +1,42 @@
+{
+  "providerId": "fineartform.com",
+  "providerName": "Fine Art Form",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom Domain - Fine Art Form Portfolio",
+  "logoUrl": "https://www.fineartform.com/static/images/brand/icon-faf.png",
+  "description": "Connect your custom domain to your Fine Art Form portfolio. We will set up the DNS records needed to point your domain to your portfolio and prove ownership.",
+  "variableDescription": "We will create one apex pointer, one www pointer, and one ownership-verification TXT record on your domain.",
+  "syncPubKeyDomain": "fineartform.com",
+  "syncRedirectDomain": "fineartform.com",
+  "syncBlock": false,
+  "shared": false,
+  "hostRequired": false,
+  "version": 1,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "3.148.31.190",
+      "ttl": 600,
+      "essential": "Always",
+      "groupId": "apex"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "custom.fineartform.com",
+      "ttl": 600,
+      "essential": "OnApply",
+      "groupId": "www"
+    },
+    {
+      "type": "TXT",
+      "host": "_fineartform-verification",
+      "data": "fineartform-verification=%dcvValue%",
+      "ttl": 600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "All",
+      "groupId": "dcv"
+    }
+  ]
+}

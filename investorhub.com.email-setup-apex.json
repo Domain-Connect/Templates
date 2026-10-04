@@ -1,0 +1,76 @@
+{
+  "providerId": "investorhub.com",
+  "providerName": "InvestorHub",
+  "serviceId": "email-setup-apex",
+  "serviceName": "InvestorHub (apex domain)",
+  "version": 1,
+  "logoUrl": "https://investorhub.com/logo.svg",
+  "description": "Connects your apex domain to InvestorHub — configures email authentication (DKIM, SPF, DMARC) and your investor hub.",
+  "syncPubKeyDomain": "domainconnect.investorhub.com",
+  "syncRedirectDomain": "app.investorhub.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1Selector%._domainkey",
+      "pointsTo": "%dkim1Value%",
+      "ttl": 3600,
+      "essential": "Always",
+      "groupId": "dkim"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2Selector%._domainkey",
+      "pointsTo": "%dkim2Value%",
+      "ttl": 3600,
+      "essential": "Always",
+      "groupId": "dkim"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3Selector%._domainkey",
+      "pointsTo": "%dkim3Value%",
+      "ttl": 3600,
+      "essential": "Always",
+      "groupId": "dkim"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 600,
+      "essential": "Always",
+      "groupId": "hub"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.investorhub.com",
+      "ttl": 3600,
+      "groupId": "email"
+    },
+    {
+      "type": "TXT",
+      "host": "%mailFromSubdomain%",
+      "data": "v=spf1 include:amazonses.com ~all",
+      "ttl": 3600,
+      "groupId": "email"
+    },
+    {
+      "type": "MX",
+      "host": "%mailFromSubdomain%",
+      "pointsTo": "%mailFromMx%",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "email"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
+      "ttl": 3600,
+      "groupId": "dmarc"
+    }
+  ]
+}

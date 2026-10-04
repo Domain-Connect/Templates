@@ -1,0 +1,27 @@
+{
+  "providerId": "feedvote.app",
+  "providerName": "Feedvote",
+  "serviceId": "custom-domain-ownership",
+  "serviceName": "Customer feedback portal with ownership verification",
+  "version": 1,
+  "logoUrl": "https://feedvote.app/images/logo/logo.svg",
+  "description": "Connect your chosen subdomain to your Feedvote feedback portal and verify ownership.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect-keys.feedvote.app",
+  "syncRedirectDomain": "feedvote.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.feedvote.app",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 300
+    }
+  ]
+}

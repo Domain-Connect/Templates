@@ -1,0 +1,26 @@
+{
+    "providerId": "rudys.ai",
+    "providerName": "Rudys.AI",
+    "serviceId": "website",
+    "serviceName": "Website",
+    "version": 1,
+    "logoUrl": "https://app.rudys.ai/logo.png",
+    "description": "Connects your domain to the website built and hosted with Rudys.AI",
+    "variableDescription": "%ip%: website load balancer IPv4 address; %target%: hostname the www record points at",
+    "syncPubKeyDomain": "rudys.ai",
+    "syncRedirectDomain": "app.rudys.ai",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 300
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%target%",
+            "ttl": 300
+        }
+    ]
+}

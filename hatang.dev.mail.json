@@ -1,0 +1,54 @@
+{
+	"providerId": "hatang.dev",
+	"providerName": "Hatang",
+	"serviceId": "mail",
+	"serviceName": "Mail",
+	"version": 1,
+	"syncPubKeyDomain": "hatang.dev",
+	"syncRedirectDomain": "hatang.dev",
+	"description": "Enable email signing and specify authorized senders.",
+	"logoUrl": "https://hatang.dev/logo.svg",
+	"variableDescription": "returnPath: MAIL FROM subdomain (default: send). dkimSelector: DKIM selector. domainKey: DKIM public key. trackingSubdomain: optional branded tracking host. SPF is published via SPFM so it merges to v=spf1 include:amazonses.com ~all.",
+	"records": [
+		{
+			"groupId": "outbound",
+			"type": "MX",
+			"host": "%returnPath%",
+			"pointsTo": "feedback-smtp.us-west-2.amazonses.com",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"groupId": "outbound",
+			"type": "SPFM",
+			"host": "%returnPath%",
+			"ttl": 3600,
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"groupId": "dkim",
+			"type": "TXT",
+			"host": "%dkimSelector%._domainkey",
+			"ttl": 3600,
+			"data": "v=DKIM1; k=rsa; p=%domainKey%",
+			"txtConflictMatchingMode": "All"
+		},
+		{
+			"groupId": "dmarc",
+			"type": "TXT",
+			"host": "_dmarc",
+			"ttl": 3600,
+			"data": "v=DMARC1; p=none;",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1",
+			"essential": "OnApply"
+		},
+		{
+			"groupId": "click-tracking",
+			"type": "CNAME",
+			"host": "%trackingSubdomain%",
+			"pointsTo": "api.hatang.dev",
+			"ttl": 3600
+		}
+	]
+}

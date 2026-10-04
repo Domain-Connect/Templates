@@ -1,0 +1,29 @@
+{
+  "providerId": "dub.co",
+  "providerName": "Dub",
+  "serviceId": "links-apex",
+  "serviceName": "Dub Links (apex)",
+  "version": 1,
+  "logoUrl": "https://assets.dub.co/brand/logo.svg",
+  "syncPubKeyDomain": "dub.co",
+  "syncRedirectDomain": "app.dub.co,preview.dub.co,dub.co",
+  "syncBlock": false,
+  "description": "A record at the zone apex for Dub short links; optional ownership TXT.",
+  "variableDescription": "verification group: txtHost and txtValue must match the TXT row shown in Dub custom domain setup (provider-supplied ownership record).",
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "%txtHost%",
+      "data": "%txtValue%",
+      "ttl": 3600
+    }
+  ]
+}

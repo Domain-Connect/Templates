@@ -1,0 +1,13 @@
+{
+  "providerId": "discoverworthy.com",
+  "providerName": "DiscoverWorthy",
+  "serviceId": "managed-hosting",
+  "serviceName": "DiscoverWorthy Managed Hosting",
+  "version": 2,
+  "description": "Point a subdomain at your DiscoverWorthy managed-hosting site.",
+  "syncPubKeyDomain": "discoverworthy.app",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 300 }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+    "providerId": "glowforms.com",
+    "providerName": "GlowForms",
+    "serviceId": "subdomain",
+    "serviceName": "GlowForms custom subdomain",
+    "version": 1,
+    "logoUrl": "https://my.glowforms.com/glowforms.svg",
+    "description": "Point a subdomain at your GlowForms site.",
+    "variableDescription": "CNAME is the GlowForms hostname the record should point to.",
+    "syncPubKeyDomain": "glowforms.com",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+        {
+            "groupId": "site",
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%CNAME%",
+            "ttl": 3600
+        }
+    ]
+}

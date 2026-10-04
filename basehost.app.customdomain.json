@@ -1,0 +1,29 @@
+{
+  "providerId": "basehost.app",
+  "providerName": "basehost",
+  "serviceId": "customdomain",
+  "serviceName": "basehost custom domain",
+  "version": 1,
+  "logoUrl": "https://basehost.app/logo.svg",
+  "description": "Points a domain or subdomain at an app hosted on basehost.app. On DNS providers without CNAME flattening or ALIAS at the zone apex, apply it to a subdomain (host) only.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "basehost.app",
+  "syncRedirectDomain": "basehost.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "main",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.basehost.app",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "domains.basehost.app",
+      "ttl": 3600
+    }
+  ]
+}

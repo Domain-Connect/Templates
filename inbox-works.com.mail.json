@@ -1,0 +1,36 @@
+{
+	"providerId": "inbox-works.com",
+	"providerName": "Inbox Works",
+	"serviceId": "mail",
+	"serviceName": "Mail",
+	"version": 1,
+	"syncPubKeyDomain": "inbox-works.com",
+	"syncRedirectDomain": "app.inbox-works.com",
+	"description": "Enable email signing and specify authorized senders for Inbox Works.",
+	"logoUrl": "https://app.inbox-works.com/brand/inbox-works-logo.svg",
+	"records": [
+		{
+			"groupId": "outbound",
+			"type": "MX",
+			"host": "send",
+			"pointsTo": "feedback-smtp.%region%.amazonses.com",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"groupId": "outbound",
+			"type": "SPFM",
+			"host": "send",
+			"ttl": 3600,
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"groupId": "dkim",
+			"type": "TXT",
+			"host": "resend._domainkey",
+			"ttl": 3600,
+			"data": "p=%domainKey%",
+			"txtConflictMatchingMode": "All"
+		}
+	]
+}

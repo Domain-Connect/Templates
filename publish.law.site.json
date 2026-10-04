@@ -1,0 +1,26 @@
+{
+  "providerId": "publish.law",
+  "providerName": "Publish.law",
+  "serviceId": "site",
+  "serviceName": "Publish.law site",
+  "version": 2,
+  "description": "Connect this domain to your Publish.law site. Visitors reach your content at your own URL with automatic HTTPS. Sets two A records (apex and www) pointing at our anycast edge.",
+  "logoUrl": "https://publish.law/brand/mark.svg",
+  "syncPubKeyDomain": "publish.law",
+  "syncRedirectDomain": "publish.law",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "13.248.190.8",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "13.248.190.8",
+      "ttl": 3600
+    }
+  ]
+}

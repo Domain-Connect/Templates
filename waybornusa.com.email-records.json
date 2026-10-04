@@ -1,0 +1,56 @@
+{
+    "providerId": "waybornusa.com",
+    "providerName": "Wayborn",
+    "serviceId": "email-records",
+    "serviceName": "Wayborn Email Authentication",
+    "version": 1,
+    "logoUrl": "https://waybornusa.com/wayborn_white.svg",
+    "description": "Adds the DKIM, SPF and DMARC records that authenticate marketing email Wayborn sends from your send subdomain. Every record is created under send.<your domain>; no record on your root domain, your website or your existing mail is touched.",
+    "variableDescription": "%dkim1%, %dkim2% and %dkim3% are the three Amazon SES Easy DKIM selector tokens issued for this domain. Wayborn fills them in; the domain owner never types them.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.waybornusa.com",
+    "syncRedirectDomain": "waybornusa.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey.send",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600,
+            "groupId": "dkim",
+            "essential": "OnApply"
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey.send",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600,
+            "groupId": "dkim",
+            "essential": "OnApply"
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey.send",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600,
+            "groupId": "dkim",
+            "essential": "OnApply"
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com",
+            "groupId": "spf",
+            "essential": "OnApply"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc.send",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "groupId": "dmarc",
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        }
+    ]
+}

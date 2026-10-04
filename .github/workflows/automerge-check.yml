@@ -7,10 +7,18 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
+  detect:
+    uses: ./.github/workflows/detect-non-template-changes.yml
+    permissions:
+      contents: read
+      pull-requests: read
+
   automerge-check:
-    runs-on: ubuntu-latest
+    needs: detect
+    runs-on: ubuntu-26.04
     permissions:
       pull-requests: write
+      contents: write
 
     steps:
       - name: Setup refs
@@ -20,34 +28,50 @@ jobs:
           echo "head_sha=${{ github.event.pull_request.head.sha }}" >> "$GITHUB_OUTPUT"
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 2
           ref: ${{ steps.setup-refs.outputs.head_sha }}
+          allow-unsafe-pr-checkout: true
 
       - name: Get changed JSON files
         id: changed-json-files
-        uses: tj-actions/changed-files@v45
+        uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
         with:
           files: '*.json'
+          files_ignore: '.github/**'
 
-      - name: Skip if no JSON files changed
-        if: steps.changed-json-files.outputs.any_changed != 'true'
+      # PRs changing non-template files always go to manual review.
+      - name: Decide whether to run the linter
+        id: decide
+        env:
+          NON_TEMPLATE_CHANGED: ${{ needs.detect.outputs.non_template_changed }}
+          ANY_JSON_CHANGED: ${{ steps.changed-json-files.outputs.any_changed }}
         run: |
-          echo "No JSON files changed, skipping automerge check"
-          exit 0
+          if [ "$NON_TEMPLATE_CHANGED" = "true" ]; then
+            echo "Non-template files changed, skipping automerge check"
+            echo "run_linter=false" >> "$GITHUB_OUTPUT"
+          elif [ "$ANY_JSON_CHANGED" != "true" ]; then
+            echo "No JSON files changed, skipping automerge check"
+            echo "run_linter=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "run_linter=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Set up Go
-        uses: actions/setup-go@v5
+        if: steps.decide.outputs.run_linter == 'true'
+        uses: actions/setup-go@v7
         with:
           go-version: '^1.22'
 
       - name: Install dc-template-linter
+        if: steps.decide.outputs.run_linter == 'true'
         run: |
           go install github.com/Domain-Connect/dc-template-linter@latest
 
       - name: Run linter with merge-or-fail on changed files
         id: linter-check
+        if: steps.decide.outputs.run_linter == 'true'
         continue-on-error: true
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-json-files.outputs.all_changed_files }}
@@ -77,12 +101,12 @@ jobs:
           echo "Linter passed, adding automerge-possible label"
           gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "automerge-possible"
 
-      - name: Remove automerge-possible label on failure
-        if: steps.linter-check.outputs.linter_passed == 'false'
+      - name: Remove automerge-possible label on failure or skip
+        if: steps.linter-check.outputs.linter_passed != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           REPO: ${{ github.repository }}
         run: |
-          echo "Linter failed, removing automerge-possible label if present"
+          echo "Linter failed or skipped, removing automerge-possible label if present"
           gh pr edit "$PR_NUMBER" --repo "$REPO" --remove-label "automerge-possible" 2>/dev/null || true

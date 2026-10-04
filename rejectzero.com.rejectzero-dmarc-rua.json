@@ -1,0 +1,23 @@
+{
+  "providerId": "rejectzero.com",
+  "providerName": "RejectZero",
+  "serviceId": "rejectzero-dmarc-rua",
+  "serviceName": "RejectZero DMARC RUA Reporting",
+  "version": 1,
+  "logoUrl": "https://rejectzero.com/public_9a9a_42ab50d35a9c4975ac4b2e1401292b9e.png",
+  "description": "Updates an existing DMARC record to add RejectZero aggregate report delivery while preserving safe existing RUA destinations.",
+  "variableDescription": "dmarc_record - The full safely merged DMARC TXT value.",
+  "syncRedirectDomain": "app.rejectzero.com",
+  "syncPubKeyDomain": "app.rejectzero.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_record%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

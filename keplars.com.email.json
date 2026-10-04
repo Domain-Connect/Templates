@@ -1,0 +1,49 @@
+{
+  "providerId": "keplars.com",
+  "providerName": "Keplars",
+  "serviceId": "email",
+  "serviceName": "Email",
+  "version": 2,
+  "logoUrl": "https://cdn.keplersmail.com/keplars-logo-main.svg",
+  "description": "Configures your domain to send email through Keplars Mail Service. Sets up SPF, DKIM, DMARC, and bounce handling automatically.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.keplars.net",
+  "syncRedirectDomain": "dash.keplars.com",
+  "variableDescription": "%dkimSelector%: DKIM selector name; %dkimPublicKey%: Full DKIM TXT record value; %region%: AWS SES region code (e.g. us-east-1)",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:keplarsmail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@keplarsmail.com; pct=100; adkim=r; aspf=r",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimPublicKey%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:keplarsmail.com",
+      "ttl": 3600
+    }
+  ]
+}

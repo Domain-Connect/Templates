@@ -1,0 +1,31 @@
+{
+  "providerId": "soniqmail.co.uk",
+  "providerName": "SONIQ",
+  "serviceId": "soniq-email",
+  "serviceName": "SONIQ Email",
+  "version": 2,
+  "description": "Configure your domain to send transactional email through SONIQ.",
+  "variableDescription": "",
+  "syncPubKeyDomain": "soniqmail.co.uk",
+  "syncBlock": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%dkim_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

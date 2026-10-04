@@ -1,0 +1,27 @@
+{
+  "providerId": "websiteinc.ai",
+  "providerName": "Website Inc",
+  "serviceId": "site-www",
+  "serviceName": "Website (www and root)",
+  "version": 1,
+  "logoUrl": "https://my.we.inc/favicon-256x256.png",
+  "description": "Points www at a website hosted on Website Inc and forwards the bare domain to www.",
+  "variableDescription": "No variables.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "websiteinc.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.websiteinc.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}

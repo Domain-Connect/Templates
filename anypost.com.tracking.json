@@ -1,0 +1,22 @@
+{
+	"providerId": "anypost.com",
+	"providerName": "Anypost",
+	"serviceId": "tracking",
+	"serviceName": "Open and Click Tracking",
+	"version": 1,
+	"syncBlock": false,
+	"hostRequired": true,
+	"syncPubKeyDomain": "anypost.com",
+	"syncRedirectDomain": "anypost.com",
+	"description": "Configure a branded domain for open and click tracking.",
+	"logoUrl": "https://anypost.com/brand/wordmark.svg",
+	"records": [
+		{
+			"groupId": "tracking",
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "track.anypost.email",
+			"ttl": 3600
+		}
+	]
+}

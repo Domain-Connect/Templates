@@ -1,0 +1,16 @@
+{
+  "providerId": "relvara.ai",
+  "providerName": "Relvara",
+  "serviceId": "website-subdomain",
+  "serviceName": "Relvara agent website on a subdomain",
+  "version": 1,
+  "description": "Connect a subdomain to your Relvara agent website. The root website, email and nameservers are not changed.",
+  "variableDescription": "%verification%: the ownership challenge for the signed-in Relvara account, prefixed with relvara-verification=",
+  "syncPubKeyDomain": "domainconnect.relvara.ai",
+  "syncRedirectDomain": "relvara.ai",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "relvara2.onrender.com", "ttl": 300, "essential": "Always" },
+    { "type": "TXT", "host": "_relvara", "data": "relvara-verification=%verification%", "ttl": 300, "essential": "OnApply", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "relvara-verification=" }
+  ]
+}

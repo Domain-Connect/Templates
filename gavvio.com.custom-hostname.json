@@ -1,0 +1,22 @@
+{
+  "providerId": "gavvio.com",
+  "providerName": "Gavvio",
+  "serviceId": "custom-hostname",
+  "serviceName": "Gavvio Custom Hostname",
+  "version": 1,
+  "logoUrl": "https://app.gavvio.com/v1/brand/mark.svg",
+  "description": "Points one subdomain of the customer's domain at Gavvio (a Cloudflare for SaaS custom hostname), used for first-party event tracking (e.g. events.<brand>) and branded short links (e.g. go.<brand>). DNS only; never applied at the zone apex.",
+  "variableDescription": "No variables. Apply with host=<the chosen subdomain> (e.g. events, go); the template refuses the zone apex.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gavvio.com",
+  "syncRedirectDomain": "app.gavvio.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.gavvio.com",
+      "ttl": 1800
+    }
+  ],
+  "hostRequired": true
+}

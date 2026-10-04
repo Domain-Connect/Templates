@@ -1,0 +1,36 @@
+{
+  "providerId": "hotdam.media",
+  "providerName": "HotDAM",
+  "serviceId": "hotdam-newsletter",
+  "serviceName": "HotDAM Newsletter",
+  "version": 1,
+  "description": "Adds DNS records that let HotDAM Newsletter send authenticated email from a branded sending domain.",
+  "variableDescription": "dkimSelector: DKIM selector assigned to the sending domain. dkimPublicKey: DKIM public key without the p= prefix. sesRegion: Amazon SES feedback SMTP region.",
+  "syncPubKeyDomain": "domainconnect.hotdam.media",
+  "syncRedirectDomain": "hotdam.media",
+  "hostRequired": true,
+  "multiInstance": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "p=%dkimPublicKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p="
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

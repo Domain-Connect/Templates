@@ -1,0 +1,53 @@
+{
+  "providerId": "sendwax.com",
+  "providerName": "Sendwax",
+  "serviceId": "email-sending",
+  "serviceName": "Sendwax Email Sending",
+  "version": 1,
+  "logoUrl": "https://sendwax.com/logo.svg",
+  "description": "Authorises Sendwax to send email from your domain. Adds DKIM signing keys so receiving servers can verify your mail is genuine, plus a bounce subdomain so delivery failures come back to us and dead addresses stop being emailed.",
+  "variableDescription": "%dkim1%, %dkim2% and %dkim3% are the three Amazon SES Easy DKIM tokens issued for your domain. %dkimzone% is the SES DKIM signing host for those tokens (region/cell-specific, e.g. dkim.amazonses.com). %region% is the AWS region your mail is sent from, for example us-east-2.",
+  "syncPubKeyDomain": "sendwax.com",
+  "syncRedirectDomain": "sendwax.com",
+  "syncBlock": false,
+  "multiInstance": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "bounce",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "bounce",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

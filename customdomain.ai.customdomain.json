@@ -1,0 +1,20 @@
+{
+    "providerId": "customdomain.ai",
+    "providerName": "Customdomain",
+    "serviceId": "customdomain",
+    "serviceName": "Custom domain",
+    "version": 1,
+    "logoUrl": "https://customdomain.ai/logo.svg",
+    "description": "Points this host at the Customdomain edge so the custom domain serves the connected application with automatic SSL",
+    "syncPubKeyDomain": "customdomain.ai",
+    "syncRedirectDomain": "api.customdomain.ai,app.customdomain.ai,customdomain.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "edge.customdomain.ai",
+            "ttl": 3600
+        }
+    ]
+}

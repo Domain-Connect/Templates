@@ -1,0 +1,94 @@
+{
+  "providerId": "vohtrah.com",
+  "providerName": "Vohtrah",
+  "serviceId": "mailgun-sender",
+  "serviceName": "Email authentication",
+  "version": 1,
+  "logoUrl": "https://vohtrah.com/logo.svg",
+  "description": "Adds DNS records for authenticated email sending.",
+  "variableDescription": "%dkimSelector1%, %dkimSelector2%: DKIM CNAME selectors; %dkimTarget1Prefix%, %dkimTarget2Prefix%: DKIM CNAME target prefixes before .domainkey.mailgun.org; %dkimSelector%: DKIM TXT selector; %dkimPublicKey%: DKIM TXT public key; %verificationToken%: sender verification token; %dmarcReportMailbox%: DMARC report mailbox.",
+  "syncPubKeyDomain": "domainconnect.vohtrah.com",
+  "syncRedirectDomain": "vohtrah.com,www.vohtrah.com,app.vohtrah.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org",
+      "groupId": "common",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimSelector1%._domainkey",
+      "pointsTo": "%dkimTarget1Prefix%.domainkey.mailgun.org",
+      "ttl": 3600,
+      "groupId": "dkim-cname",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimSelector2%._domainkey",
+      "pointsTo": "%dkimTarget2Prefix%.domainkey.mailgun.org",
+      "ttl": 3600,
+      "groupId": "dkim-cname",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "k=rsa; p=%dkimPublicKey%",
+      "ttl": 3600,
+      "groupId": "dkim-txt",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "k=rsa; p=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600,
+      "groupId": "common",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "common",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "common",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "vohtrah-verify",
+      "data": "vohtrah-sender-verification=%verificationToken%",
+      "ttl": 3600,
+      "groupId": "common",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vohtrah-sender-verification=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; sp=none; adkim=r; aspf=r; pct=100; fo=1; rua=mailto:%dmarcReportMailbox%; ruf=mailto:%dmarcReportMailbox%",
+      "ttl": 3600,
+      "groupId": "common",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

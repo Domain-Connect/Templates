@@ -1,0 +1,22 @@
+{
+    "providerId": "orgo.space",
+    "providerName": "Orgo",
+    "serviceId": "validation",
+    "serviceName": "Orgo certificate validation",
+    "version": 1,
+    "logoUrl": "https://app.orgo.space/img/orgo-logo.svg",
+    "description": "Proves control of the domain so the TLS certificate for a community's own domain can be issued.",
+    "variableDescription": "acmvalue is the validation target issued by AWS Certificate Manager. The record label it must be published at is passed as the Domain Connect host parameter.",
+    "syncPubKeyDomain": "dc.orgo.space",
+    "syncRedirectDomain": "orgo.space",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%acmvalue%",
+            "ttl": "300"
+        }
+    ]
+}

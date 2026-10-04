@@ -1,0 +1,22 @@
+{
+  "providerId": "emailfleet.io",
+  "providerName": "EmailFleet",
+  "serviceId": "verify",
+  "serviceName": "EmailFleet domain verification",
+  "version": 1,
+  "logoUrl": "https://emailfleet.io/brand/fleet-mark.svg",
+  "description": "Publishes the ownership-verification TXT record EmailFleet's mail infrastructure requires before it will attach mailboxes to a domain. Writes one TXT record and nothing else.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "emailfleet.io",
+  "syncRedirectDomain": "app.emailfleet.io",
+  "variableDescription": "%verifytoken%: account-specific hexadecimal verification token issued by the mail infrastructure provider",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_da-verify-%verifytoken%",
+      "data": "domain-verified",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

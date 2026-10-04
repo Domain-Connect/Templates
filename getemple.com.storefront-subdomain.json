@@ -1,0 +1,21 @@
+{
+  "providerId": "getemple.com",
+  "providerName": "Temple",
+  "serviceId": "storefront-subdomain",
+  "serviceName": "Temple Storefront",
+  "version": 1,
+  "logoUrl": "https://admin.getemple.com/icons/temple-admin-192.svg",
+  "description": "Connect a merchant subdomain to a Temple storefront.",
+  "variableDescription": "%CNAME%: Temple storefront CNAME target",
+  "syncPubKeyDomain": "domainconnect.getemple.com",
+  "syncRedirectDomain": "admin.getemple.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%CNAME%",
+      "ttl": "3600"
+    }
+  ]
+}

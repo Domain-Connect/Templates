@@ -1,0 +1,36 @@
+{
+  "providerId": "aiddesk.co.uk",
+  "providerName": "Aiddesk Helpdesk",
+  "serviceId": "helpdesk-email",
+  "serviceName": "Aiddesk Helpdesk email sending domain",
+  "version": 2,
+  "logoUrl": "https://aiddesk.co.uk/img/aiddesk-logo.svg",
+  "description": "Publishes the DNS records the Aiddesk multi-brand helpdesk needs before a support team can send from a customer-support domain: an ownership-verification TXT and a DMARC policy record.",
+  "variableDescription": "verifyToken: hex ownership token issued by the helpdesk for this domain. dmarcParams: DMARC tags that follow v=DMARC1 (e.g. p=none; rua=mailto:dmarc@example.com).",
+  "syncPubKeyDomain": "aiddesk.co.uk",
+  "syncRedirectDomain": "aiddesk.co.uk",
+  "syncBlock": false,
+  "shared": false,
+  "multiInstance": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_helpdesk-verify",
+      "data": "hd_verify_%verifyToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarcParams%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

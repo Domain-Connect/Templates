@@ -1,0 +1,41 @@
+{
+  "providerId": "assistify.chat",
+  "providerName": "Assistify",
+  "serviceId": "helpcenter",
+  "serviceName": "Help center",
+  "version": 1,
+  "logoUrl": "https://assistify.chat/assistify-mark.svg",
+  "description": "Connects a subdomain to an Assistify hosted help center: a CNAME that routes it, and two TXT records Cloudflare for SaaS returns to prove ownership of the name and to issue its certificate.",
+  "variableDescription": "ownership: value of the _cf-custom-hostname TXT record; certificate: value of the _acme-challenge TXT record. Both are returned by Cloudflare for SaaS for this hostname.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "assistify.chat",
+  "syncRedirectDomain": "dash.assistify.chat",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "help-customers.assistify.chat",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "certificate",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

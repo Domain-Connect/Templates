@@ -1,0 +1,25 @@
+{
+  "providerId": "siteprompter.com",
+  "providerName": "SitePrompter",
+  "serviceId": "hosting",
+  "serviceName": "SitePrompter website",
+  "version": 1,
+  "logoUrl": "https://app.siteprompter.com/logo_dark.png",
+  "description": "Point this domain at the website you built with SitePrompter.",
+  "syncRedirectDomain": "app.siteprompter.com",
+  "syncPubKeyDomain": "siteprompter.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "198.245.53.67",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "custom.siteprompter.app",
+      "ttl": 3600
+    }
+  ]
+}

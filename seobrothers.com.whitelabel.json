@@ -1,0 +1,21 @@
+{
+	"providerId": "seobrothers.com",
+	"providerName": "SEO Brothers",
+	"serviceId": "whitelabel",
+	"serviceName": "White-label client portal",
+	"version": 1,
+	"logoUrl": "https://platform.seobrothers.com/favicon.svg",
+	"description": "Connects a subdomain (like app.youragency.com) to your white-label SEO client portal.",
+	"syncBlock": false,
+	"hostRequired": true,
+	"syncPubKeyDomain": "seobrothers.com",
+	"syncRedirectDomain": "platform.seobrothers.com",
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "connect.seobrothers.co",
+			"ttl": 3600
+		}
+	]
+}

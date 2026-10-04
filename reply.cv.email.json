@@ -1,0 +1,55 @@
+{
+	"providerId": "reply.cv",
+	"providerName": "reply.cv",
+	"serviceId": "email",
+	"serviceName": "reply.cv Email",
+	"version": 1,
+	"syncBlock": false,
+	"logoUrl": "https://reply.cv/icon-512.png",
+	"description": "Sets up sending and receiving email on your domain with reply.cv: DKIM signing, inbound MX, SPF (SPFM merge), and DMARC.",
+	"variableDescription": "%dkimtarget%: the DKIM CNAME target supplied by reply.cv (a full hostname). %mxtarget%: the inbound MX host (a full hostname). %mailfrommx%: the custom MAIL FROM MX host (a full hostname).",
+	"syncRedirectDomain": "reply.cv",
+	"syncPubKeyDomain": "reply.cv",
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "reply._domainkey",
+			"pointsTo": "%dkimtarget%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "mx",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "%mxtarget%",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "mailfrom",
+			"type": "MX",
+			"host": "mail",
+			"pointsTo": "%mailfrommx%",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "mailfrom",
+			"type": "SPFM",
+			"host": "mail",
+			"spfRules": "include:spf.reply.cv",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dmarc",
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "v=DMARC1; p=none; rua=mailto:dmarc@reply.cv",
+			"ttl": 3600,
+			"essential": "OnApply",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1"
+		}
+	]
+}

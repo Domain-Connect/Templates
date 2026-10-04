@@ -1,0 +1,41 @@
+{
+	"providerId": "emajl.io",
+	"providerName": "emajl",
+	"serviceId": "email",
+	"serviceName": "emajl — email sending and receiving",
+	"version": 1,
+	"description": "Sets up emajl to send and receive email for your domain: inbound MX at the apex, DKIM, and SPF/Return-Path at the send subdomain. No nameserver change.",
+	"syncBlock": false,
+	"syncPubKeyDomain": "emajl.io",
+	"syncRedirectDomain": "emajl.io",
+	"records": [
+		{
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "inbound-smtp.eu-west-1.amazonaws.com",
+			"priority": 10,
+			"ttl": 3600,
+			"essential": "OnApply"
+		},
+		{
+			"type": "TXT",
+			"host": "resend._domainkey",
+			"data": "%dkimvalue%",
+			"ttl": 3600,
+			"essential": "OnApply",
+			"txtConflictMatchingMode": "All"
+		},
+		{
+			"type": "MX",
+			"host": "send",
+			"pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"type": "SPFM",
+			"host": "send",
+			"spfRules": "include:amazonses.com"
+		}
+	]
+}

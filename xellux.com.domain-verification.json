@@ -1,0 +1,32 @@
+  {
+      "providerId": "xellux.com",
+      "providerName": "Xellux",
+      "serviceId": "domain-verification",
+      "serviceName": "Domain Verification",
+      "version": 2,
+      "logoUrl": "https://cdn-edge.xellux.com/i/73f312de-3ea8-4063-8b6d-85af107d5b99-rem-0f395230",
+      "description": "Verifies domain ownership and points a chosen subdomain at Xellux ID so the customer's branded login lives on their own domain.",
+      "variableDescription": "Subdomain to host Xellux ID under (e.g. 'auth') plus a one-time verification code supplied by Xellux.",
+      "syncBlock": false,
+      "syncPubKeyDomain": "domainconnect.xellux.com",
+      "syncRedirectDomain": "xellux.com",
+      "hostRequired": false,
+      "records": [
+          {
+              "groupId": "verification",
+              "type": "TXT",
+              "host": "@",
+              "data": "xellux-verification=%verifytxt%",
+              "ttl": 3600,
+              "txtConflictMatchingMode": "Prefix",
+              "txtConflictMatchingPrefix": "xellux-verification="
+          },
+          {
+              "groupId": "routing",
+              "type": "CNAME",
+              "host": "%authhost%",
+              "pointsTo": "auth.xellux.com",
+              "ttl": 3600
+          }
+      ]
+  }

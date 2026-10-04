@@ -1,0 +1,39 @@
+{
+  "providerId": "rejoy.com.br",
+  "providerName": "Rejoy",
+  "version": 1,
+  "syncPubKeyDomain": "rejoy.com.br",
+  "syncRedirectDomain": "admin.rejoy.com.br",
+  "syncBlock": false,
+  "serviceId": "custom-domain",
+  "serviceName": "Loja e landing no seu domínio",
+  "logoUrl": "https://rejoy.com.br/images/logo_lends-2024-01_principal.svg",
+  "description": "Aponta www e loja do domínio do lojista para a Rejoy e cria as delegações de DCV que permitem ao Cloudflare emitir e renovar os certificados automaticamente.",
+  "variableDescription": "dcvwww e dcvloja: alvo da delegação de DCV de cada hostname, no formato <hostname>.<uuid-da-conta>.dcv.cloudflare.com prescrito pelo Cloudflare for SaaS. O valor é o registro inteiro porque o formato é ditado pelo Cloudflare e carrega o UUID da conta, que não pode ser fixado no template sem exigir uma nova submissão a cada rotação.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "fallback.rejoy.com.br",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "loja",
+      "pointsTo": "fallback.rejoy.com.br",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge.www",
+      "pointsTo": "%dcvwww%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge.loja",
+      "pointsTo": "%dcvloja%",
+      "ttl": 3600
+    }
+  ]
+}

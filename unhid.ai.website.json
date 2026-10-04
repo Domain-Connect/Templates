@@ -1,0 +1,30 @@
+{
+  "providerId": "unhid.ai",
+  "providerName": "Unhid",
+  "serviceId": "website",
+  "serviceName": "Unhid AI Prerendering",
+  "version": 1,
+  "logoUrl": "https://www.unhid.ai/logo.png",
+  "description": "Configure your domain to route traffic through Unhid for AI crawler and search engine prerendering. Sets up a CNAME for www and a CNAME for ACM certificate validation.",
+  "variableDescription": "%cloudFrontEndpoint%: CloudFront routing endpoint for your site; %certValidationName%: ACM certificate validation CNAME name; %certValidationValue%: ACM certificate validation CNAME value",
+  "hostRequired": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "unhid.ai",
+  "syncRedirectDomain": "connect.unhid.ai,unhid.ai",
+  "records": [
+    {
+      "groupId": "traffic",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cloudFrontEndpoint%",
+      "ttl": 600
+    },
+    {
+      "groupId": "validation",
+      "type": "CNAME",
+      "host": "%certValidationName%",
+      "pointsTo": "%certValidationValue%",
+      "ttl": 600
+    }
+  ]
+}

@@ -3,12 +3,12 @@
   "providerName": "SendCanary",
   "serviceId": "dkim-1",
   "serviceName": "DKIM Email Signing (1 record)",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://sendcanary.com/logo.png",
-  "description": "Add a DKIM CNAME record to enable email signing for your domain.",
-  "variableDescription": "selector1: DKIM selector name (e.g. google, s1, selector1). target1: CNAME target from your email provider.",
+  "description": "SendCanary DKIM setup (1 CNAME): publishes one DKIM CNAME so your email provider can cryptographically sign outgoing mail from this domain. DKIM is required for DMARC alignment and improves deliverability. Use this template when your provider hands you a single selector/target pair (e.g. Mailchimp k1._domainkey, Mailgun's single CNAME variant). SendCanary (https://sendcanary.com) is an email authentication platform that monitors DMARC reports, detects spoofing, and automates DNS remediation for domain owners.",
+  "variableDescription": "selector1: DKIM selector name (label prefixed to _domainkey, e.g. k1, selector1). target1: CNAME target hostname your email provider gave you (e.g. dkim.provider.example.com). Host becomes %selector1%._domainkey.<your-domain>.",
   "syncPubKeyDomain": "sendcanary.com",
-  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com",
+  "syncRedirectDomain": "sendcanary.com,app.sendcanary.com,api.sendcanary.com",
   "records": [
     {
       "groupId": "dkim1",

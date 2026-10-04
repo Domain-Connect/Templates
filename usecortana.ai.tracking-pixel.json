@@ -1,0 +1,30 @@
+{
+  "providerId": "usecortana.ai",
+  "providerName": "Cortana",
+  "serviceId": "tracking-pixel",
+  "serviceName": "First-Party Tracking Pixel",
+  "version": 1,
+  "syncBlock": false,
+  "hostRequired": true,
+  "logoUrl": "https://app.usecortana.ai/icon.png",
+  "description": "Routes your tracking subdomain to Cortana for first-party pixel delivery.",
+  "variableDescription": "`origin`: Cortana tracking origin CNAME target. `dcv_txt_name`: SSL validation TXT record name from Cloudflare. `dcv_txt_value`: SSL validation TXT token (exact value required).",
+  "syncPubKeyDomain": "usecortana.ai",
+  "syncRedirectDomain": "app.usecortana.ai",
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%origin%",
+      "ttl": 300
+    },
+    {
+      "groupId": "ssl",
+      "type": "TXT",
+      "host": "%dcv_txt_name%",
+      "data": "%dcv_txt_value%",
+      "ttl": 300
+    }
+  ]
+}

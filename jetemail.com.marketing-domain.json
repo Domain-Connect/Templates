@@ -1,0 +1,52 @@
+{
+  "providerId": "jetemail.com",
+  "providerName": "JetEmail",
+  "serviceId": "marketing-domain",
+  "serviceName": "JetEmail Marketing Sending Domain",
+  "version": 1,
+  "logoUrl": "https://cdn.jetemail.com/assets/images/logo.svg",
+  "description": "Authenticates a marketing sending domain for JetEmail by adding the return-path CNAME, two DKIM CNAMEs, a DMARC TXT record and the link-tracking CNAME.",
+  "variableDescription": "%returnPathId%: numeric id portion of the per-domain return-path subdomain assigned by the JetEmail dashboard (e.g. 06256, producing mkt06256 on the customer's zone). %trackingHost%: tracking subdomain label relative to the zone (default link, producing link.<domain>). %region%: the account's sending region code (au, eu or us) used for the tracking CNAME target link-<region>.jete.ml.",
+  "syncPubKeyDomain": "dc.jetemail.com",
+  "syncRedirectDomain": "dash.jetemail.com",
+  "records": [
+    {
+      "groupId": "returnpath",
+      "type": "CNAME",
+      "host": "mkt%returnPathId%",
+      "pointsTo": "return.jetsmtp.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "mkt1._domainkey",
+      "pointsTo": "mkt1.dkim.jetsmtp.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "mkt2._domainkey",
+      "pointsTo": "mkt2.dkim.jetsmtp.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "%trackingHost%",
+      "pointsTo": "link-%region%.jete.ml",
+      "ttl": 3600
+    }
+  ]
+}

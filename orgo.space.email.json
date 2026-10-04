@@ -1,0 +1,20 @@
+{
+    "providerId": "orgo.space",
+    "providerName": "Orgo",
+    "serviceId": "email",
+    "serviceName": "Orgo sender identity",
+    "version": 1,
+    "logoUrl": "https://app.orgo.space/img/orgo-logo.svg",
+    "description": "Lets Orgo send email as this domain: DKIM signing keys and a bounce subdomain so SPF aligns with the visible sender.",
+    "variableDescription": "dkim1, dkim2 and dkim3 are the three DKIM selectors Amazon SES issues for this domain. mxtarget is the SES feedback endpoint for the bounce subdomain.",
+    "syncPubKeyDomain": "dc.orgo.space",
+    "syncRedirectDomain": "orgo.space",
+    "syncBlock": false,
+    "records": [
+        { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": "300" },
+        { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": "300" },
+        { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": "300" },
+        { "type": "MX", "host": "bounce", "pointsTo": "%mxtarget%", "priority": 10, "ttl": "300" },
+        { "type": "SPFM", "host": "bounce", "spfRules": "include:amazonses.com", "ttl": "300" }
+    ]
+}

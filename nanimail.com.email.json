@@ -1,0 +1,61 @@
+{
+  "providerId": "nanimail.com",
+  "providerName": "nanimail",
+  "serviceId": "email",
+  "serviceName": "Email",
+  "version": 1,
+  "syncPubKeyDomain": "nanimail.com",
+  "syncRedirectDomain": "app.nanimail.com",
+  "logoUrl": "https://nanimail.com/brand/wordmark.png",
+  "description": "Email on your own domain with nanimail: receiving (MX), authenticated sending (DKIM, SPF, Return-Path) and domain ownership verification.",
+  "variableDescription": "verification = domain ownership token issued by nanimail; dkimselector and dkimkey = per-domain DKIM values issued when the domain is connected",
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "nanimail-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "nanimail-verification=",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound.postmarkapp.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.mtasv.net"
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "k=rsa; p=%dkimkey%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "pm-bounces",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@nanimail.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

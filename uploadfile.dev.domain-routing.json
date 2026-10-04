@@ -1,0 +1,22 @@
+{
+  "providerId": "uploadfile.dev",
+  "providerName": "Uploadfile",
+  "serviceId": "domain-routing",
+  "serviceName": "Custom domain routing",
+  "version": 1,
+  "logoUrl": "https://www.uploadfile.dev/icon.svg",
+  "description": "Points a hostname at Uploadfile so files are delivered from your own domain.",
+  "variableDescription": "distribution is the CloudFront distribution Uploadfile created for this domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.uploadfile.dev",
+  "syncRedirectDomain": "uploadfile.dev,www.uploadfile.dev,staging.uploadfile.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%distribution%.cloudfront.net",
+      "ttl": 300
+    }
+  ]
+}
