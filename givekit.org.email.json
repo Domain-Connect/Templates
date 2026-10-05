@@ -14,7 +14,8 @@
     {
       "type": "SPFM",
       "host": "@",
-      "spfRules": "include:mailgun.org"
+      "spfRules": "include:mailgun.org",
+      "essential": "OnApply"
     },
     {
       "type": "TXT",
