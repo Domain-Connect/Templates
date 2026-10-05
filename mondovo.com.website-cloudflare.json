@@ -1,0 +1,17 @@
+{
+  "providerId": "mondovo.com",
+  "providerName": "Mondovo",
+  "serviceId": "website-cloudflare",
+  "serviceName": "Mondovo website for Cloudflare DNS",
+  "version": 1,
+  "logoUrl": "https://app.mondovo.com/icon.svg",
+  "description": "Connects a domain and its www name to a website hosted by Mondovo and proves ownership of the domain. The root CNAME relies on Cloudflare CNAME flattening. Both CNAMEs must be DNS-only (not proxied). Mail and other records are left alone.",
+  "variableDescription": "ownership is the per-hostname ownership-verification value Mondovo receives from Cloudflare for SaaS.",
+  "syncPubKeyDomain": "mondovo.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "sites.mondovo.com", "ttl": 3600 },
+    { "type": "TXT", "host": "_cf-custom-hostname", "data": "%ownership%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "CNAME", "host": "www", "pointsTo": "sites.mondovo.com", "ttl": 3600 }
+  ]
+}

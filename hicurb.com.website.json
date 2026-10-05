@@ -3,7 +3,7 @@
   "providerName": "Curb",
   "serviceId": "website",
   "serviceName": "Curb website",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://hicurb.com/favicon.svg",
   "description": "Points the domain at the website Curb built for the business, and adds the ownership record its TLS certificate is issued against. Email and every other record are left alone.",
   "variableDescription": "%cf%: the Cloudflare custom-hostname ownership token for this domain, minted per domain when the hostname is created. It is an opaque single-purpose UUID at a fixed underscore host and cannot carry a prefix.",
@@ -15,7 +15,7 @@
     {
       "type": "A",
       "host": "@",
-      "pointsTo": "172.67.196.198",
+      "pointsTo": "172.67.215.51",
       "ttl": 600,
       "groupId": "site",
       "essential": "Always"
@@ -23,7 +23,7 @@
     {
       "type": "A",
       "host": "@",
-      "pointsTo": "104.21.12.247",
+      "pointsTo": "104.21.45.144",
       "ttl": 600,
       "groupId": "site",
       "essential": "Always"
@@ -31,7 +31,7 @@
     {
       "type": "CNAME",
       "host": "www",
-      "pointsTo": "preview.hicurb.com",
+      "pointsTo": "sites.curbsites.net",
       "ttl": 600,
       "groupId": "site",
       "essential": "OnApply"

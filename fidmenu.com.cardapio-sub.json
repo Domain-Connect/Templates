@@ -1,0 +1,21 @@
+{
+  "providerId": "fidmenu.com",
+  "providerName": "FidMenu",
+  "serviceId": "cardapio-sub",
+  "serviceName": "Cardápio digital em um subdomínio",
+  "version": 1,
+  "logoUrl": "https://fidmenu.com/fidmenu-icon.png",
+  "description": "Aponta um subdomínio (como cardapio.seurestaurante.com.br) para o cardápio digital do restaurante no FidMenu. O site principal não muda.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "fidmenu.com",
+  "syncRedirectDomain": "fidmenu.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

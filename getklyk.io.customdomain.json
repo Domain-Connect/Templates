@@ -1,0 +1,30 @@
+{
+  "providerId": "getklyk.io",
+  "providerName": "Klyk",
+  "serviceId": "customdomain",
+  "serviceName": "Custom link domain",
+  "version": 1,
+  "logoUrl": "https://getklyk.io/klyk-logo.svg",
+  "description": "Serves your Klyk short links from your own domain: points it at Klyk, and adds the record that proves you control it.",
+  "variableDescription": "target: the Klyk hostname the domain points to. token: the domain's verification token in Klyk.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "getklyk.io",
+  "syncRedirectDomain": "getklyk.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_klyk-challenge",
+      "data": "klyk-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "klyk-verify="
+    }
+  ]
+}

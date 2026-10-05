@@ -1,0 +1,23 @@
+{
+  "providerId": "unusual.ai",
+  "providerName": "Unusual",
+  "serviceId": "agentdesk-verification",
+  "serviceName": "AgentDesk domain verification",
+  "version": 1,
+  "description": "Add a TXT record to verify domain control before creating an AgentDesk.",
+  "variableDescription": "verification: server-issued pending signup verification token, without the unusual-verify= prefix.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.unusual.ai",
+  "syncRedirectDomain": "agentdesk.unusual.ai,agentdesk-staging.unusual.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_unusual-verify",
+      "data": "unusual-verify=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "unusual-verify=",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "providerId": "lunarlabs.dev",
+  "providerName": "LunarLabs",
+  "serviceId": "email-setup",
+  "serviceName": "LunarLabs Mail",
+  "version": 2,
+  "logoUrl": "https://lunarlabs.dev/favicon.svg",
+  "description": "Configures DNS records for sending email through LunarLabs Mail (self-hosted Reloop at smtp.lunarlabs.dev): DKIM, SPF, inbound MX and click/open tracking. DMARC is a separate optional group (dmarc) that starts at p=none and is only requested for domains that publish no DMARC record yet.",
+  "variableDescription": "domainKey: the DKIM public key LunarLabs Mail generates for the domain.",
+  "syncPubKeyDomain": "lunarlabs.dev",
+  "syncRedirectDomain": "smtp.lunarlabs.dev",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "reloop._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%domainKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:smtp.lunarlabs.dev"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound.smtp.lunarlabs.dev",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "link",
+      "pointsTo": "l.lunarlabs.dev",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "providerId": "pleased.com",
+  "providerName": "Pleased",
+  "serviceId": "outbound-email",
+  "serviceName": "Pleased support email sending",
+  "version": 1,
+  "logoUrl": "https://pleased.com/assets/mail/pleased-com-full.png",
+  "description": "Authenticates your domain so Pleased can send support emails from your address through SendGrid. Adds the mail return path CNAME (which carries SPF) and two DKIM CNAMEs; existing SPF, MX and DKIM records of other email senders are not changed.",
+  "variableDescription": "sendgridhost: SendGrid account host (e.g. u1234567.wl123); dkim1, dkim2: DKIM selectors (e.g. s1, s2)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "pleased.com",
+  "syncRedirectDomain": "pleased.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "mail",
+      "pointsTo": "%sendgridhost%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.domainkey.%sendgridhost%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.domainkey.%sendgridhost%.sendgrid.net",
+      "ttl": 3600
+    }
+  ]
+}

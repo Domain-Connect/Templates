@@ -1,0 +1,30 @@
+{
+  "providerId": "synteq.com",
+  "providerName": "Synteq",
+  "serviceId": "hosting-subdomain",
+  "serviceName": "Synteq Apps & Functions (subdomain)",
+  "version": 1,
+  "logoUrl": "https://synteq.com/domain-connect/logo.png",
+  "description": "Points a subdomain at your Synteq app or function and proves you own it.",
+  "variableDescription": "target: the app's or function's Synteq hostname, e.g. my-app.synteq.app. token: the ownership challenge Synteq generated for this subdomain.",
+  "syncPubKeyDomain": "synteq.com",
+  "syncRedirectDomain": "cloud.synteq.com,staging.cloud.synteq.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_synteq-challenge",
+      "data": "synteq-verify=%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "synteq-verify="
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "providerId": "localmediachamps.com",
+  "providerName": "Local Media Champs",
+  "serviceId": "email",
+  "serviceName": "Champs email sending",
+  "version": 1,
+  "logoUrl": "https://app.localmediachamps.com/champs_icon.png",
+  "description": "Lets Champs send your business's email from your domain and adds a monitoring-only DMARC policy.",
+  "variableDescription": "dkimkey: the DKIM public key Champs' email service issued for this domain. sesregion: the sending region, e.g. us-east-1.",
+  "syncPubKeyDomain": "localmediachamps.com",
+  "syncRedirectDomain": "app.localmediachamps.com",
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%sesregion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "protection",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
