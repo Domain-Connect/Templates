@@ -1,0 +1,39 @@
+{
+  "providerId": "themesmith.ai",
+  "providerName": "ThemeSmith",
+  "serviceId": "mta-sts",
+  "serviceName": "MTA-STS",
+  "version": 1,
+  "logoUrl": "https://themesmith.ai/favicon.svg",
+  "description": "Publishes the transport-security policy used when ThemeSmith hosts mailboxes for this domain.",
+  "variableDescription": "%stsId%: the MTA-STS policy id published on mta-sts.dns.themesmith.ai",
+  "syncBlock": false,
+  "syncPubKeyDomain": "themesmith.ai",
+  "syncRedirectDomain": "app.themesmith.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_mta-sts",
+      "data": "v=STSv1; id=%stsId%",
+      "ttl": "300",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=STSv1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "mta-sts.dns.themesmith.ai",
+      "ttl": "300"
+    },
+    {
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "v=TLSRPTv1; rua=mailto:tlsrpt@themesmith.ai",
+      "ttl": "300",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=TLSRPTv1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "providerId": "themesmith.ai",
+  "providerName": "ThemeSmith",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://themesmith.ai/favicon.svg",
+  "description": "Points www at your ThemeSmith website. The bare address can forward to www. Your email is left as it is.",
+  "variableDescription": "%edgeId%: the single label ThemeSmith assigns for this site under edge.dns.themesmith.ai",
+  "syncBlock": false,
+  "syncPubKeyDomain": "themesmith.ai",
+  "syncRedirectDomain": "app.themesmith.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%edgeId%.edge.dns.themesmith.ai",
+      "ttl": "300",
+      "groupId": "website"
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%domain%",
+      "essential": "OnApply",
+      "groupId": "apex"
+    }
+  ]
+}

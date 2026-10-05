@@ -1,0 +1,48 @@
+{
+  "providerId": "themesmith.ai",
+  "providerName": "ThemeSmith",
+  "serviceId": "mailboxes",
+  "serviceName": "Mailboxes",
+  "version": 1,
+  "logoUrl": "https://themesmith.ai/favicon.svg",
+  "description": "Points mailbox discovery and the IMAP and submission services at ThemeSmith. Delivery records at the bare domain are left as they are.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "themesmith.ai",
+  "syncRedirectDomain": "app.themesmith.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "autoconfig.dns.themesmith.ai",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "autodiscover.dns.themesmith.ai",
+      "ttl": "300"
+    },
+    {
+      "type": "SRV",
+      "service": "_imaps",
+      "protocol": "_tcp",
+      "name": "@",
+      "priority": "0",
+      "weight": "1",
+      "port": "993",
+      "target": "imap.dns.themesmith.ai",
+      "ttl": "300"
+    },
+    {
+      "type": "SRV",
+      "service": "_submission",
+      "protocol": "_tcp",
+      "name": "@",
+      "priority": "0",
+      "weight": "1",
+      "port": "587",
+      "target": "smtp.dns.themesmith.ai",
+      "ttl": "300"
+    }
+  ]
+}
