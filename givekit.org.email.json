@@ -1,0 +1,33 @@
+{
+  "providerId": "givekit.org",
+  "providerName": "GiveKit",
+  "serviceId": "email",
+  "serviceName": "GiveKit Email",
+  "version": 1,
+  "logoUrl": "https://app.givekit.org/brand/givekit-logo.svg",
+  "description": "Lets GiveKit send email campaigns from your domain through Mailgun. Records are added on a subdomain, so your existing email is not affected.",
+  "variableDescription": "%dkimselector%: Mailgun DKIM selector (e.g. pic); %dkimkey%: Mailgun DKIM public key (the value after p=)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "givekit.org",
+  "syncRedirectDomain": "app.givekit.org",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600
+    }
+  ]
+}
