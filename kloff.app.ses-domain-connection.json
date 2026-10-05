@@ -3,7 +3,7 @@
   "providerName": "Kloff",
   "serviceId": "ses-domain-connection",
   "serviceName": "Kloff domain auto connection",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://assets.kloff.app/brand/icon.svg",
   "description": "Configure DNS records required for Kloff email sending and receiving.",
   "syncBlock": false,
