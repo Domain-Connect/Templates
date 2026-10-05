@@ -1,0 +1,37 @@
+{
+  "providerId": "necezaria.com",
+  "providerName": "neceZaria",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://necezaria.com/neceZaria-logo.png",
+  "description": "Points a domain at a storefront hosted on neceZaria (Firebase Hosting): the apex A record and site ownership TXT, and the www host.",
+  "variableDescription": "site: the Hosting site id that serves the storefront",
+  "syncBlock": false,
+  "syncPubKeyDomain": "necezaria.com",
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "199.36.158.100",
+      "ttl": 3600
+    },
+    {
+      "groupId": "apex",
+      "type": "TXT",
+      "host": "@",
+      "data": "hosting-site=%site%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "hosting-site="
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%site%.web.app",
+      "ttl": 3600
+    }
+  ]
+}
