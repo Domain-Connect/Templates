@@ -1,0 +1,55 @@
+{
+  "providerId": "reai.no",
+  "providerName": "ReAI",
+  "serviceId": "email",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://app.reai.no/assets/icons/favicon_pwa_512.png",
+  "description": "Lets ReAI send invoices and other business email from your domain by authorizing its mail servers (SPF), publishing DKIM signing keys and a domain verification record. A DMARC record is only added when the domain has none.",
+  "variableDescription": "rsaselector and edselector are the DKIM selectors, rsakey and edkey the DKIM public keys, token the ReAI domain verification token.",
+  "syncPubKeyDomain": "reai.no",
+  "syncRedirectDomain": "app.reai.no",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sender",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "ip4:65.108.74.217 ip6:2a01:4f9:6b:4ad3::25 ip6:2a01:4f9:6b:4ad3::26"
+    },
+    {
+      "groupId": "sender",
+      "type": "TXT",
+      "host": "%rsaselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%rsakey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "sender",
+      "type": "TXT",
+      "host": "%edselector%._domainkey",
+      "data": "v=DKIM1; k=ed25519; p=%edkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "sender",
+      "type": "TXT",
+      "host": "_bud",
+      "data": "bud-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "bud-verification="
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
