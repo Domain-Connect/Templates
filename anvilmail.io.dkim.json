@@ -1,0 +1,21 @@
+{
+  "providerId": "anvilmail.io",
+  "providerName": "Anvil Mail",
+  "serviceId": "dkim",
+  "serviceName": "Managed DKIM",
+  "version": 1,
+  "logoUrl": "https://anvilmail.io/domainconnect/logo.png",
+  "description": "Delegates one DKIM selector to Anvil Mail with a single CNAME, so key rotation and record upkeep happen without further DNS edits. Mail signing itself is unchanged.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.anvilmail.io",
+  "syncRedirectDomain": "anvilmail.io",
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%selector%._domainkey",
+      "pointsTo": "%dkimTarget%",
+      "ttl": 3600
+    }
+  ]
+}
