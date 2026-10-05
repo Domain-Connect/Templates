@@ -1,0 +1,19 @@
+{
+  "providerId": "roofgrid.app",
+  "providerName": "GridLaunch",
+  "serviceId": "gridlaunch-site",
+  "serviceName": "GridLaunch website",
+  "version": 1,
+  "logoUrl": "https://roofgrid.app/icon-512.png",
+  "description": "Points your domain and its www address at your GridLaunch website.",
+  "variableDescription": "No variables.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "roofgrid.app",
+  "syncRedirectDomain": "roofgrid.app",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 600 }
+  ]
+}
