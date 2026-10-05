@@ -15,13 +15,13 @@
             "groupId": "site",
             "host": "@",
             "pointsTo": "199.36.158.100",
-            "ttl": "3600"
+            "ttl": 3600
         },
         {
             "type": "TXT",
             "groupId": "site",
             "host": "@",
-            "ttl": "3600",
+            "ttl": 3600,
             "data": "hosting-site=%site%",
             "txtConflictMatchingMode": "Prefix",
             "txtConflictMatchingPrefix": "hosting-site="
@@ -31,13 +31,13 @@
             "groupId": "site",
             "host": "www",
             "pointsTo": "%site%.web.app",
-            "ttl": "3600"
+            "ttl": 3600
         },
         {
             "type": "TXT",
             "groupId": "verify",
             "host": "@",
-            "ttl": "3600",
+            "ttl": 3600,
             "data": "google-site-verification=%gsv%",
             "txtConflictMatchingMode": "Prefix",
             "txtConflictMatchingPrefix": "google-site-verification="
