@@ -1,0 +1,20 @@
+{
+  "providerId": "ecomelixir.com",
+  "providerName": "Elixir",
+  "serviceId": "store-subdomain",
+  "serviceName": "Elixir Store (subdomain)",
+  "version": 1,
+  "logoUrl": "https://app.ecomelixir.com/elixir-icon.png",
+  "description": "Points a subdomain at the merchant's Elixir store.",
+  "syncPubKeyDomain": "domainconnect.ecomelixir.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
