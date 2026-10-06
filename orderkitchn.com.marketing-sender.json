@@ -1,0 +1,33 @@
+{
+  "providerId": "orderkitchn.com",
+  "providerName": "Kitchn",
+  "serviceId": "marketing-sender",
+  "serviceName": "Kitchn marketing email",
+  "version": 1,
+  "hostRequired": false,
+  "syncPubKeyDomain": "kitchndashboard.com",
+  "syncRedirectDomain": "kitchndashboard.com,dev.kitchndashboard.com",
+  "logoUrl": "https://www.eatkitchn.com/images/brand/logo.png",
+  "description": "Authorize Kitchn to send a restaurant's marketing email from its own domain (or from a subdomain such as news.yourdomain.com, passed as host): three DKIM CNAMEs so Amazon SES signs the mail in your name. Nothing else is added and no existing record is changed: no MX, SPF or DMARC.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3% - the three DKIM selectors Amazon SES assigns to the domain (32 lowercase alphanumerics each); each CNAME points to the same selector under dkim.amazonses.com.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

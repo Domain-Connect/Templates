@@ -1,11 +1,11 @@
 {
 	"providerId": "mailbluster.com",
 	"providerName": "MailBluster",
-	"serviceId": "sender-verification-smtp2go",
-	"serviceName": "MailBluster Email Sender Verification (SMTP2Go)",
+	"serviceId": "sender-verification-mailbluster-smtp",
+	"serviceName": "MailBluster Email Sender Verification (MailBluster SMTP)",
 	"version": 2,
 	"logoUrl": "https://mailbluster.com/wp-content/themes/mailbluster/resources/assets/images/mailbluster-logo.svg",
-	"description": "Configures DKIM, DMARC, Return Path, and Tracking DNS records for MailBluster email sender verification using SMTP2Go",
+	"description": "Configures DKIM, DMARC, Return Path, and Tracking DNS records for MailBluster email sender verification using MailBluster SMTP",
 	"syncPubKeyDomain": "mailbluster.com",
 	"syncRedirectDomain": "mailbluster.com",
 	"syncBlock": false,
@@ -17,28 +17,31 @@
 			"groupId": "dkim",
 			"type": "CNAME",
 			"host": "%dkimSelector%._domainkey",
-			"pointsTo": "dkim.smtp2go.net",
+			"pointsTo": "dkim.%whitelabelDomain%",
 			"ttl": 3600
 		},
 		{
 			"groupId": "dmarc",
 			"type": "TXT",
 			"host": "_dmarc",
-			"data": "%dmarcValue%",
+			"data": "v=DMARC1; p=none;",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1",
+			"essential": "OnApply",
 			"ttl": 3600
 		},
 		{
 			"groupId": "returnpath",
 			"type": "CNAME",
 			"host": "%returnPathSelector%",
-			"pointsTo": "return.smtp2go.net",
+			"pointsTo": "return.%whitelabelDomain%",
 			"ttl": 3600
 		},
 		{
 			"groupId": "tracking",
 			"type": "CNAME",
 			"host": "%trackingHost%",
-			"pointsTo": "track.smtp2go.net",
+			"pointsTo": "track.%whitelabelDomain%",
 			"ttl": 3600
 		}
 	]
