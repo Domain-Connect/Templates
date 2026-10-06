@@ -1,0 +1,20 @@
+{
+  "providerId": "ecomelixir.com",
+  "providerName": "Elixir",
+  "serviceId": "store",
+  "serviceName": "Elixir Store",
+  "version": 1,
+  "logoUrl": "https://app.ecomelixir.com/elixir-icon.png",
+  "description": "Points a root domain at the merchant's Elixir store.",
+  "syncPubKeyDomain": "domainconnect.ecomelixir.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    }
+  ]
+}
