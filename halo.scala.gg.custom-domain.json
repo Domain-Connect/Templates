@@ -1,6 +1,6 @@
 {
-  "providerId": "halocloud.com",
-  "providerName": "Halo Cloud",
+  "providerId": "halo.scala.gg",
+  "providerName": "Halo",
   "serviceId": "custom-domain",
   "serviceName": "Custom Domain",
   "version": 1,
