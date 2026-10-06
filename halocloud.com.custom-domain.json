@@ -1,0 +1,29 @@
+{
+  "providerId": "halocloud.com",
+  "providerName": "Halo Cloud",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom Domain",
+  "version": 1,
+  "logoUrl": "https://halo.scala.gg/icon.svg",
+  "description": "Connects a subdomain to Halo Cloud identity via Cloudflare for SaaS. Creates a CNAME to Halo's SaaS target and a Cloudflare custom-hostname ownership TXT so TLS and routing can activate.",
+  "variableDescription": "hostTarget is Halo's SaaS CNAME target (for example customers.halo.scala.gg). txtValue is the Cloudflare ownership verification token returned when the custom hostname is created.",
+  "syncPubKeyDomain": "keys.halo.scala.gg",
+  "syncRedirectDomain": "halo.scala.gg",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%hostTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%txtValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
