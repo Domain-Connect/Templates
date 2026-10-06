@@ -7,7 +7,6 @@
     "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2018/11/DomainConnectSquareBlack.png",
     "description": "Example service for template workflow test",
     "syncRedirectDomain": "exampleservice.domainconnect.org",
-    "warnPhishing": true,
     "records": [
         {
             "type": "TXT",
