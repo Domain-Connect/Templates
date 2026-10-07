@@ -1,0 +1,59 @@
+{
+  "providerId": "knola.ai",
+  "providerName": "Knola",
+  "serviceId": "email-domain",
+  "serviceName": "Email domain",
+  "version": 1,
+  "logoUrl": "https://www.knola.ai/icons/android-chrome-512.png",
+  "description": "Lets a school on Knola send its course emails and newsletters from its own subdomain (for example mail.school.com) through Amazon SES: three Easy DKIM CNAMEs, a custom MAIL FROM on bounce.<host> (MX + SPF), and a DMARC policy on the subdomain only. Knola always applies it with a host (the school's sending subdomain), never to the root of the domain, so the school's website and inbox records are untouched.",
+  "variableDescription": "%dkimToken1%, %dkimToken2%, %dkimToken3%: the three Amazon SES Easy DKIM tokens issued for this identity; %region%: the Amazon SES region the identity lives in, for example eu-west-2",
+  "syncPubKeyDomain": "knola.ai",
+  "syncRedirectDomain": "www.knola.ai",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
