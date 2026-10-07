@@ -3,7 +3,7 @@
     "providerName": "Example Domain Connect Service",
     "serviceId": "test-template",
     "serviceName": "Test template",
-    "version": 3,
+    "version": 4,
     "logoUrl": "https://www.domainconnect.org/wp-content/uploads/2018/11/DomainConnectSquareBlack.png",
     "description": "Example service for template workflow test",
     "syncRedirectDomain": "exampleservice.domainconnect.org",
