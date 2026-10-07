@@ -1,0 +1,22 @@
+{
+  "providerId": "redme.ai",
+  "providerName": "Redme",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain Verification",
+  "version": 1,
+  "logoUrl": "https://redme.ai/icon-512.png",
+  "description": "Adds a TXT record proving domain ownership for Redme authorized security scanning.",
+  "variableDescription": "verifytxt: Redme ownership token. The record value is redwolf-verify=<verifytxt>.",
+  "syncPubKeyDomain": "redme.ai",
+  "syncRedirectDomain": "redme.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_redwolf",
+      "data": "redwolf-verify=%verifytxt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "redwolf-verify="
+    }
+  ]
+}
