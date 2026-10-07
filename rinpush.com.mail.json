@@ -36,7 +36,7 @@
         },
         {
             "type": "SRV",
-            "name": "@",
+            "name": "",
             "service": "_submission",
             "protocol": "_tcp",
             "target": "mail.rinpush.com.",
@@ -47,7 +47,7 @@
         },
         {
             "type": "SRV",
-            "name": "@",
+            "name": "",
             "service": "_imaps",
             "protocol": "_tcp",
             "target": "mail.rinpush.com.",
@@ -58,7 +58,7 @@
         },
         {
             "type": "SRV",
-            "name": "@",
+            "name": "",
             "service": "_pop3s",
             "protocol": "_tcp",
             "target": "mail.rinpush.com.",
