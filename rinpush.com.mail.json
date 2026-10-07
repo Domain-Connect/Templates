@@ -1,4 +1,3 @@
-cat << 'EOF' > rinpush.com.mail.json
 {
     "providerId": "rinpush.com",
     "providerName": "Rinpush Mail",
@@ -79,4 +78,3 @@ cat << 'EOF' > rinpush.com.mail.json
         }
     ]
 }
-EOF
