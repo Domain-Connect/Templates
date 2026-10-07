@@ -3,9 +3,9 @@
   "providerName": "ReAI",
   "serviceId": "email",
   "serviceName": "Email sending",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://app.reai.no/assets/icons/favicon_pwa_512.png",
-  "description": "Lets ReAI send invoices and other business email from your domain by authorizing its mail servers (SPF), publishing DKIM signing keys and a domain verification record. A DMARC record is only added when the domain has none.",
+  "description": "Lets ReAI send business email and email campaigns from your domain by authorizing its mail servers (SPF), publishing DKIM signing keys and a domain verification record. A DMARC record is only added when the domain has none.",
   "variableDescription": "rsaselector and edselector are the DKIM selectors, rsakey and edkey the DKIM public keys, token the ReAI domain verification token.",
   "syncPubKeyDomain": "reai.no",
   "syncRedirectDomain": "app.reai.no",
@@ -15,7 +15,7 @@
       "groupId": "sender",
       "type": "SPFM",
       "host": "@",
-      "spfRules": "ip4:65.108.74.217 ip6:2a01:4f9:6b:4ad3::25 ip6:2a01:4f9:6b:4ad3::26"
+      "spfRules": "include:_spf.reai.no"
     },
     {
       "groupId": "sender",

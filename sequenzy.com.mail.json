@@ -3,11 +3,11 @@
   "providerName": "Sequenzy",
   "serviceId": "mail",
   "serviceName": "Mail",
-  "version": 1,
+  "version": 2,
   "syncBlock": false,
   "syncPubKeyDomain": "sequenzy.com",
   "syncRedirectDomain": "sequenzy.com,www.sequenzy.com",
-  "description": "Authenticate email sent from your domain with Sequenzy.",
+  "description": "Authenticate email sent from your domain with Sequenzy: DKIM, bounce handling, DMARC and tracking.",
   "logoUrl": "https://www.sequenzy.com/logo.png",
   "records": [
     {
@@ -19,19 +19,28 @@
       "txtConflictMatchingMode": "All"
     },
     {
-      "groupId": "outbound",
-      "type": "MX",
-      "host": "send",
-      "pointsTo": "%bounceLabel%.sequenzydns.com",
-      "priority": 10,
+      "groupId": "return-path",
+      "type": "CNAME",
+      "host": "%returnPathHost%",
+      "pointsTo": "%returnPathLabel%.sequenzydns.com",
       "ttl": 3600
     },
     {
-      "groupId": "outbound",
-      "type": "SPFM",
-      "host": "send",
-      "spfRules": "include:%spfLabel%.sequenzydns.com",
-      "ttl": 3600
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc.%domain%.",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "%trackingHost%.%domain%.",
+      "pointsTo": "%trackingCnameTarget%.sequenzydns.com",
+      "ttl": 3600,
+      "essential": "OnApply"
     }
   ]
 }
