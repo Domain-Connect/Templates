@@ -3,9 +3,9 @@
   "providerName": "Carbon",
   "serviceId": "byoc",
   "serviceName": "Carbon Custom Domain",
-  "version": 2,
+  "version": 3,
   "description": "Connect a custom domain to a self-hosted Carbon deployment.",
-  "variableDescription": "target is the hostname of the deployment's load balancer. ip is the address of the deployment's load balancer. challenge is the Carbon-managed name that answers certificate checks. dkim1, dkim2 and dkim3 are the DKIM tokens Amazon SES issued for the domain, and dkimdomain is SES's DKIM domain in the deployment's region (dkim.amazonses.com in most).",
+  "variableDescription": "target is the hostname of the deployment's load balancer. ip is the address of the deployment's load balancer. challenge is the Carbon-managed name that answers certificate checks. dkim1, dkim2 and dkim3 are the DKIM tokens Amazon SES issued for the domain, and dkimdomain is SES's DKIM domain in the deployment's region (dkim.amazonses.com in most). acmhost and acmtarget are the name and value of the DNS validation record AWS Certificate Manager issued for the deployment's load balancer certificate; acmhost is that name without its leading underscore.",
   "syncPubKeyDomain": "carbon.ms",
   "syncRedirectDomain": "console.carbon.ms",
   "records": [
@@ -49,6 +49,13 @@
       "groupId": "ses",
       "host": "%dkim3%._domainkey",
       "pointsTo": "%dkim3%.%dkimdomain%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "acm",
+      "host": "_%acmhost%",
+      "pointsTo": "%acmtarget%",
       "ttl": 3600
     }
   ]
