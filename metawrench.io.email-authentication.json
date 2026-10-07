@@ -1,0 +1,32 @@
+{
+    "providerId": "metawrench.io",
+    "providerName": "MetaWrench",
+    "serviceId": "email-authentication",
+    "serviceName": "Email delivery (SPF and DMARC)",
+    "version": 1,
+    "logoUrl": "https://metawrench.io/domain-connect/metawrench-logo.svg",
+    "description": "MetaWrench is a WordPress plugin. When it finds that a site's email is missing SPF or DMARC, it offers to add them so the site's email (contact forms, order receipts) stops landing in spam. Apply both, or one, with the groupId parameter (spf, dmarc).",
+    "variableDescription": "%spfinclude%: the SPF include host of the email service the site sends through, e.g. _spf.google.com or spf.protection.outlook.com",
+    "syncBlock": false,
+    "syncPubKeyDomain": "metawrench.io",
+    "syncRedirectDomain": "api.metawrench.io",
+    "records": [
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:%spfinclude%",
+            "groupId": "spf",
+            "essential": "OnApply"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "groupId": "dmarc",
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        }
+    ]
+}
