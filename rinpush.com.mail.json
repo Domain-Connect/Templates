@@ -10,7 +10,7 @@
         {
             "type": "MX",
             "host": "@",
-            "pointsTo": "mail.rinpush.com.",
+            "pointsTo": "mail.rinpush.com",
             "ttl": 3600,
             "priority": 10
         },
@@ -24,7 +24,7 @@
             "type": "TXT",
             "host": "rinpush._domainkey",
             "ttl": 3600,
-            "data": "p=%dkim_key%",
+            "data": "v=DKIM1; k=rsa; p=%dkim_key%",
             "txtConflictMatchingMode": "All"
         },
         {
@@ -32,51 +32,19 @@
             "host": "_dmarc",
             "ttl": 3600,
             "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@rinpush.com",
-            "txtConflictMatchingMode": "All"
-        },
-        {
-            "type": "SRV",
-            "name": "",
-            "service": "_submission",
-            "protocol": "_tcp",
-            "target": "mail.rinpush.com.",
-            "ttl": 3600,
-            "priority": 0,
-            "weight": 1,
-            "port": 587
-        },
-        {
-            "type": "SRV",
-            "name": "",
-            "service": "_imaps",
-            "protocol": "_tcp",
-            "target": "mail.rinpush.com.",
-            "ttl": 3600,
-            "priority": 0,
-            "weight": 1,
-            "port": 993
-        },
-        {
-            "type": "SRV",
-            "name": "",
-            "service": "_pop3s",
-            "protocol": "_tcp",
-            "target": "mail.rinpush.com.",
-            "ttl": 3600,
-            "priority": 0,
-            "weight": 1,
-            "port": 995
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply"
         },
         {
             "type": "CNAME",
             "host": "autodiscover",
-            "pointsTo": "mail.rinpush.com.",
+            "pointsTo": "mail.rinpush.com",
             "ttl": 3600
         },
         {
             "type": "CNAME",
             "host": "autoconfig",
-            "pointsTo": "mail.rinpush.com.",
+            "pointsTo": "mail.rinpush.com",
             "ttl": 3600
         }
     ]
