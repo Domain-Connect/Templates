@@ -1,0 +1,22 @@
+{
+  "providerId": "unserver.app",
+  "providerName": "Email Unserver",
+  "serviceId": "email",
+  "serviceName": "Email Unserver sending",
+  "version": 1,
+  "logoUrl": "https://unserver.app/icon-192.png",
+  "description": "Lets Email Unserver send mail from your domain: adds the DKIM signing key, bounce-handling MX and SPF on the send subdomain, and a monitoring DMARC policy.",
+  "variableDescription": "dkim: DKIM public key issued for this domain. mxhost: bounce-handling mail server for the sending region.",
+  "syncBlock": false,
+  "shared": false,
+  "hostRequired": false,
+  "warnPhishing": false,
+  "syncPubKeyDomain": "unserver.app",
+  "syncRedirectDomain": "unserver.app",
+  "records": [
+    { "type": "TXT", "host": "resend._domainkey", "data": "%dkim%", "ttl": 3600, "txtConflictMatchingMode": "Exact" },
+    { "type": "MX", "host": "send", "pointsTo": "%mxhost%", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com" },
+    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none;", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1" }
+  ]
+}
