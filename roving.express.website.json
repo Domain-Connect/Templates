@@ -1,0 +1,28 @@
+{
+  "providerId": "roving.express",
+  "providerName": "Roving Express",
+  "serviceId": "website",
+  "serviceName": "Connect your website",
+  "version": 1,
+  "logoUrl": "https://workshopandweb.com/domain-connect/roving-express.svg",
+  "description": "Points an address on your domain, like shop.yourbusiness.com, at your Roving Express website and lets us keep its HTTPS certificate renewed. Your email and all other records are left alone.",
+  "variableDescription": "%dcvTarget%: the certificate renewal target shown on your Roving Express domain page",
+  "syncPubKeyDomain": "roving.express",
+  "syncRedirectDomain": "workshopandweb.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.roving.express",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%dcvTarget%",
+      "ttl": 3600
+    }
+  ]
+}

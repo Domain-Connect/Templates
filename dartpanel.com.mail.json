@@ -1,0 +1,73 @@
+{
+  "providerId": "dartpanel.com",
+  "providerName": "DartPanel",
+  "serviceId": "mail",
+  "serviceName": "DartPanel mail",
+  "version": 1,
+  "logoUrl": "https://dartpanel.com/assets/images/logo.png",
+  "description": "Sets up e-mail for a domain whose mailboxes are on a server managed by DartPanel (https://dartpanel.com): mail routing, the mail host, sender authentication (SPF, DKIM, DMARC) and webmail",
+  "variableDescription": "ip: IPv4 address of the customer's mail server; ip6: IPv6 address of the customer's mail server; dkim: public key (base64) of the domain's DKIM key on that server",
+  "syncPubKeyDomain": "domainconnect.dartpanel.com",
+  "syncRedirectDomain": "console.dartpanel.com",
+  "records": [
+    {
+      "type": "A",
+      "groupId": "mailhost",
+      "host": "mail",
+      "pointsTo": "%ip%",
+      "ttl": 300,
+      "essential": "OnApply"
+    },
+    {
+      "type": "AAAA",
+      "groupId": "mailhost6",
+      "host": "mail",
+      "pointsTo": "%ip6%",
+      "ttl": 300,
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "groupId": "mx",
+      "host": "@",
+      "pointsTo": "mail.%fqdn%",
+      "priority": 10,
+      "ttl": 300,
+      "essential": "OnApply"
+    },
+    {
+      "type": "SPFM",
+      "groupId": "spf",
+      "host": "@",
+      "spfRules": "mx a"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dkim",
+      "host": "default._domainkey",
+      "data": "v=DKIM1; h=sha256; k=rsa; p=%dkim%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%fqdn%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "webmail",
+      "host": "webmail",
+      "pointsTo": "wm.dartpanel.com",
+      "ttl": 300,
+      "essential": "OnApply"
+    }
+  ]
+}
