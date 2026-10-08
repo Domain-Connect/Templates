@@ -6,8 +6,9 @@
   "version": 1,
   "logoUrl": "https://moymo.net/favicon.svg",
   "description": "Shows your Moymo profile page on your own domain, and proves the domain is yours.",
-  "variableDescription": "ip is the address of Moymo's server. txtValue is the ownership record Moymo checks before it serves the domain.",
+  "variableDescription": "ip is the address of Moymo's server. token is the secret Moymo checks to confirm the domain is yours.",
   "syncPubKeyDomain": "moymo.net",
+  "syncRedirectDomain": "moymo.net",
   "syncBlock": false,
   "hostRequired": false,
   "records": [
@@ -20,8 +21,9 @@
     {
       "type": "TXT",
       "host": "_moymo-challenge",
-      "data": "%txtValue%",
-      "ttl": 300
+      "data": "moymo-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
     }
   ]
 }
