@@ -5,7 +5,7 @@
 	"serviceName": "Postboi hosted email pages on your own domain",
 	"version": 1,
 	"logoUrl": "https://postboi.email/logo.svg",
-	"description": "Serves your Postboi views (the web versions of your emails) from view.<yourdomain> instead of view.postboi.app: a CNAME handing that subdomain to Postboi's edge, plus the TXT record that validates its TLS certificate.",
+	"description": "Serves your Postboi views (the web versions of your emails) from mail-view.<yourdomain> instead of view.postboi.app: a CNAME handing that subdomain to Postboi's edge, plus the TXT record that validates its TLS certificate.",
 	"syncPubKeyDomain": "postboi.email",
 	"syncRedirectDomain": "postboi.email,postboi.app",
 	"syncBlock": false,
@@ -14,13 +14,13 @@
 	"records": [
 		{
 			"type": "CNAME",
-			"host": "view",
+			"host": "mail-view",
 			"pointsTo": "view.postboi.app",
 			"ttl": 3600
 		},
 		{
 			"type": "TXT",
-			"host": "%dvlabel%.view",
+			"host": "%dvlabel%.mail-view",
 			"data": "%dvvalue%",
 			"txtConflictMatchingMode": "All",
 			"ttl": 3600
