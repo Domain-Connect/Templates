@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://moymo.net/favicon.svg",
   "description": "Shows your Moymo profile page on your own domain, and proves the domain is yours.",
-  "variableDescription": "ip is the address of Moymo's server. txtName and txtValue are the ownership record Moymo checks before it serves the domain.",
+  "variableDescription": "ip is the address of Moymo's server. txtValue is the ownership record Moymo checks before it serves the domain.",
   "syncPubKeyDomain": "moymo.net",
   "syncBlock": false,
   "hostRequired": false,
@@ -19,7 +19,7 @@
     },
     {
       "type": "TXT",
-      "host": "%txtName%",
+      "host": "_moymo-challenge",
       "data": "%txtValue%",
       "ttl": 300
     }
