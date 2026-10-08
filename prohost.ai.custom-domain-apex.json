@@ -1,0 +1,24 @@
+{
+    "providerId": "prohost.ai",
+    "providerName": "Prohost AI",
+    "serviceId": "custom-domain-apex",
+    "serviceName": "Custom domain (root and www)",
+    "version": 1,
+    "description": "Points a root domain (example.com) and its www subdomain at a Prohost AI booking site or guidebook.",
+    "syncPubKeyDomain": "domainconnect.prohost.ai",
+    "syncRedirectDomain": "app.prohost.ai,dev-app.prohost.ai",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "76.76.21.21",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "cname.prohostai.com",
+            "ttl": 3600
+        }
+    ]
+}
