@@ -1,0 +1,61 @@
+{
+  "providerId": "smrtagentai.com",
+  "providerName": "SMRT Agent",
+  "serviceId": "newsletter",
+  "serviceName": "Newsletter Sending Domain",
+  "version": 1,
+  "logoUrl": "https://cocreation.smrtagentai.com/assets/smrt-logo.png",
+  "description": "Authenticates the news subdomain of your domain so SMRT Agent can send your newsletter from your own email address (SPF, DKIM, bounce MX and click tracking via Mailgun), and adds a DMARC policy if the domain has none.",
+  "variableDescription": "%dkimSelector%: DKIM selector assigned by Mailgun for news.<domain> (e.g. krs); %dkimPublicKey%: base64 DKIM public key assigned by Mailgun (the p= value)",
+  "syncPubKeyDomain": "domainconnect.smrtagentai.com",
+  "syncRedirectDomain": "smrtagentai.com,cocreation.smrtagentai.com",
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "news",
+      "spfRules": "include:mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey.news",
+      "data": "k=rsa; p=%dkimPublicKey%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "news",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "news",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "email.news",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "providerId": "integratorshq.com",
+  "providerName": "IntegratorHQ",
+  "version": 1,
+  "logoUrl": "https://integratorshq.com/marketing/symbol-primary.svg",
+  "syncPubKeyDomain": "domainconnect.integratorshq.com",
+  "syncRedirectDomain": "integratorshq.com",
+  "syncBlock": false,
+  "serviceId": "custom-address",
+  "serviceName": "Workspace web address",
+  "description": "Connect a subdomain to your IntegratorHQ workspace and verify its TLS certificate.",
+  "hostRequired": true,
+  "variableDescription": "ownership: Cloudflare hostname ownership value; certificate and certificate2: Cloudflare TLS verification values.",
+  "records": [
+    {
+      "groupId": "route",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.integratorshq.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "certificate",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "certificate2",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate2%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "providerId": "atmark.ai",
+  "providerName": "Atmark",
+  "serviceId": "mail",
+  "serviceName": "Custom domain mail for AI agents",
+  "version": 1,
+  "logoUrl": "https://atmark.ai/favicon.svg",
+  "description": "One-step setup of an Atmark agent domain: the ownership challenge TXT (_atmark-challenge on the host), inbound MX on the host through Amazon SES, a custom MAIL FROM (bounce.<host>) with MX and SPF, three Easy DKIM CNAMEs, and a minimal recommended DMARC record (_dmarc on the host, p=none). Apply with domain=<registrable domain> and host=<subdomain> (Atmark agent domains are always subdomains).",
+  "variableDescription": "token: 43-character base64url ownership challenge token issued by Atmark for this domain. t1, t2, t3: the three lowercase Amazon SES Easy DKIM tokens for this domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.atmark.ai",
+  "syncRedirectDomain": "console.atmark.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_atmark-challenge",
+      "data": "atmark-domain-verification=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "atmark-domain-verification="
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.ap-northeast-2.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.ap-northeast-2.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "%t1%._domainkey",
+      "pointsTo": "%t1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%t2%._domainkey",
+      "pointsTo": "%t2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%t3%._domainkey",
+      "pointsTo": "%t3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

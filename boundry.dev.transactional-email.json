@@ -1,0 +1,55 @@
+{
+  "providerId": "boundry.dev",
+  "providerName": "Boundry",
+  "serviceId": "transactional-email",
+  "serviceName": "Boundry transactional email",
+  "version": 1,
+  "logoUrl": "https://boundry.dev/brand/boundry-google-oauth.png",
+  "description": "Configure the DNS records selected for a Boundry regional email domain.",
+  "variableDescription": "dkimSelector and dkimKey configure the Boundry DKIM identity; spfInclude and awsRegion select the Boundry project's regional sending and AWS mail endpoints.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "boundry.dev",
+  "syncRedirectDomain": "boundry.dev",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "%dkimSelector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "SPFM",
+      "groupId": "sending",
+      "host": "bounce",
+      "spfRules": "include:%spfInclude%"
+    },
+    {
+      "type": "MX",
+      "groupId": "sending",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%awsRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; adkim=r; aspf=r; pct=100",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "groupId": "receiving",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%awsRegion%.amazonaws.com",
+      "priority": 10,
+      "ttl": 300
+    }
+  ]
+}

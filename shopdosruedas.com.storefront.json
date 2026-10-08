@@ -1,0 +1,16 @@
+{
+  "providerId": "shopdosruedas.com",
+  "providerName": "Shop DosRuedas",
+  "serviceId": "storefront",
+  "serviceName": "Tienda online",
+  "logoUrl": "https://shopdosruedas.com/shop/logo-simple.webp",
+  "version": 1,
+  "description": "Conectar el sitio de un comercio a Shop DosRuedas y verificar la propiedad de su dominio.",
+  "variableDescription": "IP es la dirección IPv4 recomendada por el alojamiento para este dominio. PROOF es el identificador privado de verificación emitido por Shop DosRuedas.",
+  "syncPubKeyDomain": "domainconnect.shopdosruedas.com",
+  "syncRedirectDomain": "shopdosruedas.com,www.logisticadosruedas.com",
+  "records": [
+    {"type":"A","host":"@","pointsTo":"%IP%","ttl":"1800"},
+    {"type":"TXT","host":"_shopdosruedas","data":"shopdosruedas=%PROOF%","ttl":"1800","txtConflictMatchingMode":"Prefix","txtConflictMatchingPrefix":"shopdosruedas="}
+  ]
+}
