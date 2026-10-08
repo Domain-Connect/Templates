@@ -6,20 +6,20 @@
   "version": 1,
   "logoUrl": "https://moymo.net/favicon.svg",
   "description": "Shows your Moymo profile page on a name under your own domain, and proves the domain is yours.",
-  "variableDescription": "target is the name Moymo serves from. txtName and txtValue are the ownership record Moymo checks before it serves the name.",
+  "variableDescription": "target is the name Moymo serves from. txtValue is the ownership record Moymo checks before it serves the name.",
   "syncPubKeyDomain": "moymo.net",
   "syncBlock": false,
   "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "%target%",
       "ttl": 300
     },
     {
       "type": "TXT",
-      "host": "%txtName%",
+      "host": "_moymo-challenge",
       "data": "%txtValue%",
       "ttl": 300
     }
