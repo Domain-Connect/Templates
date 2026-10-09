@@ -3,7 +3,7 @@
   "providerName": "WorkWith",
   "serviceId": "notes",
   "serviceName": "Notes from your own domain",
-  "version": 1,
+  "version": 2,
   "description": "Lets WorkWith send a professional's notes to the people who asked for them, from a subdomain of their own domain, through Resend. Adds the records Resend needs under that subdomain only.",
   "variableDescription": "sesRegion: the sending region Resend gave this subdomain, such as us-east-1; dkimKey: the DKIM public key Resend issued for it",
   "syncBlock": false,
@@ -21,6 +21,12 @@
       "type": "SPFM",
       "host": "send",
       "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
       "ttl": 3600
     },
     {
