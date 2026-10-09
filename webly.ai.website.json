@@ -8,7 +8,7 @@
   "description": "Points www at a website hosted on Webly and forwards the bare domain to www. Email (MX) and other records are not touched.",
   "variableDescription": "No variables.",
   "syncPubKeyDomain": "webly.ai",
-  "syncRedirectDomain": "app.webly.ai,app.playbase.ai",
+  "syncRedirectDomain": "app.webly.ai,app.dev.playbase.ai",
   "records": [
     { "type": "CNAME", "host": "www", "pointsTo": "sites.webly.site", "ttl": 3600 },
     { "type": "REDIR301", "host": "@", "target": "https://www.%fqdn%" }
