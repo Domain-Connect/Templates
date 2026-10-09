@@ -1,0 +1,29 @@
+{
+  "providerId": "wed-bliss.com",
+  "providerName": "WedBliss",
+  "serviceId": "website",
+  "serviceName": "WedBliss wedding website",
+  "version": 1,
+  "logoUrl": "https://www.wed-bliss.com/wedbliss-logo.svg",
+  "description": "Points your domain at your WedBliss wedding website",
+  "variableDescription": "No variables",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "wed-bliss.com",
+  "syncRedirectDomain": "wed-bliss.com,www.wed-bliss.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
