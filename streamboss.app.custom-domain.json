@@ -1,0 +1,54 @@
+{
+  "providerId": "streamboss.app",
+  "providerName": "StreamBoss",
+  "serviceId": "custom-domain",
+  "serviceName": "StreamBoss custom domain",
+  "version": 1,
+  "logoUrl": "https://streamboss.app/domain-connect/logo.svg",
+  "description": "Points your address at your StreamBoss workspace and sets up the email records it needs to send from your domain.",
+  "variableDescription": "cnameTarget is where the address points, ownershipHost and ownershipValue prove the domain is yours, spfHost and spfRules authorize StreamBoss to send email, mxValue and mxPriority route its bounces on the fixed send address, rsendValue completes its return path on the fixed rsend address, dkimHost and dkimValue sign that email.",
+  "syncPubKeyDomain": "streamboss.app",
+  "syncRedirectDomain": "streamboss.app,codstreamingjp.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%ownershipHost%",
+      "data": "%ownershipValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "SPFM",
+      "host": "%spfHost%",
+      "spfRules": "%spfRules%"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mxValue%",
+      "priority": "%mxPriority%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "%rsendValue%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimHost%",
+      "data": "%dkimValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
