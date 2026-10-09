@@ -1,0 +1,49 @@
+{
+  "providerId": "mailtino.com",
+  "providerName": "Mailtino",
+  "serviceId": "email-sending",
+  "serviceName": "Mailtino email sending",
+  "version": 1,
+  "logoUrl": "https://server.mailtino.com/mailtino-logo.png",
+  "description": "Authenticates email sent through Mailtino (Amazon SES): a DKIM key, the MAIL FROM subdomain (MX for bounces and SPF), and optionally a DMARC policy.",
+  "variableDescription": "%dkimSelector%: DKIM selector generated per domain (e.g. sm1a2b3c). %dkimKey%: base64 RSA public key for that selector. %region%: AWS SES region (e.g. us-east-2). %dmarcRua%: DMARC aggregate report URI (e.g. mailto:dmarc@example.com); the dmarc group is applied only when the domain has no DMARC record.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mailtino.com",
+  "syncRedirectDomain": "mailtino.com,server.mailtino.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; adkim=s; aspf=s; sp=reject; fo=1; rua=%dmarcRua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

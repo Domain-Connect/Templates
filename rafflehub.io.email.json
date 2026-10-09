@@ -1,0 +1,31 @@
+{
+  "providerId": "rafflehub.io",
+  "providerName": "RaffleHub",
+  "serviceId": "email",
+  "serviceName": "Customer emails",
+  "version": 1,
+  "logoUrl": "https://rafflehub.io/icon.png",
+  "description": "Lets RaffleHub send your customer emails (order confirmations, winner emails) from your own address.",
+  "variableDescription": "dkimselector: the DKIM selector RaffleHub shows for your domain; dkimkey: the DKIM public key RaffleHub shows for your domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "rafflehub.io",
+  "syncRedirectDomain": "app.myrafflehub.co.uk",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "k=rsa;p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "returnpath",
+      "type": "CNAME",
+      "host": "pm-bounces",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": 3600
+    }
+  ]
+}

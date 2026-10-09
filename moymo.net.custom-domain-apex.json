@@ -1,0 +1,29 @@
+{
+  "providerId": "moymo.net",
+  "providerName": "Moymo",
+  "serviceId": "custom-domain-apex",
+  "serviceName": "Moymo custom domain (whole domain)",
+  "version": 1,
+  "logoUrl": "https://moymo.net/favicon.svg",
+  "description": "Shows your Moymo profile page on your own domain, and proves the domain is yours.",
+  "variableDescription": "ip is the address of Moymo's server. token is the secret Moymo checks to confirm the domain is yours.",
+  "syncPubKeyDomain": "moymo.net",
+  "syncRedirectDomain": "moymo.net",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_moymo-challenge",
+      "data": "moymo-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
