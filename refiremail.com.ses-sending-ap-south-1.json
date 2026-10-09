@@ -1,0 +1,52 @@
+{
+  "providerId": "refiremail.com",
+  "providerName": "Refiremail",
+  "logoUrl": "https://app.refiremail.com/brand/refiremail-lockup.png",
+  "serviceId": "ses-sending-ap-south-1",
+  "serviceName": "Sending domain",
+  "version": 1,
+  "description": "Configure sending authentication and the bounce return path. Existing mailbox routing is not changed. Return-path conflicts require review.",
+  "syncPubKeyDomain": "domainconnect.refiremail.com",
+  "syncRedirectDomain": "app.refiremail.com,api.refiremail.com",
+  "variableDescription": "token1, token2, token3: generated SES DKIM selectors; selector: team DKIM selector; publicKey: team DKIM public key.",
+  "records": [
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.ap-south-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%token1%._domainkey",
+      "pointsTo": "%token1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%token2%._domainkey",
+      "pointsTo": "%token2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%token3%._domainkey",
+      "pointsTo": "%token3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "p=%publicKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
