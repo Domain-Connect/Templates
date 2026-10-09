@@ -1,0 +1,49 @@
+{
+  "providerId": "workwith.page",
+  "providerName": "WorkWith",
+  "serviceId": "notes",
+  "serviceName": "Notes from your own domain",
+  "version": 2,
+  "description": "Lets WorkWith send a professional's notes to the people who asked for them, from a subdomain of their own domain, through Resend. Adds the records Resend needs under that subdomain only.",
+  "variableDescription": "sesRegion: the sending region Resend gave this subdomain, such as us-east-1; dkimKey: the DKIM public key Resend issued for it",
+  "syncBlock": false,
+  "syncPubKeyDomain": "workwith.page",
+  "syncRedirectDomain": "app.workwith.page",
+  "records": [
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
