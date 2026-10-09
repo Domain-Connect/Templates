@@ -1,0 +1,18 @@
+{
+  "providerId": "roofgrid.app",
+  "providerName": "GridLaunch",
+  "serviceId": "gridlaunch-subdomain",
+  "serviceName": "GridLaunch website (subdomain)",
+  "version": 1,
+  "logoUrl": "https://roofgrid.app/icon-512.png",
+  "description": "Points a subdomain at your GridLaunch website.",
+  "variableDescription": "No variables. The subdomain is passed as host.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "roofgrid.app",
+  "syncRedirectDomain": "roofgrid.app",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "cname.vercel-dns.com", "ttl": 600 }
+  ]
+}
