@@ -1,0 +1,29 @@
+{
+  "providerId": "leaguer.co",
+  "providerName": "Leaguer",
+  "serviceId": "customdomain",
+  "serviceName": "League website",
+  "version": 1,
+  "description": "Points a sports league's own domain (e.g. league.yourclub.com) at its Leaguer website (schedule, standings, scores, game sheets), and delegates certificate validation to Cloudflare for SaaS so HTTPS is issued and renewed without further DNS changes. The league keeps its domain.",
+  "variableDescription": "No custom variables. host is the name the league connects, e.g. league; the bare domain is not supported (hostRequired).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.leaguer.co",
+  "syncRedirectDomain": "leaguer.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "certificate",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.85d4f04e8d0bd82b.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.leaguer.co",
+      "ttl": 3600
+    }
+  ]
+}
