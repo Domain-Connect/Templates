@@ -1,0 +1,46 @@
+{
+  "providerId": "mydomainshub.com",
+  "providerName": "MyDomainsHub",
+  "serviceId": "mail",
+  "serviceName": "MyDomainsHub Mail",
+  "version": 1,
+  "logoUrl": "https://www.mydomainshub.com/brand/mydomainshub-mark.svg",
+  "description": "Verifies a domain for sending email through MyDomainsHub Mail (emails.mydomainshub.com), which sends with Amazon SES: the three Easy DKIM CNAME records, and the custom MAIL FROM subdomain send.<domain> with its MX and SPF.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three Easy DKIM tokens Amazon SES issued for this domain; %region%: the AWS region of the sending account, such as eu-west-2.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mydomainshub.com",
+  "syncRedirectDomain": "emails.mydomainshub.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
