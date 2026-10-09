@@ -1,0 +1,16 @@
+{
+  "providerId": "pineapplebuilder.com",
+  "providerName": "Pineapple Builder",
+  "serviceId": "website",
+  "serviceName": "Pineapple website",
+  "version": 1,
+  "description": "Connect your domain and www address to your Pineapple website. Email records are unchanged.",
+  "syncPubKeyDomain": "domainconnect.pineapplebuilder.com",
+  "syncBlock": false,
+  "records": [
+    { "groupId": "website", "type": "A", "host": "@", "pointsTo": "%apex%", "ttl": 300 },
+    { "groupId": "website", "type": "CNAME", "host": "www", "pointsTo": "%cname%", "ttl": 300 },
+    { "groupId": "verification0", "type": "TXT", "host": "%verifyHost0%", "data": "%verifyValue0%", "ttl": 300 },
+    { "groupId": "verification1", "type": "TXT", "host": "%verifyHost1%", "data": "%verifyValue1%", "ttl": 300 }
+  ]
+}
