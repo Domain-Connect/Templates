@@ -1,0 +1,159 @@
+{
+  "providerId": "fonte.is",
+  "providerName": "fonte",
+  "serviceId": "email",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://fonte.is/favicon.svg",
+  "description": "Connect your domain to fonte for email sending and branded links.",
+  "variableDescription": "ownershipToken: fonte-issued verification token; installationId: installation UUID; baseIdentityId, marketingIdentityId, transactionalIdentityId: identity hashes; dnsZonePrefix: the fonte-managed DNS zone prefix beneath fonte.is; marketingSubdomain, transactionalSubdomain: configured sending identities relative to the requested domain; marketingBounceHost, transactionalBounceHost: configured bounce delegation hosts relative to the requested domain; trackingHost: configured branded link host relative to the requested domain; linkHostId: branded link host hash. Variables are populated from the authenticated workspace installation plan and digitally signed. Select complete record groups only. Existing DMARC, SPF, MX and website records are outside this template.",
+  "syncPubKeyDomain": "domainconnect.fonte.is",
+  "syncRedirectDomain": "fonte.is",
+  "syncBlock": false,
+  "multiInstance": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_fonte-verify",
+      "data": "fonte-verification=%ownershipToken%",
+      "ttl": 300,
+      "groupId": "ownership",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "fonte-verification=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "fonte1._domainkey",
+      "pointsTo": "%installationId%.%baseIdentityId%.k1.dkim.%dnsZonePrefix%.fonte.is",
+      "ttl": 300,
+      "groupId": "baseAuthentication"
+    },
+    {
+      "type": "CNAME",
+      "host": "fonte2._domainkey",
+      "pointsTo": "%installationId%.%baseIdentityId%.k2.dkim.%dnsZonePrefix%.fonte.is",
+      "ttl": 300,
+      "groupId": "baseAuthentication"
+    },
+    {
+      "type": "CNAME",
+      "host": "fonte3._domainkey",
+      "pointsTo": "%installationId%.%baseIdentityId%.k3.dkim.%dnsZonePrefix%.fonte.is",
+      "ttl": 300,
+      "groupId": "baseAuthentication"
+    },
+    {
+      "type": "CNAME",
+      "host": "fonte1._domainkey.%marketingSubdomain%",
+      "pointsTo": "%installationId%.%marketingIdentityId%.k1.dkim.%dnsZonePrefix%.fonte.is",
+      "ttl": 300,
+      "groupId": "marketingAuthentication"
+    },
+    {
+      "type": "CNAME",
+      "host": "fonte2._domainkey.%marketingSubdomain%",
+      "pointsTo": "%installationId%.%marketingIdentityId%.k2.dkim.%dnsZonePrefix%.fonte.is",
+      "ttl": 300,
+      "groupId": "marketingAuthentication"
+    },
+    {
+      "type": "CNAME",
+      "host": "fonte3._domainkey.%marketingSubdomain%",
+      "pointsTo": "%installationId%.%marketingIdentityId%.k3.dkim.%dnsZonePrefix%.fonte.is",
+      "ttl": 300,
+      "groupId": "marketingAuthentication"
+    },
+    {
+      "type": "CNAME",
+      "host": "fonte1._domainkey.%transactionalSubdomain%",
+      "pointsTo": "%installationId%.%transactionalIdentityId%.k1.dkim.%dnsZonePrefix%.fonte.is",
+      "ttl": 300,
+      "groupId": "transactionalAuthentication"
+    },
+    {
+      "type": "CNAME",
+      "host": "fonte2._domainkey.%transactionalSubdomain%",
+      "pointsTo": "%installationId%.%transactionalIdentityId%.k2.dkim.%dnsZonePrefix%.fonte.is",
+      "ttl": 300,
+      "groupId": "transactionalAuthentication"
+    },
+    {
+      "type": "CNAME",
+      "host": "fonte3._domainkey.%transactionalSubdomain%",
+      "pointsTo": "%installationId%.%transactionalIdentityId%.k3.dkim.%dnsZonePrefix%.fonte.is",
+      "ttl": 300,
+      "groupId": "transactionalAuthentication"
+    },
+    {
+      "type": "NS",
+      "host": "%marketingBounceHost%",
+      "pointsTo": "ns1.fonte.is",
+      "ttl": 300,
+      "groupId": "marketingBounce"
+    },
+    {
+      "type": "NS",
+      "host": "%marketingBounceHost%",
+      "pointsTo": "ns2.fonte.is",
+      "ttl": 300,
+      "groupId": "marketingBounce"
+    },
+    {
+      "type": "NS",
+      "host": "%marketingBounceHost%",
+      "pointsTo": "ns3.fonte.is",
+      "ttl": 300,
+      "groupId": "marketingBounce"
+    },
+    {
+      "type": "NS",
+      "host": "%marketingBounceHost%",
+      "pointsTo": "ns4.fonte.is",
+      "ttl": 300,
+      "groupId": "marketingBounce"
+    },
+    {
+      "type": "NS",
+      "host": "%transactionalBounceHost%",
+      "pointsTo": "ns1.fonte.is",
+      "ttl": 300,
+      "groupId": "transactionalBounce"
+    },
+    {
+      "type": "NS",
+      "host": "%transactionalBounceHost%",
+      "pointsTo": "ns2.fonte.is",
+      "ttl": 300,
+      "groupId": "transactionalBounce"
+    },
+    {
+      "type": "NS",
+      "host": "%transactionalBounceHost%",
+      "pointsTo": "ns3.fonte.is",
+      "ttl": 300,
+      "groupId": "transactionalBounce"
+    },
+    {
+      "type": "NS",
+      "host": "%transactionalBounceHost%",
+      "pointsTo": "ns4.fonte.is",
+      "ttl": 300,
+      "groupId": "transactionalBounce"
+    },
+    {
+      "type": "CNAME",
+      "host": "%trackingHost%",
+      "pointsTo": "%installationId%.%linkHostId%.links.%dnsZonePrefix%.fonte.is",
+      "ttl": 300,
+      "groupId": "tracking"
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge.%trackingHost%",
+      "pointsTo": "%installationId%.%linkHostId%.tls.%dnsZonePrefix%.fonte.is",
+      "ttl": 300,
+      "groupId": "tracking"
+    }
+  ]
+}
