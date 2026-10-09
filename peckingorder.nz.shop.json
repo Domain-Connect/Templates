@@ -5,7 +5,7 @@
   "serviceName": "Pecking Order shop address",
   "version": 1,
   "logoUrl": "https://peckingorder.nz/brand/logo-mark.png",
-  "description": "Points one subdomain you choose (for example eggs.yourfarm.co.nz) at your Pecking Order shop, and adds the TXT record that proves you own it. Your website, email and every other DNS record are left exactly as they are.",
+  "description": "Points the domain or subdomain you choose (for example yourfarm.co.nz or shop.yourfarm.co.nz) at your Pecking Order shop, and adds the TXT record that proves you own it. Your email and every other DNS record are left exactly as they are.",
   "syncBlock": false,
   "sharedProviderName": false,
   "hostRequired": true,
