@@ -1,0 +1,29 @@
+{
+  "providerId": "touryn.io",
+  "providerName": "Touryn",
+  "serviceId": "website-subdomain",
+  "serviceName": "Touryn website",
+  "version": 1,
+  "logoUrl": "https://touryn.io/images/brand/touryn-app-icon-128.png",
+  "syncPubKeyDomain": "touryn.io",
+  "syncRedirectDomain": "app.touryn.io",
+  "hostRequired": true,
+  "description": "Connect the selected Touryn website hostname and its tenant ownership claim. Existing email records are preserved.",
+  "variableDescription": "IP or target: current website provider target; nonce: canonical tenant claim",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_touryn",
+      "data": "touryn-claim=%nonce%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "touryn-claim="
+    }
+  ]
+}

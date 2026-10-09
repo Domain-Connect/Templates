@@ -1,0 +1,38 @@
+{
+  "providerId": "touryn.io",
+  "providerName": "Touryn",
+  "serviceId": "website-apex-claim",
+  "serviceName": "Touryn website",
+  "version": 1,
+  "logoUrl": "https://touryn.io/images/brand/touryn-app-icon-128.png",
+  "syncPubKeyDomain": "touryn.io",
+  "syncRedirectDomain": "app.touryn.io",
+  "multiInstance": true,
+  "hostRequired": false,
+  "description": "Connect the selected Touryn website hostname and its tenant ownership claim. Existing email records are preserved.",
+  "variableDescription": "IP or target: current website provider target; nonce: canonical tenant claim; providerZone and providerClaim: exact current Vercel ownership instruction",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_touryn",
+      "data": "touryn-claim=%nonce%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "touryn-claim="
+    },
+    {
+      "type": "TXT",
+      "host": "_vercel.%providerZone%.",
+      "data": "vc-domain-verify=%providerClaim%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vc-domain-verify="
+    }
+  ]
+}
