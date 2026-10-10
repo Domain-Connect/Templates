@@ -1,0 +1,30 @@
+{
+  "providerId": "neononmain.com",
+  "providerName": "Neon on Main",
+  "serviceId": "website",
+  "serviceName": "Neon on Main website",
+  "version": 3,
+  "logoUrl": "https://neononmain.com/img/icon-512.png",
+  "description": "Points www at your Neon on Main website. The bare domain and email records are not changed.",
+  "variableDescription": "nomverify: the token in the _neononmain TXT record that shows Neon on Main the domain's owner approved the change",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "neononmain.com",
+  "syncRedirectDomain": "app.neononmain.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.neononmain.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_neononmain",
+      "data": "neononmain-verify=%nomverify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
