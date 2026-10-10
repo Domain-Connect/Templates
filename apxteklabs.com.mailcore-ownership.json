@@ -17,6 +17,7 @@
       "host": "_mailcore-verification",
       "ttl": "3600",
       "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
       "data": "mailcore-verification=%verificationToken%"
     }
   ]
