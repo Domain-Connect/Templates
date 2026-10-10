@@ -3,10 +3,10 @@
   "providerName": "My Local Press",
   "serviceId": "custom-domain",
   "serviceName": "My Local Press Custom Domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://mylocalpress.com/favicon-light.svg",
-  "description": "Points a custom domain at My Local Press: the branded feed is served at www, the bare/apex domain 301-redirects to www, and AWS SES email authentication (DKIM + custom MAIL FROM + DMARC) is configured so the publication's newsletter can send from its own domain. Only the three DKIM selector tokens vary per domain; every other value is fixed.",
-  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three AWS SES DKIM selector tokens generated for this domain (the only per-domain values). Every hosting value (www CNAME target, apex A IPs), the MAIL FROM host, the SPF include, and the DMARC policy are fixed literals.",
+  "description": "Points a custom domain at My Local Press: the branded feed is served at www, the bare/apex domain 301-redirects to www, and AWS SES email authentication (DKIM + custom MAIL FROM) is configured so the publication's newsletter can send from its own domain. Only the three DKIM selector tokens vary per domain; every other value is fixed.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three AWS SES DKIM selector tokens generated for this domain (the only per-domain values). Every hosting value (www CNAME target, apex A IPs), the MAIL FROM host and the SPF include are fixed literals.",
   "syncPubKeyDomain": "mylocalpress.com",
   "syncRedirectDomain": "mylocalpress.com",
   "records": [
@@ -65,16 +65,6 @@
       "type": "SPFM",
       "host": "bounce",
       "spfRules": "include:amazonses.com"
-    },
-    {
-      "groupId": "dmarc",
-      "type": "TXT",
-      "host": "_dmarc",
-      "data": "v=DMARC1; p=none;",
-      "ttl": 3600,
-      "essential": "OnApply",
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1"
     }
   ]
 }
