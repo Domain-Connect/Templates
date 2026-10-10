@@ -10,15 +10,13 @@
   "syncBlock": false,
   "syncPubKeyDomain": "cybermeters.com",
   "syncRedirectDomain": "app.cybermeters.com",
-  "warnPhishing": true,
   "hostRequired": false,
   "records": [
     {
       "type": "TXT",
       "host": "_cybermeters",
       "data": "cybermeters-verification=%verificationToken%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "None"
+      "ttl": 3600
     }
   ]
 }
