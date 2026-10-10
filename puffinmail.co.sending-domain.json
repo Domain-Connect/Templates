@@ -1,0 +1,62 @@
+{
+  "providerId": "puffinmail.co",
+  "providerName": "PuffinMail",
+  "serviceId": "sending-domain",
+  "serviceName": "PuffinMail sending domain",
+  "version": 1,
+  "logoUrl": "https://puffinmail.co/icon-512.png",
+  "description": "Lets PuffinMail send email marketing from your domain through Amazon SES: DKIM signing, a bounce (MAIL FROM) subdomain with its SPF record, and a monitoring DMARC record if you don't have one.",
+  "variableDescription": "dkim1, dkim2, dkim3: the Amazon SES DKIM tokens for the domain",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "puffinmail.co",
+  "syncRedirectDomain": "my.puffinmail.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.ap-southeast-2.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
