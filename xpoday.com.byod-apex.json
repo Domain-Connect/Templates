@@ -1,0 +1,29 @@
+{
+  "providerId": "xpoday.com",
+  "providerName": "XpoDay",
+  "serviceId": "byod-apex",
+  "serviceName": "XpoDay event site (root domain)",
+  "version": 1,
+  "logoUrl": "https://xpoday.com/brand/icon-512.png",
+  "description": "Connects a root domain such as example.com to an XpoDay event site: an ownership TXT record and an A record to the XpoDay server.",
+  "variableDescription": "token: per-domain ownership code; ip: the XpoDay server IPv4 address",
+  "syncBlock": false,
+  "syncPubKeyDomain": "xpoday.com",
+  "syncRedirectDomain": "xpoday.com,xpoday.in,organiser.xpoday.com,organiser.xpoday.in,pa.xpoday.com,pa.xpoday.in",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_xpoday-challenge",
+      "data": "xpoday-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "providerId": "xpoday.com",
+  "providerName": "XpoDay",
+  "serviceId": "byod",
+  "serviceName": "XpoDay event site (subdomain)",
+  "version": 1,
+  "logoUrl": "https://xpoday.com/brand/icon-512.png",
+  "description": "Connects a subdomain such as www.example.com to an XpoDay event site: an ownership TXT record and a CNAME to the XpoDay site target.",
+  "variableDescription": "token: per-domain ownership code; target: the XpoDay CNAME target (sites.xpoday.com or sites.xpoday.in)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "xpoday.com",
+  "syncRedirectDomain": "xpoday.com,xpoday.in,organiser.xpoday.com,organiser.xpoday.in,pa.xpoday.com,pa.xpoday.in",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_xpoday-challenge",
+      "data": "xpoday-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
