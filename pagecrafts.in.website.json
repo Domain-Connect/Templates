@@ -1,0 +1,25 @@
+{
+  "providerId": "pagecrafts.in",
+  "providerName": "PageCrafts",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://pagecrafts.in/icon.svg",
+  "description": "Points your domain at your PageCrafts website on Cloudflare Pages. After you authorize, we finish HTTPS and go live.",
+  "variableDescription": "%pagesTarget% is your site's Cloudflare Pages hostname (for example my-bakery.pages.dev). It is filled in automatically when you connect from PageCrafts.",
+  "syncPubKeyDomain": "domainconnect.pagecrafts.in",
+  "syncRedirectDomain": "pagecrafts.in",
+  "records": [
+    {
+      "type": "APEXCNAME",
+      "pointsTo": "%pagesTarget%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%pagesTarget%",
+      "ttl": 600
+    }
+  ]
+}
