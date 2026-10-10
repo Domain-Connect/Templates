@@ -1,0 +1,40 @@
+{
+  "providerId": "trywheelhouse.app",
+  "providerName": "Wheelhouse",
+  "serviceId": "storefront",
+  "serviceName": "Wheelhouse storefront",
+  "version": 1,
+  "logoUrl": "https://studio.trywheelhouse.app/domain-connect-logo.png",
+  "description": "Connect a subdomain to a Wheelhouse production storefront. Does not change email or apex records.",
+  "variableDescription": "verification is the Wheelhouse ownership token for this storefront. providerVerification is the Cloudflare custom hostname ownership token when the cloudflare-ownership group is selected.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.trywheelhouse.app",
+  "syncRedirectDomain": "studio.trywheelhouse.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "storefronts.trywheelhouse.app",
+      "ttl": 300,
+      "groupId": "storefront"
+    },
+    {
+      "type": "TXT",
+      "host": "_wheelhouse",
+      "data": "wheelhouse-verification=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+      "groupId": "storefront"
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%providerVerification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+      "groupId": "cloudflare-ownership",
+      "essential": "OnApply"
+    }
+  ]
+}
