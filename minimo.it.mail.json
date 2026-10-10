@@ -3,7 +3,7 @@
   "providerName": "Minimo",
   "serviceId": "mail",
   "serviceName": "Email",
-  "version": 1,
+  "version": 2,
   "description": "Configure email sending for your domain through Minimo (SES domain verification, DKIM and DMARC).",
   "variableDescription": "dnsToken: Minimo domain-ownership verification token (always mn- prefixed). dkim1/dkim2/dkim3: the three Amazon SES easy-DKIM selectors.",
   "syncPubKeyDomain": "minimo.it",
@@ -36,6 +36,21 @@
       "host": "%dkim3%._domainkey",
       "pointsTo": "%dkim3%.dkim.amazonses.com",
       "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.eu-central-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "bounce",
+      "data": "v=spf1 include:amazonses.com ~all",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
     },
     {
       "type": "TXT",
