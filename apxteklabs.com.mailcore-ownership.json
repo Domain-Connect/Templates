@@ -1,0 +1,23 @@
+{
+  "providerId": "apxteklabs.com",
+  "providerName": "ApxTek Labs",
+  "serviceId": "mailcore-ownership",
+  "serviceName": "MailCore Domain Ownership Verification",
+  "version": 2,
+  "logoUrl": "https://raw.githubusercontent.com/UAEError/Templates/1211dced2c1ee7d94a01a16825d768f1fc08bdbd/apxteklabs.com.mailcore-ownership-logo.png",
+  "description": "Adds only MailCore's one-time domain ownership TXT challenge.",
+  "variableDescription": "verificationToken is a one-time MailCore ownership challenge. It is a URL-safe random token and is valid only for the pending signup that issued it.",
+  "syncPubKeyDomain": "apxteklabs.com",
+  "syncRedirectDomain": "apxteklabs.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_mailcore-verification",
+      "ttl": "3600",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
+      "data": "mailcore-verification=%verificationToken%"
+    }
+  ]
+}
