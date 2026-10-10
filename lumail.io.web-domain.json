@@ -1,0 +1,20 @@
+{
+  "providerId": "lumail.io",
+  "providerName": "Lumail",
+  "serviceId": "web-domain",
+  "serviceName": "Lumail web domain",
+  "version": 1,
+  "logoUrl": "https://lumail.io/images/lumail-logo-light.svg",
+  "description": "Points a subdomain at Lumail to serve capture pages and tracked links.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "lumail.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.lumail.io",
+      "ttl": 3600
+    }
+  ]
+}
