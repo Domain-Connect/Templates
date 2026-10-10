@@ -1,0 +1,29 @@
+{
+    "providerId": "brawnbase.com",
+    "providerName": "Brawnbase",
+    "serviceId": "website",
+    "serviceName": "Brawnbase website",
+    "version": 1,
+    "logoUrl": "https://brawnbase.com/brand/favicon.svg",
+    "description": "Connects a domain to a Brawnbase website: an ownership TXT record carrying the claim's token, and a CNAME from the connected host to Brawnbase's site target.",
+    "variableDescription": "%token%: the ownership token Brawnbase issued for this domain claim (lowercase hex)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "brawnbase.com",
+    "syncRedirectDomain": "app.brawnbase.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_brawnbase-connect",
+            "data": "%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "None"
+        },
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "sites.brawnbase.app",
+            "ttl": 3600
+        }
+    ]
+}
