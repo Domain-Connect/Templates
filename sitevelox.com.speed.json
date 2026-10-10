@@ -8,9 +8,9 @@
   "description": "Points www and the root domain to SiteVelox, which serves a faster version of your existing website. Email records are not changed.",
   "variableDescription": "acme1, acme2: certificate validation tokens; owner: hostname ownership token (issued per domain by SiteVelox)",
   "syncBlock": false,
+  "syncPubKeyDomain": "sitevelox.com",
   "sharedProviderName": false,
   "syncRedirectDomain": "sitevelox.com",
-  "warnPhishing": true,
   "hostRequired": false,
   "records": [
     { "type": "TXT", "host": "_acme-challenge.www", "data": "%acme1%", "ttl": 300, "txtConflictMatchingMode": "None" },
