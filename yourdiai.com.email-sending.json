@@ -1,0 +1,60 @@
+{
+    "providerId": "yourdiai.com",
+    "providerName": "Yourdiai",
+    "serviceId": "email-sending",
+    "serviceName": "Yourdiai Email Sending",
+    "version": 1,
+    "logoUrl": "https://yourdiai.com/brand/yourdiai-icon.svg",
+    "description": "Authorizes Yourdiai to send email from this domain through Amazon SES: a Yourdiai ownership verification TXT record, the three Amazon SES Easy DKIM CNAME records and the MX and SPF records of the bounce (custom MAIL FROM) subdomain. The template never touches the website, the apex MX (inbound mail) or any unrelated record. DMARC is deliberately not part of the template because an existing DMARC policy must never be weakened; Yourdiai checks DMARC separately.",
+    "variableDescription": "%ownershipToken%: the ownership challenge Yourdiai issued for this domain (lowercase hex); %dkim1%, %dkim2%, %dkim3%: the three Easy DKIM selectors Amazon SES issued for this domain; %sesRegion%: the Amazon SES region of the identity (for example eu-north-1)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "yourdiai.com",
+    "syncRedirectDomain": "yourdiai.com",
+    "records": [
+        {
+            "groupId": "ownership",
+            "type": "TXT",
+            "host": "_campaigns-verify",
+            "data": "codepreneur-campaigns-verification=%ownershipToken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "codepreneur-campaigns-verification=",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com"
+        }
+    ]
+}
