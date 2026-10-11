@@ -1,0 +1,19 @@
+{
+  "providerId": "pagelemon.com",
+  "providerName": "Page Lemon",
+  "serviceId": "website",
+  "serviceName": "Page Lemon website",
+  "version": 1,
+  "logoUrl": "https://pagelemon.com/logo.svg",
+  "description": "Points a domain or subdomain at a website hosted on Page Lemon and adds Page Lemon's ownership proof for this connection.",
+  "variableDescription": "verifytoken: the ownership token Page Lemon generated for this connection (the value of the _pagelemon TXT record).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "pagelemon.com",
+  "syncRedirectDomain": "app.pagelemon.com",
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "customers.pagelemon.dev", "ttl": 3600 },
+    { "type": "TXT", "host": "_pagelemon", "data": "%verifytoken%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}
