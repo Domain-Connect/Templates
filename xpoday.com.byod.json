@@ -9,7 +9,7 @@
   "variableDescription": "token: per-domain ownership code; target: the XpoDay CNAME target (sites.xpoday.com or sites.xpoday.in)",
   "syncBlock": false,
   "syncPubKeyDomain": "xpoday.com",
-  "syncRedirectDomain": "xpoday.com,xpoday.in,organiser.xpoday.com,organiser.xpoday.in,pa.xpoday.com,pa.xpoday.in",
+  "syncRedirectDomain": "xpoday.com,xpoday.in,app.xpoday.com,app.xpoday.in",
   "hostRequired": true,
   "records": [
     {
