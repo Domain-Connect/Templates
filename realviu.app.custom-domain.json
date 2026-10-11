@@ -4,7 +4,7 @@
   "serviceId": "custom-domain",
   "serviceName": "RealViu website on your own domain",
   "version": 1,
-  "logoUrl": "https://app.realviu.app/apple-touch-icon.png",
+  "logoUrl": "https://cdn-1.realviu.app/brand/Logo-svg-dark.svg",
   "description": "Points a brokerage's domain at their RealViu website and adds the certificate-validation record, so HTTPS is issued and renews without further changes. Both records must stay in place.",
   "syncBlock": false,
   "syncPubKeyDomain": "realviu.app",
