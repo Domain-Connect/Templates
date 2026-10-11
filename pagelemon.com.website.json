@@ -5,7 +5,7 @@
   "serviceName": "Page Lemon website",
   "version": 1,
   "logoUrl": "https://pagelemon.com/logo.svg",
-  "description": "Points a domain or subdomain at a website hosted on Page Lemon and adds Page Lemon's ownership proof for this connection.",
+  "description": "Points a subdomain (for example www) at a website hosted on Page Lemon and adds Page Lemon's ownership proof for this connection.",
   "variableDescription": "verifytoken: the ownership token Page Lemon generated for this connection (the value of the _pagelemon TXT record).",
   "syncBlock": false,
   "sharedProviderName": false,
