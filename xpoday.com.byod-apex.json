@@ -9,7 +9,7 @@
   "variableDescription": "token: per-domain ownership code; ip: the XpoDay server IPv4 address",
   "syncBlock": false,
   "syncPubKeyDomain": "xpoday.com",
-  "syncRedirectDomain": "xpoday.com,xpoday.in,organiser.xpoday.com,organiser.xpoday.in,pa.xpoday.com,pa.xpoday.in",
+  "syncRedirectDomain": "xpoday.com,xpoday.in,app.xpoday.com,app.xpoday.in",
   "hostRequired": false,
   "records": [
     {
