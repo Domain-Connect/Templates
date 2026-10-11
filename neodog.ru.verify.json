@@ -1,0 +1,23 @@
+{
+  "providerId": "neodog.ru",
+  "providerName": "NeoDog",
+  "serviceId": "verify",
+  "serviceName": "NeoDog site ownership verification",
+  "version": 1,
+  "logoUrl": "https://neodog.ru/favicon.svg",
+  "description": "Adds a TXT record that proves you control this domain, so that NeoDog (a website monitoring service) can run its owner-only checks on the site.",
+  "variableDescription": "code: the verification code NeoDog shows for the site in its owner's account (24 hexadecimal characters)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "neodog.ru",
+  "syncRedirectDomain": "neodog.ru",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_neodog-verify",
+      "data": "neodog-verify=%code%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "neodog-verify="
+    }
+  ]
+}
