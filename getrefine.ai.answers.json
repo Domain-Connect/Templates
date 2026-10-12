@@ -1,0 +1,20 @@
+{
+  "providerId": "getrefine.ai",
+  "providerName": "Refine",
+  "serviceId": "answers",
+  "serviceName": "Refine AI Feed",
+  "version": 1,
+  "logoUrl": "https://getrefine.ai/logo-refine.svg",
+  "description": "Serves your Refine answer pages on a subdomain of your domain (for example answers.yourdomain.com) by pointing it to Refine's hosting.",
+  "syncPubKeyDomain": "getrefine.ai",
+  "syncRedirectDomain": "app.getrefine.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
