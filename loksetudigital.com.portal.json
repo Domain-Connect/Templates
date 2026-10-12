@@ -6,18 +6,19 @@
   "version": 1,
   "logoUrl": "https://loksetudigital.com/assets/loksetudigital-mark-Uy6Hu0zT.png",
   "description": "Connects your custom domain to your LokSetuDigital representative portal.",
-  "syncRedirectDomain": "loksetudigital.com",
+  "syncPubKeyDomain": "loksetudigital.com",
+  "syncRedirectDomain": "loksetudigital.com,www.loksetudigital.com",
   "records": [
     {
       "type": "A",
       "host": "@",
-      "pointsTo": "123.45.67.89",
+      "pointsTo": "185.158.133.1",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "www",
-      "pointsTo": "representatives.loksetudigital.com",
+      "pointsTo": "fallback.loksetudigital.com",
       "ttl": 3600
     }
   ]
