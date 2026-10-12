@@ -1,0 +1,44 @@
+{
+	"providerId": "kurumera.com",
+	"providerName": "Kurumera",
+	"serviceId": "mail",
+	"serviceName": "Kurumera Mail",
+	"version": 1,
+	"logoUrl": "https://kurumera.com/assets/kurumera-logo.svg",
+	"description": "Sets up email on your domain with Kurumera: an MX record to receive mail, SPF and DKIM so the mail you send is trusted, and a DMARC policy.",
+	"syncPubKeyDomain": "kurumera.com",
+	"syncRedirectDomain": "kurumera.com",
+	"syncBlock": false,
+	"shared": false,
+	"hostRequired": false,
+	"records": [
+		{
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "mail.kurumera.com",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"type": "SPFM",
+			"host": "@",
+			"spfRules": "mx a:mail.kurumera.com include:amazonses.com"
+		},
+		{
+			"type": "TXT",
+			"host": "%dkimselector%._domainkey",
+			"data": "v=DKIM1; k=rsa; h=sha256; p=%dkimkey%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All"
+		},
+		{
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "v=DMARC1; p=quarantine; rua=mailto:%dmarcrua%; pct=100",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1",
+			"essential": "OnApply"
+		}
+	]
+}
