@@ -1,0 +1,52 @@
+{
+  "providerId": "mukumo.com",
+  "providerName": "mukumo",
+  "serviceId": "mail",
+  "serviceName": "Email",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "mukumo.com",
+  "description": "Verify your sending domain and configure authenticated email delivery with mukumo.",
+  "logoUrl": "https://mukumo.com/email/logo.png",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_mukumo",
+      "data": "mukumo-verification=%ownershipToken%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.%dkimZone%.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.%dkimZone%.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.%dkimZone%.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "MX",
+      "host": "mukumo-bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "SPFM",
+      "host": "mukumo-bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 300
+    }
+  ],
+  "variableDescription": "ownershipToken: domain ownership proof; dkim1, dkim2, dkim3: SES DKIM selectors; dkimZone: SES signing zone prefix; region: SES sending region",
+  "syncRedirectDomain": "app.mukumo.com,develop-app.mukumo.com"
+}

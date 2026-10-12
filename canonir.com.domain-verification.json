@@ -1,0 +1,22 @@
+{
+  "providerId": "canonir.com",
+  "providerName": "Canonir",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain ownership verification",
+  "version": 1,
+  "logoUrl": "https://canonir.com/logo.svg",
+  "description": "Adds one TXT record that proves to Canonir that you control this domain, so your Canonir workspace may assess it.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "canonir.com",
+  "syncRedirectDomain": "canonir.app,canonir.net",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_canonir-challenge",
+      "data": "canonir-verify-%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

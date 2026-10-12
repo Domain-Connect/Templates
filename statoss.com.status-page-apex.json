@@ -3,10 +3,10 @@
   "providerName": "StatOSS",
   "serviceId": "status-page-apex",
   "serviceName": "Status page on a bare domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://statoss.com/images/statoss-mark-64.png",
-  "description": "Points a bare domain such as example.com at a StatOSS status page with A and AAAA records, since a bare domain cannot carry a CNAME.",
-  "variableDescription": "ipv4 and ipv6 are the current addresses of edge.statoss.com. The aaaa group is only applied when the edge host has an IPv6 address.",
+  "description": "Points a bare domain such as example.com at a StatOSS status page with A and AAAA records, since a bare domain cannot carry a CNAME, and adds the TXT record that shows the domain belongs to the page.",
+  "variableDescription": "ipv4 and ipv6 are the current addresses of edge.statoss.com. The aaaa group is only applied when the edge host has an IPv6 address. token is the page's own token for the TXT record, shown on its domain settings. The txt group is only applied when the apply link asks for it.",
   "syncPubKeyDomain": "statoss.com",
   "syncRedirectDomain": "statoss.com",
   "records": [
@@ -23,6 +23,15 @@
       "host": "@",
       "pointsTo": "%ipv6%",
       "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt",
+      "host": "_statoss",
+      "data": "statoss-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "statoss-verify="
     }
   ]
 }

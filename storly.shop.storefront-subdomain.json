@@ -1,0 +1,20 @@
+{
+  "providerId": "storly.shop",
+  "providerName": "Storly",
+  "serviceId": "storefront-subdomain",
+  "serviceName": "Storly Storefront (subdomain)",
+  "version": 1,
+  "logoUrl": "https://storly.shop/favicon.svg",
+  "description": "Connects a subdomain (for example shop.example.com) to a Storly online store with a single CNAME to Storly's storefront origin. The zone apex and all other records are left untouched.",
+  "syncPubKeyDomain": "storly.shop",
+  "syncRedirectDomain": "storly.shop",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "origin.storly.shop",
+      "ttl": "600"
+    }
+  ]
+}
