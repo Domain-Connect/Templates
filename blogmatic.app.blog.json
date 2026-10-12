@@ -1,0 +1,30 @@
+{
+  "providerId": "blogmatic.app",
+  "providerName": "Blogmatic",
+  "serviceId": "blog",
+  "serviceName": "Blogmatic blog",
+  "version": 1,
+  "logoUrl": "https://blogmatic.app/icon.png",
+  "description": "Points a subdomain (e.g. blog.example.com) at a Blogmatic-hosted blog and adds the ownership TXT record.",
+  "variableDescription": "verifytoken: per-project ownership token issued by Blogmatic",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "blogmatic.app",
+  "syncRedirectDomain": "blogmatic.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "blogs.blogmatic.app",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_blogmatic-verify",
+      "data": "blogmatic-verify=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

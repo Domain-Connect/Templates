@@ -1,0 +1,36 @@
+{
+  "providerId": "pixl-push.com",
+  "providerName": "PixlPush",
+  "serviceId": "mail",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://pixl-push.com/assets/logo.png",
+  "description": "Authenticates the domain for sending email through PixlPush (verification, SPF, DMARC).",
+  "variableDescription": "verification: the ownership token PixlPush issued for this domain",
+  "syncPubKeyDomain": "pixl-push.com",
+  "syncRedirectDomain": "pixl-push.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_pixlpush",
+      "data": "pixlpush-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "pixlpush-verification="
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

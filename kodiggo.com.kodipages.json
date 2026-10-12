@@ -1,0 +1,30 @@
+{
+  "providerId": "kodiggo.com",
+  "providerName": "Kodiggo",
+  "serviceId": "kodipages",
+  "serviceName": "Kodipages",
+  "version": 1,
+  "logoUrl": "https://kodiggo.com/brand/kodiggo-logo.svg",
+  "description": "Serve a Kodipage (link-in-bio page, products, forms) on this domain.",
+  "hostRequired": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "dcpubkey.kodiggo.com",
+  "syncRedirectDomain": "kodiggo.com",
+  "variableDescription": "token: the verification token Kodiggo shows for this domain.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy-fallback.kodiggo.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_kodiggo",
+      "data": "kodiggo-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "kodiggo-verify="
+    }
+  ]
+}

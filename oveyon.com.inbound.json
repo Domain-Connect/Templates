@@ -1,0 +1,28 @@
+{
+  "providerId": "oveyon.com",
+  "providerName": "OVEYON",
+  "serviceId": "inbound",
+  "serviceName": "OVEYON - inbound email (e-mailbox.com)",
+  "version": 1,
+  "logoUrl": "https://oveyon.com/logo.svg",
+  "description": "Points this domain's mail exchangers (MX) to OVEYON's inbound servers on the e-mailbox.com infrastructure, a primary and a backup, so email sent to it is received by OVEYON. MX records conflict with any other MX on the same host: applying this template replaces the MX records already there, and from then on all email for the domain is delivered to OVEYON.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "oveyon.com",
+  "syncRedirectDomain": "oveyon.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.e-mailbox.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.e-mailbox.com",
+      "priority": 20,
+      "ttl": 300
+    }
+  ]
+}
