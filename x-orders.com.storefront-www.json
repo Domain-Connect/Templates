@@ -1,0 +1,17 @@
+{
+  "providerId": "x-orders.com",
+  "providerName": "X-Orders",
+  "serviceId": "storefront-www",
+  "serviceName": "X-Orders store on www",
+  "version": 1,
+  "logoUrl": "https://www.x-orders.com/xorders-logo.png",
+  "description": "Points www at an X-Orders store and forwards the bare domain to www. Email (MX) and other records are not touched.",
+  "variableDescription": "No variables.",
+  "hostRequired": false,
+  "syncPubKeyDomain": "x-orders.com",
+  "syncRedirectDomain": "admin.x-orders.com",
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "stores.myxorders.com", "ttl": 3600 },
+    { "type": "REDIR301", "host": "@", "target": "https://www.%fqdn%" }
+  ]
+}
