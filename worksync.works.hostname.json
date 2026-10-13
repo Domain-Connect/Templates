@@ -3,10 +3,10 @@
 	"providerName": "WorkSync",
 	"serviceId": "hostname",
 	"serviceName": "WorkSync custom domain",
-	"version": 1,
+	"version": 2,
 	"logoUrl": "https://fallback.worksync.works/icon.svg",
-	"description": "Points a customer's own hostname (for example shop.example.com) at the WorkSync edge and delegates the hostname's certificate validation to it, so the TLS certificate issues and renews with no further action at the DNS provider. Both records are DNS-only (unproxied): the target is itself a Cloudflare-for-SaaS fallback origin, and a proxied CNAME in the customer's zone would break that routing. Applied to a subdomain only (hostRequired): the routing record is a CNAME at the applied name.",
-	"variableDescription": "%dcvuuid%: the certificate-validation delegation id of the WorkSync edge zone (a UUID, read live from the edge when the link is minted; embedded in the fixed .dcv.cloudflare.com suffix).",
+	"description": "Points a customer's own hostname (for example shop.example.com) at the WorkSync edge, delegates the hostname's ownership proof to WorkSync so the WorkSync app serving it can be bound to the hostname, and delegates the hostname's certificate validation to the edge, so the TLS certificate issues and renews with no further action at the DNS provider. All three records are DNS-only (unproxied): the routing target is itself a Cloudflare-for-SaaS fallback origin, and a proxied CNAME in the customer's zone would break that routing. Applied to a subdomain only (hostRequired): the routing record is a CNAME at the applied name. Version 2 adds the ownership-proof CNAME (asuid.<applied name>); version 1 wrote the other two records only.",
+	"variableDescription": "%dcvuuid%: the certificate-validation delegation id of the WorkSync edge zone (Cloudflare documents it as a UUID; the edge issues a 16-character hex token today; read live from the edge when the link is minted; embedded in the fixed .dcv.cloudflare.com suffix). The ownership-proof target uses only the built-in %fqdn%.",
 	"syncPubKeyDomain": "worksync.works",
 	"syncRedirectDomain": "worksync.works",
 	"hostRequired": true,
@@ -15,6 +15,12 @@
 			"type": "CNAME",
 			"host": "@",
 			"pointsTo": "fallback.worksync.works",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "asuid",
+			"pointsTo": "%fqdn%.asuid.worksync.works",
 			"ttl": 3600
 		},
 		{

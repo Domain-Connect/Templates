@@ -1,0 +1,24 @@
+{
+  "providerId": "themesmith.ai",
+  "providerName": "ThemeSmith",
+  "serviceId": "meta-verification",
+  "serviceName": "Meta domain check",
+  "version": 1,
+  "logoUrl": "https://themesmith.ai/favicon.svg",
+  "description": "Adds Meta's domain check at the bare domain. Other TXT records are left as they are.",
+  "variableDescription": "%token%: the Meta domain-verification token",
+  "syncBlock": false,
+  "syncPubKeyDomain": "themesmith.ai",
+  "syncRedirectDomain": "app.themesmith.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "facebook-domain-verification=%token%",
+      "ttl": "300",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "facebook-domain-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}
