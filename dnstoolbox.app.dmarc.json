@@ -1,0 +1,23 @@
+{
+    "providerId": "dnstoolbox.app",
+    "providerName": "DNS Toolbox",
+    "serviceId": "dmarc",
+    "serviceName": "DMARC record",
+    "version": 1,
+    "logoUrl": "https://dnstoolbox.app/wp-content/plugins/dns-toolbox/assets/public/brand/favicon.svg",
+    "description": "Publishes or updates the domain's DMARC record: the policy, the address DMARC reports are sent to, and the other DMARC tags DNS Toolbox recommends after scanning the domain.",
+    "variableDescription": "dmarc: the DMARC tags after the version, e.g. 'p=quarantine; rua=mailto:r-a1b2c3@dmarc.dnstoolbox.app'.",
+    "syncPubKeyDomain": "dnstoolbox.app",
+    "syncRedirectDomain": "dnstoolbox.app",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; %dmarc%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}
