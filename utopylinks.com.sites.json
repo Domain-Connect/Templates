@@ -1,0 +1,20 @@
+{
+  "providerId": "utopylinks.com",
+  "providerName": "Utopy",
+  "serviceId": "sites",
+  "serviceName": "Utopy Sites",
+  "version": 1,
+  "logoUrl": "https://app.utopylinks.com/utopy-logo.png",
+  "description": "Points a subdomain (usually www) to the website and landing pages the customer publishes on Utopy.",
+  "syncPubKeyDomain": "utopylinks.com",
+  "syncRedirectDomain": "app.utopylinks.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.utopylinks.com",
+      "ttl": 3600
+    }
+  ]
+}

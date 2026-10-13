@@ -1,0 +1,25 @@
+{
+  "providerId": "storly.shop",
+  "providerName": "Storly",
+  "serviceId": "storefront",
+  "serviceName": "Storly Storefront",
+  "version": 1,
+  "logoUrl": "https://storly.shop/favicon.svg",
+  "description": "Connects a domain (apex and www) to a Storly online store. The apex A record and the www CNAME point to Storly's storefront origin. No other records (MX, SPF, DKIM, DMARC, TXT) are created or changed.",
+  "syncPubKeyDomain": "storly.shop",
+  "syncRedirectDomain": "storly.shop",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "81.17.100.147",
+      "ttl": "600"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "origin.storly.shop",
+      "ttl": "600"
+    }
+  ]
+}

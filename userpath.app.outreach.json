@@ -1,0 +1,54 @@
+{
+    "providerId": "userpath.app",
+    "providerName": "UserPath",
+    "serviceId": "outreach",
+    "serviceName": "Outreach email",
+    "version": 1,
+    "logoUrl": "https://userpath.app/assets/favicon.svg",
+    "description": "Sets up a subdomain of the customer's domain (applied with host, like host=team) to send and receive UserPath outreach email: a DKIM key, a bounce (return-path) CNAME at mail.<host> and MX records that bring replies back to UserPath. Apply it only with host set: the MX records take over the mail of whatever name it is applied to.",
+    "variableDescription": "dkimselector: the DKIM selector UserPath's mail (SparkPost) generated for this domain (letters and digits, like scph1026); dkimkey: that selector's 2048-bit RSA public key, base64 (the p= of the DKIM record)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "userpath.app",
+    "syncRedirectDomain": "userpath.app",
+    "records": [
+        {
+            "groupId": "dkim",
+            "type": "TXT",
+            "host": "%dkimselector%._domainkey",
+            "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "CNAME",
+            "groupId": "bounce",
+            "host": "mail",
+            "pointsTo": "sparkpostmail.com",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "groupId": "inbound",
+            "host": "@",
+            "pointsTo": "rx1.sparkpostmail.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "groupId": "inbound",
+            "host": "@",
+            "pointsTo": "rx2.sparkpostmail.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "groupId": "inbound",
+            "host": "@",
+            "pointsTo": "rx3.sparkpostmail.com",
+            "priority": 10,
+            "ttl": 3600
+        }
+    ]
+}
