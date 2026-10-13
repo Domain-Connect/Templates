@@ -1,0 +1,23 @@
+{
+  "providerId": "opnearth.com",
+  "providerName": "OpnEarth",
+  "serviceId": "org-domain-verification",
+  "serviceName": "Verify your organisation domain",
+  "version": 1,
+  "description": "Add the TXT record that proves your organisation controls this domain. This does not change website or email routing, enable single sign-on, or add members automatically.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.opnearth.com",
+  "syncRedirectDomain": "opnearth.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_opnearth",
+      "data": "opnearth-domain-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "opnearth-domain-verification=",
+      "essential": "OnApply"
+    }
+  ],
+  "logoUrl": "https://opnearth.com/opnearth-logo.svg"
+}
