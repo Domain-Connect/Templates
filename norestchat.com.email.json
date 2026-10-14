@@ -1,0 +1,40 @@
+{
+  "providerId": "norestchat.com",
+  "providerName": "NoRestChat",
+  "serviceId": "email",
+  "serviceName": "NoRestChat Email",
+  "version": 1,
+  "logoUrl": "https://www.norestchat.com/static/img/norestchat-icon.png",
+  "description": "Autenticacion del correo (DKIM y DMARC) para enviar desde tu propio dominio.",
+  "variableDescription": "token1, token2 y token3 son las tres claves DKIM que genera Amazon SES para este dominio. dmarcrua es la direccion que recibira los informes DMARC.",
+  "syncRedirectDomain": "norestchat.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%token1%._domainkey",
+      "pointsTo": "%token1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%token2%._domainkey",
+      "pointsTo": "%token2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%token3%._domainkey",
+      "pointsTo": "%token3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%dmarcrua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
