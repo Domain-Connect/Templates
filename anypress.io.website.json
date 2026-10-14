@@ -1,0 +1,18 @@
+{
+  "providerId": "anypress.io",
+  "providerName": "AnyPress",
+  "serviceId": "website",
+  "serviceName": "AnyPress website",
+  "version": 1,
+  "syncPubKeyDomain": "anypress.io",
+  "description": "Points a domain (or subdomain) at the AnyPress server that runs the customer's store.",
+  "variableDescription": "ip: the IPv4 address of the AnyPress store server",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}
