@@ -5,14 +5,14 @@
   "serviceName": "Email to applicants",
   "version": 1,
   "logoUrl": "https://www.klarefi.com/brand/klarefi-mark.png",
-  "description": "Lets Klarefi send email to applicants from this domain and take in the email applicants send to it.",
+  "description": "Lets Klarefi send email to applicants from this domain, and, on a domain that takes no mail yet, take in the email applicants send to it.",
   "variableDescription": "%domainKey%: the public DKIM key issued for this domain. %region%: the region this domain's mail is handled in.",
   "syncBlock": false,
   "syncPubKeyDomain": "klarefi.com",
   "syncRedirectDomain": "www.klarefi.com,klarefi.com",
-  "hostRequired": true,
   "records": [
     {
+      "groupId": "sending",
       "type": "TXT",
       "host": "resend._domainkey",
       "data": "p=%domainKey%",
@@ -20,6 +20,7 @@
       "txtConflictMatchingMode": "All"
     },
     {
+      "groupId": "sending",
       "type": "MX",
       "host": "send",
       "pointsTo": "feedback-smtp.%region%.amazonses.com",
@@ -27,11 +28,13 @@
       "ttl": 3600
     },
     {
+      "groupId": "sending",
       "type": "SPFM",
       "host": "send",
       "spfRules": "include:amazonses.com"
     },
     {
+      "groupId": "receiving",
       "type": "MX",
       "host": "@",
       "pointsTo": "inbound-smtp.%region%.amazonaws.com",
