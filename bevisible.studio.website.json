@@ -1,0 +1,31 @@
+{
+  "providerId": "bevisible.studio",
+  "providerName": "BE VISIBLE",
+  "serviceId": "website",
+  "serviceName": "BE VISIBLE website",
+  "version": 1,
+  "logoUrl": "https://bevisible-agency.com/apple-touch-icon.png",
+  "description": "Points a subdomain (for example www) at a website built and hosted by BE VISIBLE, and adds the TXT record that proves ownership for its HTTPS certificate.",
+  "variableDescription": "cfverify: the ownership token our hosting gives for this hostname",
+  "syncBlock": false,
+  "shared": true,
+  "sharedProviderName": true,
+  "syncPubKeyDomain": "bevisible.studio",
+  "syncRedirectDomain": "bevisible-agency.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.bevisible.studio",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cfverify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
