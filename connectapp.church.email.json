@@ -1,0 +1,33 @@
+{
+  "providerId": "connectapp.church",
+  "providerName": "ConnectApp",
+  "serviceId": "email",
+  "serviceName": "Church email",
+  "version": 1,
+  "logoUrl": "https://connectapp.church/icon.svg",
+  "description": "Lets your church send email from its own address, signed so it is not treated as forgery.",
+  "variableDescription": "dkim is the public key your sending account generated for this domain. sendhost and rsendhost are the two names that carry the sending path and the bounces.",
+  "syncPubKeyDomain": "connectapp.church",
+  "syncRedirectDomain": "connectapp.church",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "%rsendhost%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "send",
+      "pointsTo": "%sendhost%",
+      "ttl": 3600
+    }
+  ]
+}
