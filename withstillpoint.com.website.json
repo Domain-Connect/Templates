@@ -1,0 +1,20 @@
+{
+  "providerId": "withstillpoint.com",
+  "providerName": "Stillpoint",
+  "serviceId": "website",
+  "serviceName": "Stillpoint practice website",
+  "version": 1,
+  "logoUrl": "https://www.withstillpoint.com/apple-icon.png",
+  "description": "Points a subdomain such as www at your Stillpoint practice website",
+  "syncPubKeyDomain": "domainconnect.withstillpoint.com",
+  "syncRedirectDomain": "admin.withstillpoint.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.withstillpoint.com",
+      "ttl": 3600
+    }
+  ]
+}
