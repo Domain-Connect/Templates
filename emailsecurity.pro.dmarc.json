@@ -1,0 +1,24 @@
+{
+    "providerId": "emailsecurity.pro",
+    "providerName": "Signet",
+    "serviceId": "dmarc",
+    "serviceName": "DMARC record with reporting",
+    "version": 1,
+    "logoUrl": "https://emailsecurity.pro/brand/signet-badge.svg",
+    "description": "Publishes a complete DMARC record with aggregate (rua) and failure (ruf) reporting addresses. Because DNS holds one DMARC record per name, applying this REPLACES any existing record beginning v=DMARC1 at _dmarc. Signet offers it only where the domain has no DMARC record, and reads _dmarc again immediately before sending the customer to apply it.",
+    "variableDescription": "%policy%: none, quarantine or reject; %rua%: comma-separated mailto: URIs for aggregate reports; %ruf%: comma-separated mailto: URIs for failure reports",
+    "syncBlock": false,
+    "syncPubKeyDomain": "emailsecurity.pro",
+    "syncRedirectDomain": "app.emailsecurity.pro",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=%policy%; rua=%rua%; ruf=%ruf%; fo=1",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

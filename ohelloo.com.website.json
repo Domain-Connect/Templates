@@ -1,0 +1,46 @@
+{
+    "providerId": "ohelloo.com",
+    "providerName": "ohelloo",
+    "serviceId": "website",
+    "serviceName": "Website hosted by ohelloo",
+    "version": 1,
+    "logoUrl": "https://ohelloo.com/icon-192.png",
+    "description": "Points the domain at the customer's website hosted by ohelloo on Firebase Hosting (A record for the root, a CNAME for www, and Firebase's ownership TXT record). The optional 'verify' group adds Google's Search Console verification TXT record.",
+    "variableDescription": "site: the customer's Firebase Hosting site id (letters, numbers and hyphens), used in the ownership TXT record and the www CNAME. gsv: the Google Search Console verification token.",
+    "syncPubKeyDomain": "ohelloo.com",
+    "syncRedirectDomain": "crm.ohelloo.com",
+    "records": [
+        {
+            "type": "A",
+            "groupId": "site",
+            "host": "@",
+            "pointsTo": "199.36.158.100",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "groupId": "site",
+            "host": "@",
+            "ttl": 3600,
+            "data": "hosting-site=%site%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "hosting-site="
+        },
+        {
+            "type": "CNAME",
+            "groupId": "site",
+            "host": "www",
+            "pointsTo": "%site%.web.app",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "groupId": "verify",
+            "host": "@",
+            "ttl": 3600,
+            "data": "google-site-verification=%gsv%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "google-site-verification="
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "providerId": "pols.so",
+    "providerName": "pols.so",
+    "serviceId": "site",
+    "serviceName": "pols.so site on a subdomain",
+    "version": 1,
+    "logoUrl": "https://pols.so/favicon.svg",
+    "description": "Serves a pols.so site at a subdomain of the domain (for example www.example.com): a CNAME to the site's on.pols.so host, and the TXT record that proves control of the host.",
+    "variableDescription": "%site%: the name of the pols.so site, which is served at %site%.on.pols.so; %token%: the host's verification token, shown on the site's Domains tab",
+    "syncPubKeyDomain": "domainconnect.pols.so",
+    "syncRedirectDomain": "my.pols.so",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%site%.on.pols.so",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_pols",
+            "data": "pols-verify=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "pols-verify="
+        }
+    ]
+}

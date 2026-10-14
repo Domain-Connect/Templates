@@ -3,9 +3,9 @@
   "providerName": "Flickerfish",
   "serviceId": "sending-domain",
   "serviceName": "Flickerfish sending domain",
-  "version": 3,
+  "version": 4,
   "description": "Publishes the DKIM, bounce, SPF and DMARC records that let Flickerfish send email as your domain.",
-  "variableDescription": "%slug%: the stable identifier Flickerfish assigns to this sending domain, used only inside record targets under flickerfishmail.com. %acsverify%: the domain verification value issued for this sending domain, published after a fixed prefix in a TXT record at the sending name itself.",
+  "variableDescription": "%slug%: the stable identifier Flickerfish assigns to this sending domain, used only inside record targets under flickerfishmail.com. %acsverify%: the domain verification value issued for this sending domain, published after a fixed prefix in a TXT record at the sending name itself. %acsverify2%: a second domain verification value issued for the same sending domain, published after the same prefix in a second TXT record at the sending name.",
   "syncBlock": false,
   "syncPubKeyDomain": "flickerfish.io",
   "logoUrl": "https://flickerfish.io/brand/flickerfish-logo.svg",
@@ -88,6 +88,15 @@
       "groupId": "acs",
       "ttl": 3600,
       "data": "ms-domain-verification=%acsverify%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ms-domain-verification="
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "groupId": "acs2",
+      "ttl": 3600,
+      "data": "ms-domain-verification=%acsverify2%",
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "ms-domain-verification="
     }

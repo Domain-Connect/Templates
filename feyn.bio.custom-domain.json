@@ -1,0 +1,36 @@
+{
+  "providerId": "feyn.bio",
+  "providerName": "Feyn",
+  "serviceId": "custom-domain",
+  "serviceName": "Feyn link-in-bio page",
+  "version": 1,
+  "logoUrl": "https://feyn.bio/icon.png",
+  "description": "Points a main domain at a Feyn page hosted on Vercel: A @ and CNAME www. Group 'verify' adds the ownership TXT record Vercel sometimes asks for.",
+  "variableDescription": "txthost: host of Vercel's ownership TXT record, relative to the domain (e.g. _vercel). txtvalue: its value (vc-domain-verify=...). Only used with groupId 'verify'.",
+  "syncPubKeyDomain": "feyn.bio",
+  "syncRedirectDomain": "app.feyn.bio",
+  "records": [
+    {
+      "groupId": "main",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "groupId": "main",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "%txthost%",
+      "data": "%txtvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

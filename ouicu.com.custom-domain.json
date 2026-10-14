@@ -1,0 +1,29 @@
+{
+  "providerId": "ouicu.com",
+  "providerName": "ouicu",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://ouicu.com/brand/ouicu-logo-120.png",
+  "description": "Shows an ouicu preview at a subdomain such as preview.example.com: a CNAME to domains.ouicu.app, and a TXT record at _ouicu that proves the domain is yours.",
+  "variableDescription": "%token%: the domain's proof token from the ouicu Domains page, without its ouicu- prefix",
+  "syncPubKeyDomain": "ouicu.com",
+  "syncRedirectDomain": "ouicu.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.ouicu.app",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_ouicu",
+      "data": "ouicu-%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ouicu-"
+    }
+  ]
+}

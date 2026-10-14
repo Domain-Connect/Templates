@@ -1,0 +1,53 @@
+{
+	"providerId": "megamail.com.br",
+	"providerName": "Mega Mail",
+	"serviceId": "mail",
+	"serviceName": "Mega Mail",
+	"version": 1,
+	"logoUrl": "https://megamail.com.br/brand/megamail-logo.svg",
+	"description": "Configure Mega Mail email sending: domain ownership, DKIM and custom MAIL FROM (SPF).",
+	"variableDescription": "%verifyToken%: domain ownership verification token; %region%: AWS region of the SES endpoint (e.g. us-east-1); %dkim1%, %dkim2%, %dkim3%: DKIM selector tokens generated for the domain",
+	"syncBlock": false,
+	"syncPubKeyDomain": "megamail.com.br",
+	"syncRedirectDomain": "megamail.com.br",
+	"hostRequired": false,
+	"records": [
+		{
+			"type": "TXT",
+			"host": "_megamail-verify",
+			"ttl": 3600,
+			"data": "megamail-verify=%verifyToken%",
+			"txtConflictMatchingMode": "None"
+		},
+		{
+			"type": "MX",
+			"host": "bounce",
+			"pointsTo": "feedback-smtp.%region%.amazonses.com",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"type": "SPFM",
+			"host": "bounce",
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkim1%._domainkey",
+			"pointsTo": "%dkim1%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkim2%._domainkey",
+			"pointsTo": "%dkim2%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkim3%._domainkey",
+			"pointsTo": "%dkim3%.dkim.amazonses.com",
+			"ttl": 3600
+		}
+	]
+}

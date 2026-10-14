@@ -201,8 +201,7 @@ Following is an example of a complete Domain Connect template, with examples of 
     "description": "Example description explaining overall purpose of the record updates",
     "variableDescription": "%a%: domain apex IP; %sub%: sub record destination; %cnamehost%: host pointing to sub destination; %txt%: domain apex text; %mx%: domain apex mail destination; %target%: domain apex service record target; %ttlvar%: variable TTL for SRV record; %srvport%: variable port for SRV record; %srvproto%: variable ptotocol of SRV record; %srvservice%: variable service of SRV record",
     "syncPubKeyDomain": "keys.example.com",
-    "syncRedirectDomain": "www.example.com, www.example.net",
-    "warnPhishing": true,
+    "syncRedirectDomain": "www.example.com,www.example.net",
     "records": [
         {
             "type": "A",

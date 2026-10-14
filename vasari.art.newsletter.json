@@ -1,0 +1,43 @@
+{
+  "providerId": "vasari.art",
+  "providerName": "Vasari",
+  "serviceId": "newsletter",
+  "serviceName": "Artist newsletters",
+  "version": 1,
+  "logoUrl": "https://www.vasari.art/assets/img/logo-vasari-2024.png",
+  "description": "Lets an artist send their newsletter through Vasari from their own domain: three Amazon SES Easy DKIM CNAMEs that authenticate the mail, and one CNAME that puts the newsletter unsubscribe and sign-up pages on a subdomain of the artist's domain.",
+  "variableDescription": "dkim1, dkim2, dkim3: the Amazon SES Easy DKIM tokens for the domain.",
+  "syncPubKeyDomain": "vasari.art",
+  "syncRedirectDomain": "codex.vasari.art",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "links",
+      "type": "CNAME",
+      "host": "news",
+      "pointsTo": "links.vsri.app",
+      "ttl": 3600
+    }
+  ]
+}

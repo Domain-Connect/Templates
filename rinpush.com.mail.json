@@ -1,0 +1,51 @@
+{
+    "providerId": "rinpush.com",
+    "providerName": "Rinpush Mail",
+    "serviceId": "mail",
+    "serviceName": "Configuration automatique de la messagerie Rinpush",
+    "version": 1,
+    "syncPubKeyDomain": "rinpush.com",
+    "description": "Configuration automatique des enregistrements MX, SPF, DKIM, DMARC et des serveurs de messagerie pour Rinpush Mail.",
+    "records": [
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mail.rinpush.com",
+            "ttl": 3600,
+            "priority": 10
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "ttl": 3600,
+            "spfRules": "mx ip4:193.106.248.120"
+        },
+        {
+            "type": "TXT",
+            "host": "rinpush._domainkey",
+            "ttl": 3600,
+            "data": "v=DKIM1; k=rsa; p=%dkim_key%",
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "ttl": 3600,
+            "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@rinpush.com",
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply"
+        },
+        {
+            "type": "CNAME",
+            "host": "autodiscover",
+            "pointsTo": "mail.rinpush.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "autoconfig",
+            "pointsTo": "mail.rinpush.com",
+            "ttl": 3600
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+  "providerId": "oveyon.com",
+  "providerName": "OVEYON",
+  "serviceId": "emailbox",
+  "serviceName": "OVEYON - authenticated transactional email (e-mailbox.com)",
+  "version": 1,
+  "logoUrl": "https://oveyon.com/logo.svg",
+  "description": "Authorises this domain to send authenticated transactional email through OVEYON on its e-mailbox.com sending infrastructure. Publishes three DKIM aliases, the two return-path aliases that carry bounces and align the envelope sender, and merges the e-mailbox.com sending infrastructure into the domain's SPF record.",
+  "variableDescription": "%dcode%: the numeric identifier OVEYON assigns to this domain. It is the suffix of the two return-path labels, so they cannot collide with anything already on the zone.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "oveyon.com",
+  "syncRedirectDomain": "oveyon.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "ovy1._domainkey",
+      "pointsTo": "ovy1._domainkey.e-mailbox.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "ovy2._domainkey",
+      "pointsTo": "ovy2._domainkey.e-mailbox.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "ovy3._domainkey",
+      "pointsTo": "ovy3._domainkey.e-mailbox.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "rp1%dcode%",
+      "pointsTo": "return.e-mailbox.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "rp2%dcode%",
+      "pointsTo": "return2.e-mailbox.com",
+      "ttl": 300
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.e-mailbox.com"
+    }
+  ]
+}

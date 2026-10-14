@@ -1,0 +1,83 @@
+{
+    "providerId": "spaceis.pl",
+    "providerName": "SpaceIs",
+    "serviceId": "checkout",
+    "serviceName": "SpaceIs payment page",
+    "version": 1,
+    "logoUrl": "https://panel.spaceis.pl/media/spaceis/mini-logo.svg",
+    "description": "Connect a payment subdomain to SpaceIs and add only the verification records selected by the signed groupId. Ask the user to review any conflicting records before applying. Configure all CNAME records as DNS only.",
+    "variableDescription": "license is the eight-character SpaceIs shop ID. ownership is the Cloudflare hostname verification value. ssl1Name through ssl3Name are fully qualified verification names within the payment hostname. ssl1Value through ssl3Value contain the TXT value or CNAME target. Unselected verification groups must not be applied. All requests are RSA-SHA256 signed.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "spaceis.pl",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%license%.customers.spaceis.pl",
+            "ttl": 300,
+            "groupId": "checkout"
+        },
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%ownership%",
+            "ttl": 300,
+            "groupId": "ownership",
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "TXT",
+            "host": "%ssl1Name%.",
+            "ttl": 300,
+            "groupId": "sslTxt1",
+            "data": "%ssl1Value%",
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "None"
+        },
+        {
+            "type": "CNAME",
+            "host": "%ssl1Name%.",
+            "ttl": 300,
+            "groupId": "sslCname1",
+            "pointsTo": "%ssl1Value%",
+            "essential": "OnApply"
+        },
+        {
+            "type": "TXT",
+            "host": "%ssl2Name%.",
+            "ttl": 300,
+            "groupId": "sslTxt2",
+            "data": "%ssl2Value%",
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "None"
+        },
+        {
+            "type": "CNAME",
+            "host": "%ssl2Name%.",
+            "ttl": 300,
+            "groupId": "sslCname2",
+            "pointsTo": "%ssl2Value%",
+            "essential": "OnApply"
+        },
+        {
+            "type": "TXT",
+            "host": "%ssl3Name%.",
+            "ttl": 300,
+            "groupId": "sslTxt3",
+            "data": "%ssl3Value%",
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "None"
+        },
+        {
+            "type": "CNAME",
+            "host": "%ssl3Name%.",
+            "ttl": 300,
+            "groupId": "sslCname3",
+            "pointsTo": "%ssl3Value%",
+            "essential": "OnApply"
+        }
+    ],
+    "syncRedirectDomain": "panel.spaceis.pl",
+    "hostRequired": true
+}
