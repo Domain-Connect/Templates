@@ -7,7 +7,7 @@
   "logoUrl": "https://www.withstillpoint.com/apple-icon.png",
   "description": "Points a subdomain such as www at your Stillpoint practice website",
   "syncPubKeyDomain": "domainconnect.withstillpoint.com",
-  "syncRedirectDomain": "admin.withstillpoint.com",
+  "syncRedirectDomain": "app.withstillpoint.com",
   "hostRequired": true,
   "records": [
     {
