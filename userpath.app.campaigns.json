@@ -1,0 +1,37 @@
+{
+    "providerId": "userpath.app",
+    "providerName": "UserPath",
+    "serviceId": "campaigns",
+    "serviceName": "Campaign email",
+    "version": 1,
+    "logoUrl": "https://userpath.app/assets/favicon.svg",
+    "description": "Sets up two subdomains of the customer's domain for UserPath email campaigns: news.<domain> sends them (a DKIM key, and a CNAME that makes it its own bounce domain) and link.<domain> carries their links (a CNAME to the click-tracking host, which serves it over HTTPS). Apply it at the domain the subdomains go under. Both CNAMEs must not be proxied.",
+    "variableDescription": "dkimselector: the DKIM selector UserPath's mail (SparkPost) generated for this domain (letters and digits, like scph1026); dkimkey: that selector's 2048-bit RSA public key, base64 (the p= of the DKIM record)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "userpath.app",
+    "syncRedirectDomain": "userpath.app",
+    "records": [
+        {
+            "groupId": "dkim",
+            "type": "TXT",
+            "host": "%dkimselector%._domainkey.news",
+            "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "CNAME",
+            "groupId": "bounce",
+            "host": "news",
+            "pointsTo": "sparkpostmail.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "groupId": "tracking",
+            "host": "link",
+            "pointsTo": "v2.spgo.io",
+            "ttl": 3600
+        }
+    ]
+}

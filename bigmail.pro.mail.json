@@ -1,0 +1,45 @@
+{
+    "providerId": "bigmail.pro",
+    "providerName": "BigMail",
+    "serviceId": "mail",
+    "serviceName": "BigMail business email",
+    "version": 1,
+    "logoUrl": "https://bigmail.ge/img/bigmail.svg",
+    "description": "Connects the domain to BigMail business email hosting: routes inbound mail to BigMail (MX), authorises BigMail's sending server in SPF, publishes the domain's DKIM signing key and a DMARC policy.",
+    "variableDescription": "%dkimselector%: DKIM selector the mail server signs with; %dkimkey%: the domain's DKIM public key (base64), generated on the BigMail mail server when the domain is added; %dmarcrua%: address that receives DMARC aggregate reports for the customer's BigMail market",
+    "syncBlock": false,
+    "syncPubKeyDomain": "bigmail.pro",
+    "syncRedirectDomain": "bigmail.az,bigmail.ge,bigmail.uz",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mail.bigmail.pro",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "ip4:5.45.125.215"
+        },
+        {
+            "type": "TXT",
+            "host": "%dkimselector%._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DKIM1"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=quarantine; rua=mailto:%dmarcrua%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

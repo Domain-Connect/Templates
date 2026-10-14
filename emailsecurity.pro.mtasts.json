@@ -1,0 +1,27 @@
+{
+    "providerId": "emailsecurity.pro",
+    "providerName": "Signet",
+    "serviceId": "mtasts",
+    "serviceName": "Hosted MTA-STS",
+    "version": 1,
+    "logoUrl": "https://emailsecurity.pro/brand/signet-badge.svg",
+    "description": "Delegates the MTA-STS policy host and the _mta-sts id record to Signet, which then serves the policy over HTTPS and versions it without further DNS changes.",
+    "variableDescription": "%ststoken%: the per-domain delegation token Signet issued for the _mta-sts record",
+    "syncBlock": false,
+    "syncPubKeyDomain": "emailsecurity.pro",
+    "syncRedirectDomain": "app.emailsecurity.pro",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "mta-sts",
+            "pointsTo": "sts.emailsecurity.pro",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "_mta-sts",
+            "pointsTo": "%ststoken%._mta-sts.emailsecurity.pro",
+            "ttl": 3600
+        }
+    ]
+}

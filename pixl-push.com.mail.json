@@ -3,25 +3,30 @@
   "providerName": "PixlPush",
   "serviceId": "mail",
   "serviceName": "Email sending",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://pixl-push.com/assets/logo.png",
-  "description": "Authenticates the domain for sending email through PixlPush (verification, SPF, DMARC).",
-  "variableDescription": "verification: the ownership token PixlPush issued for this domain",
+  "description": "Adds the three Amazon SES Easy DKIM records to a DNS zone that supports Domain Connect.",
+  "variableDescription": "sesDkim1/2/3: the three Amazon SES Easy DKIM tokens; sesDkim1Target/2Target/3Target: their CNAME targets",
   "syncPubKeyDomain": "pixl-push.com",
   "syncRedirectDomain": "pixl-push.com",
   "records": [
     {
-      "type": "TXT",
-      "host": "_pixlpush",
-      "data": "pixlpush-verification=%verification%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "pixlpush-verification="
+      "type": "CNAME",
+      "host": "%sesDkim1%._domainkey",
+      "pointsTo": "%sesDkim1Target%",
+      "ttl": 3600
     },
     {
-      "type": "SPFM",
-      "host": "@",
-      "spfRules": "mx"
+      "type": "CNAME",
+      "host": "%sesDkim2%._domainkey",
+      "pointsTo": "%sesDkim2Target%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sesDkim3%._domainkey",
+      "pointsTo": "%sesDkim3Target%",
+      "ttl": 3600
     },
     {
       "type": "TXT",

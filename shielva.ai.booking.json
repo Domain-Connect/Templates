@@ -1,0 +1,31 @@
+{
+  "providerId": "shielva.ai",
+  "providerName": "Shielva",
+  "serviceId": "booking",
+  "serviceName": "Shielva Biz website and booking",
+  "version": 1,
+  "logoUrl": "https://abs.shielva.ai/icon.svg",
+  "description": "Connects your website (for example www.yourbusiness.com) or your CRM (for example crm.yourbusiness.com) to Shielva Biz, and proves the domain is yours.",
+  "variableDescription": "challenge proves the domain is yours; it is unique to each address you connect.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "shielva.ai",
+  "syncRedirectDomain": "abs.shielva.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.shielva.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_shielva-challenge",
+      "data": "shielva-verify=%challenge%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "shielva-verify="
+    }
+  ]
+}

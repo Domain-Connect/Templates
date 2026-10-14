@@ -1,0 +1,22 @@
+{
+  "providerId": "squarepaste.com",
+  "providerName": "Squarepaste",
+  "serviceId": "customdomain",
+  "serviceName": "Client chat page on a custom domain",
+  "version": 1,
+  "logoUrl": "https://squarepaste.com/squarepaste-logo.webp",
+  "description": "Points a subdomain (for example portal.yourbusiness.com) at a Squarepaste client chat page.",
+  "variableDescription": "No variables. The subdomain is the host chosen in Squarepaste.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "squarepaste.com",
+  "syncRedirectDomain": "app.squarepaste.com,app.bridgechat.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "portals.squarepaste.com",
+      "ttl": 3600
+    }
+  ]
+}
