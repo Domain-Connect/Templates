@@ -1,0 +1,29 @@
+{
+    "providerId": "isipage.web.id",
+    "providerName": "ISIPAGE",
+    "version": 1,
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.isipage.web.id",
+    "description": "Connect your website to ISIPAGE",
+    "variableDescription": "target is the ISIPAGE SaaS CNAME target. owner values are Cloudflare hostname ownership tokens.",
+    "serviceId": "website-host",
+    "serviceName": "Website hosting",
+    "records": [
+        {
+            "groupId": "routing",
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 300
+        },
+        {
+            "groupId": "ownership",
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%owner%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "All"
+        }
+    ],
+    "syncRedirectDomain": "dash.isipage.com"
+}
