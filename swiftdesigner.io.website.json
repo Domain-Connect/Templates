@@ -1,0 +1,13 @@
+{
+  "providerId": "swiftdesigner.io",
+  "providerName": "Swift Designer",
+  "serviceId": "website",
+  "serviceName": "Swift Designer website hosting",
+  "version": 1,
+  "description": "Points your domain to your Swift Designer website.",
+  "syncPubKeyDomain": "swiftdesigner.io",
+  "syncRedirectDomain": "swiftdesigner.io,www.swiftdesigner.io",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600 }
+  ]
+}
