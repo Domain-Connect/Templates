@@ -12,6 +12,12 @@
   "variableDescription": "aq_token: Cryptographic ownership verification challenge token for AddQart",
   "records": [
     {
+      "type": "APEXCNAME",
+      "host": "@",
+      "pointsTo": "cname.addqart.net",
+      "ttl": 3600
+    },
+    {
       "type": "CNAME",
       "host": "www",
       "pointsTo": "cname.addqart.net",
