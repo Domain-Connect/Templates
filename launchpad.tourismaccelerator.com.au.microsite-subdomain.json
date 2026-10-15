@@ -11,7 +11,6 @@
   "hostRequired": true,
   "syncRedirectDomain": "launchpad.tourismaccelerator.com.au",
   "syncPubKeyDomain": "launchpad.tourismaccelerator.com.au",
-  "warnPhishing": true,
   "records": [
     {
       "type": "CNAME",
