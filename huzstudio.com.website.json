@@ -1,0 +1,50 @@
+{
+  "providerId": "huzstudio.com",
+  "providerName": "Huzstudio",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "description": "Connects a custom domain to a Huzstudio application.",
+  "syncPubKeyDomain": "domainconnect.huzstudio.com",
+  "syncRedirectDomain": "huzstudio.com",
+  "syncBlock": false,
+  "records": [
+    { "type": "A", "groupId": "ipv4", "host": "@", "pointsTo": "%ipv4%", "ttl": 600 },
+    { "type": "CNAME", "groupId": "cname", "host": "@", "pointsTo": "%cname%", "ttl": 600 },
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_huzstudio-verification",
+      "data": "%ownership%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification-1",
+      "host": "%verification_host_1%.",
+      "data": "%verification_value_1%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification-2",
+      "host": "%verification_host_2%.",
+      "data": "%verification_value_2%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification-3",
+      "host": "%verification_host_3%.",
+      "data": "%verification_value_3%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification-4",
+      "host": "%verification_host_4%.",
+      "data": "%verification_value_4%",
+      "ttl": 600
+    }
+  ]
+}
