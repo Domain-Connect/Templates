@@ -1,0 +1,30 @@
+{
+  "providerId": "launchpad.tourismaccelerator.com.au",
+  "providerName": "Tourism Accelerator Launchpad",
+  "serviceId": "microsite-subdomain",
+  "serviceName": "Launchpad microsite (subdomain)",
+  "version": 1,
+  "logoUrl": "https://www.tourismaccelerator.com.au/logo.svg",
+  "description": "Points a subdomain of your domain at your Launchpad microsite and adds the record that proves you own it.",
+  "variableDescription": "CNAME is the Launchpad host the subdomain points to. verifyToken is the value of the ownership record.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncRedirectDomain": "launchpad.tourismaccelerator.com.au",
+  "syncPubKeyDomain": "launchpad.tourismaccelerator.com.au",
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%CNAME%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_launchpad-verify",
+      "data": "%verifyToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

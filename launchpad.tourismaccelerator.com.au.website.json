@@ -1,0 +1,28 @@
+{
+  "providerId": "launchpad.tourismaccelerator.com.au",
+  "providerName": "Tourism Accelerator Launchpad",
+  "serviceId": "website",
+  "serviceName": "Launchpad website",
+  "version": 1,
+  "logoUrl": "https://www.tourismaccelerator.com.au/logo.svg",
+  "description": "Points your domain at your Launchpad website: the main address and www.",
+  "variableDescription": "IP is the address Launchpad sites are served from. CNAME is the target for www.",
+  "syncBlock": false,
+  "syncRedirectDomain": "launchpad.tourismaccelerator.com.au",
+  "syncPubKeyDomain": "launchpad.tourismaccelerator.com.au",
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%CNAME%",
+      "ttl": 3600
+    }
+  ]
+}
