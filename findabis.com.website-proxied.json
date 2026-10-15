@@ -1,0 +1,18 @@
+{
+  "providerId": "findabis.com",
+  "providerName": "Findabis",
+  "serviceId": "website-proxied",
+  "serviceName": "Findabis website (behind your proxy)",
+  "version": 1,
+  "logoUrl": "https://findabis.com/domain-connect/logo.svg",
+  "description": "Points this address (for example www.yourbrand.com) at the website you run on Findabis, keeping your proxy on. Adds the two records that let Findabis verify the address and issue its certificate.",
+  "syncPubKeyDomain": "findabis.com",
+  "syncRedirectDomain": "findabis.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "portal.findabis.com", "ttl": 3600 },
+    { "type": "TXT", "host": "_fly-ownership", "data": "app-%flyapp%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "CNAME", "host": "_acme-challenge", "pointsTo": "%fqdn%.%flyapp%.flydns.net", "ttl": 3600 }
+  ]
+}
