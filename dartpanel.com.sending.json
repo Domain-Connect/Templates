@@ -1,0 +1,105 @@
+{
+  "providerId": "dartpanel.com",
+  "providerName": "DartPanel",
+  "serviceId": "sending",
+  "serviceName": "DartPanel sending service",
+  "version": 1,
+  "logoUrl": "https://dartpanel.com/assets/images/logo.png",
+  "description": "Publishes the records an e-mail sending service (Mailgun, SendGrid, Brevo, Postmark, MailChannels) needs to send a domain's mail, after the customer connects their own account at that service in DartPanel (https://dartpanel.com): SPF include, DKIM keys, return path and tracking names, the service's domain check and DMARC. The values are read from the service's own API.",
+  "variableDescription": "spfinclude: the service's SPF include (mailgun.org, sendgrid.net, relay.mailchannels.net, spf.brevo.com, spf.mtasv.net); dkimname, dkimvalue: selector and value of a DKIM key given as TXT; dkimcname1/2, dkimtarget1/2: selectors and targets of DKIM keys given as CNAME (SendGrid, Brevo, Mailgun); sgreturn, sgtarget: SendGrid's return path name and its target under sendgrid.net; pmreturn: Postmark's return path name; mgtrack: Mailgun's tracking name; verifyvalue: the service's domain check (TXT at the domain, Brevo); mcauth: MailChannels account id (Domain Lockdown); dmarcvalue: the DMARC record the service asks for, only sent when the domain has none",
+  "syncPubKeyDomain": "domainconnect.dartpanel.com",
+  "syncRedirectDomain": "console.dartpanel.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "groupId": "spf",
+      "host": "@",
+      "spfRules": "include:%spfinclude%"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dkim",
+      "host": "%dkimname%._domainkey",
+      "data": "%dkimvalue%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkimcname1",
+      "host": "%dkimcname1%._domainkey",
+      "pointsTo": "%dkimtarget1%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkimcname2",
+      "host": "%dkimcname2%._domainkey",
+      "pointsTo": "%dkimtarget2%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "sgreturn",
+      "host": "%sgreturn%",
+      "pointsTo": "%sgtarget%.sendgrid.net",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "pmreturn",
+      "host": "%pmreturn%",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "mgtrack",
+      "host": "%mgtrack%",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "mgtrackeu",
+      "host": "%mgtrack%",
+      "pointsTo": "eu.mailgun.org",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "@",
+      "data": "%verifyvalue%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "lockdown",
+      "host": "_mailchannels",
+      "data": "v=mc1 auth=%mcauth%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=mc1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "%dmarcvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
