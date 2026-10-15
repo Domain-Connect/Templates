@@ -1,0 +1,29 @@
+{
+    "providerId": "running.sh",
+    "providerName": "running.sh",
+    "serviceId": "custom-domain",
+    "serviceName": "running.sh custom domain",
+    "version": 1,
+    "logoUrl": "https://running.sh/domainconnect/logo.svg",
+    "description": "Points a hostname at a running.sh app: a CNAME to the running.sh edge, plus a TXT record that proves the workspace adding the hostname controls its DNS.",
+    "variableDescription": "%verify%: 32 hex character ownership token running.sh issues for the workspace and hostname, published as running-verify=<token> at _running-verify.<host>.",
+    "syncPubKeyDomain": "running.sh",
+    "syncRedirectDomain": "running.sh",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "edge.running.sh",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_running-verify",
+            "data": "running-verify=%verify%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "running-verify="
+        }
+    ]
+}

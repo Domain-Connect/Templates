@@ -1,0 +1,17 @@
+{
+  "providerId": "x-orders.com",
+  "providerName": "X-Orders",
+  "serviceId": "storefront-apex",
+  "serviceName": "X-Orders store on the root domain",
+  "version": 1,
+  "logoUrl": "https://www.x-orders.com/xorders-logo.png",
+  "description": "Points the root domain and www at an X-Orders store using a flattened CNAME on the root. Email (MX) and other records are not touched.",
+  "variableDescription": "No variables.",
+  "hostRequired": false,
+  "syncPubKeyDomain": "x-orders.com",
+  "syncRedirectDomain": "admin.x-orders.com",
+  "records": [
+    { "type": "APEXCNAME", "host": "@", "pointsTo": "stores.myxorders.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "stores.myxorders.com", "ttl": 3600 }
+  ]
+}

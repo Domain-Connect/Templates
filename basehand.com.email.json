@@ -1,0 +1,33 @@
+{
+  "providerId": "basehand.com",
+  "providerName": "Basehand",
+  "serviceId": "email",
+  "serviceName": "Email",
+  "description": "Sends your domain's email to the mailboxes you have with Basehand, and lets them send as your domain",
+  "syncPubKeyDomain": "basehand.com",
+  "syncRedirectDomain": "basehand.com,app.basehand.com",
+  "version": 1,
+  "logoUrl": "https://basehand.com/domain-connect-logo.svg",
+  "variableDescription": "mx: the mail server, such as mx.hostedemail.com; spf: the domain whose SPF record lists the mail host's senders; dkimselector and dkimkey: the name and value of the mail host's DKIM key for this domain",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx%",
+      "priority": "10",
+      "ttl": "3600"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%spf%"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "%dkimkey%",
+      "txtConflictMatchingMode": "All",
+      "ttl": "3600"
+    }
+  ]
+}

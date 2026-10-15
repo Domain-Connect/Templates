@@ -1,0 +1,28 @@
+{
+    "providerId": "rifa.digital",
+    "providerName": "Rifa Digital",
+    "serviceId": "customdomain",
+    "serviceName": "Domínio personalizado",
+    "version": 1,
+    "logoUrl": "https://rifa.digital/images/home/home-logo.webp",
+    "description": "Conecta o seu domínio à sua página na Rifa Digital.",
+    "variableDescription": "ip: endereço IPv4 do servidor da Rifa Digital",
+    "syncBlock": false,
+    "syncPubKeyDomain": "rifa.digital",
+    "syncRedirectDomain": "app.rifa.digital",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "dns.rifa.digital",
+            "ttl": 3600
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+  "providerId": "rafflehub.io",
+  "providerName": "RaffleHub",
+  "serviceId": "website",
+  "serviceName": "Competition website",
+  "version": 1,
+  "logoUrl": "https://rafflehub.io/icon.png",
+  "description": "Connects your domain to your RaffleHub competition website and confirms you own it.",
+  "variableDescription": "verifytoken: the verification token RaffleHub shows for your site",
+  "syncBlock": false,
+  "syncPubKeyDomain": "rafflehub.io",
+  "syncRedirectDomain": "app.myrafflehub.co.uk",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "site",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.150.1.1",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_rafflehub",
+      "data": "rafflehub-verify=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "rafflehub-verify="
+    }
+  ]
+}

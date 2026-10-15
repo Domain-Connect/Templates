@@ -1,0 +1,42 @@
+{
+  "providerId": "basehand.com",
+  "providerName": "Basehand",
+  "serviceId": "domain-apex-cloudflare",
+  "serviceName": "Website",
+  "description": "Shows your Basehand site at your bare domain and redirects www to it",
+  "syncPubKeyDomain": "basehand.com",
+  "syncRedirectDomain": "basehand.com,app.basehand.com",
+  "hostRequired": true,
+  "version": 1,
+  "logoUrl": "https://basehand.com/domain-connect-logo.svg",
+  "variableDescription": "token: verification code for this domain; target: Basehand's connection hostname, such as connect.basehand.site; routing_target: CloudFront connection group routing endpoint",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_basehand",
+      "data": "basehand-site-verification=%token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "basehand-site-verification=",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%routing_target%",
+      "ttl": "300"
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-challenge",
+      "data": "%routing_target%",
+      "txtConflictMatchingMode": "All",
+      "ttl": "300"
+    }
+  ]
+}

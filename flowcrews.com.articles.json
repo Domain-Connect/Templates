@@ -1,0 +1,29 @@
+{
+    "providerId": "flowcrews.com",
+    "providerName": "Flows",
+    "serviceId": "articles",
+    "serviceName": "Flows articles",
+    "version": 1,
+    "logoUrl": "https://www.flowcrews.com/flows-favicon.png",
+    "description": "Publishes a site's Flows articles at articles.<domain> (CNAME to Vercel) and proves the site owner controls the domain (TXT).",
+    "variableDescription": "token: the site's Flows verification token.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "flowcrews.com",
+    "syncRedirectDomain": "dashboard.flowcrews.com,www.flowcrews.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "articles",
+            "pointsTo": "cname.vercel-dns.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_flows-verify",
+            "data": "flows-site-verification=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "flows-site-verification="
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "providerId": "rustine.io",
+    "providerName": "Rustine",
+    "serviceId": "domain-verification",
+    "serviceName": "Rustine domain verification",
+    "version": 1,
+    "logoUrl": "https://rustine.io/domain-connect/logo.svg",
+    "description": "Adds one TXT record proving that you control this domain, so Rustine may run security scans on it.",
+    "variableDescription": "%token%: per-domain verification token issued by Rustine",
+    "syncBlock": false,
+    "syncPubKeyDomain": "rustine.io",
+    "syncRedirectDomain": "app.rustine.io",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_rustine-verify",
+            "data": "rustine-verify=%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "rustine-verify="
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+  "providerId": "x-orders.com",
+  "providerName": "X-Orders",
+  "serviceId": "storefront-sub",
+  "serviceName": "X-Orders store on a subdomain",
+  "version": 1,
+  "logoUrl": "https://www.x-orders.com/xorders-logo.png",
+  "description": "Points a subdomain (for example shop.example.com) at an X-Orders store. Only the CNAME of that subdomain is changed; email (MX) and other records are not touched.",
+  "variableDescription": "No variables.",
+  "hostRequired": true,
+  "syncPubKeyDomain": "x-orders.com",
+  "syncRedirectDomain": "admin.x-orders.com",
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "stores.myxorders.com", "ttl": 3600 }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "providerId": "nearbylead.com",
+  "providerName": "NearbyLead",
+  "serviceId": "website",
+  "serviceName": "Business website",
+  "version": 1,
+  "logoUrl": "https://nearbylead.com/favicon.svg",
+  "description": "Points a local service business's own domain (e.g. www.theirbusiness.com) at its NearbyLead website, and delegates certificate validation to Cloudflare for SaaS so HTTPS is issued and renewed without further DNS changes. The business keeps its domain, email and every other record.",
+  "variableDescription": "No custom variables. host is the name the business connects, e.g. www; the bare domain is not supported (hostRequired).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.nearbylead.com",
+  "syncRedirectDomain": "app.nearbylead.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "certificate",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.29fb56051957687d.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.nearbylead.link",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "providerId": "superpresence.site",
+  "providerName": "SuperPresence",
+  "serviceId": "website",
+  "serviceName": "SuperPresence website",
+  "version": 1,
+  "logoUrl": "https://superpresence.app/apple-icon.png",
+  "description": "Points www at a website hosted on SuperPresence and adds the Google Search Console verification record so the website can be submitted to Google. Email (MX) and other records are not touched.",
+  "variableDescription": "%gsv%: the Google site verification token for the domain (the value after google-site-verification=)",
+  "syncPubKeyDomain": "superpresence.site",
+  "syncRedirectDomain": "superpresence.app,superpresence-dev--acquired-muse-414700.us-central1.hosted.app",
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "cname.superpresence.site", "ttl": 3600 },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "google-site-verification=%gsv%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}
