@@ -15,7 +15,7 @@
             "groupId": "verification",
             "type": "TXT",
             "host": "_astraeus",
-            "ttl": "300",
+            "ttl": 300,
             "data": "%txtValue%"
         }
     ]
