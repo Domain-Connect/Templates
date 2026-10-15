@@ -1,0 +1,26 @@
+{
+  "providerId": "chrisx.ai",
+  "providerName": "ChrisX",
+  "serviceId": "website",
+  "serviceName": "ChrisX website",
+  "version": 1,
+  "logoUrl": "https://chrisx.ai/chrisx/mark-black.svg",
+  "description": "Points a business's domain and its www at its ChrisX website (hosted on Vercel). Applied at the root.",
+  "variableDescription": "%ip%: the IPv4 address Vercel gives the root (76.76.21.21 or 216.198.79.1 today); %cname%: the CNAME target Vercel gives www (cname.vercel-dns.com, or a project-specific name under vercel-dns-0NN.com). Both are bare because Vercel hands out more than 1 value, as in vercel.com.website.",
+  "syncPubKeyDomain": "chrisx.ai",
+  "syncRedirectDomain": "app.chrisx.ai",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    }
+  ]
+}
