@@ -3,7 +3,7 @@
   "providerName": "Sequenzy",
   "serviceId": "mail",
   "serviceName": "Mail",
-  "version": 2,
+  "version": 3,
   "syncBlock": false,
   "syncPubKeyDomain": "sequenzy.com",
   "syncRedirectDomain": "sequenzy.com,www.sequenzy.com",
@@ -12,18 +12,32 @@
   "records": [
     {
       "groupId": "dkim",
-      "type": "TXT",
-      "host": "sequenzy._domainkey",
-      "data": "p=%domainKey%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "All"
+      "type": "CNAME",
+      "host": "sq1._domainkey",
+      "pointsTo": "sq1.%platformDnsId%.d.sequenzydns.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "sq2._domainkey",
+      "pointsTo": "sq2.%platformDnsId%.d.sequenzydns.com",
+      "ttl": 3600
     },
     {
       "groupId": "return-path",
       "type": "CNAME",
       "host": "%returnPathHost%",
-      "pointsTo": "%returnPathLabel%.sequenzydns.com",
+      "pointsTo": "r1.%platformDnsId%.d.sequenzydns.com",
       "ttl": 3600
+    },
+    {
+      "groupId": "ses-return-path",
+      "type": "CNAME",
+      "host": "%sesReturnPathHost%",
+      "pointsTo": "r2.%platformDnsId%.d.sequenzydns.com",
+      "ttl": 3600,
+      "essential": "OnApply"
     },
     {
       "groupId": "dmarc",
