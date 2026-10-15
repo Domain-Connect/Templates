@@ -1,0 +1,22 @@
+{
+  "providerId": "selltrust.app",
+  "providerName": "SellTrust",
+  "serviceId": "storefront",
+  "serviceName": "SellTrust storefront",
+  "version": 1,
+  "logoUrl": "https://selltrust.app/brand/mark-color.svg",
+  "description": "Points your domain to your SellTrust storefront.",
+  "variableDescription": "IP: the address of the SellTrust storefront servers",
+  "syncBlock": false,
+  "syncPubKeyDomain": "selltrust.app",
+  "syncRedirectDomain": "dashboard.selltrust.app,dev-dashboard.selltrust.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 300
+    }
+  ]
+}

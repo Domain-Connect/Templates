@@ -1,0 +1,20 @@
+{
+  "providerId": "tenantward.com",
+  "providerName": "TenantWard",
+  "serviceId": "spf-microsoft365",
+  "serviceName": "SPF for Microsoft 365",
+  "version": 1,
+  "logoUrl": "https://www.tenantward.com/icon-512.png",
+  "description": "Adds Microsoft 365 to the domain's SPF record so its email isn't marked as spoofed. Existing SPF entries are kept.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tenantward.com",
+  "syncRedirectDomain": "www.tenantward.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.protection.outlook.com"
+    }
+  ]
+}

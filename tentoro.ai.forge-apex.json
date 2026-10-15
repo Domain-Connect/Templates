@@ -1,0 +1,36 @@
+{
+  "providerId": "tentoro.ai",
+  "providerName": "Tentoro",
+  "version": 1,
+  "syncPubKeyDomain": "tentoro.ai",
+  "logoUrl": "https://tentoro.ai/wp-content/uploads/2025/04/Tentoro-Fav-Icon-300x300.png",
+  "syncRedirectDomain": "forge-v3.tentoro.ai",
+  "serviceId": "forge-apex",
+  "serviceName": "Forge app on a domain",
+  "description": "Points a domain, and its www, at an application built with Forge and hosted on Vercel.",
+  "variableDescription": "ip: Vercel's address; target: the address Vercel serves www from; proof: Vercel's ownership token",
+  "records": [
+    {
+      "groupId": "main",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "proof",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%proof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

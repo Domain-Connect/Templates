@@ -1,0 +1,29 @@
+{
+  "providerId": "commonlynk.com",
+  "providerName": "CommonLynk",
+  "serviceId": "workspace",
+  "serviceName": "CommonLynk workspace",
+  "version": 1,
+  "logoUrl": "https://commonlynk.com/static/brand/png/commonlynk-mark-512.8d93225f3137.png",
+  "description": "Connects a subdomain to a CommonLynk workspace: a CNAME for routing and a TXT record proving control.",
+  "variableDescription": "challenge: the per-domain verification token",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "commonlynk.com",
+  "syncRedirectDomain": "commonlynk.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.commonlynk.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_commonlynk-challenge",
+      "data": "commonlynk-verification=%challenge%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
