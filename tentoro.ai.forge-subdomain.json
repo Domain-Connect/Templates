@@ -1,10 +1,10 @@
 {
   "providerId": "tentoro.ai",
   "providerName": "Tentoro",
-  "version": 1,
+  "version": 2,
   "syncPubKeyDomain": "tentoro.ai",
   "logoUrl": "https://tentoro.ai/wp-content/uploads/2025/04/Tentoro-Fav-Icon-300x300.png",
-  "syncRedirectDomain": "forge-v3.tentoro.ai",
+  "syncRedirectDomain": "tentoro.ai,forge.tentoro.ai,forge-v3.tentoro.ai",
   "serviceId": "forge-subdomain",
   "serviceName": "Forge app on a subdomain",
   "hostRequired": true,
