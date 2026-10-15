@@ -1,0 +1,30 @@
+{
+  "providerId": "admixbrasil.com.br",
+  "providerName": "AdmixBrasil",
+  "serviceId": "bio",
+  "serviceName": "Endereço próprio da página de link na bio",
+  "version": 1,
+  "logoUrl": "https://admixbrasil.com.br/icons/icon-512.png",
+  "description": "Liga um endereço do seu site (ex.: links.sualoja.com.br) à sua página de link na bio da AdmixBrasil.",
+  "variableDescription": "%proof%: código de verificação gerado pela AdmixBrasil a cada pedido (prova que quem pediu cuida do domínio). O CNAME sempre aponta para bio.admixbrasil.com.br.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "admixbrasil.com.br",
+  "syncRedirectDomain": "admixbrasil.com.br",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "bio.admixbrasil.com.br",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_admixbrasil",
+      "data": "%proof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
