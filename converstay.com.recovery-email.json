@@ -44,7 +44,7 @@
     {
       "groupId": "tracking",
       "type": "CNAME",
-      "host": "link",
+      "host": "links",
       "pointsTo": "links2.resend-dns.com",
       "ttl": 3600
     },
