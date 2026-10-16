@@ -1,0 +1,83 @@
+{
+  "providerId": "edpid.com",
+  "providerName": "EDP Mail",
+  "serviceId": "mail",
+  "serviceName": "Mail",
+  "version": 1,
+  "logoUrl": "https://edpid.com/edp-id-logo.svg",
+  "description": "E-mail hosting for the domain on EDP Mail (mail.edpid.com): ownership verification, MX for receiving, SPF and DKIM for sending, SRV records for mail client autoconfiguration.",
+  "variableDescription": "verify: the per-domain ownership token shown in EDP Mail settings (edp-verify=<token>). dkimSelector and dkimKey: the selector and RSA-2048 public key of the DKIM signature created for the domain by EDP Mail.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "edpid.com",
+  "syncRedirectDomain": "edpid.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_edp-verify",
+      "data": "edp-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "edp-verify="
+    },
+    {
+      "groupId": "receive",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.edpid.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "receive",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.edpid.com"
+    },
+    {
+      "groupId": "send",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "clients",
+      "type": "SRV",
+      "name": "@",
+      "service": "_imaps",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 993,
+      "target": "mail.edpid.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "clients",
+      "type": "SRV",
+      "name": "@",
+      "service": "_submissions",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 465,
+      "target": "mail.edpid.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "clients",
+      "type": "SRV",
+      "name": "@",
+      "service": "_submission",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 587,
+      "target": "mail.edpid.com",
+      "ttl": 3600
+    }
+  ]
+}
