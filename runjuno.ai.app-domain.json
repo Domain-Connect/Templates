@@ -1,0 +1,21 @@
+{
+  "providerId": "runjuno.ai",
+  "providerName": "Juno",
+  "serviceId": "app-domain",
+  "serviceName": "Custom Domain",
+  "version": 1,
+  "logoUrl": "https://www.runjuno.ai/juno-mark.svg",
+  "description": "Points a subdomain at a website or app built with Juno",
+  "variableDescription": "%claim%: the label Juno issues for this domain claim, so the record points at c-%claim%.runjuno.app",
+  "syncPubKeyDomain": "domainconnect.runjuno.ai",
+  "syncRedirectDomain": "www.runjuno.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "c-%claim%.runjuno.app",
+      "ttl": "300"
+    }
+  ]
+}
