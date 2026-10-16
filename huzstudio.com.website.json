@@ -8,6 +8,7 @@
   "syncPubKeyDomain": "domainconnect.huzstudio.com",
   "syncRedirectDomain": "huzstudio.com",
   "syncBlock": false,
+  "hostRequired": true,
   "records": [
     { "type": "A", "groupId": "ipv4", "host": "@", "pointsTo": "%ipv4%", "ttl": 600 },
     { "type": "CNAME", "groupId": "cname", "host": "@", "pointsTo": "%cname%", "ttl": 600 },
