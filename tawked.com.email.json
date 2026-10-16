@@ -1,0 +1,22 @@
+{
+  "providerId": "tawked.com",
+  "providerName": "Tawked",
+  "serviceId": "email",
+  "serviceName": "Tawked Email",
+  "version": 1,
+  "logoUrl": "https://tawked.com/icon.svg",
+  "description": "Authorizes Tawked to send email from your domain, by adding the one DKIM record that verifies the domain and signs its mail with Tawked's key for it.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tawked.com",
+  "syncRedirectDomain": "tawked.com",
+  "variableDescription": "%selector%: the DKIM selector (tawked); %publickey%: the domain's DKIM public key, base64, made by Tawked for this domain",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "p=%publickey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "providerId": "tinyteam.io",
+  "providerName": "Tiny Team",
+  "serviceId": "feedback-cloudflare",
+  "serviceName": "Feedback portal",
+  "logoUrl": "https://www.tinyteam.io/icon-512.png",
+  "version": 1,
+  "description": "Connect a subdomain to your Tiny Team customer feedback portal, verify ownership and enable automatic HTTPS certificate renewal.",
+  "variableDescription": "verificationToken is the organization's Tiny Team ownership challenge. dcvTarget is the exact customer hostname followed by Tiny Team's Cloudflare DCV delegation suffix. providerToken is Cloudflare's hostname ownership token when the provider group is included. The routing group is omitted while an existing portal is being prevalidated.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.tinyteam.io",
+  "syncRedirectDomain": "app.tinyteam.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "routing",
+      "host": "@",
+      "pointsTo": "customers.tinyteam.cloud",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_tinyteam-feedback-verification",
+      "data": "tinyteam-feedback=%verificationToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "tinyteam-feedback=",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "groupId": "certificate",
+      "host": "_acme-challenge",
+      "pointsTo": "%dcvTarget%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "provider",
+      "host": "_cf-custom-hostname",
+      "data": "%providerToken%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 300
+    }
+  ]
+}

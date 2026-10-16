@@ -1,0 +1,81 @@
+{
+	"providerId": "megheemail.online",
+	"providerName": "Meghee Mail",
+	"serviceId": "mail",
+	"serviceName": "Email hosting",
+	"version": 1,
+	"logoUrl": "https://megheemail.online/logo.svg",
+	"description": "Receive and send email for your domain with Meghee Mail: routes incoming mail to Meghee Mail, authorises it to send for you, and publishes signing, reporting and Outlook auto-setup records.",
+	"variableDescription": "%dkimToken1%, %dkimToken2%, %dkimToken3%: Amazon SES DKIM tokens for the domain; %dkimPublicKey%: base64 RSA public key for the domain's own DKIM selector",
+	"syncPubKeyDomain": "megheemail.online",
+	"syncRedirectDomain": "megheemail.online",
+	"records": [
+		{
+			"groupId": "signing",
+			"type": "CNAME",
+			"host": "%dkimToken1%._domainkey",
+			"pointsTo": "%dkimToken1%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "signing",
+			"type": "CNAME",
+			"host": "%dkimToken2%._domainkey",
+			"pointsTo": "%dkimToken2%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "signing",
+			"type": "CNAME",
+			"host": "%dkimToken3%._domainkey",
+			"pointsTo": "%dkimToken3%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"groupId": "spf",
+			"type": "SPFM",
+			"host": "@",
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"groupId": "mx",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "mx1.megheemail.online",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "dmarc",
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "v=DMARC1; p=none; rua=mailto:dmarc@megheemail.online",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1",
+			"essential": "OnApply",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "TXT",
+			"host": "meghee._domainkey",
+			"data": "v=DKIM1; k=rsa; p=%dkimPublicKey%",
+			"txtConflictMatchingMode": "All",
+			"essential": "OnApply",
+			"ttl": 3600
+		},
+		{
+			"groupId": "autodiscover",
+			"type": "SRV",
+			"name": "",
+			"service": "_autodiscover",
+			"protocol": "_tcp",
+			"priority": 0,
+			"weight": 0,
+			"port": 443,
+			"target": "mx1.megheemail.online",
+			"essential": "OnApply",
+			"ttl": 3600
+		}
+	]
+}

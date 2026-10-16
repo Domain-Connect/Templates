@@ -1,0 +1,21 @@
+{
+  "providerId": "tentoro.ai",
+  "providerName": "Tentoro",
+  "version": 2,
+  "syncPubKeyDomain": "tentoro.ai",
+  "logoUrl": "https://tentoro.ai/wp-content/uploads/2025/04/Tentoro-Fav-Icon-300x300.png",
+  "syncRedirectDomain": "tentoro.ai,forge.tentoro.ai,forge-v3.tentoro.ai",
+  "serviceId": "forge-subdomain",
+  "serviceName": "Forge app on a subdomain",
+  "hostRequired": true,
+  "description": "Points a subdomain at an application built with Forge and hosted on Vercel.",
+  "variableDescription": "target: the address Vercel serves the application from",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
