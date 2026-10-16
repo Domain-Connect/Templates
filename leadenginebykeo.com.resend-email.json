@@ -4,7 +4,7 @@
   "serviceId": "resend-email",
   "serviceName": "Email sending (Resend)",
   "version": 1,
-  "logoUrl": "https://leadenginebykeo.com/favicon.svg",
+  "logoUrl": "https://leadenginebykeo.com/le-img/site/img-d0386ad53679.svg",
   "description": "Lets Lead Engine send your campaign emails from your own domain through Resend.",
   "variableDescription": "dkim: Resend's DKIM key for this domain (after p=). region: Resend's sending region (e.g. us-east-1). rsend: Resend's tracking target.",
   "syncBlock": false,
@@ -31,12 +31,9 @@
     },
     {
       "groupId": "spf",
-      "type": "TXT",
+      "type": "SPFM",
       "host": "send",
-      "data": "v=spf1 include:amazonses.com ~all",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1"
+      "spfRules": "include:amazonses.com"
     },
     {
       "groupId": "rsend",
