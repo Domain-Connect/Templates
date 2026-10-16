@@ -1,0 +1,20 @@
+{
+  "providerId": "ceyn.dev",
+  "providerName": "Ceyn",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain ownership verification",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "ceyn.dev",
+  "syncRedirectDomain": "ceyn.dev",
+  "description": "Verify ownership of a domain connected to a Ceyn website project.",
+  "logoUrl": "https://cdn.ceyn.dev/logo.png",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_ceyn-verify",
+      "ttl": 3600,
+      "data": "ceyn-domain-verification=%verificationToken%"
+    }
+  ]
+}
