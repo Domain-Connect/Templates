@@ -1,0 +1,20 @@
+{
+  "providerId": "siguree.com",
+  "providerName": "Siguree",
+  "version": 1,
+  "logoUrl": "https://app.siguree.com/brand/logo-mark.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "siguree.com",
+  "syncRedirectDomain": "app.siguree.com",
+  "hostRequired": false,
+  "serviceId": "m365-mail-auth",
+  "serviceName": "Siguree mail authentication (Microsoft 365)",
+  "description": "Merges Microsoft 365 into SPF for the sender domain used with Siguree.",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.protection.outlook.com"
+    }
+  ]
+}
