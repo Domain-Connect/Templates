@@ -1,0 +1,27 @@
+{
+  "providerId": "devhelp.pk",
+  "providerName": "devhelp shop",
+  "serviceId": "store",
+  "serviceName": "Online store",
+  "version": 1,
+  "logoUrl": "https://shop.devhelp.pk/brand-icon.svg",
+  "description": "Points a subdomain such as shop.example.com at a devhelp shop store and lets its certificate renew. Email and nameservers are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "devhelp.pk",
+  "syncRedirectDomain": "admin.devhelp.pk,admin-dev.devhelp.pk",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "shops.devhelp.pk",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.4d735d0214562f77.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}
