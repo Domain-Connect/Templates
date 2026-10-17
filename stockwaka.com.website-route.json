@@ -1,0 +1,22 @@
+{
+  "providerId": "stockwaka.com",
+  "providerName": "Stockwaka",
+  "serviceId": "website-route",
+  "serviceName": "Stockwaka shop website — point domain",
+  "version": 1,
+  "description": "Points this subdomain (for example www) at your Stockwaka shop website. Email (MX) records are not changed.",
+  "variableDescription": "target: the hostname shown in your Stockwaka panel",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "stockwaka.com",
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
