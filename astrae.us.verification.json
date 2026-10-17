@@ -3,7 +3,7 @@
     "providerName": "Astraeus",
     "serviceId": "verification",
     "serviceName": "Astraeus Domain Verification",
-    "version": 1,
+    "version": 2,
     "description": "Creates the TXT ownership record Astraeus needs to verify you control this domain before monitoring its external attack surface.",
     "logoUrl": "https://astrae.us/icon.svg",
     "syncPubKeyDomain": "domain-connect.astrae.us",
