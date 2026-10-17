@@ -1,0 +1,60 @@
+{
+  "providerId": "supermailos.com",
+  "providerName": "SuperMailOS",
+  "serviceId": "mail",
+  "serviceName": "SuperMailOS business email",
+  "version": 1,
+  "logoUrl": "https://supermailos.com/brand/mark-violet.svg",
+  "description": "Connects a domain to SuperMailOS hosted business email: MX to the SuperMailOS mail server, SPF authorization (SPFM merge), the domain's two DKIM public keys (Ed25519 + RSA, per-domain dated selectors), and a DMARC policy whose aggregate reports go to SuperMailOS.",
+  "variableDescription": "edselector / rsaselector: the per-domain DKIM selectors the SuperMailOS mail server generated (for example v1-ed25519-20260704 and v1-rsa-20260704). edkey / rsakey: the matching base64 DKIM public keys (the p= value). dmarc: the DMARC tags after 'v=DMARC1; ', for example 'p=none; rua=mailto:dmarc@supermailos.com'.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "syncPubKeyDomain": "supermailos.com",
+  "syncRedirectDomain": "supermailos.com",
+  "multiInstance": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.supermailos.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "%edselector%._domainkey",
+      "data": "v=DKIM1; k=ed25519; h=sha256; p=%edkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "%rsaselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; h=sha256; p=%rsakey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
