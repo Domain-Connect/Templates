@@ -1,0 +1,25 @@
+{
+  "providerId": "vmpagency.com",
+  "providerName": "VMP Agency",
+  "serviceId": "website",
+  "serviceName": "VMP Agency Website",
+  "version": 1,
+  "logoUrl": "https://vmpagency.com/brand/vmp-dark.png",
+  "description": "Points the domain at the website VMP Agency built and hosts for the customer. Sets the apex A record and the www CNAME only, never touches mail or any other record.",
+  "syncPubKeyDomain": "vmpagency.com",
+  "syncRedirectDomain": "account.vmpagency.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    }
+  ]
+}
