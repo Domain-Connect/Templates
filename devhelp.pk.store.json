@@ -4,11 +4,11 @@
   "serviceId": "store",
   "serviceName": "Online store",
   "version": 1,
-  "logoUrl": "https://shop.devhelp.pk/brand-icon.svg",
+  "logoUrl": "https://devhelp.pk/brand-icon.svg",
   "description": "Points a subdomain such as shop.example.com at a devhelp shop store and lets its certificate renew. Email and nameservers are not changed.",
   "syncBlock": false,
   "syncPubKeyDomain": "devhelp.pk",
-  "syncRedirectDomain": "admin.devhelp.pk,admin-dev.devhelp.pk",
+  "syncRedirectDomain": "app.devhelp.pk,app-dev.devhelp.pk",
   "hostRequired": true,
   "records": [
     {
