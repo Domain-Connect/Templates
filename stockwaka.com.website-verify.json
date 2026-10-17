@@ -1,0 +1,22 @@
+{
+  "providerId": "stockwaka.com",
+  "providerName": "Stockwaka",
+  "serviceId": "website-verify",
+  "serviceName": "Stockwaka shop website — verify domain",
+  "version": 1,
+  "description": "Proves you own this domain so your Stockwaka shop website can use it. Adds one TXT record; your current website and email are not changed.",
+  "variableDescription": "token: the verification value shown in your Stockwaka panel",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "stockwaka.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_stockwaka",
+      "data": "stockwaka-site-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
