@@ -1,0 +1,32 @@
+{
+  "providerId": "devhelp.pk",
+  "providerName": "devhelp shop",
+  "serviceId": "store-www",
+  "serviceName": "Online store",
+  "version": 1,
+  "logoUrl": "https://shop.devhelp.pk/brand-icon.svg",
+  "description": "Points www at a devhelp shop store and forwards the root domain to it, for DNS providers without root CNAME support. Email and nameservers are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "devhelp.pk",
+  "syncRedirectDomain": "admin.devhelp.pk,admin-dev.devhelp.pk",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "shops.devhelp.pk",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge.www",
+      "pointsTo": "www.%fqdn%.4d735d0214562f77.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}
