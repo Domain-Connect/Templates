@@ -1,0 +1,76 @@
+{
+  "providerId": "showhubco.com",
+  "providerName": "Show Hub",
+  "serviceId": "hub",
+  "serviceName": "Show Hub site",
+  "version": 1,
+  "logoUrl": "https://www.showhubco.com/show-hub-mark.svg",
+  "description": "Points your domain or subdomain at your Show Hub podcast site. Optionally verifies the domain with Google Search Console and adds email-sending (SPF/DKIM) records.",
+  "variableDescription": "sub: subdomain for the site (e.g. listen); vhost/vtoken: hosting ownership TXT; gtoken: Google site-verification token; dkimhost/dkim: DKIM selector host and public key; mailhost/mx: bounce-handling host and MX target.",
+  "syncBlock": false,
+  "sharedProviderName": true,
+  "syncPubKeyDomain": "domainconnect.showhubco.com",
+  "syncRedirectDomain": "www.showhubco.com,showhubco.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sub",
+      "type": "CNAME",
+      "host": "%sub%",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 300
+    },
+    {
+      "groupId": "apex",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "vercel",
+      "type": "TXT",
+      "host": "%vhost%",
+      "data": "%vtoken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "google",
+      "type": "TXT",
+      "host": "@",
+      "data": "google-site-verification=%gtoken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "email",
+      "type": "TXT",
+      "host": "%dkimhost%",
+      "data": "%dkim%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "email",
+      "type": "MX",
+      "host": "%mailhost%",
+      "pointsTo": "%mx%",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "groupId": "email",
+      "type": "SPFM",
+      "host": "%mailhost%",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
