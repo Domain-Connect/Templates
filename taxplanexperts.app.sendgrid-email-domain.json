@@ -1,0 +1,34 @@
+{
+  "providerId": "taxplanexperts.app",
+  "providerName": "Tax Plan Experts",
+  "serviceId": "sendgrid-email-domain",
+  "serviceName": "Tax Plan Experts SendGrid Email Domain",
+  "version": 1,
+  "logoUrl": "https://taxplanexperts.app/favicon-tm.ico",
+  "name": "Tax Plan Experts SendGrid Email Domain",
+  "description": "Publishes the three SendGrid CNAME records required to authenticate a custom no-reply@ sending domain for Tax Plan Experts. No mailbox is created and MX records are not changed.",
+  "variableDescription": "%hostMailCname%: SendGrid return-path label under the customer domain (e.g. em1234); %targetMailCname%: SendGrid return-path target; %hostDkim1%/%hostDkim2%: DKIM selectors (e.g. s1, s2) used as %hostDkimN%._domainkey; %targetDkim1%/%targetDkim2%: SendGrid DKIM CNAME targets.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "taxplanexperts.app",
+  "syncRedirectDomain": "taxplanexperts.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%hostMailCname%",
+      "pointsTo": "%targetMailCname%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%hostDkim1%._domainkey",
+      "pointsTo": "%targetDkim1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%hostDkim2%._domainkey",
+      "pointsTo": "%targetDkim2%",
+      "ttl": 3600
+    }
+  ]
+}
