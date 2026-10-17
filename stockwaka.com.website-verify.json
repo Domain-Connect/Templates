@@ -10,7 +10,6 @@
   "sharedProviderName": false,
   "hostRequired": false,
   "syncPubKeyDomain": "stockwaka.com",
-  "warnPhishing": true,
   "records": [
     {
       "type": "TXT",
