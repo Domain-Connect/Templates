@@ -4,11 +4,11 @@
   "serviceId": "store-www",
   "serviceName": "Online store",
   "version": 1,
-  "logoUrl": "https://shop.devhelp.pk/brand-icon.svg",
+  "logoUrl": "https://devhelp.pk/brand-icon.svg",
   "description": "Points www at a devhelp shop store and forwards the root domain to it, for DNS providers without root CNAME support. Email and nameservers are not changed.",
   "syncBlock": false,
   "syncPubKeyDomain": "devhelp.pk",
-  "syncRedirectDomain": "admin.devhelp.pk,admin-dev.devhelp.pk",
+  "syncRedirectDomain": "app.devhelp.pk,app-dev.devhelp.pk",
   "hostRequired": false,
   "records": [
     {
