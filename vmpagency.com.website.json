@@ -4,7 +4,7 @@
   "serviceId": "website",
   "serviceName": "VMP Agency Website",
   "version": 1,
-  "logoUrl": "https://vmpagency.com/brand/vmp-dark.png",
+  "logoUrl": "https://account.vmpagency.com/brand/vmp-agency-logo.svg",
   "description": "Points the domain at the website VMP Agency built and hosts for the customer. Sets the apex A record and the www CNAME only, never touches mail or any other record.",
   "syncPubKeyDomain": "vmpagency.com",
   "syncRedirectDomain": "account.vmpagency.com",
