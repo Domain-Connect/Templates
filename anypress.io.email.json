@@ -26,7 +26,8 @@
     {
       "type": "SPFM",
       "host": "send",
-      "spfRules": "include:amazonses.com"
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
     }
   ]
 }
