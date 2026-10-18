@@ -1,0 +1,26 @@
+{
+  "providerId": "websols.net",
+  "providerName": "WebSols",
+  "serviceId": "businessemail",
+  "serviceName": "Business email",
+  "version": 1,
+  "logoUrl": "https://billing.websols.net/brand/websols-logo.png",
+  "description": "Sets up Business email by WebSols: incoming mail (MX), SPF (merged into any existing SPF record), DKIM, domain verification, and the webmail, autodiscover and autoconfig addresses.",
+  "variableDescription": "verification: the value of the mx-verification TXT record; dkimhost: the DKIM record's host (e.g. abc123._domainkey); dkimvalue: the DKIM record's value (v=DKIM1; …)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "syncPubKeyDomain": "websols.net",
+  "syncRedirectDomain": "billing.websols.net,admin.websols.net",
+  "hostRequired": false,
+  "records": [
+    { "type": "MX", "host": "@", "pointsTo": "mx.servershost.biz", "priority": 5, "ttl": 3600 },
+    { "type": "MX", "host": "@", "pointsTo": "mx2.servershost.biz", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "@", "spfRules": "include:servershost.biz" },
+    { "type": "CNAME", "host": "webmail", "pointsTo": "webredirect.servershost.biz", "ttl": 3600 },
+    { "type": "CNAME", "host": "autodiscover", "pointsTo": "autodiscover.servershost.biz", "ttl": 3600 },
+    { "type": "CNAME", "host": "autoconfig", "pointsTo": "autoconfig.servershost.biz", "ttl": 3600 },
+    { "type": "TXT", "host": "mx-verification", "data": "%verification%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "TXT", "host": "%dkimhost%", "data": "%dkimvalue%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}
