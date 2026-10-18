@@ -1,0 +1,54 @@
+{
+    "providerId": "crige",
+    "providerName": "Crige",
+    "serviceId": "email",
+    "serviceName": "Crige email",
+    "version": 1,
+    "logoUrl": "https://crige.com/favicon.svg",
+    "description": "Sets up email for a name you own in your Crige workspace: receiving (MX), sender checks (SPF, DKIM, DMARC) and a one-time ownership check.",
+    "variableDescription": "%verifyToken%: one-time ownership token shown in Crige; %dkimkey%: DKIM selector for mail signing",
+    "syncPubKeyDomain": "crige.com",
+    "syncRedirectDomain": "crige.com,staging.crige.com",
+    "records": [
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_crige-verify",
+            "data": "crige-verify=%verifyToken%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "crige-verify=",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mail",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "inbound.crige.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mail",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:_spf.crige.com"
+        },
+        {
+            "groupId": "mail",
+            "type": "CNAME",
+            "host": "%dkimkey%._domainkey",
+            "pointsTo": "%dkimkey%._domainkey.crige.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mail",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc@crige.com",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply",
+            "ttl": 3600
+        }
+    ]
+}
