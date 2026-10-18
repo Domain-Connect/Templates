@@ -1,0 +1,23 @@
+{
+    "providerId": "pzx.app",
+    "providerName": "PZX",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain verification",
+    "version": 1,
+    "logoUrl": "https://pzx.app/logo.svg",
+    "description": "Proves to PZX that an organization controls this domain, so its members' email addresses on it can sign in through the organization's single sign-on: one TXT record on _pzx-verification.",
+    "variableDescription": "%token%: the verification token PZX issued for the domain",
+    "syncBlock": false,
+    "syncPubKeyDomain": "pzx.app",
+    "syncRedirectDomain": "auth.pzx.app",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_pzx-verification",
+            "data": "pzx-verification=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "pzx-verification="
+        }
+    ]
+}
