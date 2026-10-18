@@ -6,11 +6,12 @@
   "version": 1,
   "logoUrl": "https://www.showhubco.com/show-hub-mark.svg",
   "description": "Points your domain or subdomain at your Show Hub podcast site. Optionally verifies the domain with Google Search Console and adds email-sending (SPF/DKIM) records.",
-  "variableDescription": "sub: subdomain for the site (e.g. listen); vhost/vtoken: hosting ownership TXT; gtoken: Google site-verification token; dkimhost/dkim: DKIM selector host and public key; mailhost/mx: bounce-handling host and MX target.",
+  "variableDescription": "sub: subdomain label for the site (e.g. listen); vtoken: hosting ownership challenge; gtoken: Google site-verification token; dkimkey/dkim: DKIM selector and public key; region: AWS region of the bounce-handling MX target.",
   "syncBlock": false,
   "sharedProviderName": true,
   "syncPubKeyDomain": "domainconnect.showhubco.com",
   "syncRedirectDomain": "www.showhubco.com,showhubco.com",
+  "multiInstance": true,
   "hostRequired": false,
   "records": [
     {
@@ -37,8 +38,8 @@
     {
       "groupId": "vercel",
       "type": "TXT",
-      "host": "%vhost%",
-      "data": "%vtoken%",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%vtoken%",
       "ttl": 300,
       "txtConflictMatchingMode": "None"
     },
@@ -53,23 +54,23 @@
     {
       "groupId": "email",
       "type": "TXT",
-      "host": "%dkimhost%",
-      "data": "%dkim%",
+      "host": "%dkimkey%._domainkey",
+      "data": "p=%dkim%",
       "ttl": 300,
       "txtConflictMatchingMode": "All"
     },
     {
       "groupId": "email",
       "type": "MX",
-      "host": "%mailhost%",
-      "pointsTo": "%mx%",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
       "priority": 10,
       "ttl": 300
     },
     {
       "groupId": "email",
       "type": "SPFM",
-      "host": "%mailhost%",
+      "host": "send",
       "spfRules": "include:amazonses.com"
     }
   ]
