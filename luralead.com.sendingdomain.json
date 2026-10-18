@@ -1,0 +1,33 @@
+{
+  "providerId": "luralead.com",
+  "providerName": "LuraLead",
+  "serviceId": "sendingdomain",
+  "serviceName": "LuraLead email sending",
+  "version": 1,
+  "logoUrl": "https://www.luralead.com/icon.svg",
+  "description": "Lets LuraLead send email for your domain through Amazon SES by adding the three DKIM signing records Amazon SES issued for it.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the Amazon SES Easy DKIM tokens issued for the domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "luralead.com",
+  "syncRedirectDomain": "www.luralead.com,luralead.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
