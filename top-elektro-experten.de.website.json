@@ -1,0 +1,30 @@
+{
+  "providerId": "top-elektro-experten.de",
+  "providerName": "Top-Elektro-Experten",
+  "serviceId": "website",
+  "serviceName": "Website-Hosting",
+  "version": 1,
+  "logoUrl": "https://top-elektro-experten.de/static/logo.png",
+  "description": "Verbindet die Domain mit der von Top-Elektro-Experten gehosteten Website (A-Records für Apex und www).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "top-elektro-experten.de",
+  "syncRedirectDomain": "mein.top-elektro-experten.de",
+  "hostRequired": false,
+  "warnPhishing": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%IP%",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
