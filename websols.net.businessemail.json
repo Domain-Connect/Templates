@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://billing.websols.net/brand/websols-logo.png",
   "description": "Sets up Business email by WebSols: incoming mail (MX), SPF (merged into any existing SPF record), DKIM, domain verification, and the webmail, autodiscover and autoconfig addresses.",
-  "variableDescription": "verification: the value of the mx-verification TXT record; dkimhost: the DKIM record's host (e.g. abc123._domainkey); dkimvalue: the DKIM record's value (v=DKIM1; …)",
+  "variableDescription": "verification: the domain verification token issued by our mail platform; dkimselector: the DKIM selector (e.g. abc123 for abc123._domainkey); dkimkey: the DKIM public key (the p= value, base64)",
   "syncBlock": false,
   "sharedProviderName": false,
   "sharedServiceName": false,
@@ -21,6 +21,6 @@
     { "type": "CNAME", "host": "autodiscover", "pointsTo": "autodiscover.servershost.biz", "ttl": 3600 },
     { "type": "CNAME", "host": "autoconfig", "pointsTo": "autoconfig.servershost.biz", "ttl": 3600 },
     { "type": "TXT", "host": "mx-verification", "data": "%verification%", "ttl": 3600, "txtConflictMatchingMode": "All" },
-    { "type": "TXT", "host": "%dkimhost%", "data": "%dkimvalue%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+    { "type": "TXT", "host": "%dkimselector%._domainkey", "data": "v=DKIM1;p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All" }
   ]
 }
