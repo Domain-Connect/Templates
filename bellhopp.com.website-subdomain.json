@@ -1,0 +1,30 @@
+{
+  "providerId": "bellhopp.com",
+  "providerName": "BellHopp",
+  "version": 1,
+  "logoUrl": "https://bellhopp.com/domain-connect-logo.png",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "bellhopp.com",
+  "syncRedirectDomain": "bellhopp.com",
+  "serviceId": "website-subdomain",
+  "serviceName": "BellHopp direct-booking website (subdomain)",
+  "description": "Points a subdomain such as stays.yourbrand.com at your BellHopp website and proves to BellHopp that it is yours.",
+  "variableDescription": "verifyToken: one-time ownership token BellHopp issues for this domain",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "bellhopp.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_bellhopp-verify",
+      "data": "bellhopp-verify=%verifyToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
