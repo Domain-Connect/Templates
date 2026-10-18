@@ -1,0 +1,22 @@
+{
+  "providerId": "dinabite.ai",
+  "providerName": "Dinabite",
+  "serviceId": "whitelabel",
+  "serviceName": "App domain verification",
+  "version": 1,
+  "description": "Adds the TXT record that proves you own the hostname you're connecting to Dinabite (for example app.example.com for a white-label app).",
+  "variableDescription": "VERIFYTOKEN: lowercase verification token from Dinabite (fills the TXT value as dinabite-verify=<token>).",
+  "syncPubKeyDomain": "domainconnect.dinabite.ai",
+  "syncRedirectDomain": "dinabite.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dinabite",
+      "ttl": 300,
+      "data": "dinabite-verify=%VERIFYTOKEN%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dinabite-verify="
+    }
+  ],
+  "logoUrl": "https://dinabite.ai/icon.png"
+}
