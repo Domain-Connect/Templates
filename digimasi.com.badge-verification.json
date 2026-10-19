@@ -1,0 +1,22 @@
+{
+    "providerId": "digimasi.com",
+    "providerName": "Digimasi",
+    "serviceId": "badge-verification",
+    "serviceName": "Digimasi badge domain verification",
+    "version": 1,
+    "logoUrl": "https://digimasi.com/mark.svg",
+    "description": "Adds one TXT record that shows you own this domain, so Digimasi can issue the free Security Headers Check badge for it. No other record is changed.",
+    "variableDescription": "%token%: the one-time verification code shown on digimasi.com",
+    "syncPubKeyDomain": "domainconnect.digimasi.com",
+    "syncRedirectDomain": "digimasi.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_digimasi",
+            "data": "digimasi-verify=%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "digimasi-verify="
+        }
+    ]
+}
