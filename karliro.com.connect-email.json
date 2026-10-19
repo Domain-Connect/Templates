@@ -1,0 +1,21 @@
+{
+  "providerId": "karliro.com",
+  "providerName": "Karliro",
+  "serviceId": "connect-email",
+  "serviceName": "Karliro Connect email",
+  "version": 1,
+  "logoUrl": "https://karliro.com/favicon.svg",
+  "description": "Lets your dealership send customer email from your own domain through Karliro Connect.",
+  "variableDescription": "dkim: the DKIM public key (p=...) for resend._domainkey; region: the email service region in the return-path MX host",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "karliro.com",
+  "syncRedirectDomain": "karliro.com,staging.karliro.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "TXT", "host": "resend._domainkey", "data": "%dkim%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "MX", "host": "send", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com" },
+    { "type": "CNAME", "host": "rsend", "pointsTo": "send.forge.rmta.net", "ttl": 3600 }
+  ]
+}
