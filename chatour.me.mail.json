@@ -1,0 +1,91 @@
+{
+  "providerId": "chatour.me",
+  "providerName": "Chatour",
+  "serviceId": "mail",
+  "serviceName": "Chatour Mail System",
+  "version": 1,
+  "logoUrl": "https://chatour.me/assets/svg/logo-blue.svg",
+  "description": "Configure Chatour Mail System DNS records and ownership verification",
+  "syncBlock": false,
+  "syncPubKeyDomain": "_dcpubkey.chatour.me",
+  "sharedServiceName": true,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_chatoor-verify",
+      "data": "chatoor-verification=%verifytoken%",
+      "ttl": 300
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.jezoor.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx a include:mail.jezoor.com"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 300
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; sp=none; rua=mailto:dmarc@mail.jezoor.com;",
+      "ttl": 300
+    },
+    {
+      "groupId": "mailhost",
+      "type": "A",
+      "host": "mail",
+      "pointsTo": "46.202.140.86",
+      "ttl": 300
+    },
+    {
+      "groupId": "clients",
+      "type": "CNAME",
+      "host": "imap",
+      "pointsTo": "mail.@",
+      "ttl": 300
+    },
+    {
+      "groupId": "clients",
+      "type": "CNAME",
+      "host": "smtp",
+      "pointsTo": "mail.@",
+      "ttl": 300
+    },
+    {
+      "groupId": "clients",
+      "type": "CNAME",
+      "host": "pop",
+      "pointsTo": "mail.@",
+      "ttl": 300
+    },
+    {
+      "groupId": "clients",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mail.@",
+      "ttl": 300
+    },
+    {
+      "groupId": "clients",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mail.@",
+      "ttl": 300
+    }
+  ]
+}
