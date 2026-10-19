@@ -16,7 +16,7 @@
     {
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "cname.vercel-dns.com",
+      "pointsTo": "domains.dinabite.ai",
       "ttl": 3600
     },
     {
