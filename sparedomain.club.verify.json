@@ -1,0 +1,23 @@
+{
+  "providerId": "sparedomain.club",
+  "providerName": "SpareDomain",
+  "serviceId": "verify",
+  "serviceName": "Domain ownership verification",
+  "version": 1,
+  "logoUrl": "https://sparedomain.club/logo.svg",
+  "description": "Adds a TXT record proving you control this domain so you can list it for swapping on sparedomain.club.",
+  "variableDescription": "token: per-account verification token issued by sparedomain.club",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sparedomain.club",
+  "syncRedirectDomain": "sparedomain.club",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_sparedomain",
+      "data": "sd=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "sd="
+    }
+  ]
+}
