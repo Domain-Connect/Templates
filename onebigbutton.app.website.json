@@ -1,0 +1,20 @@
+{
+  "providerId": "onebigbutton.app",
+  "providerName": "One Big Button",
+  "serviceId": "website",
+  "serviceName": "One Big Button website",
+  "version": 1,
+  "logoUrl": "https://onebigbutton.app/logo.png",
+  "description": "Connects your domain to your website on One Big Button. Your email and other settings are not changed.",
+  "variableDescription": "%proof%: the Cloudflare custom hostname ownership token for www, minted per domain. %padlock%: the TXT certificate (DCV) validation token for www, minted per domain when the certificate is ordered. Neither can be pre-filled or given a prefix; both are opaque single-purpose tokens at fixed underscore hosts.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "onebigbutton.app",
+  "syncRedirectDomain": "onebigbutton.app",
+  "records": [
+    { "groupId": "verify", "type": "TXT", "host": "_cf-custom-hostname.www", "data": "%proof%", "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "Always" },
+    { "groupId": "verify", "type": "TXT", "host": "_acme-challenge.www", "data": "%padlock%", "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "Always" },
+    { "groupId": "website", "type": "CNAME", "host": "www", "pointsTo": "cname.onebigbutton.site", "ttl": 3600, "essential": "Always" }
+  ]
+}
