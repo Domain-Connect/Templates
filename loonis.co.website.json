@@ -1,0 +1,26 @@
+{
+  "providerId": "loonis.co",
+  "providerName": "Loonis",
+  "serviceId": "website",
+  "serviceName": "Loonis website",
+  "version": 1,
+  "logoUrl": "https://app.loonis.co/domain-connect-logo.svg",
+  "description": "Connects a domain to a website built and hosted on Loonis.",
+  "syncPubKeyDomain": "loonis.co",
+  "syncRedirectDomain": "app.loonis.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    }
+  ]
+}

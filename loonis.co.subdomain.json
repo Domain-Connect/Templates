@@ -1,0 +1,20 @@
+{
+  "providerId": "loonis.co",
+  "providerName": "Loonis",
+  "serviceId": "subdomain",
+  "serviceName": "Loonis website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://app.loonis.co/domain-connect-logo.svg",
+  "description": "Connects a subdomain to a website built and hosted on Loonis.",
+  "syncPubKeyDomain": "loonis.co",
+  "syncRedirectDomain": "app.loonis.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    }
+  ]
+}
