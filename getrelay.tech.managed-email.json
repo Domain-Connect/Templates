@@ -1,0 +1,22 @@
+{
+    "providerId": "getrelay.tech",
+    "providerName": "getRelay",
+    "serviceId": "managed-email",
+    "serviceName": "getRelay Managed Email",
+    "version": 1,
+    "logoUrl": "https://app.getrelay.tech/logo.png",
+    "description": "Adds the DNS records getRelay needs to send and track email for your domain (DKIM, SPF, Mail-From, DMARC and click tracking).",
+    "variableDescription": "dkim1-3: Amazon SES DKIM tokens. region: Amazon SES region.",
+    "syncPubKeyDomain": "getrelay.tech",
+    "syncRedirectDomain": "app.getrelay.tech",
+    "hostRequired": false,
+    "records": [
+        { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 1800 },
+        { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 1800 },
+        { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 1800 },
+        { "type": "MX", "host": "mail", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 1800 },
+        { "type": "TXT", "host": "mail", "data": "v=spf1 include:amazonses.com -all", "ttl": 1800 },
+        { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none;", "ttl": 1800 },
+        { "type": "CNAME", "host": "track", "pointsTo": "r.%region%.awstrack.me", "ttl": 1800 }
+    ]
+}
