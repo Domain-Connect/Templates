@@ -1,0 +1,67 @@
+{
+  "providerId": "codemail.com.br",
+  "providerName": "Code.Mail",
+  "serviceId": "inbox",
+  "serviceName": "Corporate email",
+  "version": 1,
+  "logoUrl": "https://codemail.com.br/assets/logo.png",
+  "description": "Points the customer's domain to Code.Mail for corporate email: proves ownership, receives mail (MX), authorises sending (SPF) and signs messages (DKIM).",
+  "variableDescription": "%chave%: the customer's domain-ownership key, issued by Code.Mail (group 'posse'). %selector%: the DKIM selector issued for this domain; %dkim%: the public key (the p= value) of that DKIM record (group 'email'). All are unique per customer and cannot be pre-filled.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "codemail.com.br",
+  "syncRedirectDomain": "app.codemail.com.br",
+  "records": [
+    {
+      "groupId": "posse",
+      "type": "TXT",
+      "host": "_da-verify-%chave%",
+      "data": "domain-verified",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "email",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.inbox.codemail.com.br",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "email",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.inbox.codemail.com.br",
+      "priority": 20,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "email",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.inbox.codemail.com.br"
+    },
+    {
+      "groupId": "email",
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkim%",
+      "ttl": 3600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "email",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
