@@ -1,0 +1,46 @@
+{
+    "providerId": "jurnly.digital",
+    "providerName": "Jurnly",
+    "serviceId": "jmail",
+    "serviceName": "JMail sending domain",
+    "version": 1,
+    "logoUrl": "https://jurnly.digital/images/jurnly-logo-positivo-horizontal.png",
+    "description": "Publishes the DNS records needed to send e-mail from your own domain with JMail: three DKIM signatures and the return-path (MAIL FROM) subdomain send with its MX and SPF. DMARC is left out on purpose, so an existing policy is never replaced.",
+    "variableDescription": "dkim1, dkim2, dkim3: DKIM tokens of the domain (CNAME selector and target); region: sending region used in the bounce MX host (e.g. us-east-1)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "jurnly.digital",
+    "syncRedirectDomain": "jurnly.digital",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com"
+        }
+    ]
+}
