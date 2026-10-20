@@ -1,0 +1,42 @@
+{
+    "providerId": "airmailer.app",
+    "providerName": "Airmailer",
+    "serviceId": "receiving",
+    "serviceName": "Receiving email",
+    "version": 1,
+    "logoUrl": "https://www.airmailer.app/icon.svg",
+    "description": "Lets Airmailer receive and send email on a subdomain through Resend: an MX record for the subdomain, a DKIM key at resend._domainkey, and the return-path subdomain airmailer with its MX and SPF records. Apply with the host parameter set to the subdomain (e.g. help); applied without it, the MX record would replace the domain's own mail servers.",
+    "variableDescription": "%dkimkey%: the DKIM public key Resend issued for the subdomain, without the leading p=. %region%: the subdomain's Resend region, e.g. eu-west-1.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "airmailer.app",
+    "syncRedirectDomain": "www.airmailer.app,airmailer.app",
+    "records": [
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "MX",
+            "host": "airmailer",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "airmailer",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        }
+    ]
+}

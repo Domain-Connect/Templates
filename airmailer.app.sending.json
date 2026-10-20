@@ -1,0 +1,35 @@
+{
+    "providerId": "airmailer.app",
+    "providerName": "Airmailer",
+    "serviceId": "sending",
+    "serviceName": "Sending domain",
+    "version": 1,
+    "logoUrl": "https://www.airmailer.app/icon.svg",
+    "description": "Lets Airmailer send email from this domain through Resend: a DKIM key at resend._domainkey, and the return-path subdomain airmailer with its MX and SPF records.",
+    "variableDescription": "%dkimkey%: the DKIM public key Resend issued for this domain, without the leading p=. %region%: the domain's Resend sending region, e.g. eu-west-1.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "airmailer.app",
+    "syncRedirectDomain": "www.airmailer.app,airmailer.app",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "MX",
+            "host": "airmailer",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "airmailer",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        }
+    ]
+}
