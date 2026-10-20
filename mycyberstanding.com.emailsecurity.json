@@ -4,7 +4,7 @@
   "serviceId": "emailsecurity",
   "serviceName": "Email security records for your Cyber Credential",
   "version": 1,
-  "logoUrl": "https://mycyberstanding.com/demo/one-surface/registry/assets/icon-180.png",
+  "logoUrl": "https://csmedia8841.blob.core.windows.net/tutorials/brand/cyberstanding-logo-180.png",
   "description": "Publishes the email authentication and transport security records a small business needs: SPF (merged into any existing SPF record, never a second one), DMARC in monitoring mode (p=none), MTA-STS in testing mode with a policy hosted by CyberStanding, TLS reporting, and the DKIM records Microsoft 365 or Google Workspace issues for the domain. CyberStanding applies only the groups the domain is missing. None of these records changes where the business's mail is delivered.",
   "variableDescription": "dmarcrua: mailbox that receives DMARC aggregate reports. tlsrptrua: mailbox that receives TLS reports. stsid: MTA-STS policy id (date-based). dkim1, dkim2: the two DKIM CNAME targets Microsoft 365 shows for the domain. googledkim: the DKIM TXT value Google Workspace generates for the domain.",
   "syncBlock": false,
