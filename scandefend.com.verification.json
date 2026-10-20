@@ -1,0 +1,22 @@
+{
+  "providerId": "scandefend.com",
+  "providerName": "ScanDefend",
+  "serviceId": "verification",
+  "serviceName": "ScanDefend domain ownership verification",
+  "version": 1,
+  "logoUrl": "https://scandefend.com/favicon.svg",
+  "description": "Adds one TXT record that proves to ScanDefend that you control this domain. It does not change your website, email or any other record. Only apply this if you started it from your own ScanDefend account.",
+  "variableDescription": "%token%: the one-time verification value ScanDefend generated for this domain",
+  "syncPubKeyDomain": "scandefend.com",
+  "syncRedirectDomain": "app.scandefend.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_scandefend",
+      "ttl": 3600,
+      "data": "scandefend-verification=%token%",
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
