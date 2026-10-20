@@ -1,0 +1,23 @@
+{
+  "providerId": "elefanterepair.es",
+  "providerName": "Elefante Repair",
+  "serviceId": "dominio-propio",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://elefanterepair.es/favicon-elefanterepair-512.png",
+  "description": "Points a subdomain (www, sat...) at Elefante Repair, the management software for repair shops, so it opens the shop's website or staff panel.",
+  "variableDescription": "No variables: the CNAME target is always proxy.elefanterepair.es.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "elefanterepair.es",
+  "syncRedirectDomain": "elefanterepair.es",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy.elefanterepair.es",
+      "ttl": 3600
+    }
+  ]
+}
