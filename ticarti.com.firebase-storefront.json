@@ -31,5 +31,5 @@
   "multiInstance": true,
   "description": "Configure Firebase App Hosting DNS for a Ticarti storefront domain. Includes domain ownership and certificate authorization records.",
   "variableDescription": "IP: Firebase IPv4 address; CLAIM: Firebase fah-claim ownership token; ACME_TOKEN: Firebase certificate authorization label suffix; ACME_TARGET: Firebase certificate authorization CNAME target.",
-  "logoUrl": "https://main.ticarti.com/admin/brand/ticarti-logo-dark.svg"
+  "logoUrl": "https://main.ticarti.com/admin/brand/ticarti-logo.svg"
 }
