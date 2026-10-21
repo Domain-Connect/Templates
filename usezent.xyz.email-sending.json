@@ -1,0 +1,52 @@
+{
+  "providerId": "usezent.xyz",
+  "providerName": "Zent",
+  "serviceId": "email-sending",
+  "serviceName": "Zent Email Sending",
+  "version": 1,
+  "logoUrl": "https://usezent.xyz/brand/logo/zent-icon.png",
+  "description": "Sets up the subdomain Zent sends the store's emails from (Resend): DKIM, bounce MX and SPF on send.<host>, return path and open/click tracking.",
+  "variableDescription": "%dkimkey%: DKIM public key Resend issued for this domain (without the p= prefix); %region%: Amazon SES sending region (e.g. sa-east-1); %rsend%: label of the return-path target under rmta.net; %track%: label of the tracking target under resend-dns.com",
+  "syncBlock": false,
+  "syncPubKeyDomain": "usezent.xyz",
+  "syncRedirectDomain": "usezent.xyz",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "bounces",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "bounces",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "return-path",
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "%rsend%.rmta.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "track",
+      "pointsTo": "%track%.resend-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
