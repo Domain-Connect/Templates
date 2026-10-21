@@ -1,0 +1,17 @@
+{
+  "providerId": "caramelme.com",
+  "providerName": "Caramel",
+  "serviceId": "email-dmarc",
+  "serviceName": "Email DMARC policy",
+  "version": 1,
+  "logoUrl": "https://app.caramelme.com/caramel-icon.svg",
+  "description": "Adds a monitoring-only DMARC policy (p=none) to a domain that has none.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "caramelme.com",
+  "syncRedirectDomain": "api.caramelme.com,tcafwdazdelfwqmizwxr.supabase.co",
+  "records": [
+    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none;", "ttl": 1800,
+      "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply" }
+  ]
+}
