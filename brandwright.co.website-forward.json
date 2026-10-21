@@ -1,0 +1,21 @@
+{
+  "providerId": "brandwright.co",
+  "providerName": "BrandWright",
+  "serviceId": "website-forward",
+  "serviceName": "BrandWright storefront (forward bare domain to www)",
+  "version": 1,
+  "logoUrl": "https://brandwright.co/brand/brandwright/favicon/icon-512.png",
+  "description": "Forwards your bare domain (yourbrand.com) to https://www.yourbrand.com, your BrandWright storefront.",
+  "variableDescription": "none",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "brandwright.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%domain%"
+    }
+  ]
+}
