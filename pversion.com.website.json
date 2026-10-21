@@ -4,7 +4,7 @@
   "serviceId": "website",
   "serviceName": "PVersion website",
   "version": 1,
-  "logoUrl": "https://pversion.com/logo-96.png",
+  "logoUrl": "https://pversion.com/logo.png",
   "description": "Points a domain or subdomain at a website published by PVersion.",
   "variableDescription": "ip: IPv4 address of the PVersion web server that hosts the site",
   "syncBlock": false,
