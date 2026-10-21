@@ -10,7 +10,6 @@
   "syncBlock": false,
   "syncPubKeyDomain": "usezent.xyz",
   "syncRedirectDomain": "usezent.xyz",
-  "hostRequired": true,
   "records": [
     {
       "groupId": "dkim",
