@@ -10,7 +10,6 @@
   "syncBlock": false,
   "syncPubKeyDomain": "pversion.com",
   "syncRedirectDomain": "console.pversion.com",
-  "warnPhishing": true,
   "hostRequired": false,
   "records": [
     {
