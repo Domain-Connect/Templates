@@ -7,12 +7,29 @@
   "syncBlock": false,
   "syncPubKeyDomain": "ticarti.com",
   "records": [
-    {"type":"A","host":"@","pointsTo":"%IP%","ttl":3600},
-    {"type":"TXT","host":"@","data":"%CLAIM%","ttl":3600,"txtConflictMatchingMode":"None"},
-    {"type":"CNAME","host":"_acme-challenge_%ACME_TOKEN%","pointsTo":"%ACME_TARGET%","ttl":3600}
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%CLAIM%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge_%ACME_TOKEN%",
+      "pointsTo": "%ACME_TARGET%",
+      "ttl": 3600
+    }
   ],
   "syncRedirectDomain": "ticarti.com",
   "multiInstance": true,
   "description": "Configure Firebase App Hosting DNS for a Ticarti storefront domain. Includes domain ownership and certificate authorization records.",
-  "variableDescription": "IP: Firebase IPv4 address; CLAIM: Firebase fah-claim ownership token; ACME_TOKEN: Firebase certificate authorization label suffix; ACME_TARGET: Firebase certificate authorization CNAME target."
+  "variableDescription": "IP: Firebase IPv4 address; CLAIM: Firebase fah-claim ownership token; ACME_TOKEN: Firebase certificate authorization label suffix; ACME_TARGET: Firebase certificate authorization CNAME target.",
+  "logoUrl": "https://main.ticarti.com/admin/brand/ticarti-logo-dark.svg"
 }
