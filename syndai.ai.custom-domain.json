@@ -1,0 +1,16 @@
+{
+  "providerId": "syndai.ai",
+  "providerName": "Syndai",
+  "serviceId": "custom-domain",
+  "serviceName": "Your site on your own domain",
+  "version": 1,
+  "logoUrl": "https://syndai.ai/icon.png",
+  "description": "Points this address at the site Syndai hosts for you. Syndai issues its certificate once the record is in place.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.syndai.ai",
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "cdn.syndai.app", "ttl": 3600 }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "providerId": "heyportal.app",
+  "providerName": "Portal",
+  "serviceId": "page-email",
+  "serviceName": "Email from your domain",
+  "version": 1,
+  "syncPubKeyDomain": "heyportal.app",
+  "syncRedirectDomain": "heyportal.app",
+  "logoUrl": "https://heyportal.app/portal-app-icon-512.png",
+  "description": "Authenticates the domain so Portal can send a club's or business page's email from the owner's own address. Adds the email provider's (Brevo) domain verification TXT record and two DKIM CNAME records; the optional dmarc group adds a monitoring-only DMARC record for domains that have none.",
+  "variableDescription": "%code%: account verification code (hex), written as brevo-code:%code%. %dkim%: the domain's DKIM label at Brevo, the domain with dots as dashes (e.g. example-com), used in b1.%dkim%.dkim.brevo.com and b2.%dkim%.dkim.brevo.com.",
+  "records": [
+    {
+      "groupId": "auth",
+      "type": "TXT",
+      "host": "@",
+      "data": "brevo-code:%code%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "brevo-code:"
+    },
+    {
+      "groupId": "auth",
+      "type": "CNAME",
+      "host": "brevo1._domainkey",
+      "pointsTo": "b1.%dkim%.dkim.brevo.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "auth",
+      "type": "CNAME",
+      "host": "brevo2._domainkey",
+      "pointsTo": "b2.%dkim%.dkim.brevo.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:rua@dmarc.brevo.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

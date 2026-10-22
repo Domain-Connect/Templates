@@ -1,0 +1,61 @@
+{
+  "providerId": "servving.com",
+  "providerName": "Servving",
+  "logoUrl": "https://servving.com/logo.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "servving.com",
+  "syncRedirectDomain": "app.servving.com,app-dev.servving.com",
+  "serviceId": "email",
+  "serviceName": "Servving email",
+  "version": 1,
+  "description": "Verifies you own this domain and sets up sending (SPF, DKIM), receiving (MX) and link tracking for Servving email.",
+  "variableDescription": "token: ownership token; dkimHost/dkimValue: per-domain DKIM key",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "@",
+      "data": "servving-domain-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "servving-domain-verify="
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimHost%",
+      "data": "%dkimValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

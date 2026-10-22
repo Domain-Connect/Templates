@@ -1,0 +1,24 @@
+{
+  "providerId": "gephyr.ai",
+  "providerName": "Gephyr",
+  "serviceId": "verify",
+  "serviceName": "Domain verification",
+  "version": 1,
+  "logoUrl": "https://gephyr.ai/logo/gephyr-icon-512.png",
+  "description": "Adds one TXT record that proves to Gephyr you own this domain, so your app's AI connector can link to it and show it as verified.",
+  "variableDescription": "code: the verification value Gephyr shows for your app",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.gephyr.ai",
+  "syncRedirectDomain": "gephyr.ai",
+  "hostRequired": false,
+  "multiInstance": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_gephyr",
+      "data": "gephyr-verify=%code%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

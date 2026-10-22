@@ -1,0 +1,21 @@
+{
+	"providerId": "usenotix.dev",
+	"providerName": "Notix",
+	"serviceId": "dmarc",
+	"serviceName": "DMARC starter policy",
+	"version": 1,
+	"syncPubKeyDomain": "usenotix.dev",
+	"syncRedirectDomain": "usenotix.dev",
+	"description": "Publish a monitoring-only DMARC policy (p=none) for a domain that has none. Notix offers this only when the domain has no DMARC record.",
+	"logoUrl": "https://usenotix.dev/icon-512.png",
+	"records": [
+		{
+			"type": "TXT",
+			"host": "_dmarc",
+			"ttl": 3600,
+			"data": "v=DMARC1; p=none;",
+			"txtConflictMatchingMode": "None",
+			"essential": "OnApply"
+		}
+	]
+}
