@@ -56,35 +56,35 @@
       "groupId": "clients",
       "type": "CNAME",
       "host": "imap",
-      "pointsTo": "mail.@",
+      "pointsTo": "mail.%fqdn%",
       "ttl": 300
     },
     {
       "groupId": "clients",
       "type": "CNAME",
       "host": "smtp",
-      "pointsTo": "mail.@",
+      "pointsTo": "mail.%fqdn%",
       "ttl": 300
     },
     {
       "groupId": "clients",
       "type": "CNAME",
       "host": "pop",
-      "pointsTo": "mail.@",
+      "pointsTo": "mail.%fqdn%",
       "ttl": 300
     },
     {
       "groupId": "clients",
       "type": "CNAME",
       "host": "autoconfig",
-      "pointsTo": "mail.@",
+      "pointsTo": "mail.%fqdn%",
       "ttl": 300
     },
     {
       "groupId": "clients",
       "type": "CNAME",
       "host": "autodiscover",
-      "pointsTo": "mail.@",
+      "pointsTo": "mail.%fqdn%",
       "ttl": 300
     }
   ]
