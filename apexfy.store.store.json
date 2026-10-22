@@ -1,20 +1,26 @@
 {
   "providerId": "apexfy.store",
   "providerName": "Apexfy",
-  "serviceId": "store-sub",
-  "serviceName": "Apexfy online store (subdomain)",
+  "serviceId": "store",
+  "serviceName": "Apexfy online store",
   "version": 1,
   "logoUrl": "https://apexfy.store/assets/brand/wordmark-on-light.svg",
-  "description": "Connects a subdomain (for example shop.example.com) to an Apexfy online store.",
+  "description": "Connects the root domain and www to an Apexfy online store. The root domain redirects to www.",
   "syncBlock": false,
   "sharedProviderName": false,
   "syncPubKeyDomain": "apexfy.store",
   "syncRedirectDomain": "api.apexfy.store",
-  "hostRequired": true,
+  "hostRequired": false,
   "records": [
     {
-      "type": "CNAME",
+      "type": "A",
       "host": "@",
+      "pointsTo": "178.16.130.54",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
       "pointsTo": "stores.apexfy.store",
       "ttl": 3600
     }
