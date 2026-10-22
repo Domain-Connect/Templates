@@ -1,0 +1,22 @@
+{
+  "providerId": "apexfy.store",
+  "providerName": "Apexfy",
+  "serviceId": "store-sub",
+  "serviceName": "Apexfy online store (subdomain)",
+  "version": 1,
+  "logoUrl": "https://apexfy.store/assets/brand/wordmark-on-light.svg",
+  "description": "Connects a subdomain (for example shop.example.com) to an Apexfy online store.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "apexfy.store",
+  "syncRedirectDomain": "api.apexfy.store",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "stores.apexfy.store",
+      "ttl": 3600
+    }
+  ]
+}
