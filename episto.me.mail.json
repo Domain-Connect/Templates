@@ -1,0 +1,70 @@
+{
+    "providerId": "episto.me",
+    "providerName": "Episto",
+    "serviceId": "mail",
+    "serviceName": "Episto Mail",
+    "version": 2,
+    "logoUrl": "https://episto.me/assets/postra-logo.svg",
+    "description": "Configures a domain for Episto email hosting: ownership verification, inbound MX, SPF, DKIM, outbound relay authentication and DMARC.",
+    "variableDescription": "%token%: Episto ownership verification token; %dkimkey%: Ed25519 DKIM public key (p= value) for the episto selector",
+    "syncBlock": false,
+    "syncPubKeyDomain": "episto.me",
+    "syncRedirectDomain": "app.episto.me",
+    "records": [
+        {
+            "groupId": "mail",
+            "type": "TXT",
+            "host": "_postra",
+            "data": "postra-verification=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "postra-verification="
+        },
+        {
+            "groupId": "mail",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mail.epistomail.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mail",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:spf.smtp2go.com"
+        },
+        {
+            "groupId": "mail",
+            "type": "TXT",
+            "host": "episto._domainkey",
+            "data": "v=DKIM1; k=ed25519; h=sha256; p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "mail",
+            "type": "CNAME",
+            "host": "postra",
+            "pointsTo": "return.smtp2go.net",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mail",
+            "type": "CNAME",
+            "host": "s797385._domainkey",
+            "pointsTo": "dkim.smtp2go.net",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc@episto.me",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}
