@@ -1,0 +1,22 @@
+{
+  "providerId": "cadenciaoficial.com.br",
+  "providerName": "CadêncIA",
+  "serviceId": "cadencia-blog",
+  "serviceName": "Blog CadêncIA",
+  "version": 1,
+  "logoUrl": "https://cadenciaoficial.com.br/cadencia-logo.svg",
+  "description": "Aponta um domínio personalizado para a hospedagem de blogs da CadêncIA.",
+  "variableDescription": "%routingTarget%: hostname do edge de hospedagem da CadêncIA",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cadenciaoficial.com.br",
+  "syncRedirectDomain": "cadenciaoficial.com.br",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%routingTarget%",
+      "ttl": 600
+    }
+  ]
+}

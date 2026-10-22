@@ -1,0 +1,21 @@
+{
+  "providerId": "umail.et",
+  "providerName": "uMail",
+  "serviceId": "mail",
+  "serviceName": "uMail business email",
+  "version": 1,
+  "logoUrl": "https://umail.et/bimi/umail.svg",
+  "description": "Sets up business email on uMail for your domain: proves you own the domain, sends your mail to uMail, allows uMail to send for you, adds the signing keys and a DMARC policy.",
+  "variableDescription": "%verifyToken%: ownership token uMail shows for the domain; %dkimRsaSelector%, %dkimRsaKey%: name and public key of the RSA signing key; %dkimEdSelector%, %dkimEdKey%: name and public key of the Ed25519 signing key",
+  "syncBlock": false,
+  "syncPubKeyDomain": "umail.et",
+  "syncRedirectDomain": "admin.umail.et",
+  "records": [
+    { "type": "TXT", "host": "_umail", "data": "umail-verify=%verifyToken%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "umail-verify=" },
+    { "type": "MX", "host": "@", "pointsTo": "mx.umail.et", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "@", "spfRules": "mx" },
+    { "type": "TXT", "host": "%dkimRsaSelector%._domainkey", "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimRsaKey%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "TXT", "host": "%dkimEdSelector%._domainkey", "data": "v=DKIM1; k=ed25519; h=sha256; p=%dkimEdKey%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=reject; rua=mailto:postmaster@%domain%", "ttl": 3600, "essential": "OnApply", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1" }
+  ]
+}

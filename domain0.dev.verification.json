@@ -1,0 +1,22 @@
+{
+  "providerId": "domain0.dev",
+  "providerName": "Domain0",
+  "serviceId": "verification",
+  "serviceName": "Domain verification",
+  "version": 1,
+  "logoUrl": "https://www.domain0.dev/brand/domain0-logo-white.svg",
+  "description": "Verify a domain connection with a Domain0-specific TXT record.",
+  "syncPubKeyDomain": "domain0.dev",
+  "syncRedirectDomain": "domain0.dev",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_domain0-sdk-test",
+      "data": "domain0-verification=%verification%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "domain0-verification=",
+      "essential": "OnApply",
+      "ttl": 3600
+    }
+  ]
+}

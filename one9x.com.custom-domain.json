@@ -1,0 +1,29 @@
+{
+  "providerId": "one9x.com",
+  "providerName": "One9x",
+  "serviceId": "custom-domain",
+  "serviceName": "One9x custom domain",
+  "version": 1,
+  "logoUrl": "https://one9x.com/brand/one9x-logo.svg",
+  "description": "Points a subdomain at a One9x site and proves you own it",
+  "syncPubKeyDomain": "domainconnect.one9x.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_one9x-challenge",
+      "data": "%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "route",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.one9x.app",
+      "ttl": 600
+    }
+  ]
+}

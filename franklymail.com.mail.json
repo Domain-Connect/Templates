@@ -1,0 +1,49 @@
+{
+  "providerId": "franklymail.com",
+  "providerName": "FranklyMail",
+  "serviceId": "mail",
+  "serviceName": "FranklyMail email",
+  "version": 1,
+  "logoUrl": "https://franklymail.com/icon-512.png",
+  "syncPubKeyDomain": "franklymail.com",
+  "syncRedirectDomain": "franklymail.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.franklymail.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.franklymail.com",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.franklymail.com"
+    },
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; h=sha256; p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@franklymail.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

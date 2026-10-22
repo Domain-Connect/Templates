@@ -1,0 +1,21 @@
+{
+  "providerId": "honestwriter.ai",
+  "providerName": "HonestWriter",
+  "serviceId": "blog",
+  "serviceName": "HonestWriter Blog",
+  "version": 1,
+  "logoUrl": "https://honestwriter.ai/og-image.png",
+  "description": "Publish HonestWriter articles on a subdomain of your site, e.g. blog.example.com. Creates one CNAME; your existing site and email are untouched.",
+  "syncPubKeyDomain": "honestwriter.ai",
+  "syncRedirectDomain": "app.honestwriter.ai",
+  "hostRequired": true,
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "blogs.honestwriter.ai",
+      "ttl": 3600
+    }
+  ]
+}

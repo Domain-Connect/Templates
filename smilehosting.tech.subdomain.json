@@ -1,0 +1,30 @@
+{
+  "providerId": "smilehosting.tech",
+  "providerName": "Smile Hosting",
+  "serviceId": "subdomain",
+  "serviceName": "Website on your own subdomain",
+  "version": 1,
+  "logoUrl": "https://smilehosting.tech/assets/domain-connect/logo.svg",
+  "description": "Points a subdomain (shop.example.com) at a website hosted on Smile Hosting, and proves the subdomain belongs to the Smile Hosting account that added it.",
+  "variableDescription": "verify: the one-time code shown for this subdomain in the Smile Hosting dashboard.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "smilehosting.tech",
+  "syncRedirectDomain": "smilehosting.tech",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.smilehosting.tech",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_smilehosting",
+      "data": "smilehosting-verify=%verify%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "smilehosting-verify="
+    }
+  ]
+}

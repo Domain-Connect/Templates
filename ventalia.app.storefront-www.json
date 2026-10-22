@@ -1,0 +1,13 @@
+{
+  "providerId": "ventalia.app",
+  "providerName": "Ventalia",
+  "serviceId": "storefront-www",
+  "serviceName": "Tienda online (www)",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.ventalia.app",
+  "syncRedirectDomain": "admin.ventalia.app",
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "tiendas.ventalia.app", "ttl": 300 }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "providerId": "emailfleet.io",
+  "providerName": "EmailFleet",
+  "serviceId": "mail",
+  "serviceName": "EmailFleet mailboxes",
+  "version": 1,
+  "logoUrl": "https://emailfleet.io/brand/fleet-mark.svg",
+  "description": "Mail routing and authentication (MX, SPF, DKIM, DMARC) for mailboxes managed by EmailFleet. Writes only mail-related records; never touches web or other records.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "emailfleet.io",
+  "syncRedirectDomain": "app.emailfleet.io",
+  "variableDescription": "%mxhost%: primary mail exchanger hostname; %mxrelay%: fallback mail exchanger hostname; %dkimselector%: DKIM selector name; %dkimp%: DKIM public key (p= value); %rua%: DMARC aggregate report address",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxhost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxrelay%",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mxroute.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimp%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%rua%;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "providerId": "handoff.ai",
+  "providerName": "Handoff",
+  "serviceId": "email",
+  "serviceName": "Branded email",
+  "version": 1,
+  "logoUrl": "https://app.handoff.ai/logo512.png",
+  "description": "Send your Handoff proposals, invoices and client emails from an address on your own domain, so your clients see your business as the sender instead of ours.",
+  "variableDescription": "dkim1, dkim2 and dkim3 are the three DKIM tokens Amazon SES issues for this domain. Each token names its own record and that record's target, so a record can only point at the Amazon SES DKIM key for the same token.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "go.handoff.ai",
+  "syncRedirectDomain": "app.handoff.ai,app.staging.handoff.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

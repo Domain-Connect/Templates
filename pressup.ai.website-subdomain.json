@@ -1,0 +1,29 @@
+{
+  "providerId": "pressup.ai",
+  "providerName": "PressUp",
+  "serviceId": "website-subdomain",
+  "serviceName": "PressUp Sites",
+  "version": 1,
+  "logoUrl": "https://pressup.ai/brand/icon-512.png",
+  "description": "Connects a subdomain such as www (the host parameter) to a website hosted on PressUp Sites: a CNAME to PressUp's sites host, and a TXT record proving the domain is the owner's.",
+  "variableDescription": "%token%: the domain's verification token issued by PressUp (32 hexadecimal characters).",
+  "syncPubKeyDomain": "domainconnect.pressup.ai",
+  "syncRedirectDomain": "pressup.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.pressup.site",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_pressup",
+      "data": "pressup-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "pressup-verify="
+    }
+  ]
+}

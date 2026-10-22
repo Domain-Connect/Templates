@@ -1,38 +1,44 @@
 {
-  "providerId": "storeoncloud.com",
-  "providerName": "StoreOnCloud",
-  "serviceId": "email",
-  "serviceName": "Email Verification Records",
-  "version": 1,
-  "logoUrl": "https://www.storeoncloud.com/img/logo.svg",
-  "description": "Configure SPF, DKIM, and DMARC records for email verification with StoreOnCloud managed Magento hosting.",
-  "variableDescription": "DKIM_SELECTOR: The DKIM selector (e.g., storeoncloud), DKIM_VALUE: The DKIM public key value",
-  "syncBlock": false,
-  "syncPubKeyDomain": "storeoncloud.com",
-  "syncRedirectDomain": "storeoncloud.com,admin.storeoncloud.com",
-  "warnPhishing": false,
-  "hostRequired": false,
-  "records": [
-    {
-      "type": "SPFM",
-      "host": "@",
-      "spfRules": "include:_spf.storeoncloud.com"
-    },
-    {
-      "type": "TXT",
-      "host": "%DKIM_SELECTOR%._domainkey",
-      "data": "v=DKIM1; k=rsa; p=%DKIM_VALUE%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DKIM1"
-    },
-    {
-      "type": "TXT",
-      "host": "_dmarc",
-      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%domain%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1"
-    }
-  ]
+    "providerId": "storeoncloud.com",
+    "providerName": "Stoily",
+    "serviceId": "email",
+    "serviceName": "Email Verification Records",
+    "version": 2,
+    "logoUrl": "https://www.stoily.com/img/logo.svg",
+    "description": "Configure ownership, SPF, DKIM (CNAME) and DMARC records for email with Stoily managed Magento hosting.",
+    "variableDescription": "OWNERSHIP: the tenant's platform UUID for the _stoily ownership TXT (derived server-side). DKIM is a fixed CNAME to the shared platform key — no per-tenant variable.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "storeoncloud.com",
+    "syncRedirectDomain": "stoily.com,admin.stoily.com,storeoncloud.com,admin.storeoncloud.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_stoily",
+            "data": "stoily-verify=%OWNERSHIP%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "stoily-verify="
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:mail.stoily.com"
+        },
+        {
+            "type": "CNAME",
+            "host": "stoily._domainkey",
+            "pointsTo": "stoily._domainkey.stoily.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%domain%; pct=100",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
 }

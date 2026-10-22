@@ -1,0 +1,23 @@
+{
+  "providerId": "bashbop.com",
+  "providerName": "BashBop",
+  "serviceId": "customdomain",
+  "serviceName": "BashBop custom domain",
+  "version": 1,
+  "logoUrl": "https://bashbop.com/assets/images/Nav-images-and-logos/logo.png",
+  "description": "Points a subdomain at BashBop so an organiser's event pages load on their own domain.",
+  "variableDescription": "No variables. The subdomain is supplied as the host parameter.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "bashbop.com",
+  "syncRedirectDomain": "bashbop.com,staging.bashbop.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.bashbop.com",
+      "ttl": 3600
+    }
+  ]
+}

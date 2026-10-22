@@ -1,0 +1,46 @@
+{
+  "providerId": "hyonova.com",
+  "providerName": "HyoNova",
+  "serviceId": "mail",
+  "serviceName": "HyoNova Mail",
+  "version": 2,
+  "logoUrl": "https://hyonova.com/assets/brand/hyonova-logo.png",
+  "description": "Authenticates a domain for sending with HyoNova Mail: the HyoNova ownership code, the DKIM signing key and, when the domain has none yet, a monitoring-only DMARC policy. Nothing else in the zone is changed.",
+  "variableDescription": "code: the HyoNova ownership code for this domain. dkimselector: the DKIM selector (hyonova1 or hyonova2). dkimkey1, dkimkey2: the two halves of the RSA public key. rua: the address that receives DMARC aggregate reports (only with groupId dmarc).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "hyonova.com",
+  "syncRedirectDomain": "app.hyonova.com",
+  "shared": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "code",
+      "type": "TXT",
+      "host": "_hyonova",
+      "data": "hyonova-code:%code%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "hyonova-code:",
+      "essential": "Always"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey1%%dkimkey2%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "Always"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%rua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

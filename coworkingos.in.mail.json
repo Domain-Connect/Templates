@@ -1,0 +1,44 @@
+{
+    "providerId": "coworkingos.in",
+    "providerName": "Coworking OS",
+    "serviceId": "mail",
+    "serviceName": "Coworking OS Mail",
+    "version": 1,
+    "logoUrl": "https://coworkingos.in/img/icon-512.png",
+    "description": "Receive and send your domain's email in Coworking OS: points MX to Coworking OS, allows our sending service in SPF, adds a DMARC policy and the DKIM signing key.",
+    "variableDescription": "dkimhost: the DKIM selector Coworking OS created for this domain (e.g. cos-202610)",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "syncRedirectDomain": "coworkingos.in",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx.coworkingos.in",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:ap.rp.oracleemaildelivery.com"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:postmaster@%fqdn%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkimhost%._domainkey",
+            "pointsTo": "%dkimhost%.%fqdn%.dkim.hyd1.oracleemaildelivery.com",
+            "ttl": 3600
+        }
+    ],
+    "syncPubKeyDomain": "coworkingos.in"
+}

@@ -1,0 +1,32 @@
+{
+  "providerId": "zeloxalabs.com",
+  "providerName": "Zeloxa Labs",
+  "serviceId": "host",
+  "serviceName": "Zeloxa Host",
+  "version": 1,
+  "logoUrl": "https://zeloxalabs.com/icon-512.png",
+  "description": "Connects a domain to a website hosted on Zeloxa Host.",
+  "variableDescription": "ownership: the domain ownership token shown on the project's Domains page",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "zeloxalabs.com",
+  "syncRedirectDomain": "zeloxalabs.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "a",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.zeloxalabs.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "b",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

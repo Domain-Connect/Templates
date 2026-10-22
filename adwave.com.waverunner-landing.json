@@ -1,0 +1,28 @@
+{
+  "providerId": "adwave.com",
+  "providerName": "Adwave",
+  "serviceId": "waverunner-landing",
+  "serviceName": "Landing pages",
+  "version": 3,
+  "description": "Connect a subdomain to your business landing pages.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.adwave.com",
+  "syncRedirectDomain": "waverunner.adwave.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.current.page",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_waverunner",
+      "data": "waverunner-domain:%ownershipToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "waverunner-domain:",
+      "ttl": 600
+    }
+  ]
+}

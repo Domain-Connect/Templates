@@ -1,0 +1,46 @@
+{
+  "providerId": "leadenginebykeo.com",
+  "providerName": "Lead Engine by Keo",
+  "serviceId": "resend-email",
+  "serviceName": "Email sending (Resend)",
+  "version": 1,
+  "logoUrl": "https://leadenginebykeo.com/le-img/site/img-d0386ad53679.svg",
+  "description": "Lets Lead Engine send your campaign emails from your own domain through Resend.",
+  "variableDescription": "dkim: Resend's DKIM key for this domain (after p=). region: Resend's sending region (e.g. us-east-1). rsend: Resend's tracking target.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "leadenginebykeo.com",
+  "syncRedirectDomain": "leadenginebykeo.com,keocollective.com,clientcrm.solutions",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "spf",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "rsend",
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "%rsend%",
+      "ttl": 3600
+    }
+  ]
+}

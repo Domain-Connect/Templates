@@ -1,0 +1,20 @@
+{
+    "providerId": "ai-cmyk.com",
+    "providerName": "AI-CMYK",
+    "serviceId": "website",
+    "serviceName": "AI-CMYK Website",
+    "version": 1,
+    "description": "Connects the selected address to an AI-CMYK Website.",
+    "syncBlock": false,
+    "hostRequired": true,
+    "syncPubKeyDomain": "domainconnect.ai-cmyk.com",
+    "syncRedirectDomain": "app.ai-cmyk.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "sites.ai-cmyk.com",
+            "ttl": 300
+        }
+    ]
+}

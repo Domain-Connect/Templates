@@ -1,0 +1,18 @@
+{
+  "providerId": "sophietechnology.com",
+  "providerName": "Sophie Technology",
+  "serviceId": "crm-email-records",
+  "serviceName": "CRM email sending",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "sophietechnology.com",
+  "syncRedirectDomain": "fluxos.sophietechnology.com",
+  "logoUrl": "https://sophietechnology.com/assets/sophietechnology-logo.png",
+  "description": "Configure Resend signing and the send return-path subdomain after Sophie has verified domain ownership. Does not configure inbound mail or replace apex MX records.",
+  "variableDescription": "region is one of us-east-1, eu-west-1, sa-east-1, ap-northeast-1 and must match the provider's stored MX record. dkim is the provider's stored public key excluding p=. Other provider record shapes use manual setup.",
+  "records": [
+    { "type": "MX", "host": "send", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com", "ttl": 3600 },
+    { "type": "TXT", "host": "resend._domainkey", "data": "p=%dkim%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}

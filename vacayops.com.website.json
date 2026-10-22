@@ -1,0 +1,37 @@
+{
+    "providerId": "vacayops.com",
+    "providerName": "VacayOps",
+    "serviceId": "website",
+    "serviceName": "VacayOps website",
+    "version": 1,
+    "logoUrl": "https://www.vacayops.com/assets/VacayOps-Logoicon.png",
+    "description": "Connects a domain to a VacayOps booking website hosted on Firebase App Hosting: the hosting A record, the App Hosting ownership TXT record, and the certificate-validation CNAME.",
+    "variableDescription": "hostingOctet: the last octet of the 35.219.200.x address Firebase App Hosting assigned to this domain. txtverification: the App Hosting ownership token (the part after fah-claim=). acmetoken: the random label App Hosting appended to _acme-challenge_ for this domain. acmeid: the certificate-validation id assigned to this domain. acmeshard: the numeric shard in the certificatemanager.goog validation target.",
+    "syncPubKeyDomain": "vacayops.com",
+    "syncRedirectDomain": "vacayops.com",
+    "records": [
+        {
+            "type": "A",
+            "essential": "Always",
+            "host": "@",
+            "pointsTo": "35.219.200.%hostingOctet%",
+            "ttl": "3600"
+        },
+        {
+            "type": "TXT",
+            "essential": "Always",
+            "host": "@",
+            "ttl": "3600",
+            "data": "fah-claim=%txtverification%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "fah-claim="
+        },
+        {
+            "type": "CNAME",
+            "essential": "Always",
+            "host": "_acme-challenge_%acmetoken%",
+            "pointsTo": "%acmeid%.%acmeshard%.authorize.certificatemanager.goog",
+            "ttl": "3600"
+        }
+    ]
+}

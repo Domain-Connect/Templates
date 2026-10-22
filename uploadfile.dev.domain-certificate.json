@@ -1,0 +1,21 @@
+{
+  "providerId": "uploadfile.dev",
+  "providerName": "Uploadfile",
+  "serviceId": "domain-certificate",
+  "serviceName": "Custom domain certificate",
+  "version": 1,
+  "logoUrl": "https://www.uploadfile.dev/icon.svg",
+  "description": "Adds the DNS record that proves you own a hostname, so Uploadfile can issue its HTTPS certificate.",
+  "variableDescription": "certlabel is the certificate validation label and certtoken is the validation token, both issued by AWS Certificate Manager.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.uploadfile.dev",
+  "syncRedirectDomain": "uploadfile.dev,www.uploadfile.dev,staging.uploadfile.dev",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_%certlabel%",
+      "pointsTo": "_%certtoken%.acm-validations.aws",
+      "ttl": 300
+    }
+  ]
+}

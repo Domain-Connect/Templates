@@ -1,0 +1,29 @@
+{
+    "providerId": "heatreach.com",
+    "providerName": "Heatreach",
+    "serviceId": "custom-domain",
+    "serviceName": "Custom domain",
+    "version": 1,
+    "logoUrl": "https://heatreach.com/icon.svg",
+    "description": "Connects a customer-owned subdomain to the customer's Heatreach workspace: a CNAME to a per-registration target and a TXT record that proves control of the zone.",
+    "variableDescription": "%target%: random per-registration label (lowercase base32) under kunden.heatreach.com; %verifytoken%: domain verification token (64 hex characters)",
+    "syncPubKeyDomain": "heatreach.com",
+    "syncRedirectDomain": "heatreach.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%.kunden.heatreach.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_railway-verify",
+            "data": "railway-verify=%verifytoken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "railway-verify="
+        }
+    ]
+}

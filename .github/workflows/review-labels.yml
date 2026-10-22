@@ -11,7 +11,7 @@ on:
 
 jobs:
   apply:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Only act on successful runs of the trigger workflow that were started
     # by one of the events we expect. Anything else is ignored outright.
     if: >-

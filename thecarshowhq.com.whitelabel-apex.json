@@ -1,0 +1,17 @@
+{
+  "providerId": "thecarshowhq.com",
+  "providerName": "Car Show HQ",
+  "serviceId": "whitelabel-apex",
+  "serviceName": "Car Show HQ white-label domain (root)",
+  "version": 1,
+  "syncPubKeyDomain": "thecarshowhq.com",
+  "description": "Points your root domain (yourclub.org) at your Car Show HQ show pages.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}

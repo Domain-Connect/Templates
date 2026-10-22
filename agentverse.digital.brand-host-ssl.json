@@ -1,0 +1,22 @@
+{
+  "providerId": "agentverse.digital",
+  "providerName": "AgentVerse",
+  "serviceId": "brand-host-ssl",
+  "serviceName": "AgentVerse Brand Domain (HTTPS certificate)",
+  "version": 1,
+  "logoUrl": "https://raw.githubusercontent.com/prototipeAI/agentverse-domain-connect/main/logo-domain-connect.png",
+  "description": "Creates the DNS validation record for the HTTPS certificate (AWS ACM) of a domain already connected to AgentVerse. The record must stay in place for automatic renewal.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "agentverse.digital",
+  "syncRedirectDomain": "agentverse.digital,prototipeai.com",
+  "hostRequired": true,
+  "variableDescription": "acmname: hash of the validation label issued by AWS ACM for this host, without the leading underscore (the template fixes the `_` prefix; e.g. 889f9143c49cad09f707fc6edb0b9470). acmvalue: the ACM-issued CNAME target without the fixed .acm-validations.aws suffix (e.g. _0748e842fa22593e475622a262f13596.jkddzztszm).",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_%acmname%",
+      "pointsTo": "%acmvalue%.acm-validations.aws",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "flowery.com.ua",
+  "providerName": "Flowery",
+  "serviceId": "storefront",
+  "serviceName": "Flowery shop website",
+  "version": 1,
+  "logoUrl": "https://flowery.com.ua/logo.svg",
+  "description": "Points an address of your domain (www, or a subdomain such as shop) at your Flowery shop website. Flowery issues the certificate and serves the site.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "flowery.com.ua",
+  "syncRedirectDomain": "flowery.com.ua",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.flowery.com.ua",
+      "ttl": 3600
+    }
+  ]
+}

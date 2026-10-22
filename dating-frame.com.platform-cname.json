@@ -1,0 +1,23 @@
+{
+  "providerId": "dating-frame.com",
+  "providerName": "Dating Frame",
+  "serviceId": "platform-cname",
+  "serviceName": "Dating Frame site",
+  "version": 1,
+  "logoUrl": "https://www.dating-frame.com/apple-touch-icon.png",
+  "description": "Points a subdomain (for example dating.yourbrand.com) at the Dating Frame platform, so the operator's dating site can go live on it.",
+  "variableDescription": "Uses the host parameter: the subdomain the dating site runs on, e.g. dating.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "dating-frame.com",
+  "syncRedirectDomain": "www.dating-frame.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "platform.dating-frame.com",
+      "ttl": 3600
+    }
+  ]
+}

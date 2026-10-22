@@ -1,0 +1,35 @@
+{
+  "providerId": "the-sitehub.com",
+  "providerName": "The SiteHub",
+  "serviceId": "web",
+  "serviceName": "SiteHub Web Hosting",
+  "version": 1,
+  "logoUrl": "https://the-sitehub.com/favicon.ico",
+  "description": "Automatically configures DNS verification and routing records for SiteHub websites.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "the-sitehub.com",
+  "syncRedirectDomain": "the-sitehub.com",
+  "variableDescription": "verification_token is the domain ownership verification token, routing_target is the CNAME target hostname",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_sitehub",
+      "data": "%verification_token%",
+      "txtConflictMatchingMode": "None",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%routing_target%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%routing_target%",
+      "ttl": 3600
+    }
+  ]
+}

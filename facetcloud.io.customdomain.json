@@ -1,0 +1,38 @@
+{
+  "providerId": "facetcloud.io",
+  "providerName": "Facet Cloud",
+  "serviceId": "customdomain",
+  "serviceName": "Facet Cloud site",
+  "version": 1,
+  "logoUrl": "https://get-facet.com/favicon.svg",
+  "description": "Connects www.<your domain> to your Facet Cloud site: points www at Facet Cloud, forwards the bare domain to www, and adds the ownership record Facet Cloud checks.",
+  "variableDescription": "facetverify: the per-site ownership token shown in Facet Cloud under Settings > Custom domain",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "syncPubKeyDomain": "facetcloud.io",
+  "syncRedirectDomain": "facetcloud.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_facet-verify",
+      "data": "facet-verify=%facetverify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "facet-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "domains.facetcloud.io",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "2.29.48.224",
+      "ttl": 3600
+    }
+  ]
+}

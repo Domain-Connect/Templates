@@ -1,0 +1,21 @@
+{
+    "providerId": "transica.dev",
+    "providerName": "Transica",
+    "serviceId": "mcp-address",
+    "serviceName": "MCP Connector Address",
+    "version": 1,
+    "logoUrl": "https://transica.dev/brand/transica-app-icon-512.png",
+    "description": "Points a subdomain you own, such as mcp, at your Transica-hosted MCP connector, so AI agents can reach it at an address on your own domain.",
+    "hostRequired": true,
+    "syncPubKeyDomain": "transica.dev",
+    "syncRedirectDomain": "transica.dev,staging.transica.dev",
+    "syncBlock": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "hosts.transica.dev",
+            "ttl": 3600
+        }
+    ]
+}

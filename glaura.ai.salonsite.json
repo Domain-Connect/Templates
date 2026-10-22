@@ -1,0 +1,23 @@
+{
+  "providerId": "glaura.ai",
+  "providerName": "Glaura",
+  "serviceId": "salonsite",
+  "serviceName": "Site Glaura",
+  "version": 1,
+  "logoUrl": "https://glaura.ai/favicon.png",
+  "description": "Connecte votre nom de domaine (www) à votre site Glaura.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "glaura.ai",
+  "syncRedirectDomain": "pro.glaura.ai,staging-pro.glaura.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.glaura.ai",
+      "ttl": 3600
+    }
+  ]
+}

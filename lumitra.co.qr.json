@@ -1,0 +1,25 @@
+{
+  "providerId": "lumitra.co",
+  "providerName": "Lumitra QR",
+  "serviceId": "qr",
+  "serviceName": "Lumitra QR custom domain",
+  "version": 1,
+  "description": "Points a subdomain at Lumitra QR so your QR codes carry your own domain, and delegates certificate validation so HTTPS renews on its own.",
+  "syncPubKeyDomain": "lumitra.co",
+  "syncRedirectDomain": "qr.lumitra.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.whiz-art.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.8904d4f880bfebc2.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}

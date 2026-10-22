@@ -1,0 +1,22 @@
+{
+  "providerId": "sequenzy.com",
+  "providerName": "Sequenzy",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC Policy",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "sequenzy.com",
+  "syncRedirectDomain": "sequenzy.com,www.sequenzy.com",
+  "description": "Publish a DMARC policy record so mailbox providers can authenticate your mail.",
+  "logoUrl": "https://www.sequenzy.com/logo.png",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

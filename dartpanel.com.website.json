@@ -1,0 +1,35 @@
+{
+  "providerId": "dartpanel.com",
+  "providerName": "DartPanel",
+  "serviceId": "website",
+  "serviceName": "DartPanel website",
+  "version": 1,
+  "description": "Points a domain at a server managed by DartPanel (https://dartpanel.com)",
+  "variableDescription": "ip: IPv4 address of the customer's server; ip6: IPv6 address of the customer's server",
+  "syncPubKeyDomain": "domainconnect.dartpanel.com",
+  "syncRedirectDomain": "console.dartpanel.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "groupId": "ipv4",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300
+    },
+    {
+      "type": "AAAA",
+      "groupId": "ipv6",
+      "host": "@",
+      "pointsTo": "%ip6%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "groupId": "www",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 300
+    }
+  ]
+}

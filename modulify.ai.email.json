@@ -1,0 +1,19 @@
+{
+    "providerId": "modulify.ai",
+    "providerName": "Modulify",
+    "serviceId": "email",
+    "serviceName": "Send email from your domain with Modulify",
+    "description": "Adds the ownership record and the three DKIM records that let your Modulify site send email from your domain.",
+    "variableDescription": "%token%: the ownership code Modulify issued to your site for this domain. %dkim1%, %dkim2%, %dkim3%: the DKIM tokens the mail provider issued for this domain. All are supplied by Modulify.",
+    "version": 1,
+    "logoUrl": "https://modulify.ai/logo.svg",
+    "syncPubKeyDomain": "modulify.ai",
+    "syncRedirectDomain": "app.modulify.ai",
+    "syncBlock": false,
+    "records": [
+        { "groupId": "ownership", "type": "TXT", "host": "_modulify-email", "data": "modulify-email-verify=%token%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "modulify-email-verify=" },
+        { "groupId": "dkim", "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+        { "groupId": "dkim", "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+        { "groupId": "dkim", "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 }
+    ]
+}

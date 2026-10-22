@@ -1,0 +1,48 @@
+{
+  "providerId": "myoriginos.com",
+  "providerName": "Origin",
+  "serviceId": "email-sending",
+  "serviceName": "Origin Email Sending",
+  "version": 1,
+  "logoUrl": "https://myoriginos.com/brand/origin-wordmark-navy.svg",
+  "description": "Authorizes Origin (sending through Resend on Amazon SES) to send email from this domain: return-path MX and SPF on the send subdomain, the per-domain Resend DKIM key, and an optional starter DMARC policy.",
+  "variableDescription": "%region%: Resend sending region (us-east-1, eu-west-1, sa-east-1, ap-northeast-1) used in the return-path MX target; %dkimPublicKey%: the per-domain DKIM public key Resend returns for resend._domainkey, without the leading p=",
+  "syncBlock": false,
+  "syncPubKeyDomain": "myoriginos.com",
+  "syncRedirectDomain": "myoriginos.com",
+  "records": [
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimPublicKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

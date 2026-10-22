@@ -1,0 +1,30 @@
+{
+  "providerId": "dawnstackai.com",
+  "providerName": "Dawnstack",
+  "serviceId": "studio",
+  "serviceName": "Dawn Studio website",
+  "version": 1,
+  "logoUrl": "https://dawnstackai.com/icon-512.png",
+  "description": "Points a host (www or another subdomain) at a website built and hosted with Dawn Studio, on Dawnstack's Cloudflare for SaaS zone.",
+  "variableDescription": "cfverify: the ownership token Cloudflare for SaaS issues for the hostname, when it asks for one (group 'verify'). Its value is prescribed by Cloudflare and has no fixed prefix.",
+  "syncPubKeyDomain": "dc.dawnstackai.com",
+  "syncRedirectDomain": "dawnstackai.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.dawnstackai.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cfverify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

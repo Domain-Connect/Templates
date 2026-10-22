@@ -1,0 +1,69 @@
+{
+  "providerId": "domailo.app",
+  "providerName": "Domailo",
+  "serviceId": "email",
+  "serviceName": "E-mail do Domailo",
+  "version": 2,
+  "logoUrl": "https://domailo.app/brand/domailo-horizontal.svg",
+  "description": "Permite enviar e receber e-mails do domínio no Domailo, com SPF, DKIM, DMARC e MX.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: seletores DKIM emitidos pelo Amazon SES para o domínio; %region%: região do Amazon SES (ex.: sa-east-1) dos servidores de retorno e de recebimento",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domailo.app",
+  "syncRedirectDomain": "domailo.app",
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "domailo-bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "domailo-bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

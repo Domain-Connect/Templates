@@ -1,0 +1,28 @@
+{
+  "providerId": "bandmajor.com",
+  "providerName": "bandMajor",
+  "serviceId": "website",
+  "serviceName": "bandMajor website",
+  "version": 1,
+  "hostRequired": true,
+  "logoUrl": "https://bandmajor.com/logo.png",
+  "description": "Points this domain at your band program's bandMajor public website and adds the record that proves you own it.",
+  "syncRedirectDomain": "bandmajor.com",
+  "syncPubKeyDomain": "bandmajor.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_bandmajor",
+      "data": "bm-verify-%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "bm-verify-"
+    }
+  ]
+}

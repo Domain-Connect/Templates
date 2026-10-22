@@ -1,0 +1,36 @@
+{
+  "providerId": "genesis.lifetaggerapp.com",
+  "providerName": "Genesis by LifeTagger",
+  "serviceId": "website",
+  "serviceName": "Genesis adaptive website delivery",
+  "version": 1,
+  "logoUrl": "https://genesis.lifetaggerapp.com/assets/genesis-mark.svg",
+  "description": "Routes a customer website through Genesis for secure, context-aware language delivery while preserving its existing domain.",
+  "variableDescription": "%verification% is the Genesis ownership token. %certificateToken% is the Google-managed TLS authorization token.",
+  "syncPubKeyDomain": "domainconnect.genesis.lifetaggerapp.com",
+  "syncRedirectDomain": "genesis.lifetaggerapp.com",
+  "multiInstance": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_genesis",
+      "data": "genesis-verify=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "genesis-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "34.36.81.7",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%certificateToken%.authorize.certificatemanager.goog",
+      "ttl": 300
+    }
+  ]
+}

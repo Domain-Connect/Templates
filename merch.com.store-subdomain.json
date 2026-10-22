@@ -1,0 +1,30 @@
+{
+  "providerId": "merch.com",
+  "providerName": "Merch.com",
+  "serviceId": "store-subdomain",
+  "serviceName": "Merch.com store on your subdomain",
+  "version": 2,
+  "description": "Points one subdomain at the Merch.com storefront and writes the ownership record. Developer note: applied with the subdomain as host.",
+  "variableDescription": "merchverification: the per-store ownership token Merch.com shows the merchant, without the merch-verify- prefix this template writes back. It proves the domain and points nowhere.",
+  "syncBlock": false,
+  "syncRedirectDomain": "merch.com",
+  "syncPubKeyDomain": "merch.com",
+  "hostRequired": true,
+  "multiInstance": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_merch-verification",
+      "data": "merch-verify-%merchverification%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "merch-verify-"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "getmeridian.tech",
+  "providerName": "Meridian",
+  "serviceId": "meridian-app",
+  "serviceName": "Meridian app (custom domain)",
+  "version": 1,
+  "logoUrl": "https://getmeridian.tech/assets/img/favicon-512.png",
+  "description": "Points a domain (or one of its subdomains) at an app deployed from Meridian: one A record, HTTPS is issued on the server automatically.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "getmeridian.tech",
+  "syncRedirectDomain": "app.getmeridian.tech",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300
+    }
+  ]
+}

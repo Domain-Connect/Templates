@@ -1,0 +1,31 @@
+{
+    "providerId": "crige",
+    "providerName": "Crige",
+    "serviceId": "website",
+    "serviceName": "Crige website",
+    "version": 1,
+    "logoUrl": "https://crige.com/favicon.svg",
+    "description": "Points a name you own at your Crige workspace website and adds a one-time ownership check.",
+    "variableDescription": "%websiteTarget%: the address the website name points to, issued per workspace by Crige; %verifyToken%: one-time ownership token shown in Crige",
+    "hostRequired": true,
+    "syncPubKeyDomain": "crige.com",
+    "syncRedirectDomain": "crige.com,staging.crige.com",
+    "records": [
+        {
+            "groupId": "website",
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%websiteTarget%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_crige-verify",
+            "data": "crige-verify=%verifyToken%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "crige-verify=",
+            "ttl": 3600
+        }
+    ]
+}

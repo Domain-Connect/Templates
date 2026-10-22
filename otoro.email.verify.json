@@ -1,0 +1,21 @@
+{
+  "providerId": "otoro.email",
+  "providerName": "OTORO Mail",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "connect.otoro.email",
+  "syncRedirectDomain": "app.otoro.email",
+  "serviceId": "verify",
+  "serviceName": "Verify domain ownership",
+  "description": "Connect your business domain to OTORO Mail.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_otoro-verify",
+      "data": "otoro-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ],
+  "logoUrl": "https://app.otoro.email/brand/otoro-logo-128.png"
+}

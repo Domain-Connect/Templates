@@ -1,0 +1,50 @@
+{
+    "providerId": "playsoft.app",
+    "providerName": "Playsoft",
+    "serviceId": "mail-preparar",
+    "serviceName": "Playsoft Mail - preparar envio (DKIM e bounce)",
+    "version": 1,
+    "logoUrl": "https://webmail.playsoft.app/branding/playsoft/simbolo.svg",
+    "description": "Fase 1 do Playsoft Mail. Cria so registros que nao mexem no e-mail que ja funciona: as 3 CNAME de DKIM do Amazon SES e o dominio de MAIL FROM (bounce) com MX de feedback e SPF. Nao altera MX, SPF nem DMARC da raiz.",
+    "variableDescription": "%dkim1%, %dkim2%, %dkim3%: os 3 tokens DKIM que o Amazon SES emitiu para o dominio (Easy DKIM), usados como seletor e como destino <token>.dkim.amazonses.com; %sesregiao%: regiao do SES (ex.: sa-east-1), usada em feedback-smtp.<regiao>.amazonses.com",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.playsofterp.com.br",
+    "syncRedirectDomain": "erp.playsoft.app",
+    "records": [
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "bounce",
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.%sesregiao%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "bounce",
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com"
+        }
+    ]
+}

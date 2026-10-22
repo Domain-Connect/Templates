@@ -1,0 +1,21 @@
+{
+  "providerId": "zuppi.io",
+  "providerName": "Zuppi",
+  "serviceId": "tracking",
+  "serviceName": "Zuppi link tracking",
+  "version": 1,
+  "logoUrl": "https://zuppi.io/icons/icon-512.png",
+  "description": "Connects a subdomain of your domain to Zuppi so links in your outreach emails can be tracked on your own domain.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "zuppi.io",
+  "syncRedirectDomain": "zuppi.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

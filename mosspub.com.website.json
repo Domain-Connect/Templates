@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "providerId": "mosspub.com",
+  "providerName": "moss",
+  "serviceId": "website",
+  "serviceName": "moss website",
+  "description": "Point a domain at a website published with moss.",
+  "variableDescription": "No variables. %domain% is the built-in for the domain being configured; the trailing dot pins both records to the zone apex, because moss publishes a whole site rather than a subdomain.",
+  "records": [
+    {
+      "type": "A",
+      "host": "%domain%.",
+      "pointsTo": "45.76.13.224",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www.%domain%.",
+      "pointsTo": "45.76.13.224",
+      "ttl": 3600
+    }
+  ]
+}

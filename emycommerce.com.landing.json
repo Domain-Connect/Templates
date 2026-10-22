@@ -1,0 +1,28 @@
+{
+  "providerId": "emycommerce.com",
+  "providerName": "EmyCommerce",
+  "version": 1,
+  "syncPubKeyDomain": "emycommerce.com",
+  "syncRedirectDomain": "mi.emycommerce.com",
+  "syncBlock": false,
+  "serviceId": "landing",
+  "serviceName": "EmyCommerce Landing",
+  "logoUrl": "https://mi.emycommerce.com/favicon.svg",
+  "description": "Points a subdomain of the customer's domain to their EmyCommerce landing pages. The host (e.g. www) is supplied by the caller, so any subdomain is covered; the apex is not supported because it cannot hold a CNAME.",
+  "variableDescription": "token: opaque per-domain ownership-verification value that EmyCommerce checks in the TXT record at _emycommerce.<host>. Being an ownership nonce, the full TXT value is the variable by design.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.emycommerce.com",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_emycommerce",
+      "data": "%token%",
+      "ttl": 600
+    }
+  ]
+}

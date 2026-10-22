@@ -3,10 +3,11 @@
   "providerName": "Customdomain",
   "serviceId": "email-dkim",
   "serviceName": "Email DKIM",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://customdomain.ai/logo.svg",
   "description": "Enable DKIM signing for your mail by publishing the selector CNAME your provider requires. The record delegates the selector under _domainkey to the provider's hosted DKIM key so outbound mail can be cryptographically signed.",
   "syncPubKeyDomain": "customdomain.ai",
+  "syncRedirectDomain": "api.customdomain.ai,app.customdomain.ai,customdomain.ai",
   "variableDescription": "%dkimSelector%: DKIM selector label your mail provider assigned (placed before ._domainkey). %dkimTarget%: Hostname your mail provider hosts the DKIM public key at (the CNAME target).",
   "records": [
     {

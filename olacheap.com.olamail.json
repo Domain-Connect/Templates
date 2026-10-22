@@ -1,0 +1,21 @@
+{
+  "providerId": "olacheap.com",
+  "providerName": "OlaCheap",
+  "serviceId": "olamail",
+  "serviceName": "OlaMail business email",
+  "version": 1,
+  "logoUrl": "https://olacheap.com/icon.svg",
+  "description": "Points this domain's email to OlaMail by OlaCheap (MIA Co., Ltd., Japan): MX, SPF, DKIM and DMARC. Your current email provider stops receiving mail for this domain.",
+  "variableDescription": "mxhost: OlaMail server name; spfinclude: OlaMail SPF mechanism; dkimhost: DKIM selector label; dkimkey: DKIM public key",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "olacheap.com",
+  "syncRedirectDomain": "olacheap.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "MX", "host": "@", "pointsTo": "%mxhost%", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "@", "spfRules": "%spfinclude%" },
+    { "type": "TXT", "host": "%dkimhost%._domainkey", "data": "v=DKIM1; k=rsa; p=%dkimkey%", "ttl": 3600 },
+    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=quarantine", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply" }
+  ]
+}

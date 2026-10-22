@@ -1,0 +1,18 @@
+{
+  "providerId": "aimassisttechnology.com",
+  "providerName": "Aim Assist",
+  "serviceId": "blog",
+  "serviceName": "Aim Assist Blog",
+  "version": 1,
+  "description": "Connects blog.<yourdomain> to your Aim Assist hosted blog.",
+  "syncPubKeyDomain": "aimassisttechnology.com",
+  "syncRedirectDomain": "portal.aimassisttechnology.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "blog",
+      "pointsTo": "aim-assist-blog.fly.dev",
+      "ttl": 3600
+    }
+  ]
+}

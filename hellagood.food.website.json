@@ -1,0 +1,30 @@
+{
+    "providerId": "hellagood.food",
+    "providerName": "HellaGood",
+    "serviceId": "website",
+    "serviceName": "HellaGood restaurant website",
+    "version": 1,
+    "logoUrl": "https://hellagood.food/og.png",
+    "description": "Connects your own domain to your HellaGood restaurant website (www) and verifies that you own the domain.",
+    "variableDescription": "verify: the ownership token shown on the Site settings tab of your HellaGood portal.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "hellagood.food",
+    "syncRedirectDomain": "app.hellagood.food",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "connect.hellagood.food",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_hellagood",
+            "data": "hellagood-verify=%verify%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "hellagood-verify="
+        }
+    ]
+}

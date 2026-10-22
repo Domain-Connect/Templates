@@ -1,0 +1,75 @@
+{
+    "providerId": "playsoft.app",
+    "providerName": "Playsoft",
+    "serviceId": "mail-ativar",
+    "serviceName": "Playsoft Mail - virada (MX, SPF e DMARC)",
+    "version": 1,
+    "logoUrl": "https://webmail.playsoft.app/branding/playsoft/simbolo.svg",
+    "description": "Fase 2 do Playsoft Mail (virada). Aponta o MX da raiz para mail.playsoft.app, inclui amazonses.com no SPF (mesclado via SPFM) e cria o DMARC. O grupo dmarc so e pedido pelo painel quando o dominio NAO tem DMARC; o grupo descoberta traz os SRV de configuracao automatica de clientes de e-mail.",
+    "variableDescription": "Sem variaveis proprias. %fqdn% (embutida) forma o endereco rua do DMARC.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.playsofterp.com.br",
+    "syncRedirectDomain": "erp.playsoft.app",
+    "records": [
+        {
+            "groupId": "mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mail.playsoft.app",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%fqdn%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "descoberta",
+            "type": "SRV",
+            "name": "",
+            "service": "_imaps",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 1,
+            "port": 993,
+            "target": "mail.playsoft.app",
+            "ttl": 3600
+        },
+        {
+            "groupId": "descoberta",
+            "type": "SRV",
+            "name": "",
+            "service": "_submission",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 1,
+            "port": 587,
+            "target": "mail.playsoft.app",
+            "ttl": 3600
+        },
+        {
+            "groupId": "descoberta",
+            "type": "SRV",
+            "name": "",
+            "service": "_autodiscover",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 1,
+            "port": 443,
+            "target": "mail.playsoft.app",
+            "ttl": 3600
+        }
+    ]
+}

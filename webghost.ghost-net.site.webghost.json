@@ -1,0 +1,15 @@
+{
+  "providerId": "webghost.ghost-net.site",
+  "providerName": "WebGhost",
+  "serviceId": "webghost",
+  "serviceName": "WebGhost Hosting",
+  "version": 1,
+  "logoUrl": "https://webghost.ghost-net.site/icon.png",
+  "description": "Point your domain at your WebGhost site: A records for @ and * to the WebGhost edge.",
+  "variableDescription": "ip = the WebGhost edge IPv4 address the site is served from",
+  "syncPubKeyDomain": "webghost.ghost-net.site",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 300 },
+    { "type": "A", "host": "*", "pointsTo": "%ip%", "ttl": 300 }
+  ]
+}

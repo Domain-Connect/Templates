@@ -1,0 +1,31 @@
+{
+  "providerId": "pentoggle.com",
+  "providerName": "Pentoggle",
+  "serviceId": "customdomain",
+  "serviceName": "Pentoggle custom domain",
+  "version": 1,
+  "logoUrl": "https://pentoggle.com/logo-email.png",
+  "description": "Points a domain at the app the user built on Pentoggle: apex A/AAAA records to the Pentoggle custom-domain proxy and www as a CNAME. No variables - the targets are fixed for all users.",
+  "syncPubKeyDomain": "pentoggle.com",
+  "syncRedirectDomain": "pentoggle.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "37.16.24.142",
+      "ttl": 600
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "2a09:8280:1::10c:4ea8:0",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "custom.pentoggle.com",
+      "ttl": 600
+    }
+  ]
+}

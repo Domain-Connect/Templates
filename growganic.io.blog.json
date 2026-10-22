@@ -1,0 +1,30 @@
+{
+  "providerId": "growganic.io",
+  "providerName": "GrowGanic",
+  "serviceId": "blog",
+  "serviceName": "GrowGanic blog and website",
+  "version": 1,
+  "logoUrl": "https://growganic.io/icon-512.png",
+  "description": "Points one hostname of the customer's domain (a blog subdomain such as blog.example.com, or the www form of their website) at GrowGanic hosting, and delegates certificate validation for that hostname to Cloudflare, so its HTTPS certificate issues and renews with no further DNS edits. Applied with host set to the subdomain label; the zone apex is never changed.",
+  "variableDescription": "dcvid: the Cloudflare DCV delegation identifier of the GrowGanic zone, which Cloudflare uses to answer certificate validation for the hostname.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "syncPubKeyDomain": "growganic.io",
+  "syncRedirectDomain": "growganic.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.growganic.io",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.%dcvid%.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}

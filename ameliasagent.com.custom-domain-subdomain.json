@@ -1,0 +1,30 @@
+{
+  "providerId": "ameliasagent.com",
+  "providerName": "Amelia's Agent",
+  "serviceId": "custom-domain-subdomain",
+  "serviceName": "Amelia's Agent Custom Domain (subdomain)",
+  "version": 1,
+  "logoUrl": "https://ameliasagent.com/img/mark-96.png",
+  "description": "Point a subdomain you own, such as www, at a site built with Amelia's Agent.",
+  "hostRequired": true,
+  "variableDescription": "token is the ownership challenge Amelia's Agent issues when a domain is claimed in the dashboard. The site is not served on the domain until the published TXT record matches it.",
+  "syncPubKeyDomain": "ameliasagent.com",
+  "syncRedirectDomain": "ameliasagent.com,www.ameliasagent.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.thxamelia.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_amelia",
+      "data": "amelia-verify-%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "amelia-verify-"
+    }
+  ]
+}

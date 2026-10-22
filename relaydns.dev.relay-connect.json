@@ -1,0 +1,30 @@
+{
+  "providerId": "relaydns.dev",
+  "providerName": "RelayDNS",
+  "serviceId": "relay-connect",
+  "serviceName": "Connect a domain to RelayDNS",
+  "version": 1,
+  "hostRequired": true,
+  "logoUrl": "https://relaydns.dev/relaydns-logo-on-light.svg",
+  "description": "Points a customer subdomain at RelayDNS and adds the verification record for that setup.",
+  "variableDescription": "target: the per-setup label RelayDNS issues for this domain, which resolves on to the destination the customer configured. token: the per-setup verification token, hex, issued when the DNS session is created.",
+  "syncPubKeyDomain": "relaydns.dev",
+  "syncBlock": false,
+  "syncRedirectDomain": "api.relaydns.dev,relaydns.dev",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%.connect.relaydns.dev",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "relaydns-verify",
+      "data": "relaydns-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "relaydns-verify="
+    }
+  ]
+}

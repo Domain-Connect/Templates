@@ -1,0 +1,62 @@
+{
+  "providerId": "cyberinsight.us",
+  "providerName": "Cyberinsight",
+  "serviceId": "mail",
+  "serviceName": "Cyberinsight Mail",
+  "version": 3,
+  "logoUrl": "https://cyberinsight.us/logo/cyberinsight-horizontal-black.svg",
+  "description": "Cyberinsight Mail hosted business email, in three groups: 'mail' (MX, SPF and autodiscover/autoconfig records); 'dkim' (the domain's DKIM key, which we request only when the domain does not publish it yet); 'dmarc' (an optional monitoring-only DMARC record, which we request only for domains that do not publish a DMARC record yet).",
+  "variableDescription": "dkimkey (group 'dkim'): base64 RSA public key for the domain's DKIM selector 'default', generated per domain by our mail server",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "cyberinsight.us",
+  "syncRedirectDomain": "cyberinsight.us",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "groupId": "mail",
+      "host": "@",
+      "pointsTo": "mail.cyberinsight.us",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "groupId": "mail",
+      "host": "@",
+      "spfRules": "mx a:mail.cyberinsight.us"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dkim",
+      "host": "default._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "mail",
+      "host": "autodiscover",
+      "pointsTo": "mail.cyberinsight.us",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "mail",
+      "host": "autoconfig",
+      "pointsTo": "mail.cyberinsight.us",
+      "ttl": 3600
+    }
+  ]
+}

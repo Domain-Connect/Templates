@@ -1,0 +1,21 @@
+{
+  "providerId": "basecomp.io",
+  "providerName": "Basecomp",
+  "serviceId": "website-subdomain",
+  "serviceName": "Basecomp website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://basecomp.io/img/logo-dark.svg",
+  "description": "Points a subdomain (for example www or shop) at your Basecomp website.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "basecomp.io",
+  "syncRedirectDomain": "basecomp.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.basecomp.io",
+      "ttl": 3600
+    }
+  ]
+}

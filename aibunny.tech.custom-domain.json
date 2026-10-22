@@ -1,0 +1,22 @@
+{
+    "providerId": "aibunny.tech",
+    "providerName": "AI Bunny",
+    "serviceId": "custom-domain",
+    "serviceName": "AI Bunny Online Ordering",
+    "version": 1,
+    "logoUrl": "https://aibunny.tech/assets/img/logos/ai-bunny-logo-blue.png",
+    "description": "Points one subdomain of the restaurant's domain (e.g. www or order) at its AI Bunny online ordering site. Never applied at the zone apex.",
+    "variableDescription": "No variables. Apply with host=<the chosen subdomain> (e.g. www, order).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "aibunny.tech",
+    "syncRedirectDomain": "panel.aibunny.tech,aibunny.tech,www.aibunny.tech",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "proxy.aibunny.tech",
+            "ttl": 3600
+        }
+    ]
+}

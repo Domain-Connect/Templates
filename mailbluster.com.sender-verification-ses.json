@@ -3,7 +3,7 @@
 	"providerName": "MailBluster",
 	"serviceId": "sender-verification-ses",
 	"serviceName": "MailBluster Email Sender Verification (AWS SES)",
-	"version": 1,
+	"version": 2,
 	"logoUrl": "https://mailbluster.com/wp-content/themes/mailbluster/resources/assets/images/mailbluster-logo.svg",
 	"description": "Configures DKIM, SPF, DMARC, and Custom Mail From DNS records for MailBluster email sender verification using AWS SES",
 	"syncPubKeyDomain": "mailbluster.com",
@@ -11,7 +11,6 @@
 	"syncBlock": false,
 	"shared": false,
 	"multiInstance": true,
-	"warnPhishing": false,
 	"hostRequired": false,
 	"records": [
 		{

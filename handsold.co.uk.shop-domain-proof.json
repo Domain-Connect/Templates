@@ -1,0 +1,21 @@
+{
+  "providerId": "handsold.co.uk",
+  "providerName": "Handsold",
+  "serviceId": "shop-domain-proof",
+  "serviceName": "Proof your domain is yours",
+  "version": 1,
+  "logoUrl": "https://handsold.co.uk/brand/handsold-mark.svg",
+  "description": "Proves to Handsold's host that your domain is yours, before your shop goes on a subdomain of it.",
+  "variableDescription": "verify: the proof Handsold's host (Vercel) asked for, after vc-domain-verify=.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "handsold.co.uk",
+  "syncRedirectDomain": "sell.handsold.co.uk",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%verify%",
+      "ttl": 3600
+    }
+  ]
+}

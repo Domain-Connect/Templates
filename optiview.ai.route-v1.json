@@ -1,0 +1,21 @@
+{
+  "providerId": "optiview.ai",
+  "providerName": "Optiview",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "optiview.ai",
+  "syncRedirectDomain": "app.optiview.ai",
+  "serviceId": "route-v1",
+  "serviceName": "Connect website delivery",
+  "description": "Connect website delivery using the records approved in Optiview.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "proxy.optiview.ai",
+      "ttl": 300
+    }
+  ],
+  "logoUrl": "https://optiview.ai/icon.svg",
+  "hostRequired": true
+}

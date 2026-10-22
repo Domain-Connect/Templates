@@ -1,0 +1,53 @@
+name: Detect Non-Template Changes
+
+# Reusable workflow: reports whether a PR changes any file listed in
+# .github/non-template-files.txt. Such PRs need manual maintainer review (see
+# non-template-changes.yml), so template-oriented checks and labels skip them.
+
+on:
+  workflow_call:
+    outputs:
+      non_template_changed:
+        description: "'true' if the PR changes a file listed in .github/non-template-files.txt"
+        value: ${{ jobs.detect.outputs.non_template_changed }}
+
+jobs:
+  detect:
+    name: Detect non-template changes
+    runs-on: ubuntu-26.04
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      non_template_changed: ${{ steps.detect.outputs.non_template_changed }}
+
+    steps:
+      - name: Detect non-template changes
+        id: detect
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          REPO: ${{ github.repository }}
+        run: |
+          # Read the list from the base branch so a PR cannot change it for itself.
+          mapfile -t patterns < <(gh api "repos/$REPO/contents/.github/non-template-files.txt?ref=$BASE_SHA" \
+            -H "Accept: application/vnd.github.raw" | grep -v -e '^[[:space:]]*#' -e '^[[:space:]]*$')
+
+          # The PR files API also lists removed files and the previous name
+          # of renamed files.
+          mapfile -t changed_files < <(gh api --paginate "repos/$REPO/pulls/$PR_NUMBER/files" \
+            --jq '.[] | .filename, (.previous_filename // empty)' | sort -u)
+
+          non_template_changed=false
+          for file in "${changed_files[@]}"; do
+            for pattern in "${patterns[@]}"; do
+              # Unquoted on purpose: glob match against the pattern.
+              if [[ "$file" == $pattern ]]; then
+                echo "Non-template file changed: $file"
+                non_template_changed=true
+                break
+              fi
+            done
+          done
+          echo "non_template_changed=$non_template_changed" >> "$GITHUB_OUTPUT"

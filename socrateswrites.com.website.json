@@ -1,0 +1,26 @@
+{
+    "providerId": "socrateswrites.com",
+    "providerName": "Socrates Writes",
+    "serviceId": "website",
+    "serviceName": "Website Hosting",
+    "version": 1,
+    "logoUrl": "https://socrateswrites.com/wp-content/themes/socrates-writes/favicon/apple-touch-icon.png",
+    "description": "Connects a customer's apex domain to the Socrates Writes edge platform by setting an A record pointing at the apex-proxy IPv4 address and a www CNAME for the companion hostname.",
+    "variableDescription": "%IP%: apex proxy IPv4 address the customer's A record should point to",
+    "syncPubKeyDomain": "keys.socrateswrites.com",
+    "syncRedirectDomain": "socrateswrites.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%IP%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "@",
+            "ttl": 3600
+        }
+    ]
+}

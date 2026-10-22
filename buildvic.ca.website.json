@@ -1,0 +1,34 @@
+{
+  "providerId": "buildvic.ca",
+  "providerName": "BuildVic",
+  "serviceId": "website",
+  "serviceName": "BuildVic Website",
+  "version": 1,
+  "description": "Connect your domain and www address to your published BuildVic website",
+  "syncPubKeyDomain": "domainconnect.buildvic.ca",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_buildvic",
+      "data": "buildvic-verification=%verification%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "buildvic-verification="
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "customers.buildvic.site",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.buildvic.site",
+      "ttl": 600
+    }
+  ],
+  "hostRequired": true,
+  "variableDescription": "verification: saved BuildVic project ownership verification token"
+}

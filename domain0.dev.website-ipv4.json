@@ -1,0 +1,21 @@
+{
+  "providerId": "domain0.dev",
+  "providerName": "Domain0",
+  "version": 1,
+  "logoUrl": "https://www.domain0.dev/brand/domain0-logo-white.svg",
+  "syncPubKeyDomain": "domain0.dev",
+  "syncRedirectDomain": "domain0.dev",
+  "serviceId": "website-ipv4",
+  "serviceName": "Website IPv4 connection",
+  "description": "Connect the selected hostname to the integrating application's saved IPv4 destination. Signed requests are issued only after application-scoped exact-intent validation.",
+  "variableDescription": "ipv4: the IPv4 destination from the integrating application's saved DNS intent.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

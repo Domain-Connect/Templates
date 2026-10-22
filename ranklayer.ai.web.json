@@ -1,0 +1,19 @@
+{
+  "providerId": "ranklayer.ai",
+  "providerName": "RankLayer",
+  "serviceId": "web",
+  "serviceName": "RankLayer website",
+  "version": 1,
+  "syncPubKeyDomain": "ranklayer.ai",
+  "syncRedirectDomain": "dash.ranklayer.ai",
+  "logoUrl": "https://ranklayer.ai/images/ranklayer-ai_avatar_720.png",
+  "description": "Add a www CNAME to RankLayer SaaS edge. Configure apex-to-www forwarding at your registrar separately (see https://ranklayer.ai/docs/dns-setup#godaddy).",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "customers.ranklayer.ai",
+      "ttl": 3600
+    }
+  ]
+}

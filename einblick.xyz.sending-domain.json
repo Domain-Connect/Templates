@@ -1,0 +1,55 @@
+{
+  "providerId": "einblick.xyz",
+  "providerName": "Einblick",
+  "serviceId": "sending-domain",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://app.einblick.xyz/images/favicon.svg",
+  "description": "Authenticates an Einblick Workspace sending domain with SPF, DKIM, a custom MAIL FROM domain, and optional click tracking.",
+  "variableDescription": "%mailFromRegion% is the AWS SES region; %dkim1%, %dkim2%, and %dkim3% are the constrained DKIM selectors returned for this sending domain.",
+  "syncPubKeyDomain": "domainconnect.einblick.xyz",
+  "records": [
+    {
+      "type": "MX",
+      "groupId": "sending",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%mailFromRegion%.amazonses.com.",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "type": "SPFM",
+      "groupId": "sending",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "sending",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "sending",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "sending",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "tracking",
+      "host": "links",
+      "pointsTo": "links1.resend-dns.com.",
+      "ttl": 3600
+    }
+  ]
+}

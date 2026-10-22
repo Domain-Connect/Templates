@@ -1,0 +1,38 @@
+{
+  "providerId": "planetaryapp.cloud",
+  "providerName": "Planetary",
+  "serviceId": "custom-apex",
+  "serviceName": "Custom domain (apex)",
+  "version": 1,
+  "logoUrl": "https://planetaryapp.cloud/github.svg",
+  "description": "Connect an apex domain to a Planetary instance.",
+  "variableDescription": "ip and ipv6 are Planetary routing addresses. verification is the ownership TXT token.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.planetaryapp.cloud",
+  "syncRedirectDomain": "planetaryapp.cloud",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "groupId": "routing-a",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": "300"
+    },
+    {
+      "type": "AAAA",
+      "groupId": "routing-aaaa",
+      "host": "@",
+      "pointsTo": "%ipv6%",
+      "ttl": "300"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_domain-verify",
+      "ttl": "300",
+      "data": "%verification%",
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

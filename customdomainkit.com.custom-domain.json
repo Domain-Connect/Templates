@@ -3,10 +3,10 @@
   "providerName": "Custom Domain Kit",
   "serviceId": "custom-domain",
   "serviceName": "Custom domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://customdomainkit.com/custom-domain-kit-logo.png",
   "description": "Connects a custom hostname to a SaaS application using Custom Domain Kit, verifies hostname ownership, and provisions its TLS certificate.",
-  "variableDescription": "CNAME_TARGET: the Custom Domain Kit routing target; HOSTNAME_OWNERSHIP: the Cloudflare for SaaS hostname ownership token; CERTIFICATE_VALIDATION: the Cloudflare for SaaS certificate validation token; REPLACEMENT_OWNERSHIP: the Custom Domain Kit replacement verification token",
+  "variableDescription": "CNAME_TARGET: the Custom Domain Kit routing target; HOSTNAME_OWNERSHIP: the Cloudflare for SaaS hostname ownership token; CERTIFICATE_VALIDATION: the first Cloudflare for SaaS certificate validation token; CERTIFICATE_VALIDATION_SECONDARY: the optional second Cloudflare for SaaS certificate validation token; REPLACEMENT_OWNERSHIP: the Custom Domain Kit replacement verification token",
   "syncBlock": false,
   "syncPubKeyDomain": "customdomainkit.com",
   "syncRedirectDomain": "customdomainkit.com,www.customdomainkit.com,test.customdomainkit.com",
@@ -32,6 +32,14 @@
       "type": "TXT",
       "host": "_acme-challenge",
       "data": "%CERTIFICATE_VALIDATION%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 300
+    },
+    {
+      "groupId": "certificate-validation-secondary",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%CERTIFICATE_VALIDATION_SECONDARY%",
       "txtConflictMatchingMode": "All",
       "ttl": 300
     },

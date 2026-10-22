@@ -1,0 +1,49 @@
+{
+	"providerId": "resend.com",
+	"providerName": "Resend",
+	"serviceId": "mail-send-and-receive-mta",
+	"serviceName": "Mail (Sending & Receiving)",
+	"version": 1,
+	"syncPubKeyDomain": "resend.com",
+	"syncRedirectDomain": "resend.com",
+	"description": "Full email configuration for both sending and receiving emails.",
+	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "TXT",
+			"host": "resend._domainkey",
+			"ttl": 3600,
+			"data": "p=%domainKey%"
+		},
+		{
+			"groupId": "mta",
+			"type": "CNAME",
+			"host": "%mtaSpfDomain%",
+			"pointsTo": "%mtaSpfHost%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "outbound",
+			"type": "CNAME",
+			"host": "%fallbackSpfDomain%",
+			"pointsTo": "%fallbackSpfHost%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "inbound",
+			"type": "MX",
+			"host": "%inboundMXDomain%",
+			"pointsTo": "inbound-smtp.%region%.amazonaws.com",
+			"ttl": 3600,
+			"priority": "%inboundMXPriority%"
+		},
+		{
+			"groupId": "click-tracking",
+			"type": "CNAME",
+			"host": "%clickTrackingSubdomain%",
+			"pointsTo": "%clickTrackingCnameTarget%.resend-dns.com",
+			"ttl": 3600
+		}
+	]
+}
