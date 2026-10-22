@@ -1,0 +1,86 @@
+{
+    "providerId": "forgigs.com",
+    "providerName": "Forgigs",
+    "serviceId": "email-sending",
+    "serviceName": "Send email from your domain",
+    "version": 1,
+    "logoUrl": "https://pages.forgigs.com/logo.svg",
+    "description": "Adds the DNS records Amazon SES needs so Forgigs can send email from your domain. Orders, tickets, and requests use the domain. Newsletters use the news subdomain. This does not change the website address.",
+    "variableDescription": "%dkim1% %dkim2% %dkim3%: Easy DKIM selectors for the domain. %news_dkim1% %news_dkim2% %news_dkim3%: Easy DKIM selectors for news.yourdomain. %region%: SES region in the MAIL FROM host, such as us-east-1.",
+    "syncPubKeyDomain": "keys.forgigs.com",
+    "syncRedirectDomain": "pages.forgigs.com",
+    "records": [
+        {
+            "groupId": "dkim1",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim2",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim3",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "news_dkim1",
+            "type": "CNAME",
+            "host": "%news_dkim1%._domainkey.news",
+            "pointsTo": "%news_dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "news_dkim2",
+            "type": "CNAME",
+            "host": "%news_dkim2%._domainkey.news",
+            "pointsTo": "%news_dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "news_dkim3",
+            "type": "CNAME",
+            "host": "%news_dkim3%._domainkey.news",
+            "pointsTo": "%news_dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mx",
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "spf",
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "news_mx",
+            "type": "MX",
+            "host": "bounce.news",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "news_spf",
+            "type": "SPFM",
+            "host": "bounce.news",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        }
+    ]
+}
