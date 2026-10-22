@@ -1,0 +1,31 @@
+{
+    "providerId": "sentry-corp.com",
+    "providerName": "SENTRY",
+    "serviceId": "harmony-mail",
+    "serviceName": "Harmony email authentication",
+    "version": 1,
+    "logoUrl": "https://sentry-corp.com/assets/sentry-logo-dark.svg",
+    "description": "Authorises the Harmony platform to send email as the domain: adds two DKIM keys (CNAMEs, so keys can be rotated without further changes) and merges Harmony into the domain's existing SPF record, keeping all current senders.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "sentry-corp.com",
+    "syncRedirectDomain": "sentry-corp.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "harmony1._domainkey",
+            "pointsTo": "harmony1.%fqdn%.dkim.sentry-corp.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "harmony2._domainkey",
+            "pointsTo": "harmony2.%fqdn%.dkim.sentry-corp.com",
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:_spf.sentry-corp.com"
+        }
+    ]
+}

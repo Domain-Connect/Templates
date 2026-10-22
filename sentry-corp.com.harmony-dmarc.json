@@ -1,0 +1,23 @@
+{
+    "providerId": "sentry-corp.com",
+    "providerName": "SENTRY",
+    "serviceId": "harmony-dmarc",
+    "serviceName": "Harmony DMARC monitoring",
+    "version": 1,
+    "logoUrl": "https://sentry-corp.com/assets/sentry-logo-dark.svg",
+    "description": "Publishes a monitoring-only DMARC record (p=none) for a domain that has none, sending aggregate reports to Harmony so the policy can be tightened safely once all legitimate senders authenticate.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "sentry-corp.com",
+    "syncRedirectDomain": "sentry-corp.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc@sentry-corp.com; fo=1",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

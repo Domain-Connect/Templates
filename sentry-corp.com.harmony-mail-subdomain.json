@@ -1,0 +1,27 @@
+{
+    "providerId": "sentry-corp.com",
+    "providerName": "SENTRY",
+    "serviceId": "harmony-mail-subdomain",
+    "serviceName": "Harmony mail subdomain",
+    "version": 1,
+    "logoUrl": "https://sentry-corp.com/assets/sentry-logo-dark.svg",
+    "description": "Delegates the mail subdomain (mail.<domain>) to Harmony's DNS so Harmony can manage SPF, DKIM, DMARC and MX for that subdomain only. The main domain, website and existing email are not changed.",
+    "variableDescription": "ns1, ns2: the two nameservers Harmony's DNS assigned to the mail subdomain zone, e.g. 'ada.ns.cloudflare.com'.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "sentry-corp.com",
+    "syncRedirectDomain": "sentry-corp.com",
+    "records": [
+        {
+            "type": "NS",
+            "host": "mail",
+            "pointsTo": "%ns1%",
+            "ttl": 3600
+        },
+        {
+            "type": "NS",
+            "host": "mail",
+            "pointsTo": "%ns2%",
+            "ttl": 3600
+        }
+    ]
+}
