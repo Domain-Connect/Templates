@@ -4,7 +4,7 @@
     "serviceId": "mail",
     "serviceName": "Episto Mail",
     "version": 2,
-    "logoUrl": "https://episto.me/assets/postra-logo.svg",
+    "logoUrl": "https://episto.me/assets/episto-logo.svg",
     "description": "Configures a domain for Episto email hosting: ownership verification, inbound MX, SPF, DKIM, outbound relay authentication and DMARC.",
     "variableDescription": "%token%: Episto ownership verification token; %dkimkey%: Ed25519 DKIM public key (p= value) for the episto selector",
     "syncBlock": false,
@@ -14,11 +14,11 @@
         {
             "groupId": "mail",
             "type": "TXT",
-            "host": "_postra",
-            "data": "postra-verification=%token%",
+            "host": "_episto",
+            "data": "episto-verification=%token%",
             "ttl": 3600,
             "txtConflictMatchingMode": "Prefix",
-            "txtConflictMatchingPrefix": "postra-verification="
+            "txtConflictMatchingPrefix": "episto-verification="
         },
         {
             "groupId": "mail",
@@ -45,7 +45,7 @@
         {
             "groupId": "mail",
             "type": "CNAME",
-            "host": "postra",
+            "host": "episto",
             "pointsTo": "return.smtp2go.net",
             "ttl": 3600
         },
