@@ -4,7 +4,7 @@
   "serviceId": "email",
   "serviceName": "Shoprocket email",
   "version": 1,
-  "logoUrl": "https://shoprocket.dev/img/logo-black.svg",
+  "logoUrl": "https://shoprocket.io/assets/img/logo-dark.svg",
   "description": "Send your Shoprocket order emails from your own domain (DKIM)",
   "variableDescription": "%dkimtoken%: your store's DKIM key token in Shoprocket's key zone",
   "syncPubKeyDomain": "shoprocket.io",
