@@ -1,0 +1,32 @@
+{
+  "providerId": "shoprocket.io",
+  "providerName": "Shoprocket",
+  "serviceId": "email",
+  "serviceName": "Shoprocket email",
+  "version": 1,
+  "logoUrl": "https://shoprocket.dev/img/logo-black.svg",
+  "description": "Send your Shoprocket order emails from your own domain (DKIM)",
+  "variableDescription": "%dkimtoken%: your store's DKIM key token in Shoprocket's key zone",
+  "syncPubKeyDomain": "shoprocket.io",
+  "syncRedirectDomain": "app.shoprocket.dev,app.shoprocket.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "sr1._domainkey",
+      "pointsTo": "sr1.%dkimtoken%.p1.dkim.shoprocketmail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "sr2._domainkey",
+      "pointsTo": "sr2.%dkimtoken%.p1.dkim.shoprocketmail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "sr3._domainkey",
+      "pointsTo": "sr3.%dkimtoken%.p1.dkim.shoprocketmail.com",
+      "ttl": 3600
+    }
+  ]
+}
