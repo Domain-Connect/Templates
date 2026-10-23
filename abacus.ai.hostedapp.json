@@ -1,0 +1,31 @@
+{
+  "providerId": "abacus.ai",
+  "providerName": "Abacus.AI",
+  "serviceId": "hostedapp",
+  "serviceName": "Abacus.AI Apps",
+  "version": 1,
+  "logoUrl": "https://static.abacus.ai/app/imgs/logoDark.svg",
+  "description": "Connects a domain to a web app hosted on Abacus.AI.",
+  "variableDescription": "ip: the Abacus.AI edge address serving the app",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.abacusai-cdn.net",
+  "syncRedirectDomain": "abacus.ai,internalreai.com",
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300,
+      "essential": "Always"
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%ip%",
+      "ttl": 300,
+      "essential": "Always"
+    }
+  ]
+}
