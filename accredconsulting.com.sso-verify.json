@@ -1,0 +1,26 @@
+{
+  "providerId": "accredconsulting.com",
+  "providerName": "Accred",
+  "serviceId": "sso-verify",
+  "serviceName": "Accred single sign-on domain verification",
+  "version": 1,
+  "logoUrl": "https://hub.accredconsulting.com/icon-512.png",
+  "description": "Adds the TXT record that proves your organization owns this domain, so people with this email domain can sign in to Accred with Microsoft.",
+  "variableDescription": "verifytoken: the random verification token shown in Accred Hub → Organization settings → Single sign-on.",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "accredconsulting.com",
+  "syncRedirectDomain": "hub.accredconsulting.com",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "accred-verification=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "accred-verification="
+    }
+  ]
+}
