@@ -3,9 +3,10 @@
 	"providerName": "Creatucurso",
 	"serviceId": "customdomain",
 	"serviceName": "Dominio propio para tu academia",
-	"version": 2,
+	"version": 3,
 	"logoUrl": "https://creatucurso.com.ar/logo.svg",
-	"description": "Points a subdomain of the customer (for example cursos.example.com) to the Creatucurso platform with one CNAME, or the root domain (example.com) with one A record, so the online academy is served there. Apply it with groupId=subdomain and a host, or groupId=apex, an empty host and the ipv4 variable.",
+	"description": "Points a subdomain of the customer (for example cursos.example.com) to the Creatucurso platform with one CNAME, so the online academy is served there. Apply it with the host parameter set to the subdomain.",
+	"hostRequired": true,
 	"syncBlock": false,
 	"syncPubKeyDomain": "creatucurso.com.ar",
 	"syncRedirectDomain": "app.creatucurso.com.ar",
@@ -15,13 +16,6 @@
 			"type": "CNAME",
 			"host": "@",
 			"pointsTo": "dominios.creatucurso.com.ar",
-			"ttl": 3600
-		},
-		{
-			"groupId": "apex",
-			"type": "A",
-			"host": "@",
-			"pointsTo": "%ipv4%",
 			"ttl": 3600
 		}
 	]
