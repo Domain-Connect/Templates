@@ -1,0 +1,21 @@
+{
+  "providerId": "librarianist.xyz",
+  "providerName": "The Librarianist",
+  "serviceId": "verify",
+  "serviceName": "Domain Verification & Syndicate",
+  "version": 1,
+  "syncPubKeyDomain": "librarianist.xyz",
+  "syncRedirectDomain": "librarianist.xyz",
+  "description": "Verify domain ownership to syndicate your website into The Librarianist network.",
+  "logoUrl": "https://librarianist.xyz/logo/logo.jpg",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "ttl": 300,
+      "data": "librarianist-verification=%token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "librarianist-verification="
+    }
+  ]
+}
