@@ -1,0 +1,32 @@
+{
+    "providerId": "net4.com",
+    "providerName": "net4",
+    "serviceId": "website",
+    "serviceName": "net4 website",
+    "version": 1,
+    "logoUrl": "https://net4.com/logo.svg",
+    "description": "Connects your domain to your net4 website. Email records (MX, SPF, DKIM, DMARC) are not changed.",
+    "variableDescription": "cfverify: hostname ownership token issued for this site by the hosting edge",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "syncPubKeyDomain": "net4.com",
+    "syncRedirectDomain": "portal.net4.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "www",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "sites.net4.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_cf-custom-hostname.www",
+            "data": "%cfverify%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}
