@@ -1,0 +1,21 @@
+{
+  "providerId": "haihuia.ro",
+  "providerName": "Haihuia",
+  "serviceId": "site-apex",
+  "serviceName": "Site Haihuia (domeniul fără www)",
+  "version": 1,
+  "logoUrl": "https://haihuia.ro/icon.svg",
+  "description": "Site-ul cazării tale, găzduit de Haihuia, pe domeniul tău fără www (cabana-ta.ro).",
+  "variableDescription": "ip: adresa serverului Haihuia",
+  "syncBlock": false,
+  "syncPubKeyDomain": "haihuia.ro",
+  "syncRedirectDomain": "haihuia.ro",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}
