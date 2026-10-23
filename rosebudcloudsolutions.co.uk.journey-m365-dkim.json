@@ -1,0 +1,27 @@
+{
+  "providerId": "rosebudcloudsolutions.co.uk",
+  "providerName": "Rosebud Cloud Solutions",
+  "serviceId": "journey-m365-dkim",
+  "serviceName": "Microsoft 365 DKIM by Rosebud",
+  "version": 1,
+  "logoUrl": "https://rosebudcloudsolutions.co.uk/apple-touch-icon.png",
+  "description": "Publishes the two DKIM CNAME records Microsoft 365 assigned to this domain, so that Microsoft 365 can sign the domain's mail with DKIM once signing is switched on in the customer's own tenant. Rosebud reads both values from the customer's tenant with their administrator's own sign-in; they point at the keys Microsoft hosts, never at Rosebud.",
+  "variableDescription": "%selectorone%: the target Microsoft 365 assigned to this domain's selector1 DKIM key, read from the customer's own tenant, for example selector1-contoso-com._domainkey.contoso.n-v1.dkim.mail.microsoft (domains set up before May 2025 keep the older selector1-contoso-com._domainkey.contoso.onmicrosoft.com). %selectortwo%: the same for the selector2 key.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "rosebudcloudsolutions.co.uk",
+  "syncRedirectDomain": "rosebudcloudsolutions.co.uk",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%selectorone%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%selectortwo%",
+      "ttl": 3600
+    }
+  ]
+}
