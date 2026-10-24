@@ -3,16 +3,16 @@
   "providerName": "Feedback Loop",
   "serviceId": "public-domains",
   "serviceName": "Feature requests and release notes",
-  "version": 3,
+  "version": 4,
   "description": "Connect a project subdomain to Feedback Loop",
   "syncPubKeyDomain": "feedbackloop.page",
   "syncRedirectDomain": "feedbackloop.page",
-  "hostRequired": true,
+  "hostRequired": false,
   "records": [
     {
       "type": "CNAME",
       "groupId": "public",
-      "host": "@",
+      "host": "%communityHost%",
       "pointsTo": "%cname%",
       "ttl": 600,
       "essential": "OnApply"
@@ -20,7 +20,7 @@
     {
       "type": "TXT",
       "groupId": "public",
-      "host": "_feedbackloop",
+      "host": "_feedbackloop.%communityHost%",
       "data": "%proof%",
       "ttl": 600,
       "txtConflictMatchingMode": "Prefix",
@@ -30,7 +30,7 @@
     {
       "type": "TXT",
       "groupId": "verification",
-      "host": "%verificationHost%.",
+      "host": "%verificationHost%",
       "data": "%verification%",
       "ttl": 600,
       "txtConflictMatchingMode": "Prefix",
@@ -39,5 +39,6 @@
     }
   ],
   "logoUrl": "https://feedbackloop.page/favicon.svg",
-  "variableDescription": "cname: exact CNAME target returned by Vercel for the registered project hostname; proof: complete server-generated feedbackloop-domain= ownership TXT value; verificationHost: optional fully-qualified Vercel verification TXT hostname without a trailing dot; the template supplies the absolute-name dot; verification: complete vc-domain-verify= value returned by Vercel."
+  "variableDescription": "Apply with domain set to the DNS zone and host empty. communityHost: validated non-empty community hostname relative to that zone; cname: exact CNAME target returned by Vercel; proof: complete server-generated feedbackloop-domain= ownership TXT value; verificationHost: Vercel verification TXT hostname relative to the same zone, without a trailing dot; verification: complete vc-domain-verify= value returned by Vercel. Signed requests only; multiInstance preserves other communities in the zone.",
+  "multiInstance": true
 }
