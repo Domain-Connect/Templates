@@ -1,0 +1,45 @@
+{
+    "providerId": "outboundpro.com.br",
+    "providerName": "OutboundPro",
+    "serviceId": "campaign-sending",
+    "serviceName": "Campanhas de e-mail (domínio de envio)",
+    "version": 1,
+    "logoUrl": "https://outboundpro.com.br/favicon.svg",
+    "description": "Authenticates the customer's sending domain for OutboundPro email campaigns (Amazon SES, region sa-east-1): the three Easy DKIM CNAME records and the custom MAIL FROM subdomain (bounce) with its MX and SPF. Apply with the host parameter set to the sending subdomain (empty for the zone apex).",
+    "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three Easy DKIM selectors issued by Amazon SES for this domain (32 lowercase letters and digits each).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "outboundpro.com.br",
+    "syncRedirectDomain": "workspace.outboundpro.com.br,app.outboundpro.com.br",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.sa-east-1.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com"
+        }
+    ]
+}
