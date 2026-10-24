@@ -1,0 +1,22 @@
+{
+  "providerId": "sendeto.com",
+  "providerName": "Sendeto",
+  "version": 2,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.sendeto.com",
+  "serviceId": "managed-email-ownership",
+  "serviceName": "Verify Sendeto email domain ownership",
+  "description": "Publish the ownership proof for your Sendeto email subdomain.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_sendeto-owner.s",
+      "data": "sendeto-verification=%ownership%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "sendeto-verification="
+    }
+  ],
+  "logoUrl": "https://sendeto.com/domain-connect/sendeto.svg",
+  "syncRedirectDomain": "sendeto.com"
+}
