@@ -1,0 +1,28 @@
+{
+  "providerId": "saas-factory.ai",
+  "providerName": "SaaS Factory",
+  "serviceId": "subdomain",
+  "serviceName": "SaaS Factory product (subdomain)",
+  "version": 1,
+  "logoUrl": "https://saas-factory.ai/domain-connect-logo.png",
+  "description": "Points a subdomain at a product built and hosted on SaaS Factory, and proves ownership of it",
+  "variableDescription": "sfverify: SaaS Factory ownership token (hex)",
+  "syncPubKeyDomain": "saas-factory.ai",
+  "syncRedirectDomain": "saas-factory.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_sf-verify",
+      "data": "sf-verify-%sfverify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

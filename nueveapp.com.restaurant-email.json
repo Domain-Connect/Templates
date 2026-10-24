@@ -1,0 +1,33 @@
+{
+  "providerId": "nueveapp.com",
+  "providerName": "Nueve",
+  "serviceId": "restaurant-email",
+  "serviceName": "Restaurant email sending",
+  "version": 1,
+  "syncPubKeyDomain": "nueveapp.com",
+  "syncRedirectDomain": "nueveapp.com",
+  "description": "Authorize email sending from the restaurant's own domain. Existing incoming mail and website records are unchanged.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "ttl": 3600,
+      "data": "p=%domainKey%",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "ttl": 3600,
+      "pointsTo": "rsend-%mtaRegion%.forge.rmta.net"
+    },
+    {
+      "type": "CNAME",
+      "host": "send",
+      "ttl": 3600,
+      "pointsTo": "send.forge.rmta.net"
+    }
+  ],
+  "logoUrl": "https://nueveapp.com/favicon.svg",
+  "variableDescription": "%domainKey%: DKIM RSA public key issued by Resend; %mtaRegion%: Resend Forge sending region."
+}

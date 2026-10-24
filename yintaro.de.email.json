@@ -1,0 +1,41 @@
+{
+  "providerId": "yintaro.de",
+  "providerName": "Yintaro",
+  "serviceId": "email",
+  "serviceName": "Yintaro E-Mail-Versand",
+  "version": 1,
+  "logoUrl": "https://yintaro.de/img/apple-touch-icon.png",
+  "description": "Lets a practice using Yintaro (practice software for physiotherapy) send e-mails from its own domain: DKIM key, SPF and return path for the sending subdomain.",
+  "variableDescription": "dkimpublickey: DKIM public key (base64, without the leading 'p=') issued for this domain by the e-mail service",
+  "syncBlock": false,
+  "syncPubKeyDomain": "yintaro.de",
+  "syncRedirectDomain": "yintaro.de,nthera.de",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimpublickey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "aglyn.com",
+  "providerName": "Aglyn",
+  "serviceId": "website-subdomain",
+  "serviceName": "Aglyn website on a subdomain",
+  "version": 2,
+  "logoUrl": "https://raw.githubusercontent.com/aglyn/aglyn/main/tools/domain-connect/logo/aglyn-logo-full-dark.png",
+  "description": "Points one subdomain (for example shop.example.com) at an Aglyn website.",
+  "variableDescription": "No variables. The subdomain is the host the template is applied to.",
+  "syncPubKeyDomain": "aglyn.com",
+  "syncRedirectDomain": "app.aglyn.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.aglyn.app",
+      "ttl": 3600
+    }
+  ]
+}

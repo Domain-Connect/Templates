@@ -1,0 +1,24 @@
+{
+    "providerId": "raxcube.com",
+    "providerName": "RaxCube",
+    "serviceId": "store-meta",
+    "serviceName": "RaxCube store: Meta domain verification",
+    "version": 1,
+    "logoUrl": "https://raxcube.com/icon-512.png",
+    "description": "Proves a domain the merchant already connected to their RaxCube online store to Meta, for a Facebook and Instagram shop. A template of its own, so applying it later never touches the records that connect the store.",
+    "variableDescription": "%metacode%: the merchant's own Meta domain-verification code",
+    "syncBlock": false,
+    "syncPubKeyDomain": "raxcube.com",
+    "syncRedirectDomain": "raxcube.com,raxcube.net,rax-cube.com,rax-cube.net",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "@",
+            "data": "facebook-domain-verification=%metacode%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "facebook-domain-verification=",
+            "essential": "OnApply"
+        }
+    ]
+}

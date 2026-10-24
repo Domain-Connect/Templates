@@ -1,0 +1,22 @@
+{
+    "providerId": "geomodifier.com",
+    "providerName": "Geomodifier",
+    "serviceId": "domain-verification",
+    "serviceName": "Geomodifier domain verification",
+    "version": 1,
+    "logoUrl": "https://geomodifier.com/brand/geomodifier-mark.svg",
+    "description": "Adds one TXT record that proves the site owner controls the domain.",
+    "variableDescription": "token: 32 hex characters issued per site by Geomodifier.",
+    "syncPubKeyDomain": "geomodifier.com",
+    "syncRedirectDomain": "geomodifier.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_geomodifier",
+            "data": "gm-verify=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "gm-verify="
+        }
+    ]
+}

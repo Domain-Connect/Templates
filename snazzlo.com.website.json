@@ -1,0 +1,21 @@
+{
+  "providerId": "snazzlo.com",
+  "providerName": "Snazzlo",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://snazzlo.com/icon.svg",
+  "description": "Shows your Snazzlo website at a subdomain, such as www.yourdomain.com or shop.yourdomain.com",
+  "variableDescription": "project: the site's Cloudflare Pages project name; the record points to <project>.pages.dev",
+  "syncPubKeyDomain": "snazzlo.com",
+  "syncRedirectDomain": "studio.snazzlo.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%project%.pages.dev",
+      "ttl": 3600
+    }
+  ]
+}

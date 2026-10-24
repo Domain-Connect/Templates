@@ -3,7 +3,7 @@
   "providerName": "Klarefi",
   "serviceId": "email",
   "serviceName": "Email to applicants",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://www.klarefi.com/brand/klarefi-mark.png",
   "description": "Lets Klarefi send email to applicants from this domain, and, on a domain that takes no mail yet, take in the email applicants send to it.",
   "variableDescription": "%domainKey%: the public DKIM key issued for this domain. %region%: the region this domain's mail is handled in.",
@@ -32,6 +32,13 @@
       "type": "SPFM",
       "host": "send",
       "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "forge",
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
     },
     {
       "groupId": "receiving",

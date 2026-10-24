@@ -1,0 +1,34 @@
+{
+  "providerId": "heat-engineer.com",
+  "providerName": "Heat Engineer",
+  "serviceId": "email",
+  "serviceName": "Marketing email",
+  "version": 1,
+  "logoUrl": "https://heat-engineer.com/assets/images/heat-engineer-logo.png",
+  "description": "Set up your domain to send marketing emails from Heat Engineer.",
+  "syncPubKeyDomain": "domainconnect.heat-engineer.com",
+  "syncRedirectDomain": "heat-engineer.com",
+  "variableDescription": "dkimPublicKey is the sending domain's RSA public key; ownershipHost is the verification label suffix; ownershipToken is the exact verification TXT value. Values are supplied and signed by Heat Engineer. Use the standard host parameter for a sending subdomain.",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.mailjet.com",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "mailjet._domainkey",
+      "data": "k=rsa; p=%dkimPublicKey%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "mailjet._%ownershipHost%",
+      "data": "%ownershipToken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

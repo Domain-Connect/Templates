@@ -1,0 +1,30 @@
+{
+  "providerId": "humainum.com",
+  "providerName": "Humainum",
+  "serviceId": "website",
+  "serviceName": "Humainum website",
+  "version": 1,
+  "logoUrl": "https://app.humainum.com/favicon.svg",
+  "description": "Connects your domain to a website published on Humainum",
+  "variableDescription": "siteid: the Humainum website this domain belongs to",
+  "syncBlock": false,
+  "syncPubKeyDomain": "humainum.com",
+  "syncRedirectDomain": "app.humainum.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.humainum.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_humainum",
+      "data": "humainum-site=%siteid%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "humainum-site="
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+    "providerId": "falaseguro.com.br",
+    "providerName": "Fala Seguro",
+    "serviceId": "channel",
+    "serviceName": "Canal de denúncias",
+    "version": 1,
+    "description": "Configura o endereço do canal de denúncias e a emissão e renovação do certificado HTTPS.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.falaseguro.com.br",
+    "syncRedirectDomain": "falaseguro.com.br",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%cnameTarget%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "_acme-challenge",
+            "pointsTo": "%fqdn%.%dcvTarget%",
+            "ttl": 3600
+        }
+    ]
+}

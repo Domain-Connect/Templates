@@ -1,0 +1,76 @@
+{
+  "providerId": "devhelp.pk",
+  "providerName": "devhelp shop",
+  "serviceId": "email",
+  "serviceName": "Store email",
+  "version": 1,
+  "logoUrl": "https://devhelp.pk/brand-icon.svg",
+  "description": "Lets a devhelp shop store send email from the merchant's own domain (sent through Amazon SES): DKIM signing records, a dedicated bounce (MAIL FROM) subdomain and a starter DMARC policy that never replaces an existing one. Website records, inbound email (root MX) and nameservers are not changed.",
+  "variableDescription": "Group 'dkim': sid is the store's signing id; the DKIM keys are published and rotated by devhelp under dkim.devhelp.store. Group 'dkim-ses': dkim1-3 are the per-domain Amazon SES Easy DKIM tokens and dkimzone is the SES signing hosted zone for the identity (it varies by AWS Region and identity). Groups 'bounce' and 'dmarc' have no variables.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "devhelp.pk",
+  "syncRedirectDomain": "app.devhelp.pk,app-dev.devhelp.pk",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "dh1._domainkey",
+      "pointsTo": "dh1.%sid%.dkim.devhelp.store",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "dh2._domainkey",
+      "pointsTo": "dh2.%sid%.dkim.devhelp.store",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim-ses",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim-ses",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim-ses",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "bounce",
+      "type": "MX",
+      "host": "dhb",
+      "pointsTo": "feedback-smtp.ap-southeast-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "bounce",
+      "type": "SPFM",
+      "host": "dhb",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
