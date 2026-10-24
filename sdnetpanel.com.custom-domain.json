@@ -1,0 +1,67 @@
+{
+  "providerId": "sdnetpanel.com",
+  "providerName": "SD Panel",
+  "serviceId": "custom-domain",
+  "serviceName": "SD Panel custom domain",
+  "version": 3,
+  "logoUrl": "https://sdnetpanel.com/domain-connect/logo.svg",
+  "description": "Points your address at your SD Panel workspace, sets up the email records it needs to send from the notify subdomain of your domain and, for resellers, the wildcard record that serves their customers' addresses.",
+  "variableDescription": "Group web: cnameTarget is where the address points, ownershipHost and ownershipValue prove the domain is yours. Group sending, applied under the notify subdomain: spfHost and spfRules authorize SD Panel to send email, mxValue and mxPriority route its bounces on the fixed send address, rsendValue completes its return path on the fixed rsend address, dkimHost and dkimValue sign that email. Group wildcard: cnameTarget is where every subdomain of the address points.",
+  "syncPubKeyDomain": "sdnetpanel.com",
+  "syncRedirectDomain": "sdnetpanel.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "web",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "web",
+      "type": "TXT",
+      "host": "%ownershipHost%",
+      "data": "%ownershipValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "%spfHost%",
+      "spfRules": "%spfRules%"
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mxValue%",
+      "priority": "%mxPriority%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "%rsendValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "%dkimHost%",
+      "data": "%dkimValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "wildcard",
+      "type": "CNAME",
+      "host": "*",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 3600
+    }
+  ]
+}

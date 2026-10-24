@@ -1,0 +1,51 @@
+{
+  "providerId": "charterops.com",
+  "providerName": "CharterOps",
+  "serviceId": "email",
+  "serviceName": "Campaign email",
+  "version": 1,
+  "description": "Authenticate a company-owned sending domain for CharterOps campaign email through Mailgun. Existing website and inbox routing stay unchanged.",
+  "variableDescription": "%dkim_selector% and %dkim_value% are the Mailgun-assigned DKIM selector and public key. The selector must be variable because existing Mailgun domains have different selectors. %ownership_token% proves the specific organization owns the sending domain. %dmarc% preserves a valid existing sending-host DMARC policy or supplies p=none. %tracking_target% is mailgun.org or eu.mailgun.org.",
+  "syncPubKeyDomain": "charterops.com",
+  "syncRedirectDomain": "app.charterops.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkim_selector%._domainkey",
+      "data": "%dkim_value%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_charterops",
+      "data": "%ownership_token%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "%tracking_target%",
+      "ttl": 3600
+    }
+  ]
+}
