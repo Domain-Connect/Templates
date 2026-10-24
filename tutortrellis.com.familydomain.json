@@ -1,0 +1,19 @@
+{
+  "providerId": "tutortrellis.com",
+  "providerName": "Tutor Trellis",
+  "serviceId": "familydomain",
+  "serviceName": "Your own domain for families",
+  "version": 1,
+  "logoUrl": "https://tutortrellis.com/brand/logo-full.png",
+  "description": "Points a subdomain (such as lessons.yourbusiness.co.uk) at a tutor's family portal on Tutor Trellis, and adds a TXT record showing the domain belongs to their workspace.",
+  "variableDescription": "token: the workspace's ownership token; target: where the domain points (connect.tutortrellis.com)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "tutortrellis.com",
+  "syncRedirectDomain": "tutortrellis.com",
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 3600 },
+    { "type": "TXT", "host": "_tutortrellis", "data": "%token%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}
