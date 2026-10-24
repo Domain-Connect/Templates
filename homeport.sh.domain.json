@@ -1,0 +1,39 @@
+{
+  "providerId": "homeport.sh",
+  "providerName": "homeport",
+  "serviceId": "domain",
+  "serviceName": "homeport custom domain",
+  "version": 1,
+  "logoUrl": "https://app.homeport.sh/domainconnect/logo.svg",
+  "description": "Points a root domain, and optionally its www, at an app hosted on homeport, and adds the TXT record that proves the domain is yours.",
+  "variableDescription": "ip: the address of homeport's edge; token: this domain's proof of ownership, made by homeport",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.homeport.sh",
+  "syncRedirectDomain": "app.homeport.sh",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300
+    },
+    {
+      "groupId": "apex",
+      "type": "TXT",
+      "host": "_homeport",
+      "data": "homeport-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "edge.homeport.run",
+      "ttl": 300
+    }
+  ]
+}
