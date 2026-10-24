@@ -1,0 +1,44 @@
+{
+  "providerId": "mntz.io",
+  "providerName": "Monetize",
+  "serviceId": "email",
+  "serviceName": "Monetize email sending",
+  "version": 1,
+  "logoUrl": "https://app.mntz.io/logo-day.png",
+  "description": "Lets Monetize send call confirmations, reminders and automations from the customer's own domain through Resend (Amazon SES): return-path MX and SPF on the send subdomain, the Resend DKIM key and a DMARC policy.",
+  "variableDescription": "%dkim%: the DKIM public key Resend issued for this domain (the value after p=). %region%: the Resend sending region, for example eu-west-1.",
+  "syncBlock": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "mntz.io",
+  "syncRedirectDomain": "mntz.io,app.mntz.io",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
