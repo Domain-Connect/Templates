@@ -1,0 +1,33 @@
+{
+    "providerId": "neuron360.app",
+    "providerName": "Neuron360",
+    "serviceId": "website",
+    "serviceName": "Neuron360 Sites",
+    "version": 1,
+    "logoUrl": "https://neuron360.app/icon-512.png",
+    "description": "Points your domain and its www address at your Neuron360 website.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "neuron360.app",
+    "syncRedirectDomain": "neuron360.app",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "216.198.79.1",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "64.29.17.1",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "cname.vercel-dns.com",
+            "ttl": 3600
+        }
+    ]
+}
