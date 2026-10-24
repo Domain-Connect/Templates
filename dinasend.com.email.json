@@ -1,0 +1,63 @@
+{
+  "providerId": "dinasend.com",
+  "providerName": "DinaSend",
+  "serviceId": "email",
+  "serviceName": "DinaSend Email Sending",
+  "version": 1,
+  "logoUrl": "https://dinasend.com/brand/icon.svg",
+  "description": "Authenticates a domain for sending email through DinaSend: Amazon SES DKIM, SPF, DMARC and a custom MAIL FROM subdomain.",
+  "variableDescription": "dkim1, dkim2, dkim3: Amazon SES DKIM tokens. region: AWS region of the SES MAIL FROM feedback host, e.g. eu-west-1.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dinasend.com",
+  "syncRedirectDomain": "app.dinasend.com",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail_from",
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail_from",
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
