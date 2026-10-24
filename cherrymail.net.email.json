@@ -1,0 +1,54 @@
+{
+  "providerId": "cherrymail.net",
+  "providerName": "CherryMail",
+  "serviceId": "email",
+  "serviceName": "CherryMail Email",
+  "version": 1,
+  "logoUrl": "https://cherrymail.net/cherrymail-logo.png",
+  "description": "Connect your domain to CherryMail for receiving and authenticated sending.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cherrymail.net",
+  "syncRedirectDomain": "cherrymail.net",
+  "variableDescription": "%verification%: CherryMail domain ownership token; %selector%: mailcow-issued DKIM selector; %dkim%: RSA public key; %dmarc%: initial DMARC policy when no policy already exists.",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_cherrymail",
+      "data": "cherrymail-verify=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "groupId": "mx",
+      "host": "@",
+      "pointsTo": "mail.cherrymail.net",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "SPFM",
+      "groupId": "spf",
+      "host": "@",
+      "spfRules": "mx ip4:2.29.122.125"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dkim",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkim%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
