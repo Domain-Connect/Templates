@@ -1,0 +1,21 @@
+{
+  "providerId": "pubflow.com",
+  "providerName": "Pubflow",
+  "serviceId": "a",
+  "serviceName": "Pubflow custom domain",
+  "version": 1,
+  "logoUrl": "https://cloud.notside.com/pbfl/logo.svg",
+  "description": "Points a domain at a Pubflow deployment with an A record.",
+  "variableDescription": "%ip%: IPv4 address of the Pubflow server for this deployment",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domain-connect.pubflow.com",
+  "syncRedirectDomain": "platform.pubflow.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300
+    }
+  ]
+}
