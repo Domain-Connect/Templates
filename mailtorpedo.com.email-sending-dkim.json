@@ -1,0 +1,32 @@
+{
+  "providerId": "mailtorpedo.com",
+  "providerName": "Mail Torpedo",
+  "serviceId": "email-sending-dkim",
+  "serviceName": "Email sending setup (signing records only)",
+  "version": 1,
+  "description": "Adds only the three DKIM signing records. Used when the customer's domain already has a DMARC record, which is left untouched.",
+  "variableDescription": "dkim1, dkim2, dkim3: the unique token of each of the three DKIM keys (the part before ._domainkey).",
+  "syncPubKeyDomain": "mailtorpedo.com",
+  "syncRedirectDomain": "app.mailtorpedo.com,mailtorpedo.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
