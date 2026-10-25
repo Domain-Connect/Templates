@@ -1,0 +1,54 @@
+{
+  "providerId": "emitd.com",
+  "providerName": "Emitd",
+  "serviceId": "mail",
+  "serviceName": "Emitd Email Authentication",
+  "version": 1,
+  "logoUrl": "https://emitd.com/email/emitd-logo.png",
+  "description": "Authenticate your domain for sending with Emitd — SPF, DKIM, DMARC, and a custom MAIL FROM (Return-Path) for SPF alignment. One click, no copy-paste.",
+  "variableDescription": "Emitd supplies the DKIM selector and public key, the MAIL FROM subdomain, and the SES sending region.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "emitd.com",
+  "syncRedirectDomain": "emitd.com",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600,
+      "groupId": "outbound"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; adkim=s; aspf=r",
+      "ttl": 3600,
+      "groupId": "dmarc",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%domainKey%",
+      "ttl": 3600,
+      "groupId": "dkim"
+    },
+    {
+      "type": "MX",
+      "host": "%spfDomain%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "outbound"
+    },
+    {
+      "type": "SPFM",
+      "host": "%spfDomain%",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600,
+      "groupId": "outbound"
+    }
+  ]
+}
