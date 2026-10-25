@@ -1,0 +1,40 @@
+{
+    "providerId": "outboundpro.com.br",
+    "providerName": "OutboundPro",
+    "serviceId": "landing-domain",
+    "serviceName": "Landing pages (domínio próprio)",
+    "version": 2,
+    "logoUrl": "https://outboundpro.com.br/favicon.svg",
+    "description": "Points the customer's landing page subdomain (for example paginas.example.com) to OutboundPro's public host with a DNS-only CNAME (no proxy), publishes OutboundPro's ownership proof (TXT _outboundpro.<subdomain> = outboundpro-verify=<token>; OutboundPro only serves pages on the subdomain after it finds that TXT with the token of the current registration, so a CNAME left behind after a deletion can never be claimed by another account) and, when OutboundPro's certificate provider (Cloudflare for SaaS) issues one, the custom hostname ownership token. Apply with the host parameter set to the landing page subdomain and groupId=base or groupId=base,ownership.",
+    "variableDescription": "%verify%: OutboundPro's ownership proof token for this registration (32 URL-safe characters, new on every registration), published as outboundpro-verify=%verify%. %ownership%: the ownership verification value issued by Cloudflare for SaaS for this custom hostname (a UUID); only needed with groupId ownership.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "outboundpro.com.br",
+    "syncRedirectDomain": "workspace.outboundpro.com.br,app.outboundpro.com.br",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "groupId": "base",
+            "host": "@",
+            "pointsTo": "track.outboundpro.com.br",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "groupId": "base",
+            "host": "_outboundpro",
+            "data": "outboundpro-verify=%verify%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "outboundpro-verify="
+        },
+        {
+            "type": "TXT",
+            "groupId": "ownership",
+            "host": "_cf-custom-hostname",
+            "data": "%ownership%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}
