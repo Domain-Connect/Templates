@@ -1,0 +1,21 @@
+{
+    "providerId": "neuron360.app",
+    "providerName": "Neuron360",
+    "serviceId": "subdomain",
+    "serviceName": "Neuron360 Sites (single address)",
+    "version": 1,
+    "logoUrl": "https://neuron360.app/icon-512.png",
+    "description": "Points one address, such as shop.yourdomain.com, at your Neuron360 website.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "neuron360.app",
+    "syncRedirectDomain": "neuron360.app",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cname.vercel-dns.com",
+            "ttl": 3600
+        }
+    ]
+}
