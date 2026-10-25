@@ -1,0 +1,20 @@
+{
+  "providerId": "ske.io",
+  "providerName": "SKE",
+  "serviceId": "validation-cname",
+  "serviceName": "Certificate validation",
+  "version": 1,
+  "description": "Install the DNS record used to validate and renew your application certificate.",
+  "variableDescription": "recordName: the record name relative to the DNS zone, or @ for the apex; target: the DNS record value supplied by SKE.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "keys.ske.io",
+  "syncRedirectDomain": "app.ske.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%recordName%",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ]
+}
