@@ -2,20 +2,30 @@
     "providerId": "vibehost.vn",
     "providerName": "VibeHost",
     "serviceId": "hosting",
-    "serviceName": "VibeHost Custom Domain",
-    "version": 2,
-    "logoUrl": "https://vibehost.vn/image.svg",
-    "description": "Trỏ tên miền của bạn về máy chủ hosting VibeHost",
-    "variableDescription": "%ip%: IPv4 của máy chủ hosting VibeHost mà tên miền cần trỏ về; %ttl%: TTL cho bản ghi DNS, khuyến nghị 300 giây",
+    "serviceName": "VibeHost Hosting",
+    "version": 3,
+    "logoUrl": "https://vibehost.vn/logo.svg",
+    "description": "Point your domain at VibeHost hosting with a stable CNAME and a TXT ownership challenge.",
+    "variableDescription": "host is the subdomain to point (use @ for apex); stable is the per-hosting stable target; txtValue is the ownership challenge token.",
     "syncBlock": false,
-    "syncPubKeyDomain": "vibehost.vn",
+    "hostRequired": true,
+    "sharedProviderName": false,
+    "syncPubKeyDomain": "dc.vibehost.vn",
     "syncRedirectDomain": "vibehost.vn",
     "records": [
         {
-            "type": "A",
-            "host": "@",
-            "pointsTo": "%ip%",
-            "ttl": "%ttl%"
+            "type": "CNAME",
+            "groupId": "hosting",
+            "host": "%host%",
+            "pointsTo": "%stable%",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "groupId": "ownership",
+            "host": "_vibehost-challenge.%host%",
+            "data": "%txtValue%",
+            "ttl": 300
         }
     ]
 }
