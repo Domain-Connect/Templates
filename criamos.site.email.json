@@ -1,0 +1,139 @@
+{
+  "providerId": "criamos.site",
+  "providerName": "Criamos.site",
+  "serviceId": "email",
+  "serviceName": "E-mail",
+  "version": 1,
+  "logoUrl": "https://criamos.site/app/logo_primary.png",
+  "description": "Publishes this domain's mail records: mail CNAMEs, MX, SPF, DKIM, DMARC and autodiscover. Site records such as www, ftp and apex addresses stay out. NS and SOA stay with the DNS provider.",
+  "variableDescription": "CNAME, MX and SRV targets are the full destinations published by the mail platform. spfRules is the SPF mechanisms without v=spf1 and without the all qualifier. DKIM data is the full TXT value required by RFC 6376. DMARC data is the full TXT value required by RFC 7489. DKIM hosts are selector._domainkey.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "criamos.site",
+  "syncRedirectDomain": "criamos.site",
+  "records": [
+    {
+      "groupId": "webmail",
+      "type": "CNAME",
+      "host": "webmail",
+      "pointsTo": "%webmailTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "smtp",
+      "type": "CNAME",
+      "host": "smtp",
+      "pointsTo": "%smtpTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "pop3",
+      "type": "CNAME",
+      "host": "pop3",
+      "pointsTo": "%pop3Target%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "pop",
+      "type": "CNAME",
+      "host": "pop",
+      "pointsTo": "%popTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "mail",
+      "type": "CNAME",
+      "host": "mail",
+      "pointsTo": "%mailTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "imap",
+      "type": "CNAME",
+      "host": "imap",
+      "pointsTo": "%imapTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "autoconfig",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "%autoconfigTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "%autodiscoverTarget%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxTarget%",
+      "priority": "%mxPrio%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "mxAlt",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxAltTarget%",
+      "priority": "%mxAltPrio%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spfRules%"
+    },
+    {
+      "groupId": "srv",
+      "type": "SRV",
+      "service": "_autodiscover",
+      "protocol": "_tcp",
+      "name": "@",
+      "target": "%srvTarget%",
+      "priority": "%srvPrio%",
+      "weight": "%srvWeight%",
+      "port": "%srvPort%",
+      "ttl": 7200
+    },
+    {
+      "groupId": "dkim1",
+      "type": "TXT",
+      "host": "%dkim1Selector%._domainkey",
+      "data": "%dkim1Data%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 7200
+    },
+    {
+      "groupId": "dkim2",
+      "type": "TXT",
+      "host": "%dkim2Selector%._domainkey",
+      "data": "%dkim2Data%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 7200
+    },
+    {
+      "groupId": "dkim3",
+      "type": "TXT",
+      "host": "%dkim3Selector%._domainkey",
+      "data": "%dkim3Data%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 7200
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarcData%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 7200
+    }
+  ]
+}

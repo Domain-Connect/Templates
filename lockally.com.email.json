@@ -1,0 +1,58 @@
+{
+  "providerId": "lockally.com",
+  "providerName": "Lockally",
+  "serviceId": "email",
+  "serviceName": "Lockally Email",
+  "version": 1,
+  "logoUrl": "https://lockally.com/mark-navy.png",
+  "description": "Set up SPF, DKIM, DMARC and MX records to send and receive email with Lockally.",
+  "variableDescription": "The domain-verification token and DKIM public key are supplied by Lockally.",
+  "syncPubKeyDomain": "lockally.com",
+  "syncRedirectDomain": "app.lockally.com",
+  "syncBlock": false,
+  "shared": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_lockally-verify",
+      "data": "%verify%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.lockally.com",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "%dkimval%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.lockally.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.lockally.com",
+      "priority": 20,
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%domain%; fo=1",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

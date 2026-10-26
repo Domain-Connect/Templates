@@ -1,0 +1,29 @@
+{
+  "providerId": "kreova.app",
+  "providerName": "Kreova",
+  "serviceId": "website",
+  "serviceName": "Kreova site",
+  "version": 1,
+  "logoUrl": "https://kreova.app/kreova-logo.png",
+  "description": "Points your domain at a site built on Kreova. Adds an A record for the domain (or the chosen subdomain) and, for a whole domain, a www alias that Kreova redirects to it.",
+  "variableDescription": "%ip%: the IPv4 address of Kreova's web server, as shown in the Kreova dashboard.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.kreova.app",
+  "syncRedirectDomain": "kreova.app",
+  "records": [
+    {
+      "groupId": "site",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 600
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "providerId": "anypress.io",
+  "providerName": "AnyPress",
+  "logoUrl": "https://anypress.io/logo.svg",
+  "serviceId": "email",
+  "serviceName": "AnyPress store email",
+  "version": 2,
+  "syncPubKeyDomain": "anypress.io",
+  "description": "Lets an AnyPress store send its email (receipts, password resets) from the customer's domain through toSend: DKIM, plus the MX and SPF records for the bounce subdomain.",
+  "variableDescription": "dkim: the domain's DKIM public key record from toSend (p=...)",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "tosend._domainkey",
+      "data": "%dkim%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

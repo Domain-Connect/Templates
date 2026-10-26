@@ -1,0 +1,16 @@
+{
+  "providerId": "sophietechnology.com",
+  "providerName": "Sophie Technology",
+  "serviceId": "crm-email-ownership",
+  "serviceName": "CRM email domain ownership",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "sophietechnology.com",
+  "syncRedirectDomain": "fluxos.sophietechnology.com",
+  "logoUrl": "https://sophietechnology.com/assets/sophietechnology-logo.png",
+  "description": "Verify a customer's sending domain before provisioning it in Sophie Technology's email service.",
+  "variableDescription": "proof is the tenant-bound claim stored by Sophie, excluding its fixed sophie-mail= prefix. No service is provisioned by this template.",
+  "records": [
+    { "type": "TXT", "host": "_sophie-mail", "data": "sophie-mail=%proof%", "ttl": 3600 }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+    "providerId": "prezly.com",
+    "providerName": "Prezly",
+    "serviceId": "newsroom",
+    "serviceName": "Newsroom hosting",
+    "version": 1,
+    "logoUrl": "https://cdn.prezly.com/img/logo.svg",
+    "syncBlock": false,
+    "hostRequired": true,
+    "syncPubKeyDomain": "domainconnect.prezly.com",
+    "syncRedirectDomain": "rock.prezly.com",
+    "description": "Point this subdomain to your Prezly newsroom.",
+    "variableDescription": "%target%: Prezly newsroom hostname assigned to your account.",
+    "records": [
+        {
+            "groupId": "site",
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 300
+        }
+    ]
+}

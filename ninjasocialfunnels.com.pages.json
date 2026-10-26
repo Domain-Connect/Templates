@@ -1,0 +1,16 @@
+{
+  "providerId": "ninjasocialfunnels.com",
+  "providerName": "Ninja Social Funnels",
+  "serviceId": "pages",
+  "serviceName": "Carousel Machine pages",
+  "version": 1,
+  "description": "Points one subdomain at Ninja Social Funnels so your free resource pages live on your own address.",
+  "variableDescription": "No variables: the subdomain you choose points to ninjasocialfunnels.com",
+  "syncBlock": false,
+  "syncPubKeyDomain": "thelifestylebusinessmachine.com",
+  "syncRedirectDomain": "ninjasocialfunnels.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "ninjasocialfunnels.com", "ttl": 3600 }
+  ]
+}

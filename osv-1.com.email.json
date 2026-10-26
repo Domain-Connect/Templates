@@ -1,0 +1,64 @@
+{
+  "providerId": "osv-1.com",
+  "providerName": "OSV-1",
+  "serviceId": "email",
+  "serviceName": "Email sending and receiving",
+  "version": 1,
+  "logoUrl": "https://app.osv-1.com/domain-connect/logo.svg",
+  "description": "Send and receive your organization's email through OSV-1: signing, bounce handling, the sending host the email provider checks, reply delivery, and spoofing protection on the hostname you choose.",
+  "variableDescription": "region is the Resend (Amazon SES) region the domain was registered in, for example us-east-1. dkim is the DKIM public key Resend issued for the domain (the value after p=).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "osv-1.com",
+  "syncRedirectDomain": "osv-1.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

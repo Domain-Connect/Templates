@@ -1,0 +1,22 @@
+{
+  "providerId": "luralead.com",
+  "providerName": "LuraLead",
+  "serviceId": "linkaddress",
+  "serviceName": "LuraLead link address",
+  "version": 1,
+  "logoUrl": "https://www.luralead.com/icon.svg",
+  "description": "Points a subdomain you choose (for example go.yourcompany.com) at LuraLead, so the unsubscribe and response links in your emails use your own domain.",
+  "variableDescription": "No variables: the record target is fixed. The subdomain comes from the host parameter.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "luralead.com",
+  "syncRedirectDomain": "www.luralead.com,luralead.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

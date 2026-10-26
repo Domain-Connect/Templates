@@ -1,0 +1,37 @@
+{
+  "providerId": "wigglebos.com",
+  "providerName": "Wiggle BOS",
+  "serviceId": "site",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://app.wigglebos.com/brand/wiggle-bos-emblem.svg",
+  "description": "Connects a domain to a website hosted by Wiggle BOS: an ownership TXT record, www to the Wiggle edge, and optionally a proposals subdomain.",
+  "variableDescription": "token: the ownership token Wiggle BOS shows the customer in Publish (the value after wiggle-verify=)",
+  "syncPubKeyDomain": "wigglebos.com",
+  "syncRedirectDomain": "app.wigglebos.com",
+  "records": [
+    {
+      "groupId": "site",
+      "type": "TXT",
+      "host": "_wiggle-verify",
+      "data": "wiggle-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "wiggle-verify="
+    },
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.wigglebos.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "proposals",
+      "type": "CNAME",
+      "host": "proposals",
+      "pointsTo": "sites.wigglebos.com",
+      "ttl": 3600
+    }
+  ]
+}

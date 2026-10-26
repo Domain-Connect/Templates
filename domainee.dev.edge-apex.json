@@ -1,0 +1,32 @@
+{
+  "providerId": "domainee.dev",
+  "providerName": "Domainee",
+  "serviceId": "edge-apex",
+  "serviceName": "Domainee Custom Domain (root)",
+  "version": 1,
+  "logoUrl": "https://domainee.dev/logo.png",
+  "description": "Point a root domain at Domainee's edge. Publishes anycast A records at the apex and a CNAME for www. Domainee issues and renews the TLS certificate automatically.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainee.dev",
+  "syncRedirectDomain": "domainee.dev",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cname%",
+      "ttl": 300
+    }
+  ]
+}

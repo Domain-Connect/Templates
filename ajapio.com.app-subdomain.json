@@ -1,0 +1,32 @@
+{
+  "providerId": "ajapio.com",
+  "providerName": "Ajapio",
+  "serviceId": "app-subdomain",
+  "serviceName": "Ajapio app hosting (subdomain)",
+  "version": 1,
+  "logoUrl": "https://ajapio.com/favicon.svg",
+  "description": "Points a subdomain (or www) at an app hosted on Ajapio and proves you own it.",
+  "variableDescription": "target: the app's Ajapio address, e.g. myapp-1a2b3c.ajapio.app.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.ajapio.com",
+  "syncRedirectDomain": "ajapio.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "sub",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sub",
+      "type": "TXT",
+      "host": "_ajapio",
+      "data": "%target%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

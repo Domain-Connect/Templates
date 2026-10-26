@@ -1,0 +1,22 @@
+{
+    "providerId": "primage.com.br",
+    "providerName": "Primage Lead Intelligence",
+    "serviceId": "custom",
+    "serviceName": "Primage Custom Domain",
+    "version": 1,
+    "logoUrl": "https://lead.primage.com.br/favicon.svg",
+    "description": "Connect a custom tracking domain to Primage Lead Intelligence.",
+    "variableDescription": "No custom variables. The CNAME always points to Primage's fixed proxy endpoint.",
+    "syncPubKeyDomain": "domainconnect.primage.com.br",
+    "syncRedirectDomain": "lead.primage.com.br",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "groupId": "cname",
+            "host": "@",
+            "pointsTo": "proxy.primage.com.br",
+            "ttl": "3600"
+        }
+    ]
+}

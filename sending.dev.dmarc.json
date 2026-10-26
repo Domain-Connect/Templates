@@ -1,0 +1,24 @@
+{
+  "providerId": "sending.dev",
+  "providerName": "Sending",
+  "serviceId": "dmarc",
+  "serviceName": "Sending DMARC Policy",
+  "version": 1,
+  "logoUrl": "https://sending.dev/logos/sending-mark.svg",
+  "description": "Publishes a monitoring-only DMARC policy (p=none), required by Gmail and Yahoo for bulk senders.",
+  "variableDescription": "No variables: the policy is built from the domain itself.",
+  "syncPubKeyDomain": "sending.dev",
+  "syncRedirectDomain": "sending.dev,sending-umber.vercel.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:postmaster@%domain%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

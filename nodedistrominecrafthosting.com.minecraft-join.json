@@ -1,0 +1,50 @@
+{
+  "providerId": "nodedistrominecrafthosting.com",
+  "providerName": "NodeDistro Minecraft Hosting",
+  "serviceId": "minecraft-join",
+  "serviceName": "Minecraft join hostname",
+  "version": 2,
+  "logoUrl": "https://nodedistrominecrafthosting.com/icon.png",
+  "description": "Lets players join a Minecraft Java Edition server (and optional Bedrock/Geyser) through a subdomain of the customer's own domain, for example play.example.com: an A record to the join IP plus Minecraft SRV records. A host is required; the apex keeps its manual setup. CDN/proxy must stay off.",
+  "variableDescription": "%IP%: the join target IPv4 address; %JAVAPORT%: the Java edition TCP port; %BEDROCKPORT%: the Bedrock/Geyser UDP port when groupId bedrock is applied",
+  "syncBlock": false,
+  "syncPubKeyDomain": "nodedistrominecrafthosting.com",
+  "syncRedirectDomain": "nodedistrominecrafthosting.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "java",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 300,
+      "essential": "Always"
+    },
+    {
+      "groupId": "java",
+      "type": "SRV",
+      "name": "@",
+      "service": "_minecraft",
+      "protocol": "_tcp",
+      "priority": 1,
+      "weight": 5,
+      "port": "%JAVAPORT%",
+      "target": "%fqdn%.",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "bedrock",
+      "type": "SRV",
+      "name": "@",
+      "service": "_minecraft",
+      "protocol": "_udp",
+      "priority": 1,
+      "weight": 5,
+      "port": "%BEDROCKPORT%",
+      "target": "%fqdn%.",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}

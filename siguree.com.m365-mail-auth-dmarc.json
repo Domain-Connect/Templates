@@ -1,0 +1,29 @@
+{
+  "providerId": "siguree.com",
+  "providerName": "Siguree",
+  "version": 1,
+  "logoUrl": "https://app.siguree.com/brand/logo-mark.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "siguree.com",
+  "syncRedirectDomain": "app.siguree.com",
+  "hostRequired": false,
+  "serviceId": "m365-mail-auth-dmarc",
+  "serviceName": "Siguree mail authentication (Microsoft 365) with DMARC",
+  "description": "Merges Microsoft 365 into SPF for the sender domain used with Siguree. Also publishes a monitoring-only DMARC policy (p=none); Siguree uses this variant only when the domain has no DMARC record yet.",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.protection.outlook.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

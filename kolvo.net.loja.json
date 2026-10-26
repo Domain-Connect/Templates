@@ -1,0 +1,28 @@
+{
+  "providerId": "kolvo.net",
+  "providerName": "Kolvo",
+  "serviceId": "loja",
+  "serviceName": "Loja Kolvo",
+  "version": 1,
+  "logoUrl": "https://assets.kolvo.net/kolvo-logo.png",
+  "description": "Liga um domínio próprio à tua loja Kolvo.",
+  "variableDescription": "%TXTVALUE%: valor do registo TXT que prova posse do domínio; %CNAMETARGET%: subdomínio da loja Kolvo para onde o domínio deve apontar.",
+  "syncPubKeyDomain": "kolvo.net",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_kolvo-verify",
+      "data": "kolvo-verify=%TXTVALUE%",
+      "ttl": "3600",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "kolvo-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%CNAMETARGET%",
+      "ttl": "3600"
+    }
+  ]
+}

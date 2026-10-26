@@ -1,0 +1,24 @@
+{
+  "providerId": "emonster.link",
+  "providerName": "emonster",
+  "serviceId": "domain-verification",
+  "serviceName": "Link domain verification",
+  "version": 1,
+  "description": "Verify a project hostname in the private emonster Link dashboard.",
+  "variableDescription": "%verification%: the issued expiring Link ownership token.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.emonster.link",
+  "syncRedirectDomain": "admin.emonster.link",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_emonster-link",
+      "data": "emonster-link=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "emonster-link=",
+      "essential": "OnApply"
+    }
+  ],
+  "logoUrl": "https://emonster.link/favicon.svg"
+}

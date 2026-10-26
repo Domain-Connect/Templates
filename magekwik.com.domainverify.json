@@ -1,0 +1,24 @@
+{
+  "providerId": "magekwik.com",
+  "providerName": "Magekwik",
+  "serviceId": "domainverify",
+  "serviceName": "Magekwik domain verification",
+  "version": 1,
+  "description": "Adds the TXT record that proves you control this domain, so Magekwik can show you the full evidence from its security scans of your store.",
+  "logoUrl": "https://scan.magekwik.com/logo.svg",
+  "syncPubKeyDomain": "dc.magekwik.com",
+  "syncRedirectDomain": "scan.magekwik.com",
+  "syncBlock": false,
+  "variableDescription": "token: the one-time verification token Magekwik issued for this domain.",
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "magekwik-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "magekwik-verify="
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "providerId": "launchone.co.uk",
+  "providerName": "LaunchOne",
+  "serviceId": "website",
+  "serviceName": "LaunchOne website",
+  "description": "Connects the www address of a customer-owned domain to a managed LaunchOne website without changing email records.",
+  "version": 1,
+  "syncPubKeyDomain": "launchone.co.uk",
+  "syncRedirectDomain": "launchone.co.uk",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.launchone.co.uk",
+      "ttl": 3600
+    }
+  ]
+}

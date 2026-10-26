@@ -1,0 +1,56 @@
+{
+  "providerId": "socialloop.ai",
+  "providerName": "SocialLoop",
+  "serviceId": "email",
+  "serviceName": "SocialLoop — send invitations from your own domain",
+  "version": 1,
+  "logoUrl": "https://socialloop.ai/logo.svg",
+  "description": "Authorises SocialLoop to send event invitations from your domain: DKIM, the return-path (MX + SPF), its CNAME fallback, and a DMARC policy.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mailsocialloop.com",
+  "syncRedirectDomain": "socialloop.ai",
+  "hostRequired": false,
+  "variableDescription": "dkim: the DKIM public key Resend issued for the selector resend._domainkey. mxhost: the return-path MX host (a region-specific SES feedback host). spfrules: the SPF mechanisms for the return-path subdomain, merged into any SPF already there. rsend: the CNAME target for the tracking host.",
+  "records": [
+    {
+      "groupId": "core",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "Always"
+    },
+    {
+      "groupId": "core",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mxhost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "core",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "%spfrules%"
+    },
+    {
+      "groupId": "core",
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "%rsend%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@mailsocialloop.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

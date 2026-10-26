@@ -1,0 +1,83 @@
+{
+  "providerId": "vohtrah.com",
+  "providerName": "Vohtrah",
+  "serviceId": "email-sender",
+  "serviceName": "Email sender authentication",
+  "version": 1,
+  "logoUrl": "https://vohtrah.com/logo.svg",
+  "description": "Adds the DNS records needed to authenticate a Vohtrah email marketing sending domain using Amazon SES DKIM, custom MAIL FROM, tracking, DMARC, and Vohtrah ownership verification.",
+  "variableDescription": "%awsRegion%: Amazon SES region, for example us-east-1; %dkimToken1%, %dkimToken2%, %dkimToken3%: SES DKIM tokens returned by Amazon SES; %verificationToken%: Vohtrah sender verification token; %dmarcReportMailbox%: mailbox that should receive DMARC aggregate reports.",
+  "syncPubKeyDomain": "domainconnect.vohtrah.com",
+  "syncRedirectDomain": "vohtrah.com,www.vohtrah.com,app.vohtrah.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "dkim",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "dkim",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "dkim",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%awsRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "mail-from",
+      "essential": "OnApply"
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "groupId": "mail-from",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "track",
+      "pointsTo": "track.vohtrah.com",
+      "ttl": 3600,
+      "groupId": "tracking",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "vohtrah-verify",
+      "data": "vohtrah-sender-verification=%verificationToken%",
+      "ttl": 3600,
+      "groupId": "verification",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vohtrah-sender-verification=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; sp=none; adkim=r; aspf=r; pct=100; fo=1; rua=mailto:%dmarcReportMailbox%",
+      "ttl": 3600,
+      "groupId": "dmarc",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "providerId": "modulora.dev",
+  "providerName": "Modulora",
+  "serviceId": "domain-verification",
+  "serviceName": "Modulora domain verification",
+  "version": 1,
+  "logoUrl": "https://modulora.dev/logo.png",
+  "description": "Adds the TXT record that proves you control this domain for your Modulora creator profile.",
+  "syncBlock": false,
+  "shared": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_modulora",
+      "data": "modulora-verify=%code%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "modulora-verify="
+    }
+  ],
+  "syncPubKeyDomain": "modulora.dev"
+}

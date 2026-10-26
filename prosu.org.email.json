@@ -1,0 +1,19 @@
+{
+  "providerId": "prosu.org",
+  "providerName": "Prosu",
+  "serviceId": "email",
+  "serviceName": "Prosu Email",
+  "version": 1,
+  "logoUrl": "https://www.prosu.org/favicon.ico",
+  "description": "Set up Prosu email (MX, SPF, DKIM, DMARC) on your domain",
+  "syncPubKeyDomain": "prosu.org",
+  "syncRedirectDomain": "admin.prosu.org",
+  "hostRequired": true,
+  "records": [
+    { "type": "MX", "host": "@", "pointsTo": "mail.prosu.org", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "@", "spfRules": "mx ip4:185.207.107.167", "ttl": 3600 },
+    { "type": "TXT", "host": "%dkimselector%._domainkey", "data": "v=DKIM1; k=rsa; p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%", "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "OnApply" },
+    { "type": "TXT", "host": "@", "data": "prosu-verify=%verifytoken%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "prosu-verify=" }
+  ]
+}

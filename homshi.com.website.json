@@ -1,0 +1,33 @@
+{
+  "providerId": "homshi.com",
+  "providerName": "Homshi",
+  "serviceId": "website",
+  "serviceName": "Homshi Website",
+  "version": 2,
+  "logoUrl": "https://homshi.com/icons/icon-512.png",
+  "description": "Connects your domain to your Homshi-hosted contractor website: www points at Homshi, an ownership TXT proves control, and the bare domain 301-redirects to www.",
+  "variableDescription": "verifyToken is a per-site ownership token issued by Homshi.",
+  "syncPubKeyDomain": "homshi.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "homshi.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_homshi-verify.www",
+      "data": "homshi-verify-%verifyToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "homshi-verify-"
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%domain%/"
+    }
+  ]
+}

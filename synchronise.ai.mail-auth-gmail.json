@@ -1,0 +1,28 @@
+{
+  "providerId": "synchronise.ai",
+  "providerName": "Synchronise AI",
+  "serviceId": "mail-auth-gmail",
+  "serviceName": "Email authentication (Google Workspace)",
+  "version": 1,
+  "description": "Authorises Google Workspace to send email as this domain (SPF) and publishes a monitoring-only DMARC policy. Applied when a business connects its Google Workspace mailbox to Synchronise AI.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "synchronise.ai",
+  "syncRedirectDomain": "synchronise.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.google.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%domain%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

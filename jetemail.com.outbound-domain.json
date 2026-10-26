@@ -1,0 +1,38 @@
+{
+  "providerId": "jetemail.com",
+  "providerName": "JetEmail",
+  "serviceId": "outbound-domain",
+  "serviceName": "JetEmail Outbound Sending Domain",
+  "version": 1,
+  "logoUrl": "https://cdn.jetemail.com/assets/images/logo.svg",
+  "description": "Authenticates an outbound sending domain for JetEmail by adding the return-path CNAME, DKIM CNAME and DMARC TXT records.",
+  "variableDescription": "%returnPathId%: numeric id portion of the per-domain return-path subdomain assigned by the JetEmail dashboard (e.g. 56816, producing em56816 on the customer's zone).",
+  "syncPubKeyDomain": "dc.jetemail.com",
+  "syncRedirectDomain": "dash.jetemail.com",
+  "records": [
+    {
+      "groupId": "returnpath",
+      "type": "CNAME",
+      "host": "em%returnPathId%",
+      "pointsTo": "return.jetsmtp.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "jetemail._domainkey",
+      "pointsTo": "dkim.jetsmtp.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

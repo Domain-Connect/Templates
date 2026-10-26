@@ -1,0 +1,20 @@
+{
+  "providerId": "mbxreach.com",
+  "providerName": "MBXReach",
+  "serviceId": "sending",
+  "serviceName": "Email domain authentication",
+  "logoUrl": "https://mbxreach.com/static/logo-h-transparent.png",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.mbxreach.com",
+  "syncRedirectDomain": "mbxreach.com",
+  "description": "Connect your domain to MBXReach for authenticated email sending.",
+  "records": [
+    {"type":"TXT","host":"_mbxreach","data":"mbxreach-verification=%ownership%","txtConflictMatchingMode":"Prefix","txtConflictMatchingPrefix":"mbxreach-verification=","ttl":300},
+    {"type":"CNAME","host":"%dkim1%._domainkey","pointsTo":"%dkim1%.dkim.amazonses.com","ttl":300},
+    {"type":"CNAME","host":"%dkim2%._domainkey","pointsTo":"%dkim2%.dkim.amazonses.com","ttl":300},
+    {"type":"CNAME","host":"%dkim3%._domainkey","pointsTo":"%dkim3%.dkim.amazonses.com","ttl":300},
+    {"type":"MX","host":"mbx","pointsTo":"feedback-smtp.%region%.amazonses.com","priority":10,"ttl":300},
+    {"type":"SPFM","host":"mbx","spfRules":"include:amazonses.com","ttl":300}
+  ]
+}

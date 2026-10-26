@@ -1,0 +1,25 @@
+{
+  "providerId": "mybussinessweb.com",
+  "providerName": "MyBusinessWeb",
+  "serviceId": "website",
+  "serviceName": "MyBusinessWeb Live Website",
+  "version": 1,
+  "logoUrl": "https://mybussinessweb.com/favicon.ico",
+  "description": "Connects your domain to your MyBusinessWeb live website automatically.",
+  "syncPubKeyDomain": "mybussinessweb.com",
+  "syncRedirectDomain": "mybussinessweb.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.mybussinessweb.com",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "165.22.172.169",
+      "ttl": 3600
+    }
+  ]
+}

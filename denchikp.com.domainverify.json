@@ -1,0 +1,23 @@
+{
+    "providerId": "denchikp.com",
+    "providerName": "DenchikP",
+    "serviceId": "domainverify",
+    "serviceName": "DenchikP CDN domain verification",
+    "version": 1,
+    "logoUrl": "https://cdn.denchikp.com/denchikp.com/img/4b861b9a-563a-406c-ac6e-508e97b1c8fd.jpg",
+    "description": "Adds a TXT record that proves domain ownership for DenchikP CDN, so only the owner's API key can upload files for this domain.",
+    "variableDescription": "token: one-time verification token issued by DenchikP CDN",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.denchikp.com",
+    "syncRedirectDomain": "cdn.denchikp.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dpcdn-challenge",
+            "data": "dpcdn-verification=%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

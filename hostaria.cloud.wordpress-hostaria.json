@@ -1,0 +1,27 @@
+{
+  "providerId": "hostaria.cloud",
+  "providerName": "Hostaria",
+  "serviceId": "wordpress-hostaria",
+  "serviceName": "WordPress managed",
+  "version": 1,
+  "logoUrl": "https://hostaria.cloud/logo.svg",
+  "description": "Point your domain to Hostaria managed WordPress hosting.",
+  "variableDescription": "%IP%: Hostaria proxy server IP address.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "hostaria.cloud",
+  "syncRedirectDomain": "hostaria.cloud",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%IP%",
+      "ttl": 300
+    }
+  ]
+}

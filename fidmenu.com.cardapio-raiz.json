@@ -1,0 +1,27 @@
+{
+  "providerId": "fidmenu.com",
+  "providerName": "FidMenu",
+  "serviceId": "cardapio-raiz",
+  "serviceName": "Cardápio digital no domínio principal",
+  "version": 1,
+  "logoUrl": "https://fidmenu.com/fidmenu-icon.png",
+  "description": "Aponta o domínio (e o www) para o cardápio digital do restaurante no FidMenu.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "fidmenu.com",
+  "syncRedirectDomain": "fidmenu.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

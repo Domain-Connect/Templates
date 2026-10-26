@@ -1,0 +1,21 @@
+{
+	"providerId": "sanitycheck.dev",
+	"providerName": "SanityCheck",
+	"serviceId": "domain-verification",
+  	"serviceName": "Domain Verification",
+	"version": 1,
+	"syncPubKeyDomain": "sanitycheck.dev",
+	"syncRedirectDomain": "sanitycheck.dev",
+	"description": "Verify domain ownership.",
+	"logoUrl": "https://sanitycheck.dev/logos/mark-dark.svg",
+	"records": [
+		{
+			"type": "TXT",
+			"host": "@",
+			"ttl": 3600,
+			"data": "sanitycheck-domain-verification=%verificationToken%",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "sanitycheck-domain-verification="
+		}
+	]
+}

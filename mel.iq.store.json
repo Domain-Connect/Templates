@@ -1,0 +1,20 @@
+{
+  "providerId": "mel.iq",
+  "providerName": "Mel",
+  "serviceId": "store",
+  "serviceName": "Mel Storefront",
+  "version": 1,
+  "logoUrl": "https://www.mel.iq/logo.png",
+  "description": "Connect a subdomain to your Mel storefront",
+  "syncPubKeyDomain": "mel.iq",
+  "syncRedirectDomain": "mel.iq",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.mel.iq",
+      "ttl": 3600
+    }
+  ]
+}

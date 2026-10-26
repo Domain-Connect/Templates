@@ -1,0 +1,31 @@
+{
+  "providerId": "planetaryapp.cloud",
+  "providerName": "Planetary",
+  "serviceId": "custom-subdomain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://planetaryapp.cloud/github.svg",
+  "description": "Connect a subdomain to a Planetary instance.",
+  "variableDescription": "target is the Planetary CNAME endpoint. verification is the ownership TXT token.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.planetaryapp.cloud",
+  "syncRedirectDomain": "planetaryapp.cloud",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "routing",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": "300"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_domain-verify",
+      "ttl": "300",
+      "data": "%verification%",
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

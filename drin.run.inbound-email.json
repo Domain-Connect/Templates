@@ -1,0 +1,23 @@
+{
+  "providerId": "drin.run",
+  "providerName": "Drin",
+  "serviceId": "inbound-email",
+  "serviceName": "Drin inbound email",
+  "version": 1,
+  "logoUrl": "https://app.drin.run/icon.svg",
+  "description": "Enable Drin to receive inbound email for this domain by adding the apex MX record. Only apply this after enabling receiving in Drin; changing apex MX can route inbound mail away from an existing provider.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "drin.run",
+  "syncRedirectDomain": "app.drin.run",
+  "records": [
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound.drin.run",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

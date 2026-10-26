@@ -1,0 +1,27 @@
+{
+  "providerId": "unione.io",
+  "providerName": "UniOne",
+  "serviceId": "tracking-cname",
+  "serviceName": "UniOne tracking domain",
+  "version": 1,
+  "logoUrl": "https://s.selzy.com/unione/notification/logo-unione-520-180.png",
+  "description": "Sets up the UniOne tracking domain (CNAME).",
+  "variableDescription": "trackingTarget: CNAME target for the tracking host. trackingDkimTarget: CNAME target for tracking DKIM.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "unione.io",
+  "syncRedirectDomain": "unione.io,eu1.unione.io,us1.unione.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "tracking",
+      "pointsTo": "%trackingTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "dkey._domainkey.tracking",
+      "pointsTo": "%trackingDkimTarget%",
+      "ttl": 3600
+    }
+  ]
+}

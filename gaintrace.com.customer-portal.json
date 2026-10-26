@@ -1,0 +1,32 @@
+{
+  "providerId": "gaintrace.com",
+  "providerName": "GainTrace",
+  "serviceId": "customer-portal",
+  "serviceName": "Customer portal",
+  "version": 1,
+  "logoUrl": "https://app.gaintrace.com/logo-icon.svg",
+  "description": "Connects a customer portal subdomain to GainTrace and verifies domain ownership.",
+  "variableDescription": "%verification% is the random GainTrace domain-ownership token.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gaintrace.com",
+  "syncRedirectDomain": "app.gaintrace.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "portal",
+      "host": "@",
+      "pointsTo": "portals.gaintrace.com",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_gaintrace-portal",
+      "data": "gaintrace-verification=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "gaintrace-verification="
+    }
+  ]
+}

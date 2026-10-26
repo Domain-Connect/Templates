@@ -1,0 +1,35 @@
+{
+  "providerId": "noonapp.com.au",
+  "providerName": "Noon",
+  "serviceId": "email",
+  "serviceName": "Noon sending address",
+  "version": 1,
+  "logoUrl": "https://noonapp.com.au/apple-touch-icon.png",
+  "description": "Lets Noon send quotes, invoices and policy documents from your own domain, signed so they reach the inbox.",
+  "variableDescription": "dkimkey is the DKIM public key issued for this domain; region is the sending region of the bounce return path.",
+  "syncPubKeyDomain": "noonapp.com.au",
+  "syncRedirectDomain": "noonapp.com.au",
+  "shared": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

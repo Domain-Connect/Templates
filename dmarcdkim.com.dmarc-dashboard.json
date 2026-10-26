@@ -1,0 +1,65 @@
+{
+  "providerId": "dmarcdkim.com",
+  "providerName": "DmarcDkim.com",
+  "serviceId": "dmarc-dashboard",
+  "serviceName": "DMARC Dashboard",
+  "version": 1,
+  "logoUrl": "https://dmarcdkim.com/dmarcdkim-logo.svg",
+  "syncPubKeyDomain": "domainconnect.dmarcdkim.com",
+  "syncRedirectDomain": "app.dmarcdkim.com",
+  "multiInstance": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "dmarcdkim-verification=%dmarcdkim_token%",
+      "ttl": 3600,
+      "groupId": "verify",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "groupId": "dmarc",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spf_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1",
+      "groupId": "spf",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "%mta_sts_host%.mta-sts.dmarcdkim.io",
+      "ttl": 3600,
+      "groupId": "mta-sts",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "_mta-sts",
+      "pointsTo": "%mta_sts_host%._mta-sts.dmarcdkim.io",
+      "ttl": 3600,
+      "groupId": "mta-sts",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "%tlsrpt_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "groupId": "tls-rpt",
+      "essential": "OnApply"
+    }
+  ]
+}

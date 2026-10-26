@@ -1,0 +1,71 @@
+{
+  "providerId": "newtoncelestial.com",
+  "providerName": "newtoncelestial",
+  "serviceId": "website-creation-test",
+  "serviceName": "Newton Celestial website creation",
+  "version": 1,
+  "logoUrl": "https://spark-ml-h9j7a4k3nr.b-cdn.net/tests/0fa2335a0e8c4d90820647ecf1067e8b.png",
+  "description": "Connect a domain to Newton Celestial",
+  "syncBlock": false,
+  "syncPubKeyDomain": "wls-domain-connect-test.info",
+  "syncRedirectDomain": "newtoncelestial.com",
+  "variableDescription": "`ipv4` is the IPv4 address provided by newtoncelestial. `dkim_value` Full DKIM TXT record value.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "krs._domainkey",
+      "data": "%dkim_value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; adkim=r; aspf=r; rua=mailto:dmarc_rua@onsecureserver.net;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

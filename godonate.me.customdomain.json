@@ -1,0 +1,29 @@
+{
+    "providerId": "godonate.me",
+    "providerName": "GoDonate.Me",
+    "serviceId": "customdomain",
+    "serviceName": "Donation page on your own domain",
+    "version": 1,
+    "logoUrl": "https://godonate.me/favicon.svg",
+    "description": "Opens a creator's GoDonate.Me donation page on a subdomain of their own domain (for example donate.example.com). Adds a CNAME to domains.godonate.me (served through Cloudflare for SaaS) and an ownership-verification TXT record. Other records are not touched.",
+    "variableDescription": "token: per-domain verification token issued by GoDonate.Me (40 hex characters).",
+    "syncPubKeyDomain": "godonate.me",
+    "syncRedirectDomain": "dash.godonate.me",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "domains.godonate.me",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_godonateme",
+            "ttl": 3600,
+            "data": "GoDonateMe-site-verification=%token%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "GoDonateMe-site-verification="
+        }
+    ]
+}

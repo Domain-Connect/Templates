@@ -1,0 +1,16 @@
+{
+  "providerId": "rebusai.com",
+  "providerName": "RebusAI",
+  "serviceId": "pages",
+  "serviceName": "RebusAI — your pages",
+  "version": 1,
+  "logoUrl": "https://www.rebusai.com/brand/icon-192.png",
+  "description": "Serve your RebusAI landing and profile pages from your own domain.",
+  "variableDescription": "%cname%: the RebusAI hostname this subdomain points to",
+  "syncPubKeyDomain": "rebusai.com",
+  "syncRedirectDomain": "www.rebusai.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "%cname%", "ttl": 3600 }
+  ]
+}

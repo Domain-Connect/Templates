@@ -1,0 +1,31 @@
+{
+  "providerId": "commercit.com",
+  "providerName": "Commercit",
+  "serviceId": "storefront-subdomain",
+  "serviceName": "Online storefront subdomain",
+  "version": 1,
+  "logoUrl": "https://admin.commercit.com/favicon.ico",
+  "description": "Connect a subdomain to a Commercit storefront.",
+  "variableDescription": "%cnameTarget% is the Commercit storefront CNAME target and %verification% is the shop-specific DNS ownership token.",
+  "hostRequired": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.commercit.com",
+  "syncRedirectDomain": "admin.commercit.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 300,
+      "groupId": "storefront"
+    },
+    {
+      "type": "TXT",
+      "host": "_commercit-verify",
+      "data": "%verification%",
+      "ttl": 300,
+      "groupId": "verification",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

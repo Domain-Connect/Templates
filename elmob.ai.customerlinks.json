@@ -1,0 +1,29 @@
+{
+    "providerId": "elmob.ai",
+    "providerName": "Elmob",
+    "serviceId": "customerlinks",
+    "serviceName": "Customer links",
+    "version": 1,
+    "logoUrl": "https://elmob.ai/favicon.svg",
+    "description": "Points links.<your domain> at Elmob, so the quote, invoice, appointment and project links a business sends its customers open on the business's own domain.",
+    "variableDescription": "cfownership: the Cloudflare for SaaS custom hostname ownership id issued for links.<your domain>",
+    "syncBlock": false,
+    "syncPubKeyDomain": "elmob.ai",
+    "records": [
+        {
+            "groupId": "link",
+            "type": "CNAME",
+            "host": "links",
+            "pointsTo": "api.elmob.ai",
+            "ttl": 3600
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_cf-custom-hostname.links",
+            "data": "%cfownership%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

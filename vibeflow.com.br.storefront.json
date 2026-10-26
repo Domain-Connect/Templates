@@ -1,0 +1,23 @@
+{
+  "providerId": "vibeflow.com.br",
+  "providerName": "VibeFlow",
+  "serviceId": "storefront",
+  "serviceName": "Loja e landing pages",
+  "version": 1,
+  "logoUrl": "https://crm.vibeflow.com.br/vibeflow/domain-connect.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.vibeflow.com.br",
+  "syncRedirectDomain": "crm.vibeflow.com.br",
+  "description": "Conecta seu domínio à sua loja VibeFlow e confirma a propriedade do endereço.",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 300 },
+    {
+      "type": "TXT",
+      "host": "_vibeflow",
+      "data": "vibeflow-verification=%verification%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vibeflow-verification=",
+      "ttl": 300
+    }
+  ]
+}

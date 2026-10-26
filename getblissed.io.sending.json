@@ -1,0 +1,48 @@
+{
+  "providerId": "getblissed.io",
+  "providerName": "Blissed",
+  "serviceId": "sending",
+  "serviceName": "Blissed sending domain",
+  "version": 1,
+  "logoUrl": "https://app.getblissed.io/images/logo/blissed-mark-2026.svg",
+  "description": "Lets a business send its invoices, reminders and campaigns from its own domain through Blissed: the mail-from subdomain's MX and SPF, the DKIM key, and a monitor-only DMARC policy when the domain has none.",
+  "variableDescription": "%sesRegion%: the AWS region of the mail-from relay issued to this domain by our mail platform (for example us-east-1); %dkimKey%: the base64 DKIM public key issued to this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "getblissed.io",
+  "syncRedirectDomain": "getblissed.io",
+  "records": [
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "sending"
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600,
+      "groupId": "sending"
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimKey%",
+      "ttl": 3600,
+      "groupId": "sending",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "groupId": "dmarc",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

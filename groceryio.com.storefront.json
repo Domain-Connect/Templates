@@ -1,0 +1,30 @@
+{
+  "providerId": "groceryio.com",
+  "providerName": "GroceryIO",
+  "serviceId": "storefront",
+  "serviceName": "GroceryIO Storefront",
+  "version": 2,
+  "description": "Connects a custom domain or subdomain to a GroceryIO storefront.",
+  "variableDescription": "%txt_value%: claim-specific Cloudflare hostname-ownership token for the requested custom hostname.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "groceryio.com",
+  "syncRedirectDomain": "groceryio.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "store.groceryio.com",
+      "ttl": 3600,
+      "groupId": "routing"
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%txt_value%",
+      "ttl": 300,
+      "groupId": "ownership",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

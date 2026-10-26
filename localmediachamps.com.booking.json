@@ -1,0 +1,20 @@
+{
+  "providerId": "localmediachamps.com",
+  "providerName": "Local Media Champs",
+  "serviceId": "booking",
+  "serviceName": "Champs booking and client portal",
+  "version": 1,
+  "logoUrl": "https://app.localmediachamps.com/champs_icon.png",
+  "description": "Serves your Champs booking page and client portal at a subdomain of your website, such as book.<your domain>.",
+  "syncPubKeyDomain": "localmediachamps.com",
+  "syncRedirectDomain": "app.localmediachamps.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

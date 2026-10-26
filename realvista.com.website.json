@@ -1,0 +1,36 @@
+{
+  "providerId": "realvista.com",
+  "providerName": "RealVista",
+  "serviceId": "website",
+  "serviceName": "RealVista agent website",
+  "version": 1,
+  "logoUrl": "https://realvista.com/images/logo/colorlogo.png",
+  "description": "Shows a real estate agent's RealVista website at their own domain: points the domain and www at RealVista and adds a TXT record that proves the agent connected it.",
+  "variableDescription": "token: the verification code RealVista shows the agent for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "realvista.com",
+  "syncRedirectDomain": "realvista.com,dev.realvista.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_realvista",
+      "data": "realvista-verify=%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "realvista-verify="
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "136.119.83.205",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.realvista.com",
+      "ttl": 600
+    }
+  ]
+}

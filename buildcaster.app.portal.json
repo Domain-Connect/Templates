@@ -1,0 +1,22 @@
+{
+  "providerId": "buildcaster.app",
+  "providerName": "BuildCaster",
+  "serviceId": "portal",
+  "serviceName": "Customer feedback portal",
+  "version": 1,
+  "logoUrl": "https://buildcaster.app/brand/buildcaster-symbol.svg",
+  "description": "Connect a customer feedback portal, roadmap, and release updates to your chosen subdomain.",
+  "variableDescription": "challenge is the unique verification UUID assigned to this portal domain binding by BuildCaster.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.buildcaster.app",
+  "syncRedirectDomain": "buildcaster.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%challenge%.customers.buildcaster.app",
+      "ttl": 600
+    }
+  ]
+}

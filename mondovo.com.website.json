@@ -1,0 +1,15 @@
+{
+  "providerId": "mondovo.com",
+  "providerName": "Mondovo",
+  "serviceId": "website",
+  "serviceName": "Mondovo website",
+  "version": 1,
+  "logoUrl": "https://app.mondovo.com/icon.svg",
+  "description": "Connects the www name of a domain to a website hosted by Mondovo and proves ownership of the domain. Only the www record and the ownership check are touched; mail and other records are left alone. The root domain is forwarded to www at the DNS provider.",
+  "variableDescription": "ownership is the per-hostname ownership-verification value Mondovo receives from Cloudflare for SaaS.",
+  "syncPubKeyDomain": "mondovo.com",
+  "records": [
+    { "type": "TXT", "host": "_cf-custom-hostname", "data": "%ownership%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "CNAME", "host": "www", "pointsTo": "sites.mondovo.com", "ttl": 3600 }
+  ]
+}

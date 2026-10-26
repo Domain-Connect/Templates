@@ -1,0 +1,29 @@
+{
+  "providerId": "basehand.com",
+  "providerName": "Basehand",
+  "serviceId": "subdomain",
+  "serviceName": "Website",
+  "description": "Shows your Basehand site at a subdomain, such as shop.yourdomain.com, and proves it is yours",
+  "syncPubKeyDomain": "basehand.com",
+  "syncRedirectDomain": "basehand.com,app.basehand.com",
+  "hostRequired": true,
+  "version": 1,
+  "logoUrl": "https://basehand.com/domain-connect-logo.svg",
+  "variableDescription": "token: verification code for this domain; target: Basehand's connection hostname, such as connect.basehand.site",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_basehand",
+      "data": "basehand-site-verification=%token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "basehand-site-verification=",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": "300"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "providerId": "portalxglobal.com",
+  "providerName": "VICTOR ANALYTICS",
+  "serviceId": "proxy",
+  "serviceName": "VICTOR ANALYTICS",
+  "version": 1,
+  "logoUrl": "https://victor-analytics.victorautomotive.workers.dev/icons/icon-192.png",
+  "description": "Connects your website to VICTOR ANALYTICS: your domain points at our reverse proxy, which forwards every visit to your existing website unchanged and adds the one-line analytics script to your pages. Visitors, leads (calls, WhatsApp, email, forms) and traffic sources appear in your dashboard. Nothing else on your site or email changes.",
+  "variableDescription": "siteKey = the public key that identifies the customer's website in VICTOR ANALYTICS; it is written to the _victor TXT record only to prove that the customer approved this domain.",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "portalxglobal.com",
+  "syncRedirectDomain": "portalxglobal.com,victor-analytics.victorautomotive.workers.dev",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "147.182.156.254",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "proxy.portalxglobal.com",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_victor",
+      "data": "victor-site=%siteKey%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "victor-site="
+    }
+  ]
+}

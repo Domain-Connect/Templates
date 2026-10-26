@@ -1,0 +1,22 @@
+{
+  "providerId": "taxscout.ai",
+  "providerName": "TaxScout",
+  "serviceId": "portal",
+  "serviceName": "Client portal on your domain",
+  "version": 1,
+  "logoUrl": "https://app.taxscout.ai/icons/icon-512.png",
+  "description": "Points a subdomain the firm chooses (passed as the host parameter) at its TaxScout client portal.",
+  "variableDescription": "%token%: 32 lowercase hex characters identifying the firm's custom-domain connection at TaxScout.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.taxscout.ai",
+  "syncRedirectDomain": "app.taxscout.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%token%.customers.taxscout.ai",
+      "ttl": 3600
+    }
+  ]
+}

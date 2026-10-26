@@ -1,0 +1,17 @@
+{
+  "providerId": "lucaledger.net",
+  "providerName": "LucaLedger",
+  "serviceId": "portal",
+  "serviceName": "LucaLedger Client Portal",
+  "version": 1,
+  "logoUrl": "https://app.lucaledger.net/favicon.svg",
+  "description": "Point a subdomain (for example portal.yourdomain.com) at your branded LucaLedger client portal. SSL is issued automatically.",
+  "variableDescription": "your client portal subdomain",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "lucaledger.net",
+  "syncRedirectDomain": "app.lucaledger.net",
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "portal-proxy.lucaledger.net", "ttl": 1800 }
+  ]
+}

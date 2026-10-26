@@ -1,0 +1,21 @@
+{
+    "providerId": "tsoftcloud.com",
+    "providerName": "TSoftCloud",
+    "serviceId": "verify",
+    "serviceName": "Domain ownership",
+    "version": 1,
+    "description": "Proves that a domain belongs to a TSoftCloud account. Adds the one TXT record TSoftCloud shows the customer, at _tsoft-verify, and nothing else.",
+    "variableDescription": "%token%: the verification value TSoftCloud shows the customer for this domain (lowercase hex).",
+    "syncPubKeyDomain": "tsoftcloud.com",
+    "syncRedirectDomain": "tsoftcloud.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_tsoft-verify",
+            "data": "tsoft-verify=%token%",
+            "ttl": "3600",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "tsoft-verify="
+        }
+    ]
+}

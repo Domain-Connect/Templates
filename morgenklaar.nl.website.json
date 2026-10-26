@@ -1,0 +1,33 @@
+{
+    "providerId": "morgenklaar.nl",
+    "providerName": "MorgenKlaar",
+    "serviceId": "website",
+    "serviceName": "Website",
+    "version": 1,
+    "logoUrl": "https://morgenklaar.nl/img/merk/icoon-512.png",
+    "description": "Connects a customer's own domain to the website MorgenKlaar hosts for them: an A record for the domain itself, a CNAME for www pointing to the domain, and a TXT record with a per-domain verification key that our provisioner checks before it requests the TLS certificate.",
+    "variableDescription": "verificatie: the per-domain verification key shown in the customer's MorgenKlaar portal, without its fixed 'mk-' prefix (lowercase letters and digits). The IP address is fixed on purpose, so the template cannot be used to point a domain anywhere else.",
+    "syncPubKeyDomain": "morgenklaar.nl",
+    "syncRedirectDomain": "morgenklaar.nl",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "37.59.126.231",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "@",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_morgenklaar-verificatie",
+            "data": "mk-%verificatie%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

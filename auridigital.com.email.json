@@ -1,0 +1,21 @@
+{
+  "providerId": "auridigital.com",
+  "providerName": "Auri Digital",
+  "serviceId": "email",
+  "serviceName": "Auri Digital Email Authentication",
+  "version": 1,
+  "logoUrl": "https://auridigital.com/logo.png",
+  "description": "Configures DKIM, a custom MAIL FROM (MX + SPF), and DMARC so email sent on your behalf through Auri Digital (Amazon SES) authenticates.",
+  "variableDescription": "dkim1/dkim2/dkim3 = the three Amazon SES Easy-DKIM CNAME tokens; region = the SES region for the MAIL FROM feedback host.",
+  "syncPubKeyDomain": "dcsig.aurisend.com",
+  "syncRedirectDomain": "crm.auridigital.com",
+  "syncBlock": false,
+  "records": [
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "MX", "host": "bounce", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "bounce", "spfRules": "include:amazonses.com" },
+    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none;", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply" }
+  ]
+}

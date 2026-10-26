@@ -1,0 +1,35 @@
+{
+  "providerId": "ubouk.com",
+  "providerName": "Ubouk",
+  "serviceId": "marketing-email-txt-v1",
+  "serviceName": "Marketing email",
+  "version": 1,
+  "description": "Connect your domain to send marketing emails with Ubouk. Your existing mailbox stays with your current mail provider.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.ubouk.com",
+  "syncRedirectDomain": "ubouk.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com.",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkim1Selector%._domainkey",
+      "data": "p=%dkim1Value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ],
+  "variableDescription": "region: Amazon SES region from Resend; dkimNSelector: DKIM selector from Resend; dkimNValue: RSA public key (TXT) or Amazon SES destination selector (CNAME). Values are validated by Ubouk and the request is signed.",
+  "logoUrl": "https://ubouk.com/brand-wordmark.png"
+}

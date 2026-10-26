@@ -1,0 +1,21 @@
+{
+  "providerId": "supdesk.app",
+  "providerName": "SupDesk",
+  "serviceId": "portal",
+  "serviceName": "SupDesk Customer Portal",
+  "version": 1,
+  "logoUrl": "https://supdesk.app/images/logo.png",
+  "description": "Point a subdomain at your SupDesk customer portal.",
+  "variableDescription": "The subdomain that will serve your portal, e.g. feedback",
+  "syncPubKeyDomain": "supdesk.app",
+  "syncRedirectDomain": "supdesk.app,dev.supdesk.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "portal.supdesk.app",
+      "ttl": 300
+    }
+  ]
+}

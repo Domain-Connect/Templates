@@ -1,0 +1,27 @@
+{
+  "providerId": "pabbly.com",
+  "providerName": "Pabbly",
+  "serviceId": "email-sending-dkim",
+  "serviceName": "Pabbly Email Marketing Sending Domain (DKIM only)",
+  "version": 1,
+  "logoUrl": "https://emails.pabbly.com/assets/icons/appsicon/pem%202.svg",
+  "description": "Authenticates your domain for sending through Pabbly Email Marketing, for domains that already publish their own DMARC policy.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "pabbly.com",
+  "syncRedirectDomain": "pabbly.com",
+  "variableDescription": "%uid%: unique sender identifier issued by Pabbly for this sending domain",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%uid%",
+      "pointsTo": "mserv.pabbly.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "pabbly._domainkey",
+      "pointsTo": "pabbly._domainkey.mserv.pabbly.com",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "providerId": "mntz.io",
+  "providerName": "Monetize",
+  "serviceId": "app",
+  "serviceName": "Monetize app and landing pages",
+  "version": 1,
+  "logoUrl": "https://app.mntz.io/logo-day.png",
+  "description": "Points a subdomain (for example go.yourcompany.com) at the Monetize platform so the proposition's app and landing pages are served on the customer's own domain. The subdomain is supplied via the host parameter; the target is the Railway hostname issued for that domain.",
+  "variableDescription": "%target%: the platform hostname the subdomain must point to (xxxx.up.railway.app), issued per domain when it is connected in Monetize.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "mntz.io",
+  "syncRedirectDomain": "mntz.io,app.mntz.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

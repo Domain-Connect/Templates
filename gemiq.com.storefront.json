@@ -1,0 +1,21 @@
+{
+  "providerId": "gemiq.com",
+  "providerName": "GemIQ",
+  "serviceId": "storefront",
+  "serviceName": "GemIQ Online Storefront",
+  "version": 1,
+  "logoUrl": "https://gembox.app/static/domain-connect/logo.png",
+  "description": "Connects a subdomain of the customer's domain to their GemIQ online storefront and share pages.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gemiq.com",
+  "syncRedirectDomain": "gemlightbox.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "gembox.app",
+      "ttl": 3600
+    }
+  ]
+}

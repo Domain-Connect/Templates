@@ -1,0 +1,23 @@
+{
+  "providerId": "sayhi.io",
+  "providerName": "SayHi Verify",
+  "serviceId": "verify-domain-proof",
+  "serviceName": "Verify domain ownership",
+  "version": 1,
+  "description": "Adds one temporary TXT record used to prove control of a SayHi Verify passkey domain.",
+  "variableDescription": "verification is the single-purpose, expiring SayHi Verify domain proof token.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sayhi.io",
+  "syncRedirectDomain": "www.sayhi.io",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_sayhi-verify",
+      "data": "sayhi-verify=%verification%",
+      "ttl": 300,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "sayhi-verify="
+    }
+  ]
+}

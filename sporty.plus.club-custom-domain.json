@@ -1,0 +1,25 @@
+{
+    "providerId": "sporty.plus",
+    "providerName": "SportyPlus",
+    "serviceId": "club-custom-domain",
+    "serviceName": "Club website",
+    "version": 1,
+    "syncPubKeyDomain": "sporty.plus",
+    "logoUrl": "https://www.sporty.plus/logo.svg",
+    "description": "Points a sports club's own domain at their SportyPlus club website. Adds the domain itself and www, both to the same host.",
+    "syncBlock": false,
+    "records": [
+        {
+            "type": "APEXCNAME",
+            "host": "@",
+            "pointsTo": "origin.sporty.plus",
+            "ttl": 300
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "origin.sporty.plus",
+            "ttl": 300
+        }
+    ]
+}

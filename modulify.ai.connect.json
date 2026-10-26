@@ -1,0 +1,19 @@
+{
+    "providerId": "modulify.ai",
+    "providerName": "Modulify",
+    "serviceId": "connect",
+    "serviceName": "Connect your domain to Modulify",
+    "description": "Points your domain to your Modulify-hosted site and adds the records needed to issue an SSL certificate.",
+    "variableDescription": "IP addresses, the ACME challenge target, and the ownership token are all supplied by Modulify for your specific site.",
+    "version": 1,
+    "logoUrl": "https://modulify.ai/logo.svg",
+    "syncPubKeyDomain": "modulify.ai",
+    "syncRedirectDomain": "app.modulify.ai",
+    "syncBlock": false,
+    "records": [
+        { "type": "A", "host": "@", "pointsTo": "%rootip%", "ttl": 300 },
+        { "type": "AAAA", "host": "@", "pointsTo": "%rootipv6%", "ttl": 300 },
+        { "type": "CNAME", "host": "_acme-challenge", "pointsTo": "%rootacme%", "ttl": 300 },
+        { "type": "TXT", "host": "_fly-ownership", "data": "%rootowner%", "ttl": 300, "txtConflictMatchingMode": "All" }
+    ]
+}

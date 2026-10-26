@@ -1,0 +1,22 @@
+{
+    "providerId": "destevo.com",
+    "providerName": "Destevo",
+    "serviceId": "widget",
+    "serviceName": "Destevo Widget Domain Verification",
+    "version": 1,
+    "logoUrl": "https://destevo.com/icon.svg",
+    "description": "Adds the TXT record that proves you own this domain, so the Destevo live chat widget is allowed to run on it.",
+    "variableDescription": "token: the per-domain verification token shown in the Destevo dashboard under Brands > Domains. 32 lowercase hex characters.",
+    "syncPubKeyDomain": "domainconnect.destevo.com",
+    "syncRedirectDomain": "app.destevo.com",
+    "multiInstance": true,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_destevo",
+            "data": "destevo-verify=%token%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "None"
+        }
+    ]
+}

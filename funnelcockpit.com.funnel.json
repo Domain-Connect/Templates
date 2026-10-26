@@ -1,0 +1,20 @@
+{
+  "providerId": "funnelcockpit.com",
+  "providerName": "FunnelCockpit",
+  "serviceId": "funnel",
+  "serviceName": "Funnel domain",
+  "version": 1,
+  "logoUrl": "https://app.funnelcockpit.com/images/logo.svg",
+  "description": "Connects a customer-selected domain or subdomain to a FunnelCockpit funnel. DNS providers apply the record relative to the domain and host supplied by FunnelCockpit.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "funnelcockpit.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.funnelcockpit.com",
+      "ttl": 300
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "providerId": "domainemaildoctor.com",
+  "providerName": "Domain Email Doctor",
+  "serviceId": "email-dmarc",
+  "serviceName": "Email DMARC fix",
+  "version": 1,
+  "logoUrl": "https://domainemaildoctor.com/icon.svg",
+  "description": "Adds a DMARC policy record at _dmarc so the domain has a published DMARC policy.",
+  "variableDescription": "dmarcRules: the DMARC tags after the version, e.g. 'p=none; rua=mailto:dmarc@example.com'.",
+  "syncPubKeyDomain": "domainemaildoctor.com",
+  "syncRedirectDomain": "domainemaildoctor.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarcRules%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

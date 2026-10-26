@@ -1,0 +1,22 @@
+{
+  "providerId": "userloop.io",
+  "providerName": "UserLoop",
+  "serviceId": "survey-domain",
+  "serviceName": "Survey domain",
+  "version": 1,
+  "logoUrl": "https://userloop.io/images/userloop-logo-blue.svg",
+  "description": "Points a subdomain of the merchant's domain (for example survey.example.com) at UserLoop's Cloudflare for SaaS fallback origin, fallback.user-loop.com, so it serves the merchant's UserLoop link and email surveys. UserLoop's custom hostname uses HTTP validation, so this one CNAME record is the only record needed.",
+  "variableDescription": "No variables. Apply with host set to the subdomain (for example host=survey on domain=example.com); the record is created at that host.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "userloop.io",
+  "syncRedirectDomain": "userloop.io,userloop-web.userloop.workers.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.user-loop.com",
+      "ttl": 3600
+    }
+  ]
+}

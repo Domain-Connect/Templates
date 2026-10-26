@@ -1,0 +1,24 @@
+{
+  "providerId": "allclearly.com",
+  "providerName": "AllClearly",
+  "serviceId": "verify",
+  "serviceName": "AllClearly domain verification",
+  "version": 1,
+  "logoUrl": "https://allclearly.com/logo.png",
+  "description": "Adds a TXT record that proves you own this domain so AllClearly can run security scans on it.",
+  "variableDescription": "token: random per-workspace verification token",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "allclearly.com",
+  "syncRedirectDomain": "allclearly.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_allclearly",
+      "data": "allclearly-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

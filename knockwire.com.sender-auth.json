@@ -1,0 +1,32 @@
+{
+  "providerId": "knockwire.com",
+  "providerName": "Knockwire",
+  "serviceId": "sender-auth",
+  "serviceName": "Knockwire Sender Authentication",
+  "version": 1,
+  "logoUrl": "https://knockwire.com/logo.svg",
+  "description": "Authorises Knockwire to send on this domain's behalf by adding three CNAME records: a return path so SPF aligns, and two DKIM signing keys so DKIM aligns. Outreach then passes DMARC as the domain itself rather than arriving via a third party.",
+  "syncPubKeyDomain": "dcsig.knockwire.com",
+  "syncRedirectDomain": "knockwire.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "kw",
+      "pointsTo": "relay.knockwire.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "kw._domainkey",
+      "pointsTo": "dkim1.knockwire.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "kw2._domainkey",
+      "pointsTo": "dkim2.knockwire.com",
+      "ttl": 3600
+    }
+  ]
+}

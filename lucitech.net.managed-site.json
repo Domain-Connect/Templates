@@ -1,0 +1,38 @@
+{
+  "providerId": "lucitech.net",
+  "providerName": "Lucitech",
+  "serviceId": "managed-site",
+  "serviceName": "Lucitech Managed Website",
+  "version": 1,
+  "logoUrl": "https://lucitech.net/images/logo.png",
+  "description": "Points your domain at your Lucitech-managed website and adds a verification record.",
+  "variableDescription": "%checktoken%: Lucitech site verification token; %ip%: IP address of the Lucitech web server",
+  "syncPubKeyDomain": "keys.lucitech.net",
+  "syncRedirectDomain": "lucitech.net,www.lucitech.net",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600,
+      "groupId": "site",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600,
+      "groupId": "site"
+    },
+    {
+      "type": "TXT",
+      "host": "_ltcheck",
+      "data": "lucitech-verification=%checktoken%",
+      "ttl": 600,
+      "groupId": "verify",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "lucitech-verification="
+    }
+  ]
+}

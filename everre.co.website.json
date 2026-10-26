@@ -1,0 +1,22 @@
+{
+  "providerId": "everre.co",
+  "providerName": "Everre",
+  "serviceId": "website",
+  "serviceName": "Everre Website",
+  "version": 1,
+  "logoUrl": "https://everre.co/icon-512.png",
+  "description": "Connect a custom domain to a website built and hosted with Everre.",
+  "variableDescription": "%target%: the Cloudflare Pages hostname of the site, for example everre-site-9c081211.pages.dev",
+  "syncPubKeyDomain": "everre.co",
+  "syncRedirectDomain": "everre.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}

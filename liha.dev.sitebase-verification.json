@@ -1,0 +1,32 @@
+{
+  "providerId": "liha.dev",
+  "providerName": "Liha Sitebase",
+  "serviceId": "sitebase-verification",
+  "serviceName": "Sitebase domain verification",
+  "version": 1,
+  "logoUrl": "https://liha.dev/favicon.svg",
+  "description": "Add ownership and TLS verification TXT records without changing website or email routing.",
+  "syncPubKeyDomain": "domainconnect-verification.liha.dev",
+  "syncRedirectDomain": "sitebase-api.liha.dev",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "groupId": "certificate",
+      "host": "_acme-challenge",
+      "data": "%certificate%",
+      "ttl": 600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "None"
+    }
+  ],
+  "variableDescription": "ownership: Cloudflare custom hostname ownership token; certificate: Cloudflare TLS DNS challenge token. Select pending challenges with groupId=ownership,certificate (or either group alone)."
+}

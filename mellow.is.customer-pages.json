@@ -1,0 +1,22 @@
+{
+  "providerId": "mellow.is",
+  "providerName": "Mellow",
+  "serviceId": "customer-pages",
+  "serviceName": "Customer pages",
+  "version": 1,
+  "logoUrl": "https://app.mellow.is/cow.svg",
+  "description": "Points a car rental's own address, such as manage.example.com, at its Mellow customer pages: manage booking, check-in and payment.",
+  "variableDescription": "No variables. The host is the address the rental picked.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mellow.is",
+  "syncRedirectDomain": "app.mellow.is",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.mllw.is",
+      "ttl": 3600
+    }
+  ]
+}

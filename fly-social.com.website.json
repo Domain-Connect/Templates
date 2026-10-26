@@ -1,0 +1,28 @@
+{
+  "providerId": "fly-social.com",
+  "providerName": "Fly",
+  "serviceId": "website",
+  "serviceName": "Fly website",
+  "version": 1,
+  "logoUrl": "https://www.fly-social.com/lovable-uploads/fcbbdedb-31c5-4b63-a043-acec9452ecce.png",
+  "description": "Points a domain at the website Fly builds and hosts for a local business. Group site sets the A record on the domain or on the host passed in; group www adds the www CNAME for a root domain. Mail records are never written.",
+  "syncPubKeyDomain": "domainconnect.fly-social.com",
+  "syncRedirectDomain": "www.fly-social.com,fly-social.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "site",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

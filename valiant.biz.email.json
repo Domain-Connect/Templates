@@ -3,9 +3,9 @@
   "providerName": "Valiant AI",
   "serviceId": "email",
   "serviceName": "Valiant Email Sending",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://app.valiant.biz/valiant-logo.png",
-  "description": "Configure DNS records for email sending via Valiant AI platform (DKIM, SPF, MX)",
+  "description": "Configure DNS records for email sending via Valiant AI platform (DKIM, SPF, MX, open/click tracking)",
   "syncPubKeyDomain": "valiant.biz",
   "syncRedirectDomain": "valiant.biz",
   "hostRequired": false,
@@ -31,6 +31,13 @@
       "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
       "ttl": 3600,
       "priority": 10
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "links",
+      "pointsTo": "links1.resend-dns.com",
+      "ttl": 3600
     }
   ],
   "variableDescription": "domainKey: DKIM public key from Resend"

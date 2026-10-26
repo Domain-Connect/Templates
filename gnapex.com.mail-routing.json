@@ -1,0 +1,40 @@
+{
+  "providerId": "gnapex.com",
+  "providerName": "GN-Apex",
+  "serviceId": "mail-routing",
+  "serviceName": "GN-Apex Business Mail",
+  "version": 1,
+  "logoUrl": "https://www.gnapex.com/logo.png",
+  "description": "Configures MX, SPF, DKIM, and DMARC for GN-Apex mailboxes.",
+  "variableDescription": "dkimSelector: DKIM selector name; dkimKey: Base64 public DKIM key.",
+  "syncPubKeyDomain": "gnapex.com",
+  "syncRedirectDomain": "gnapex.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.gnapex.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.gnapex.com"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; pct=100; rua=mailto:dmarc-reports@gnapex.com",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "ttl": 3600
+    }
+  ]
+}

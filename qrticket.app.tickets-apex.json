@@ -1,0 +1,20 @@
+{
+  "providerId": "qrticket.app",
+  "providerName": "qrTicket",
+  "serviceId": "tickets-apex",
+  "serviceName": "qrTicket — Entradas (dominio raíz)",
+  "version": 1,
+  "logoUrl": "https://qrticket.app/icon.svg",
+  "description": "Conecta un dominio raíz (ej: tumarca.com) a tu cartelera de qrTicket.",
+  "variableDescription": "%ip%: the IPv4 target qrTicket requests for this domain.",
+  "syncPubKeyDomain": "qrticket.app",
+  "syncRedirectDomain": "qrticket.app",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    }
+  ]
+}

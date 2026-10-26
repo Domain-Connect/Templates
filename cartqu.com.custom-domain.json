@@ -1,0 +1,27 @@
+{
+  "providerId": "cartqu.com",
+  "providerName": "CartQu",
+  "serviceId": "custom-domain",
+  "serviceName": "Connect a CartQu store domain",
+  "version": 1,
+  "logoUrl": "https://cartqu.com/images/logo.png",
+  "description": "Connect this domain to a CartQu store and prove ownership.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cartqu.com",
+  "syncRedirectDomain": "api.cartqu.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_cartqu-verification",
+      "data": "%verification%",
+      "ttl": 300
+    }
+  ]
+}

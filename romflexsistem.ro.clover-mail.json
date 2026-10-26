@@ -1,0 +1,61 @@
+{
+  "providerId": "romflexsistem.ro",
+  "providerName": "Clover",
+  "serviceId": "clover-mail",
+  "serviceName": "Clover Email",
+  "version": 1,
+  "description": "Connects a subdomain of the customer's domain to Clover email sending and receiving through Resend: DKIM, the return-path records (MX with SPF merged via SPFM, and/or one or two Resend MTA CNAMEs) and the inbound MX. The service applies only the groups that match the records Resend issued for the domain. Applies only with a host (subdomain); the apex and its mail records are never touched.",
+  "variableDescription": "%dkimkey%: DKIM public key issued by Resend for the domain (base64, without the p= prefix); %region%: Resend sending region (e.g. eu-west-1); %returnpath%: return-path label issued by Resend (e.g. send); %mtahost%: label of the Resend MTA CNAME (e.g. rsend); %mtatarget%: first label of the Resend MTA target under forge.rmta.net (e.g. send); %fallbackhost%: label of the second Resend MTA CNAME, when Resend issues two (e.g. send); %fallbacktarget%: first label of that second target under forge.rmta.net (e.g. rsend-euw1)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "romflexsistem.ro",
+  "syncRedirectDomain": "clover.vpn.romflexsistem.ro",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "%returnpath%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "%returnpath%",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending-mta",
+      "type": "CNAME",
+      "host": "%mtahost%",
+      "pointsTo": "%mtatarget%.forge.rmta.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending-fallback",
+      "type": "CNAME",
+      "host": "%fallbackhost%",
+      "pointsTo": "%fallbacktarget%.forge.rmta.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

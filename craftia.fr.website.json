@@ -1,0 +1,35 @@
+{
+  "providerId": "craftia.fr",
+  "providerName": "Craftia",
+  "serviceId": "website",
+  "serviceName": "Site Craftia",
+  "version": 1,
+  "logoUrl": "https://craftia.fr/craftia-logo.png",
+  "description": "Connecte votre site Craftia sans modifier le courrier ni les serveurs de noms.",
+  "variableDescription": "IP : IPv4 de l’hébergement Craftia. verificationToken : preuve de propriété du domaine.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.craftia.fr",
+  "syncRedirectDomain": "app.craftia.fr",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_craftia",
+      "data": "craftia-verification=%verificationToken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "craftia-verification="
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 300
+    }
+  ]
+}

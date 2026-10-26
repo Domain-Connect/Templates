@@ -1,0 +1,37 @@
+{
+  "providerId": "flowtag.dev",
+  "providerName": "Flowtag",
+  "serviceId": "status-page-apex",
+  "serviceName": "Flowtag Status Page (Apex)",
+  "version": 1,
+  "logoUrl": "https://flowtag.dev/icon.svg",
+  "description": "Connect a root/apex domain (e.g. example.com) to a Flowtag status page using A and AAAA records.",
+  "variableDescription": "verify-token is the per-status-page ownership token. ipv4 and ipv6 are Flowtag status page anycast addresses.",
+  "syncPubKeyDomain": "domainconnect.flowtagservices.com",
+  "syncRedirectDomain": "flowtag.dev",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "__flowtag",
+      "data": "flowtag-verify=%verify-token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "flowtag-verify="
+    },
+    {
+      "type": "A",
+      "groupId": "a",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 600
+    },
+    {
+      "type": "AAAA",
+      "groupId": "aaaa",
+      "host": "@",
+      "pointsTo": "%ipv6%",
+      "ttl": 600
+    }
+  ]
+}

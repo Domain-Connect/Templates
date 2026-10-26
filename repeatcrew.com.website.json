@@ -1,0 +1,21 @@
+{
+  "providerId": "repeatcrew.com",
+  "providerName": "RepeatCrew",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://repeatcrew.com/brand/logo-mark.png",
+  "description": "Points one subdomain the customer chooses (for example www) at their RepeatCrew-hosted website with a single CNAME to domains.repeatcrew.com. The apex, mail and all other records are left alone. Always applied with a host; RepeatCrew signs every request.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.repeatcrew.com",
+  "syncRedirectDomain": "repeatcrew.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.repeatcrew.com",
+      "ttl": 3600
+    }
+  ]
+}

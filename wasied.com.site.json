@@ -1,0 +1,20 @@
+{
+  "providerId": "wasied.com",
+  "providerName": "Wasied",
+  "serviceId": "site",
+  "serviceName": "Wasied website custom domain",
+  "version": 1,
+  "logoUrl": "https://wasied.com/favicon.png",
+  "description": "Points a hostname at a website hosted on Wasied. The HTTPS certificate is issued and renewed automatically.",
+  "syncPubKeyDomain": "wasied.com",
+  "hostRequired": true,
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "ssl.wasied.net.",
+      "ttl": 3600
+    }
+  ]
+}

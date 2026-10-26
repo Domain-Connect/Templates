@@ -1,0 +1,36 @@
+{
+    "providerId": "getfernand.com",
+    "providerName": "Fernand",
+    "serviceId": "email",
+    "serviceName": "Email Sending",
+    "version": 1,
+    "logoUrl": "https://app.getfernand.com/images/favicon/icon_512.png",
+    "description": "Configure DNS records for sending emails with Fernand (https://getfernand.com).",
+    "variableDescription": "%dkimSelector%: DKIM selector identifier; %dkimPublicKey%: DKIM public key (base64)",
+    "hostRequired": false,
+    "syncPubKeyDomain": "getfernand.com",
+    "syncRedirectDomain": "getfernand.com,app.getfernand.com,fernand.app",
+    "records": [
+        {
+            "groupId": "dkim",
+            "type": "TXT",
+            "host": "%dkimSelector%._domainkey",
+            "data": "k=rsa; p=%dkimPublicKey%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "return-path",
+            "type": "CNAME",
+            "host": "fernand20220202._domainkey",
+            "pointsTo": "fernand20220202._domainkey.getfernand.com.",
+            "ttl": 3600
+        },
+        {
+            "groupId": "return-path",
+            "type": "CNAME",
+            "host": "fbounces",
+            "pointsTo": "pm.mtasv.net",
+            "ttl": 3600
+        }
+    ]
+}

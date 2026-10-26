@@ -1,0 +1,40 @@
+{
+  "providerId": "repliqo.app",
+  "providerName": "Repliqo",
+  "serviceId": "inbox-domain",
+  "serviceName": "Repliqo inbox domain",
+  "version": 1,
+  "logoUrl": "https://repliqo.app/repliqo.png",
+  "description": "Connects this domain to Repliqo shared inboxes: routes inbound mail to Repliqo's email infrastructure and authorizes it to send as the domain.",
+  "variableDescription": "%sesRegion%: AWS region of Repliqo's email infrastructure, e.g. us-east-1; %dkim%: base64 DKIM public key provisioned for this domain",
+  "syncPubKeyDomain": "repliqo.app",
+  "syncRedirectDomain": "repliqo.app",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%sesRegion%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

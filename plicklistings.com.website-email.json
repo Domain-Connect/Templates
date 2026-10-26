@@ -1,0 +1,18 @@
+{
+  "providerId": "plicklistings.com",
+  "providerName": "Plick Listings",
+  "serviceId": "website-email",
+  "serviceName": "Plick Listings Email Sending",
+  "version": 1,
+  "hostRequired": true,
+  "syncPubKeyDomain": "plicklistings.com",
+  "syncRedirectDomain": "plicklistings.com",
+  "records": [
+    { "type": "CNAME", "host": "%SESDKIMTOKEN1%._domainkey", "pointsTo": "%SESDKIMTOKEN1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%SESDKIMTOKEN2%._domainkey", "pointsTo": "%SESDKIMTOKEN2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%SESDKIMTOKEN3%._domainkey", "pointsTo": "%SESDKIMTOKEN3%.dkim.amazonses.com", "ttl": 3600 },
+
+    { "type": "SPFM", "host": "@", "spfRules": "include:_spf.plicklistings.com", "ttl": 3600 },
+    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@plicklistings.com", "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "OnApply" }
+  ]
+}

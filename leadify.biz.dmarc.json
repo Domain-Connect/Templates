@@ -1,0 +1,24 @@
+{
+  "providerId": "leadify.biz",
+  "providerName": "Leadify SecureMark",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC record",
+  "version": 1,
+  "logoUrl": "https://securemark.leadify.biz/images/logo.png",
+  "description": "Publishes the DMARC record SecureMark suggests, so the domain's DMARC reports come to SecureMark and its policy takes effect.",
+  "variableDescription": "dmarc is the DMARC record after v=DMARC1;, such as p=none; rua=mailto:dmarcreports@ldfysrv.net; pct=100; aspf=r; adkim=r",
+  "syncBlock": false,
+  "syncPubKeyDomain": "leadify.biz",
+  "syncRedirectDomain": "securemark.leadify.biz",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

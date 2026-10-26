@@ -1,0 +1,51 @@
+{
+  "providerId": "siftserve.com",
+  "providerName": "SiftServe",
+  "serviceId": "sift-pilot",
+  "serviceName": "SiftServe pilot hostname",
+  "version": 1,
+  "logoUrl": "https://siftserve.com/logo.svg",
+  "description": "Connects a pilot hostname (e.g. sift-test subdomain) to SiftServe so AI agents and bots are served your Sift pages while your production site stays untouched.",
+  "variableDescription": "cfpre is the Cloudflare custom-hostname pre-validation token; acme1/acme2 are the certificate validation tokens. All three are generated per-connection by SiftServe.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "siftserve.com",
+  "syncRedirectDomain": "siftserve.com,app.siftserve.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "service",
+      "host": "@",
+      "pointsTo": "sift-proxy.siftserve.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_cf-custom-hostname",
+      "data": "%cfpre%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_acme-challenge",
+      "data": "%acme1%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_acme-challenge",
+      "data": "%acme2%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}

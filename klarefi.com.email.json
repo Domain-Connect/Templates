@@ -1,0 +1,52 @@
+{
+  "providerId": "klarefi.com",
+  "providerName": "Klarefi",
+  "serviceId": "email",
+  "serviceName": "Email to applicants",
+  "version": 2,
+  "logoUrl": "https://www.klarefi.com/brand/klarefi-mark.png",
+  "description": "Lets Klarefi send email to applicants from this domain, and, on a domain that takes no mail yet, take in the email applicants send to it.",
+  "variableDescription": "%domainKey%: the public DKIM key issued for this domain. %region%: the region this domain's mail is handled in.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "klarefi.com",
+  "syncRedirectDomain": "www.klarefi.com,klarefi.com",
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%domainKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "forge",
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

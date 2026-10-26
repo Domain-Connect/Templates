@@ -1,0 +1,29 @@
+{
+  "providerId": "coldpost.ai",
+  "providerName": "COLDPOST",
+  "serviceId": "tracking",
+  "serviceName": "Branded email tracking domain",
+  "version": 1,
+  "logoUrl": "https://coldpost.ai/logo.png",
+  "description": "Routes COLDPOST email open and click tracking through your own branded subdomain (e.g. track.yourdomain.com) instead of the shared COLDPOST host. Improves deliverability and keeps links on your brand.",
+  "variableDescription": "%token%: your COLDPOST domain-verification value (shown in COLDPOST > Senders). The tracking subdomain itself (e.g. track) is supplied via the Domain Connect host parameter, not a variable.",
+  "syncPubKeyDomain": "coldpost.ai",
+  "syncRedirectDomain": "api.coldpost.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "t.coldpost.io",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_coldpost-verify",
+      "data": "coldpost-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "coldpost-verify="
+    }
+  ]
+}

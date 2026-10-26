@@ -1,0 +1,25 @@
+{
+  "providerId": "pairlore.com",
+  "providerName": "Pairlore",
+  "serviceId": "claim",
+  "serviceName": "Pairlore product claim",
+  "version": 1,
+  "logoUrl": "https://pairlore.com/images/pairlore/pairlore-mark-blue.svg",
+  "description": "Adds a one-time TXT record that proves you control this domain so you can claim your product on Pairlore.",
+  "variableDescription": "claim: one-time claim code issued by Pairlore",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "pairlore.com",
+  "syncRedirectDomain": "pairlore.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "pairlore-claim-%claim%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "pairlore-claim-"
+    }
+  ]
+}

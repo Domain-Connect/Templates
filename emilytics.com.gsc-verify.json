@@ -1,0 +1,21 @@
+{
+  "providerId": "emilytics.com",
+  "providerName": "Emilytics",
+  "serviceId": "gsc-verify",
+  "serviceName": "Emilytics Search Console Verification",
+  "version": 1,
+  "logoUrl": "https://emilytics.com/emilytics-icon.png",
+  "description": "Adds the Google Search Console DNS TXT verification record so Emilytics can read Search Console data for the customer's domain.",
+  "variableDescription": "%googleSiteToken%: Google Search Console DNS TXT verification token issued for the customer's domain",
+  "syncPubKeyDomain": "domainconnect-keys.emilytics.com",
+  "syncRedirectDomain": "emilytics.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "ttl": 600,
+      "data": "google-site-verification=%googleSiteToken%"
+    }
+  ]
+}

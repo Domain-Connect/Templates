@@ -1,0 +1,21 @@
+{
+  "providerId": "qrticket.app",
+  "providerName": "qrTicket",
+  "serviceId": "tickets-subdomain",
+  "serviceName": "qrTicket — Entradas (subdominio)",
+  "version": 1,
+  "logoUrl": "https://qrticket.app/icon.svg",
+  "description": "Conecta un subdominio (ej: entradas.tumarca.com) a tu cartelera de qrTicket.",
+  "variableDescription": "%cname%: the CNAME target qrTicket requests for this hostname.",
+  "syncPubKeyDomain": "qrticket.app",
+  "syncRedirectDomain": "qrticket.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    }
+  ]
+}

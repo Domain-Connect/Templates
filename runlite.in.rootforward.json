@@ -1,0 +1,22 @@
+{
+  "providerId": "runlite.in",
+  "providerName": "RunLite",
+  "serviceId": "rootforward",
+  "serviceName": "RunLite: forward a domain to its www site",
+  "version": 1,
+  "logoUrl": "https://runlite.in/icon.png",
+  "description": "Permanently redirects a name to its www version hosted on RunLite: applied at the bare domain (example.com), it sends visitors to https://www.example.com.",
+  "variableDescription": "None: the redirect target is always https://www.<name the template is applied to>.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "runlite.in",
+  "syncRedirectDomain": "app.runlite.in",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}

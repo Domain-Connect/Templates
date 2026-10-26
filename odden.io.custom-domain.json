@@ -1,0 +1,31 @@
+{
+  "providerId": "odden.io",
+  "providerName": "Odden",
+  "serviceId": "custom-domain",
+  "serviceName": "Odden custom domain",
+  "version": 1,
+  "logoUrl": "https://odden.io/favicon.svg",
+  "description": "Lets a workspace in Odden Cloud serve its public pages (landing pages, forms and portals) from a subdomain of the customer's domain: a TXT record that proves ownership and a CNAME to Odden. For a domain at the top of its zone, where a CNAME is not allowed, see odden.io.custom-domain-apex.",
+  "variableDescription": "%verifytoken%: the ownership token Odden issued for the domain (the value after odden-verify=).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "odden.io",
+  "syncRedirectDomain": "cloud.odden.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_odden-verify",
+      "data": "odden-verify=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "odden-verify=",
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.odden.page",
+      "ttl": 3600
+    }
+  ]
+}

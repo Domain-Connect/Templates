@@ -1,0 +1,59 @@
+{
+  "providerId": "parcelwing.com",
+  "providerName": "Parcel Wing",
+  "serviceId": "email-sending",
+  "serviceName": "Email sending",
+  "version": 1,
+  "description": "Authorize Parcel Wing to send email with Amazon SES using Easy DKIM, a custom MAIL FROM subdomain, and DMARC without changing inbound mailbox MX records.",
+  "variableDescription": "dkimToken1, dkimToken2, and dkimToken3 are Amazon SES Easy DKIM selectors. sesRegion is the AWS region that owns the SES identity.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "parcelwing.com",
+  "syncRedirectDomain": "parcelwing.com",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "ses-bounce",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 1800
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "ses-bounce",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 1800,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

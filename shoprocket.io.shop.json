@@ -1,0 +1,21 @@
+{
+  "providerId": "shoprocket.io",
+  "providerName": "Shoprocket",
+  "serviceId": "shop",
+  "serviceName": "Shoprocket shop",
+  "version": 2,
+  "logoUrl": "https://shoprocket.io/assets/img/logo-dark.svg",
+  "description": "Host your Shoprocket shop on your own domain",
+  "variableDescription": "%target%: the Shoprocket hostname your shop's CNAME points at (e.g. shops.shoprocket.io)",
+  "syncPubKeyDomain": "shoprocket.io",
+  "syncRedirectDomain": "app.shoprocket.dev,app.shoprocket.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

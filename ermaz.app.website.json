@@ -1,0 +1,24 @@
+{
+    "providerId": "ermaz.app",
+    "providerName": "Ermaz",
+    "serviceId": "website",
+    "serviceName": "Ermaz Website",
+    "version": 1,
+    "description": "Connects your domain to the website Ermaz built and deployed for you, with automatic HTTPS.",
+    "variableDescription": "sitehost is the hostname of the customer's deployed Ermaz site",
+    "syncPubKeyDomain": "ermaz.app",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "75.2.60.5",
+            "ttl": 600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%sitehost%",
+            "ttl": 600
+        }
+    ]
+}

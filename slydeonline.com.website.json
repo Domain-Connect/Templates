@@ -1,0 +1,21 @@
+{
+  "providerId": "slydeonline.com",
+  "providerName": "Slyde",
+  "serviceId": "website",
+  "serviceName": "Slyde Website",
+  "version": 1,
+  "logoUrl": "https://media.slydeonline.com/sites/cmtlprw9z0001xja0k4xryw3v/logo-dark-1788461145526.png",
+  "description": "Points a hostname at a website built on Slyde (slydeonline.com). Adds a single CNAME to Slyde's origin so the site is served over HTTPS.",
+  "variableDescription": "No variables. The CNAME target is fixed to Slyde's origin; the customer's hostname is supplied through the standard host parameter (www for a bare domain, or the chosen subdomain).",
+  "syncPubKeyDomain": "slydeonline.com",
+  "syncRedirectDomain": "slydeonline.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "origin.slydeonline.com",
+      "ttl": 3600
+    }
+  ]
+}

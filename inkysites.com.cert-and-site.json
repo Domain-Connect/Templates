@@ -1,0 +1,43 @@
+{
+  "providerId": "inkysites.com",
+  "providerName": "InkySites",
+  "serviceId": "cert-and-site",
+  "serviceName": "InkySites website and certificate",
+  "version": 1,
+  "logoUrl": "https://inkysites.com/images/brand/inky-mark.svg",
+  "description": "For a newly registered domain: lets Google Certificate Manager issue its HTTPS certificate (one CNAME at _acme-challenge) and points it at the website InkySites hosts (A and AAAA to the InkySites load balancer, and a www CNAME). Email records are never touched.",
+  "variableDescription": "acme: the per-domain label Google Certificate Manager issues for the DNS authorization. ip4: the InkySites load balancer IPv4 address. ip6: its IPv6 address. Group 'cert' is the certificate record, 'site' the A and AAAA pair, 'www' the www CNAME, applied only at the root of a domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "inkysites.com",
+  "syncRedirectDomain": "app.inkysites.com",
+  "records": [
+    {
+      "groupId": "cert",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%acme%.authorize.certificatemanager.goog",
+      "ttl": 3600
+    },
+    {
+      "groupId": "site",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip4%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "site",
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "%ip6%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}

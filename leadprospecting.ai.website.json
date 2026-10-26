@@ -1,0 +1,25 @@
+{
+  "providerId": "leadprospecting.ai",
+  "providerName": "LeadProspecting AI",
+  "serviceId": "website",
+  "serviceName": "LPAI Client Website",
+  "version": 1,
+  "logoUrl": "https://www.leadprospecting.ai/logo.png",
+  "description": "Points your domain to your LPAI-built website hosted on Vercel",
+  "syncPubKeyDomain": "leadprospecting.ai",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.150.1.1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

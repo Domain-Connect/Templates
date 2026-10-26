@@ -1,0 +1,23 @@
+{
+    "providerId": "emailsecurity.pro",
+    "providerName": "Signet",
+    "serviceId": "dkim",
+    "serviceName": "Hosted DKIM public key",
+    "version": 1,
+    "logoUrl": "https://emailsecurity.pro/brand/signet-badge.svg",
+    "description": "Publishes the public half of a DKIM key Signet holds for the customer, at one of two selectors that alternate on rotation (signet1, signet2). Applied once per selector, so both can exist during a rotation.",
+    "variableDescription": "%slot%: 1 or 2, the selector slot; %keytype%: rsa or ed25519; %publickey%: the base64 public key",
+    "syncBlock": false,
+    "syncPubKeyDomain": "emailsecurity.pro",
+    "syncRedirectDomain": "app.emailsecurity.pro",
+    "multiInstance": true,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "signet%slot%._domainkey",
+            "data": "v=DKIM1; k=%keytype%; p=%publickey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

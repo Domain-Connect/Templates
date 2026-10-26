@@ -1,0 +1,66 @@
+{
+  "providerId": "trust1.io",
+  "providerName": "trust1",
+  "serviceId": "product-review-ses",
+  "serviceName": "Product Review SES",
+  "version": 1,
+  "logoUrl": "https://trust1.io/wp-content/themes/trust1/assets/images/logo/trust1-logo-ts.png",
+  "description": "Enables a domain to work with Email Request Review",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: DKIM token CNAMEs; %region%: AWS SES region",
+  "syncPubKeyDomain": "trustshop.io",
+  "syncRedirectDomain": "app.trustshop.io",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": "3600"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": "3600"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": "3600"
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "ttl": "3600",
+      "priority": "10"
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "@",
+      "ttl": "3600",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "ttl": "3600",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": "3600",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@%fqdn%; fo=1",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

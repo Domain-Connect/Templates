@@ -1,0 +1,28 @@
+{
+  "providerId": "samva.dev",
+  "providerName": "Samva",
+  "serviceId": "click-tracking",
+  "serviceName": "Custom Tracking Domain",
+  "version": 1,
+  "logoUrl": "https://cdn.samva.dev/brand/logo.svg",
+  "description": "Serve email open and click tracking from a subdomain of your own domain, with a managed HTTPS certificate.",
+  "variableDescription": "dcvUuid: the certificate-validation delegation id Samva generates when you enable a custom tracking domain.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "samva.dev",
+  "syncRedirectDomain": "samva.dev",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "links.samva.sh",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.%dcvUuid%.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}

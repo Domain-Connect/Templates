@@ -1,0 +1,41 @@
+{
+  "providerId": "specific.dev",
+  "providerName": "Specific",
+  "serviceId": "custom-domain-apex",
+  "serviceName": "Custom domain (apex)",
+  "version": 1,
+  "description": "Point a root (apex) domain at your Specific service.",
+  "variableDescription": "apex-a group: ip1/ip2/ip3 are the Specific ingress IPv4 addresses (A records). apex-cname group: target is the Specific ingress hostname, applied as an APEXCNAME for providers that support apex CNAME flattening.",
+  "logoUrl": "https://specific.dev/icon.svg",
+  "syncPubKeyDomain": "specific.dev",
+  "records": [
+    {
+      "type": "A",
+      "groupId": "apex-a",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "apex-a",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "apex-a",
+      "host": "@",
+      "pointsTo": "%ip3%",
+      "ttl": 3600
+    },
+    {
+      "type": "APEXCNAME",
+      "groupId": "apex-cname",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

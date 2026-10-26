@@ -1,0 +1,25 @@
+{
+  "providerId": "xbuildnow.com",
+  "providerName": "xbuild",
+  "serviceId": "web",
+  "serviceName": "Web Service",
+  "version": 1,
+  "logoUrl": "https://xbuildnow.com/favicon.ico",
+  "description": "Connect your custom domain to xbuild platform",
+  "syncPubKeyDomain": "xbuildnow.com",
+  "syncRedirectDomain": "xbuildnow.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "185.158.133.1",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "185.158.133.1",
+      "ttl": 3600
+    }
+  ]
+}

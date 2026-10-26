@@ -1,0 +1,19 @@
+{
+  "providerId": "xeoai.com",
+  "providerName": "XEO",
+  "serviceId": "byod",
+  "serviceName": "XEO Website Hosting",
+  "version": 1,
+  "logoUrl": "https://app.xeoai.com/xeo-logo-dark.png",
+  "description": "Point your domain at your XEO website.",
+  "syncPubKeyDomain": "xeoai.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}

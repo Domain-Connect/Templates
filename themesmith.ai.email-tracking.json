@@ -1,0 +1,20 @@
+{
+  "providerId": "themesmith.ai",
+  "providerName": "ThemeSmith",
+  "serviceId": "email-tracking",
+  "serviceName": "Email tracking",
+  "version": 1,
+  "logoUrl": "https://themesmith.ai/favicon.svg",
+  "description": "Points the name email at ThemeSmith so links in messages from this domain can be counted.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "themesmith.ai",
+  "syncRedirectDomain": "app.themesmith.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "click.dns.themesmith.ai",
+      "ttl": "300"
+    }
+  ]
+}

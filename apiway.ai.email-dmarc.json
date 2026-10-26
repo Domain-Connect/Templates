@@ -1,0 +1,24 @@
+{
+  "providerId": "apiway.ai",
+  "providerName": "Apiway",
+  "serviceId": "email-dmarc",
+  "serviceName": "Apiway Email Marketing DMARC",
+  "version": 1,
+  "logoUrl": "https://apiway.ai/icons/logo.svg",
+  "description": "Adds a monitoring-only DMARC policy (p=none) for a domain that has none yet. Apiway only offers this template when the domain has no DMARC record, so an existing policy is never changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.apiway.ai",
+  "syncRedirectDomain": "apiway.ai,studio.apiway.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%domain%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

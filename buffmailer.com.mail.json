@@ -1,0 +1,82 @@
+{
+  "providerId": "buffmailer.com",
+  "providerName": "Buffmailer",
+  "serviceId": "mail",
+  "serviceName": "Buffmailer email hosting",
+  "version": 1,
+  "logoUrl": "https://buffmailer.com/favicon.svg",
+  "description": "Receive and send email on your domain with Buffmailer: MX, SPF, DKIM, DMARC, MTA-STS, TLS reporting and a domain ownership record.",
+  "variableDescription": "verifytoken: domain ownership token; dkimselector: DKIM selector of the domain; dkimkey: base64 DKIM public key",
+  "syncBlock": false,
+  "syncPubKeyDomain": "buffmailer.com",
+  "syncRedirectDomain": "buffmailer.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "@",
+      "data": "buffmailer-verification=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "buffmailer-verification="
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.buffmailer.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a:mx.buffmailer.com"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "v=TLSRPTv1; rua=mailto:tls-reports@mx.buffmailer.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=TLSRPTv1"
+    },
+    {
+      "groupId": "mail",
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "mx.buffmailer.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "_mta-sts",
+      "data": "v=STSv1; id=buffmailer1",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=STSv1"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; adkim=r; aspf=r; rua=mailto:dmarc-reports@mx.buffmailer.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

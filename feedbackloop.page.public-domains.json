@@ -1,0 +1,43 @@
+{
+  "providerId": "feedbackloop.page",
+  "providerName": "Feedback Loop",
+  "serviceId": "public-domains",
+  "serviceName": "Feature requests and release notes",
+  "version": 3,
+  "description": "Connect a project subdomain to Feedback Loop",
+  "syncPubKeyDomain": "feedbackloop.page",
+  "syncRedirectDomain": "feedbackloop.page",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "public",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "public",
+      "host": "_feedbackloop",
+      "data": "%proof%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "feedbackloop-domain=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "%verificationHost%.",
+      "data": "%verification%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vc-domain-verify=",
+      "essential": "OnApply"
+    }
+  ],
+  "logoUrl": "https://feedbackloop.page/favicon.svg",
+  "variableDescription": "cname: exact CNAME target returned by Vercel for the registered project hostname; proof: complete server-generated feedbackloop-domain= ownership TXT value; verificationHost: optional fully-qualified Vercel verification TXT hostname without a trailing dot; the template supplies the absolute-name dot; verification: complete vc-domain-verify= value returned by Vercel."
+}

@@ -1,0 +1,26 @@
+{
+    "providerId": "tjservice",
+    "providerName": "TJService Hosting",
+    "serviceId": "mcroute",
+    "serviceName": "TJService Hosting Minecraft Route",
+    "version": 1,
+    "logoUrl": "https://client.tjservice.org/assets/img/logo.png",
+    "description": "Point a subdomain of your own domain at your TJService Hosting Minecraft server via an SRV record.",
+    "variableDescription": "host apply-parameter: the subdomain label to create (e.g. play, or leave empty for apex); %target%: the proxy hostname to point at (e.g. proxy.tjservice.org); %port%: the Minecraft server port to connect to",
+    "syncPubKeyDomain": "tjservice.org",
+    "records": [
+        {
+            "type": "SRV",
+            "service": "_minecraft",
+            "protocol": "_tcp",
+            "name": "@",
+            "target": "%target%",
+            "port": "%port%",
+            "priority": 0,
+            "weight": 5,
+            "ttl": 300,
+            "essential": "Always"
+        }
+    ],
+    "hostRequired": true
+}

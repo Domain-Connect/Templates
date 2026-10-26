@@ -1,0 +1,21 @@
+{
+    "providerId": "tjservice",
+    "providerName": "TJService Hosting",
+    "serviceId": "route",
+    "serviceName": "TJService Hosting Game Server Route",
+    "version": 1,
+    "logoUrl": "https://client.tjservice.org/assets/img/logo.png",
+    "description": "Point a subdomain of your own domain at your TJService Hosting game server proxy.",
+    "variableDescription": "host apply-parameter: the subdomain label to create (e.g. play, or leave empty for apex); %target%: the proxy hostname to point at (e.g. proxy.tjservice.org)",
+    "syncPubKeyDomain": "tjservice.org",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 300,
+            "essential": "Always"
+        }
+    ],
+    "hostRequired": true
+}

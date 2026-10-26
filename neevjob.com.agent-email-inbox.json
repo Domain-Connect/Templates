@@ -1,0 +1,47 @@
+{
+      "providerId": "neevjob.com",
+      "providerName": "NeevJob ATS",
+      "serviceId": "agent-email-inbox",
+      "serviceName": "Agent Email Inbox",
+      "description": "Connects your domain to NeevJob ATS so your AI recruiting agent can send and receive emails on your behalf.",
+      "version": 1,
+      "logoUrl": "https://neevjob.com/logo.png",
+      "syncPubKeyDomain": "domainconnect.neevjob.com",
+      "variableDescription": "%dkim_value%: DKIM public key provided by Resend for this domain",
+      "records": [
+              {
+                        "type": "MX",
+                        "host": "agent",
+                        "pointsTo": "inbound-smtp.resend.com.",
+                        "priority": 10,
+                        "ttl": 3600
+              },
+              {
+                        "type": "TXT",
+                        "host": "resend._domainkey.agent",
+                        "data": "%dkim_value%",
+                        "ttl": 3600
+              },
+              {
+                        "type": "SPFM",
+                        "host": "send.agent",
+                        "spfRules": "include:amazonses.com",
+                        "ttl": 3600
+              },
+              {
+                        "type": "MX",
+                        "host": "send.agent",
+                        "pointsTo": "feedback-smtp.us-east-1.amazonses.com.",
+                        "priority": 10,
+                        "ttl": 3600
+              },
+              {
+                        "type": "TXT",
+                        "host": "_dmarc.agent",
+                        "data": "v=DMARC1; p=none; rua=mailto:dmarc@%domain%; fo=1; adkim=r; aspf=r",
+                        "ttl": 3600,
+                        "txtConflictMatchingMode": "None",
+                        "essential": "OnApply"
+              }
+      ]
+}

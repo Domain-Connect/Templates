@@ -1,0 +1,22 @@
+{
+  "providerId": "saleya.app",
+  "providerName": "Saleya",
+  "serviceId": "custom-domain",
+  "serviceName": "Saleya Custom Domain",
+  "version": 1,
+  "logoUrl": "https://saleya.app/apple-touch-icon.png",
+  "description": "Connect your domain to your Saleya store",
+  "variableDescription": "",
+  "syncPubKeyDomain": "domainconnect.saleya.app",
+  "syncBlock": false,
+  "shared": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom.saleya.app",
+      "ttl": 3600
+    }
+  ]
+}

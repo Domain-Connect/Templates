@@ -3,16 +3,17 @@
   "providerName": "Apex Sales",
   "serviceId": "mailgun",
   "serviceName": "Email Verification",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://caspiansol.com/assets/caspian-new-logo-ibH7uW8J.png",
-  "description": "Configures Mailgun for mg.apexsales.ai",
-  "syncRedirectDomain": "conv.apexsales.ai",
-  "syncPubKeyDomain": "conv.apexsales.ai",
+  "description": "Configures Mailgun DNS records for Apex Sales email sending.",
+  "syncRedirectDomain": "api.callapp.apexsales.ai",
+  "syncPubKeyDomain": "api.callapp.apexsales.ai",
   "records": [
     {
       "type": "SPFM",
       "host": "mg",
-      "spfRules": "include:mailgun.org"
+      "spfRules": "include:mailgun.org",
+      "ttl": 3600
     },
     {
       "type": "TXT",

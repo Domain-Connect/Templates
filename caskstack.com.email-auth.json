@@ -1,0 +1,34 @@
+{
+  "providerId": "caskstack.com",
+  "providerName": "CaskStack",
+  "serviceId": "email-auth",
+  "serviceName": "CaskStack Email Authentication",
+  "version": 1,
+  "logoUrl": "https://caskstack.com/favicon.svg",
+  "description": "Configure SPF, DKIM, and DMARC TXT records automatically to authenticate CaskStack as an authorized sender for your domain.",
+  "syncRedirectDomain": "caskstack.com",
+  "syncPubKeyDomain": "caskstack.com",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org include:postmarkapp.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "krs._domainkey",
+      "data": "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3sDFN2v0Xf5zN9Z41XvK8W09u+Bpy6n4tMhG6O2R62bZ7p6fXzN9Z41XvK8W09u+Bpy6n4tMhG6O2R62bZ7p6fXzN9Z41XvK8W09u+Bpy6n4tMhG6O2R62bZ7p6fXzN9Z41XvK8W09u+Bpy6n4t",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; pct=100; rua=mailto:dmarc@%domain%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

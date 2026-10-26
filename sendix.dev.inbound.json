@@ -1,0 +1,23 @@
+{
+  "providerId": "sendix.dev",
+  "providerName": "Sendix",
+  "serviceId": "inbound",
+  "serviceName": "Inbound Email",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "sendix.dev",
+  "syncRedirectDomain": "sendix.dev",
+  "description": "Route incoming email to Sendix without changing the domain's sending authentication records.",
+  "logoUrl": "https://sendix.dev/brand/sendix-wordmark.png",
+  "records": [
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "ttl": 3600,
+      "priority": 10,
+      "pointsTo": "mail.sendix.dev",
+      "essential": "OnApply"
+    }
+  ]
+}

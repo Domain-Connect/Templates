@@ -1,0 +1,21 @@
+{
+  "providerId": "streamagent.io",
+  "providerName": "StreamAgent",
+  "version": 1,
+  "syncPubKeyDomain": "streamagent.io",
+  "syncRedirectDomain": "app.streamagent.io",
+  "syncBlock": false,
+  "serviceId": "hosting-subdomain",
+  "serviceName": "StreamAgent custom domain",
+  "logoUrl": "https://app.streamagent.io/icon.svg",
+  "description": "Points a subdomain of the customer's domain (for example www or watch) at their StreamAgent workspace, so their video pages, landing pages, and routes serve from their own domain. The host is supplied by the caller.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

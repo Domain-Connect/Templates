@@ -1,0 +1,17 @@
+{
+  "providerId": "stowlane.com",
+  "providerName": "Stowlane",
+  "serviceId": "facility-page",
+  "serviceName": "Stowlane facility page",
+  "version": 1,
+  "logoUrl": "https://stowlane.com/icon.png",
+  "description": "Point your domain at your Stowlane storage rental page.",
+  "variableDescription": "Your Stowlane facility page",
+  "syncPubKeyDomain": "stowlane.com",
+  "syncRedirectDomain": "stowlane.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%edgeip%", "ttl": 600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "edge.stowlane.com", "ttl": 600 }
+  ]
+}

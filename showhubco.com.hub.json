@@ -1,0 +1,77 @@
+{
+  "providerId": "showhubco.com",
+  "providerName": "Show Hub",
+  "serviceId": "hub",
+  "serviceName": "Show Hub site",
+  "version": 1,
+  "logoUrl": "https://www.showhubco.com/show-hub-mark.svg",
+  "description": "Points your domain or subdomain at your Show Hub podcast site. Optionally verifies the domain with Google Search Console and adds email-sending (SPF/DKIM) records.",
+  "variableDescription": "sub: subdomain label for the site (e.g. listen); vtoken: hosting ownership challenge; gtoken: Google site-verification token; dkimkey/dkim: DKIM selector and public key; region: AWS region of the bounce-handling MX target.",
+  "syncBlock": false,
+  "sharedProviderName": true,
+  "syncPubKeyDomain": "domainconnect.showhubco.com",
+  "syncRedirectDomain": "www.showhubco.com,showhubco.com",
+  "multiInstance": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sub",
+      "type": "CNAME",
+      "host": "%sub%",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 300
+    },
+    {
+      "groupId": "apex",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "vercel",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%vtoken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "google",
+      "type": "TXT",
+      "host": "@",
+      "data": "google-site-verification=%gtoken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "email",
+      "type": "TXT",
+      "host": "%dkimkey%._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "email",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "groupId": "email",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

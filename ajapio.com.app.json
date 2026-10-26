@@ -1,0 +1,31 @@
+{
+  "providerId": "ajapio.com",
+  "providerName": "Ajapio",
+  "serviceId": "app",
+  "serviceName": "Ajapio app hosting",
+  "version": 1,
+  "logoUrl": "https://ajapio.com/favicon.svg",
+  "description": "Points a root domain at an app hosted on Ajapio and proves you own it.",
+  "variableDescription": "target: the app's Ajapio address, e.g. myapp-1a2b3c.ajapio.app. ip: that address's IPv4, used for root domains where CNAME is not allowed.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.ajapio.com",
+  "syncRedirectDomain": "ajapio.com",
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "apex",
+      "type": "TXT",
+      "host": "_ajapio",
+      "data": "%target%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

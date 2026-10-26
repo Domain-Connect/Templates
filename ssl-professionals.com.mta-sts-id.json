@@ -1,0 +1,24 @@
+{
+  "providerId": "ssl-professionals.com",
+  "providerName": "SSL Professionals",
+  "serviceId": "mta-sts-id",
+  "serviceName": "MTA-STS policy identifier",
+  "version": 1,
+  "logoUrl": "https://ssl-professionals.com/images/logo-dark.svg",
+  "description": "Publish the MTA-STS DNS identifier after SSL Professionals has verified the matching HTTPS policy endpoint.",
+  "variableDescription": "policy_id: the unique identifier of the already-published MTA-STS policy.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.ssl-professionals.com",
+  "syncRedirectDomain": "ssl-professionals.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_mta-sts",
+      "data": "v=STSv1; id=%policy_id%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=STSv1",
+      "essential": "OnApply"
+    }
+  ]
+}

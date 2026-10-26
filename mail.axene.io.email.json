@@ -3,9 +3,9 @@
     "providerName": "Axene Mailer",
     "serviceId": "email",
     "serviceName": "Axene Mailer - Transactional and Marketing Email",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://mail.axene.io/email-assets/logo.png",
-    "description": "Configure DNS records for transactional and marketing email sending via Axene Mailer. Adds DKIM signing, SPF authorization, DMARC reporting, and bounce-handling records.",
+    "description": "Configure DNS records for sending and receiving email via Axene Mailer. Adds DKIM signing, SPF authorization, DMARC reporting, bounce-handling, and inbound MX records.",
     "variableDescription": "%verification_token%: domain ownership token; %dkim_selector%: DKIM key selector; %dkim_public_key%: RSA public key for DKIM signing",
     "syncPubKeyDomain": "mail.axene.io",
     "syncRedirectDomain": "mail.axene.io",
@@ -47,6 +47,22 @@
             "type": "CNAME",
             "host": "axene-bounce",
             "pointsTo": "bounces.mail.axene.io",
+            "ttl": 300
+        },
+        {
+            "groupId": "axene-mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "inbound1.axene.io",
+            "priority": 10,
+            "ttl": 300
+        },
+        {
+            "groupId": "axene-mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "inbound2.axene.io",
+            "priority": 20,
             "ttl": 300
         }
     ]

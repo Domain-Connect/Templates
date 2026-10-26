@@ -1,0 +1,46 @@
+{
+  "providerId": "ubouk.com",
+  "providerName": "Ubouk",
+  "serviceId": "marketing-email-cname-v1",
+  "serviceName": "Marketing email",
+  "version": 1,
+  "description": "Connect your domain to send marketing emails with Ubouk. Your existing mailbox stays with your current mail provider.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.ubouk.com",
+  "syncRedirectDomain": "ubouk.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com.",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1Selector%._domainkey",
+      "pointsTo": "%dkim1Value%.dkim.amazonses.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2Selector%._domainkey",
+      "pointsTo": "%dkim2Value%.dkim.amazonses.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3Selector%._domainkey",
+      "pointsTo": "%dkim3Value%.dkim.amazonses.com.",
+      "ttl": 3600
+    }
+  ],
+  "variableDescription": "region: Amazon SES region from Resend; dkimNSelector: DKIM selector from Resend; dkimNValue: RSA public key (TXT) or Amazon SES destination selector (CNAME). Values are validated by Ubouk and the request is signed.",
+  "logoUrl": "https://ubouk.com/brand-wordmark.png"
+}

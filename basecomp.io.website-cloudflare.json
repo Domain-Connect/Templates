@@ -1,0 +1,29 @@
+{
+  "providerId": "basecomp.io",
+  "providerName": "Basecomp",
+  "serviceId": "website-cloudflare",
+  "serviceName": "Basecomp website on your root domain (Cloudflare DNS)",
+  "version": 1,
+  "logoUrl": "https://basecomp.io/img/logo-dark.svg",
+  "description": "Points the root of your domain at your Basecomp website and proves you own it, so a free SSL certificate can be issued. For Cloudflare DNS only: Cloudflare flattens a CNAME at the root and does not support APEXCNAME. Basecomp requests this service only when discovery returns Cloudflare, without host. hostRequired is set only because a CNAME at @ requires it (DCTL1012); Cloudflare ignores it.",
+  "variableDescription": "%ownership%: the hostname ownership token Cloudflare for SaaS issues for this domain (a UUID)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "basecomp.io",
+  "syncRedirectDomain": "basecomp.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.basecomp.io",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

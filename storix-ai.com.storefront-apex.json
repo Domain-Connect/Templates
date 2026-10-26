@@ -1,0 +1,29 @@
+{
+  "providerId": "storix-ai.com",
+  "providerName": "Storix",
+  "serviceId": "storefront-apex",
+  "serviceName": "Storix storefront apex custom domain",
+  "version": 1,
+  "logoUrl": "https://storix-ai.com/branding/storix-default-logo.png",
+  "description": "Connect an apex/root domain to a Storix merchant storefront.",
+  "variableDescription": "%storixVerificationToken% is the Storix ownership token used in the verification TXT value. %storixAValue% is the Storix IPv4 ingress target for the storefront apex.",
+  "syncPubKeyDomain": "domainconnect-keys.storix-ai.com",
+  "syncRedirectDomain": "storix-ai.com",
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_storix-verify",
+      "data": "storix-verify=%storixVerificationToken%",
+      "ttl": "600",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "storefront",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%storixAValue%",
+      "ttl": "600"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "goodforbots.com",
+  "providerName": "Good for Bots",
+  "serviceId": "ownership-verification",
+  "serviceName": "Website ownership verification",
+  "version": 1,
+  "description": "Verify control of your website to connect its Good for Bots listing to your account.",
+  "syncPubKeyDomain": "domainconnect.goodforbots.com",
+  "syncRedirectDomain": "goodforbots.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_goodforbots",
+      "data": "%token%",
+      "ttl": 300,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "None"
+    }
+  ],
+  "logoUrl": "https://goodforbots.com/icon-192.png"
+}

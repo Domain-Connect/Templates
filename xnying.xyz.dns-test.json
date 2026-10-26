@@ -1,0 +1,55 @@
+{
+  "providerId": "xnying.xyz",
+  "providerName": "xnying Dev",
+  "serviceId": "dns-test",
+  "serviceName": "Test Records",
+
+  "version": 1,
+
+  "syncPubKeyDomain": "xnying.xyz",
+  "syncRedirectDomain": "xnying.xyz",
+
+  "description": "Configure DNS records for xnying Dev testing including domain verification, certificate validation, and edge routing.",
+  "variableDescription": "verification_token: domain ownership token; cert_validation_host/target: CNAME for TLS cert; edge_ip_1-3: A record IPs; edge_hostname: CNAME target for subdomain.",
+
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_xnying-challenge",
+      "data": "xnying-verify=%verification_token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "xnying-verify=",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%cert_validation_target%.xnying.xyz",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%edge_ip_1%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%edge_ip_2%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%edge_ip_3%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%edge_hostname%.xnying.xyz",
+      "ttl": 3600
+    }
+  ]
+}

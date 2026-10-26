@@ -1,0 +1,23 @@
+{
+  "providerId": "render.com",
+  "providerName": "Render",
+  "serviceId": "custom-domain-subdomain",
+  "serviceName": "Render custom domain (subdomain)",
+  "version": 1,
+  "logoUrl": "https://assets.render.com/brands/logos/render-logo-black.svg",
+  "description": "Connect a custom domain to your Render application.",
+  "variableDescription": "%renderService%: the onrender.com hostname of the Render service the domain points at, for example my-app.onrender.com",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.render.com",
+  "syncRedirectDomain": "render.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%renderService%",
+      "ttl": 300,
+      "essential": "Always"
+    }
+  ]
+}

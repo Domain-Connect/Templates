@@ -1,0 +1,19 @@
+{
+  "providerId": "instanto",
+  "providerName": "Instanto",
+  "serviceId": "connect-domain",
+  "serviceName": "Connect Domain to Instanto",
+  "version": 2,
+  "hostRequired": true,
+  "logoUrl": "https://instanto.site/images/logo.png",
+  "description": "Connects your domain to your Instanto website. Adds a CNAME record so your domain points to your Instanto site.",
+  "syncPubKeyDomain": "instanto.site",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "instanto-proxy.instanto.site",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "providerId": "melocalizai.com",
+  "providerName": "Melocalizai",
+  "serviceId": "website",
+  "serviceName": "Melocalizai Websites",
+  "version": 1,
+  "logoUrl": "https://melocalizai.com/assets/domain-connect-logo.svg",
+  "description": "Connects the root domain and www hostname to a Melocalizai website while preserving unrelated DNS records.",
+  "variableDescription": "%IP% is the IPv4 address of the Melocalizai SaaS origin.",
+  "syncPubKeyDomain": "melocalizai.com",
+  "syncRedirectDomain": "melocalizai.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 300
+    }
+  ]
+}
