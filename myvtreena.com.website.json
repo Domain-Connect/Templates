@@ -3,7 +3,7 @@
    "providerName": "Vtreena",
    "serviceId": "website",
    "serviceName": "Vtreena Site",
-   "version": 2,
+   "version": 1,
    "logoUrl": "https://vtreena.com/vtreena-text.svg",
    "description": "Enables a domain to work with vtreena",
    "variableDescription": "v1 is the verification code for the site; ip is the myvtreena.com load balancer IP",
