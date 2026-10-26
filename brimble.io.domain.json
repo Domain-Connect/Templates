@@ -4,7 +4,7 @@
   "serviceId": "domain",
   "serviceName": "Custom Domain",
   "version": 2,
-  "logoUrl": "https://www.brimble.io/favicon.ico",
+  "logoUrl": "https://www.brimble.io/favicon/apple-touch-icon.png",
   "description": "Point your custom domain to Brimble so it can serve your project.",
   "variableDescription": "%cnameTarget%: Brimble gateway hostname. It is set as a CNAME on the subdomain, or on the root domain where the DNS provider flattens it.",
   "syncPubKeyDomain": "brimble.io",
