@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://vibehost.vn/logo.svg",
   "description": "Point your domain at VibeHost hosting with a stable CNAME and a TXT ownership challenge.",
-  "variableDescription": "host is the subdomain to point (use @ for apex); stable is the per-hosting stable target (<panelUuid>.hosting.vibehost.vn); txtValue is the ownership challenge token.",
+  "variableDescription": "host is the subdomain to point (use @ for apex); stable is the per-hosting stable target; txtValue is the ownership challenge token.",
   "syncBlock": false,
   "hostRequired": true,
   "sharedProviderName": false,
