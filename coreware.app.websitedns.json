@@ -1,0 +1,50 @@
+{
+  "providerId": "coreware.app",
+  "providerName": "Coreware",
+  "serviceId": "websitedns",
+  "serviceName": "Website DNS",
+  "version": 1,
+  "logoUrl": "https://coreware-app-coreware-production.s3.us-east-1.amazonaws.com/coreware-3/public/COREWARE-LOGOMARK.png",
+  "description": "Connects a custom domain to a Coreware-hosted website. Adds the A records that route the domain to Coreware infrastructure and the AWS ACM DNS validation CNAME required to issue its SSL certificate. Apply to an apex domain (no host) or a subdomain (host). For apex domains, the optional 'www' group also routes www to the apex domain and validates its SSL certificate.",
+  "variableDescription": "routingIp1, routingIp2: Coreware load balancer static IPv4 addresses the domain's A records point to. acmValidationName: The ACM certificate validation CNAME host label relative to the domain being connected (e.g. _abc123def456). acmValidationValue: The subdomain prefix of the ACM validation CNAME target, excluding the fixed .acm-validations.aws suffix (e.g. _xyz). wwwAcmValidationName: The ACM validation CNAME host label prefix for the www subdomain, excluding the fixed .www suffix (e.g. _def456). wwwAcmValidationValue: The subdomain prefix of the ACM validation CNAME target for the www subdomain, excluding the fixed .acm-validations.aws suffix (e.g. _abc).",
+  "syncRedirectDomain": "tenant.coreware.app",
+  "syncPubKeyDomain": "coreware.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "website",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%routingIp1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "website",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%routingIp2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "website",
+      "type": "CNAME",
+      "host": "%acmValidationName%",
+      "pointsTo": "%acmValidationValue%.acm-validations.aws",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "%wwwAcmValidationName%.www",
+      "pointsTo": "%wwwAcmValidationValue%.acm-validations.aws",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}
