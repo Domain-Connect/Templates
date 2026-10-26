@@ -3,24 +3,38 @@
     "providerName": "Rinpush Mail",
     "serviceId": "mail",
     "serviceName": "Configuration automatique de la messagerie Rinpush",
-    "version": 1,
+    "version": 2,
     "syncPubKeyDomain": "rinpush.com",
-    "description": "Configuration automatique des enregistrements MX, SPF, DKIM, DMARC et des serveurs de messagerie pour Rinpush Mail.",
+    "syncRedirectDomain": "mail.rinpush.com",
+    "description": "Configuration automatique des enregistrements MX, SPF, DKIM, DMARC, preuve de possession et autoconfiguration pour Rinpush Mail.",
+    "variableDescription": "%dkim_key%: clé publique DKIM du domaine (base64), écrite dans rinpush._domainkey. %verifytoken%: jeton de possession émis par Rinpush (rpv_…), publié en rinpush-verify=%verifytoken% sur _rinpush.",
     "records": [
         {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_rinpush",
+            "ttl": 300,
+            "data": "rinpush-verify=%verifytoken%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "rinpush-verify="
+        },
+        {
+            "groupId": "mx",
             "type": "MX",
             "host": "@",
-            "pointsTo": "mail.rinpush.com",
+            "pointsTo": "node-us.rinpush.com",
             "ttl": 3600,
             "priority": 10
         },
         {
+            "groupId": "spf",
             "type": "SPFM",
             "host": "@",
             "ttl": 3600,
-            "spfRules": "mx ip4:193.106.248.120"
+            "spfRules": "mx a:node-us.rinpush.com ip4:193.106.248.120"
         },
         {
+            "groupId": "dkim",
             "type": "TXT",
             "host": "rinpush._domainkey",
             "ttl": 3600,
@@ -28,23 +42,27 @@
             "txtConflictMatchingMode": "All"
         },
         {
+            "groupId": "dmarc",
             "type": "TXT",
             "host": "_dmarc",
             "ttl": 3600,
-            "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@rinpush.com",
-            "txtConflictMatchingMode": "All",
+            "data": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; fo=1; rua=mailto:dmarc@%domain%; ruf=mailto:dmarc@%domain%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
             "essential": "OnApply"
         },
         {
+            "groupId": "autoconfig",
             "type": "CNAME",
             "host": "autodiscover",
-            "pointsTo": "mail.rinpush.com",
+            "pointsTo": "node-us.rinpush.com",
             "ttl": 3600
         },
         {
+            "groupId": "autoconfig",
             "type": "CNAME",
             "host": "autoconfig",
-            "pointsTo": "mail.rinpush.com",
+            "pointsTo": "node-us.rinpush.com",
             "ttl": 3600
         }
     ]
