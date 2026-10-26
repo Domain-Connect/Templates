@@ -1,0 +1,21 @@
+{
+  "providerId": "runsite.app",
+  "providerName": "Runsite",
+  "serviceId": "webservice",
+  "serviceName": "Runsite web service domain",
+  "version": 1,
+  "logoUrl": "https://runsite.app/logo.svg",
+  "description": "Points a subdomain at a web service hosted on Runsite.",
+  "hostRequired": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "runsite.app",
+  "syncRedirectDomain": "dashboard.runsite.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.runsite.app",
+      "ttl": 3600
+    }
+  ]
+}
