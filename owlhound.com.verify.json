@@ -1,0 +1,22 @@
+{
+  "providerId": "owlhound.com",
+  "providerName": "OwlHound",
+  "serviceId": "verify",
+  "serviceName": "Domain verification",
+  "version": 1,
+  "logoUrl": "https://owlhound.com/logo.svg",
+  "description": "Adds the TXT record that proves to OwlHound (website monitoring) that the account owns the domain. %token% is the verification token OwlHound creates for each account and domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "owlhound.com",
+  "syncRedirectDomain": "owlhound.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "owlhound-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "owlhound-verify="
+    }
+  ]
+}
