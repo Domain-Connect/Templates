@@ -1,0 +1,64 @@
+{
+  "providerId": "zerko.app",
+  "providerName": "Zerko",
+  "serviceId": "store",
+  "serviceName": "Zerko Store",
+  "version": 1,
+  "logoUrl": "https://app.zerko.app/brand/zerko-logo.png",
+  "description": "Connect your domain to your Zerko store and verify ownership and HTTPS.",
+  "variableDescription": "ownership is the Zerko claim TXT value. cloudflareOwnership is Cloudflare's hostname ownership TXT value. certificate1 through certificate4 are Cloudflare certificate TXT values. Apply only groups for records present in the saved claim.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.zerko.app",
+  "syncRedirectDomain": "app.zerko.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%fqdn%.",
+      "pointsTo": "stores.zerko.app",
+      "ttl": 300,
+      "groupId": "store"
+    },
+    {
+      "type": "TXT",
+      "host": "_zerko",
+      "data": "%ownership%",
+      "ttl": 300,
+      "groupId": "store"
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cloudflareOwnership%",
+      "ttl": 300,
+      "groupId": "cloudflare-ownership"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate1%",
+      "ttl": 300,
+      "groupId": "certificate-1"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate2%",
+      "ttl": 300,
+      "groupId": "certificate-2"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate3%",
+      "ttl": 300,
+      "groupId": "certificate-3"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate4%",
+      "ttl": 300,
+      "groupId": "certificate-4"
+    }
+  ]
+}
