@@ -10,7 +10,7 @@
   "syncBlock": false,
   "hostRequired": true,
   "sharedProviderName": false,
-  "syncPubKeyDomain": "_dc.vibehost.vn",
+  "syncPubKeyDomain": "dc.vibehost.vn",
   "syncRedirectDomain": "vibehost.vn",
   "records": [
     {
