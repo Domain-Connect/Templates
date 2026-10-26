@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://turkishpvp.llc/brand/logo-club.webp",
   "description": "Adds the TXT record that proves to TurkishPvP LLC that you own this domain or subdomain.",
-  "variableDescription": "token is the whole TXT value shown in the TurkishPvP LLC client area, tpvp-site-verification= followed by a random code.",
+  "variableDescription": "code is the random part of the TXT value shown in the TurkishPvP LLC client area, the part after tpvp-site-verification=",
   "syncBlock": false,
   "sharedProviderName": false,
   "syncPubKeyDomain": "turkishpvp.llc",
@@ -16,7 +16,7 @@
     {
       "type": "TXT",
       "host": "_tpvp-verify",
-      "data": "%token%",
+      "data": "tpvp-site-verification=%code%",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "tpvp-site-verification="
