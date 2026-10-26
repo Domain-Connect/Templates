@@ -1,0 +1,58 @@
+{
+  "providerId": "inboxie.io",
+  "providerName": "Inboxie",
+  "serviceId": "mail",
+  "serviceName": "Correo de tu dominio con Inboxie",
+  "version": 1,
+  "logoUrl": "https://www.inboxie.io/brand/inboxie-mark.svg",
+  "description": "Configura el correo de tu dominio en Inboxie: el MX para recibir, el SPF y la firma DKIM para enviar, la política DMARC y el registro que prueba que el dominio es tuyo.",
+  "variableDescription": "mailhost: servidor de correo de Inboxie. dkimselector y dkimvalue: la clave pública DKIM de tu dominio. dmarc: la política DMARC inicial. proof: el valor que prueba que el dominio es tuyo.",
+  "syncPubKeyDomain": "inboxie.io",
+  "syncRedirectDomain": "api.inboxie.io",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "mail-mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mailhost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail-auth",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a:%mailhost%"
+    },
+    {
+      "groupId": "mail-auth",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "%dkimvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "mail-dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mail-auth",
+      "type": "TXT",
+      "host": "_inboxie-challenge",
+      "data": "%proof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "inboxie-challenge="
+    }
+  ]
+}
