@@ -4,7 +4,7 @@
   "serviceId": "hosting-v2",
   "serviceName": "VibeHost Hosting",
   "version": 2,
-  "logoUrl": "https://vibehost.vn/logo.svg",
+  "logoUrl": "https://vibehost.vn/image.svg",
   "description": "Point your domain at VibeHost hosting with a stable CNAME and a TXT ownership challenge.",
   "variableDescription": "host is the subdomain to point (use @ for apex); stable is the per-hosting stable target; txtValue is the ownership challenge token.",
   "syncBlock": false,
