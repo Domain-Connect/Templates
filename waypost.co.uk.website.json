@@ -1,0 +1,21 @@
+{
+  "providerId": "waypost.co.uk",
+  "providerName": "Waypost",
+  "serviceId": "website",
+  "serviceName": "Waypost website",
+  "version": 1,
+  "logoUrl": "https://waypost.co.uk/waypost-logo.png",
+  "description": "Points a subdomain of your domain, such as www, at your Waypost website.",
+  "variableDescription": "project: the Cloudflare Pages project serving the customer's Waypost site; the subdomain points at <project>.pages.dev",
+  "syncPubKeyDomain": "waypost.co.uk",
+  "syncRedirectDomain": "waypost.co.uk",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%project%.pages.dev",
+      "ttl": 3600
+    }
+  ]
+}
