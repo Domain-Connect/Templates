@@ -13,7 +13,6 @@
   "syncPubKeyDomain": "localblocks.co.uk",
   "syncRedirectDomain": "localblocks.co.uk",
   "multiInstance": false,
-  "warnPhishing": true,
   "hostRequired": true,
   "records": [
     {
