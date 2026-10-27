@@ -1,0 +1,30 @@
+{
+    "providerId": "datascale.kr",
+    "providerName": "datascale",
+    "serviceId": "gameshield",
+    "serviceName": "datascale GameShield",
+    "version": 1,
+    "logoUrl": "https://datascale.kr/icon.svg",
+    "description": "Point a domain at a datascale GameShield proxy: an A record for the address players type, and an SRV record so they do not have to type the port.",
+    "variableDescription": "%ip%: IPv4 address of the GameShield proxy; %port%: TCP port assigned to the proxy; %target%: the proxy host under datascale.kr, without the .datascale.kr suffix",
+    "syncPubKeyDomain": "datascale.kr",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": "300"
+        },
+        {
+            "type": "SRV",
+            "name": "@",
+            "ttl": "300",
+            "priority": "0",
+            "weight": "0",
+            "port": "%port%",
+            "protocol": "_tcp",
+            "service": "_minecraft",
+            "target": "%target%.datascale.kr"
+        }
+    ]
+}
