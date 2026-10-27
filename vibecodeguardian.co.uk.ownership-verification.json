@@ -5,7 +5,7 @@
 	"serviceName": "Domain ownership verification",
 	"version": 1,
 	"logoUrl": "https://www.vibecodeguardian.co.uk/favicon.svg",
-	"description": "Adds the TXT record that proves I control the domain, so Vibe Code Guardian can run its full free surface check.",
+	"description": "Adds the TXT record that proves you control the domain, so Vibe Code Guardian can run its full free surface check.",
 	"variableDescription": "token is the verification code shown in the free check.",
 	"syncBlock": false,
 	"syncPubKeyDomain": "vibecodeguardian.co.uk",
