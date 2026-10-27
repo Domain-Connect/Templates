@@ -1,0 +1,22 @@
+{
+  "providerId": "cleotic.ai",
+  "providerName": "Cleotic",
+  "serviceId": "site-verification",
+  "serviceName": "Cleotic Site Verification",
+  "version": 1,
+  "logoUrl": "https://cleotic.ai/cleotic-logo-dark-solo.svg",
+  "description": "Verify you own this website so Cleotic can connect it to your workspace.",
+  "variableDescription": "verification: the token Cleotic generates for one workspace's website",
+  "syncPubKeyDomain": "cleotic.ai",
+  "syncRedirectDomain": "cleotic.ai",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_cleotic-verification",
+      "data": "cleotic-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

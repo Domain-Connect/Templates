@@ -1,0 +1,28 @@
+{
+  "providerId": "rebeliq.ai",
+  "providerName": "rebel Ai",
+  "serviceId": "site",
+  "serviceName": "rebel Ai site",
+  "version": 1,
+  "logoUrl": "https://app.rebeliq.ai/iq-favicon.png",
+  "description": "Points your domain at your rebel Ai site: an A record on the domain (or the subdomain you connect), and www sent to it on a main domain.",
+  "variableDescription": "ip: the address of your rebel Ai site's server, given by rebel Ai when you connect the domain.",
+  "syncPubKeyDomain": "dc.rebeliq.ai",
+  "syncRedirectDomain": "app.rebeliq.ai",
+  "records": [
+    {
+      "groupId": "main",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%domain%",
+      "ttl": 600
+    }
+  ]
+}

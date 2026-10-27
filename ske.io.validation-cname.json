@@ -1,0 +1,21 @@
+{
+  "providerId": "ske.io",
+  "providerName": "SKE",
+  "serviceId": "validation-cname",
+  "serviceName": "Certificate validation",
+  "version": 1,
+  "description": "Install the DNS record used to validate and renew your application certificate.",
+  "variableDescription": "target: the full DNS target or IPv4 address supplied by SKE. The standard host parameter selects the record name within the DNS zone.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "keys.ske.io",
+  "syncRedirectDomain": "app.ske.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ],
+  "hostRequired": true
+}

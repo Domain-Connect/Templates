@@ -1,0 +1,49 @@
+{
+    "providerId": "retentiontek.com",
+    "providerName": "RetentionTek",
+    "serviceId": "email-sending",
+    "serviceName": "RetentionTek Email Sending",
+    "version": 1,
+    "logoUrl": "https://retentiontek.com/favicon.svg",
+    "description": "Lets RetentionTek send client emails from your own domain. Adds DKIM, a sending subdomain with SPF and a bounce MX, and optionally a DMARC monitoring record. Your normal email and website are not changed.",
+    "variableDescription": "%dkim%: DKIM public key issued for this domain (the part after p=). %region%: sending region of the email provider, for example us-east-1.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "retentiontek.com",
+    "syncRedirectDomain": "app.retentiontek.com,retentiontek.com",
+    "records": [
+        {
+            "groupId": "dkim",
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%dkim%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "send",
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "send",
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

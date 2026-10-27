@@ -1,0 +1,19 @@
+{
+  "providerId": "talego.it",
+  "providerName": "Talego",
+  "serviceId": "vetrina",
+  "serviceName": "Sito del negozio (vetrina Talego)",
+  "version": 1,
+  "logoUrl": "https://talego.it/icons/icon-512.png",
+  "description": "Collega il dominio del negozio al suo sito su Talego: il dominio e il www portano al sito. Posta e altri servizi non cambiano.",
+  "variableDescription": "IP: l'indirizzo del server dei siti Talego",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "talego.it",
+  "syncRedirectDomain": "talego.it",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%IP%", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "talego.it", "ttl": 3600 }
+  ]
+}

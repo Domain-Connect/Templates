@@ -1,0 +1,22 @@
+{
+  "providerId": "vulnix.tvj.services",
+  "providerName": "Vulnix",
+  "serviceId": "vulnix-verification",
+  "serviceName": "Vulnix domain ownership verification",
+  "version": 1,
+  "logoUrl": "https://vulnix.tvj.services/brand/vulnix-mark.svg",
+  "description": "Adds the TXT record Vulnix uses to confirm that you control this domain before it runs security assessments on it.",
+  "variableDescription": "token: the per-asset verification token issued by Vulnix",
+  "syncBlock": false,
+  "syncPubKeyDomain": "vulnix.tvj.services",
+  "syncRedirectDomain": "vulnix.tvj.services",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_vulnix-verification",
+      "data": "vulnix-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
