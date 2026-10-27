@@ -1,0 +1,38 @@
+{
+  "providerId": "duva.ca",
+  "providerName": "Duva",
+  "serviceId": "email",
+  "serviceName": "Duva transactional email",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.duva.ca",
+  "syncRedirectDomain": "app.duva.ca",
+  "description": "Adds the DNS records that let Duva send transactional email on behalf of your domain: the DKIM signature and the bounce return path.",
+  "variableDescription": "%selector%: DKIM selector name; %dkimkey%: public DKIM key of the domain",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "groupId": "base",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "bounce",
+      "pointsTo": "bounce.duva.ca",
+      "ttl": 3600,
+      "groupId": "base"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.duva.ca",
+      "ttl": 3600,
+      "groupId": "spf",
+      "essential": "OnApply"
+    }
+  ],
+  "logoUrl": "https://duva.ca/static/img/duva-favicon.svg"
+}
