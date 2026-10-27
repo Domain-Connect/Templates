@@ -1,0 +1,28 @@
+{
+  "providerId": "mivy.com.br",
+  "providerName": "Mivy",
+  "serviceId": "store",
+  "serviceName": "Loja",
+  "version": 1,
+  "logoUrl": "https://mivy.com.br/icon.svg",
+  "description": "Aponta o domínio para a loja na Mivy e publica o registro de verificação.",
+  "variableDescription": "token é o valor exato do TXT de verificação emitido pela Mivy para esta loja.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mivy.com.br",
+  "syncRedirectDomain": "mivy.com.br",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "mivy.com.br",
+      "ttl": "3600"
+    },
+    {
+      "type": "TXT",
+      "host": "_mivy",
+      "data": "%token%",
+      "ttl": "3600"
+    }
+  ]
+}
