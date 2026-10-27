@@ -1,0 +1,23 @@
+{
+  "providerId": "trekguider.com",
+  "providerName": "TrekGuider",
+  "serviceId": "website-verification",
+  "serviceName": "Website analytics verification",
+  "version": 1,
+  "logoUrl": "https://trekguider.com/favicon.svg",
+  "description": "Confirm that you manage this website before connecting it to TrekGuider analytics.",
+  "variableDescription": "%verification% is the random 64-character verification code issued for this website by TrekGuider.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect-keys.trekguider.com",
+  "syncRedirectDomain": "trekguider.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_trekguider",
+      "data": "trekguider-site-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "trekguider-site-verification="
+    }
+  ]
+}
