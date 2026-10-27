@@ -4,7 +4,7 @@
   "serviceId": "hostedapp",
   "serviceName": "Abacus.AI Apps",
   "version": 2,
-  "logoUrl": "https://static.abacus.ai/app/imgs/logoDark.svg",
+  "logoUrl": "https://abacus.ai/apple-touch-icon.png",
   "description": "Connects a domain to a web app hosted on Abacus.AI.",
   "variableDescription": "ip: the Abacus.AI edge address serving the app",
   "syncBlock": false,
