@@ -1,0 +1,38 @@
+{
+  "providerId": "wayfarel.com",
+  "providerName": "Wayfarel",
+  "serviceId": "store",
+  "serviceName": "Wayfarel online store",
+  "version": 1,
+  "logoUrl": "https://wayfarel.com/brand/wayfarel-mark.png",
+  "description": "Connects a domain or subdomain to an online store hosted by Wayfarel: the address record of the hosting service, the domain ownership TXT record and the CNAME that lets the hosting service issue the HTTPS certificate. The values of the ownership and certificate records are generated per domain by the hosting service.",
+  "variableDescription": "claim: ownership token published as fah-claim=<claim> (letters, digits and dashes). acmetoken: suffix of the certificate challenge host name _acme-challenge_<acmetoken> (lower case letters and digits). acmeid and acmeshard: the two labels in front of authorize.certificatemanager.goog in the certificate challenge CNAME target (acmeid: hexadecimal and dashes, acmeshard: digits).",
+  "syncPubKeyDomain": "wayfarel.com",
+  "syncRedirectDomain": "wayfarel.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "hosting",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "35.219.200.13",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "@",
+      "data": "fah-claim=%claim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "fah-claim="
+    },
+    {
+      "groupId": "certificate",
+      "type": "CNAME",
+      "host": "_acme-challenge_%acmetoken%",
+      "pointsTo": "%acmeid%.%acmeshard%.authorize.certificatemanager.goog",
+      "ttl": 3600
+    }
+  ]
+}
