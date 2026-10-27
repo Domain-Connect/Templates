@@ -10,7 +10,6 @@
   "syncBlock": false,
   "syncPubKeyDomain": "merge.email",
   "syncRedirectDomain": "merge.email",
-  "warnPhishing": false,
   "hostRequired": false,
   "multiInstance": true,
   "records": [
@@ -20,6 +19,7 @@
       "data": "%token%",
       "ttl": 3600,
       "groupId": "verification",
+      "essential": "OnApply",
       "txtConflictMatchingMode": "None"
     }
   ]
