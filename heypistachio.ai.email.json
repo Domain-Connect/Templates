@@ -1,0 +1,41 @@
+{
+    "providerId": "heypistachio.ai",
+    "providerName": "Pistachio",
+    "serviceId": "email",
+    "serviceName": "Email sending",
+    "version": 1,
+    "logoUrl": "https://heypistachio.ai/brands/pistachio/logo.svg",
+    "description": "Lets a coach's Pistachio workspace send email from their own domain, through Resend (built on Amazon SES): the DKIM key, the bounce (MAIL FROM) records on send.<domain> and Resend's return-path record. Mail the domain already receives or sends is not touched: nothing is written on the domain's own MX or SPF.",
+    "variableDescription": "%dkim%: the DKIM public key Resend issues for the domain (the base64 part after p=). %region%: the Amazon SES region the domain sends from, e.g. us-east-1. %returnpath%: the first label of Resend's return-path host, e.g. send in send.forge.rmta.net.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "heypistachio.ai",
+    "syncRedirectDomain": "heypistachio.ai",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%dkim%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "rsend",
+            "pointsTo": "%returnpath%.forge.rmta.net",
+            "ttl": 3600
+        }
+    ]
+}
