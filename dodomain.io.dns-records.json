@@ -1,0 +1,457 @@
+{
+  "providerId": "dodomain.io",
+  "providerName": "DoDomain",
+  "serviceId": "dns-records",
+  "serviceName": "DNS records",
+  "version": 1,
+  "logoUrl": "https://dodomain.io/icon.svg",
+  "description": "Writes the DNS records a SaaS product needs on its customer's domain when no narrower DoDomain template expresses them, e.g. Amazon SES-style email sending (MX and SPF on a subdomain, several DKIM keys, DMARC) or a site on several subdomains. Every record is a numbered slot in its own group with a fixed record type; host, value and (MX/SRV) priority are variables, TTL is 3600, and the apply lists exactly the groups it fills, so the consent screen shows only the records being written. TXT slots come in two kinds: txt1..txt8 add a record beside existing ones (conflict mode None), txtr1..txtr4 replace the records a name may hold only one of (DMARC, DKIM keys, MTA-STS, TLS-RPT). SPF is merged through SPFM, never written as a TXT. multiInstance is set because record hosts are variables: re-applying for a second integrator on the same domain must not remove the first one's records. Used by DoDomain (domain-connect-as-a-service) on behalf of its integrator applications.",
+  "variableDescription": "For every slot <s> (spf1..spf2, txtr1..txtr4, txt1..txt8, a1..a8, aaaa1..aaaa4, cname1..cname16, mx1..mx5, srv1..srv4, ns1..ns4, caa1..caa2; groupId = <s>): <s>host = the record name relative to the domain, '@' for the domain itself (for SRV, the name after _service._protocol); <s>value = the record value (A/AAAA address, CNAME/MX/NS/SRV target host, TXT data, CAA value such as 0 issue \"letsencrypt.org\"); spf<n>rules = the SPF terms to merge (everything between v=spf1 and the terminal all, e.g. include:amazonses.com); mxonepriority..mxfivepriority = the MX preference of slots mx1..mx5 (numeric-field variables spell the slot number as a word); srv<n>service, srv<n>protocol and srvonepriority/srvoneweight/srvoneport..srvfourpriority/srvfourweight/srvfourport = the SRV fields of slots srv1..srv4. Variables: spf1host, spf1rules, spf2host, spf2rules, txtr1host, txtr1value, txtr2host, txtr2value, txtr3host, txtr3value, txtr4host, txtr4value, txt1host, txt1value, txt2host, txt2value, txt3host, txt3value, txt4host, txt4value, txt5host, txt5value, txt6host, txt6value, txt7host, txt7value, txt8host, txt8value, a1host, a1value, a2host, a2value, a3host, a3value, a4host, a4value, a5host, a5value, a6host, a6value, a7host, a7value, a8host, a8value, aaaa1host, aaaa1value, aaaa2host, aaaa2value, aaaa3host, aaaa3value, aaaa4host, aaaa4value, cname1host, cname1value, cname2host, cname2value, cname3host, cname3value, cname4host, cname4value, cname5host, cname5value, cname6host, cname6value, cname7host, cname7value, cname8host, cname8value, cname9host, cname9value, cname10host, cname10value, cname11host, cname11value, cname12host, cname12value, cname13host, cname13value, cname14host, cname14value, cname15host, cname15value, cname16host, cname16value, mx1host, mx1value, mxonepriority, mx2host, mx2value, mxtwopriority, mx3host, mx3value, mxthreepriority, mx4host, mx4value, mxfourpriority, mx5host, mx5value, mxfivepriority, srv1host, srv1service, srv1protocol, srvonepriority, srvoneweight, srvoneport, srv1value, srv2host, srv2service, srv2protocol, srvtwopriority, srvtwoweight, srvtwoport, srv2value, srv3host, srv3service, srv3protocol, srvthreepriority, srvthreeweight, srvthreeport, srv3value, srv4host, srv4service, srv4protocol, srvfourpriority, srvfourweight, srvfourport, srv4value, ns1host, ns1value, ns2host, ns2value, ns3host, ns3value, ns4host, ns4value, caa1host, caa1value, caa2host, caa2value.",
+  "syncBlock": false,
+  "hostRequired": false,
+  "multiInstance": true,
+  "syncPubKeyDomain": "dckeys.dodomain.io",
+  "syncRedirectDomain": "app.dodomain.io",
+  "records": [
+    {
+      "type": "SPFM",
+      "groupId": "spf1",
+      "host": "%spf1host%",
+      "spfRules": "%spf1rules%"
+    },
+    {
+      "type": "SPFM",
+      "groupId": "spf2",
+      "host": "%spf2host%",
+      "spfRules": "%spf2rules%"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txtr1",
+      "host": "%txtr1host%",
+      "data": "%txtr1value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txtr2",
+      "host": "%txtr2host%",
+      "data": "%txtr2value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txtr3",
+      "host": "%txtr3host%",
+      "data": "%txtr3value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txtr4",
+      "host": "%txtr4host%",
+      "data": "%txtr4value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt1",
+      "host": "%txt1host%",
+      "data": "%txt1value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt2",
+      "host": "%txt2host%",
+      "data": "%txt2value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt3",
+      "host": "%txt3host%",
+      "data": "%txt3value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt4",
+      "host": "%txt4host%",
+      "data": "%txt4value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt5",
+      "host": "%txt5host%",
+      "data": "%txt5value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt6",
+      "host": "%txt6host%",
+      "data": "%txt6value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt7",
+      "host": "%txt7host%",
+      "data": "%txt7value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt8",
+      "host": "%txt8host%",
+      "data": "%txt8value%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "A",
+      "groupId": "a1",
+      "host": "%a1host%",
+      "pointsTo": "%a1value%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "a2",
+      "host": "%a2host%",
+      "pointsTo": "%a2value%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "a3",
+      "host": "%a3host%",
+      "pointsTo": "%a3value%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "a4",
+      "host": "%a4host%",
+      "pointsTo": "%a4value%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "a5",
+      "host": "%a5host%",
+      "pointsTo": "%a5value%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "a6",
+      "host": "%a6host%",
+      "pointsTo": "%a6value%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "a7",
+      "host": "%a7host%",
+      "pointsTo": "%a7value%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "a8",
+      "host": "%a8host%",
+      "pointsTo": "%a8value%",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "groupId": "aaaa1",
+      "host": "%aaaa1host%",
+      "pointsTo": "%aaaa1value%",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "groupId": "aaaa2",
+      "host": "%aaaa2host%",
+      "pointsTo": "%aaaa2value%",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "groupId": "aaaa3",
+      "host": "%aaaa3host%",
+      "pointsTo": "%aaaa3value%",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "groupId": "aaaa4",
+      "host": "%aaaa4host%",
+      "pointsTo": "%aaaa4value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname1",
+      "host": "%cname1host%",
+      "pointsTo": "%cname1value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname2",
+      "host": "%cname2host%",
+      "pointsTo": "%cname2value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname3",
+      "host": "%cname3host%",
+      "pointsTo": "%cname3value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname4",
+      "host": "%cname4host%",
+      "pointsTo": "%cname4value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname5",
+      "host": "%cname5host%",
+      "pointsTo": "%cname5value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname6",
+      "host": "%cname6host%",
+      "pointsTo": "%cname6value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname7",
+      "host": "%cname7host%",
+      "pointsTo": "%cname7value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname8",
+      "host": "%cname8host%",
+      "pointsTo": "%cname8value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname9",
+      "host": "%cname9host%",
+      "pointsTo": "%cname9value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname10",
+      "host": "%cname10host%",
+      "pointsTo": "%cname10value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname11",
+      "host": "%cname11host%",
+      "pointsTo": "%cname11value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname12",
+      "host": "%cname12host%",
+      "pointsTo": "%cname12value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname13",
+      "host": "%cname13host%",
+      "pointsTo": "%cname13value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname14",
+      "host": "%cname14host%",
+      "pointsTo": "%cname14value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname15",
+      "host": "%cname15host%",
+      "pointsTo": "%cname15value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "cname16",
+      "host": "%cname16host%",
+      "pointsTo": "%cname16value%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "groupId": "mx1",
+      "host": "%mx1host%",
+      "pointsTo": "%mx1value%",
+      "priority": "%mxonepriority%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "groupId": "mx2",
+      "host": "%mx2host%",
+      "pointsTo": "%mx2value%",
+      "priority": "%mxtwopriority%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "groupId": "mx3",
+      "host": "%mx3host%",
+      "pointsTo": "%mx3value%",
+      "priority": "%mxthreepriority%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "groupId": "mx4",
+      "host": "%mx4host%",
+      "pointsTo": "%mx4value%",
+      "priority": "%mxfourpriority%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "groupId": "mx5",
+      "host": "%mx5host%",
+      "pointsTo": "%mx5value%",
+      "priority": "%mxfivepriority%",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "groupId": "srv1",
+      "name": "%srv1host%",
+      "service": "%srv1service%",
+      "protocol": "%srv1protocol%",
+      "priority": "%srvonepriority%",
+      "weight": "%srvoneweight%",
+      "port": "%srvoneport%",
+      "target": "%srv1value%",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "groupId": "srv2",
+      "name": "%srv2host%",
+      "service": "%srv2service%",
+      "protocol": "%srv2protocol%",
+      "priority": "%srvtwopriority%",
+      "weight": "%srvtwoweight%",
+      "port": "%srvtwoport%",
+      "target": "%srv2value%",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "groupId": "srv3",
+      "name": "%srv3host%",
+      "service": "%srv3service%",
+      "protocol": "%srv3protocol%",
+      "priority": "%srvthreepriority%",
+      "weight": "%srvthreeweight%",
+      "port": "%srvthreeport%",
+      "target": "%srv3value%",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "groupId": "srv4",
+      "name": "%srv4host%",
+      "service": "%srv4service%",
+      "protocol": "%srv4protocol%",
+      "priority": "%srvfourpriority%",
+      "weight": "%srvfourweight%",
+      "port": "%srvfourport%",
+      "target": "%srv4value%",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "groupId": "ns1",
+      "host": "%ns1host%",
+      "pointsTo": "%ns1value%",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "groupId": "ns2",
+      "host": "%ns2host%",
+      "pointsTo": "%ns2value%",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "groupId": "ns3",
+      "host": "%ns3host%",
+      "pointsTo": "%ns3value%",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "groupId": "ns4",
+      "host": "%ns4host%",
+      "pointsTo": "%ns4value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CAA",
+      "groupId": "caa1",
+      "host": "%caa1host%",
+      "data": "%caa1value%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CAA",
+      "groupId": "caa2",
+      "host": "%caa2host%",
+      "data": "%caa2value%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
