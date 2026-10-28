@@ -1,0 +1,22 @@
+{
+  "providerId": "outflare.ai",
+  "providerName": "Outflare",
+  "serviceId": "servicecname",
+  "serviceName": "Subdomain for a service",
+  "version": 1,
+  "logoUrl": "https://outflare.ai/brand/png/outflare-mark-black-256.png",
+  "description": "Points a subdomain at a service you use, such as a sequencer's custom tracking domain.",
+  "variableDescription": "target: the host the service gives you",
+  "syncBlock": false,
+  "syncPubKeyDomain": "outflare.ai",
+  "syncRedirectDomain": "app.outflare.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
