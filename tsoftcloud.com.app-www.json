@@ -1,0 +1,19 @@
+{
+    "providerId": "tsoftcloud.com",
+    "providerName": "TSoftCloud",
+    "serviceId": "app-www",
+    "serviceName": "Your TSoftCloud app at www",
+    "version": 1,
+    "description": "Points www.example.com to your TSoftCloud app with one CNAME, so www visitors reach the app, which redirects them to the domain. Use it for the domain itself (no subdomain); it writes only the www record.",
+    "variableDescription": "%app%: the app's name on TSoftCloud (its label under app.tsoftcloud.com, for example shop gives shop.app.tsoftcloud.com).",
+    "syncPubKeyDomain": "tsoftcloud.com",
+    "syncRedirectDomain": "tsoftcloud.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%app%.app.tsoftcloud.com",
+            "ttl": "3600"
+        }
+    ]
+}
