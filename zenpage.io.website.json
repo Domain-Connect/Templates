@@ -1,0 +1,19 @@
+{
+  "providerId": "zenpage.io",
+  "providerName": "Zenpage",
+  "serviceId": "website",
+  "serviceName": "Zenpage author website",
+  "version": 1,
+  "logoUrl": "https://zenpage.io/favicon.svg",
+  "description": "Connects a domain to a Zenpage author website: www points to the site, and the bare domain redirects to www.",
+  "variableDescription": "site: the Zenpage site name, for example janedoe for janedoe.zenpage.io",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "zenpage.io",
+  "syncRedirectDomain": "zenpage.io",
+  "hostRequired": false,
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "%site%.zenpage.io", "ttl": 3600 },
+    { "type": "REDIR301", "host": "@", "target": "https://www.%fqdn%" }
+  ]
+}
