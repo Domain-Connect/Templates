@@ -1,0 +1,17 @@
+{
+  "providerId": "nostaya.io",
+  "providerName": "Nostaya",
+  "serviceId": "site-hotel-sous-domaine",
+  "serviceName": "Nostaya hotel website (subdomain)",
+  "version": 1,
+  "logoUrl": "https://extranet.nostaya.io/favicon.svg",
+  "description": "Points one subdomain (for example book.example.com) to the hotel website and booking engine hosted by Nostaya. The rest of the zone is not modified.",
+  "variableDescription": "ip: IPv4 address of the Nostaya web server",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.nostaya.io",
+  "syncRedirectDomain": "extranet.nostaya.io",
+  "hostRequired": true,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 3600 }
+  ]
+}
