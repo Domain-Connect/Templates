@@ -1,0 +1,19 @@
+{
+  "providerId": "ginivo.ai",
+  "providerName": "Ginivo",
+  "serviceId": "email-resend",
+  "serviceName": "Ginivo email sending",
+  "version": 1,
+  "logoUrl": "https://app.ginivo.ai/icon.png",
+  "description": "Lets Ginivo send your clinic's email from a send. subdomain of your domain, with SPF and DKIM. Your website and your existing mailboxes are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "ginivo.ai",
+  "syncRedirectDomain": "app.ginivo.ai",
+  "variableDescription": "%mxvalue%: mail feedback host issued for the domain; %dkimvalue%: DKIM public key issued for the domain. Applied with host=send, so records land under the send. subdomain.",
+  "records": [
+    { "type": "MX", "host": "send", "pointsTo": "%mxvalue%", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com" },
+    { "type": "TXT", "host": "resend._domainkey", "data": "%dkimvalue%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "CNAME", "host": "rsend", "pointsTo": "send.forge.rmta.net", "ttl": 3600 }
+  ]
+}
