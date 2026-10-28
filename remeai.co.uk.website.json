@@ -1,0 +1,21 @@
+{
+  "providerId": "remeai.co.uk",
+  "providerName": "Reme",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://preview.remeai.co.uk/favicon.svg",
+  "description": "Puts the website Reme made for your business on your own address: one CNAME at the name you choose, such as www.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "remeai.co.uk",
+  "syncRedirectDomain": "preview.remeai.co.uk,staging.remeai.co.uk",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.remeai.co.uk",
+      "ttl": 300
+    }
+  ]
+}
