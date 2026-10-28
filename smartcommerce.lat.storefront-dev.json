@@ -1,0 +1,28 @@
+{
+  "providerId": "smartcommerce.lat",
+  "providerName": "SmartCommerce DEV",
+  "serviceId": "storefront-dev",
+  "serviceName": "Mis tiendas DEV",
+  "version": 1,
+  "logoUrl": "https://app.smartcommerce.lat/images/logo/logo-black.png",
+  "description": "Connect an authorized test domain to a SmartCommerce development storefront with Cloudflare DNS.",
+  "variableDescription": "verificationLabel is cf-custom-hostname or acme-challenge, selected by SmartCommerce from the verification record issued for this hostname. verificationToken is the exact Cloudflare-issued value. Use the standard host parameter for subdomains; never include the domain or subdomain in verificationLabel.",
+  "syncPubKeyDomain": "domainconnect-dev.smartcommerce.lat",
+  "syncRedirectDomain": "api-dev.smartcommerce.lat",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "landings.smartcommerce.lat",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_%verificationLabel%",
+      "data": "%verificationToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
