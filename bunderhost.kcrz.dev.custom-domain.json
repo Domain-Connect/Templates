@@ -1,0 +1,59 @@
+{
+	"providerId": "bunderhost.kcrz.dev",
+	"providerName": "Bunderhost",
+	"logoUrl": "https://bunderhost.kcrz.dev/icon.png",
+	"serviceId": "custom-domain",
+	"serviceName": "Custom domain",
+	"version": 1,
+	"description": "Points a custom domain at an application hosted on Bunderhost.",
+	"variableDescription": "Each record group is applied only when the domain needs it: cname/a/aaaa route traffic, validation/ownership/certificate prove control for TLS.",
+	"syncBlock": false,
+	"hostRequired": true,
+	"syncPubKeyDomain": "bunderhost.kcrz.dev",
+	"syncRedirectDomain": "bunderhost.kcrz.dev",
+	"sharedProviderName": false,
+	"records": [
+		{
+			"groupId": "cname",
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "%target%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "a",
+			"type": "A",
+			"host": "@",
+			"pointsTo": "%ipv4%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "aaaa",
+			"type": "AAAA",
+			"host": "@",
+			"pointsTo": "%ipv6%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "validation",
+			"type": "CNAME",
+			"host": "_acme-challenge",
+			"pointsTo": "%validationtarget%.flydns.net",
+			"ttl": 3600
+		},
+		{
+			"groupId": "ownership",
+			"type": "TXT",
+			"host": "_cf-custom-hostname",
+			"data": "%ownershipvalue%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "certificate",
+			"type": "TXT",
+			"host": "_acme-challenge",
+			"data": "%certvalue%",
+			"ttl": 3600
+		}
+	]
+}
