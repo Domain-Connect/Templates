@@ -1,0 +1,46 @@
+{
+  "providerId": "patchinfotech.com",
+  "providerName": "Patch Infotech",
+  "serviceId": "ats-email",
+  "serviceName": "Patch ATS email sending",
+  "version": 1,
+  "logoUrl": "https://ats.patchinfotech.com/logo.svg",
+  "description": "Lets Patch ATS send hiring emails from your domain through Amazon SES: three DKIM records, plus bounce (MAIL FROM) records on the bounce subdomain.",
+  "variableDescription": "dkim1, dkim2, dkim3: the Amazon SES Easy DKIM tokens issued for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.patchinfotech.com",
+  "syncRedirectDomain": "ats.patchinfotech.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.ap-south-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
