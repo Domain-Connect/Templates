@@ -1,0 +1,20 @@
+{
+  "providerId": "vantuni.com.br",
+  "providerName": "Vantuni",
+  "serviceId": "club-cname",
+  "serviceName": "Club website",
+  "version": 1,
+  "description": "Connect a club subdomain to Vantuni with a single CNAME. The host is required; the destination is fixed. No apex, mail or nameserver records are configured.",
+  "logoUrl": "https://app.vantuni.com.br/brand/vantuni-wordmark.svg",
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.vantuni.com.br",
+  "syncRedirectDomain": "app.vantuni.com.br",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.clubes.vantuni.com.br",
+      "ttl": 600
+    }
+  ]
+}
