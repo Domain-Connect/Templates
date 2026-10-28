@@ -5,7 +5,7 @@
   "serviceName": "Email",
   "version": 2,
   "description": "Configure email sending for your domain through Minimo (SES domain verification, DKIM and DMARC).",
-  "variableDescription": "dnsToken: Minimo domain-ownership verification token (always mn- prefixed). dkim1/dkim2/dkim3: the three Amazon SES easy-DKIM selectors.",
+  "variableDescription": "dnsToken: Minimo domain-ownership verification token (always mn- prefixed). dkim1/dkim2/dkim3: the three Amazon SES easy-DKIM selectors. region: the Amazon SES region of the sending identity (e.g. eu-central-1), used for the MAIL FROM (bounce) MX.",
   "syncPubKeyDomain": "minimo.it",
   "syncRedirectDomain": "minimo.it",
   "syncBlock": false,
@@ -40,17 +40,15 @@
     {
       "type": "MX",
       "host": "bounce",
-      "pointsTo": "feedback-smtp.eu-central-1.amazonses.com",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
       "priority": 10,
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "bounce",
-      "data": "v=spf1 include:amazonses.com ~all",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1"
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
     },
     {
       "type": "TXT",
