@@ -1,0 +1,46 @@
+{
+  "providerId": "akadenia.com",
+  "providerName": "Akadenia",
+  "serviceId": "security-email",
+  "serviceName": "Akadenia Security email security",
+  "version": 1,
+  "logoUrl": "https://security.akadenia.com/logo.svg",
+  "description": "Sends a domain's DMARC and SMTP TLS reports to Akadenia Security, and points its MTA-STS policy at the one Akadenia Security hosts.",
+  "variableDescription": "dmarctags: the domain's DMARC tags after v=DMARC1, with Akadenia Security's report address added to rua (the domain's own policy kept); tlsrua: the mailto: address for SMTP TLS reports; policyhost: the host serving the MTA-STS policy; txttarget: where the _mta-sts TXT record is published",
+  "syncPubKeyDomain": "security.akadenia.com",
+  "syncRedirectDomain": "security.akadenia.com",
+  "records": [
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarctags%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "tlsrpt",
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "v=TLSRPTv1; rua=%tlsrua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mtasts",
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "%policyhost%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mtasts",
+      "type": "CNAME",
+      "host": "_mta-sts",
+      "pointsTo": "%txttarget%",
+      "ttl": 3600
+    }
+  ]
+}
