@@ -1,0 +1,52 @@
+{
+  "providerId": "trellisenterprises.com",
+  "providerName": "Trellis",
+  "serviceId": "website",
+  "serviceName": "Florist website",
+  "version": 3,
+  "logoUrl": "https://trellisenterprises.com/api/domain-connect/logo.svg",
+  "description": "Points a florist's own domain at their Trellis shop (one A record on the bare domain and one CNAME on www) and adds the records that let the shop send email from send.<domain>. Existing email records are not touched: nothing is written on the bare domain's mail.",
+  "variableDescription": "%ip%: the IPv4 address the hosting company gives for the bare domain. %wwwtarget%: the host name the hosting company gives for www. %dkim%: the DKIM public key the email service gives for send.<domain> (the base64 part after p=). %mailfrom%: the mail server the email service gives for bounces on send.send.<domain>.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "trellisenterprises.com",
+  "syncRedirectDomain": "trellisenterprises.com",
+  "records": [
+    {
+      "groupId": "website",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "website",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%wwwtarget%",
+      "ttl": 600
+    },
+    {
+      "groupId": "email",
+      "type": "TXT",
+      "host": "resend._domainkey.send",
+      "data": "p=%dkim%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "email",
+      "type": "MX",
+      "host": "send.send",
+      "pointsTo": "%mailfrom%",
+      "priority": 10,
+      "ttl": 600
+    },
+    {
+      "groupId": "email",
+      "type": "SPFM",
+      "host": "send.send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 600
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+    "providerId": "breakpoint.games",
+    "providerName": "Breakpoint",
+    "serviceId": "claim",
+    "serviceName": "Game ownership claim",
+    "version": 1,
+    "logoUrl": "https://breakpoint.games/icon.svg",
+    "description": "Adds one TXT record that proves the domain owner runs a game listed on breakpoint.games, so the listing can show them as its verified owner.",
+    "variableDescription": "%token%: a single-use claim token from Breakpoint (bp- followed by 32 hex characters). serviceName is passed as \"for @username\", the Breakpoint account making the claim.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "breakpoint.games",
+    "syncRedirectDomain": "breakpoint.games",
+    "sharedServiceName": true,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_breakpoint",
+            "data": "breakpoint-verification=%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "breakpoint-verification="
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "ovante.app",
+  "providerName": "Ovante",
+  "serviceId": "custom-domain",
+  "serviceName": "Event pages",
+  "version": 1,
+  "logoUrl": "https://ovante.app/brand/ovante-wordmark.svg",
+  "description": "Points a subdomain at an organization's Ovante calendar and event pages.",
+  "variableDescription": "%label%: the 12-character label Ovante minted for this claim, under ovantedns.com",
+  "syncPubKeyDomain": "domainconnect.ovante.app",
+  "syncRedirectDomain": "ovante.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%label%.ovantedns.com",
+      "ttl": 3600
+    }
+  ]
+}
