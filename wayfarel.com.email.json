@@ -5,7 +5,7 @@
   "serviceName": "Wayfarel email sending",
   "version": 1,
   "logoUrl": "https://wayfarel.com/brand/wayfarel-mark.png",
-  "description": "Authenticates a domain to send email through Wayfarel's email service (Brevo): the ownership code, the two DKIM signing CNAMEs, a DMARC policy to start with, and the Brevo sender in the SPF record (merged into the existing SPF record, never replacing it). Each part is its own group so a domain that already has a DMARC policy keeps it.",
+  "description": "Authenticates a domain to send email through Wayfarel's email service (Brevo): the ownership code, the two DKIM signing CNAMEs and the Brevo sender in the SPF record (merged into the existing SPF record, never replacing it). Each part is its own group. No DMARC record is part of the template: the domain keeps its own policy.",
   "variableDescription": "brevocode: ownership code published as brevo-code:<brevocode> (letters and digits). dkimzone: the domain name with dots replaced by dashes, as used by Brevo in the DKIM CNAME targets b1.<dkimzone>.dkim.brevo.com and b2.<dkimzone>.dkim.brevo.com.",
   "syncPubKeyDomain": "wayfarel.com",
   "syncRedirectDomain": "wayfarel.com",
@@ -39,16 +39,6 @@
       "type": "SPFM",
       "host": "@",
       "spfRules": "include:spf.brevo.com"
-    },
-    {
-      "groupId": "dmarc",
-      "type": "TXT",
-      "host": "_dmarc",
-      "data": "v=DMARC1; p=none; rua=mailto:rua@dmarc.brevo.com",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1",
-      "essential": "OnApply"
     }
   ]
 }
