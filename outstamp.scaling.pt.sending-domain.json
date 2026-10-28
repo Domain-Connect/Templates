@@ -9,7 +9,6 @@
     "variableDescription": "dkim1-3: SES Easy DKIM tokens; mailfrom: MAIL FROM label under the applied host; region: SES Region of the domain.",
     "syncBlock": false,
     "syncPubKeyDomain": "outstamp.scaling.pt",
-    "syncPubKeyDomain": "outstamp.scaling.pt",
     "syncRedirectDomain": "outstamp.scaling.pt",
     "records": [
         {
