@@ -1,0 +1,60 @@
+{
+  "providerId": "outflare.ai",
+  "providerName": "Outflare",
+  "serviceId": "microsoft365",
+  "serviceName": "Email domain (Microsoft 365)",
+  "version": 1,
+  "logoUrl": "https://outflare.ai/brand/png/outflare-mark-black-256.png",
+  "description": "Sets up a domain's mail on your own Microsoft 365: its MX and Autodiscover records, Microsoft in its SPF record, its two DKIM records, and a DMARC policy when there is none.",
+  "variableDescription": "mx: the MX host Microsoft 365 shows (example-com.mail.protection.outlook.com); dkim1, dkim2: the targets Microsoft shows for selector1 and selector2",
+  "syncBlock": false,
+  "syncPubKeyDomain": "outflare.ai",
+  "syncRedirectDomain": "app.outflare.ai",
+  "records": [
+    {
+      "type": "MX",
+      "groupId": "mx",
+      "host": "@",
+      "pointsTo": "%mx%",
+      "ttl": 3600,
+      "priority": 0
+    },
+    {
+      "type": "CNAME",
+      "groupId": "mx",
+      "host": "autodiscover",
+      "pointsTo": "autodiscover.outlook.com",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "groupId": "spf",
+      "host": "@",
+      "spfRules": "include:spf.protection.outlook.com"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim",
+      "host": "selector1._domainkey",
+      "pointsTo": "%dkim1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim",
+      "host": "selector2._domainkey",
+      "pointsTo": "%dkim2%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
