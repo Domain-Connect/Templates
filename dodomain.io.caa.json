@@ -1,0 +1,34 @@
+{
+  "providerId": "dodomain.io",
+  "providerName": "DoDomain",
+  "serviceId": "caa",
+  "serviceName": "Certificate authority (CAA)",
+  "version": 1,
+  "logoUrl": "https://dodomain.io/icon.svg",
+  "description": "Allows one certificate authority to issue certificates for the domain: a CAA issue record and a CAA issuewild record at the root, each its own group. Both are essential OnApply, since the owner may tighten the policy later. Used by DoDomain (domain-connect-as-a-service) on behalf of its integrator applications; sharedProviderName is set so the consent screen can name the integrator beside DoDomain.",
+  "variableDescription": "caDomain = the certificate authority's issuer domain, e.g. letsencrypt.org (groups issue and issuewild). Variables: caDomain.",
+  "syncBlock": false,
+  "shared": true,
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "syncPubKeyDomain": "dckeys.dodomain.io",
+  "syncRedirectDomain": "app.dodomain.io",
+  "records": [
+    {
+      "type": "CAA",
+      "groupId": "issue",
+      "host": "@",
+      "data": "0 issue \"%caDomain%\"",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CAA",
+      "groupId": "issuewild",
+      "host": "@",
+      "data": "0 issuewild \"%caDomain%\"",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
