@@ -1,0 +1,21 @@
+{
+  "providerId": "nextlevelmemberships.app",
+  "providerName": "Next Level Memberships",
+  "version": 1,
+  "syncPubKeyDomain": "nextlevelmemberships.app",
+  "syncRedirectDomain": "nextlevelmemberships.app",
+  "description": "Connect a customer-owned domain to Next Level Memberships.",
+  "serviceId": "email-ownership-v1",
+  "serviceName": "Sending email ownership",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_nlm-email-verify",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "groupId": "ownership",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "nlm-email-"
+    }
+  ]
+}
