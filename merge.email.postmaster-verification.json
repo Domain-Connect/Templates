@@ -1,0 +1,26 @@
+{
+  "providerId": "merge.email",
+  "providerName": "Mail Merge for Gmail",
+  "serviceId": "postmaster-verification",
+  "serviceName": "Gmail Postmaster Tools domain verification",
+  "version": 1,
+  "logoUrl": "https://merge.email/logo.png",
+  "description": "Adds the TXT record that proves ownership of a domain in Gmail Postmaster Tools, so Mail Merge for Gmail can show Google's deliverability verdict for it.",
+  "variableDescription": "token: the verification token Gmail Postmaster Tools issued for the domain (the value of the TXT record)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "merge.email",
+  "syncRedirectDomain": "merge.email",
+  "hostRequired": false,
+  "multiInstance": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%token%",
+      "ttl": 3600,
+      "groupId": "verification",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
