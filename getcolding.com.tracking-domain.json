@@ -1,0 +1,21 @@
+{
+    "providerId": "getcolding.com",
+    "providerName": "colding",
+    "serviceId": "tracking-domain",
+    "serviceName": "Open and click tracking domain",
+    "version": 1,
+    "logoUrl": "https://colding.app/logo.svg",
+    "description": "Points your tracking subdomain at colding, so campaign emails can load their tracking image and tracked links from your own domain. The subdomain is the host parameter.",
+    "variableDescription": "%target%: the label colding gave this tracking domain, which sits under cname.getcolding.com.",
+    "syncPubKeyDomain": "getcolding.com",
+    "syncRedirectDomain": "console.colding.app",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%.cname.getcolding.com",
+            "ttl": 3600
+        }
+    ]
+}
