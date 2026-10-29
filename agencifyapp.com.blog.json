@@ -11,7 +11,7 @@
   "sharedProviderName": false,
   "syncPubKeyDomain": "agencifyapp.com",
   "syncRedirectDomain": "content.agencifyapp.com",
-  "hostRequired": false,
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
