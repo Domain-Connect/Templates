@@ -1,0 +1,28 @@
+{
+  "providerId": "abcatalog.com",
+  "providerName": "ABCatalog",
+  "serviceId": "catalog",
+  "serviceName": "Catalog custom domain",
+  "version": 1,
+  "syncPubKeyDomain": "abcatalog.com",
+  "syncRedirectDomain": "app.abcatalog.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "description": "Connects one approved catalog hostname and verifies control of that hostname. Does not change email records.",
+  "variableDescription": "token is the per-hostname ownership challenge issued by ABCatalog. Apply host= for a Cloudflare DNS zone apex only; GoDaddy and IONOS require a subdomain.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.abcatalog.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_abcatalog",
+      "data": "abcatalog-domain=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

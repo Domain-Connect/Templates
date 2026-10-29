@@ -1,0 +1,96 @@
+{
+  "providerId": "foundermail.mx",
+  "providerName": "FounderMail",
+  "serviceId": "hosting-standby",
+  "serviceName": "FounderMail hosted email",
+  "version": 1,
+  "logoUrl": "https://foundermail.mx/images/brand/apple-touch-icon.png",
+  "description": "Points a domain's mail at FounderMail and authenticates what it sends, with a second signing key standing by in FounderMail's own DNS. The receive group is the ownership challenge, the MX record, an SPF include merged into whatever SPF record the domain already has, and a DMARC policy. The send group is the three Amazon SES Easy DKIM CNAMEs and the MX and SPF of the bounce subdomain SES uses as the custom MAIL FROM. The standby group is two more DKIM selector CNAMEs, fm1 and fm2, into FounderMail's DKIM zone: keys FounderMail can sign with if it ever has to stop using the delivery provider's. The receive and send groups are byte for byte those of the hosting template (serviceId hosting); this one is applied to a domain that already sends under it, so all three groups are applied together.",
+  "variableDescription": "%token%: the hex ownership token FounderMail issued for this claim, published as foundermail-verify=%token%. %dmarc%: the DMARC tags after v=DMARC1, for example p=none; rua=mailto:dmarc@example.com; when the domain already publishes a DMARC record FounderMail passes its tags back unchanged. %region%: the AWS region of the SES identity, which decides the bounce MX host. %dkim1%, %dkim2%, %dkim3%: the three Easy DKIM selectors SES issued for the domain. %dkimid%: the label FounderMail issued for the domain's standby keys in its DKIM zone, lower-case letters and digits.",
+  "syncPubKeyDomain": "foundermail.mx",
+  "syncRedirectDomain": "app.foundermail.mx",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_foundermail",
+      "data": "foundermail-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
+      "groupId": "receive"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "smtp.foundermail.mx",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "receive"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:foundermail.mx",
+      "groupId": "receive"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "groupId": "receive"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "send"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "send"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "send"
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "send"
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "groupId": "send"
+    },
+    {
+      "type": "CNAME",
+      "host": "fm1._domainkey",
+      "pointsTo": "%dkimid%.fm1.dkim.foundermail.mx",
+      "ttl": 3600,
+      "groupId": "standby"
+    },
+    {
+      "type": "CNAME",
+      "host": "fm2._domainkey",
+      "pointsTo": "%dkimid%.fm2.dkim.foundermail.mx",
+      "ttl": 3600,
+      "groupId": "standby"
+    }
+  ]
+}
