@@ -1,0 +1,125 @@
+{
+  "providerId": "smart360.com.tr",
+  "providerName": "Smart360",
+  "version": 1,
+  "logoUrl": "https://smart360.com.tr/icon-512.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "smart360.com.tr",
+  "syncRedirectDomain": "tenant.smart360.com.tr,yonetim.smart360.com.tr,tenant.dblinx.net,app.dblinx.net",
+  "serviceId": "posta",
+  "serviceName": "Smart360 e-posta (SmartMail)",
+  "description": "Alan adınızın e-postasını Smart360 posta sunucusuna bağlar: MX, SPF, DKIM, DMARC, MTA-STS, TLS-RPT ve istemci otomatik yapılandırma kayıtları.",
+  "variableDescription": "dkimkey: alan adınıza özel DKIM açık anahtarı (p= değeri); mtastsid: MTA-STS politika sürümü",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.smartmail.com.tr",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a:mail.smartmail.com.tr"
+    },
+    {
+      "type": "TXT",
+      "host": "mail._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc-rapor@smartmail.com.tr; adkim=s; aspf=s; pct=100",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "autoconfig.smartmail.com.tr",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "autodiscover.smartmail.com.tr",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "name": "@",
+      "service": "_imaps",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 993,
+      "target": "mail.smartmail.com.tr",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "name": "@",
+      "service": "_submission",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 587,
+      "target": "mail.smartmail.com.tr",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "name": "@",
+      "service": "_submissions",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 465,
+      "target": "mail.smartmail.com.tr",
+      "ttl": 3600
+    },
+    {
+      "type": "SRV",
+      "name": "@",
+      "service": "_autodiscover",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 443,
+      "target": "autodiscover.smartmail.com.tr",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_mta-sts",
+      "data": "v=STSv1; id=%mtastsid%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=STSv1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "baglanti.smart360.com.tr",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "v=TLSRPTv1; rua=mailto:dmarc-rapor@smartmail.com.tr",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=TLSRPTv1",
+      "essential": "OnApply"
+    }
+  ]
+}
