@@ -1,0 +1,21 @@
+{
+  "providerId": "charitytravelplatform.com",
+  "providerName": "Charity Travel Platform",
+  "serviceId": "site",
+  "serviceName": "Event website",
+  "version": 1,
+  "logoUrl": "https://staging.charitytravelplatform.com/domain-connect-logo.svg",
+  "description": "Points a subdomain the customer owns (e.g. auction.theircharity.org) at the platform's edge, which serves their event site and obtains its HTTPS certificate.",
+  "variableDescription": "target: the platform deployment's edge hostname, the CNAME target.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "charitytravelplatform.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

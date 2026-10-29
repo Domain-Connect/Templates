@@ -1,0 +1,40 @@
+{
+  "providerId": "outflare.ai",
+  "providerName": "Outflare",
+  "serviceId": "postmark",
+  "serviceName": "Sending domain (Postmark)",
+  "version": 1,
+  "logoUrl": "https://outflare.ai/brand/png/outflare-mark-black-256.png",
+  "description": "Lets Postmark send email for the domain from your own Postmark account: DKIM, a return-path subdomain (pm-bounces), and a DMARC policy when there is none.",
+  "variableDescription": "selector: the DKIM selector (20240101pm); dkim: the DKIM key (k=rsa;p=...)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "outflare.ai",
+  "syncRedirectDomain": "app.outflare.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "dkim",
+      "host": "%selector%._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "returnpath",
+      "host": "pm-bounces",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

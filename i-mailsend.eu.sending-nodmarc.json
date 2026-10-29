@@ -1,0 +1,35 @@
+{
+    "providerId": "i-mailsend.eu",
+    "providerName": "i-mailsend",
+    "serviceId": "sending-nodmarc",
+    "serviceName": "i-mailsend email sending (keeps existing DMARC)",
+    "version": 1,
+    "logoUrl": "https://i-mailsend.eu/favicon.svg",
+    "description": "Authenticates the customer's domain for sending email through i-mailsend (Oracle OCI Email Delivery, eu-frankfurt-1): DKIM CNAME, SPF include merged into the existing SPF record and custom return path (bounce) CNAME. Used when the domain already has a DMARC record, which is left unchanged. MX and website records are not touched.",
+    "variableDescription": "dkimselector: the DKIM selector created for this domain in Oracle Email Delivery (e.g. em202610). The DKIM CNAME target is derived from it: <selector>.<fqdn>.dkim.fra1.oracleemaildelivery.com.",
+    "syncPubKeyDomain": "i-mailsend.eu",
+    "syncRedirectDomain": "app.i-mailsend.eu",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkimselector%._domainkey",
+            "pointsTo": "%dkimselector%.%fqdn%.dkim.fra1.oracleemaildelivery.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:eu.rp.oracleemaildelivery.com"
+        },
+        {
+            "groupId": "returnpath",
+            "type": "CNAME",
+            "host": "rp",
+            "pointsTo": "fra1.rp.oracleemaildelivery.com",
+            "ttl": 3600
+        }
+    ]
+}

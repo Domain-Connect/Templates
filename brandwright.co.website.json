@@ -1,0 +1,29 @@
+{
+  "providerId": "brandwright.co",
+  "providerName": "BrandWright",
+  "serviceId": "website",
+  "serviceName": "BrandWright storefront",
+  "version": 1,
+  "logoUrl": "https://brandwright.co/brand/brandwright/favicon/icon-512.png",
+  "description": "Points www at your BrandWright storefront and proves you own the domain.",
+  "variableDescription": "target: the storefront's hosting name (the part before .up.railway.app); verify: the ownership token",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "brandwright.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%.up.railway.app",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_railway-verify.www",
+      "data": "railway-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

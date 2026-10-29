@@ -1,0 +1,47 @@
+{
+  "providerId": "outflare.ai",
+  "providerName": "Outflare",
+  "serviceId": "googleworkspace",
+  "serviceName": "Email domain (Google Workspace)",
+  "version": 1,
+  "logoUrl": "https://outflare.ai/brand/png/outflare-mark-black-256.png",
+  "description": "Sets up a domain's mail on your own Google Workspace: its MX record, Google in its SPF record, its DKIM key, and a DMARC policy when there is none.",
+  "variableDescription": "dkimkey: the public key Google Admin shows for google._domainkey (the part after p=)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "outflare.ai",
+  "syncRedirectDomain": "app.outflare.ai",
+  "records": [
+    {
+      "type": "MX",
+      "groupId": "mx",
+      "host": "@",
+      "pointsTo": "smtp.google.com",
+      "ttl": 3600,
+      "priority": 1
+    },
+    {
+      "type": "SPFM",
+      "groupId": "spf",
+      "host": "@",
+      "spfRules": "include:_spf.google.com"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dkim",
+      "host": "google._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

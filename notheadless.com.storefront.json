@@ -1,0 +1,28 @@
+{
+    "providerId": "notheadless.com",
+    "providerName": "NotHeadless",
+    "serviceId": "storefront",
+    "serviceName": "NotHeadless storefront",
+    "version": 1,
+    "logoUrl": "https://notheadless.com/icon.svg",
+    "description": "Connects a subdomain (such as www) to the merchant's NotHeadless storefront and proves domain ownership",
+    "variableDescription": "challenge: the one-time ownership token NotHeadless shows for this hostname",
+    "syncBlock": false,
+    "syncPubKeyDomain": "notheadless.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "connect.notheadless.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_notheadless",
+            "data": "notheadless=%challenge%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

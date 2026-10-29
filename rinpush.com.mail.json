@@ -3,7 +3,7 @@
     "providerName": "Rinpush Mail",
     "serviceId": "mail",
     "serviceName": "Configuration automatique de la messagerie Rinpush",
-    "version": 2,
+    "version": 3,
     "syncPubKeyDomain": "rinpush.com",
     "syncRedirectDomain": "mail.rinpush.com",
     "description": "Configuration automatique des enregistrements MX, SPF, DKIM, DMARC, preuve de possession et autoconfiguration pour Rinpush Mail.",
@@ -46,7 +46,7 @@
             "type": "TXT",
             "host": "_dmarc",
             "ttl": 3600,
-            "data": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; fo=1; rua=mailto:dmarc@%domain%; ruf=mailto:dmarc@%domain%",
+            "data": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; fo=1; rua=mailto:dmarc@%fqdn%; ruf=mailto:dmarc@%fqdn%",
             "txtConflictMatchingMode": "Prefix",
             "txtConflictMatchingPrefix": "v=DMARC1",
             "essential": "OnApply"

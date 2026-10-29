@@ -1,0 +1,38 @@
+{
+  "providerId": "globihome.com",
+  "providerName": "Globihome",
+  "serviceId": "agency-website-subdomain",
+  "serviceName": "Agency website",
+  "version": 1,
+  "description": "Connect a subdomain, such as www, to your agency website on Globihome. A subdomain is required; this template does not configure a bare domain.",
+  "variableDescription": "ownership: Cloudflare for SaaS hostname verification token; certificate: Cloudflare for SaaS certificate validation token",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.globihome.com",
+  "syncRedirectDomain": "studio.globihome.com,studio.globihome.dev",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "routing",
+      "host": "@",
+      "pointsTo": "sites-cname.globi.page",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "certificate",
+      "host": "_acme-challenge",
+      "data": "%certificate%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
