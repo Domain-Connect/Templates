@@ -1,0 +1,22 @@
+{
+    "providerId": "getcolding.com",
+    "providerName": "colding",
+    "serviceId": "dmarc",
+    "serviceName": "DMARC record for your sending domain",
+    "version": 1,
+    "logoUrl": "https://colding.app/logo.svg",
+    "description": "Adds a DMARC record that only monitors (p=none), so mailbox providers can see that your sending domain has a policy. It rejects and quarantines nothing.",
+    "syncPubKeyDomain": "getcolding.com",
+    "syncRedirectDomain": "console.colding.app",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}
