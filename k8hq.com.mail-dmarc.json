@@ -1,0 +1,23 @@
+{
+  "providerId": "k8hq.com",
+  "providerName": "K8 HQ",
+  "serviceId": "mail-dmarc",
+  "serviceName": "K8 HQ: DMARC record, reports to K8 HQ (does not move your mail). Approve only if you are setting up K8 HQ yourself right now.",
+  "version": 1,
+  "logoUrl": "https://k8hq.com/favicon.png",
+  "description": "Adds a DMARC record in monitoring mode (p=none) that asks receivers to send aggregate reports to dmarc@ the domain, which K8 HQ reads. Offered only when the domain has no DMARC record. Does not change MX.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.k8hq.com",
+  "syncRedirectDomain": "app.k8hq.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%fqdn%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
