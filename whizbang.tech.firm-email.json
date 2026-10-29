@@ -9,7 +9,7 @@
   "variableDescription": "<lane>mail: the sending subdomain (for example mail). <lane>dkim: the DKIM public key. <lane>returnmx: the bounce-handling mail server.",
   "syncBlock": false,
   "sharedProviderName": false,
-  "syncPubKeyDomain": "whizbang.tech",
+  "syncPubKeyDomain": "whizbang.quest",
   "hostRequired": false,
   "records": [
     {

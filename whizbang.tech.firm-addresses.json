@@ -9,7 +9,7 @@
   "variableDescription": "target: Amicus's address for firm pages. <purpose>host: the subdomain you chose (for example booking). <purpose>proof: the ownership value for that address.",
   "syncBlock": false,
   "sharedProviderName": false,
-  "syncPubKeyDomain": "whizbang.tech",
+  "syncPubKeyDomain": "whizbang.quest",
   "hostRequired": false,
   "records": [
     {
