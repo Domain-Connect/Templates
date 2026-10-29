@@ -8,6 +8,7 @@
   "description": "Point your domain at VibeHost hosting with a stable CNAME and a TXT ownership challenge.",
   "variableDescription": "stable is the per-hosting stable target; txtValue is the ownership challenge token. The host is supplied via the host= apply parameter (omit it for the apex).",
   "syncBlock": false,
+  "hostRequired": true,
   "sharedProviderName": false,
   "syncPubKeyDomain": "dc.vibehost.vn",
   "syncRedirectDomain": "vibehost.vn",
