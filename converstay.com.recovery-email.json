@@ -3,49 +3,55 @@
   "providerName": "Converstay",
   "serviceId": "recovery-email",
   "serviceName": "Converstay booking recovery email",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://www.converstay.com/favicon.svg",
-  "description": "Lets Converstay send booking recovery email for your hotel from this domain (via Resend), with DKIM, SPF, bounce handling, link tracking and an optional DMARC record.",
-  "variableDescription": "%dkimKey%: DKIM public key issued for this domain (the part after p=); %region%: sending region of the bounce MX host, e.g. us-east-1",
+  "description": "Lets Converstay send booking recovery email for your hotel from this domain (through Amazon SES), with DKIM signing, a bounce subdomain with SPF, a links subdomain for open and click tracking and an optional DMARC record.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the domain's Amazon SES DKIM tokens; %region%: its Amazon SES region, e.g. us-east-2",
   "syncBlock": false,
   "syncPubKeyDomain": "converstay.com",
   "syncRedirectDomain": "converstay.com,www.converstay.com",
   "hostRequired": false,
   "records": [
     {
-      "groupId": "sending",
-      "type": "TXT",
-      "host": "resend._domainkey",
-      "data": "p=%dkimKey%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "All"
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
     },
     {
-      "groupId": "sending",
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
       "type": "MX",
-      "host": "send",
+      "host": "bounce",
       "pointsTo": "feedback-smtp.%region%.amazonses.com",
       "priority": 10,
       "ttl": 3600
     },
     {
-      "groupId": "sending",
+      "groupId": "mailfrom",
       "type": "SPFM",
-      "host": "send",
+      "host": "bounce",
       "spfRules": "include:amazonses.com"
-    },
-    {
-      "groupId": "returnpath",
-      "type": "CNAME",
-      "host": "rsend",
-      "pointsTo": "send.forge.rmta.net",
-      "ttl": 3600
     },
     {
       "groupId": "tracking",
       "type": "CNAME",
       "host": "links",
-      "pointsTo": "links2.resend-dns.com",
+      "pointsTo": "track.mailroom.vallepinto.com",
       "ttl": 3600
     },
     {
