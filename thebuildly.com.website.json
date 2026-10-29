@@ -1,0 +1,38 @@
+{
+  "providerId": "thebuildly.com",
+  "providerName": "Buildly",
+  "serviceId": "website",
+  "serviceName": "Buildly website hosting",
+  "version": 1,
+  "logoUrl": "https://thebuildly.com/apple-icon.png",
+  "description": "Connects a domain to a website Buildly hosts: two TXT records prove the domain is the client's and validate its TLS certificate (Cloudflare for SaaS); a CNAME sends visitors to the site.",
+  "variableDescription": "ownership: the TXT value proving ownership of the host; acme: the TXT value validating the host's TLS certificate.",
+  "syncPubKeyDomain": "thebuildly.com",
+  "syncRedirectDomain": "thebuildly.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%acme%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "launch",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.buildly.link",
+      "ttl": 300
+    }
+  ]
+}
