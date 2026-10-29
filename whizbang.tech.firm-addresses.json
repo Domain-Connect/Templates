@@ -1,0 +1,97 @@
+{
+  "providerId": "whizbang.tech",
+  "providerName": "Whizbang",
+  "serviceId": "firm-addresses",
+  "serviceName": "Amicus firm pages",
+  "version": 1,
+  "logoUrl": "https://domains.whizbang.quest/domain-connect/logo.svg",
+  "description": "Points your firm's booking, signing, client portal, inquiry form and video meeting addresses at Amicus, and adds the ownership proof Amicus checks before it sets them up. Review changes to the selected subdomains before approving, especially if they already host another service. Unselected names are not configured by this template.",
+  "variableDescription": "target: Amicus's address for firm pages. <purpose>host: the subdomain you chose (for example booking). <purpose>proof: the ownership value for that address.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "whizbang.tech",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "booking",
+      "type": "CNAME",
+      "host": "%bookinghost%",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "booking",
+      "type": "TXT",
+      "host": "_whizbang.%bookinghost%",
+      "data": "%bookingproof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "whizbang="
+    },
+    {
+      "groupId": "signing",
+      "type": "CNAME",
+      "host": "%signinghost%",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "signing",
+      "type": "TXT",
+      "host": "_whizbang.%signinghost%",
+      "data": "%signingproof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "whizbang="
+    },
+    {
+      "groupId": "portal",
+      "type": "CNAME",
+      "host": "%portalhost%",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "portal",
+      "type": "TXT",
+      "host": "_whizbang.%portalhost%",
+      "data": "%portalproof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "whizbang="
+    },
+    {
+      "groupId": "intake",
+      "type": "CNAME",
+      "host": "%intakehost%",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "intake",
+      "type": "TXT",
+      "host": "_whizbang.%intakehost%",
+      "data": "%intakeproof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "whizbang="
+    },
+    {
+      "groupId": "join",
+      "type": "CNAME",
+      "host": "%joinhost%",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "join",
+      "type": "TXT",
+      "host": "_whizbang.%joinhost%",
+      "data": "%joinproof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "whizbang="
+    }
+  ],
+  "syncRedirectDomain": "api.whizbang.quest"
+}
