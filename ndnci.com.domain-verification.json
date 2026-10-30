@@ -1,0 +1,23 @@
+{
+  "providerId": "ndnci.com",
+  "providerName": "NDNCI",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain verification",
+  "version": 1,
+  "logoUrl": "https://raw.githubusercontent.com/sovetski/Templates/f625dad360f35d82c40a38439945d8df9f076ef7/assets/ndnci.svg",
+  "description": "Verify control of one domain or subdomain for NDNCI. Adds one TXT record; no ongoing DNS access.",
+  "variableDescription": "%token%: the complete random verification challenge issued by NDNCI for the selected domain or subdomain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.ndnci.com",
+  "syncRedirectDomain": "www.ndnci.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_ndnci-security-challenge",
+      "data": "%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
