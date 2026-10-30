@@ -1,0 +1,16 @@
+{
+  "providerId": "btfs.sh",
+  "providerName": "btfs.sh",
+  "serviceId": "vercel",
+  "serviceName": "Vercel custom domain",
+  "version": 1,
+  "logoUrl": "https://btfs.sh/logo.svg",
+  "description": "Points a subdomain at Vercel so the app that sent you here can serve it.",
+  "sharedProviderName": true,
+  "shared": true,
+  "hostRequired": true,
+  "syncPubKeyDomain": "btfs.sh",
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 }
+  ]
+}
