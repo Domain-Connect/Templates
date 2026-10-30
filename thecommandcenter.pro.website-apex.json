@@ -1,0 +1,92 @@
+{
+  "providerId": "thecommandcenter.pro",
+  "providerName": "The Command Center",
+  "serviceId": "website-apex",
+  "serviceName": "Website (root domain)",
+  "version": 1,
+  "logoUrl": "https://thecommandcenter.pro/favicon.png",
+  "description": "Connects a whole domain to The Command Center website. Apply at the zone apex (no host). Points @ at The Command Center apex redirect IPs (A records; these replace registrar forwarding and other A records on @), which send visitors to https://www with the path kept, and points www at customers.tcommcen.com (CNAME) with the Cloudflare for SaaS ownership TXT. Pass groupId=txt for the ACME TXT at _acme-challenge.www, or groupId=dcv for the delegated DCV CNAME. Callers must pass one groupId. Synchronous apply redirects back to The Command Center.",
+  "variableDescription": "%ownership%: Cloudflare for SaaS ownership_verification value for www, written verbatim at _cf-custom-hostname.www. %certificate%: ACME DNS-01 token for www, written verbatim at _acme-challenge.www (group txt only). %dcvid%: single DNS label of the zone DCV delegation id; the CNAME target is www.%fqdn%.%dcvid%.dcv.cloudflare.com (group dcv only). %fqdn% is built in and equals the domain when no host is passed.",
+  "syncPubKeyDomain": "thecommandcenter.pro",
+  "syncRedirectDomain": "thecommandcenter.pro,www.thecommandcenter.pro,staging.thecommandcenter.pro",
+  "hostRequired": false,
+  "shared": false,
+  "records": [
+    {
+      "type": "A",
+      "groupId": "txt",
+      "host": "@",
+      "pointsTo": "52.223.34.222",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "txt",
+      "host": "@",
+      "pointsTo": "35.71.161.102",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "txt",
+      "host": "www",
+      "pointsTo": "customers.tcommcen.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt",
+      "host": "_cf-custom-hostname.www",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt",
+      "host": "_acme-challenge.www",
+      "data": "%certificate%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "A",
+      "groupId": "dcv",
+      "host": "@",
+      "pointsTo": "52.223.34.222",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "dcv",
+      "host": "@",
+      "pointsTo": "35.71.161.102",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dcv",
+      "host": "www",
+      "pointsTo": "customers.tcommcen.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "dcv",
+      "host": "_cf-custom-hostname.www",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dcv",
+      "host": "_acme-challenge.www",
+      "pointsTo": "www.%fqdn%.%dcvid%.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}
