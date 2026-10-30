@@ -1,0 +1,90 @@
+{
+    "providerId": "plainmail.dev",
+    "providerName": "Plainmail",
+    "serviceId": "mail",
+    "serviceName": "Plainmail email hosting",
+    "version": 1,
+    "logoUrl": "https://plainmail.dev/assets/logo.svg",
+    "description": "Hosted mail for a customer domain: inbound MX to Plainmail, SPF, Amazon SES Easy DKIM and custom MAIL FROM (bounce), DMARC, and mail client autoconfig/autodiscover.",
+    "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three Amazon SES Easy DKIM tokens for the domain (lowercase alphanumeric)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "plainmail.dev",
+    "syncRedirectDomain": "app.plainmail.dev",
+    "records": [
+        {
+            "groupId": "mail",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx1.plainmailhost.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mail",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:spf.plainmailhost.com"
+        },
+        {
+            "groupId": "sending",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sending",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sending",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sending",
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.us-east-2.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "sending",
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@plainmailhost.com",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "autoconfig",
+            "type": "CNAME",
+            "host": "autoconfig",
+            "pointsTo": "autoconfig.plainmailhost.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "autodiscover",
+            "type": "CNAME",
+            "host": "autodiscover",
+            "pointsTo": "autodiscover.plainmailhost.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        }
+    ]
+}
