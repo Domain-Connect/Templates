@@ -3,10 +3,10 @@
     "providerName": "i-mailsend",
     "serviceId": "sending-nodmarc",
     "serviceName": "i-mailsend email sending (keeps existing DMARC)",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://i-mailsend.eu/favicon.svg",
-    "description": "Authenticates the customer's domain for sending email through i-mailsend (Oracle OCI Email Delivery, eu-frankfurt-1): DKIM CNAME, SPF include merged into the existing SPF record and custom return path (bounce) CNAME. Used when the domain already has a DMARC record, which is left unchanged. MX and website records are not touched.",
-    "variableDescription": "dkimselector: the DKIM selector created for this domain in Oracle Email Delivery (e.g. em202610). The DKIM CNAME target is derived from it: <selector>.<fqdn>.dkim.fra1.oracleemaildelivery.com.",
+    "description": "Authenticates the customer's domain for sending email through i-mailsend (Oracle OCI Email Delivery, eu-frankfurt-1): DKIM CNAME, SPF include merged into the existing SPF record and custom return path (bounce) CNAME. Used when the domain already has a DMARC record, which is left unchanged. MX and website records are not touched. Version 2 adds the separate transactional sending subdomain tx.<domain> (its own DKIM CNAME, SPF include and return-path CNAME), so password resets and receipts never share reputation with newsletters.",
+    "variableDescription": "dkimselector: the DKIM selector created for this domain in Oracle Email Delivery (e.g. em202610). The DKIM CNAME target is derived from it: <selector>.<fqdn>.dkim.fra1.oracleemaildelivery.com. txselector: the DKIM selector of the transactional subdomain tx.<fqdn> (e.g. emtx202610); its CNAME target is <txselector>.tx.<fqdn>.dkim.fra1.oracleemaildelivery.com.",
     "syncPubKeyDomain": "i-mailsend.eu",
     "syncRedirectDomain": "app.i-mailsend.eu",
     "hostRequired": false,
@@ -28,6 +28,26 @@
             "groupId": "returnpath",
             "type": "CNAME",
             "host": "rp",
+            "pointsTo": "fra1.rp.oracleemaildelivery.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "txdkim",
+            "type": "CNAME",
+            "host": "%txselector%._domainkey.tx",
+            "pointsTo": "%txselector%.tx.%fqdn%.dkim.fra1.oracleemaildelivery.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "txspf",
+            "type": "SPFM",
+            "host": "tx",
+            "spfRules": "include:eu.rp.oracleemaildelivery.com"
+        },
+        {
+            "groupId": "txreturnpath",
+            "type": "CNAME",
+            "host": "rp.tx",
             "pointsTo": "fra1.rp.oracleemaildelivery.com",
             "ttl": 3600
         }
