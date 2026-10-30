@@ -1,0 +1,26 @@
+{
+  "providerId": "onevetos.com",
+  "providerName": "OneVet",
+  "serviceId": "website",
+  "serviceName": "OneVet — your practice page on your own domain",
+  "version": 4,
+  "logoUrl": "https://onevetos.com/brand/logos/drawn-paw-transparent.svg",
+  "description": "Points your domain and www at your OneVet practice page. Adds two website records. It does not change your email records.",
+  "variableDescription": "",
+  "syncPubKeyDomain": "onevetos.com",
+  "syncRedirectDomain": "onevetos.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "75.2.60.5",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "onevetos.netlify.app",
+      "ttl": 3600
+    }
+  ]
+}
