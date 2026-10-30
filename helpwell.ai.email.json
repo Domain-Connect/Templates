@@ -1,0 +1,62 @@
+{
+  "providerId": "helpwell.ai",
+  "providerName": "HelpWell",
+  "serviceId": "email",
+  "serviceName": "HelpWell email",
+  "version": 1,
+  "logoUrl": "https://app.helpwell.ai/brand/helpwell-mark.svg",
+  "description": "Sends support and marketing email from your domain through your own Resend account, and receives the replies in HelpWell.",
+  "variableDescription": "dkimkey: the DKIM public key Resend generated for this domain, without \"p=\". region: the Resend region, for example us-east-1. rua: the address that receives DMARC reports.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.helpwell.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "links",
+      "pointsTo": "links1.resend-dns.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%rua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
