@@ -1,0 +1,28 @@
+{
+  "providerId": "coursecatalyst.com",
+  "providerName": "Course Catalyst",
+  "serviceId": "website-subdomain",
+  "serviceName": "Course Catalyst website subdomain",
+  "version": 1,
+  "description": "Connect your website and verify domain ownership. Keep email records and nameservers unchanged.",
+  "syncPubKeyDomain": "coursecatalyst.com",
+  "syncRedirectDomain": "app.coursecatalyst.com",
+  "records": [
+    {
+      "groupId": "cname",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ],
+  "hostRequired": true
+}
