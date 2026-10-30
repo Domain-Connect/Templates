@@ -1,0 +1,23 @@
+{
+  "providerId": "photon.codes",
+  "providerName": "Photon",
+  "serviceId": "email-dmarc",
+  "logoUrl": "https://assets.photon.codes/defaults/domain-connect/photon-icon-primary-v1.svg",
+  "serviceName": "Email DMARC",
+  "version": 1,
+  "description": "Adds the Amazon SES default DMARC policy to an exact domain or subdomain after the owner confirms setup. Existing DMARC policies should be retained.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.photon.codes",
+  "syncRedirectDomain": "app.photon.codes,app.staging.photon.codes",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
