@@ -1,0 +1,30 @@
+{
+  "providerId": "xebra.dev",
+  "providerName": "Xebra",
+  "serviceId": "pay",
+  "serviceName": "Xebra Pay custom domain",
+  "version": 1,
+  "logoUrl": "https://xebra.dev/favicon-64.png",
+  "description": "Serves the company's payment links and receipts from pay.<domain> through Xebra Pay, and proves the company controls the domain.",
+  "variableDescription": "token: the company's ownership token, published as TXT _xebra-pay.pay so Xebra can verify the domain belongs to the company.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "xebra.dev",
+  "syncRedirectDomain": "pay.xebra.dev,test.pay.xebra.dev",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "pay",
+      "pointsTo": "domains.xebra.dev",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_xebra-pay.pay",
+      "data": "xebra-pay=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "xebra-pay="
+    }
+  ]
+}
