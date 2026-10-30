@@ -2,10 +2,10 @@
   "providerId": "2way.app",
   "providerName": "2way",
   "serviceId": "short-links-apex",
-  "serviceName": "2way branded short links (whole domain)",
+  "serviceName": "2way branded short links (root domain)",
   "version": 1,
   "logoUrl": "https://cdn.2way.app/domain-connect/logo.svg",
-  "description": "Points your whole domain (for example yourbrand.link) at 2way so your SMS short links use it. 2way issues the HTTPS certificate automatically. The domain's current web address records (A and AAAA) are replaced, so use a domain dedicated to short links, not one that hosts a website or receives email.",
+  "description": "Points your domain itself (for example yourbrand.link, not a subdomain) at 2way so your SMS short links use it. 2way issues the HTTPS certificate automatically. The domain's current A and AAAA records are replaced, so any website on it stops working: use a domain dedicated to short links. Email (MX) records are not changed.",
   "syncBlock": false,
   "syncPubKeyDomain": "2way.app",
   "records": [
@@ -19,6 +19,18 @@
       "type": "A",
       "host": "@",
       "pointsTo": "3.33.173.217",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "2600:9000:a60c:f9c0:d4c:8ea0:6ece:d93b",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "2600:9000:a50e:fbdc:e1e4:4a2d:9902:cd7c",
       "ttl": 3600
     }
   ]
