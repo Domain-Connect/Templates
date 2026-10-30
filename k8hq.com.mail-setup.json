@@ -1,0 +1,42 @@
+{
+  "providerId": "k8hq.com",
+  "providerName": "K8 HQ",
+  "serviceId": "mail-setup",
+  "serviceName": "K8 HQ: sending records (does not move your mail). Approve only if you are setting up K8 HQ yourself right now.",
+  "version": 1,
+  "logoUrl": "https://k8hq.com/favicon.png",
+  "description": "Adds the three DKIM CNAMEs and merges K8 HQ's sender into the domain's SPF record. Does not change MX or DMARC, so incoming mail keeps going where it goes today.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three DKIM tokens issued for this domain (each is both the host label before ._domainkey and the first label of the CNAME target under dkim.amazonses.com)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.k8hq.com",
+  "syncRedirectDomain": "app.k8hq.com",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
