@@ -9,7 +9,7 @@
   "variableDescription": "ip: IP address of the GlotEO translation proxy.",
   "syncBlock": false,
   "syncPubKeyDomain": "gloteo.com",
-  "syncRedirectDomain": "gloteo.com, app.gloteo.com",
+  "syncRedirectDomain": "app.gloteo.com",
   "records": [
     {
       "type": "A",
