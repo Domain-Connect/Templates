@@ -1,0 +1,27 @@
+{
+    "providerId": "getclementine.app",
+    "providerName": "Clementine",
+    "serviceId": "linkdomain",
+    "serviceName": "Link domain",
+    "version": 1,
+    "logoUrl": "https://getclementine.app/logo.png",
+    "description": "Points a domain or subdomain at Clementine so share links, short links and bio pages open on it. Clementine issues the HTTPS certificate.",
+    "variableDescription": "cfverify is the ownership token Cloudflare for SaaS issues for the custom hostname (the _cf-custom-hostname TXT value).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "getclementine.app",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "customers.clemshare.link",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%cfverify%",
+            "ttl": 3600
+        }
+    ]
+}
