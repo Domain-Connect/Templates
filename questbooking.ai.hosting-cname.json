@@ -1,0 +1,19 @@
+{
+  "providerId": "questbooking.ai",
+  "providerName": "Quest",
+  "serviceId": "hosting-cname",
+  "serviceName": "Quest website hosting",
+  "version": 1,
+  "logoUrl": "https://questbooking.ai/quest-logo.svg",
+  "description": "Connects your www domain to your Quest website.",
+  "syncRedirectDomain": "questbooking.ai",
+  "syncPubKeyDomain": "questbooking.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.questbookings.com",
+      "ttl": 300
+    }
+  ]
+}
