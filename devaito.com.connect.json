@@ -1,0 +1,28 @@
+{
+  "providerId": "devaito.com",
+  "providerName": "Devaito",
+  "serviceId": "connect",
+  "serviceName": "Connect a domain to a Devaito store",
+  "version": 1,
+  "logoUrl": "https://www.devaito.com/favicon.ico",
+  "description": "Points your domain (or a subdomain) to your Devaito online store with A records.",
+  "variableDescription": "%IP%: address of the Devaito web server the store is served from.",
+  "syncPubKeyDomain": "devaito.com",
+  "syncRedirectDomain": "admin.devaito.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 3600,
+      "groupId": "root"
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%IP%",
+      "ttl": 3600,
+      "groupId": "www"
+    }
+  ]
+}
