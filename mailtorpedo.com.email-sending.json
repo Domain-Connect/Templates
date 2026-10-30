@@ -1,9 +1,10 @@
 {
   "providerId": "mailtorpedo.com",
   "providerName": "Mail Torpedo",
+  "logoUrl": "https://raw.githubusercontent.com/hpwray/mailtorpedo-brand/main/mailtorpedo-logo.svg",
   "serviceId": "email-sending",
   "serviceName": "Email sending setup",
-  "version": 1,
+  "version": 2,
   "description": "Adds the DKIM signing records and a starter DMARC record so email sent from the customer's domain through Mail Torpedo is authenticated.",
   "variableDescription": "dkim1, dkim2, dkim3: the unique token of each of the three DKIM keys (the part before ._domainkey). dmarc: the full DMARC TXT value, e.g. v=DMARC1; p=none; fo=1",
   "syncPubKeyDomain": "mailtorpedo.com",

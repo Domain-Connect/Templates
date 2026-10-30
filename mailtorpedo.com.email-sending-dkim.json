@@ -1,9 +1,10 @@
 {
   "providerId": "mailtorpedo.com",
   "providerName": "Mail Torpedo",
+  "logoUrl": "https://raw.githubusercontent.com/hpwray/mailtorpedo-brand/main/mailtorpedo-logo.svg",
   "serviceId": "email-sending-dkim",
   "serviceName": "Email sending setup (signing records only)",
-  "version": 1,
+  "version": 2,
   "description": "Adds only the three DKIM signing records. Used when the customer's domain already has a DMARC record, which is left untouched.",
   "variableDescription": "dkim1, dkim2, dkim3: the unique token of each of the three DKIM keys (the part before ._domainkey).",
   "syncPubKeyDomain": "mailtorpedo.com",
