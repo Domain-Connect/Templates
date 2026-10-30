@@ -5,7 +5,7 @@
     "serviceName": "Plainmail email hosting",
     "version": 2,
     "logoUrl": "https://plainmail.dev/assets/logo.svg",
-    "description": "Hosted mail for a customer domain: inbound MX to Plainmail, SPF, Amazon SES Easy DKIM and custom MAIL FROM (bounce), DMARC, mail client autoconfig/autodiscover, and a TXT proving the Plainmail account owns the domain. Optional groups, applied only when requested: backup MX (backupmx), MTA-STS policy delegation (mtasts), TLS reporting (tlsrpt), and client SRV records (clients).",
+    "description": "Hosted mail for a customer domain: inbound MX to Plainmail, SPF, Amazon SES Easy DKIM and custom MAIL FROM (bounce), DMARC, mail client autoconfig/autodiscover, and a TXT proving the Plainmail account owns the domain. Optional groups, applied only when requested: backup MX (backupmx), MTA-STS policy delegation (mtasts), and TLS reporting (tlsrpt).",
     "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three Amazon SES Easy DKIM tokens for the domain (lowercase alphanumeric); %verify%: the Plainmail ownership token (base64url)",
     "syncBlock": false,
     "syncPubKeyDomain": "plainmail.dev",
@@ -128,42 +128,6 @@
             "txtConflictMatchingMode": "Prefix",
             "txtConflictMatchingPrefix": "v=TLSRPTv1",
             "essential": "OnApply"
-        },
-        {
-            "groupId": "clients",
-            "type": "SRV",
-            "name": "@",
-            "service": "_imaps",
-            "protocol": "_tcp",
-            "priority": 0,
-            "weight": 1,
-            "port": 993,
-            "target": "imap.plainmailhost.com",
-            "ttl": 3600
-        },
-        {
-            "groupId": "clients",
-            "type": "SRV",
-            "name": "@",
-            "service": "_submissions",
-            "protocol": "_tcp",
-            "priority": 0,
-            "weight": 1,
-            "port": 465,
-            "target": "smtp.plainmailhost.com",
-            "ttl": 3600
-        },
-        {
-            "groupId": "clients",
-            "type": "SRV",
-            "name": "@",
-            "service": "_submission",
-            "protocol": "_tcp",
-            "priority": 0,
-            "weight": 1,
-            "port": 587,
-            "target": "smtp.plainmailhost.com",
-            "ttl": 3600
         }
     ]
 }
