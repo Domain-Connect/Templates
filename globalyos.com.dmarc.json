@@ -1,0 +1,23 @@
+{
+  "providerId": "globalyos.com",
+  "providerName": "GlobalyOS",
+  "serviceId": "dmarc",
+  "serviceName": "GlobalyOS starter DMARC policy",
+  "version": 1,
+  "logoUrl": "https://globalyos.com/favicon.svg",
+  "description": "Adds a monitoring-only DMARC policy to a domain that has none.",
+  "variableDescription": "This template has no variables.",
+  "syncPubKeyDomain": "globalyos.com",
+  "syncRedirectDomain": "globalyos.com,www.globalyos.com",
+  "sharedServiceName": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
