@@ -4,7 +4,7 @@
   "serviceId": "pay",
   "serviceName": "Xebra Pay custom domain",
   "version": 1,
-  "logoUrl": "https://xebra.dev/favicon-64.png",
+  "logoUrl": "https://xebra.dev/icon-512.png",
   "description": "Serves the company's payment links and receipts from pay.<domain> through Xebra Pay, and proves the company controls the domain.",
   "variableDescription": "token: the company's ownership token, published as TXT _xebra-pay.pay so Xebra can verify the domain belongs to the company.",
   "syncBlock": false,
