@@ -9,6 +9,7 @@
     "variableDescription": "cfverify is the ownership token Cloudflare for SaaS issues for the custom hostname (the _cf-custom-hostname TXT value).",
     "syncBlock": false,
     "syncPubKeyDomain": "getclementine.app",
+    "syncRedirectDomain": "getclementine.app",
     "hostRequired": true,
     "records": [
         {
