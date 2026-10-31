@@ -1,0 +1,21 @@
+{
+  "providerId": "go1000.ai",
+  "providerName": "Go1000.ai",
+  "version": 1,
+  "logoUrl": "https://go1000.ai/go1000-logo.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "go1000.ai",
+  "syncRedirectDomain": "app.go1000.ai",
+  "serviceId": "website-subdomain",
+  "serviceName": "Go1000.ai Website (subdomain)",
+  "hostRequired": true,
+  "description": "Points a subdomain (like appraisals.yourcompany.com) to the website you built on Go1000.ai.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

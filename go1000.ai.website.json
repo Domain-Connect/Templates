@@ -1,0 +1,26 @@
+{
+  "providerId": "go1000.ai",
+  "providerName": "Go1000.ai",
+  "version": 1,
+  "logoUrl": "https://go1000.ai/go1000-logo.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "go1000.ai",
+  "syncRedirectDomain": "app.go1000.ai",
+  "serviceId": "website",
+  "serviceName": "Go1000.ai Website",
+  "description": "Points your domain to the website you built on Go1000.ai.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
