@@ -1,0 +1,20 @@
+{
+  "providerId": "twinpinesai.com",
+  "providerName": "Twin Pines AI",
+  "serviceId": "subdomain",
+  "serviceName": "Twin Pines Subdomain Hosting",
+  "version": 1,
+  "logoUrl": "https://gafcivzf9i7xirzy.public.blob.vercel-storage.com/e0be7b16-a5bf-424c-b276-6412d8a67e32.png",
+  "description": "Connects a custom subdomain to your Twin Pines website while leaving your email (MX/TXT) records untouched.",
+  "syncPubKeyDomain": "twinpinesai.com",
+  "syncRedirectDomain": "twinpinesai.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.twinpinesai.com",
+      "ttl": 600
+    }
+  ]
+}
