@@ -3,7 +3,7 @@
   "providerName": "SD Panel",
   "serviceId": "custom-domain",
   "serviceName": "SD Panel custom domain",
-  "version": 3,
+  "version": 4,
   "logoUrl": "https://sdnetpanel.com/domain-connect/logo.svg",
   "description": "Points your address at your SD Panel workspace, sets up the email records it needs to send from the notify subdomain of your domain and, for resellers, the wildcard record that serves their customers' addresses.",
   "variableDescription": "Group web: cnameTarget is where the address points, ownershipHost and ownershipValue prove the domain is yours. Group sending, applied under the notify subdomain: spfHost and spfRules authorize SD Panel to send email, mxValue and mxPriority route its bounces on the fixed send address, rsendValue completes its return path on the fixed rsend address, dkimHost and dkimValue sign that email. Group wildcard: cnameTarget is where every subdomain of the address points.",
@@ -60,6 +60,13 @@
       "groupId": "wildcard",
       "type": "CNAME",
       "host": "*",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "demo",
+      "type": "CNAME",
+      "host": "demo",
       "pointsTo": "%cnameTarget%",
       "ttl": 3600
     }
