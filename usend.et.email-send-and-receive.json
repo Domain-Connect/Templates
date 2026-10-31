@@ -3,7 +3,7 @@
 	"providerName": "uSend",
 	"serviceId": "email-send-and-receive",
 	"serviceName": "uSend email sending and receiving",
-	"version": 1,
+	"version": 2,
 	"logoUrl": "https://app.usend.et/logo.svg",
 	"description": "Authenticates a domain for sending with uSend (DKIM signature and the return-path hosts for both uSend transports) and routes incoming mail for the domain to uSend. DMARC is optional and is added by hand.",
 	"variableDescription": "selector: DKIM selector shown in the uSend dashboard for the domain. dkimKey: base64 RSA public key (the p= value) of the domain's DKIM record.",
@@ -38,7 +38,7 @@
 			"groupId": "inbound",
 			"type": "MX",
 			"host": "@",
-			"pointsTo": "inbound-smtp.us-east-1.amazonaws.com",
+			"pointsTo": "receive-use1.umta.et",
 			"priority": 10,
 			"ttl": 3600
 		}
