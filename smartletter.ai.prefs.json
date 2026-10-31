@@ -1,0 +1,20 @@
+{
+    "providerId": "smartletter.ai",
+    "providerName": "Smartletter",
+    "serviceId": "prefs",
+    "serviceName": "Smartletter Preference Center",
+    "version": 1,
+    "logoUrl": "https://smartletter.ai/logo.svg",
+    "syncPubKeyDomain": "smartletter.ai",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "customers.smartletter.ai",
+            "ttl": 3600
+        }
+    ],
+    "syncRedirectDomain": "smartletter.ai",
+    "description": "Connect your domain to the Smartletter subscriber preference center.",
+    "hostRequired": true
+}

@@ -1,0 +1,32 @@
+{
+  "providerId": "hablify.es",
+  "providerName": "Hablify",
+  "serviceId": "website",
+  "serviceName": "Web de Hablify",
+  "version": 1,
+  "logoUrl": "https://hablify.es/logo.svg",
+  "description": "Points a domain at a Hablify website: the ownership record Hablify checks and the IP address of the Hablify edge.",
+  "variableDescription": "token: the per-domain ownership token Hablify generates (32 hex characters). It is an opaque single-purpose value on its own dedicated label (_hablify-verify), so it is used bare.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.hablify.es",
+  "syncRedirectDomain": "app.hablify.es",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_hablify-verify",
+      "data": "%token%",
+      "ttl": 3600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "57.129.159.26",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}

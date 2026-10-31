@@ -1,0 +1,19 @@
+{
+    "providerId": "getcolding.com",
+    "providerName": "colding",
+    "serviceId": "spf",
+    "serviceName": "Allow your mail service to send for your domain",
+    "version": 1,
+    "logoUrl": "https://colding.app/logo.svg",
+    "description": "Adds your mail service to your domain's SPF record, next to what is already there. It does not remove any sender that is allowed now.",
+    "variableDescription": "%include%: the domain to include, such as _spf.example.com.",
+    "syncPubKeyDomain": "getcolding.com",
+    "syncRedirectDomain": "console.colding.app",
+    "records": [
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:%include%"
+        }
+    ]
+}

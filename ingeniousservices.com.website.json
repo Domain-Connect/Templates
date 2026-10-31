@@ -1,0 +1,22 @@
+{
+  "providerId": "ingeniousservices.com",
+  "providerName": "Ingenious Services",
+  "serviceId": "website",
+  "serviceName": "Ingenious Services website",
+  "version": 1,
+  "logoUrl": "https://ingeniousservices.com/favicon.svg",
+  "description": "Points the www name of your domain at the website Ingenious Services built and hosts for you. The certificate is issued automatically once the record is in place. Only this one record is touched; mail and other records are left alone. The bare domain is connected with the separate website-apex template.",
+  "variableDescription": "No variables: the record always points at Ingenious Services hosting.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "ingeniousservices.com",
+  "syncRedirectDomain": "ingeniousservices.com,my.ingeniousservices.com,business.ingeniousservices.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.ingeniousservices.com",
+      "ttl": 3600
+    }
+  ]
+}

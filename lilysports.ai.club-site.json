@@ -1,0 +1,23 @@
+{
+  "providerId": "lilysports.ai",
+  "providerName": "Lily Sports",
+  "serviceId": "club-site",
+  "serviceName": "Lily Sports club website, verification and email",
+  "version": 1,
+  "logoUrl": "https://lilysports.ai/favicon.svg",
+  "description": "Points the club's domain at its Lily Sports website, verifies it with Google and Meta, and authorises Lily Sports to send the club's email. Never changes MX records.",
+  "variableDescription": "googlecode: Google Search Console code; metacode: Meta domain verification code; brevocode: Brevo sender code",
+  "syncBlock": false,
+  "syncPubKeyDomain": "lilysports.ai",
+  "syncRedirectDomain": "operator.percorner.ai,lilysports.ai,dev.lilysports.ai",
+  "shared": true,
+  "sharedProviderName": true,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 },
+    { "type": "TXT", "host": "@", "data": "google-site-verification=%googlecode%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "google-site-verification=" },
+    { "type": "TXT", "host": "@", "data": "facebook-domain-verification=%metacode%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "facebook-domain-verification=" },
+    { "type": "TXT", "host": "@", "data": "brevo-code:%brevocode%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "brevo-code:" },
+    { "type": "SPFM", "host": "@", "spfRules": "include:spf.brevo.com" }
+  ]
+}

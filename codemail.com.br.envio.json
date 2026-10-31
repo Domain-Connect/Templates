@@ -1,0 +1,57 @@
+{
+  "providerId": "codemail.com.br",
+  "providerName": "Code.Mail",
+  "serviceId": "envio",
+  "serviceName": "Envio de e-mail",
+  "version": 2,
+  "logoUrl": "https://codemail.com.br/assets/logo.png",
+  "description": "Configures a dedicated sending subdomain so the customer's transactional and marketing email is sent from their own domain, SPF-authorised and DKIM-signed, with bounce handling and branded click/open tracking.",
+  "variableDescription": "%dkim%: the public key (the p= value of the DKIM record) generated for this domain by Code.Mail. It is unique per domain and cannot be pre-filled. Groups: 'envio' (SPF, DKIM, bounce MX, tracking CNAME) and 'dmarc' (the DMARC policy; the application leaves it out when the domain already publishes DMARC).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "codemail.com.br",
+  "syncRedirectDomain": "app.codemail.com.br",
+  "records": [
+    {
+      "groupId": "envio",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.codemail.com.br"
+    },
+    {
+      "groupId": "envio",
+      "type": "TXT",
+      "host": "codemail._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkim%",
+      "ttl": 3600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "envio",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "bounce-mx.codemail.com.br",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; pct=100",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "groupId": "envio",
+      "type": "CNAME",
+      "host": "track",
+      "pointsTo": "track.codemail.com.br",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

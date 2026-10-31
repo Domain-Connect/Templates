@@ -1,0 +1,27 @@
+{
+  "providerId": "netbound.com.au",
+  "providerName": "Netbound",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "logoUrl": "https://www.netbound.com.au/brand/netbound-mark.svg",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect-keys.netbound.com.au",
+  "syncRedirectDomain": "www.netbound.com.au",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "213.188.199.222",
+      "ttl": 300,
+      "groupId": "website"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 300,
+      "groupId": "www"
+    }
+  ]
+}

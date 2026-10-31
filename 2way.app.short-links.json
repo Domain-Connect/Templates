@@ -1,0 +1,20 @@
+{
+  "providerId": "2way.app",
+  "providerName": "2way",
+  "serviceId": "short-links",
+  "serviceName": "2way branded short links",
+  "version": 1,
+  "logoUrl": "https://cdn.2way.app/domain-connect/logo.svg",
+  "description": "Points this address (for example go or link) at 2way so your SMS short links use your own domain. 2way issues the HTTPS certificate automatically. Use an address that is not already in use: records on it are replaced. Your main domain and email are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "2way.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "link.2way.app",
+      "ttl": 3600
+    }
+  ]
+}

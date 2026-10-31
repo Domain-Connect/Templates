@@ -1,0 +1,31 @@
+{
+  "providerId": "canalweb.app",
+  "providerName": "CanalWeb",
+  "serviceId": "tienda",
+  "serviceName": "Online store",
+  "version": 1,
+  "logoUrl": "https://canalweb.app/img/canalweb-logo.svg",
+  "description": "Connects a domain to a CanalWeb online store: the chosen host (usually www) opens the store. The apex and email records are not touched.",
+  "variableDescription": "%txtvalor%: ownership verification token issued by Cloudflare for SaaS for the custom hostname (pre-validation TXT).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "canalweb.app",
+  "syncRedirectDomain": "panel.canalweb.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "tiendas.canalweb.app",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%txtvalor%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

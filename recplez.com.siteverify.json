@@ -1,0 +1,25 @@
+{
+  "providerId": "recplez.com",
+  "providerName": "RecPlez",
+  "serviceId": "siteverify",
+  "serviceName": "RecPlez website verification",
+  "version": 1,
+  "logoUrl": "https://recplez.com/icon.png",
+  "description": "Adds one TXT record that proves you own the website, so RecPlez can make sign-in and form videos of it.",
+  "variableDescription": "token: the verification code shown in RecPlez under My websites",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "recplez.com",
+  "syncRedirectDomain": "recplez.com,stage.recplez.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_recplez",
+      "data": "recplez-site-verification=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "recplez-site-verification="
+    }
+  ]
+}

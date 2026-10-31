@@ -1,0 +1,23 @@
+{
+    "providerId": "outboundpro.com.br",
+    "providerName": "OutboundPro",
+    "serviceId": "campaign-dmarc",
+    "serviceName": "Campanhas de e-mail (DMARC recomendado)",
+    "version": 1,
+    "logoUrl": "https://outboundpro.com.br/favicon.svg",
+    "description": "Adds a monitoring-only DMARC policy (p=none) to the customer's sending domain. OutboundPro only offers it when neither the sending domain nor its parent zone has a DMARC record, so it never replaces an existing policy. Apply with the host parameter set to the sending subdomain (empty for the zone apex).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "outboundpro.com.br",
+    "syncRedirectDomain": "workspace.outboundpro.com.br,app.outboundpro.com.br",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

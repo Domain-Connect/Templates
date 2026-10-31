@@ -1,0 +1,21 @@
+{
+  "providerId": "taskreply.com",
+  "providerName": "TaskReply",
+  "serviceId": "sending-domain",
+  "serviceName": "TaskReply email sending",
+  "version": 1,
+  "logoUrl": "https://taskreply.com/favicon.svg",
+  "description": "Lets TaskReply send email as your domain: three DKIM records for Amazon SES and one TXT record proving your organization controls the domain.",
+  "variableDescription": "dkim1, dkim2, dkim3: Amazon SES Easy DKIM tokens; verification: the organization's ownership token",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "taskreply.com",
+  "syncRedirectDomain": "taskreply.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "TXT", "host": "@", "data": "taskreply-verification=%verification%", "ttl": 3600, "txtConflictMatchingMode": "None" }
+  ]
+}

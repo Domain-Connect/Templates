@@ -1,0 +1,34 @@
+{
+  "providerId": "cartroi.com",
+  "providerName": "CartROI",
+  "serviceId": "email-da-loja",
+  "serviceName": "CartROI - e-mail da loja",
+  "version": 1,
+  "logoUrl": "https://app.cartroi.com/icon.png",
+  "description": "Authorizes CartROI (a Brazilian checkout and storefront platform) to send the store's transactional e-mails (order, abandoned cart, automations) on behalf of the merchant's domain. Sets the DKIM public key for the fixed selector 'resend', and on the 'send' subdomain the SPF include and the bounce/feedback MX. The merchant can also publish the same three records by hand; this template only replaces the copy-and-paste.",
+  "variableDescription": "%dkim%: the DKIM public key issued for this domain (the value after p=, base64, no spaces); %regiao%: the sending region of the mail provider, e.g. sa-east-1 or us-east-1",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cartroi.com",
+  "syncRedirectDomain": "cartroi.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%regiao%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

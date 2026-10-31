@@ -1,0 +1,44 @@
+{
+  "providerId": "fullexperience.io",
+  "providerName": "FullExperience",
+  "serviceId": "email",
+  "serviceName": "Business email sending",
+  "version": 1,
+  "logoUrl": "https://fullexperience.io/icon.svg",
+  "description": "Lets FullExperience send a business's customer emails (confirmations, receipts, replies) from the business's own domain, with DKIM, SPF and DMARC.",
+  "variableDescription": "dkimkey: DKIM public key data (base64, without the p= prefix) issued for this domain; region: the sending region, e.g. us-east-1",
+  "syncBlock": false,
+  "syncPubKeyDomain": "fullexperience.io",
+  "syncRedirectDomain": "fullexperience.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

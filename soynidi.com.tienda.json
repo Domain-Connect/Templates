@@ -1,0 +1,17 @@
+{
+  "providerId": "soynidi.com",
+  "providerName": "Nidi",
+  "serviceId": "tienda",
+  "serviceName": "Tienda en línea Nidi",
+  "version": 1,
+  "logoUrl": "https://soynidi.com/logonidi.svg",
+  "description": "Conecta tu dominio a tu tienda de Nidi: un registro A en la raíz hacia el balanceador de Nidi y un CNAME para www.",
+  "variableDescription": "Sin variables: la IP y el destino son fijos.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "soynidi.com",
+  "syncRedirectDomain": "soynidi.com,nidiweb.web.app",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "136.81.230.179", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "tiendas.soynidi.com", "ttl": 3600 }
+  ]
+}

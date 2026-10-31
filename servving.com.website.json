@@ -1,0 +1,39 @@
+{
+  "providerId": "servving.com",
+  "providerName": "Servving",
+  "logoUrl": "https://servving.com/logo.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "servving.com",
+  "syncRedirectDomain": "app.servving.com,app-dev.servving.com",
+  "serviceId": "website",
+  "serviceName": "Servving website",
+  "version": 1,
+  "description": "Points this address at your Servving website and lets Cloudflare issue its HTTPS certificate.",
+  "variableDescription": "ownership: hostname verification token; acme: certificate validation token (optional)",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "origin.servvingsites.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "certificate",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%acme%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

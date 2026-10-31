@@ -1,0 +1,27 @@
+{
+  "providerId": "exhibe.store",
+  "providerName": "Exhibe",
+  "serviceId": "storefront",
+  "serviceName": "Exhibe Storefront",
+  "version": 1,
+  "logoUrl": "https://exhibe.store/brand/icon-coral.svg",
+  "description": "Points your domain to your Exhibe store.",
+  "variableDescription": "ip is the public IPv4 address of the Exhibe servers",
+  "syncPubKeyDomain": "exhibe.store",
+  "syncRedirectDomain": "app.exhibe.store",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "providerId": "2way.app",
+  "providerName": "2way",
+  "serviceId": "short-links-apex",
+  "serviceName": "2way branded short links (root domain)",
+  "version": 1,
+  "logoUrl": "https://cdn.2way.app/domain-connect/logo.svg",
+  "description": "Points your domain itself (for example yourbrand.link, not a subdomain) at 2way so your SMS short links use it, and adds a CAA record allowing Let's Encrypt to issue its HTTPS certificate. The domain's current A and AAAA records are replaced, so any website on it stops working: use a domain dedicated to short links. Email (MX) records are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "2way.app",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "15.197.184.225",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "3.33.173.217",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "2600:9000:a60c:f9c0:d4c:8ea0:6ece:d93b",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "2600:9000:a50e:fbdc:e1e4:4a2d:9902:cd7c",
+      "ttl": 3600
+    },
+    {
+      "type": "CAA",
+      "host": "@",
+      "data": "0 issue \"letsencrypt.org\"",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

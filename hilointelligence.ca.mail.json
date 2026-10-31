@@ -1,0 +1,62 @@
+{
+  "providerId": "hilointelligence.ca",
+  "providerName": "AI Center",
+  "serviceId": "mail",
+  "serviceName": "AI Center Communications — hosted mail",
+  "version": 1,
+  "description": "DNS for a domain whose mailboxes are hosted by AI Center Communications: ownership verification, SPF (merged), DKIM, DMARC and the MX. Groups let the wizard apply the ownership record first, the authentication records while the previous mail service still delivers, and the MX as a separate deliberate step.",
+  "variableDescription": "%verify%: the ownership token the wizard issued; %spf%: SPF mechanisms authorizing the deployment's mail host (merged into any existing SPF); %dkim1sel% / %dkim1% and %dkim2sel% / %dkim2%: DKIM selectors and the tags after v=DKIM1 for the two published keys; %dmarc%: the DMARC tags after v=DMARC1 (merged by the wizard with any existing policy); %mx%: the deployment's mail host.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.hilointelligence.ca",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_mailsetup",
+      "data": "mail-domain-verification=%verify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mail-domain-verification="
+    },
+    {
+      "groupId": "auth",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spf%"
+    },
+    {
+      "groupId": "auth",
+      "type": "TXT",
+      "host": "%dkim1sel%._domainkey",
+      "data": "v=DKIM1; %dkim1%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dkim2",
+      "type": "TXT",
+      "host": "%dkim2sel%._domainkey",
+      "data": "v=DKIM1; %dkim2%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "auth",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx%",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

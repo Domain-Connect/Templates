@@ -1,0 +1,31 @@
+{
+  "providerId": "abacus.ai",
+  "providerName": "Abacus.AI",
+  "serviceId": "hostedapp",
+  "serviceName": "Abacus.AI Apps",
+  "version": 2,
+  "logoUrl": "https://abacus.ai/apple-touch-icon.png",
+  "description": "Connects a domain to a web app hosted on Abacus.AI.",
+  "variableDescription": "ip: the Abacus.AI edge address serving the app",
+  "syncBlock": false,
+  "syncPubKeyDomain": "abacus.ai",
+  "syncRedirectDomain": "abacus.ai,internalreai.com",
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300,
+      "essential": "Always"
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%ip%",
+      "ttl": 300,
+      "essential": "Always"
+    }
+  ]
+}

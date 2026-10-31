@@ -1,0 +1,45 @@
+{
+    "providerId": "outstamp.scaling.pt",
+    "providerName": "Outstamp",
+    "serviceId": "sending-domain",
+    "serviceName": "Email sending domain",
+    "version": 1,
+    "logoUrl": "https://outstamp.scaling.pt/logo.svg",
+    "description": "DKIM signing and a custom MAIL FROM domain for email sent through Outstamp (Amazon SES).",
+    "variableDescription": "dkim1-3: SES Easy DKIM tokens; mailfrom: MAIL FROM label under the applied host; region: SES Region of the domain.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "outstamp.scaling.pt",
+    "syncRedirectDomain": "outstamp.scaling.pt",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "%mailfrom%",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "%mailfrom%",
+            "spfRules": "include:amazonses.com"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+  "providerId": "sokosumi.com",
+  "providerName": "Sokosumi",
+  "serviceId": "newsletter",
+  "serviceName": "Sokosumi Newsletter sending domain",
+  "version": 1,
+  "logoUrl": "https://app.sokosumi.com/images/app-icons/manifest-icon-192.maskable.png",
+  "description": "Lets Sokosumi send newsletters from your own address on this domain. Adds the DKIM key that proves the mail is from you, the SPF record that lets Sokosumi send for you, the MX record that receives bounces and, when the domain has none, a monitoring-only DMARC policy.",
+  "variableDescription": "dkimkey: the DKIM public key (TXT value, p=...) Resend issued for this domain. mxhost: the Amazon SES feedback host for the domain's Resend region, e.g. feedback-smtp.us-east-1.amazonses.com. Group mail is always applied; group dmarc only when the domain has no DMARC policy.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "sokosumi.com",
+  "syncRedirectDomain": "app.sokosumi.com",
+  "records": [
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mxhost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

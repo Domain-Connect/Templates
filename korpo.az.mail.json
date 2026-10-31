@@ -1,0 +1,60 @@
+{
+  "providerId": "korpo.az",
+  "providerName": "Korpo",
+  "serviceId": "mail",
+  "serviceName": "Korpo Mail",
+  "version": 1,
+  "logoUrl": "https://korpo.az/img/brand/icon.svg",
+  "description": "Korpo Mail for your domain: MX, SPF, DKIM, DMARC, Autodiscover and Autoconfig records.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "korpo.az",
+  "syncRedirectDomain": "korpo.az",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.korpo.az",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx include:_spf-c.mailbaby.net"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=ed25519; h=sha256; p=%dkimkey%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector2%._domainkey",
+      "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimkey2%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@korpo.az",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "autodiscover.korpo.az",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "autoconfig.korpo.az",
+      "ttl": 3600
+    }
+  ],
+  "variableDescription": "dkimselector/dkimkey are the ed25519 DKIM selector and public key, dkimselector2/dkimkey2 the RSA pair; both are generated per domain by Korpo and shown in the Korpo panel."
+}

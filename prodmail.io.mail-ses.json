@@ -1,0 +1,20 @@
+{
+  "providerId": "prodmail.io",
+  "providerName": "Prodmail",
+  "serviceId": "mail-ses",
+  "serviceName": "Prodmail outgoing mail",
+  "version": 1,
+  "description": "Configures DKIM and a dedicated MAIL FROM domain for outgoing Prodmail email. Incoming mail routing is unchanged.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "prodmail.io",
+  "syncRedirectDomain": "prodmail.io",
+  "variableDescription": "token: Prodmail ownership token; dkim1, dkim2, dkim3: SES DKIM tokens; region: SES AWS region",
+  "records": [
+    {"type":"TXT","host":"_prodmail","data":"prodmail-verify=%token%","ttl":3600,"txtConflictMatchingMode":"Prefix","txtConflictMatchingPrefix":"prodmail-verify=","essential":"OnApply"},
+    {"type":"CNAME","host":"%dkim1%._domainkey","pointsTo":"%dkim1%.dkim.amazonses.com","ttl":3600},
+    {"type":"CNAME","host":"%dkim2%._domainkey","pointsTo":"%dkim2%.dkim.amazonses.com","ttl":3600},
+    {"type":"CNAME","host":"%dkim3%._domainkey","pointsTo":"%dkim3%.dkim.amazonses.com","ttl":3600},
+    {"type":"MX","host":"pm-bounce","pointsTo":"feedback-smtp.%region%.amazonses.com","priority":10,"ttl":3600},
+    {"type":"SPFM","host":"pm-bounce","spfRules":"include:amazonses.com"}
+  ]
+}

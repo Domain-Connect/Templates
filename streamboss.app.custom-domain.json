@@ -3,10 +3,10 @@
   "providerName": "StreamBoss",
   "serviceId": "custom-domain",
   "serviceName": "StreamBoss custom domain",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://streamboss.app/domain-connect/logo.svg",
-  "description": "Points your address at your StreamBoss workspace and sets up the email records it needs to send from the notify subdomain of your domain.",
-  "variableDescription": "Group web: cnameTarget is where the address points, ownershipHost and ownershipValue prove the domain is yours. Group sending, applied under the notify subdomain: spfHost and spfRules authorize StreamBoss to send email, mxValue and mxPriority route its bounces on the fixed send address, rsendValue completes its return path on the fixed rsend address, dkimHost and dkimValue sign that email.",
+  "description": "Points your address at your StreamBoss workspace, sets up the email records it needs to send from the notify subdomain of your domain and, for resellers, the wildcard record that serves their customers' addresses.",
+  "variableDescription": "Group web: cnameTarget is where the address points, ownershipHost and ownershipValue prove the domain is yours. Group sending, applied under the notify subdomain: spfHost and spfRules authorize StreamBoss to send email, mxValue and mxPriority route its bounces on the fixed send address, rsendValue completes its return path on the fixed rsend address, dkimHost and dkimValue sign that email. Group wildcard: cnameTarget is where every subdomain of the address points.",
   "syncPubKeyDomain": "streamboss.app",
   "syncRedirectDomain": "streamboss.app,codstreamingjp.com",
   "syncBlock": false,
@@ -55,6 +55,13 @@
       "data": "%dkimValue%",
       "ttl": 3600,
       "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "wildcard",
+      "type": "CNAME",
+      "host": "*",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 3600
     }
   ]
 }

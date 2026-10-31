@@ -1,0 +1,30 @@
+{
+  "providerId": "gravel.site",
+  "providerName": "Gravel",
+  "serviceId": "website",
+  "serviceName": "Gravel website",
+  "version": 2,
+  "logoUrl": "https://gravel.site/assets/img/favicon.svg",
+  "description": "Connects your domain to your Gravel website. Your domain without www shows your site, and www sends visitors to it. Email records are not changed.",
+  "variableDescription": "code: your site's own Gravel address, the first part of <code>.connect.gravel.site",
+  "syncPubKeyDomain": "gravel.site",
+  "syncRedirectDomain": "app.gravel.site",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%code%.connect.gravel.site",
+      "ttl": 3600
+    },
+    {
+      "groupId": "bare",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "157.230.68.202",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

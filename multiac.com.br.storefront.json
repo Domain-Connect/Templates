@@ -1,0 +1,30 @@
+{
+    "providerId": "multiac.com.br",
+    "providerName": "MultiAC",
+    "serviceId": "storefront",
+    "serviceName": "Loja MultiAC",
+    "version": 1,
+    "logoUrl": "https://multiac.com.br/favicon.svg",
+    "description": "Publica a loja virtual no domínio próprio do cliente.",
+    "variableDescription": "token: código de verificação do domínio da loja",
+    "syncBlock": false,
+    "syncPubKeyDomain": "multiac.com.br",
+    "syncRedirectDomain": "multiac.com.br",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_gestao",
+            "data": "gestao-verify=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "gestao-verify="
+        },
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "lojas.multiac.com.br",
+            "ttl": 3600
+        }
+    ]
+}
