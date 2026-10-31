@@ -16,11 +16,9 @@
       "pointsTo": "sites.closekite.com"
     },
     {
-      "ttl": 3600,
-      "type": "A",
+      "type": "REDIR301",
       "host": "@",
-      "pointsTo": "2.28.45.6",
-      "essential": "OnApply"
+      "target": "https://www.%fqdn%"
     }
   ]
 }
