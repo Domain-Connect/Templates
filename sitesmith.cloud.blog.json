@@ -1,0 +1,18 @@
+{
+  "providerId": "sitesmith.cloud",
+  "providerName": "SiteSmith",
+  "serviceId": "blog",
+  "serviceName": "SiteSmith Blog (subdomain)",
+  "version": 1,
+  "logoUrl": "https://sitesmith.cloud/icon.png",
+  "description": "Points a subdomain at a SiteSmith blog and proves you own it.",
+  "variableDescription": "verifyToken: ownership token; target: the blog server's hostname",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.sitesmith.cloud",
+  "syncRedirectDomain": "workspace.sitesmith.cloud",
+  "hostRequired": true,
+  "records": [
+    { "type": "TXT", "host": "_sitesmith-verify", "data": "sitesmith-verify=%verifyToken%", "ttl": 600, "txtConflictMatchingMode": "All" },
+    { "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 600 }
+  ]
+}
