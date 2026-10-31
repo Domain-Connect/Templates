@@ -1,0 +1,15 @@
+{
+  "providerId": "okreply.ai",
+  "providerName": "OkReply",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://okreply.ai/icons/icon-512.png",
+  "description": "Points the domain's apex and www at the dealer's OkReply website, served by Vercel",
+  "syncPubKeyDomain": "okreply.ai",
+  "syncRedirectDomain": "okreply.ai",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 600 }
+  ]
+}
