@@ -1,0 +1,50 @@
+{
+  "providerId": "mtoyu.com",
+  "providerName": "mtoyu",
+  "serviceId": "mail",
+  "serviceName": "mtoyu Mail",
+  "version": 1,
+  "logoUrl": "https://mail.mtoyu.com/icon-512.png",
+  "description": "Connects your domain to mtoyu Mail: receiving mail, sender authentication (SPF, DKIM) and a DMARC policy.",
+  "variableDescription": "verify is the ownership token of the domain in your mtoyu workspace; dkim is the DKIM public key record of the domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mtoyu.com",
+  "syncRedirectDomain": "mail.mtoyu.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "mtoyu-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.mtoyu.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.mtoyu.com"
+    },
+    {
+      "type": "TXT",
+      "host": "mtoyu._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; pct=100",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
