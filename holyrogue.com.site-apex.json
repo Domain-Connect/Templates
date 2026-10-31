@@ -1,0 +1,16 @@
+{
+  "providerId": "holyrogue.com",
+  "providerName": "Holy Rogue",
+  "serviceId": "site-apex",
+  "serviceName": "Holy Rogue / Sovere site",
+  "version": 1,
+  "logoUrl": "https://holyrogue.com/logo/Holy%20Rogue%20LOGO%20Black.png",
+  "description": "Points your domain and its www at your Holy Rogue or Sovere site. Holy Rogue then issues the site's certificate.",
+  "syncPubKeyDomain": "dc.holyrogue.com",
+  "syncRedirectDomain": "holyrogue.com,sovere.ink",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "74.214.252.152", "ttl": 300 },
+    { "type": "CNAME", "host": "www", "pointsTo": "@", "ttl": 300 }
+  ]
+}

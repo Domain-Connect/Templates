@@ -1,0 +1,18 @@
+{
+  "providerId": "tuti.so",
+  "providerName": "Tuti",
+  "serviceId": "email-domain",
+  "serviceName": "Support replies from your own address",
+  "version": 1,
+  "logoUrl": "https://tuti.so/icon.svg",
+  "description": "Amazon SES's 3 DKIM records, so Tuti sends the team's support replies from their own address. Applied with host set when the address is on a subdomain.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the DKIM tokens Amazon SES gives for the domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tuti.so",
+  "syncRedirectDomain": "tuti.so",
+  "records": [
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 }
+  ]
+}

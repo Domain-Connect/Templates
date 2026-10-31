@@ -1,0 +1,34 @@
+{
+    "providerId": "freshsite.com.au",
+    "providerName": "Fresh Site",
+    "serviceId": "website",
+    "serviceName": "Fresh Site Website Hosting",
+    "version": 1,
+    "logoUrl": "https://freshsite.com.au/dc-logo.svg",
+    "description": "Points the domain and its www address at the website Fresh Site hosts for you. Email (MX) and every other record are left as they are.",
+    "variableDescription": "%wwwtarget%: the www CNAME target Vercel issues for the client's hosting project (for example 0123456789abcdef.vercel-dns-016.com, or cname.vercel-dns.com)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "freshsite.com.au",
+    "syncRedirectDomain": "freshsite.com.au",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "216.150.1.1",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "216.150.16.1",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%wwwtarget%",
+            "ttl": 3600
+        }
+    ]
+}

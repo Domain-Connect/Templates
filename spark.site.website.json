@@ -1,0 +1,48 @@
+{
+  "providerId": "spark.site",
+  "providerName": "Spark",
+  "serviceId": "website",
+  "serviceName": "Spark site",
+  "version": 1,
+  "logoUrl": "https://spark.site/favicon.svg",
+  "description": "Points a domain and its www address at a site built with Spark, for DNS providers that flatten a CNAME record at the domain root, and adds the TXT records that prove the domain belongs to the Spark project.",
+  "variableDescription": "%token%: the Spark project's verification token for the domain, 32 lowercase hexadecimal characters",
+  "syncBlock": false,
+  "syncPubKeyDomain": "spark.site",
+  "syncRedirectDomain": "app.spark.site",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "root",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.spark.site",
+      "ttl": 300
+    },
+    {
+      "groupId": "root",
+      "type": "TXT",
+      "host": "_cf-challenge",
+      "data": "d3qkstsajgjk0h.cloudfront.net",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.spark.site",
+      "ttl": 300
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_spark-verify",
+      "data": "spark-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}
