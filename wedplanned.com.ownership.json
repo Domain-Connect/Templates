@@ -1,0 +1,23 @@
+{
+  "providerId": "wedplanned.com",
+  "providerName": "WedPlanned",
+  "version": 1,
+  "logoUrl": "https://wedplanned.com/brand/wedplanned-pink-dark.png",
+  "syncPubKeyDomain": "domainconnect.wedplanned.com",
+  "syncRedirectDomain": "app.wedplanned.com",
+  "serviceId": "ownership",
+  "serviceName": "Website ownership",
+  "description": "Verify a website address for WedPlanned without moving the website.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_wedplanned",
+      "data": "wedplanned=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "wedplanned="
+    }
+  ],
+  "variableDescription": "verification is the unique ownership token generated for this business and website address.",
+  "hostRequired": true
+}
