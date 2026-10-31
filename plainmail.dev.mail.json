@@ -3,10 +3,10 @@
     "providerName": "Plainmail",
     "serviceId": "mail",
     "serviceName": "Plainmail email hosting",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://plainmail.dev/assets/logo.svg",
-    "description": "Hosted mail for a customer domain: inbound MX to Plainmail, SPF, Amazon SES Easy DKIM and custom MAIL FROM (bounce), DMARC, and mail client autoconfig/autodiscover.",
-    "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three Amazon SES Easy DKIM tokens for the domain (lowercase alphanumeric)",
+    "description": "Hosted mail for a customer domain: inbound MX to Plainmail, SPF, Amazon SES Easy DKIM and custom MAIL FROM (bounce), DMARC, mail client autoconfig/autodiscover, and a TXT proving the Plainmail account owns the domain. Optional groups, applied only when requested: backup MX (backupmx), MTA-STS policy delegation (mtasts), and TLS reporting (tlsrpt).",
+    "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three Amazon SES Easy DKIM tokens for the domain (lowercase alphanumeric); %verify%: the Plainmail ownership token (base64url)",
     "syncBlock": false,
     "syncPubKeyDomain": "plainmail.dev",
     "syncRedirectDomain": "app.plainmail.dev",
@@ -84,6 +84,49 @@
             "host": "autodiscover",
             "pointsTo": "autodiscover.plainmailhost.com",
             "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_plainmail-verify",
+            "data": "plainmail-verify=%verify%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "backupmx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx2.plainmailhost.com",
+            "priority": 20,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mtasts",
+            "type": "CNAME",
+            "host": "mta-sts",
+            "pointsTo": "mta-sts.plainmailhost.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "mtasts",
+            "type": "CNAME",
+            "host": "_mta-sts",
+            "pointsTo": "_mta-sts.plainmailhost.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "tlsrpt",
+            "type": "TXT",
+            "host": "_smtp._tls",
+            "data": "v=TLSRPTv1; rua=mailto:tlsrpt@plainmailhost.com",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=TLSRPTv1",
             "essential": "OnApply"
         }
     ]
