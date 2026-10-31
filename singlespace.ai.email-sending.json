@@ -1,0 +1,49 @@
+{
+  "providerId": "singlespace.ai",
+  "providerName": "SingleSpace",
+  "version": 1,
+  "logoUrl": "https://app.singlespace.ai/brand/singlespace-mark-light.svg",
+  "syncPubKeyDomain": "domainconnect.singlespace.ai",
+  "syncRedirectDomain": "app.singlespace.ai",
+  "syncBlock": false,
+  "hostRequired": false,
+  "serviceId": "email-sending",
+  "serviceName": "SingleSpace Email Sending",
+  "description": "Authenticate a dedicated subdomain for SingleSpace room invitation email.",
+  "variableDescription": "ownership: fresh SingleSpace ownership challenge; dkim: Resend DKIM public key without p=; region: AWS sending region.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_singlespace-mail",
+      "data": "%ownership%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 300
+    }
+  ]
+}
