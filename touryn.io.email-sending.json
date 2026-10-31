@@ -1,0 +1,42 @@
+{
+  "providerId": "touryn.io",
+  "providerName": "Touryn",
+  "serviceId": "email-sending",
+  "serviceName": "Touryn branded email",
+  "version": 1,
+  "logoUrl": "https://touryn.io/images/brand/touryn-app-icon-128.png",
+  "syncPubKeyDomain": "touryn.io",
+  "syncRedirectDomain": "app.touryn.io",
+  "multiInstance": true,
+  "hostRequired": true,
+  "description": "Configure only the designated sending subdomain. Preserve existing mailbox MX and DMARC.",
+  "variableDescription": "Exact DNS values from the current canonical Resend provider identity. MX priority is supported only when the provider returns 10; otherwise use manual setup.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%returnMx%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "%returnCname%",
+      "ttl": 3600
+    }
+  ]
+}
