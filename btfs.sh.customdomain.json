@@ -1,0 +1,30 @@
+{
+  "providerId": "btfs.sh",
+  "providerName": "btfs.sh",
+  "serviceId": "customdomain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://btfs.sh/logo.svg",
+  "description": "Points a hostname at btfs.sh so it can serve a custom domain with HTTPS.",
+  "variableDescription": "tenant: the app's edge label; token: per-domain verification token",
+  "sharedProviderName": true,
+  "shared": true,
+  "hostRequired": true,
+  "syncPubKeyDomain": "btfs.sh",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%tenant%.edge.btfs.sh",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_btfs-verify",
+      "data": "btfs-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "btfs-verify="
+    }
+  ]
+}
