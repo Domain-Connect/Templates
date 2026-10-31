@@ -1,0 +1,25 @@
+{
+  "providerId": "hemmabo.com",
+  "providerName": "HemmaBo",
+  "serviceId": "node",
+  "serviceName": "Booking site on your own domain",
+  "version": 1,
+  "logoUrl": "https://www.hemmabo.com/favicon.svg",
+  "description": "Points the domain and its www to the host's own booking site, run by HemmaBo on Vercel (anycast 216.150.1.1). Fixed records, no variables.",
+  "syncPubKeyDomain": "hemmabo.com",
+  "syncRedirectDomain": "www.hemmabo.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.150.1.1",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "216.150.1.1",
+      "ttl": 3600
+    }
+  ]
+}
