@@ -1,15 +1,15 @@
 {
-    "providerId": "outstamp.scaling.pt",
+    "providerId": "outstamp.dev",
     "providerName": "Outstamp",
     "serviceId": "sending-domain",
     "serviceName": "Email sending domain",
     "version": 1,
-    "logoUrl": "https://outstamp.scaling.pt/logo.svg",
+    "logoUrl": "https://outstamp.dev/logo.svg",
     "description": "DKIM signing and a custom MAIL FROM domain for email sent through Outstamp (Amazon SES).",
     "variableDescription": "dkim1-3: SES Easy DKIM tokens; mailfrom: MAIL FROM label under the applied host; region: SES Region of the domain.",
     "syncBlock": false,
-    "syncPubKeyDomain": "outstamp.scaling.pt",
-    "syncRedirectDomain": "outstamp.scaling.pt",
+    "syncPubKeyDomain": "outstamp.dev",
+    "syncRedirectDomain": "outstamp.dev",
     "records": [
         {
             "type": "CNAME",
