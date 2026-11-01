@@ -1,0 +1,17 @@
+{
+  "providerId": "solta.now",
+  "providerName": "Solta",
+  "serviceId": "site-apex",
+  "serviceName": "Solta site on your domain itself",
+  "version": 1,
+  "logoUrl": "https://solta.now/brand/favicon.png",
+  "description": "Points your domain itself (example.com) at a site published on Solta, and adds the TXT record that proves the domain is yours.",
+  "variableDescription": "ipv4: Solta's server address; token: the proof Solta showed you when you added the domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "solta.now",
+  "syncRedirectDomain": "solta.now",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%ipv4%", "ttl": 3600 },
+    { "type": "TXT", "host": "_solta", "data": "solta-verify=%token%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "solta-verify=" }
+  ]
+}
