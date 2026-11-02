@@ -1,0 +1,19 @@
+{
+  "providerId": "quicksignals.io",
+  "providerName": "QuickSignals",
+  "serviceId": "email",
+  "serviceName": "QuickSignals email sending",
+  "version": 1,
+  "logoUrl": "https://blog.quicksignals.io/wp-content/uploads/2026/10/quicksignals-logo-transparent.png",
+  "description": "Adds the DKIM and bounce-handling records QuickSignals needs to send email from your domain.",
+  "variableDescription": "dkim1, dkim2 and dkim3 are the DKIM selectors. region is the sending region.",
+  "syncPubKeyDomain": "quicksignals.io",
+  "syncRedirectDomain": "app.quicksignals.io",
+  "records": [
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "MX", "host": "send", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com" }
+  ]
+}
