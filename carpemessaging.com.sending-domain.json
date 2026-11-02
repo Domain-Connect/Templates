@@ -3,7 +3,7 @@
   "providerName": "Carpe Messaging",
   "serviceId": "sending-domain",
   "serviceName": "Send from your own domain",
-  "version": 3,
+  "version": 4,
   "logoUrl": "https://carpemessaging.com/domain-connect-logo.svg",
   "syncBlock": false,
   "syncPubKeyDomain": "carpemessaging.com",
@@ -31,7 +31,7 @@
     },
     {
       "type": "MX",
-      "host": "send",
+      "host": "%bouncelabel%",
       "ttl": 3600,
       "pointsTo": "feedback-smtp.%region%.amazonses.com",
       "priority": 10,
@@ -39,7 +39,7 @@
     },
     {
       "type": "SPFM",
-      "host": "send",
+      "host": "%bouncelabel%",
       "ttl": 3600,
       "spfRules": "include:amazonses.com",
       "groupId": "email"
