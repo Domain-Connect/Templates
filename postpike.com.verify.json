@@ -1,0 +1,22 @@
+{
+  "providerId": "postpike.com",
+  "providerName": "Postpike",
+  "serviceId": "verify",
+  "serviceName": "Postpike domain check",
+  "version": 1,
+  "logoUrl": "https://admin.postpike.com/favicon.svg",
+  "description": "Proves that the customer controls the domain, before Postpike sets up mail for it.",
+  "variableDescription": "token: the random ownership token Postpike generated for this domain.",
+  "syncPubKeyDomain": "postpike.com",
+  "syncRedirectDomain": "admin.postpike.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_postpike",
+      "data": "postpike-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "postpike-verify="
+    }
+  ]
+}
