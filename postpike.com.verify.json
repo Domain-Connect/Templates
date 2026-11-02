@@ -1,12 +1,12 @@
 {
   "providerId": "postpike.com",
-  "providerName": "Postpike",
+  "providerName": "PostPike",
   "serviceId": "verify",
-  "serviceName": "Postpike domain check",
+  "serviceName": "PostPike domain check",
   "version": 1,
   "logoUrl": "https://admin.postpike.com/favicon.svg",
-  "description": "Proves that the customer controls the domain, before Postpike sets up mail for it.",
-  "variableDescription": "token: the random ownership token Postpike generated for this domain.",
+  "description": "Proves that the customer controls the domain, before PostPike sets up mail for it.",
+  "variableDescription": "token: the random ownership token PostPike generated for this domain.",
   "syncPubKeyDomain": "postpike.com",
   "syncRedirectDomain": "admin.postpike.com",
   "records": [

@@ -1,8 +1,8 @@
 {
   "providerId": "postpike.com",
-  "providerName": "Postpike",
+  "providerName": "PostPike",
   "serviceId": "mail-keep-dmarc",
-  "serviceName": "Postpike mail",
+  "serviceName": "PostPike mail",
   "version": 1,
   "logoUrl": "https://admin.postpike.com/favicon.svg",
   "description": "The mail template without its DMARC record, for a domain that already has one. Some providers ignore TXT conflict matching, so the mail template would leave two DMARC records, which makes receivers ignore both.",

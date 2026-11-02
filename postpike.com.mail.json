@@ -1,8 +1,8 @@
 {
   "providerId": "postpike.com",
-  "providerName": "Postpike",
+  "providerName": "PostPike",
   "serviceId": "mail",
-  "serviceName": "Postpike mail",
+  "serviceName": "PostPike mail",
   "version": 1,
   "logoUrl": "https://admin.postpike.com/favicon.svg",
   "description": "Hosted email on the customer's own domain: MX, SPF, DKIM, DMARC and mail app setup.",
