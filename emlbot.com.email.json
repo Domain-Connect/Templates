@@ -7,7 +7,7 @@
   "hostRequired": true,
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.emlbot.com",
-  "syncRedirectDomain": "app.emlbot.com,emlbot-domain-staging.evkii.workers.dev",
+  "syncRedirectDomain": "app.emlbot.com",
   "description": "Connect a dedicated email subdomain to EMLbot. Existing mail records require review.",
   "records": [
     { "groupId": "ownership", "type": "TXT", "host": "@", "data": "telnyx-domain-verification=%ownershipToken%", "ttl": 300, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "telnyx-domain-verification=" },
