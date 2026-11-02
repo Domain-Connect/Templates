@@ -47,7 +47,7 @@
   "serviceId": "email",
   "serviceName": "Clinic email",
   "syncPubKeyDomain": "domainconnect.wellspot.com",
-  "syncRedirectDomain": "onboarding.wellspot.com,onboarding.dev.wellspot.com",
+  "syncRedirectDomain": "wellspot.com,app.wellspot.com,app.dev.wellspot.com,onboarding.wellspot.com,onboarding.dev.wellspot.com",
   "variableDescription": "dkim1: SES DKIM token 1; dkim2: SES DKIM token 2; dkim3: SES DKIM token 3; mailFromMx: Where bounce reports go",
   "version": 1
 }
