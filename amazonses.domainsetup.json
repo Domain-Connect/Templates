@@ -1,7 +1,7 @@
 {
-  "providerId": "amazonSES",
+  "providerId": "amazonses",
   "providerName": "Amazon SES",
-  "serviceId": "domainSetup",
+  "serviceId": "domainsetup",
   "serviceName": "Domain Setup",
   "version": 1,
   "description": "Publishes the DNS records relevant for a domain for sending with Amazon SES",
