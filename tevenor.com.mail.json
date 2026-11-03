@@ -1,0 +1,62 @@
+{
+    "providerId": "tevenor.com",
+    "providerName": "Tevenor",
+    "serviceId": "mail",
+    "serviceName": "Tevenor Mail",
+    "version": 1,
+    "logoUrl": "https://tevenor.com/brand/icon-180.png",
+    "description": "Connects a domain to Tevenor Mail: DKIM signing (two delegated selectors for key rotation), a return path for bounces with SPF, an optional DMARC policy for domains without one, and inbound mail.",
+    "variableDescription": "dkimid: the domain's DKIM id assigned by Tevenor (16 lowercase hex characters).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "tevenor.com",
+    "syncRedirectDomain": "app.tevenor.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "sending",
+            "type": "CNAME",
+            "host": "tvn1._domainkey",
+            "pointsTo": "tvn1.%dkimid%.dkim.tevenor.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sending",
+            "type": "CNAME",
+            "host": "tvn2._domainkey",
+            "pointsTo": "tvn2.%dkimid%.dkim.tevenor.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sending",
+            "type": "MX",
+            "host": "tvn",
+            "pointsTo": "mx1.in.tevenor.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "sending",
+            "type": "SPFM",
+            "host": "tvn",
+            "spfRules": "include:_spf.tevenor.com"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "receiving",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx1.in.tevenor.com",
+            "priority": 10,
+            "ttl": 3600
+        }
+    ]
+}
