@@ -5,7 +5,7 @@
   "serviceName": "Email sending and receiving",
   "version": 1,
   "logoUrl": "https://openmail.sh/bimi/logo.svg",
-  "description": "Configure email sending and receiving with OpenMail. Applying inbound records replaces existing MX records at the selected domain or subdomain.",
+  "description": "Configure email sending and receiving with OpenMail.",
   "variableDescription": "region: AWS SES region provisioned by OpenMail (for example, eu-north-1). domainKey: base64-encoded RSA public key for the OpenMail omail DKIM selector, without PEM headers or the v=DKIM1; k=rsa; p= prefix.",
   "syncPubKeyDomain": "domainconnect.openmail.sh",
   "syncRedirectDomain": "console.openmail.sh",
