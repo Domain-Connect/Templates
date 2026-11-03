@@ -1,0 +1,64 @@
+{
+  "providerId": "mailhost",
+  "providerName": "MailHost",
+  "serviceId": "emailhosting",
+  "serviceName": "MailHost business email",
+  "version": 1,
+  "logoUrl": "",
+  "description": "Sets up a domain for MailHost business email: the ownership TXT record (group verify), then MX, SPF, DKIM, return-path and DMARC (group mail).",
+  "variableDescription": "verification: ownership code; mxhost: MX host; spfrules: SPF mechanisms to merge; dkimhost/dkim: DKIM TXT name and value; rphost/rptarget: return-path CNAME name and target; dmarc: DMARC TXT value",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "mailhost.oyonoro.com",
+  "syncRedirectDomain": "mailhost.oyonoro.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "@",
+      "data": "forward-email-site-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "forward-email-site-verification="
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxhost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spfrules%"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "%dkimhost%",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mail",
+      "type": "CNAME",
+      "host": "%rphost%",
+      "pointsTo": "%rptarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
