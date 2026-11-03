@@ -15,7 +15,8 @@
             "data": "softualiza-verificacion=%token%",
             "ttl": 300,
             "txtConflictMatchingMode": "Prefix",
-            "txtConflictMatchingPrefix": "softualiza-verificacion="
+            "txtConflictMatchingPrefix": "softualiza-verificacion=",
+            "essential": "OnApply"
         }
     ],
     "syncPubKeyDomain": "domainconnect.softualiza.com"
