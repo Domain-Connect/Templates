@@ -5,8 +5,8 @@
     "serviceName": "RV Park Planner booking website",
     "version": 1,
     "logoUrl": "https://rvparkplanner.com/images/domain-connect-logo.png",
-    "description": "Points your domain (and www) at your RV Park Planner booking website (two A records: our main and standby servers) and adds a TXT record that proves you own the domain.",
-    "variableDescription": "ip: the IPv4 address of the main RV Park Planner server (A record for the domain); ip2: the IPv4 address of the standby RV Park Planner server (second A record for the domain, used on failover); token: the one-time ownership code shown in RV Park Planner, without its rvpp- prefix (TXT record at _rvpp-verify, written as rvpp-<token>)",
+    "description": "Points your domain (and www) at your RV Park Planner booking website (A records for our main and standby servers) and adds a TXT record that proves you own the domain.",
+    "variableDescription": "ip: the IPv4 address of the main RV Park Planner server (A records for the domain and www); ip2: the IPv4 address of the standby RV Park Planner server (second A records for the domain and www, used on failover); token: the one-time ownership code shown in RV Park Planner, without its rvpp- prefix (TXT record at _rvpp-verify, written as rvpp-<token>)",
     "syncBlock": false,
     "syncPubKeyDomain": "rvparkplanner.com",
     "syncRedirectDomain": "rvparkplanner.com",
@@ -25,9 +25,15 @@
             "ttl": 600
         },
         {
-            "type": "CNAME",
+            "type": "A",
             "host": "www",
-            "pointsTo": "@",
+            "pointsTo": "%ip%",
+            "ttl": 600
+        },
+        {
+            "type": "A",
+            "host": "www",
+            "pointsTo": "%ip2%",
             "ttl": 600
         },
         {
