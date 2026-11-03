@@ -1,0 +1,33 @@
+{
+  "providerId": "postpike.com",
+  "providerName": "PostPike",
+  "serviceId": "mail-shared",
+  "serviceName": "PostPike mail next to another provider",
+  "version": 1,
+  "logoUrl": "https://admin.postpike.com/favicon.svg",
+  "description": "For a domain that keeps its current mail provider and adds PostPike addresses alongside: lets PostPike send for the domain (SPF and DKIM), and leaves the MX, DMARC and mail app records as they are.",
+  "variableDescription": "edselector, edkey: selector and public key of the domain's Ed25519 DKIM key. rsaselector, rsakey: the same for its RSA key. The mail server generates both for each domain.",
+  "syncPubKeyDomain": "postpike.com",
+  "syncRedirectDomain": "admin.postpike.com",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a:mx1.postpike.net"
+    },
+    {
+      "type": "TXT",
+      "host": "%edselector%._domainkey",
+      "data": "v=DKIM1; k=ed25519; h=sha256; p=%edkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "%rsaselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; h=sha256; p=%rsakey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
