@@ -1,0 +1,23 @@
+{
+  "providerId": "kernhosting.com",
+  "providerName": "KernHosting",
+  "serviceId": "cdn",
+  "serviceName": "KernHosting CDN",
+  "version": 1,
+  "logoUrl": "https://portal.kernhosting.com/brand/logo-mark-light.png",
+  "description": "Connects a subdomain (website or game server) to the KernHosting CDN with a CNAME record.",
+  "variableDescription": "target: ID of the hostname in the CDN (first label of the CNAME target in cdn.kernhosting.com)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "kernhosting.com",
+  "syncRedirectDomain": "portal.kernhosting.com",
+  "hostRequired": true,
+  "multiInstance": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%.cdn.kernhosting.com",
+      "ttl": 300
+    }
+  ]
+}
