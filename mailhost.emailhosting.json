@@ -4,9 +4,9 @@
   "serviceId": "emailhosting",
   "serviceName": "MailHost business email",
   "version": 1,
-  "logoUrl": "",
+  "logoUrl": "https://mailhost.oyonoro.com/favicon.svg",
   "description": "Sets up a domain for MailHost business email: the ownership TXT record (group verify), then MX, SPF, DKIM, return-path and DMARC (group mail).",
-  "variableDescription": "verification: ownership code; mxhost: MX host; spfrules: SPF mechanisms to merge; dkimhost/dkim: DKIM TXT name and value; rphost/rptarget: return-path CNAME name and target; dmarc: DMARC TXT value",
+  "variableDescription": "verification: ownership code; dkimselector: per-domain part of the DKIM selector; dkimkey: DKIM public key; dmarcid: per-domain id in the DMARC report address",
   "syncBlock": false,
   "sharedProviderName": false,
   "hostRequired": false,
@@ -26,7 +26,7 @@
       "groupId": "mail",
       "type": "MX",
       "host": "@",
-      "pointsTo": "%mxhost%",
+      "pointsTo": "mx.gtcad.com",
       "priority": 10,
       "ttl": 3600
     },
@@ -34,31 +34,224 @@
       "groupId": "mail",
       "type": "SPFM",
       "host": "@",
-      "spfRules": "%spfrules%"
+      "spfRules": "include:spf.forwardemail.net"
     },
     {
       "groupId": "mail",
       "type": "TXT",
-      "host": "%dkimhost%",
-      "data": "%dkim%",
+      "host": "fe-%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%;",
       "ttl": 3600,
       "txtConflictMatchingMode": "All"
     },
     {
       "groupId": "mail",
       "type": "CNAME",
-      "host": "%rphost%",
-      "pointsTo": "%rptarget%",
+      "host": "fe-bounces",
+      "pointsTo": "admin.gtcad.com",
       "ttl": 3600
     },
     {
       "groupId": "mail",
       "type": "TXT",
       "host": "_dmarc",
-      "data": "%dmarc%",
+      "data": "v=DMARC1; p=reject; pct=100; rua=mailto:dmarc-%dmarcid%@admin.gtcad.com;",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1"
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}{
+  "providerId": "mailhost",
+  "providerName": "MailHost",
+  "serviceId": "emailhosting",
+  "serviceName": "MailHost business email",
+  "version": 1,
+  "logoUrl": "https://mailhost.oyonoro.com/favicon.svg",
+  "description": "Sets up a domain for MailHost business email: the ownership TXT record (group verify), then MX, SPF, DKIM, return-path and DMARC (group mail).",
+  "variableDescription": "verification: ownership code; dkimselector: per-domain part of the DKIM selector; dkimkey: DKIM public key; dmarcid: per-domain id in the DMARC report address",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "mailhost.oyonoro.com",
+  "syncRedirectDomain": "mailhost.oyonoro.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "@",
+      "data": "forward-email-site-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "forward-email-site-verification="
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.gtcad.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.forwardemail.net"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "fe-%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mail",
+      "type": "CNAME",
+      "host": "fe-bounces",
+      "pointsTo": "admin.gtcad.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject; pct=100; rua=mailto:dmarc-%dmarcid%@admin.gtcad.com;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}{
+  "providerId": "mailhost",
+  "providerName": "MailHost",
+  "serviceId": "emailhosting",
+  "serviceName": "MailHost business email",
+  "version": 1,
+  "logoUrl": "https://mailhost.oyonoro.com/favicon.svg",
+  "description": "Sets up a domain for MailHost business email: the ownership TXT record (group verify), then MX, SPF, DKIM, return-path and DMARC (group mail).",
+  "variableDescription": "verification: ownership code; dkimselector: per-domain part of the DKIM selector; dkimkey: DKIM public key; dmarcid: per-domain id in the DMARC report address",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "mailhost.oyonoro.com",
+  "syncRedirectDomain": "mailhost.oyonoro.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "@",
+      "data": "forward-email-site-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "forward-email-site-verification="
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.gtcad.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.forwardemail.net"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "fe-%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mail",
+      "type": "CNAME",
+      "host": "fe-bounces",
+      "pointsTo": "admin.gtcad.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject; pct=100; rua=mailto:dmarc-%dmarcid%@admin.gtcad.com;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}{
+  "providerId": "mailhost",
+  "providerName": "MailHost",
+  "serviceId": "emailhosting",
+  "serviceName": "MailHost business email",
+  "version": 1,
+  "logoUrl": "https://mailhost.oyonoro.com/favicon.svg",
+  "description": "Sets up a domain for MailHost business email: the ownership TXT record (group verify), then MX, SPF, DKIM, return-path and DMARC (group mail).",
+  "variableDescription": "verification: ownership code; dkimselector: per-domain part of the DKIM selector; dkimkey: DKIM public key; dmarcid: per-domain id in the DMARC report address",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "mailhost.oyonoro.com",
+  "syncRedirectDomain": "mailhost.oyonoro.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "@",
+      "data": "forward-email-site-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "forward-email-site-verification="
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.gtcad.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.forwardemail.net"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "fe-%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mail",
+      "type": "CNAME",
+      "host": "fe-bounces",
+      "pointsTo": "admin.gtcad.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject; pct=100; rua=mailto:dmarc-%dmarcid%@admin.gtcad.com;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     }
   ]
 }
