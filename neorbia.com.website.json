@@ -1,0 +1,21 @@
+{
+  "providerId": "neorbia.com",
+  "providerName": "Neorbia",
+  "serviceId": "website",
+  "serviceName": "Agency website",
+  "version": 1,
+  "logoUrl": "https://neorbia.com/favicon.svg",
+  "description": "Connects the agency's own domain to its Neorbia website: the domain points at Neorbia, which serves the site and issues its certificate.",
+  "variableDescription": "%target%: the hostname Neorbia serves agency websites from",
+  "syncPubKeyDomain": "domainconnect.neorbia.com",
+  "syncRedirectDomain": "neorbia.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
