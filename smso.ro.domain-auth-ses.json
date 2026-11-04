@@ -1,0 +1,15 @@
+{
+  "providerId": "smso.ro",  "providerName": "SMSO",
+  "serviceId": "domain-auth-ses",  "serviceName": "Email sending with Amazon SES",
+  "version": 1,
+  "syncPubKeyDomain":"smso.ro",
+  "syncRedirectDomain": "smso.ro, dev.smso.ro, staging.smso.ro, unimprovised-matthew-unglibly.ngrok-free.dev",
+  "logoUrl": "https://www.smso.ro/wp-content/uploads/2017/09/logoSMS.png",
+  "description": "Create CNAME records to authenticate email sent by SMSO on behalf of the user via Amazon SES",
+  "variableDescription": "dkim1, dkim2, dkim3 returned by Amazon SES for validating identity",	
+  "records": [
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 }
+  ]
+}
