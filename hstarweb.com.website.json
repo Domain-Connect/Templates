@@ -1,0 +1,34 @@
+{
+  "providerId": "hstarweb.com",
+  "providerName": "HStar Web",
+  "serviceId": "website",
+  "serviceName": "HStar Web website",
+  "version": 1,
+  "logoUrl": "https://app.hstarweb.com/logo.png",
+  "description": "Connects your domain to your HStar Web website",
+  "variableDescription": "%sitecode%: the website's six-character Site code, which names its Serving name",
+  "syncPubKeyDomain": "dckey.hstarweb.com",
+  "syncRedirectDomain": "hstarweb.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "195.114.15.226",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%sitecode%.cdn.hstarweb.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "hstarweb-site=%sitecode%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "hstarweb-site="
+    }
+  ]
+}
