@@ -3,12 +3,12 @@
     "providerName": "Crige",
     "serviceId": "email",
     "serviceName": "Crige email",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://crige.com/favicon.svg",
     "description": "Sets up email for a name you own in your Crige workspace: receiving (MX), sender checks (SPF, DKIM, DMARC) and a one-time ownership check.",
     "variableDescription": "%verifyToken%: one-time ownership token shown in Crige; %dkimkey%: DKIM selector for mail signing",
     "syncPubKeyDomain": "crige.com",
-    "syncRedirectDomain": "crige.com,staging.crige.com",
+    "syncRedirectDomain": "crige.com,staging.crige.com,app.crige.com",
     "records": [
         {
             "groupId": "verify",

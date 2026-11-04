@@ -1,0 +1,53 @@
+{
+  "description": "Signs the clinic's member email (DKIM), receives bounces (MAIL FROM), and sets its DMARC policy.",
+  "logoUrl": "https://wellspot.com/logo.png",
+  "providerId": "wellspot.com",
+  "providerName": "WellSpot",
+  "records": [
+    {
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600,
+      "type": "CNAME"
+    },
+    {
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600,
+      "type": "CNAME"
+    },
+    {
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600,
+      "type": "CNAME"
+    },
+    {
+      "host": "bounce",
+      "pointsTo": "%mailFromMx%",
+      "priority": 10,
+      "ttl": 3600,
+      "type": "MX"
+    },
+    {
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "type": "SPFM"
+    },
+    {
+      "data": "v=DMARC1; p=none;",
+      "essential": "OnApply",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "type": "TXT"
+    }
+  ],
+  "serviceId": "email",
+  "serviceName": "Clinic email",
+  "syncPubKeyDomain": "domainconnect.wellspot.com",
+  "syncRedirectDomain": "wellspot.com,app.wellspot.com,app.dev.wellspot.com,onboarding.wellspot.com,onboarding.dev.wellspot.com",
+  "variableDescription": "dkim1: SES DKIM token 1; dkim2: SES DKIM token 2; dkim3: SES DKIM token 3; mailFromMx: Where bounce reports go",
+  "version": 1
+}
