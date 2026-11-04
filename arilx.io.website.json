@@ -9,6 +9,7 @@
   "syncBlock": false,
   "syncPubKeyDomain": "arilx.io",
   "syncRedirectDomain": "arilx.io",
+  "hostRequired": true,
   "records": [
     {
       "groupId": "root",
