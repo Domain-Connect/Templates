@@ -1,7 +1,8 @@
 {
   "providerId": "smso.ro",
   "providerName": "SMSO",
-  "serviceId": "domain-auth-ses", "serviceName": "Email sending with Amazon SES",
+  "serviceId": "domain-auth-ses",
+  "serviceName": "Email sending with Amazon SES",
   "version": 1,
   "syncPubKeyDomain":"smso.ro",
   "syncRedirectDomain": "app.smso.ro, app.dev.smso.ro, app.staging.smso.ro, unimprovised-matthew-unglibly.ngrok-free.dev",
