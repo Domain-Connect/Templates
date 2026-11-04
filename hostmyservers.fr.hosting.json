@@ -1,0 +1,28 @@
+{
+    "providerId": "hostmyservers.fr",
+    "providerName": "HostMyServers",
+    "serviceId": "hosting",
+    "serviceName": "Web hosting",
+    "version": 1,
+    "logoUrl": "https://www.hostmyservers.fr/assets/images/logo/Logo-HMS-color-icon.png",
+    "description": "Points a domain at a HostMyServers web hosting",
+    "syncPubKeyDomain": "hostmyservers.fr",
+    "syncRedirectDomain": "hostmyservers.fr",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "groupId": "apex",
+            "host": "@",
+            "pointsTo": "plesk.hostmyservers.fr",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "groupId": "www",
+            "host": "www",
+            "pointsTo": "plesk.hostmyservers.fr",
+            "ttl": 3600
+        }
+    ]
+}

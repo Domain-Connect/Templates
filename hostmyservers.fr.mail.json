@@ -1,0 +1,60 @@
+{
+    "providerId": "hostmyservers.fr",
+    "providerName": "HostMyServers",
+    "serviceId": "mail",
+    "serviceName": "Mail Box",
+    "version": 1,
+    "logoUrl": "https://www.hostmyservers.fr/assets/images/logo/Logo-HMS-color-icon.png",
+    "description": "Configures HostMyServers Mail Box on a domain",
+    "variableDescription": "dkimkey: public DKIM key generated for the domain",
+    "syncPubKeyDomain": "hostmyservers.fr",
+    "syncRedirectDomain": "hostmyservers.fr",
+    "records": [
+        {
+            "type": "MX",
+            "groupId": "mx",
+            "host": "@",
+            "pointsTo": "mail.yubox.io",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "groupId": "autodiscover",
+            "host": "autodiscover",
+            "pointsTo": "mail.yubox.io",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "groupId": "autoconfig",
+            "host": "autoconfig",
+            "pointsTo": "mail.yubox.io",
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "groupId": "spf",
+            "host": "@",
+            "spfRules": "include:_spf1.yubox.io"
+        },
+        {
+            "type": "TXT",
+            "groupId": "dkim",
+            "host": "dkim._domainkey",
+            "data": "v=DKIM1;k=rsa;t=s;s=email;p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "TXT",
+            "groupId": "dmarc",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%fqdn%",
+            "ttl": 3600,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        }
+    ]
+}

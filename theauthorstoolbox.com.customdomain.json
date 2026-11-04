@@ -1,0 +1,21 @@
+{
+  "providerId": "theauthorstoolbox.com",
+  "providerName": "Author's Toolbox",
+  "serviceId": "customdomain",
+  "serviceName": "Custom Domain",
+  "version": 1,
+  "logoUrl": "https://www.theauthorstoolbox.com/images/icon-192.png",
+  "description": "Points your own subdomain, for example read.yourname.com, at Author's Toolbox so your forms, reader magnets, ARC downloads and beta reader pages open on your own address.",
+  "variableDescription": "This template has no variables.",
+  "syncPubKeyDomain": "theauthorstoolbox.com",
+  "syncRedirectDomain": "app.theauthorstoolbox.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.tatb.link",
+      "ttl": 3600
+    }
+  ]
+}
