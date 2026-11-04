@@ -1,0 +1,47 @@
+{
+  "providerId": "position-iq.de",
+  "providerName": "POSITION IQ",
+  "serviceId": "email-resend",
+  "serviceName": "E-Mail-Versand mit eigener Absenderadresse",
+  "version": 1,
+  "logoUrl": "https://app.position-iq.de/iq-favicon.svg",
+  "description": "Erlaubt POSITION IQ, Newsletter und Benachrichtigungen mit deiner eigenen Absenderadresse zu versenden (über Resend). Die Einträge liegen auf der Unterdomain send und dem DKIM-Schlüssel; Website und bestehende Postfächer bleiben unverändert.",
+  "variableDescription": "%dkimselector%: DKIM-Selektor, den Resend für diese Domain ausstellt (z. B. resend); %dkimvalue%: öffentlicher DKIM-Schlüssel; %mxvalue%: Rückläufer-Host der Versandregion (z. B. feedback-smtp.eu-west-1.amazonses.com). Gruppe dmarc wird nur angewendet, wenn die Domain noch keinen DMARC-Eintrag hat.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "position-iq.de",
+  "syncRedirectDomain": "app.position-iq.de",
+  "records": [
+    {
+      "groupId": "versand",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mxvalue%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "versand",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "versand",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "%dkimvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

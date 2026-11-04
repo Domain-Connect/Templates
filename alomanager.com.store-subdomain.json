@@ -1,0 +1,31 @@
+{
+  "providerId": "alomanager.com",
+  "providerName": "AloManager",
+  "serviceId": "store-subdomain",
+  "serviceName": "AloManager online store",
+  "version": 1,
+  "description": "Points a subdomain at a company's AloManager online store. The ownership group adds the TXT record AloManager asks for when the domain was in another AloManager account.",
+  "variableDescription": "target: the CNAME target of AloManager's own-domain layer (custom.alorentals.com). ownership: the code AloManager shows for that domain.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "alomanager.com",
+  "records": [
+    {
+      "groupId": "records",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_alomanager",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ],
+  "logoUrl": "https://alomanager.com/logo.png"
+}

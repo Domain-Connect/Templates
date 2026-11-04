@@ -1,0 +1,29 @@
+{
+  "providerId": "resytech.com",
+  "providerName": "Resytech",
+  "serviceId": "bookingui",
+  "serviceName": "Resytech Booking Page",
+  "version": 1,
+  "logoUrl": "https://resytech.com/domain-connect/resytech.svg",
+  "description": "Connects a subdomain such as book to your Resytech online booking page, and adds the record that shows the domain belongs to your Resytech account.",
+  "variableDescription": "token: the ownership code for your Resytech account and this domain (32 hexadecimal characters)",
+  "syncPubKeyDomain": "resytech.com",
+  "syncRedirectDomain": "resytech.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "bookingui.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_resytech-verify",
+      "data": "resytech-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
