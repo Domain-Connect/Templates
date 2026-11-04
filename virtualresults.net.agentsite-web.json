@@ -1,0 +1,34 @@
+{
+  "providerId": "virtualresults.net",
+  "providerName": "Virtual Results",
+  "serviceId": "agentsite-web",
+  "serviceName": "Agent website",
+  "version": 1,
+  "description": "Points www at the agent's website, proves the domain is theirs, and forwards the bare domain to www.",
+  "variableDescription": "ownership: the ownership token Cloudflare for SaaS issued for www.<domain> (shown on the agent's Domain & email page)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "virtualresults.net",
+  "syncRedirectDomain": "virtualresultsplatform.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.virtualresultsplatform.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname.www",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}
