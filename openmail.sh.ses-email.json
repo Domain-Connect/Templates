@@ -2,7 +2,7 @@
   "providerId": "openmail.sh",
   "providerName": "OpenMail",
   "serviceId": "ses-email",
-  "serviceName": "Email sending and receiving",
+  "serviceName": "OpenMail",
   "version": 1,
   "logoUrl": "https://openmail.sh/bimi/logo.svg",
   "description": "Configure email sending and receiving with OpenMail.",
