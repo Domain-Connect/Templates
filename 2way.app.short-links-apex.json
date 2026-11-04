@@ -3,11 +3,12 @@
   "providerName": "2way",
   "serviceId": "short-links-apex",
   "serviceName": "2way branded short links (root domain)",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.2way.app/domain-connect/logo.svg",
   "description": "Points your domain itself (for example yourbrand.link, not a subdomain) at 2way so your SMS short links use it, and adds a CAA record allowing Let's Encrypt to issue its HTTPS certificate. The domain's current A and AAAA records are replaced, so any website on it stops working: use a domain dedicated to short links. Email (MX) records are not changed.",
   "syncBlock": false,
   "syncPubKeyDomain": "2way.app",
+  "syncRedirectDomain": "my.2way.app",
   "records": [
     {
       "type": "A",

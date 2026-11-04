@@ -1,0 +1,45 @@
+{
+  "providerId": "k2mailer.com",
+  "providerName": "K2Mailer",
+  "serviceId": "sendingdomain",
+  "serviceName": "K2Mailer Sending Domain Authentication",
+  "version": 1,
+  "logoUrl": "https://k2mailer.com/k2-logo.svg",
+  "description": "Authenticates a domain for sending email through K2Mailer: DKIM signing key, SPF include, a DMARC policy (only when the domain has none) and a CNAME for open/click tracking links.",
+  "variableDescription": "%dkimselector%: DKIM selector, e.g. 'k2mailer'. %dkimkey%: base64 RSA public key. %spfrules%: SPF mechanisms merged into the domain's SPF record, e.g. 'ip4:203.0.113.10'. %dmarcuser%: local part of the DMARC report address at the domain, e.g. 'dmarc'.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "k2mailer.com",
+  "syncRedirectDomain": "app.k2mailer.com",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spfrules%"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1;p=none;rua=mailto:%dmarcuser%@%fqdn%;ruf=mailto:%dmarcuser%@%fqdn%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "track",
+      "pointsTo": "app.k2mailer.com",
+      "ttl": 3600
+    }
+  ]
+}

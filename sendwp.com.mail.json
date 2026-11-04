@@ -1,0 +1,30 @@
+{
+    "providerId": "sendwp.com",
+    "providerName": "SendWP",
+    "serviceId": "mail",
+    "serviceName": "SendWP email sending",
+    "version": 1,
+    "logoUrl": "https://sendwp.com/favicon.svg",
+    "description": "Lets SendWP send email from your domain by adding DKIM signing records and a bounce subdomain.",
+    "syncPubKeyDomain": "sendwp.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "swp1._domainkey",
+            "pointsTo": "swp1.dkim.mail.sendwp.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "swp2._domainkey",
+            "pointsTo": "swp2.dkim.mail.sendwp.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "bounce",
+            "pointsTo": "bounce.mail.sendwp.com",
+            "ttl": 3600
+        }
+    ]
+}
