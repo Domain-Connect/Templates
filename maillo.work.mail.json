@@ -5,7 +5,7 @@
     "serviceName": "Maillo business email",
     "version": 1,
     "logoUrl": "https://maillo.work/logo.svg",
-    "description": "Receive email on your domain with Maillo and sign outgoing mail with DKIM.",
+    "description": "Receive email on your domain with Maillo, sign outgoing mail with DKIM, and optionally use your own domain as the bounce (MAIL FROM) domain.",
     "variableDescription": "dkimlabel: the per-domain DKIM key label Maillo assigns (its public key is published at <dkimlabel>.dkim.maillo.work).",
     "syncBlock": false,
     "syncPubKeyDomain": "maillo.work",
@@ -35,6 +35,20 @@
             "txtConflictMatchingMode": "Prefix",
             "txtConflictMatchingPrefix": "v=DMARC1",
             "essential": "OnApply"
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com"
         }
     ]
 }
