@@ -1,0 +1,32 @@
+{
+  "providerId": "miraahealth.com",
+  "providerName": "Miraa",
+  "serviceId": "clinicsubdomain",
+  "serviceName": "Practice website on a subdomain",
+  "version": 1,
+  "description": "Points a subdomain of a medical practice's domain (for example www or book) at the website it built with Miraa Sites (hosted on Vercel), and adds the TXT record that proves the subdomain belongs to that practice.",
+  "variableDescription": "miraatoken: a single-use ownership code (32 hex characters) minted for this one approval, group 'ownership'.",
+  "sharedServiceName": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "miraahealth.com",
+  "syncRedirectDomain": "app.miraahealth.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_miraa-site",
+      "data": "miraa-site-verify=%miraatoken%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "miraa-site-verify="
+    }
+  ]
+}

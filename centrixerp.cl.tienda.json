@@ -1,0 +1,27 @@
+{
+  "providerId": "centrixerp.cl",
+  "providerName": "CentrixERP",
+  "serviceId": "tienda",
+  "serviceName": "Tienda online en el dominio principal",
+  "version": 1,
+  "logoUrl": "https://centrixerp.cl/favicon.svg",
+  "description": "Apunta el dominio principal y www a la tienda online de CentrixERP.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "centrixerp.cl",
+  "syncRedirectDomain": "app.centrixerp.cl",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "serviceId": "website",
   "serviceName": "Website",
   "logoUrl": "https://www.netbound.com.au/brand/netbound-mark.svg",
-  "version": 1,
+  "version": 2,
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect-keys.netbound.com.au",
   "syncRedirectDomain": "www.netbound.com.au",
@@ -17,9 +17,9 @@
       "groupId": "website"
     },
     {
-      "type": "CNAME",
+      "type": "A",
       "host": "www",
-      "pointsTo": "@",
+      "pointsTo": "213.188.199.222",
       "ttl": 300,
       "groupId": "www"
     }

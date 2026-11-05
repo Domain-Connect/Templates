@@ -1,0 +1,15 @@
+{
+  "providerId": "omne.so",
+  "providerName": "Omne",
+  "serviceId": "link-domain",
+  "serviceName": "Short links",
+  "version": 1,
+  "logoUrl": "https://cdn.omne.so/brand/omne-icon-512.png",
+  "description": "Points a subdomain of yours, such as go.yourdomain.com, at Omne's link tracker, so your short links use your own domain.",
+  "syncPubKeyDomain": "omne.so",
+  "syncRedirectDomain": "app.omne.so",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "links.omne.to", "ttl": 3600 }
+  ]
+}
