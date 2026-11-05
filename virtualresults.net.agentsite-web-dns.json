@@ -1,0 +1,30 @@
+{
+  "providerId": "virtualresults.net",
+  "providerName": "Virtual Results",
+  "serviceId": "agentsite-web-dns",
+  "serviceName": "Agent website DNS",
+  "version": 1,
+  "description": "Connects www to the agent website and verifies domain ownership. Preserves existing forwarding rules; apex forwarding is configured separately.",
+  "variableDescription": "ownership: the ownership token Cloudflare for SaaS issued for www.<domain> (shown on the agent's Domain & email page)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "virtualresults.net",
+  "syncRedirectDomain": "virtualresultsplatform.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.virtualresultsplatform.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname.www",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ],
+  "logoUrl": "https://virtualresults.com/wp-content/uploads/2020/01/Logo-Vector-Trans@2x-cropped-mobile.png"
+}
