@@ -1,0 +1,22 @@
+{
+	"providerId": "brainsforce.com",
+	"providerName": "Brainsforce",
+	"serviceId": "product-domain",
+	"serviceName": "Website and mail of a product on Brainsforce",
+	"version": 1,
+	"logoUrl": "https://alden.dev-brainsforce.com/domainconnect/logo.svg",
+	"description": "Points a hostname of your domain at your product on Brainsforce (Cloudflare for SaaS), proves to Cloudflare that it is yours and lets its certificate be issued before the switch, and lets the product send mail signed with your domain (Amazon SES DKIM). Each part is a group, applied only when the product needs it.",
+	"variableDescription": "target: the platform's hostname the CNAME names (fallback.brainscode.ai, or fallback.brainscode.dev for tests); ownership: Cloudflare for SaaS's ownership token for the hostname; acme: the certificate's validation token; dkim1, dkim2, dkim3: Amazon SES Easy DKIM tokens",
+	"syncBlock": false,
+	"syncPubKeyDomain": "domainconnect.brainsforce.com",
+	"syncRedirectDomain": "brainsforce.com,alden.dev-brainsforce.com",
+	"hostRequired": true,
+	"records": [
+		{ "groupId": "web", "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 3600 },
+		{ "groupId": "verify", "type": "TXT", "host": "_cf-custom-hostname", "data": "%ownership%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+		{ "groupId": "certificate", "type": "TXT", "host": "_acme-challenge", "data": "%acme%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+		{ "groupId": "mail", "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+		{ "groupId": "mail", "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+		{ "groupId": "mail", "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 }
+	]
+}
