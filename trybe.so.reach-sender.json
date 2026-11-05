@@ -1,0 +1,39 @@
+{
+    "providerId": "trybe.so",
+    "providerName": "trybe",
+    "serviceId": "reach-sender",
+    "serviceName": "trybe Reach sender domain",
+    "version": 1,
+    "logoUrl": "https://trybe.so/icon.svg",
+    "description": "Authenticates a subdomain for sending email with trybe Reach: DKIM key, bounce MX, SPF and return-path CNAME. The applied host is the sending subdomain, for example send.",
+    "variableDescription": "dkim: base64 DKIM public key without the p= prefix; region: sending region of the mail provider, for example eu-west-1",
+    "syncPubKeyDomain": "trybe.so",
+    "syncRedirectDomain": "trybe.so",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%dkim%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "type": "CNAME",
+            "host": "rsend",
+            "pointsTo": "send.forge.rmta.net",
+            "ttl": 3600
+        }
+    ]
+}
