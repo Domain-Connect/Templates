@@ -1,0 +1,28 @@
+{
+  "providerId": "boxfort.app",
+  "providerName": "Boxfort",
+  "serviceId": "customdomain",
+  "serviceName": "Boxfort custom domain",
+  "version": 1,
+  "description": "Points a domain or subdomain at an app hosted on Boxfort, and proves you own it.",
+  "variableDescription": "verify: the ownership token shown in the Boxfort dashboard",
+  "hostRequired": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "boxfort.app",
+  "syncRedirectDomain": "dashboard.boxfort.app,dashboard--staging.boxfort.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.boxfort.app",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_boxfort",
+      "data": "boxfort-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
