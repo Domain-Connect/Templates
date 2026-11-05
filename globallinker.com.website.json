@@ -10,7 +10,6 @@
   "sharedProviderName": false,
   "syncPubKeyDomain": "globallinker.com",
   "syncRedirectDomain": "www.globallinker.com",
-  "warnPhishing": false,
   "hostRequired": false,
   "records": [
     { "type": "A", "host": "@", "pointsTo": "3.109.110.8", "ttl": 600 },
