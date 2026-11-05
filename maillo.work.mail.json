@@ -1,0 +1,40 @@
+{
+    "providerId": "maillo.work",
+    "providerName": "Maillo",
+    "serviceId": "mail",
+    "serviceName": "Maillo business email",
+    "version": 1,
+    "logoUrl": "https://maillo.work/logo.svg",
+    "description": "Receive email on your domain with Maillo and sign outgoing mail with DKIM.",
+    "variableDescription": "dkimlabel: the per-domain DKIM key label Maillo assigns (its public key is published at <dkimlabel>.dkim.maillo.work).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "maillo.work",
+    "syncRedirectDomain": "mail.maillo.work",
+    "records": [
+        {
+            "groupId": "mail",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "inbound-smtp.us-east-1.amazonaws.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mail",
+            "type": "CNAME",
+            "host": "maillo._domainkey",
+            "pointsTo": "%dkimlabel%.dkim.maillo.work",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}
