@@ -1,0 +1,26 @@
+{
+   "providerId": "myvtreena.com",
+   "providerName": "Vtreena",
+   "serviceId": "website",
+   "serviceName": "Vtreena Site",
+   "version": 1,
+   "logoUrl": "https://vtreena.com/vtreena-text.svg",
+   "description": "Enables a domain to work with vtreena",
+   "variableDescription": "v1 is the verification code for the site; ip is the myvtreena.com load balancer IP",
+   "syncPubKeyDomain": "domainconnect.myvtreena.com",
+   "records": [
+      {
+         "type": "TXT",
+         "host": "_vtreena-verification",
+         "data": "vtreena-verification=%v1%",
+         "ttl": 3600,
+         "txtConflictMatchingMode": "All"
+      },
+      {
+         "type": "A",
+         "host": "@",
+         "pointsTo": "%ip%",
+         "ttl": 3600
+      }
+   ]
+}
