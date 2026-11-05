@@ -3,9 +3,9 @@
     "providerName": "RaxCube",
     "serviceId": "store",
     "serviceName": "RaxCube online store",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://raxcube.com/icon-512.png",
-    "description": "Connects a domain the merchant already owns to their RaxCube online store. Apply the groups separately: verify proves the domain is theirs, www points www at the store.",
+    "description": "Connects a domain the merchant already owns to their RaxCube online store. Apply the groups separately: verify proves the domain is theirs, www points www at the store and sends the bare domain to www.",
     "variableDescription": "%token%: the one-time ownership code RaxCube issued for this domain (32 hex characters); %target%: the RaxCube edge host the store answers behind, as a label under raxcube.shop (for example customers)",
     "syncBlock": false,
     "syncPubKeyDomain": "raxcube.com",
@@ -27,6 +27,12 @@
             "host": "www",
             "pointsTo": "%target%.raxcube.shop",
             "ttl": 3600
+        },
+        {
+            "groupId": "www",
+            "type": "REDIR301",
+            "host": "@",
+            "target": "https://www.%fqdn%"
         }
     ]
 }

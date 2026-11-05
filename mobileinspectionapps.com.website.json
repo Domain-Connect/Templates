@@ -1,0 +1,25 @@
+{
+  "providerId": "mobileinspectionapps.com",
+  "providerName": "JetInspect",
+  "serviceId": "website",
+  "serviceName": "Inspector website",
+  "version": 1,
+  "logoUrl": "https://jetinspect.mobileinspectionapps.com/jetinspect-logo.svg",
+  "description": "Points a home inspector's own domain at the website they built with JetInspect. The address without www forwards to www.",
+  "syncPubKeyDomain": "domainconnect.mobileinspectionapps.com",
+  "syncRedirectDomain": "jetinspect.mobileinspectionapps.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
