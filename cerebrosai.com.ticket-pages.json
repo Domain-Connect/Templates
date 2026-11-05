@@ -1,0 +1,19 @@
+{
+  "providerId": "cerebrosai.com",
+  "providerName": "CerebrOS",
+  "serviceId": "ticket-pages",
+  "serviceName": "CerebrOS ticket pages",
+  "version": 1,
+  "logoUrl": "https://cerebrosai.com/brand/cerebros-mark.svg",
+  "description": "Puts an event organizer's CerebrOS ticket pages on a subdomain of their domain, such as tickets.example.com, and proves they control it. Applied with the host parameter. The website and email on the domain are not changed.",
+  "variableDescription": "%verify%: the organizer's CerebrOS domain verification token (32 lowercase hexadecimal characters).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cerebrosai.com",
+  "syncRedirectDomain": "app.cerebrosai.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 },
+    { "type": "TXT", "host": "_cerebros", "data": "cerebros-verify=%verify%", "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "cerebros-verify=", "essential": "OnApply" }
+  ]
+}
