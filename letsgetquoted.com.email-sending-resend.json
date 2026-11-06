@@ -1,0 +1,18 @@
+{
+  "providerId": "letsgetquoted.com",
+  "providerName": "Let's Get Quoted",
+  "serviceId": "email-sending-resend",
+  "serviceName": "Let's Get Quoted email sending",
+  "version": 1,
+  "logoUrl": "https://letsgetquoted.com/lets-get-quoted-logo.png",
+  "description": "Adds the DKIM and return-path records that let Let's Get Quoted send quotes and invoices from your domain. Only the send and resend._domainkey names are used, so your website and mailbox records are not changed.",
+  "variableDescription": "dkim is the DKIM public key issued for your domain. mx is the return-path mail host issued for your domain.",
+  "syncPubKeyDomain": "letsgetquoted.com",
+  "syncRedirectDomain": "app.letsgetquoted.com,letsgetquoted.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "TXT", "host": "resend._domainkey", "data": "%dkim%", "ttl": 3600 },
+    { "type": "MX", "host": "send", "pointsTo": "%mx%", "priority": 10, "ttl": 3600 },
+    { "type": "TXT", "host": "send", "data": "v=spf1 include:amazonses.com ~all", "ttl": 3600 }
+  ]
+}
