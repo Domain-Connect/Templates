@@ -9,6 +9,7 @@
     "variableDescription": "dkim1, dkim2, dkim3: the domain's three Amazon SES Easy DKIM tokens (e.g. 4pjxbc5l2fp7qkx6zkfgmdgsi3jq2rrd). Each becomes <token>._domainkey CNAME <token>.dkim.amazonses.com.",
     "syncBlock": false,
     "syncPubKeyDomain": "xstate.io",
+    "syncRedirectDomain": "xstate.com,www.xstate.com",
     "hostRequired": false,
     "records": [
         {
@@ -46,6 +47,7 @@
             "host": "_dmarc",
             "data": "v=DMARC1; p=reject; rua=mailto:postmaster@%domain%",
             "ttl": 3600,
+            "essential": "OnApply",
             "txtConflictMatchingMode": "Prefix",
             "txtConflictMatchingPrefix": "v=DMARC1"
         }
