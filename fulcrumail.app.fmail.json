@@ -1,0 +1,26 @@
+{
+  "providerId": "fulcrumail.app",
+  "serviceId": "fmail",
+  "providerName": "Fulcrum",
+  "serviceName": "Fmail domain setup",
+  "logoUrl": "https://fulcrumail.app/brand/fulcrum-logo.svg",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "fulcrumail.app",
+  "syncRedirectDomain": "fulcrumail.app",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_fulcrum-verification",
+      "data": "%verification_data%",
+      "ttl": 600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx_target%",
+      "priority": 10,
+      "ttl": 600
+    }
+  ]
+}
