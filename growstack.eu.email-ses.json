@@ -1,0 +1,44 @@
+{
+  "providerId": "growstack.eu",
+  "providerName": "Growstack",
+  "serviceId": "email-ses",
+  "serviceName": "Growstack email sending through Amazon SES",
+  "version": 1,
+  "logoUrl": "https://app.growstack.eu/favicon.svg",
+  "description": "Send Growstack email from your domain through Amazon SES: three DKIM records and the bounce return path with its SPF rule. Apply it with the host parameter set to the sending subdomain, or without it to send from the domain itself. SPF on the domain itself is never changed.",
+  "variableDescription": "dkimToken1, dkimToken2, dkimToken3: the DKIM selectors Amazon SES issues for the sending domain. sesRegion: the AWS region that receives bounces, such as eu-west-1.",
+  "syncPubKeyDomain": "growstack.eu",
+  "syncRedirectDomain": "app.growstack.eu",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
