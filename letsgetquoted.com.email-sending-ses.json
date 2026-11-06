@@ -1,0 +1,18 @@
+{
+  "providerId": "letsgetquoted.com",
+  "providerName": "Let's Get Quoted",
+  "serviceId": "email-sending-ses",
+  "serviceName": "Let's Get Quoted email sending (Amazon SES)",
+  "version": 1,
+  "logoUrl": "https://letsgetquoted.com/lets-get-quoted-logo.png",
+  "description": "Adds the three DKIM records that let Let's Get Quoted send quotes and invoices from your domain. Your existing website and mailbox records are not changed.",
+  "variableDescription": "dkim1, dkim2 and dkim3 are the three DKIM tokens issued for your domain.",
+  "syncPubKeyDomain": "letsgetquoted.com",
+  "syncRedirectDomain": "app.letsgetquoted.com,letsgetquoted.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 }
+  ]
+}
