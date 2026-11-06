@@ -1,0 +1,54 @@
+{
+  "providerId": "retsef.co.il",
+  "providerName": "Retzef Mailer",
+  "serviceId": "mailer",
+  "serviceName": "Email sending (DKIM, MAIL FROM, DMARC)",
+  "version": 1,
+  "logoUrl": "https://mail.retsef.co.il/app/logo.svg",
+  "description": "Adds the DNS records to send authenticated email through the Retzef mailer (Amazon SES): DKIM, a custom MAIL FROM domain with SPF, and a DMARC policy.",
+  "variableDescription": "dkim1, dkim2, dkim3: DKIM tokens; dkimhost: DKIM target domain (e.g. dkim.il-central-1.amazonses.com); mailfrom: MAIL FROM subdomain (e.g. bounce); mxhost: bounce MX host; dmarc: DMARC record",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "retsef.co.il",
+  "syncRedirectDomain": "mail.retsef.co.il",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.%dkimhost%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.%dkimhost%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.%dkimhost%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "%mailfrom%",
+      "pointsTo": "%mxhost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "%mailfrom%",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 3600
+    }
+  ]
+}
