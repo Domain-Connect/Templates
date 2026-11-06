@@ -1,0 +1,40 @@
+{
+  "providerId": "connectyourdomains.com",
+  "providerName": "Connect Your Domains",
+  "serviceId": "site-prove",
+  "serviceName": "Website address: secure before switching",
+  "version": 2,
+  "logoUrl": "https://connectyourdomains.com/dc-logo.svg",
+  "description": "Prepares a hostname that already serves a live website to move to Connect Your Domains with no downtime: proves the domain's owner chose it and lets the TLS certificate be issued before any traffic moves. Never changes where the hostname points; never touches MX, SPF, DKIM, DMARC or any other record.",
+  "variableDescription": "%token%: a random per-hostname ownership token, 32 lowercase letters and digits. %cfprevalidate%: the Cloudflare for SaaS ownership_verification value for this hostname, a UUID that Cloudflare prescribes in full.",
+  "syncPubKeyDomain": "connectyourdomains.com",
+  "syncRedirectDomain": "connect.connectyourdomains.com",
+  "hostRequired": false,
+  "shared": true,
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_site-verify",
+      "data": "site-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "site-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cfprevalidate%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.6a98c9ce243d0ae6.dcv.cloudflare.com",
+      "ttl": 600
+    }
+  ]
+}
