@@ -1,0 +1,20 @@
+{
+  "providerId": "watchpal.ai",
+  "providerName": "WatchPal",
+  "serviceId": "spf",
+  "serviceName": "Sender list (SPF)",
+  "version": 1,
+  "logoUrl": "https://watchpal.ai/static/favicon.svg",
+  "description": "Adds a first SPF record for a domain that has none, listing its email provider as allowed to send its email, so mail servers can tell its real email from fakes.",
+  "variableDescription": "include: the email provider's SPF include (for example _spf.google.com), chosen by WatchPal from the domain's mail servers out of a fixed list",
+  "syncBlock": false,
+  "syncPubKeyDomain": "watchpal.ai",
+  "syncRedirectDomain": "watchpal.ai",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%include%"
+    }
+  ]
+}
