@@ -1,0 +1,21 @@
+{
+  "providerId": "fitopspro.com",
+  "providerName": "FitOps Pro",
+  "serviceId": "email",
+  "serviceName": "FitOps Pro email",
+  "version": 1,
+  "logoUrl": "https://app.fitopspro.com/assets/brand/fitops-icon-sapphire.svg",
+  "description": "Lets FitOps Pro send email from your own domain, receive replies to it, and handle bounced email under your name.",
+  "variableDescription": "dkim1, dkim2, dkim3: the three DKIM tokens Amazon SES gives for the domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "fitopspro.com",
+  "syncRedirectDomain": "app.fitopspro.com",
+  "records": [
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "MX", "host": "reply", "pointsTo": "inbound-smtp.us-east-1.amazonaws.com", "priority": 10, "ttl": 3600 },
+    { "type": "MX", "host": "bounce", "pointsTo": "feedback-smtp.us-east-1.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "bounce", "spfRules": "include:amazonses.com" }
+  ]
+}

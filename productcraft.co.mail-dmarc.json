@@ -1,0 +1,25 @@
+{
+    "providerId": "productcraft.co",
+    "providerName": "ProductCraft",
+    "serviceId": "mail-dmarc",
+    "serviceName": "ProductCraft Mail DMARC policy",
+    "version": 1,
+    "logoUrl": "https://productcraft.co/logo.svg",
+    "description": "Adds a monitoring-only DMARC policy (p=none, no reporting address) for a domain that sends with ProductCraft Mail. Applied only when no DMARC policy covers the domain yet.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "domainconnect.productcraft.co",
+    "syncRedirectDomain": "console.productcraft.co,api.mail.productcraft.co",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

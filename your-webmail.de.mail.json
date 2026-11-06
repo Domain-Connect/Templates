@@ -3,7 +3,7 @@
     "providerName": "your-webmail.de",
     "serviceId": "mail",
     "serviceName": "E-Mail Hosting",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://webmail.your-webmail.de/branding/custom/webmail-icon.svg",
     "description": "Connects a domain to your-webmail.de mail hosting: MX, SPF (merged), DKIM, DMARC, ownership verification, autoconfig/autodiscover and RFC 6186/8314 SRV records.",
     "variableDescription": "%verifytoken%: per-domain ownership token; %dkimselector%: DKIM selector label; %dkimkey%: base64 RSA public key (p= value of the DKIM record); %dmarcpolicy%: none, quarantine or reject",
@@ -27,7 +27,7 @@
             "groupId": "mx",
             "type": "MX",
             "host": "@",
-            "pointsTo": "mx1.your-webmail.de",
+            "pointsTo": "mx.your-webmail.de",
             "priority": 10,
             "ttl": 3600
         },
@@ -35,24 +35,8 @@
             "groupId": "mx",
             "type": "MX",
             "host": "@",
-            "pointsTo": "mx2.your-webmail.de",
-            "priority": 10,
-            "ttl": 3600
-        },
-        {
-            "groupId": "mx",
-            "type": "MX",
-            "host": "@",
-            "pointsTo": "mx3.your-webmail.de",
-            "priority": 10,
-            "ttl": 3600
-        },
-        {
-            "groupId": "mx",
-            "type": "MX",
-            "host": "@",
-            "pointsTo": "mx4.your-webmail.de",
-            "priority": 10,
+            "pointsTo": "mx-backup.your-webmail.de",
+            "priority": 20,
             "ttl": 3600
         },
         {

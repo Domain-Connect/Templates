@@ -1,0 +1,21 @@
+{
+  "providerId": "gradientsites.com",
+  "providerName": "GradientSites",
+  "serviceId": "subdomain",
+  "serviceName": "Website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://app.gradientsites.com/images/logo.svg",
+  "description": "Points a subdomain, such as shop.example.com, at a website hosted by GradientSites.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gradientsites.com",
+  "syncRedirectDomain": "app.gradientsites.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "host.gradientsites.com",
+      "ttl": 3600
+    }
+  ]
+}

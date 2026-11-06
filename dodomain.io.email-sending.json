@@ -1,0 +1,77 @@
+{
+  "providerId": "dodomain.io",
+  "providerName": "DoDomain",
+  "serviceId": "email-sending",
+  "serviceName": "Email sending (SPF, DKIM, DMARC, MAIL FROM)",
+  "version": 1,
+  "logoUrl": "https://dodomain.io/icon.svg",
+  "description": "Authorises a SaaS product to send mail for the domain in one apply: merges one SPF include mechanism into the zone's SPF record (SPFM), publishes up to three DKIM selectors as CNAMEs to the product's key hosts (Amazon SES style) or one DKIM key as a TXT, sets the DMARC policy (Prefix conflict matching on v=DMARC1), and sets up the custom MAIL FROM (bounce) subdomain: its MX and an SPF include merged on the same name. Every record is its own group, applied via groupId. Record hosts are fixed except the DKIM selector labels and the MAIL FROM name, which is always a subdomain of the domain (never the domain itself), so this template never changes the domain's own inbound mail. Used by DoDomain (domain-connect-as-a-service) on behalf of its integrator applications; sharedProviderName is set so the consent screen can name the integrator beside DoDomain.",
+  "variableDescription": "spfInclude = the host of the single SPF include mechanism merged at the domain (group spf); dkimSelector1..dkimSelector3 = DKIM selector labels and dkimTarget1..dkimTarget3 = the CNAME destination of each selector's key host (groups dkim-cname-1..dkim-cname-3); dkimTxtSelector = the selector label and dkimTxt = the full DKIM key record (group dkim-txt); dmarcTxt = the DMARC policy tags after the fixed 'v=DMARC1; ' prefix (group dmarc); mailFromHost = the MAIL FROM subdomain relative to the domain, e.g. 'mail' or 'bounce' (never '@'), shared by groups mail-from-mx and mail-from-spf; mailFromMx = its MX target host and mailFromPriority = its MX preference (group mail-from-mx); mailFromSpfInclude = the host of the single SPF include mechanism merged at the MAIL FROM subdomain (group mail-from-spf). Variables: spfInclude, dkimSelector1, dkimTarget1, dkimSelector2, dkimTarget2, dkimSelector3, dkimTarget3, dkimTxtSelector, dkimTxt, dmarcTxt, mailFromHost, mailFromMx, mailFromPriority, mailFromSpfInclude.",
+  "syncBlock": false,
+  "shared": true,
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "syncPubKeyDomain": "dckeys.dodomain.io",
+  "syncRedirectDomain": "app.dodomain.io",
+  "records": [
+    {
+      "type": "SPFM",
+      "groupId": "spf",
+      "host": "@",
+      "spfRules": "include:%spfInclude%"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim-cname-1",
+      "host": "%dkimSelector1%._domainkey",
+      "pointsTo": "%dkimTarget1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim-cname-2",
+      "host": "%dkimSelector2%._domainkey",
+      "pointsTo": "%dkimTarget2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim-cname-3",
+      "host": "%dkimSelector3%._domainkey",
+      "pointsTo": "%dkimTarget3%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "dkim-txt",
+      "host": "%dkimTxtSelector%._domainkey",
+      "data": "%dkimTxt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarcTxt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "groupId": "mail-from-mx",
+      "host": "%mailFromHost%",
+      "pointsTo": "%mailFromMx%",
+      "priority": "%mailFromPriority%",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "groupId": "mail-from-spf",
+      "host": "%mailFromHost%",
+      "spfRules": "include:%mailFromSpfInclude%"
+    }
+  ]
+}

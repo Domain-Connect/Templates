@@ -1,0 +1,30 @@
+{
+  "providerId": "atlasystem.com.br",
+  "providerName": "Atlas",
+  "serviceId": "paginas-publicas",
+  "serviceName": "Páginas públicas (formulários e agenda)",
+  "version": 1,
+  "logoUrl": "https://app.atlasystem.com.br/atlas-logo.svg",
+  "description": "Aponta um subdomínio da sua empresa para as páginas públicas do Atlas (formulários e agenda) e publica o código que prova que o domínio é seu.",
+  "variableDescription": "token: o código de verificação da sua organização no Atlas",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "atlasystem.com.br",
+  "syncRedirectDomain": "app.atlasystem.com.br",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "clientes.atlasystem.com.br",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_atlas-verificacao",
+      "data": "atlas-verificacao=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "atlas-verificacao="
+    }
+  ]
+}

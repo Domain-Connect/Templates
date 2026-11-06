@@ -1,0 +1,38 @@
+{
+  "providerId": "unicpages.com",
+  "providerName": "UnicPages",
+  "serviceId": "subdomain",
+  "serviceName": "UnicPages Website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://unicpages.com/bimi/logo.svg",
+  "description": "Points a subdomain (passed in the host parameter) to a website hosted on UnicPages",
+  "variableDescription": "dono is the ownership token and ssl is the certificate validation token issued for the subdomain.",
+  "syncPubKeyDomain": "domainconnect.unicpages.com",
+  "syncRedirectDomain": "app.unicpages.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "unic.page",
+      "ttl": 600
+    },
+    {
+      "groupId": "dono",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%dono%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "ssl",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%ssl%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+    "providerId": "origela.com",
+    "providerName": "Origela",
+    "serviceId": "store",
+    "serviceName": "Origela online store (subdomain)",
+    "version": 2,
+    "logoUrl": "https://origela.com/logo.svg",
+    "description": "Connects a subdomain (for example shop.example.com) to an Origela online store: ownership verification, address record and SSL certificate validation.",
+    "variableDescription": "verify: ownership token of the signup; acme: Cloudflare SSL validation target prefix (<host>.<dcv id>)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "origela.com",
+    "syncRedirectDomain": "origela.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "groupId": "main",
+            "type": "TXT",
+            "host": "_origela-verify",
+            "data": "origela-verify=%verify%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "main",
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "stores.origela.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "ssl",
+            "type": "CNAME",
+            "host": "_acme-challenge",
+            "pointsTo": "%acme%.dcv.cloudflare.com",
+            "ttl": 3600
+        }
+    ]
+}

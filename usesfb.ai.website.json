@@ -1,0 +1,23 @@
+{
+  "providerId": "usesfb.ai",
+  "providerName": "Systems for Business",
+  "serviceId": "website",
+  "serviceName": "Website, members area and email",
+  "version": 1,
+  "logoUrl": "https://usesfb.ai/apple-touch-icon.png",
+  "description": "Puts a business's website (the domain and www), its members area (clients.) and its sending email (send. and resend._domainkey) on Systems for Business. Each group is applied only when the business chose it.",
+  "variableDescription": "%ip%: Systems for Business's web server address; %mxhost%: the email sender's feedback host; %dkim%: the domain's DKIM public key",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "domainconnect.usesfb.ai",
+  "syncRedirectDomain": "usesfb.ai",
+  "records": [
+    { "groupId": "website", "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 3600 },
+    { "groupId": "website", "type": "CNAME", "host": "www", "pointsTo": "usesfb.ai", "ttl": 3600 },
+    { "groupId": "members", "type": "CNAME", "host": "clients", "pointsTo": "usesfb.ai", "ttl": 3600 },
+    { "groupId": "email", "type": "MX", "host": "send", "pointsTo": "%mxhost%", "priority": 10, "ttl": 3600 },
+    { "groupId": "email", "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com", "ttl": 3600 },
+    { "groupId": "email", "type": "TXT", "host": "resend._domainkey", "data": "%dkim%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}

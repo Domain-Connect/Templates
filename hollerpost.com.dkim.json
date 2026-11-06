@@ -1,0 +1,17 @@
+{
+    "providerId": "hollerpost.com",
+    "providerName": "Hollerpost",
+    "serviceId": "dkim",
+    "serviceName": "Hollerpost email sending (DKIM)",
+    "version": 1,
+    "logoUrl": "https://hollerpost.com/assets/favicon.svg",
+    "description": "Adds the three Amazon SES Easy DKIM CNAME records so Hollerpost can send DKIM-signed email from the customer's domain. Nothing else is changed.",
+    "variableDescription": "dkim1, dkim2, dkim3: the three Amazon SES Easy DKIM tokens for this domain identity (SES GetEmailIdentity DkimAttributes.Tokens)",
+    "syncPubKeyDomain": "hollerpost.com",
+    "syncRedirectDomain": "hollerpost.com,app.hollerpost.com",
+    "records": [
+        { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+        { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+        { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "coachstack.in",
+  "providerName": "Coachstack",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://coachstack.in/brand/coachstack-mark.svg",
+  "description": "Points a subdomain you own, such as learn.yourbrand.com, at your Coachstack site. Coachstack then issues its certificate.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "coachstack.in",
+  "syncRedirectDomain": "coachstack.in",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.coachstack.in",
+      "ttl": 3600
+    }
+  ]
+}

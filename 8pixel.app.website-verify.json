@@ -1,0 +1,22 @@
+{
+  "providerId": "8pixel.app",
+  "providerName": "8pixel",
+  "serviceId": "website-verify",
+  "serviceName": "8pixel website: confirm the address",
+  "version": 1,
+  "logoUrl": "https://8pixel.app/8pixel-logo.svg",
+  "description": "Adds one TXT record that shows you control this address, so 8pixel can connect it to your website. Nothing else in your DNS changes.",
+  "variableDescription": "pxverify: the one-time code 8pixel shows the owner for this address.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "8pixel.app",
+  "syncRedirectDomain": "8pixel.app",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_px-verify",
+      "data": "8pixel-%pxverify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

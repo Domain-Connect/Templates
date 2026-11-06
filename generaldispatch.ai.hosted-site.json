@@ -1,0 +1,21 @@
+{
+    "providerId": "generaldispatch.ai",
+    "providerName": "General Dispatch",
+    "serviceId": "hosted-site",
+    "serviceName": "Website",
+    "version": 1,
+    "logoUrl": "https://app.generaldispatch.ai/icon.svg",
+    "description": "Points a hostname of your domain (usually www) at the website General Dispatch hosts for your business.",
+    "variableDescription": "%slug%: the site's label under sites.generaldispatch.ai",
+    "hostRequired": true,
+    "syncPubKeyDomain": "generaldispatch.ai",
+    "syncRedirectDomain": "app.generaldispatch.ai",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%slug%.sites.generaldispatch.ai",
+            "ttl": "3600"
+        }
+    ]
+}

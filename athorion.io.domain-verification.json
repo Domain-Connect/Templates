@@ -1,0 +1,23 @@
+{
+    "providerId": "athorion.io",
+    "providerName": "athorion",
+    "serviceId": "domain-verification",
+    "serviceName": "athorion domain verification",
+    "version": 1,
+    "logoUrl": "https://athorion.io/assets/athorion-mark.svg",
+    "description": "Adds one TXT record that proves to athorion you control this domain, so it can issue your security rating and trust seal.",
+    "variableDescription": "token: the per-domain verification token athorion generated for you",
+    "syncBlock": false,
+    "syncPubKeyDomain": "athorion.io",
+    "syncRedirectDomain": "app.athorion.io",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_athorion-challenge",
+            "data": "athorion-verify=%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "None"
+        }
+    ]
+}

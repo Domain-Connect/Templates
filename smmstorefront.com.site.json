@@ -1,0 +1,19 @@
+{
+  "providerId": "smmstorefront.com",
+  "providerName": "SMM Storefront",
+  "serviceId": "site",
+  "serviceName": "Online store",
+  "version": 1,
+  "logoUrl": "https://smmstorefront.com/admin/favicon/apple-touch-icon.png",
+  "description": "Points the domain at the merchant's SMM Storefront site. The bare domain gets an A record to the storefront edge, www follows it.",
+  "variableDescription": "%ip%: IPv4 address of the storefront edge serving this site",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "smmstorefront.com",
+  "syncRedirectDomain": "smmstorefront.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "@", "ttl": 3600 }
+  ]
+}

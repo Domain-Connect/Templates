@@ -1,0 +1,65 @@
+{
+  "providerId": "ginbox.net",
+  "providerName": "GINbox",
+  "serviceId": "mail",
+  "serviceName": "GINbox business email",
+  "version": 1,
+  "logoUrl": "https://ginbox.net/brand/logo-full.png",
+  "description": "Sets up a domain for GINbox business email: proves ownership, lets GINbox send for the domain (SPF, DKIM, DMARC), adds TLS reporting, and, as a separate step, routes the domain's mail to GINbox (MX).",
+  "variableDescription": "verify: the domain's GINbox ownership token; dkimsel: the DKIM selector, e.g. g20261017-rsa; dkimpub: the DKIM RSA public key (base64)",
+  "syncPubKeyDomain": "ginbox.net",
+  "syncRedirectDomain": "admin.ginbox.net",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_ginbox",
+      "data": "ginbox-verification=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ginbox-verification="
+    },
+    {
+      "groupId": "send",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.ginbox.net"
+    },
+    {
+      "groupId": "send",
+      "type": "TXT",
+      "host": "%dkimsel%._domainkey",
+      "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimpub%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:postmaster@%domain%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "extras",
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "v=TLSRPTv1; rua=mailto:postmaster@%domain%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=TLSRPTv1"
+    },
+    {
+      "groupId": "receive",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.ginbox.net",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

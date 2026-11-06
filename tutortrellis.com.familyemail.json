@@ -1,0 +1,18 @@
+{
+  "providerId": "tutortrellis.com",
+  "providerName": "Tutor Trellis",
+  "serviceId": "familyemail",
+  "serviceName": "Emails to families from your own domain",
+  "version": 1,
+  "logoUrl": "https://tutortrellis.com/brand/logo-full.png",
+  "description": "Lets Tutor Trellis send a tutor's emails to families from an address at their own domain, through SMTP2GO: a DKIM key to sign them, a return path for bounces (which also covers SPF), and the tracking name SMTP2GO needs to verify the domain.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "tutortrellis.com",
+  "syncRedirectDomain": "tutortrellis.com",
+  "records": [
+    { "type": "CNAME", "host": "s1063737._domainkey", "pointsTo": "dkim.smtp2go.net", "ttl": 3600 },
+    { "type": "CNAME", "host": "em1063737", "pointsTo": "return.smtp2go.net", "ttl": 3600 },
+    { "type": "CNAME", "host": "tt-link", "pointsTo": "track.smtp2go.net", "ttl": 3600 }
+  ]
+}

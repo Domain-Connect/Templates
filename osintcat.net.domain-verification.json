@@ -1,0 +1,24 @@
+{
+    "providerId": "osintcat.net",
+    "providerName": "OsintCat",
+    "serviceId": "domain-verification",
+    "serviceName": "Company domain verification",
+    "version": 1,
+    "logoUrl": "https://www.osintcat.net/assets/brand/cat.svg",
+    "description": "Adds one TXT record at the applied domain or host that proves to OsintCat that a company controls this domain. Once the record is seen, the company can let people with addresses at this domain join it and use single sign-on. The record changes nothing else and can be removed later; removing it does not undo a verification already made.",
+    "variableDescription": "token: the per-domain verification code OsintCat shows the company, 32 lowercase hexadecimal characters (e.g. 3f9a0c1d2b7e4f5a8c6d0e1f2a3b4c5d). The full record value is always osintcat-verify=<token>.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "osintcat.net",
+    "syncRedirectDomain": "www.osintcat.net,osintcat.net",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "@",
+            "data": "osintcat-verify=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "None",
+            "essential": "OnApply"
+        }
+    ]
+}

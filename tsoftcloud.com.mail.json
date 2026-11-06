@@ -1,0 +1,78 @@
+{
+    "providerId": "tsoftcloud.com",
+    "providerName": "TSoftCloud",
+    "serviceId": "mail",
+    "serviceName": "Email for your domain",
+    "version": 1,
+    "description": "Points the domain's email to TSoftCloud: MX, the SPF rules for our server, the DKIM key, the DMARC policy, the MTA-STS policy record and the autoconfig, autodiscover and mta-sts host names. The core group holds everything except DMARC and MTA-STS; those two are their own groups, so a domain that already has a DMARC or MTA-STS record can leave them out.",
+    "variableDescription": "%dkimselector%: the selector of the platform's active DKIM key for the domain (a short name such as tsoft1). %dkimkey%: that key's public value in base64, one line, no spaces. %dmarcpolicy%: none, quarantine or reject (mail.dmarc_policy). %mtastsid%: the first 8 bytes of SHA-256 of the MTA-STS policy text, as 16 lowercase hex characters; the policy text is 'version: STSv1', 'mode: <mail.mta_sts_mode>', 'mx: mx.tsoftmail.com' and 'max_age: 604800', one per line, with a final newline. No variable is ever empty. The SPF record is the fixed 'mx'; the template has no sending-service include, so the email button is offered only while mail.spf_include is empty.",
+    "syncPubKeyDomain": "tsoftcloud.com",
+    "syncRedirectDomain": "tsoftcloud.com",
+    "records": [
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx.tsoftmail.com",
+            "ttl": "3600",
+            "priority": "10",
+            "groupId": "core"
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "ttl": "3600",
+            "spfRules": "mx",
+            "groupId": "core"
+        },
+        {
+            "type": "TXT",
+            "host": "%dkimselector%._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+            "ttl": "3600",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DKIM1",
+            "groupId": "core"
+        },
+        {
+            "type": "CNAME",
+            "host": "mta-sts",
+            "pointsTo": "mx.tsoftmail.com",
+            "ttl": "3600",
+            "groupId": "core"
+        },
+        {
+            "type": "CNAME",
+            "host": "autoconfig",
+            "pointsTo": "mx.tsoftmail.com",
+            "ttl": "3600",
+            "groupId": "core"
+        },
+        {
+            "type": "CNAME",
+            "host": "autodiscover",
+            "pointsTo": "mx.tsoftmail.com",
+            "ttl": "3600",
+            "groupId": "core"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=%dmarcpolicy%",
+            "ttl": "3600",
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "groupId": "dmarc"
+        },
+        {
+            "type": "TXT",
+            "host": "_mta-sts",
+            "data": "v=STSv1; id=%mtastsid%",
+            "ttl": "3600",
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=STSv1",
+            "groupId": "mta-sts"
+        }
+    ]
+}

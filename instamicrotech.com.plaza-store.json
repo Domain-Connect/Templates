@@ -1,0 +1,37 @@
+{
+    "providerId": "instamicrotech.com",
+    "providerName": "Plaza",
+    "serviceId": "plaza-store",
+    "serviceName": "Plaza online store",
+    "version": 1,
+    "logoUrl": "https://plaza.instamicrotech.com/domain-connect/plaza-logo.svg",
+    "description": "Connect a customer-owned domain to Plaza. Tenant creation waits for DNS ownership, routing and HTTPS verification. Email and unrelated DNS records are not configured by this template.",
+    "variableDescription": "%verification% is the 32-character hexadecimal verification value for the customer's pending Plaza signup.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.instamicrotech.com",
+    "syncRedirectDomain": "api.instamicrotech.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "185.182.9.95",
+            "ttl": 300
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%fqdn%",
+            "essential": "OnApply",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "host": "_plaza-verify",
+            "data": "plaza-verify=%verification%",
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "plaza-verify=",
+            "ttl": 300
+        }
+    ]
+}

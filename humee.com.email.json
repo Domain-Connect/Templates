@@ -1,0 +1,40 @@
+{
+  "providerId": "humee.com",
+  "providerName": "Humee",
+  "serviceId": "email",
+  "serviceName": "Humee email sending",
+  "version": 1,
+  "logoUrl": "https://meet-humee.s3.us-west-1.amazonaws.com/images/humee_logo.png",
+  "description": "Lets Humee send campaign invitations and meeting links from your domain through Amazon SES: three DKIM records that sign the email, and one TXT record that proves the domain is yours.",
+  "variableDescription": "dkim1, dkim2, dkim3: the DKIM tokens Amazon SES issued for the domain; verify: the ownership token Humee issued to the account adding the domain",
+  "syncPubKeyDomain": "humee.com",
+  "syncRedirectDomain": "dashboard.humee.com,dashboardstaging.humee.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_humee-verify",
+      "data": "humee-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "humee-verify="
+    }
+  ]
+}

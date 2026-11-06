@@ -1,0 +1,16 @@
+{
+  "providerId": "superbarberpro.com",
+  "providerName": "SuperBarber Pro",
+  "serviceId": "site-pro",
+  "serviceName": "Site profissional",
+  "version": 1,
+  "logoUrl": "https://superbarberpro.com/brand/icon-192.png",
+  "description": "Conecta o site profissional do estabelecimento ao SuperBarber Pro e comprova a propriedade do domínio, sem alterar o e-mail.",
+  "variableDescription": "proof: prova de propriedade do estabelecimento, formada por 64 caracteres hexadecimais.",
+  "syncPubKeyDomain": "superbarberpro.com",
+  "syncRedirectDomain": "superbarberpro.com",
+  "records": [
+    {"type": "A", "host": "@", "pointsTo": "64.177.47.208", "ttl": "300"},
+    {"type": "TXT", "host": "_superbarber", "data": "sbp-site-%proof%", "ttl": "300", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "sbp-site-"}
+  ]
+}

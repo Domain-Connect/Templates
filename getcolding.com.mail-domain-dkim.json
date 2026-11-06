@@ -1,0 +1,26 @@
+{
+    "providerId": "getcolding.com",
+    "providerName": "colding",
+    "serviceId": "mail-domain-dkim",
+    "serviceName": "Sign your email with colding",
+    "version": 1,
+    "logoUrl": "https://colding.app/logo.svg",
+    "description": "Adds the two CNAME records that let colding sign email sent from your domain.",
+    "variableDescription": "%dkim1% and %dkim2%: the labels colding gave this domain's two DKIM keys. They sit under slate-dns.com.",
+    "syncPubKeyDomain": "getcolding.com",
+    "syncRedirectDomain": "console.colding.app",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "cd1._domainkey",
+            "pointsTo": "%dkim1%.slate-dns.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "cd2._domainkey",
+            "pointsTo": "%dkim2%.slate-dns.com",
+            "ttl": 3600
+        }
+    ]
+}

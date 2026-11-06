@@ -1,0 +1,20 @@
+{
+  "providerId": "useartful.com",
+  "providerName": "Artful",
+  "serviceId": "site-subdomain",
+  "serviceName": "Artful gallery website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://useartful.com/icon.svg",
+  "description": "Points a subdomain of a gallery's own domain at the website it publishes with Artful.",
+  "syncPubKeyDomain": "useartful.com",
+  "syncRedirectDomain": "app.useartful.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

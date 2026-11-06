@@ -1,0 +1,19 @@
+{
+    "providerId": "naratica.com",
+    "providerName": "Naratica",
+    "serviceId": "custom-domain",
+    "serviceName": "Custom domain",
+    "version": 1,
+    "description": "Points your domain at your Naratica site.",
+    "syncPubKeyDomain": "naratica.com",
+    "syncRedirectDomain": "account.naratica.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "customers.naratica.com",
+            "ttl": 3600
+        }
+    ]
+}

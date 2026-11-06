@@ -1,0 +1,22 @@
+{
+  "providerId": "huxaio.com",
+  "providerName": "Huxaio",
+  "serviceId": "siteverification",
+  "serviceName": "Huxaio site verification",
+  "version": 1,
+  "logoUrl": "https://huxaio.com/brand/icon.svg",
+  "description": "Adds one TXT record that proves to Huxaio you control this domain. Huxaio changes nothing else.",
+  "variableDescription": "token: the site's Huxaio verification token (32 hex characters)",
+  "syncPubKeyDomain": "huxaio.com",
+  "syncRedirectDomain": "app.huxaio.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_huxaio",
+      "data": "huxaio-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "huxaio-verification="
+    }
+  ]
+}

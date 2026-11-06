@@ -1,0 +1,20 @@
+{
+    "providerId": "getcolding.com",
+    "providerName": "colding",
+    "serviceId": "mail-domain-mx",
+    "serviceName": "Receive email for your domain with colding",
+    "version": 1,
+    "logoUrl": "https://colding.app/logo.svg",
+    "description": "Sends the email for your domain to colding's mail server. This changes where your email is delivered and replaces the MX records the domain has now.",
+    "syncPubKeyDomain": "getcolding.com",
+    "syncRedirectDomain": "console.colding.app",
+    "records": [
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx1.slate-mail.com",
+            "priority": 10,
+            "ttl": 3600
+        }
+    ]
+}

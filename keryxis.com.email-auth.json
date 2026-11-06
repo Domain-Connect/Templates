@@ -1,0 +1,58 @@
+{
+    "providerId": "keryxis.com",
+    "providerName": "Keryxis",
+    "serviceId": "email-auth",
+    "serviceName": "Keryxis e-mail authentication",
+    "version": 1,
+    "logoUrl": "https://keryxis.com/logo.svg",
+    "description": "Adds the SPF, DMARC and DKIM records a domain needs for its Microsoft 365 or Google Workspace mail to reach inboxes. Keryxis checks the domain and applies only the groups that are missing.",
+    "variableDescription": "m365dkim1/m365dkim2: the part of Microsoft 365's DKIM CNAME targets after 'selector1-'/'selector2-' (for example contoso-com._domainkey.contoso.n-v1.dkim.mail.microsoft); googledkim: the public key from Google Admin's DKIM record (the part after p=).",
+    "syncPubKeyDomain": "domainconnect.keryxis.com",
+    "syncRedirectDomain": "app.keryxis.com",
+    "records": [
+        {
+            "groupId": "m365-spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:spf.protection.outlook.com"
+        },
+        {
+            "groupId": "google-spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:_spf.google.com"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; adkim=s; aspf=s",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "m365-dkim",
+            "type": "CNAME",
+            "host": "selector1._domainkey",
+            "pointsTo": "selector1-%m365dkim1%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "m365-dkim",
+            "type": "CNAME",
+            "host": "selector2._domainkey",
+            "pointsTo": "selector2-%m365dkim2%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "google-dkim",
+            "type": "TXT",
+            "host": "google._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%googledkim%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

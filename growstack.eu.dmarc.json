@@ -1,0 +1,22 @@
+{
+  "providerId": "growstack.eu",
+  "providerName": "Growstack",
+  "serviceId": "dmarc",
+  "serviceName": "Growstack DMARC policy",
+  "version": 1,
+  "logoUrl": "https://app.growstack.eu/favicon.svg",
+  "description": "Add a monitoring DMARC policy (p=none) to a domain that has none, so mail sent from it and its subdomains passes DMARC checks. Growstack offers it only after finding no DMARC record. You can change or remove the policy later.",
+  "syncPubKeyDomain": "growstack.eu",
+  "syncRedirectDomain": "app.growstack.eu",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 300
+    }
+  ]
+}

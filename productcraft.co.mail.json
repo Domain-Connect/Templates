@@ -1,0 +1,36 @@
+{
+    "providerId": "productcraft.co",
+    "providerName": "ProductCraft",
+    "serviceId": "mail",
+    "serviceName": "ProductCraft Mail",
+    "version": 1,
+    "logoUrl": "https://productcraft.co/logo.svg",
+    "description": "Sets up a domain to send email with ProductCraft Mail (Amazon SES, eu-north-1): the DKIM signing key at selector productcraft, and the custom MAIL FROM host bounce with its MX and SPF records.",
+    "variableDescription": "%dkimkey%: base64 RSA public key of the DKIM key pair ProductCraft generated for this domain (selector productcraft).",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "domainconnect.productcraft.co",
+    "syncRedirectDomain": "console.productcraft.co,api.mail.productcraft.co",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "productcraft._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.eu-north-1.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+  "providerId": "k8hq.com",
+  "providerName": "K8 HQ",
+  "serviceId": "mail-from",
+  "serviceName": "K8 HQ: bounce address for your domain (does not move your mail). Approve only if you are setting up K8 HQ yourself right now.",
+  "version": 1,
+  "logoUrl": "https://k8hq.com/favicon.png",
+  "description": "Adds the MX and SPF records for the bounce address you chose in K8 HQ (a subdomain such as mail.yourdomain, given as the host), so SPF lines up with your domain. Does not change your domain's own MX, SPF or DMARC, so incoming mail keeps going where it goes today.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.k8hq.com",
+  "syncRedirectDomain": "app.k8hq.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "feedback-smtp.us-west-2.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

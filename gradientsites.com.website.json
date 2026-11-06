@@ -1,0 +1,26 @@
+{
+  "providerId": "gradientsites.com",
+  "providerName": "GradientSites",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://app.gradientsites.com/images/logo.svg",
+  "description": "Points a domain and its www address at a website hosted by GradientSites.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gradientsites.com",
+  "syncRedirectDomain": "app.gradientsites.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "138.197.12.151",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "host.gradientsites.com",
+      "ttl": 3600
+    }
+  ]
+}

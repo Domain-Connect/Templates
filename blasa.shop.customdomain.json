@@ -1,0 +1,22 @@
+{
+  "providerId": "blasa.shop",
+  "providerName": "blasa",
+  "serviceId": "customdomain",
+  "serviceName": "Website on your own domain",
+  "version": 1,
+  "logoUrl": "https://blasa.shop/icon.svg",
+  "description": "Connects a domain (usually www) to the website blasa built for the business, with a free certificate.",
+  "variableDescription": "No variables: the host is pointed at cname.blasa.shop.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "blasa.shop",
+  "syncRedirectDomain": "blasa.shop",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.blasa.shop",
+      "ttl": 3600
+    }
+  ]
+}
