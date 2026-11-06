@@ -1,0 +1,53 @@
+{
+    "providerId": "xstate.io",
+    "providerName": "xstate",
+    "serviceId": "mail",
+    "serviceName": "xstate Mail",
+    "version": 1,
+    "logoUrl": "https://xstate.com/brand/logo.svg",
+    "description": "Sets up a domain for xstate business email: MX to mx.xstate.io, SPF, the three Amazon SES Easy DKIM CNAMEs (outbound mail is relayed and signed by SES) and a DMARC policy.",
+    "variableDescription": "dkim1, dkim2, dkim3: the domain's three Amazon SES Easy DKIM tokens (e.g. 4pjxbc5l2fp7qkx6zkfgmdgsi3jq2rrd). Each becomes <token>._domainkey CNAME <token>.dkim.amazonses.com.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "xstate.io",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx.xstate.io",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "mx"
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=reject; rua=mailto:postmaster@%domain%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        }
+    ]
+}
