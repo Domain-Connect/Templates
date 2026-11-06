@@ -1,0 +1,22 @@
+{
+  "providerId": "securessmtp.com",
+  "providerName": "SecureSMTP",
+  "serviceId": "dkim",
+  "serviceName": "DKIM record for sending email",
+  "version": 1,
+  "logoUrl": "https://securessmtp.com/brand/securessmtp-mark.svg",
+  "description": "Adds the one TXT record that lets SecureSMTP sign email from this domain with DKIM. It sits on its own name under _domainkey and is only added: it does not conflict with, change or remove any other record.",
+  "variableDescription": "%dkimkey%: the DKIM selector SecureSMTP assigned to this domain, for example securessmtp; %publickey%: the base64 DKIM public key SecureSMTP generated for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "securessmtp.com",
+  "syncRedirectDomain": "securessmtp.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimkey%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%publickey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
