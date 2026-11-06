@@ -15,7 +15,10 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=%policy%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     }
   ]
 }
