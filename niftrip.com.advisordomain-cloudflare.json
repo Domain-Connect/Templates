@@ -9,6 +9,7 @@
   "variableDescription": "gsv: the Google Site Verification token for this domain (the part after google-site-verification=); dkimid: Niftrip's id for this domain's DKIM key, published by Niftrip at <dkimid>.dkim.niftrip.com; dkimkey: the base64 public key Google Admin shows (only for the dkimtxt group, used if the CNAME form is refused)",
   "syncBlock": false,
   "syncPubKeyDomain": "niftrip.com",
+  "hostRequired": true,
   "records": [
     {
       "groupId": "site",
