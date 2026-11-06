@@ -39,10 +39,11 @@
       "groupId": "dmarc",
       "type": "TXT",
       "host": "_dmarc",
-      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%fqdn%",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@torvath.com",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=DMARC1"
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     },
     {
       "groupId": "receive",
