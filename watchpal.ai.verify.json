@@ -1,0 +1,21 @@
+{
+  "providerId": "watchpal.ai",
+  "providerName": "WatchPal",
+  "serviceId": "verify",
+  "serviceName": "Website ownership check",
+  "version": 1,
+  "logoUrl": "https://watchpal.ai/static/favicon.svg",
+  "description": "Adds the TXT record that shows WatchPal the domain belongs to the account owner, so WatchPal can check the website every day.",
+  "variableDescription": "token: the account's verification token, given by WatchPal",
+  "syncBlock": false,
+  "syncPubKeyDomain": "watchpal.ai",
+  "syncRedirectDomain": "watchpal.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_watchpal",
+      "data": "watchpal-verify=%token%",
+      "ttl": 3600
+    }
+  ]
+}
