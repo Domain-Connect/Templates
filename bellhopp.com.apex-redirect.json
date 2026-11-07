@@ -1,0 +1,21 @@
+{
+  "providerId": "bellhopp.com",
+  "providerName": "BellHopp",
+  "version": 1,
+  "logoUrl": "https://bellhopp.com/domain-connect-logo.png",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "bellhopp.com",
+  "syncRedirectDomain": "bellhopp.com",
+  "serviceId": "apex-redirect",
+  "serviceName": "BellHopp website: redirect to www",
+  "description": "Sends visitors of yourbrand.com to https://www.yourbrand.com, where your BellHopp website is served.",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%domain%"
+    }
+  ]
+}
