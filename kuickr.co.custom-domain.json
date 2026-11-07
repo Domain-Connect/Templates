@@ -1,0 +1,22 @@
+{
+  "providerId": "kuickr.co",
+  "providerName": "Kuickr",
+  "serviceId": "custom-domain",
+  "serviceName": "Kuickr custom domain",
+  "version": 1,
+  "logoUrl": "https://kuickr.co/icon.svg",
+  "description": "Shows a Kuickr folder at your own address by pointing one subdomain at Kuickr.",
+  "variableDescription": "No variables. The record is created at the host you choose, e.g. book for book.example.com.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "kuickr.co",
+  "syncRedirectDomain": "kuickr.co",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.kuickr.co",
+      "ttl": 3600
+    }
+  ]
+}
