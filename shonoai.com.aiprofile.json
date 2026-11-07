@@ -1,0 +1,20 @@
+{
+  "providerId": "shonoai.com",
+  "providerName": "Shono AI",
+  "serviceId": "aiprofile",
+  "serviceName": "AI Profile",
+  "version": 1,
+  "logoUrl": "https://shonoai.com/icon-512.png",
+  "description": "Points review.<domain> at Shono so the business's AI Profile is served on its own domain. One CNAME record; no variables, so a link cannot ask for any other record.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "shonoai.com",
+  "syncRedirectDomain": "shonoai.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "review",
+      "pointsTo": "hub.shonoai.com",
+      "ttl": 3600
+    }
+  ]
+}
