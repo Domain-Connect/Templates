@@ -1,0 +1,16 @@
+{
+  "providerId": "linktaps.io",
+  "providerName": "LinkTaps",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain for short links and link-in-bio pages",
+  "version": 1,
+  "logoUrl": "https://linktaps.io/linktaps-logo-circle.svg",
+  "description": "Points a subdomain at LinkTaps so it serves your short links and link-in-bio page.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "linktaps.io",
+  "syncRedirectDomain": "linktaps.io",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "cname.linktaps.io", "ttl": 3600 }
+  ]
+}
