@@ -3,11 +3,12 @@
   "providerName": "Heat Engineer",
   "serviceId": "website-apex",
   "serviceName": "Business website",
-  "version": 1,
+  "version": 2,
+  "logoUrl": "https://heat-engineer.com/assets/images/heat-engineer-logo.png",
   "description": "Connect your domain to your Heat Engineer website. Existing website routing records for this address will be replaced.",
   "syncPubKeyDomain": "domainconnect.heat-engineer.com",
   "syncRedirectDomain": "heat-engineer.com",
-  "variableDescription": "Website routing and domain ownership values are supplied and signed by Heat Engineer.",
+  "variableDescription": "Website routing and domain ownership values are supplied and signed by Heat Engineer. verificationHost1 and verificationHost2 are relative to the domain.",
   "records": [
     {
       "type": "A",
@@ -25,18 +26,17 @@
     },
     {
       "type": "TXT",
-      "host": "%verificationHost1%.%domain%.",
+      "host": "%verificationHost1%",
       "data": "%verificationValue1%",
       "ttl": 300,
       "groupId": "ownership1"
     },
     {
       "type": "TXT",
-      "host": "%verificationHost2%.%domain%.",
+      "host": "%verificationHost2%",
       "data": "%verificationValue2%",
       "ttl": 300,
       "groupId": "ownership2"
     }
-  ],
-  "logoUrl": "https://heat-engineer.com/assets/images/heat-engineer-logo.png"
+  ]
 }
