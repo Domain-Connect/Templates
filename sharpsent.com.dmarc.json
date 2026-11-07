@@ -1,0 +1,15 @@
+{
+  "providerId": "sharpsent.com",
+  "providerName": "Sharp Sent",
+  "serviceId": "dmarc",
+  "serviceName": "Sharp Sent DMARC starter policy",
+  "version": 1,
+  "logoUrl": "https://www.sharpsent.com/favicon.svg",
+  "description": "Adds a starter DMARC policy that only monitors (p=none) and never rejects or quarantines mail. Offered only when the domain has no DMARC record yet.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sharpsent.com",
+  "syncRedirectDomain": "api.sharpsent.com",
+  "records": [
+    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none;", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply" }
+  ]
+}
