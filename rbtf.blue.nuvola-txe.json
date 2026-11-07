@@ -1,0 +1,41 @@
+{
+  "providerId": "rbtf.blue",
+  "providerName": "RBTF OÜ",
+  "serviceId": "nuvola-txe",
+  "serviceName": "Nuvola TXE",
+  "version": 1,
+  "logoUrl": "https://tres.nuvolatxe.eu/Nuvola_txe_logo.png",
+  "description": "Points your domain to Nuvola TXE.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "rbtf.blue",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "31.70.98.154",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}root@nuvolatxe-first-deployment:~/domainconnect# ^C
+root@nuvolatxe-first-deployment:~/domainconnect# cat /root/domainconnect/rbtf.blue.nuvola-txe.json
+{
+  "providerId": "rbtf.blue",
+  "providerName": "RBTF OÜ",
+  "serviceId": "nuvola-txe",
+  "serviceName": "Nuvola TXE",
+  "version": 1,
+  "logoUrl": "https://tres.nuvolatxe.eu/Nuvola_txe_logo.png",
+  "description": "Points your domain to Nuvola TXE.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "rbtf.blue",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "31.70.98.154",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
