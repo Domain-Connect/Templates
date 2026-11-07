@@ -1,0 +1,27 @@
+{
+    "providerId": "spacesheep.dev",
+    "providerName": "spacesheep",
+    "serviceId": "customdomain",
+    "serviceName": "Custom domain for a spacesheep space",
+    "version": 1,
+    "logoUrl": "https://spacesheep.dev/favicon.svg",
+    "description": "Serves a spacesheep space at a domain you own: a CNAME that sends the domain's traffic to spacesheep, and a TXT record that proves the domain belongs to your spacesheep account.",
+    "variableDescription": "%token%: the ownership token spacesheep made for this account and this domain (26 lowercase letters and digits)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "spacesheep.dev",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "domains.spacesheep.io",
+            "ttl": "300"
+        },
+        {
+            "type": "TXT",
+            "host": "_spacesheep",
+            "data": "ss-verify=%token%",
+            "ttl": "300"
+        }
+    ]
+}
