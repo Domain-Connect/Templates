@@ -1,0 +1,20 @@
+{
+  "providerId": "einblick.xyz",
+  "providerName": "Einblick",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://app.einblick.xyz/images/favicon.svg",
+  "description": "Connects a subdomain such as booking.example.com to an Einblick booking page, ticket shop, event guest pages or email image host.",
+  "variableDescription": "The subdomain is the host of the apply request; it points to domains.einblick.xyz, where Einblick issues the certificate.",
+  "syncPubKeyDomain": "domainconnect.einblick.xyz",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.einblick.xyz.",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "providerId": "usesendy.com",
+  "providerName": "Sendy",
+  "serviceId": "email-verification",
+  "serviceName": "Email domain verification",
+  "version": 1,
+  "description": "Connect your domain to Sendy by publishing three DKIM signing records.",
+  "variableDescription": "dkim1, dkim2, dkim3: SES DKIM selectors; target1, target2, target3: SES CNAME target names without the fixed .amazonses.com suffix. Use the protocol host parameter for subdomains.",
+  "syncPubKeyDomain": "domainconnect.usesendy.com",
+  "syncRedirectDomain": "usesendy.com",
+  "syncBlock": false,
+  "records": [
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%target1%.amazonses.com", "ttl": 300 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%target2%.amazonses.com", "ttl": 300 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%target3%.amazonses.com", "ttl": 300 }
+  ]
+}

@@ -3,9 +3,9 @@
   "providerName": "SellRules",
   "serviceId": "sender-domain",
   "serviceName": "SellRules email sending",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://cdn.shopify.com/app-store/listing_images/d1d709c49652af3043658e79fa4c4924/icon/CK6l0KTBw5cDEAE=.jpeg",
-  "description": "Lets SellRules send order emails from your domain with DKIM and SPF on a send subdomain. Your website and existing mailboxes are not changed.",
+  "description": "Lets SellRules send order emails from your domain with DKIM and SPF on send and rsend subdomains. Your website and existing mailboxes are not changed.",
   "variableDescription": "dkimkey: DKIM public key issued for the domain; region: AWS region of the sending service",
   "syncBlock": false,
   "syncPubKeyDomain": "sellrules.app",
@@ -13,6 +13,7 @@
   "records": [
     { "type": "TXT", "host": "resend._domainkey", "data": "p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All" },
     { "type": "MX", "host": "send", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
-    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com" }
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com" },
+    { "type": "CNAME", "host": "rsend", "pointsTo": "send.forge.rmta.net", "ttl": 3600 }
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "providerId": "metaslave.fr",
+  "providerName": "MetaSlave",
+  "serviceId": "cloudflare-site",
+  "serviceName": "MetaSlave website",
+  "version": 1,
+  "logoUrl": "https://metaslave.fr/icon.png",
+  "description": "Connects a subdomain to a website hosted by MetaSlave.",
+  "variableDescription": "verification: MetaSlave ownership proof specific to the website and hostname.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.metaslave.fr",
+  "syncRedirectDomain": "metaslave.fr",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "clients.metaslave.fr",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_metaslave-verify",
+      "data": "metaslave-verify=%verification%",
+      "ttl": 300
+    }
+  ]
+}
