@@ -1,0 +1,22 @@
+{
+  "providerId": "newversion.com",
+  "providerName": "NewVersion",
+  "serviceId": "updates",
+  "serviceName": "App updates and licensing",
+  "version": 1,
+  "description": "Points a hostname at NewVersion so a desktop app can check for updates and activate licenses there.",
+  "variableDescription": "The hostname is chosen in the NewVersion console.",
+  "syncBlock": false,
+  "syncRedirectDomain": "admin.newversion.com",
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.newversion.com",
+      "ttl": 300,
+      "essential": "Always"
+    }
+  ]
+}
