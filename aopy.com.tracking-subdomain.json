@@ -1,0 +1,22 @@
+{
+  "providerId": "aopy.com",
+  "providerName": "Aopy",
+  "serviceId": "tracking-subdomain",
+  "serviceName": "Aopy tracking subdomain",
+  "version": 1,
+  "logoUrl": "https://aopy.com/brand/bimi-logo.svg",
+  "description": "Points the shop's Aopy tracking subdomain (passed in the host parameter, for example aopy for aopy.shop.ro) at Aopy's merchant edge on CloudFront. The CNAME must stay DNS only (not proxied).",
+  "variableDescription": "%edge%: the first label of Aopy's CloudFront routing endpoint for this environment (<edge>.cloudfront.net), set by Aopy from its own configuration, never by the user.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "aopy.com",
+  "syncRedirectDomain": "app.aopy.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%edge%.cloudfront.net",
+      "ttl": 3600
+    }
+  ]
+}

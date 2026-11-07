@@ -1,0 +1,24 @@
+{
+  "providerId": "aopy.com",
+  "providerName": "Aopy",
+  "serviceId": "email-dmarc",
+  "serviceName": "Aopy DMARC monitoring",
+  "version": 1,
+  "logoUrl": "https://aopy.com/brand/bimi-logo.svg",
+  "description": "Publishes a monitoring-only DMARC record (p=none) at _dmarc under the sending domain ([host.]domain). Aopy offers it only after reading, right before it builds the apply URL, that neither the sending domain nor its zone has a DMARC record; the template does not stop a second DMARC record on providers that ignore TXT conflict matching. On providers that track applied templates, OnApply lets the owner change or remove the record without dropping the template.",
+  "variableDescription": "No variables: the report address uses the built-in %fqdn%.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "aopy.com",
+  "syncRedirectDomain": "app.aopy.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%fqdn%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 3600
+    }
+  ]
+}
