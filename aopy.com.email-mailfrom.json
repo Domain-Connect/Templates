@@ -10,7 +10,6 @@
   "syncBlock": false,
   "syncPubKeyDomain": "aopy.com",
   "syncRedirectDomain": "app.aopy.com",
-  "hostRequired": true,
   "records": [
     {
       "type": "MX",
