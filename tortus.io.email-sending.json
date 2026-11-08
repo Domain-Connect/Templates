@@ -1,0 +1,46 @@
+{
+  "providerId": "tortus.io",
+  "providerName": "Tortus",
+  "serviceId": "email-sending",
+  "serviceName": "Tortus Email Sending",
+  "version": 1,
+  "logoUrl": "https://tortus.io/logo.png",
+  "description": "Authorize Tortus to send email on behalf of this domain and let inbox providers verify it came from you.",
+  "variableDescription": "%verificationtoken%: domain-ownership proof token; %dkimselector%: DKIM selector issued by the mail provider; %dkimvalue%: DKIM public-key TXT value issued by the mail provider",
+  "syncPubKeyDomain": "tortus.io",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_tortus-send",
+      "data": "tortus-send-verify=%verificationtoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "tortus-send-verify="
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.tortus.io",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@tortus.io",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "%dkimvalue%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
