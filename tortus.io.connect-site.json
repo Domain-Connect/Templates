@@ -8,6 +8,7 @@
   "description": "Connect your domain to your Tortus-powered website with automatic SSL.",
   "variableDescription": "No template variables — the record is positioned using the Domain Connect host apply parameter.",
   "syncPubKeyDomain": "tortus.io",
+  "syncRedirectDomain": "tortus.io",
   "syncBlock": false,
   "sharedProviderName": false,
   "hostRequired": true,
