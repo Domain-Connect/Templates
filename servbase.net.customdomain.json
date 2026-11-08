@@ -1,0 +1,20 @@
+{
+  "providerId": "servbase.net",
+  "providerName": "Servbase",
+  "serviceId": "customdomain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://servbase.net/logo.png",
+  "description": "Connects a domain or subdomain to an application hosted on Servbase.",
+  "variableDescription": "target: Servbase hostname the domain points to; acme: certificate validation token issued by Cloudflare for SaaS; owner: hostname ownership token issued by Cloudflare for SaaS; verify: Servbase domain verification token",
+  "syncBlock": false,
+  "syncPubKeyDomain": "servbase.net",
+  "syncRedirectDomain": "dash.servbase.net",
+  "hostRequired": false,
+  "records": [
+    {"groupId": "route", "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 3600},
+    {"groupId": "acme", "type": "TXT", "host": "_acme-challenge", "data": "%acme%", "ttl": 3600, "txtConflictMatchingMode": "All"},
+    {"groupId": "owner", "type": "TXT", "host": "_cf-custom-hostname", "data": "%owner%", "ttl": 3600, "txtConflictMatchingMode": "All"},
+    {"groupId": "verify", "type": "TXT", "host": "_servbase-verify", "data": "servbase-site-verification=%verify%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "servbase-site-verification="}
+  ]
+}
