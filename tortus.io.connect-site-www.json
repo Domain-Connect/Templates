@@ -8,6 +8,7 @@
   "description": "Connect www.yourdomain to your Tortus-powered website with automatic SSL, and forward the bare domain to it.",
   "variableDescription": "No template variables. Applied to a bare domain only: www gets the site CNAME, the bare domain 301-forwards to https://www.<domain>.",
   "syncPubKeyDomain": "tortus.io",
+  "syncRedirectDomain": "tortus.io",
   "syncBlock": false,
   "sharedProviderName": false,
   "hostRequired": false,
