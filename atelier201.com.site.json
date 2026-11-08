@@ -1,0 +1,30 @@
+{
+  "providerId": "atelier201.com",
+  "providerName": "Atelier201",
+  "serviceId": "site",
+  "serviceName": "Atelier201 website",
+  "version": 1,
+  "logoUrl": "https://atelier201.com/icon-512.png",
+  "description": "Points a domain at a website built with Atelier201: a TXT record proving ownership and a CNAME record bringing the traffic.",
+  "variableDescription": "token: the ownership proof Atelier201 issued for this domain",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "atelier201.com",
+  "syncRedirectDomain": "app.atelier201.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_atelier201-challenge",
+      "data": "atelier201-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.atelier201.page",
+      "ttl": 3600
+    }
+  ]
+}
