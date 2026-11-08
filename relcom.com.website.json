@@ -1,0 +1,16 @@
+{
+  "providerId": "relcom.com",
+  "providerName": "Relcom Resources",
+  "serviceId": "website",
+  "serviceName": "Website hosting",
+  "version": 1,
+  "logoUrl": "https://relcom.com/brand/relcom-app-icon.svg",
+  "description": "Points a domain or subdomain at its website on Relcom Resources and publishes the ownership record that Relcom Resources checks before it issues the HTTPS certificate.",
+  "variableDescription": "IP: the public IPv4 address of the website's server. TOKEN: the ownership value shown in the Relcom Resources cabinet, the part after relcom-resources=.",
+  "syncPubKeyDomain": "relcom.com",
+  "syncRedirectDomain": "resources.relcom.com",
+  "records": [
+    {"type": "A", "host": "@", "pointsTo": "%IP%", "ttl": 600},
+    {"type": "TXT", "host": "_relcom-resources", "data": "relcom-resources=%TOKEN%", "ttl": 600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "relcom-resources="}
+  ]
+}
