@@ -1,0 +1,21 @@
+{
+  "providerId": "flowprinter.com",
+  "providerName": "FlowPrinter",
+  "serviceId": "subdomain",
+  "serviceName": "FlowPrinter online print store (subdomain)",
+  "version": 1,
+  "logoUrl": "https://flowprinter.com/brand/flowprinter-logo-color.svg",
+  "description": "Points a subdomain such as www at the store the owner runs on FlowPrinter.",
+  "variableDescription": "%target%: the hostname of FlowPrinter's hosting (Vercel) for this subdomain.",
+  "syncPubKeyDomain": "domainconnect.flowprinter.com",
+  "syncRedirectDomain": "flowprinter.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 600
+    }
+  ]
+}
