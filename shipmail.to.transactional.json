@@ -28,12 +28,10 @@
       "ttl": 300
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "mail",
-      "data": "v=spf1 include:amazonses.com -all",
-      "ttl": 300,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1"
+      "spfRules": "include:amazonses.com",
+      "ttl": 300
     }
   ]
 }
