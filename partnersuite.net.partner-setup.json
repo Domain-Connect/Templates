@@ -1,0 +1,246 @@
+{
+  "providerId": "partnersuite.net",
+  "providerName": "Partner Suite",
+  "serviceId": "partner-setup",
+  "serviceName": "Partner pages and email",
+  "version": 1,
+  "logoUrl": "https://partnersuite.net/domain-connect/logo.svg",
+  "description": "Points the partner's go, pay and learn subdomains to names in our infrastructure domain partnersuite.net, delegates the mail and notify subdomains with NS records to our name servers ns1 to ns4.partnersuite.net, where their email authentication is set, and adds the partner's Meta and Google Search Console verification codes. Every record is new; nothing at the apex is changed except added TXT records for Meta and Search Console and, only in the rootdmarc group, a DMARC record applied when the domain has none. The maildirect, notifydirect and postmaster groups hold the same email records written directly on the partner's domain, for both of our sending providers, used only where a delegation cannot be made.",
+  "variableDescription": "goTarget, payTarget, learnTarget: the CNAME target of each subdomain, a name in partnersuite.net (for example alexis-go.partnersuite.net), or the target Vercel assigns to the project where a chained CNAME is not accepted. region: Resend's sending region for its records on send.mail and send.notify (eu-west-1 or us-east-1); the Amazon SES records on bounce.mail and bounce.notify name eu-central-1, our SES region, literally. mailDkim, notifyDkim: Resend's DKIM public keys for mail.<domain> and notify.<domain>. mailSesDkim, notifySesDkim: the Amazon SES DKIM public keys (our own key pairs, under the fixed selector ses) for mail.<domain> and notify.<domain>. dmarcRua: the address that receives DMARC aggregate reports. postmasterToken: the Google Postmaster Tools verification code for mail.<domain>. gscToken: the Google Search Console verification code for the domain. metaCode: the facebook-domain-verification code from the partner's Meta Business portfolio. vercelVerify: the value Vercel asks for at _vercel when the domain is already known to another Vercel team.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "partnersuite.net",
+  "syncRedirectDomain": "partnersuite.net",
+  "records": [
+    {
+      "groupId": "pages",
+      "type": "CNAME",
+      "host": "go",
+      "pointsTo": "%goTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "pay",
+      "type": "CNAME",
+      "host": "pay",
+      "pointsTo": "%payTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "learn",
+      "type": "CNAME",
+      "host": "learn",
+      "pointsTo": "%learnTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "NS",
+      "host": "mail",
+      "pointsTo": "ns1.partnersuite.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "NS",
+      "host": "mail",
+      "pointsTo": "ns2.partnersuite.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "NS",
+      "host": "mail",
+      "pointsTo": "ns3.partnersuite.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "NS",
+      "host": "mail",
+      "pointsTo": "ns4.partnersuite.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "notify",
+      "type": "NS",
+      "host": "notify",
+      "pointsTo": "ns1.partnersuite.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "notify",
+      "type": "NS",
+      "host": "notify",
+      "pointsTo": "ns2.partnersuite.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "notify",
+      "type": "NS",
+      "host": "notify",
+      "pointsTo": "ns3.partnersuite.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "notify",
+      "type": "NS",
+      "host": "notify",
+      "pointsTo": "ns4.partnersuite.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "meta",
+      "type": "TXT",
+      "host": "@",
+      "data": "facebook-domain-verification=%metaCode%",
+      "txtConflictMatchingMode": "None",
+      "ttl": 3600
+    },
+    {
+      "groupId": "searchconsole",
+      "type": "TXT",
+      "host": "@",
+      "data": "google-site-verification=%gscToken%",
+      "txtConflictMatchingMode": "None",
+      "ttl": 3600
+    },
+    {
+      "groupId": "rootdmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%dmarcRua%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 3600
+    },
+    {
+      "groupId": "vercel",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%vercelVerify%",
+      "txtConflictMatchingMode": "None",
+      "ttl": 3600
+    },
+    {
+      "groupId": "maildirect",
+      "type": "MX",
+      "host": "send.mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "maildirect",
+      "type": "SPFM",
+      "host": "send.mail",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "maildirect",
+      "type": "TXT",
+      "host": "resend._domainkey.mail",
+      "data": "p=%mailDkim%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "groupId": "maildirect",
+      "type": "TXT",
+      "host": "_dmarc.mail",
+      "data": "v=DMARC1; p=none; rua=mailto:%dmarcRua%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 3600
+    },
+    {
+      "groupId": "maildirect",
+      "type": "TXT",
+      "host": "ses._domainkey.mail",
+      "data": "p=%mailSesDkim%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "groupId": "maildirect",
+      "type": "MX",
+      "host": "bounce.mail",
+      "pointsTo": "feedback-smtp.eu-central-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "maildirect",
+      "type": "SPFM",
+      "host": "bounce.mail",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "notifydirect",
+      "type": "MX",
+      "host": "send.notify",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "notifydirect",
+      "type": "SPFM",
+      "host": "send.notify",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "notifydirect",
+      "type": "TXT",
+      "host": "resend._domainkey.notify",
+      "data": "p=%notifyDkim%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "groupId": "notifydirect",
+      "type": "TXT",
+      "host": "_dmarc.notify",
+      "data": "v=DMARC1; p=none; rua=mailto:%dmarcRua%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 3600
+    },
+    {
+      "groupId": "notifydirect",
+      "type": "TXT",
+      "host": "ses._domainkey.notify",
+      "data": "p=%notifySesDkim%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "groupId": "notifydirect",
+      "type": "MX",
+      "host": "bounce.notify",
+      "pointsTo": "feedback-smtp.eu-central-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "notifydirect",
+      "type": "SPFM",
+      "host": "bounce.notify",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "postmaster",
+      "type": "TXT",
+      "host": "mail",
+      "data": "google-site-verification=%postmasterToken%",
+      "txtConflictMatchingMode": "None",
+      "ttl": 3600
+    }
+  ]
+}
