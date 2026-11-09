@@ -3,7 +3,7 @@
   "providerName": "E-Manager",
   "serviceId": "tracking",
   "serviceName": "Pagina tracking personalizzata",
-  "version": 1,
+  "version": 2,
   "description": "Collega un sottodominio alla pagina tracking E-Manager e verifica la proprietà.",
   "syncPubKeyDomain": "domainconnect.e-manager.io",
   "syncBlock": false,
@@ -11,14 +11,24 @@
   "records": [
     {
       "type": "CNAME",
+      "groupId": "tracking",
       "host": "@",
       "pointsTo": "%target%",
       "ttl": 300
     },
     {
       "type": "TXT",
+      "groupId": "tracking",
       "host": "_emanager-tracking",
       "data": "%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "groupId": "cloudflare",
+      "host": "_cf-custom-hostname",
+      "data": "%cloudflareVerification%",
       "ttl": 300,
       "txtConflictMatchingMode": "All"
     }
