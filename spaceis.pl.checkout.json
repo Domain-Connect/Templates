@@ -6,7 +6,7 @@
     "version": 2,
     "logoUrl": "https://panel.spaceis.pl/media/spaceis/mini-logo.svg",
     "description": "Connect a payment subdomain to SpaceIs and add only the verification records selected by the signed groupId. Ask the user to review any conflicting records before applying. Configure all CNAME records as DNS only.",
-    "variableDescription": "license is the eight-character SpaceIs shop ID. ownership is the Cloudflare hostname verification value. ssl1Name through ssl3Name are verification names relative to the selected payment hostname, without a trailing dot. ssl1Value through ssl3Value contain the TXT value or fully qualified CNAME target. Unselected verification groups must not be applied. All requests are RSA-SHA256 signed.",
+    "variableDescription": "license is the eight-character SpaceIs shop ID. ownership is the Cloudflare hostname verification value. For sslTxt groups, ssl1Name through ssl3Name are verification names relative to the selected payment hostname, without a trailing dot, and ssl1Value through ssl3Value are exact TXT proofs. For sslCname groups, the host is fixed to _acme-challenge and ssl1Value through ssl3Value contain only the target prefix before .dcv.cloudflare.com, without a trailing dot; sslName variables are not required. Unselected verification groups must not be applied. All requests are RSA-SHA256 signed.",
     "syncBlock": false,
     "syncPubKeyDomain": "spaceis.pl",
     "records": [
@@ -37,10 +37,10 @@
         },
         {
             "type": "CNAME",
-            "host": "%ssl1Name%",
+            "host": "_acme-challenge",
             "ttl": 300,
             "groupId": "sslCname1",
-            "pointsTo": "%ssl1Value%",
+            "pointsTo": "%ssl1Value%.dcv.cloudflare.com",
             "essential": "OnApply"
         },
         {
@@ -54,10 +54,10 @@
         },
         {
             "type": "CNAME",
-            "host": "%ssl2Name%",
+            "host": "_acme-challenge",
             "ttl": 300,
             "groupId": "sslCname2",
-            "pointsTo": "%ssl2Value%",
+            "pointsTo": "%ssl2Value%.dcv.cloudflare.com",
             "essential": "OnApply"
         },
         {
@@ -71,10 +71,10 @@
         },
         {
             "type": "CNAME",
-            "host": "%ssl3Name%",
+            "host": "_acme-challenge",
             "ttl": 300,
             "groupId": "sslCname3",
-            "pointsTo": "%ssl3Value%",
+            "pointsTo": "%ssl3Value%.dcv.cloudflare.com",
             "essential": "OnApply"
         }
     ],
