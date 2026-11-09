@@ -1,0 +1,45 @@
+{
+    "providerId": "authorsend.com",
+    "providerName": "AuthorSend",
+    "serviceId": "website",
+    "serviceName": "AuthorSend author website",
+    "version": 1,
+    "logoUrl": "https://authorsend.com/brand/logo-horizontal.png",
+    "description": "Points your domain's www at your AuthorSend author website, sends the bare domain to www, and proves you own both names so their security certificate can be issued.",
+    "variableDescription": "acmname, acmvalue: the certificate's DNS validation record for the domain, as Amazon Certificate Manager issued it (_<acmname>.<domain> CNAME _<acmvalue>.acm-validations.aws). acmwwwname, acmwwwvalue: the same for its www.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "authorsend.com",
+    "syncRedirectDomain": "authorsend.com,app.authorsend.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "site",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "connect.authorsend.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "site",
+            "type": "CNAME",
+            "host": "_%acmname%",
+            "pointsTo": "_%acmvalue%.acm-validations.aws",
+            "ttl": 3600
+        },
+        {
+            "groupId": "site",
+            "type": "CNAME",
+            "host": "_%acmwwwname%.www",
+            "pointsTo": "_%acmwwwvalue%.acm-validations.aws",
+            "ttl": 3600
+        },
+        {
+            "groupId": "redirect",
+            "type": "REDIR301",
+            "host": "@",
+            "target": "https://www.%fqdn%",
+            "ttl": 3600,
+            "essential": "OnApply"
+        }
+    ]
+}
