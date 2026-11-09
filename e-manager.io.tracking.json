@@ -1,0 +1,26 @@
+{
+  "providerId": "e-manager.io",
+  "providerName": "E-Manager",
+  "serviceId": "tracking",
+  "serviceName": "Pagina tracking personalizzata",
+  "version": 1,
+  "description": "Collega un sottodominio alla pagina tracking E-Manager e verifica la proprietà.",
+  "syncPubKeyDomain": "domainconnect.e-manager.io",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_emanager-tracking",
+      "data": "%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
