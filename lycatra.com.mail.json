@@ -5,7 +5,7 @@
   "serviceName": "Lycatra Mail",
   "version": 1,
   "logoUrl": "https://lycatra.com/icon.svg",
-  "description": "Connects a domain to Lycatra Mail: proves ownership, lets Lycatra send for the domain (DKIM and bounce domain), and optionally receive its mail.",
+  "description": "Connects a domain to Lycatra Mail: proves ownership, lets Lycatra send for the domain (DKIM and bounce domain), optionally receive its mail, and serve one-click unsubscribe links for outreach.",
   "variableDescription": "verify: ownership token from Lycatra. dkim1-dkim3: Amazon SES Easy DKIM tokens for this domain. mxid: label of Lycatra's inbound endpoint (the part before .mail-manager-smtp.amazonaws.com). gsv: Google Postmaster Tools verification token.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.lycatra.com",
@@ -61,6 +61,13 @@
       "host": "@",
       "pointsTo": "%mxid%.mail-manager-smtp.amazonaws.com",
       "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "outreach",
+      "type": "CNAME",
+      "host": "u",
+      "pointsTo": "fallback.lycatra.com",
       "ttl": 3600
     },
     {
