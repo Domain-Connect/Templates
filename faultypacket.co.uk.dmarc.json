@@ -1,0 +1,25 @@
+{
+  "providerId": "faultypacket.co.uk",
+  "providerName": "FaultyPacket",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC policy",
+  "version": 1,
+  "logoUrl": "https://faultypacket.co.uk/assets/faultypacket-logo.svg",
+  "description": "Publishes or replaces your DMARC record, which tells receivers what to do with email that fakes your domain and where to send reports. Also used for domains that send no email (policy reject).",
+  "variableDescription": "%dmarcpolicy%: none, quarantine or reject; %dmarcrua%: mailbox for DMARC aggregate reports, e.g. dmarc-reports@example.co.uk",
+  "syncBlock": false,
+  "syncPubKeyDomain": "faultypacket.co.uk",
+  "syncRedirectDomain": "faultypacket.co.uk",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%dmarcpolicy%; rua=mailto:%dmarcrua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

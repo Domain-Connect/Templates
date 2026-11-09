@@ -1,0 +1,24 @@
+{
+  "providerId": "dodomain.io",
+  "providerName": "DoDomain",
+  "serviceId": "domain-verification-v2",
+  "serviceName": "Domain ownership verification (TXT), verification-variable variant",
+  "version": 1,
+  "description": "Proves domain ownership to a SaaS product with a single constrained TXT record at a fixed host. The value is always prefixed dodomain-verify=; only the verification value is variable. Variant of dodomain.io/domain-verification, identical except that its variable is named verification instead of token, for DNS providers that reserve the token parameter name.",
+  "variableDescription": "verification = the opaque verification token minted by DoDomain for this connect session.",
+  "syncBlock": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "dckeys.dodomain.io",
+  "syncRedirectDomain": "app.dodomain.io",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_dodomain-challenge",
+      "data": "dodomain-verify=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dodomain-verify="
+    }
+  ]
+}

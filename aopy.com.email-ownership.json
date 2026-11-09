@@ -1,0 +1,23 @@
+{
+  "providerId": "aopy.com",
+  "providerName": "Aopy",
+  "serviceId": "email-ownership",
+  "serviceName": "Aopy domain verification",
+  "version": 1,
+  "logoUrl": "https://aopy.com/brand/bimi-logo.svg",
+  "description": "Publishes Aopy's domain verification TXT at _aopy-verify under the sending domain ([host.]domain). It adds the token; providers that support prefix conflict matching replace an older aopy-domain-verification= value at that name, others leave it beside the new one.",
+  "variableDescription": "%verify%: the 40 hex character verification token Aopy derives for this organization and sending domain, never set by the user.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "aopy.com",
+  "syncRedirectDomain": "app.aopy.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_aopy-verify",
+      "data": "aopy-domain-verification=%verify%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "aopy-domain-verification=",
+      "ttl": 3600
+    }
+  ]
+}

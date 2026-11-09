@@ -1,0 +1,34 @@
+{
+    "providerId": "usebravo.app",
+    "providerName": "Bravo",
+    "serviceId": "storedomainapex",
+    "serviceName": "Bravo online store (bare domain)",
+    "logoUrl": "https://usebravo.app/assets/bravo/logo/bravo-kite-horizontal.svg",
+    "version": 1,
+    "description": "For a merchant who enters their bare domain (for example brand.com): points www at their Bravo online store, adds the TXT record that proves www is theirs, and forwards the bare domain to https://www with a permanent redirect. Applied at the zone apex, without a host.",
+    "variableDescription": "token: the store's verification token for the www host, 32 hexadecimal characters, made by Bravo when the merchant adds the domain. Apply without host.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.usebravo.app",
+    "syncRedirectDomain": "merchant.usebravo.app,merchant.dev.usebravo.app,merchant.stg.usebravo.app",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "stores.mybravo.app",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_bravo.www",
+            "data": "bravo-verify=%token%",
+            "txtConflictMatchingMode": "All",
+            "ttl": 3600
+        },
+        {
+            "type": "REDIR301",
+            "host": "@",
+            "target": "https://www.%fqdn%"
+        }
+    ]
+}
