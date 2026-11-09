@@ -1,0 +1,25 @@
+{
+    "providerId": "successobm.com",
+    "providerName": "SuccessOBM",
+    "serviceId": "newsletter-dmarc",
+    "serviceName": "Newsletter sending (DMARC)",
+    "version": 1,
+    "logoUrl": "https://successobm.com/assets/logo/successsobm_icon.svg",
+    "description": "Adds a monitoring-only DMARC record (p=none) for the newsletter sending subdomain. Offered only when the organization's own domain has no DMARC record; the main domain's DMARC is never changed.",
+    "variableDescription": "No variables. The sending subdomain is the host parameter (for example news).",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "syncPubKeyDomain": "successobm.com",
+    "syncRedirectDomain": "app.successobm.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

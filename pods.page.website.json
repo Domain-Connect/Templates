@@ -1,0 +1,22 @@
+{
+  "providerId": "pods.page",
+  "providerName": "CLT Podcasting",
+  "serviceId": "website",
+  "serviceName": "Podcast website",
+  "version": 1,
+  "logoUrl": "https://www.cltpodcasting.com/favicon.png",
+  "description": "Points www (or the subdomain you chose) of your domain at your podcast website on CLT Podcasting.",
+  "variableDescription": "No variables. The subdomain is the host parameter.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "pods.page",
+  "syncRedirectDomain": "studio.cltpodcasting.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.pods.page",
+      "ttl": 3600
+    }
+  ]
+}

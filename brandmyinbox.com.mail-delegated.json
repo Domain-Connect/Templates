@@ -1,0 +1,34 @@
+{
+  "providerId": "brandmyinbox.com",
+  "providerName": "Brand My Inbox",
+  "serviceId": "mail-delegated",
+  "serviceName": "Mail (delegated mail. subdomain)",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "brandmyinbox.com",
+  "syncRedirectDomain": "app.brandmyinbox.com,pro.brandmyinbox.com",
+  "description": "Delegates the mail.<domain> corner of the zone to Brand My Inbox, which hosts every sending record there. Two records at the customer's host, plus an optional MX for receiving.",
+  "logoUrl": "https://brandmyinbox.com/domain-connect/logo.svg",
+  "records": [
+    { "groupId": "outbound", "type": "NS", "host": "mail", "pointsTo": "%ns1%", "ttl": 3600 },
+    { "groupId": "outbound", "type": "NS", "host": "mail", "pointsTo": "%ns2%", "ttl": 3600 },
+    { "groupId": "outbound", "type": "NS", "host": "mail", "pointsTo": "%ns3%", "ttl": 3600 },
+    { "groupId": "outbound", "type": "NS", "host": "mail", "pointsTo": "%ns4%", "ttl": 3600 },
+    {
+      "groupId": "dmarc",
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "_dmarc.mail.%fqdn%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxHost%",
+      "priority": "%mxPriority%",
+      "ttl": 3600
+    }
+  ]
+}

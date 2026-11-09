@@ -1,0 +1,23 @@
+{
+    "providerId": "hedwigai.com",
+    "providerName": "hedwigai",
+    "serviceId": "search-console-verify",
+    "serviceName": "Google Search Console verification",
+    "version": 1,
+    "logoUrl": "https://app.hedwigai.com/logo-512.png",
+    "description": "Adds only the Google Search Console ownership TXT record, so hedwigai can add the domain to the customer's own Search Console and ask Google to index its pages. Website and email records are unchanged.",
+    "variableDescription": "%googleSiteToken%: the token Google's Site Verification API issues for this domain, without the google-site-verification= prefix",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.hedwigai.com",
+    "syncRedirectDomain": "app.hedwigai.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "@",
+            "ttl": 3600,
+            "data": "google-site-verification=%googleSiteToken%",
+            "txtConflictMatchingMode": "None",
+            "essential": "OnApply"
+        }
+    ]
+}

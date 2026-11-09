@@ -3,10 +3,10 @@
   "providerName": "Code.Mail",
   "serviceId": "inbox",
   "serviceName": "Corporate email",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://codemail.com.br/assets/logo.png",
   "description": "Points the customer's domain to Code.Mail for corporate email: proves ownership, receives mail (MX), authorises sending (SPF) and signs messages (DKIM).",
-  "variableDescription": "%chave%: the customer's domain-ownership key, issued by Code.Mail (group 'posse'). %selector%: the DKIM selector issued for this domain; %dkim%: the public key (the p= value) of that DKIM record (group 'email'). All are unique per customer and cannot be pre-filled.",
+  "variableDescription": "%chave%: the customer's domain-ownership key, issued by Code.Mail (group 'posse'). %selector%: the DKIM selector issued for this domain; %dkim%: the public key (the p= value) of that DKIM record (group 'email'). All are unique per customer and cannot be pre-filled. Group 'dmarc' (DMARC policy) is omitted by the application when the domain already publishes DMARC.",
   "syncBlock": false,
   "syncPubKeyDomain": "codemail.com.br",
   "syncRedirectDomain": "app.codemail.com.br",
@@ -54,7 +54,7 @@
       "txtConflictMatchingMode": "All"
     },
     {
-      "groupId": "email",
+      "groupId": "dmarc",
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=none",

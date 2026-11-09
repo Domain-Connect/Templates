@@ -1,0 +1,20 @@
+{
+    "providerId": "seascape.bz",
+    "providerName": "Seascape",
+    "serviceId": "website",
+    "serviceName": "Website and booking page",
+    "version": 1,
+    "logoUrl": "https://seascape.bz/brand/seascape-mark.svg",
+    "description": "Points one hostname of a shop's domain (for example www or book) at the shop's Seascape website or booking page, served through Cloudflare for SaaS. It adds a single CNAME to Seascape's fixed custom-hostname target and contains no variables. Apply it with the host parameter set. hostRequired is true because a CNAME cannot sit at a zone apex; on Cloudflare, which flattens a CNAME at the apex, the service provider may apply it with an empty host.",
+    "syncPubKeyDomain": "seascape.bz",
+    "syncRedirectDomain": "seascape.bz,app.seascape.bz",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cname.myseascape.site",
+            "ttl": 3600
+        }
+    ]
+}

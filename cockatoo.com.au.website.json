@@ -1,0 +1,20 @@
+{
+  "providerId": "cockatoo.com.au",
+  "providerName": "Cockatoo",
+  "serviceId": "website",
+  "serviceName": "Cockatoo website",
+  "version": 1,
+  "description": "Connect a website address to Cockatoo without changing nameservers or email records.",
+  "syncPubKeyDomain": "domainconnect.cockatoo.com.au",
+  "syncRedirectDomain": "app.cockatoo.com.au",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.cockatoo.com.au",
+      "ttl": 600
+    }
+  ],
+  "logoUrl": "https://cockatoo.com.au/brand/cockatoo-mascot.png"
+}

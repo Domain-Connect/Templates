@@ -1,0 +1,41 @@
+{
+    "providerId": "keepcart.co",
+    "providerName": "KeepCart",
+    "serviceId": "takedown-email",
+    "serviceName": "Takedown email",
+    "version": 1,
+    "description": "Configure sending and reply forwarding for your KeepCart takedown email subdomain.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.keepcart.co",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "%dkim%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "%sendingMx%",
+            "priority": "%sendingPriority%",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "%receivingMx%",
+            "priority": "%receivingPriority%",
+            "ttl": 3600
+        }
+    ],
+    "logoUrl": "https://keepcart.co/assets/1cf5f3f57c24cf7e.png",
+    "variableDescription": "dkim: complete Resend DKIM TXT value beginning with p=; sendingMx: Resend feedback-smtp regional amazonses.com hostname; receivingMx: Resend inbound-smtp regional amazonaws.com hostname; sendingPriority and receivingPriority: MX priorities supplied by Resend."
+}

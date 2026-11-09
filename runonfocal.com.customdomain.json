@@ -1,0 +1,34 @@
+{
+  "providerId": "runonfocal.com",
+  "providerName": "Focal",
+  "serviceId": "customdomain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://runonfocal.com/icon-512.png",
+  "description": "Points a subdomain (for example photos.yourstudio.com) at a creative studio's client pages on Focal. The CNAME target is the one Focal's hosting assigned to that domain; the TXT proof is only applied when Focal asks the owner to prove control of a domain someone else released.",
+  "variableDescription": "target: the hostname the subdomain points to (Focal's hosting assigns it per domain); ownership: a one-time proof token (the record reads domain-verify=<token>)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "runonfocal.com",
+  "syncRedirectDomain": "runonfocal.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "connect",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "own",
+      "type": "TXT",
+      "host": "_verify",
+      "data": "domain-verify=%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "essential": "OnApply",
+      "txtConflictMatchingPrefix": "domain-verify="
+    }
+  ]
+}

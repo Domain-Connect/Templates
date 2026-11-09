@@ -1,0 +1,44 @@
+{
+  "providerId": "lumitra.co",
+  "providerName": "Lumitra",
+  "serviceId": "mail",
+  "serviceName": "Lumitra Mail sending domain",
+  "version": 1,
+  "logoUrl": "https://mail.lumitra.co/icon.svg",
+  "description": "Lets Lumitra Mail send email from the customer's own domain (through Resend, EU region): the DKIM key, the return path's MX and SPF on 'send', and the 'rsend' CNAME to Resend's sending servers. For a sending subdomain such as news.example.com the template is applied with domain=example.com and host=news. The domain's own apex MX and SPF are never touched. Lumitra Mail names the group(s) still missing when it applies.",
+  "variableDescription": "%dkimkey%: the base64 DKIM public key Resend issues for this sending domain when it is added in Lumitra Mail (the part after 'p='). It differs per domain and cannot be prefilled.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mail.lumitra.co",
+  "syncRedirectDomain": "app.mail.lumitra.co",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "returnpath",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "returnpath",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "mta",
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
+    }
+  ]
+}

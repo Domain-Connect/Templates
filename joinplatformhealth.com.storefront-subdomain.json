@@ -1,0 +1,32 @@
+{
+  "providerId": "joinplatformhealth.com",
+  "providerName": "Platform Health",
+  "serviceId": "storefront-subdomain",
+  "serviceName": "Platform Health clinic website (subdomain)",
+  "version": 1,
+  "logoUrl": "https://joinplatformhealth.com/brand/platform-health-logo.png",
+  "description": "Points a subdomain of a clinic's domain (the host it is applied to, such as shop) at its Platform Health website with one CNAME, plus the TXT record that proves the clinic owns it.",
+  "variableDescription": "cname is the hostname the subdomain points to. verification is the ownership token written after the fixed ph-verify= prefix.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "joinplatformhealth.com",
+  "syncRedirectDomain": "joinplatformhealth.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "subdomain",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_ph-verify",
+      "data": "ph-verify=%verification%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ph-verify="
+    }
+  ]
+}

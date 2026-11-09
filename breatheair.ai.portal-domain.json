@@ -1,0 +1,29 @@
+{
+    "providerId": "breatheair.ai",
+    "providerName": "AIR",
+    "serviceId": "portal-domain",
+    "serviceName": "AIR team portal on your own domain",
+    "version": 1,
+    "logoUrl": "https://breatheair.ai/icon-512.png",
+    "description": "Puts an organisation's AIR team portal on its own domain: a TXT record proves the organisation holds the domain, and a CNAME sends people to the portal.",
+    "variableDescription": "%token%: this domain's own verification token, issued by AIR; %target%: the portal's AIR address, {portal}.portal.{AIR domain}",
+    "syncPubKeyDomain": "domainconnect.breatheair.ai",
+    "syncRedirectDomain": "app.breatheair.ai,app.staging.breatheair.ai,app.dev.breatheair.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_air-portal",
+            "data": "air-portal-verify=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "air-portal-verify="
+        },
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 3600
+        }
+    ]
+}

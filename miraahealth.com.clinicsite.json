@@ -1,0 +1,56 @@
+{
+  "providerId": "miraahealth.com",
+  "providerName": "Miraa",
+  "serviceId": "clinicsite",
+  "serviceName": "Practice website",
+  "version": 1,
+  "description": "Points a medical practice's domain at the website it built with Miraa Sites (hosted on Vercel), and adds the TXT record that proves the domain belongs to that practice. Optionally sets up the www address too.",
+  "variableDescription": "miraatoken: a single-use ownership code (32 hex characters) minted for this one approval, group 'ownership'. vercelverify: the hosting provider's domain verification value, group 'vercel', sent only after ownership is proven and while that verification is pending. wwwtoken: a single-use ownership code for www (32 hex characters), group 'www', sent only when the practice connects www as well and nothing is live there.",
+  "sharedServiceName": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "miraahealth.com",
+  "syncRedirectDomain": "app.miraahealth.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "site",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_miraa-site",
+      "data": "miraa-site-verify=%miraatoken%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "miraa-site-verify="
+    },
+    {
+      "groupId": "vercel",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%vercelverify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    },
+    {
+      "groupId": "www",
+      "type": "TXT",
+      "host": "_miraa-site.www",
+      "data": "miraa-site-verify=%wwwtoken%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "miraa-site-verify="
+    }
+  ]
+}

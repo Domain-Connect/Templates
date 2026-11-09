@@ -1,0 +1,51 @@
+{
+  "providerId": "taxscout.ai",
+  "providerName": "TaxScout",
+  "serviceId": "sending",
+  "serviceName": "Client and marketing email from your domain",
+  "version": 1,
+  "logoUrl": "https://app.taxscout.ai/icons/icon-512.png",
+  "description": "Lets TaxScout send a firm's client and marketing email from a subdomain the firm chooses (passed as the host parameter, for example mail). Adds proof of ownership, SPF and DKIM under that subdomain only. The firm's website and its existing mailboxes are not changed.",
+  "variableDescription": "%ownership%: 32 URL-safe characters proving this firm's request. %zeptoselector%: numeric DKIM selector ZeptoMail issued for the domain. %zeptokey%: the DKIM public key ZeptoMail issued (base64). %zeptocluster%: the ZeptoMail bounce host label issued for the domain, for example cluster89. %resendregion%: the sending region Resend issued, for example us-east-1. %resendkey%: the DKIM public key Resend issued (base64).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.taxscout.ai",
+  "syncRedirectDomain": "app.taxscout.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_taxscout-mail",
+      "data": "taxscout-mail-verify=%ownership%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%zeptoselector%._domainkey",
+      "data": "k=rsa; p=%zeptokey%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "bounce-zem",
+      "pointsTo": "%zeptocluster%.zeptomail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%resendregion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%resendkey%",
+      "ttl": 3600
+    }
+  ]
+}

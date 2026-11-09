@@ -1,0 +1,68 @@
+{
+  "providerId": "flypombo.com",
+  "providerName": "Pombo",
+  "serviceId": "sending-domain",
+  "serviceName": "Pombo sending domain",
+  "version": 1,
+  "logoUrl": "https://flypombo.com/icon.png",
+  "description": "Lets Pombo send email from your domain: DKIM signing, a custom MAIL FROM, SPF and DMARC.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "flypombo.com",
+  "syncRedirectDomain": "flypombo.com,staging.flypombo.com",
+  "variableDescription": "%dkimToken1%, %dkimToken2%, %dkimToken3%: the three Easy DKIM tokens Amazon SES issued for this domain. %region%: the SES region Pombo sends from, for example us-east-1.",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "deliverability",
+      "type": "MX",
+      "host": "envelope",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "deliverability",
+      "type": "SPFM",
+      "host": "envelope",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "deliverability",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

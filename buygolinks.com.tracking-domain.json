@@ -1,0 +1,16 @@
+{
+  "providerId": "buygolinks.com",
+  "providerName": "BuyGoLinks",
+  "serviceId": "tracking-domain",
+  "serviceName": "BuyGoLinks tracking domain",
+  "version": 1,
+  "logoUrl": "https://app.buygolinks.com/favicon.svg",
+  "description": "Points a subdomain at BuyGoLinks for first-party tracking and branded short links.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.buygolinks.com",
+  "syncRedirectDomain": "app.buygolinks.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "buygolinks.com", "ttl": 3600 }
+  ]
+}

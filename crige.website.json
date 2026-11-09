@@ -3,13 +3,13 @@
     "providerName": "Crige",
     "serviceId": "website",
     "serviceName": "Crige website",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://crige.com/favicon.svg",
     "description": "Points a name you own at your Crige workspace website and adds a one-time ownership check.",
     "variableDescription": "%websiteTarget%: the address the website name points to, issued per workspace by Crige; %verifyToken%: one-time ownership token shown in Crige",
     "hostRequired": true,
     "syncPubKeyDomain": "crige.com",
-    "syncRedirectDomain": "crige.com,staging.crige.com",
+    "syncRedirectDomain": "crige.com,staging.crige.com,app.crige.com",
     "records": [
         {
             "groupId": "website",
