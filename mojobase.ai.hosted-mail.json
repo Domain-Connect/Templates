@@ -7,7 +7,7 @@
   "logoUrl": "https://mojobase.ai/favicon.svg",
   "description": "Moves the domain's email to Mojobase's hosted email, run by OpenSRS (hostedemail.com): the MX record, the SPF include and the domain's DKIM key.",
   "variableDescription": "dkimkey: the base64 public half of the domain's DKIM key, selector mb1.",
-  "syncPubKeyDomain": "mojobase.ai",
+  "syncPubKeyDomain": "mojobase.app",
   "records": [
     {
       "type": "MX",
