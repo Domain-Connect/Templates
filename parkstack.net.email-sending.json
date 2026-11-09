@@ -1,0 +1,41 @@
+{
+  "providerId": "parkstack.net",
+  "providerName": "Parkstack",
+  "serviceId": "email-sending",
+  "serviceName": "Guest emails from your own address",
+  "version": 1,
+  "logoUrl": "https://parkstack.net/platform/icons/icon-512.png",
+  "description": "Lets Parkstack send your park's tickets, receipts and other guest emails from your own address. Your existing email is not changed.",
+  "variableDescription": "dkimkey: the public key that proves the emails are yours (from Parkstack's email provider)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "parkstack.net",
+  "syncRedirectDomain": "console.parkstack.net",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "parkstack",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "parkstack",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "rparkstack",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
+    }
+  ]
+}
