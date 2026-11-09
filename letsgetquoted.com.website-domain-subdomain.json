@@ -1,0 +1,17 @@
+{
+  "providerId": "letsgetquoted.com",
+  "providerName": "Let's Get Quoted",
+  "serviceId": "website-domain-subdomain",
+  "serviceName": "Let's Get Quoted website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://letsgetquoted.com/lets-get-quoted-logo.png",
+  "description": "Points one subdomain of your domain (such as quote.yourbusiness.com) at your Let's Get Quoted website, and adds the one TXT record that proves you own it. Your root domain, email and other records are not changed.",
+  "variableDescription": "token is the value of the ownership record. cname is the host the subdomain points to.",
+  "syncPubKeyDomain": "letsgetquoted.com",
+  "syncRedirectDomain": "app.letsgetquoted.com,letsgetquoted.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "TXT", "host": "_lgq-verify", "data": "lgq-domain-verify=%token%", "ttl": 3600 },
+    { "type": "CNAME", "host": "@", "pointsTo": "%cname%", "ttl": 3600 }
+  ]
+}
