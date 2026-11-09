@@ -3,10 +3,10 @@
   "providerName": "Systems for Business",
   "serviceId": "website",
   "serviceName": "Website, members area and email",
-  "version": 1,
+  "version": 3,
   "logoUrl": "https://usesfb.ai/apple-touch-icon.png",
-  "description": "Puts a business's website (the domain and www), its members area (clients.) and its sending email (send. and resend._domainkey) on Systems for Business. Each group is applied only when the business chose it.",
-  "variableDescription": "%ip%: Systems for Business's web server address; %mxhost%: the email sender's feedback host; %dkim%: the domain's DKIM public key",
+  "description": "Puts a business's website (the domain and www), its members area (clients.) and its sending email (send. and resend._domainkey) on Systems for Business, with the TXT record at _sfb that proves the domain is the business's. Each group is applied only when the business chose it.",
+  "variableDescription": "%ip%: Systems for Business's web server address; %mxhost%: the email sender's feedback host; %dkim%: the domain's DKIM public key; %sfbverify%: the business's own proof value (sfb-verify=…); %dkim1%, %dkim2%, %dkim3%: the domain's Amazon SES DKIM tokens; %sesregion%: the Amazon SES region it sends from (us-east-1)",
   "syncBlock": false,
   "sharedProviderName": false,
   "hostRequired": false,
@@ -18,6 +18,12 @@
     { "groupId": "members", "type": "CNAME", "host": "clients", "pointsTo": "usesfb.ai", "ttl": 3600 },
     { "groupId": "email", "type": "MX", "host": "send", "pointsTo": "%mxhost%", "priority": 10, "ttl": 3600 },
     { "groupId": "email", "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com", "ttl": 3600 },
-    { "groupId": "email", "type": "TXT", "host": "resend._domainkey", "data": "%dkim%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+    { "groupId": "email", "type": "TXT", "host": "resend._domainkey", "data": "%dkim%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "groupId": "verify", "type": "TXT", "host": "_sfb", "data": "%sfbverify%", "ttl": 3600, "txtConflictMatchingMode": "None" },
+    { "groupId": "ses", "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "ses", "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "ses", "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "ses", "type": "MX", "host": "mail", "pointsTo": "feedback-smtp.%sesregion%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "groupId": "ses", "type": "SPFM", "host": "mail", "spfRules": "include:amazonses.com", "ttl": 3600 }
   ]
 }
