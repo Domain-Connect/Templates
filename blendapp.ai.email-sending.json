@@ -1,0 +1,26 @@
+{
+  "providerId": "blendapp.ai",
+  "providerName": "Blend",
+  "serviceId": "email-sending",
+  "serviceName": "Blend email sending",
+  "version": 1,
+  "logoUrl": "https://blendapp.ai/brand/blend-logo-square-1024.png",
+  "description": "Lets Blend send your event, ticket and campaign emails from your own domain: Amazon SES and Mailtrap DKIM keys, a bounce subdomain (MX + SPF), Mailtrap domain verification and click tracking.",
+  "variableDescription": "dkim1-3: Amazon SES Easy DKIM tokens. region: the SES region. mtid: the suffix of Mailtrap's domain-verification host (mt<mtid>).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "blendapp.ai",
+  "syncRedirectDomain": "blendapp.ai",
+  "records": [
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "MX", "host": "blendmail", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "blendmail", "spfRules": "include:amazonses.com" },
+    { "type": "CNAME", "host": "rwmt1._domainkey", "pointsTo": "rwmt1.dkim.smtp.mailtrap.live", "ttl": 3600 },
+    { "type": "CNAME", "host": "rwmt2._domainkey", "pointsTo": "rwmt2.dkim.smtp.mailtrap.live", "ttl": 3600 },
+    { "type": "CNAME", "host": "mt%mtid%", "pointsTo": "smtp.mailtrap.live", "ttl": 3600 },
+    { "type": "CNAME", "host": "mt-link", "pointsTo": "t.mailtrap.live", "ttl": 3600 }
+  ]
+}
