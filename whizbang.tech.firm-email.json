@@ -1,0 +1,61 @@
+{
+  "providerId": "whizbang.tech",
+  "providerName": "Whizbang",
+  "serviceId": "firm-email",
+  "serviceName": "Amicus firm email",
+  "version": 1,
+  "logoUrl": "https://domains.whizbang.quest/domain-connect/logo.svg",
+  "description": "Lets Amicus send your firm's client email and outreach from sending subdomains (for example mail.yourfirm.law) through Resend. It adds a DKIM key and a return path on those subdomains only; your mailboxes, MX records, main SPF record and DMARC are not changed.",
+  "variableDescription": "<lane>mail: the sending subdomain (for example mail). <lane>dkim: the DKIM public key. <lane>returnmx: the bounce-handling mail server.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "whizbang.quest",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "client",
+      "type": "TXT",
+      "host": "resend._domainkey.%clientmail%",
+      "data": "%clientdkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "client",
+      "type": "MX",
+      "host": "send.%clientmail%",
+      "pointsTo": "%clientreturnmx%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "client",
+      "type": "SPFM",
+      "host": "send.%clientmail%",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "outreach",
+      "type": "TXT",
+      "host": "resend._domainkey.%outreachmail%",
+      "data": "%outreachdkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "outreach",
+      "type": "MX",
+      "host": "send.%outreachmail%",
+      "pointsTo": "%outreachreturnmx%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "outreach",
+      "type": "SPFM",
+      "host": "send.%outreachmail%",
+      "spfRules": "include:amazonses.com"
+    }
+  ],
+  "syncRedirectDomain": "api.whizbang.quest"
+}
