@@ -1,0 +1,21 @@
+{
+  "providerId": "lycatra.com",
+  "providerName": "Lycatra",
+  "serviceId": "web",
+  "serviceName": "Lycatra Sites",
+  "version": 1,
+  "logoUrl": "https://lycatra.com/icon.svg",
+  "description": "Points a hostname (for example www) at a website hosted on Lycatra Sites.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.lycatra.com",
+  "syncRedirectDomain": "lycatra.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.lycatra.com",
+      "ttl": 3600
+    }
+  ]
+}
