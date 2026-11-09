@@ -1,0 +1,41 @@
+{
+    "providerId": "eforward.com",
+    "providerName": "eForward",
+    "serviceId": "email-forwarding",
+    "serviceName": "Email Forwarding",
+    "version": 1,
+    "logoUrl": "https://eforward.com/design/favicon.svg",
+    "description": "Connects your domain to eForward email forwarding: a DKIM CNAME that proves ownership of the domain and signs replies sent from its addresses, and an MX record that delivers the domain's mail to eForward. Optionally adds a starter DMARC policy.",
+    "variableDescription": "%dkimlabel%: the domain's unique DKIM label shown on its page in eForward (the first part of the CNAME target <label>.dkim.eforward.net)",
+    "syncBlock": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "eforward.net",
+    "syncRedirectDomain": "app.eforward.com",
+    "records": [
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "eforward._domainkey",
+            "pointsTo": "%dkimlabel%.dkim.eforward.net",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx.eforward.net",
+            "priority": 0,
+            "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none",
+            "ttl": 3600,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        }
+    ]
+}
