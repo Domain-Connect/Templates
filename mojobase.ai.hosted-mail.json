@@ -1,0 +1,32 @@
+{
+  "providerId": "mojobase.ai",
+  "providerName": "Mojobase",
+  "serviceId": "hosted-mail",
+  "serviceName": "Mojobase email",
+  "version": 1,
+  "logoUrl": "https://mojobase.ai/favicon.svg",
+  "description": "Moves the domain's email to Mojobase's hosted email, run by OpenSRS (hostedemail.com): the MX record, the SPF include and the domain's DKIM key.",
+  "variableDescription": "dkimkey: the base64 public half of the domain's DKIM key, selector mb1.",
+  "syncPubKeyDomain": "mojobase.ai",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.%fqdn%.cust.b.hostedemail.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.hostedemail.com"
+    },
+    {
+      "type": "TXT",
+      "host": "mb1._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
