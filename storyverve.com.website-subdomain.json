@@ -1,0 +1,29 @@
+{
+  "providerId": "storyverve.com",
+  "providerName": "StoryVerve",
+  "serviceId": "website-subdomain",
+  "serviceName": "StoryVerve Website Subdomain",
+  "version": 1,
+  "logoUrl": "https://dashboard.storyverve.com/client/sv-mark.svg",
+  "description": "Verify and connect a single subdomain to its assigned StoryVerve website.",
+  "variableDescription": "%verification%: StoryVerve ownership challenge; %project%: label of the Netlify project assigned to the website.",
+  "hostRequired": true,
+  "syncPubKeyDomain": "storyverve.com",
+  "syncRedirectDomain": "dashboard.storyverve.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_storyverve",
+      "data": "storyverve-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "storyverve-verification="
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%project%.netlify.app",
+      "ttl": 3600
+    }
+  ]
+}
