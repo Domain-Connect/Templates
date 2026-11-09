@@ -1,0 +1,29 @@
+{
+    "providerId": "usebravo.app",
+    "providerName": "Bravo",
+    "serviceId": "storedomain",
+    "serviceName": "Bravo online store",
+    "logoUrl": "https://usebravo.app/assets/bravo/logo/bravo-kite-horizontal.svg",
+    "version": 1,
+    "description": "Points one host of the merchant's domain (for example www) at their Bravo online store, and adds the TXT record that proves the domain is theirs. Never applied at the zone apex.",
+    "variableDescription": "token: the store's verification token for this host, 32 hexadecimal characters, made by Bravo when the merchant adds the host. Apply with host=<the host's label> (for example www).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.usebravo.app",
+    "syncRedirectDomain": "merchant.usebravo.app,merchant.dev.usebravo.app,merchant.stg.usebravo.app",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "stores.mybravo.app",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_bravo",
+            "data": "bravo-verify=%token%",
+            "txtConflictMatchingMode": "All",
+            "ttl": 3600
+        }
+    ]
+}
