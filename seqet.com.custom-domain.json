@@ -15,7 +15,8 @@
       "type": "TXT",
       "host": "_seqet",
       "data": "seqet-verify=%TOKEN%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
     },
     {
       "type": "A",
