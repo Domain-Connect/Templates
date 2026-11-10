@@ -5,8 +5,8 @@
   "serviceName": "Email from your own address",
   "version": 1,
   "logoUrl": "https://lumm.one/favicon.svg",
-  "description": "Lets a business on Lumm send its customers' emails from an address at its own domain, through Resend: the DKIM key, the sending name's MX and SPF, and Resend's own return path.",
-  "variableDescription": "dkim: the DKIM public key Resend made for the domain, without its p= prefix; region: Resend's sending region, as in eu-west-1",
+  "description": "Lets a business on Lumm send its customers' emails from an address at its own domain: the DKIM key, the sending name's MX and SPF, and the return path.",
+  "variableDescription": "dkim: the DKIM public key made for the domain, without its p= prefix; region: the sending region, as in eu-west-1",
   "syncPubKeyDomain": "lumm.one",
   "records": [
     {
