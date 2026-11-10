@@ -1,0 +1,30 @@
+{
+    "providerId": "offtheclocksoftware.com",
+    "providerName": "Off the Clock Software",
+    "serviceId": "website",
+    "serviceName": "Website",
+    "version": 1,
+    "logoUrl": "https://offtheclocksoftware.com/domain-connect/logo.svg",
+    "description": "Points www at the website Off the Clock Software built for the business, through the site's own name under otcsites.com, and forwards the bare domain to www with a permanent (301) redirect. Email records (MX, SPF, DKIM, DMARC and every other TXT record) are never changed.",
+    "variableDescription": "%slug%: one DNS label that names the client's site under otcsites.com, for example joes-pizza.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "offtheclocksoftware.com",
+    "syncRedirectDomain": "offtheclocksoftware.com,www.offtheclocksoftware.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "www",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%slug%.otcsites.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "apex",
+            "type": "REDIR301",
+            "host": "@",
+            "target": "https://www.%fqdn%",
+            "essential": "OnApply"
+        }
+    ]
+}
