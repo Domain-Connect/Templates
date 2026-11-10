@@ -1,0 +1,41 @@
+{
+  "providerId": "despachator.com",
+  "providerName": "Despachator",
+  "serviceId": "email-marketing",
+  "serviceName": "Despachator Email Marketing",
+  "version": 1,
+  "logoUrl": "https://despachator.com/apple-touch-icon.png",
+  "description": "Authorizes Despachator (practice management software for law firms) to send the firm's client newsletters on behalf of the domain: DKIM signature, SPF and bounce handling on the 'send' return-path subdomain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "despachator.com",
+  "syncRedirectDomain": "despachator.com",
+  "variableDescription": "%dkimValue%: DKIM public key issued for this domain",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
+    }
+  ]
+}
