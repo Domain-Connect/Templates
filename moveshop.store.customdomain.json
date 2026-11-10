@@ -3,45 +3,19 @@
   "providerName": "MoveShop",
   "serviceId": "customdomain",
   "serviceName": "Custom storefront domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://moveshop.store/brand/moveshop-logo.svg",
-  "description": "Connects a domain to a MoveShop storefront: a CNAME to MoveShop plus the TXT records that prove ownership and validate the SSL certificate.",
-  "variableDescription": "ownership: the hostname ownership token; acme: the SSL validation token; acme2: a second SSL validation token, applied only with groupId acme2.",
+  "description": "Connects a domain to a MoveShop storefront with a CNAME to MoveShop. MoveShop validates the hostname and issues its SSL certificate over HTTP once the CNAME is in place, so no other records are needed.",
   "syncBlock": false,
   "syncPubKeyDomain": "moveshop.store",
   "syncRedirectDomain": "moveshop.store,moveshop.app",
   "hostRequired": true,
   "records": [
     {
-      "groupId": "main",
       "type": "CNAME",
       "host": "@",
       "pointsTo": "moveshop.store",
       "ttl": 3600
-    },
-    {
-      "groupId": "main",
-      "type": "TXT",
-      "host": "_cf-custom-hostname",
-      "data": "%ownership%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "All"
-    },
-    {
-      "groupId": "main",
-      "type": "TXT",
-      "host": "_acme-challenge",
-      "data": "%acme%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "None"
-    },
-    {
-      "groupId": "acme2",
-      "type": "TXT",
-      "host": "_acme-challenge",
-      "data": "%acme2%",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "None"
     }
   ]
 }
