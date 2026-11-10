@@ -7,9 +7,10 @@
   "logoUrl": "https://seqet.com/assets/logo-dark.png",
   "description": "Points your domain to your seqet online store and proves that you own it.",
   "variableDescription": "TOKEN is a one-time ownership code shown in your seqet account; IP is the address of the seqet servers.",
+  "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.seqet.com",
   "syncRedirectDomain": "seqet.com",
-  "syncBlock": false,
+  "hostRequired": false,
   "records": [
     {
       "type": "TXT",
