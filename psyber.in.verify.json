@@ -1,0 +1,21 @@
+{
+	"providerId": "psyber.in",
+	"providerName": "Mailflare",
+	"serviceId": "verify",
+	"serviceName": "Mailflare domain verification",
+	"version": 1,
+	"logoUrl": "https://mailfair.psyber.in/favicon.ico",
+	"description": "Verifies that you control this domain for Mailflare by adding a single TXT record.",
+	"variableDescription": "%TXTVALUE%: the one-time verification token Mailflare generated for this domain",
+	"syncPubKeyDomain": "mailfair.psyber.in",
+	"syncRedirectDomain": "mailfair.psyber.in",
+	"records": [
+		{
+			"type": "TXT",
+			"host": "_mailflare-verify",
+			"data": "mailflare-verify=%TXTVALUE%",
+			"ttl": "3600",
+			"txtConflictMatchingMode": "Prefix"
+		}
+	]
+}
