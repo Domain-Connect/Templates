@@ -3,10 +3,10 @@
   "providerName": "My Local Press",
   "serviceId": "custom-domain",
   "serviceName": "My Local Press Custom Domain",
-  "version": 2,
-  "logoUrl": "https://mylocalpress.com/favicon-light.svg",
-  "description": "Points a custom domain at My Local Press: the branded feed is served at www, the bare/apex domain 301-redirects to www, and AWS SES email authentication (DKIM + custom MAIL FROM) is configured so the publication's newsletter can send from its own domain. Only the three DKIM selector tokens vary per domain; every other value is fixed.",
-  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three AWS SES DKIM selector tokens generated for this domain (the only per-domain values). Every hosting value (www CNAME target, apex A IPs), the MAIL FROM host and the SPF include are fixed literals.",
+  "version": 3,
+  "logoUrl": "https://mylocalpress.com/_assets/brand/domain-connect-logo.svg",
+  "description": "Points a custom domain at My Local Press: the branded feed is served at www, the bare/apex domain 301-redirects to www, the bare domain's AWS certificate is validated so https works there too, and AWS SES email authentication (DKIM + custom MAIL FROM) is configured so the publication's newsletter can send from its own domain. Only the three DKIM selector tokens and the two halves of the certificate-validation record vary per domain; every other value is fixed.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three AWS SES DKIM selector tokens generated for this domain. %certname%, %certvalue%: the AWS Certificate Manager DNS-validation record for the bare domain's certificate, without its fixed parts (the record is _%certname% pointing at _%certvalue%.acm-validations.aws). Every hosting value (www CNAME target, apex A IPs), the MAIL FROM host and the SPF include are fixed literals.",
   "syncPubKeyDomain": "mylocalpress.com",
   "syncRedirectDomain": "mylocalpress.com",
   "records": [
@@ -29,6 +29,13 @@
       "type": "A",
       "host": "@",
       "pointsTo": "166.117.141.54",
+      "ttl": 3600
+    },
+    {
+      "groupId": "hosting",
+      "type": "CNAME",
+      "host": "_%certname%",
+      "pointsTo": "_%certvalue%.acm-validations.aws",
       "ttl": 3600
     },
     {
