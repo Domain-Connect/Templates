@@ -1,0 +1,22 @@
+{
+  "providerId": "accountantos.com.au",
+  "providerName": "AccountantOS",
+  "serviceId": "client-portal",
+  "serviceName": "AccountantOS client portal",
+  "version": 1,
+  "logoUrl": "https://app.accountantos.com.au/accountantos-brand/accountantos-mark.svg",
+  "description": "Points a subdomain at the firm's AccountantOS client portal, so the links the firm sends its clients use the firm's own domain",
+  "variableDescription": "%firm%: the firm's AccountantOS address name, for example smith-tax",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.accountantos.com.au",
+  "syncRedirectDomain": "accountantos.com.au",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%firm%.accountantos.app",
+      "ttl": 3600
+    }
+  ]
+}
