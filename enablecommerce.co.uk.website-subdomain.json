@@ -1,0 +1,17 @@
+{
+  "providerId": "enablecommerce.co.uk",
+  "providerName": "Enable",
+  "serviceId": "website-subdomain",
+  "serviceName": "Enable website hosting (subdomain)",
+  "version": 1,
+  "logoUrl": "https://app.enablecommerce.co.uk/domain-connect/logo.png",
+  "description": "Points this subdomain (for example shop.example.com) at your website hosted by Enable. Adds one CNAME record; nothing else in your DNS changes.",
+  "variableDescription": "No variables: the record always points at Enable's web servers.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "enablecommerce.co.uk",
+  "syncRedirectDomain": "app.enablecommerce.co.uk",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "sites.enablecommerce.co.uk", "ttl": 3600 }
+  ]
+}
