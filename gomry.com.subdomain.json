@@ -1,0 +1,30 @@
+{
+  "providerId": "gomry.com",
+  "providerName": "Gomry",
+  "serviceId": "subdomain",
+  "serviceName": "Gomry Websites (subdomain)",
+  "version": 1,
+  "logoUrl": "https://www.gomry.com/logo.svg",
+  "description": "Connects a subdomain (for example events.yourdomain.com) to a website built with Gomry.",
+  "variableDescription": "target: the name the subdomain points at; token: proves the domain belongs to the Gomry account connecting it",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.gomry.com",
+  "syncRedirectDomain": "gomry.com,www.gomry.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_gomry-verify",
+      "data": "gomry-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "gomry-verify="
+    }
+  ]
+}
