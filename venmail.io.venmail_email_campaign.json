@@ -1,0 +1,41 @@
+{
+  "providerId": "venmail.io",
+  "providerName": "Venmail",
+  "serviceId": "venmail_email_campaign",
+  "serviceName": "Venmail Campaign Sending",
+  "logoUrl": "https://m.venmail.io/logo.png",
+  "description": "Configure DNS for Venmail campaign sending without changing MX records.",
+  "variableDescription": "DKIM selector and public key, SPF rules, DMARC policy, and campaign ownership verification.",
+  "version": 1,
+  "syncPubKeyDomain": "venmail.io",
+  "records": [
+    {
+      "groupId": "venmail-dkim",
+      "type": "TXT",
+      "host": "%dkim_name%._domainkey",
+      "data": "%dkim_data%",
+      "ttl": 600
+    },
+    {
+      "groupId": "venmail-spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spf_rules%",
+      "ttl": 600
+    },
+    {
+      "groupId": "venmail-dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_data%",
+      "ttl": 600
+    },
+    {
+      "groupId": "venmail-campaign-ownership",
+      "type": "TXT",
+      "host": "_venmail-campaign",
+      "data": "%campaign_verification%",
+      "ttl": 600
+    }
+  ]
+}
