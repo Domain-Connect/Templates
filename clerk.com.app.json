@@ -3,11 +3,20 @@
   "providerName": "Clerk",
   "serviceId": "app",
   "serviceName": "Clerk Application",
-  "version": 3,
+  "version": 4,
   "description": "Enables a domain to work with Clerk",
   "syncPubKeyDomain": "domainconnect.dashboard.clerk.com",
   "syncRedirectDomain": "dashboard.clerk.com",
   "records": [
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
     {
       "type":"CNAME",
       "groupId": "auth",
