@@ -1,0 +1,27 @@
+{
+    "providerId": "zfolio.cc",
+    "providerName": "zFolio",
+    "serviceId": "site-staging",
+    "serviceName": "Publish as a Site (staging)",
+    "version": 1,
+    "logoUrl": "https://zfolio.cc/favicon.svg",
+    "description": "Connects a domain or subdomain to a zFolio site: the account's ownership proof (TXT) and the domain pointed at zFolio's sites (custom-staging.zfolio.cc).",
+    "variableDescription": "proof: the part after zf-v1= of the value that proves the zFolio account attaching this domain, an HMAC the app computes per account, site, and hostname.",
+    "syncPubKeyDomain": "zfolio.cc",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_zfolio",
+            "ttl": 3600,
+            "data": "zf-v1=%proof%",
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "custom-staging.zfolio.cc",
+            "ttl": 3600
+        }
+    ]
+}
