@@ -54,14 +54,9 @@
     },
     {
       "groupId": "autodiscover",
-      "type": "SRV",
-      "name": "@",
-      "service": "_autodiscover",
-      "protocol": "_tcp",
-      "priority": 0,
-      "weight": 0,
-      "port": 443,
-      "target": "autodiscover.mtoyu.com",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mx.mtoyu.com",
       "ttl": 3600,
       "essential": "OnApply"
     }
