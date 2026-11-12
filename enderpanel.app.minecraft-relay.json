@@ -1,0 +1,27 @@
+{
+  "providerId": "enderpanel.app",
+  "providerName": "EnderPanel",
+  "serviceId": "minecraft-relay",
+  "serviceName": "Minecraft server address through a relay",
+  "version": 1,
+  "logoUrl": "https://enderpanel.app/favicon.png",
+  "description": "Points a name on a domain you own at a Minecraft server that is reached through a relay address.",
+  "variableDescription": "target: the relay's host name; port: the relay's TCP port",
+  "syncPubKeyDomain": "enderpanel.app",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "SRV",
+      "name": "@",
+      "service": "_minecraft",
+      "protocol": "_tcp",
+      "priority": "0",
+      "weight": "5",
+      "port": "%port%",
+      "target": "%target%.",
+      "ttl": "300",
+      "essential": "Always"
+    }
+  ]
+}
