@@ -1,0 +1,21 @@
+{
+    "providerId": "midge.dev",
+    "providerName": "Midge",
+    "serviceId": "domain-verify",
+    "serviceName": "Website SDK domain verification",
+    "version": 1,
+    "logoUrl": "https://midge.dev/logo.svg",
+    "description": "Adds the TXT record that proves you own this domain, so Midge's website SDK can send bug reports from it.",
+    "variableDescription": "code: the verification code Midge shows for this domain",
+    "syncPubKeyDomain": "midge.dev",
+    "syncRedirectDomain": "midge.dev",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_midge",
+            "ttl": "3600",
+            "data": "midge-verify=%code%",
+            "txtConflictMatchingMode": "None"
+        }
+    ]
+}
