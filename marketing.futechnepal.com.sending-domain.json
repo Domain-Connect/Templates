@@ -24,5 +24,6 @@
   ],
   "description": "Adds DKIM and a return-path alias for Futech Email Marketing.",
   "variableDescription": "dkimSelector: DKIM key selector; dkimKey: base64 RSA public key; bounceTarget: public mail infrastructure hostname that receives bounces.",
-  "syncRedirectDomain": "marketing.futechnepal.com"
+  "syncRedirectDomain": "marketing.futechnepal.com",
+  "logoUrl": "https://marketing.futechnepal.com/favicon.ico"
 }
