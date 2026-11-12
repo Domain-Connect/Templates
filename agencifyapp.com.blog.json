@@ -1,0 +1,30 @@
+{
+  "providerId": "agencifyapp.com",
+  "providerName": "Agencify",
+  "serviceId": "blog",
+  "serviceName": "Agencify Content blog",
+  "version": 1,
+  "logoUrl": "https://content.agencifyapp.com/logo.png",
+  "description": "Points a domain or subdomain to a blog hosted by Agencify Content and adds the ownership verification record.",
+  "variableDescription": "target: Agencify CNAME target for blogs; verification: per-blog ownership token",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "agencifyapp.com",
+  "syncRedirectDomain": "content.agencifyapp.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_agencify",
+      "data": "%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
