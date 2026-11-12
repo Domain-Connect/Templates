@@ -1,0 +1,30 @@
+{
+  "providerId": "pi-x.ai",
+  "providerName": "PiX",
+  "serviceId": "website",
+  "serviceName": "PiX Website",
+  "version": 1,
+  "logoUrl": "https://pi-x.ai/brand/pi-x-mark.svg",
+  "description": "Connect an existing domain to the user's PiX website. Only the selected host's website address and ownership verification record are configured. No domain registration or payment is performed.",
+  "variableDescription": "IP is the PiX-approved public IPv4 route. TOKEN is the 48-character hexadecimal suffix of the existing PiX ownership challenge. All requests are signed by PiX.",
+  "syncPubKeyDomain": "pi-x.ai",
+  "syncRedirectDomain": "pi-x.ai,chucai-staging.bbroot.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": "600",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_chucai-verify",
+      "data": "pix-%TOKEN%",
+      "ttl": "600",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "pix-",
+      "essential": "OnApply"
+    }
+  ]
+}
