@@ -5,7 +5,7 @@
   "serviceName": "mtoyu Mail",
   "version": 2,
   "logoUrl": "https://mail.mtoyu.com/icon-512.png",
-  "description": "Connects your domain to mtoyu Mail: receiving mail, sender authentication (SPF, DKIM), a DMARC policy and automatic mail app setup (Outlook Autodiscover).",
+  "description": "Connects your domain to mtoyu Mail: receiving mail, sender authentication (SPF, DKIM), a DMARC policy and automatic mail app setup (Outlook Autodiscover, Thunderbird autoconfig and the imap/smtp server names).",
   "variableDescription": "verify is the ownership token of the domain in your mtoyu workspace; dkim is the DKIM public key record of the domain.",
   "syncBlock": false,
   "syncPubKeyDomain": "mtoyu.com",
@@ -56,6 +56,30 @@
       "groupId": "autodiscover",
       "type": "CNAME",
       "host": "autodiscover",
+      "pointsTo": "mx.mtoyu.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mx.mtoyu.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "imap",
+      "pointsTo": "mx.mtoyu.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "smtp",
       "pointsTo": "mx.mtoyu.com",
       "ttl": 3600,
       "essential": "OnApply"
