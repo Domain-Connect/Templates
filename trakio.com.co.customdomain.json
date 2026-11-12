@@ -1,0 +1,21 @@
+{
+  "providerId": "trakio.com.co",
+  "providerName": "Trakio",
+  "serviceId": "customdomain",
+  "serviceName": "Trakio short links",
+  "version": 1,
+  "logoUrl": "https://trakio.com.co/icon.png",
+  "description": "Connects a subdomain (e.g. links.yourbrand.com) to Trakio short links with one CNAME record.",
+  "variableDescription": "target: the unique Trakio hostname assigned to the connected subdomain (e.g. a1b2c3d4e5.custom.trakio.com.co).",
+  "hostRequired": true,
+  "syncPubKeyDomain": "trakio.com.co",
+  "syncRedirectDomain": "app.trakio.com.co",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
