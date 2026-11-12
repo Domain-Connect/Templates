@@ -8,7 +8,6 @@
   "variableDescription": "sel_rsa/key_rsa: the domain's DKIM selector and base64 public key, read from the mail platform after the domain is created. mtastsid: MTA-STS policy id (monotonic). verify: domain ownership token issued by the mail platform (TXT at apex).",
   "syncBlock": false,
   "syncRedirectDomain": "highsecuremail.net",
-  "warnPhishing": true,
   "records": [
     {
       "type": "MX",
