@@ -1,0 +1,31 @@
+{
+  "providerId": "bavimail.com",
+  "providerName": "Bavimail",
+  "serviceId": "tracking",
+  "serviceName": "Bavimail Email Tracking",
+  "version": 1,
+  "syncPubKeyDomain": "dc.bavimail.com",
+  "syncRedirectDomain": "bavimail.com",
+  "logoUrl": "https://bavimail.com/logo.svg",
+  "hostRequired": true,
+  "description": "Point a dedicated, otherwise unused hostname at Bavimail for open and click tracking on emails sent through Bavimail (the open pixel and the rewritten links are served under this hostname), and publish a one-time ownership verification record for that hostname.",
+  "variableDescription": "trackingTarget is the CNAME target label issued by the Bavimail backend for this tracking hostname. verificationToken is a fresh opaque ownership token issued by the Bavimail backend and bound to the account, the hostname and this setup attempt; it is never a private key or credential. The tracking hostname itself is supplied through the standard Domain Connect domain and host parameters.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%trackingTarget%.track.bavimail.com",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "TXT",
+      "host": "_bavimail-challenge",
+      "data": "bavimail-tracking-verification=%verificationToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "bavimail-tracking-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}

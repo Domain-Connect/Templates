@@ -1,0 +1,21 @@
+{
+  "providerId": "mydemodrop.com",
+  "providerName": "DemoDrop",
+  "serviceId": "website-sub",
+  "serviceName": "DemoDrop website (subdomain)",
+  "version": 1,
+  "logoUrl": "https://mydemodrop.com/logo-domainconnect.svg",
+  "description": "Connects a subdomain such as blog.example.com to your website hosted on DemoDrop. The subdomain is passed as the host parameter.",
+  "syncPubKeyDomain": "ddsites.co",
+  "syncRedirectDomain": "mydemodrop.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.ddsites.co",
+      "ttl": 600
+    }
+  ],
+  "hostRequired": true
+}

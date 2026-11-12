@@ -1,0 +1,36 @@
+{
+    "providerId": "tryvita.app",
+    "providerName": "Vita",
+    "serviceId": "website",
+    "serviceName": "Vita website",
+    "version": 1,
+    "logoUrl": "https://www.tryvita.app/icon.svg",
+    "description": "Points a domain at the website Vita builds and hosts for a local business.",
+    "syncPubKeyDomain": "tryvita.app",
+    "syncRedirectDomain": "tryvita.app,www.tryvita.app",
+    "variableDescription": "vercelVerify is the part after \"vc-domain-verify=\" in the TXT value Vercel issues to prove ownership of the domain (group \"verify\", only applied when Vercel asks for it).",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "76.76.21.21",
+            "ttl": 3600,
+            "groupId": "site"
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "cname.vercel-dns.com",
+            "ttl": 3600,
+            "groupId": "site"
+        },
+        {
+            "type": "TXT",
+            "host": "_vercel",
+            "data": "vc-domain-verify=%vercelVerify%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "None",
+            "groupId": "verify"
+        }
+    ]
+}

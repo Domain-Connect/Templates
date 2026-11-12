@@ -1,0 +1,33 @@
+{
+  "providerId": "launchofferwall.com",
+  "providerName": "LaunchOfferwall",
+  "serviceId": "customdomain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://launchofferwall.com/favicon.svg",
+  "description": "Connects a subdomain to a LaunchOfferwall network: a TXT record proves ownership and a CNAME points the subdomain at the platform.",
+  "variableDescription": "%token%: the ownership challenge token issued for this subdomain (32 hex characters)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.launchofferwall.com",
+  "syncRedirectDomain": "launchofferwall.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_lo-verify",
+      "data": "lo-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "lo-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "route",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.launchofferwall.com",
+      "ttl": 300
+    }
+  ]
+}

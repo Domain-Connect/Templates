@@ -1,0 +1,17 @@
+{
+  "providerId": "amplify.is",
+  "providerName": "Amplify",
+  "serviceId": "customdomain",
+  "serviceName": "Custom domain for a published app",
+  "version": 1,
+  "logoUrl": "https://amplify.is/apple-touch-icon.png",
+  "description": "Points a subdomain (e.g. www) to an app published on Amplify, served over HTTPS through Cloudflare for SaaS.",
+  "variableDescription": "%cfverify%: Cloudflare for SaaS custom hostname ownership token (UUID) for this hostname",
+  "syncPubKeyDomain": "amplify.is",
+  "syncRedirectDomain": "app.amplify.is",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "customers.amplify.is", "ttl": 600 },
+    { "type": "TXT", "host": "_cf-custom-hostname", "data": "%cfverify%", "ttl": 600, "txtConflictMatchingMode": "All" }
+  ]
+}

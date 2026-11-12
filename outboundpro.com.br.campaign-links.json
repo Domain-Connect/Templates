@@ -1,0 +1,30 @@
+{
+    "providerId": "outboundpro.com.br",
+    "providerName": "OutboundPro",
+    "serviceId": "campaign-links",
+    "serviceName": "Campanhas de e-mail (domínio dos links)",
+    "version": 2,
+    "logoUrl": "https://outboundpro.com.br/favicon.svg",
+    "description": "Points the customer's links subdomain (for example links.example.com) to OutboundPro's tracking host with a DNS-only CNAME (no proxy) and publishes OutboundPro's ownership proof (TXT _outboundpro.<subdomain> = outboundpro-verify=<token>). OutboundPro only starts using the subdomain after it finds that TXT with the token of the current registration, so a CNAME left behind after a deletion can never be claimed by another account. The TLS certificate for that subdomain is issued on OutboundPro's side. Apply with the host parameter set to the links subdomain.",
+    "variableDescription": "%verify%: OutboundPro's ownership proof token for this registration (32 URL-safe characters, new on every registration), published as outboundpro-verify=%verify%.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "outboundpro.com.br",
+    "syncRedirectDomain": "workspace.outboundpro.com.br,app.outboundpro.com.br",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "track.outboundpro.com.br",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_outboundpro",
+            "data": "outboundpro-verify=%verify%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "outboundpro-verify="
+        }
+    ]
+}

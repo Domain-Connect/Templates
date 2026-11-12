@@ -1,0 +1,36 @@
+{
+  "providerId": "rankprompt.com",
+  "providerName": "Rank Prompt",
+  "serviceId": "whitelabel",
+  "serviceName": "Rank Prompt white label app and client portal",
+  "version": 1,
+  "logoUrl": "https://rankprompt.com/images/logos/RankPrompt-Logo-Horizontal-Black.svg",
+  "description": "Points a subdomain at the agency's white label Rank Prompt app and client portal, with the ownership record and the SSL validation record.",
+  "variableDescription": "%token%: ownership value issued for this domain; %dcv%: SSL validation target issued for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "rankprompt.com",
+  "syncRedirectDomain": "app.rankprompt.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_rankprompt-verify",
+      "data": "%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "rp-verify-"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "portal.rankprompt.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%dcv%",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "providerId": "askyourshop.com",
+  "providerName": "AskYourShop",
+  "serviceId": "company",
+  "serviceName": "AskYourShop company assistant",
+  "version": 1,
+  "logoUrl": "https://askyourshop.com/favicon.svg",
+  "description": "Points a subdomain (like ai.yourcompany.com) at your company's AskYourShop assistant.",
+  "variableDescription": "No variables: the host is the subdomain you chose in AskYourShop.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "askyourshop.com",
+  "syncRedirectDomain": "app.askyourshop.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "askyourshop.onrender.com",
+      "ttl": 3600
+    }
+  ]
+}

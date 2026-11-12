@@ -1,0 +1,23 @@
+{
+  "providerId": "starpresence.ai",
+  "providerName": "StarPresence",
+  "serviceId": "sso-domain",
+  "serviceName": "Single sign-on domain proof",
+  "version": 1,
+  "logoUrl": "https://starpresence.ai/favicon.svg",
+  "description": "Adds the TXT record that proves an Organization holds its email domain, so its team can sign in to StarPresence with single sign-on.",
+  "variableDescription": "ssoproviderid: the Organization's single sign-on provider id (sso- followed by lowercase letters, digits and hyphens); token: the proof value StarPresence checks.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "starpresence.ai",
+  "syncRedirectDomain": "starpresence.ai,www.starreview.ch",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_starpresence-%ssoproviderid%",
+      "data": "_starpresence-%ssoproviderid%=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

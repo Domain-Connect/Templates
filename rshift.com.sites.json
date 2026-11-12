@@ -3,26 +3,19 @@
   "providerName": "RShift",
   "serviceId": "sites",
   "serviceName": "RShift Sites",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://www.rshift.com/_marketing/assets/longword-v2-Cw78vIzU.svg",
   "description": "Connect a custom domain to RShift Sites and configure its DNS verification records.",
-  "variableDescription": "target: one routing hostname label. Choose exactly one routing group from the current checked CNAME: routing for shift.fyi or routingHelp for tidy.help. ownership: Cloudflare for SaaS ownership TXT; certificate1 and certificate2: Cloudflare-issued ACME TXT values. Before SSL readiness select verification TXT groups only.",
+  "variableDescription": "target: one checked routing hostname label under rshift.app. ownership: Cloudflare for SaaS ownership TXT; certificate1 and certificate2: current Cloudflare-issued ACME TXT values. Immediate mode selects routing and known verification groups together; prevalidation selects verification groups until SSL is ready.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.rshift.com",
-  "syncRedirectDomain": "app.rshift.com",
+  "syncRedirectDomain": "api.rshift.com",
   "records": [
     {
       "groupId": "routing",
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "%target%.shift.fyi",
-      "ttl": 600
-    },
-    {
-      "groupId": "routingHelp",
-      "type": "CNAME",
-      "host": "@",
-      "pointsTo": "%target%.tidy.help",
+      "pointsTo": "%target%.rshift.app",
       "ttl": 600
     },
     {

@@ -1,0 +1,17 @@
+{
+  "providerId": "reachead.com",
+  "providerName": "ReachEAD",
+  "serviceId": "email-sending",
+  "serviceName": "ReachEAD Sending Domain",
+  "version": 2,
+  "logoUrl": "https://reachead.com/web_logo_light.png",
+  "description": "Authenticate email sending with DKIM and a dedicated send subdomain. Existing website, inbox MX and DMARC records are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.reachead.com",
+  "syncRedirectDomain": "reachead.com",
+  "records": [
+    { "type": "TXT", "host": "resend._domainkey", "data": "p=%dkimKey%", "txtConflictMatchingMode": "All", "ttl": 3600 },
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com" },
+    { "type": "MX", "host": "send", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 }
+  ]
+}

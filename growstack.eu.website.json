@@ -1,0 +1,26 @@
+{
+  "providerId": "growstack.eu",
+  "providerName": "Growstack",
+  "serviceId": "website",
+  "serviceName": "Growstack website",
+  "version": 1,
+  "logoUrl": "https://app.growstack.eu/favicon.svg",
+  "description": "Serve a Growstack website at www and send visitors on the bare domain to it.",
+  "variableDescription": "websiteAddress: the IPv4 address of Growstack's redirect service, which sends the bare domain to www. An A record's value is an address and cannot carry a fixed part, so it is a bare variable.",
+  "syncPubKeyDomain": "growstack.eu",
+  "syncRedirectDomain": "app.growstack.eu",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%websiteAddress%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "domains.growstack.eu",
+      "ttl": 300
+    }
+  ]
+}

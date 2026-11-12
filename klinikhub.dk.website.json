@@ -1,0 +1,28 @@
+{
+    "providerId": "klinikhub.dk",
+    "providerName": "KlinikHub",
+    "serviceId": "website",
+    "serviceName": "KlinikHub hjemmeside",
+    "version": 1,
+    "logoUrl": "https://klinikhub.dk/favicon.svg",
+    "description": "Points www and the root domain at the clinic's website hosted by KlinikHub",
+    "variableDescription": "No variables; both records are fixed.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "klinikhub.dk",
+    "syncRedirectDomain": "klinikhub.dk,app.klinikhub.dk",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "kunder.klinikhub.dk",
+            "ttl": 3600
+        },
+        {
+            "type": "APEXCNAME",
+            "host": "@",
+            "pointsTo": "kunder.klinikhub.dk",
+            "ttl": 3600
+        }
+    ]
+}

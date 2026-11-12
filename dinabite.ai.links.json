@@ -1,0 +1,31 @@
+{
+  "providerId": "dinabite.ai",
+  "providerName": "Dinabite",
+  "serviceId": "links",
+  "serviceName": "Branded links",
+  "version": 1,
+  "logoUrl": "https://dinabite.ai/icon.png",
+  "description": "Points a subdomain (for example meet.example.com) at Dinabite so booking pages, forms and other links use your own domain, and adds the TXT record that proves you own it.",
+  "variableDescription": "VERIFYTOKEN: lowercase verification token from Dinabite (the TXT value becomes dinabite-verify=<token>).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.dinabite.ai",
+  "syncRedirectDomain": "dinabite.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.dinabite.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dinabite",
+      "ttl": 300,
+      "data": "dinabite-verify=%VERIFYTOKEN%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dinabite-verify="
+    }
+  ]
+}

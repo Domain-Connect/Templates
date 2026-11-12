@@ -1,0 +1,20 @@
+{
+  "providerId": "condoweb.net",
+  "providerName": "CondoWeb",
+  "serviceId": "website",
+  "serviceName": "CondoWeb property website",
+  "version": 1,
+  "logoUrl": "https://condoweb.net/icon.png",
+  "description": "Points a hostname (usually www) at the property's CondoWeb website, which CondoWeb serves through Cloudflare.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "condoweb.net",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "landing.condoweb.net",
+      "ttl": 3600
+    }
+  ]
+}

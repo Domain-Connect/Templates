@@ -1,0 +1,24 @@
+{
+  "providerId": "identitycall.ai",
+  "providerName": "IdentityCall",
+  "serviceId": "domainverification",
+  "serviceName": "Email domain verification",
+  "version": 1,
+  "logoUrl": "https://app.identitycall.ai/logo.svg",
+  "description": "Proves to IdentityCall that you own this domain, so email from it counts as your team's in IdentityCall.",
+  "variableDescription": "token: the verification token IdentityCall issued for this domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "identitycall.ai",
+  "syncRedirectDomain": "app.identitycall.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "identitycall-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "identitycall-verification="
+    }
+  ]
+}

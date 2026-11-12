@@ -1,0 +1,28 @@
+{
+  "providerId": "launchpad.tourismaccelerator.com.au",
+  "providerName": "Tourism Accelerator Launchpad",
+  "serviceId": "email",
+  "serviceName": "Launchpad email sending",
+  "version": 1,
+  "logoUrl": "https://www.tourismaccelerator.com.au/logo.svg",
+  "description": "Lets Launchpad send email from your domain: the DKIM signing key and the bounce handling record. Your SPF record is not changed.",
+  "variableDescription": "dkimSelector is the name Postmark gave this domain's DKIM key. dkimValue is its public key.",
+  "syncBlock": false,
+  "syncRedirectDomain": "launchpad.tourismaccelerator.com.au",
+  "syncPubKeyDomain": "launchpad.tourismaccelerator.com.au",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "pm-bounces",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": 3600
+    }
+  ]
+}

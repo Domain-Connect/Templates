@@ -1,0 +1,79 @@
+{
+  "providerId": "pombus.com",
+  "providerName": "Pombus",
+  "serviceId": "email",
+  "serviceName": "Pombus Email",
+  "version": 2,
+  "syncPubKeyDomain": "pombus.com",
+  "logoUrl": "https://pombus.com/brand/logos/svg/pombus_symbol_dark.svg",
+  "description": "Email for your domain with Pombus: receiving, sending and DKIM/DMARC.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_pombus-verify",
+      "data": "%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "groupId": "verify"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.us-east-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "inbound"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com",
+      "groupId": "inbound"
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "groupId": "outbound"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "outbound"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "outbound"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "outbound"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600,
+      "groupId": "outbound"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "groupId": "dmarc"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "providerId": "mydemodrop.com",
+  "providerName": "DemoDrop",
+  "serviceId": "website-root",
+  "serviceName": "DemoDrop website (root domain)",
+  "version": 1,
+  "logoUrl": "https://mydemodrop.com/logo-domainconnect.svg",
+  "description": "Connects your root domain and www to your website hosted on DemoDrop.",
+  "variableDescription": "ip1 and ip2 are the DemoDrop edge addresses",
+  "syncPubKeyDomain": "ddsites.co",
+  "syncRedirectDomain": "mydemodrop.com",
+  "syncBlock": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%ip1%", "ttl": 600 },
+    { "type": "A", "host": "@", "pointsTo": "%ip2%", "ttl": 600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "fallback.ddsites.co", "ttl": 600 }
+  ]
+}

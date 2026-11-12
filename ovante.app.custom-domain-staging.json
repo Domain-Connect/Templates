@@ -1,0 +1,21 @@
+{
+  "providerId": "ovante.app",
+  "providerName": "Ovante",
+  "serviceId": "custom-domain-staging",
+  "serviceName": "Event pages (staging)",
+  "version": 1,
+  "logoUrl": "https://ovante.app/brand/ovante-wordmark.svg",
+  "description": "Points a subdomain at Ovante's staging environment, for testing.",
+  "variableDescription": "%label%: the 12-character label Ovante minted for this claim, under stg.ovantedns.com",
+  "syncPubKeyDomain": "domainconnect.ovante.app",
+  "syncRedirectDomain": "staging.ovante.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%label%.stg.ovantedns.com",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+    "providerId": "quintos.ai",
+    "providerName": "QuintOS",
+    "serviceId": "sendingdomain",
+    "serviceName": "QuintOS email sending",
+    "version": 1,
+    "logoUrl": "https://app.quintos.ai/apple-touch-icon.png",
+    "description": "Lets QuintOS send email for your domain through Amazon SES. QuintOS applies this template twice: at the domain itself for everyday mail (group transactional), and at the domain's marketing subdomain (for example news) for campaigns (groups marketing and dmarc). Adds DKIM signing, a custom MAIL FROM domain, and a DMARC policy for the marketing subdomain. Existing records are not changed.",
+    "variableDescription": "dkim1-dkim3: the Amazon SES DKIM tokens for the domain or subdomain being set up.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "quintos.ai",
+    "syncRedirectDomain": "app.quintos.ai,qa.quintos.ai",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "transactional",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "transactional",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "transactional",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "transactional",
+            "type": "MX",
+            "host": "mail",
+            "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "transactional",
+            "type": "SPFM",
+            "host": "mail",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "marketing",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "marketing",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "marketing",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "marketing",
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "marketing",
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=reject; rua=mailto:dmarc@reports.quintos.ai",
+            "ttl": 3600,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        }
+    ]
+}

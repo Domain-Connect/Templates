@@ -1,0 +1,22 @@
+{
+  "providerId": "k8hq.com",
+  "providerName": "K8 HQ",
+  "serviceId": "mail-mx",
+  "serviceName": "K8 HQ: move incoming mail to K8 HQ. Approve only if you are setting up K8 HQ yourself right now.",
+  "version": 1,
+  "logoUrl": "https://k8hq.com/favicon.png",
+  "description": "Points the domain's incoming mail (MX) at the organization's K8 HQ mail host. This replaces the domain's current MX records, so mail stops going to the old provider.",
+  "variableDescription": "%mxlabel%: the organization's K8 HQ mail host label (the <label> in <label>.mx.k8hq.net); the rest of the MX target is fixed, so the template can only point mail at K8 HQ",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.k8hq.com",
+  "syncRedirectDomain": "app.k8hq.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxlabel%.mx.k8hq.net",
+      "priority": 10,
+      "ttl": 600
+    }
+  ]
+}

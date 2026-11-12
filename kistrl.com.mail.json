@@ -1,0 +1,56 @@
+{
+  "providerId": "kistrl.com",
+  "providerName": "Kistrl",
+  "serviceId": "mail",
+  "serviceName": "Kistrl Mail",
+  "version": 1,
+  "logoUrl": "https://kistrl.com/favicon.svg",
+  "description": "Ownership, DKIM, SPF, DMARC and MX records for a custom email domain on Kistrl.",
+  "variableDescription": "token: ownership token (40 hex characters); dkimkey: base64 RSA public key, the value after p= in the DKIM record",
+  "syncPubKeyDomain": "kistrl.com",
+  "syncRedirectDomain": "app.kistrl.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_kistrl",
+      "data": "kistrl-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "kistrl-verification="
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "kistrl._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.kistrl.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.kistrl.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

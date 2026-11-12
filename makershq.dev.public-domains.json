@@ -1,12 +1,12 @@
 {
-  "providerId": "feedbackloop.page",
-  "providerName": "Feedback Loop",
+  "providerId": "makershq.dev",
+  "providerName": "Maker’s HQ",
   "serviceId": "public-domains",
   "serviceName": "Feature requests and release notes",
   "version": 2,
-  "description": "Connect a project subdomain to Feedback Loop",
-  "syncPubKeyDomain": "feedbackloop.page",
-  "syncRedirectDomain": "feedbackloop.page",
+  "description": "Connect a project subdomain to Maker’s HQ",
+  "syncPubKeyDomain": "makershq.dev",
+  "syncRedirectDomain": "makershq.dev",
   "hostRequired": true,
   "records": [
     {
@@ -20,11 +20,11 @@
     {
       "type": "TXT",
       "groupId": "public",
-      "host": "_feedbackloop",
+      "host": "_makershq",
       "data": "%proof%",
       "ttl": 600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "feedbackloop-domain=",
+      "txtConflictMatchingPrefix": "makershq-domain=",
       "essential": "OnApply"
     },
     {
@@ -38,6 +38,6 @@
       "essential": "OnApply"
     }
   ],
-  "logoUrl": "https://feedbackloop.page/favicon.svg",
-  "variableDescription": "cname: exact CNAME target returned by Vercel for the registered project hostname; proof: complete server-generated feedbackloop-domain= ownership TXT value; verificationHost: optional fully-qualified absolute Vercel verification TXT hostname ending with a dot; verification: complete vc-domain-verify= value returned by Vercel."
+  "logoUrl": "https://makershq.dev/favicon.svg",
+  "variableDescription": "cname: exact CNAME target returned by Vercel for the registered project hostname; proof: complete server-generated makershq-domain= ownership TXT value; verificationHost: optional Vercel-issued verification TXT name; relative to the request host/domain for Cloudflare, or fully-qualified with a trailing dot for Vercel DNS; verification: complete vc-domain-verify= value returned by Vercel."
 }

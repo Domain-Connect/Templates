@@ -1,0 +1,47 @@
+{
+  "providerId": "devhelp.pk",
+  "providerName": "devhelp shop",
+  "serviceId": "store-root",
+  "serviceName": "Online store",
+  "version": 1,
+  "logoUrl": "https://devhelp.pk/brand-icon.svg",
+  "description": "Points a root domain and its www address at a devhelp shop store, with an ownership check and certificate renewal. Email and nameservers are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "devhelp.pk",
+  "syncRedirectDomain": "app.devhelp.pk,app-dev.devhelp.pk",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "shops.devhelp.store",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "shops.devhelp.store",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.71d26191badc177d.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge.www",
+      "pointsTo": "www.%fqdn%.71d26191badc177d.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_devhelp-verify",
+      "data": "devhelp-verify=%proof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "devhelp-verify="
+    }
+  ]
+}

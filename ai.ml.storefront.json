@@ -1,0 +1,29 @@
+{
+  "providerId": "ai.ml",
+  "providerName": "ai.ml",
+  "serviceId": "storefront",
+  "serviceName": "Reseller storefront domain",
+  "version": 1,
+  "logoUrl": "https://ai.ml/icon.svg",
+  "description": "Points a reseller's own domain (a subdomain such as ai.example.com) at the ai.ml platform, which serves the reseller's branded console and API there, and publishes the token that proves the reseller controls the domain.",
+  "variableDescription": "token: the hexadecimal part of the domain's verification token, shown to the reseller in the ai.ml console.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "ai.ml",
+  "syncRedirectDomain": "api.ai.ml",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.ai.ml",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_aiml-storefront",
+      "data": "aiml-storefront-%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

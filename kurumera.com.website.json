@@ -1,0 +1,30 @@
+{
+	"providerId": "kurumera.com",
+	"providerName": "Kurumera",
+	"serviceId": "website",
+	"serviceName": "Kurumera Store",
+	"version": 1,
+	"logoUrl": "https://kurumera.com/assets/kurumera-logo.svg",
+	"description": "Connects your domain to your Kurumera online store. Records come in groups so only what you choose is changed: apex (your bare domain, e.g. example.com) and www (www.example.com).",
+	"syncPubKeyDomain": "kurumera.com",
+	"syncRedirectDomain": "kurumera.com",
+	"syncBlock": false,
+	"shared": false,
+	"hostRequired": false,
+	"records": [
+		{
+			"groupId": "apex",
+			"type": "A",
+			"host": "@",
+			"pointsTo": "18.140.41.203",
+			"ttl": 3600
+		},
+		{
+			"groupId": "www",
+			"type": "CNAME",
+			"host": "www",
+			"pointsTo": "stores.kurumera.com",
+			"ttl": 3600
+		}
+	]
+}

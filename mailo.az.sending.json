@@ -1,0 +1,20 @@
+{
+  "providerId": "mailo.az",
+  "providerName": "Mailo",
+  "serviceId": "sending",
+  "serviceName": "Mailo e-mail sending",
+  "version": 1,
+  "logoUrl": "https://app.mailo.az/logo.svg",
+  "description": "Lets Mailo send e-mail campaigns from your domain: return-path (bounce) CNAME, DKIM key and, only if the domain has none, a monitoring-only DMARC policy.",
+  "variableDescription": "dkimpubkey: base64 RSA public key of the DKIM selector bep1",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.mailo.az",
+  "syncRedirectDomain": "app.mailo.az",
+  "hostRequired": false,
+  "records": [
+    {"groupId": "core", "type": "CNAME", "host": "bounce", "pointsTo": "rp.mailo.az", "ttl": 3600},
+    {"groupId": "core", "type": "TXT", "host": "bep1._domainkey", "data": "v=DKIM1; k=rsa; p=%dkimpubkey%", "ttl": 3600, "txtConflictMatchingMode": "None"},
+    {"groupId": "dmarc", "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply"}
+  ]
+}

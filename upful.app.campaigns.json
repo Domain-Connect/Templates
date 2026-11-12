@@ -1,0 +1,45 @@
+{
+    "providerId": "upful.app",
+    "providerName": "Upful",
+    "version": 1,
+    "logoUrl": "https://upful.app/upful/icon-512.png",
+    "syncPubKeyDomain": "upful.app",
+    "syncRedirectDomain": "upful.app",
+    "serviceId": "campaigns",
+    "serviceName": "Email campaigns",
+    "description": "Lets Upful send the business's email campaigns from its own domain: two DKIM signing records, a bounce address, and a DMARC policy when the domain has none.",
+    "variableDescription": "%dkimtoken%: the business's key token, a lowercase letter and number string Upful makes when the domain is connected (e.g. k3x9q2m7ab)",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "upful1._domainkey",
+            "pointsTo": "s1.%dkimtoken%.dkim.upful.app",
+            "ttl": 3600,
+            "groupId": "sending"
+        },
+        {
+            "type": "CNAME",
+            "host": "upful2._domainkey",
+            "pointsTo": "s2.%dkimtoken%.dkim.upful.app",
+            "ttl": 3600,
+            "groupId": "sending"
+        },
+        {
+            "type": "CNAME",
+            "host": "upful-bounce",
+            "pointsTo": "bounce.mail.upful.app",
+            "ttl": 3600,
+            "groupId": "sending"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "groupId": "dmarc",
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        }
+    ]
+}

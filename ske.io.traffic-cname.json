@@ -1,0 +1,21 @@
+{
+  "providerId": "ske.io",
+  "providerName": "SKE",
+  "serviceId": "traffic-cname",
+  "serviceName": "Application traffic (CNAME)",
+  "version": 1,
+  "description": "Route your custom hostname to your SKE application or static site.",
+  "variableDescription": "target: the full DNS target or IPv4 address supplied by SKE. The standard host parameter selects the record name within the DNS zone.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "keys.ske.io",
+  "syncRedirectDomain": "app.ske.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ],
+  "hostRequired": true
+}

@@ -1,0 +1,46 @@
+{
+  "providerId": "shopdepot.pl",
+  "providerName": "ShopDepot",
+  "serviceId": "mail",
+  "serviceName": "ShopDepot store e-mails (sending subdomain)",
+  "version": 1,
+  "logoUrl": "https://shopdepot.pl/brand/favicon.svg",
+  "description": "Lets a store send e-mails from its own domain through ShopDepot (Mailgun EU): SPF, DKIM (Mailgun Automatic Sender Security) and MX on a sending subdomain passed as host (dc.<domain>). Records of the root domain are not changed.",
+  "variableDescription": "%dkimkey%: Mailgun DKIM key label of the sending domain, e.g. 9d876 in pdk1._domainkey.9d876.dkim1.mailgun.com",
+  "syncBlock": false,
+  "syncPubKeyDomain": "shopdepot.pl",
+  "syncRedirectDomain": "admin.shopdepot.pl",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org"
+    },
+    {
+      "type": "CNAME",
+      "host": "pdk1._domainkey",
+      "pointsTo": "pdk1._domainkey.%dkimkey%.dkim1.mailgun.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "pdk2._domainkey",
+      "pointsTo": "pdk2._domainkey.%dkimkey%.dkim1.mailgun.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxa.eu.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxb.eu.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

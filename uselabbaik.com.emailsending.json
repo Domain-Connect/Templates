@@ -1,0 +1,41 @@
+{
+  "providerId": "uselabbaik.com",
+  "providerName": "Labbaik",
+  "serviceId": "emailsending",
+  "serviceName": "Send email from your own address",
+  "version": 1,
+  "logoUrl": "https://app.uselabbaik.com/icon-512.png",
+  "description": "Lets Labbaik send your organisation's emails to families from an address on your own domain. Adds a DKIM key and the SPF and bounce records for the send and rsend subdomains. Your website and mailboxes are not changed.",
+  "variableDescription": "dkim: the DKIM public key (base64, without the p= prefix) given by Labbaik's email provider (Resend) for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "uselabbaik.com",
+  "syncRedirectDomain": "app.uselabbaik.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
+    }
+  ]
+}

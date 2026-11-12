@@ -1,0 +1,49 @@
+{
+    "providerId": "joinworkforce.ai",
+    "providerName": "Workforce AI",
+    "serviceId": "emaildomain-dmarc",
+    "serviceName": "Email from your domain",
+    "version": 1,
+    "logoUrl": "https://dashboard.hireworkforce.ai/web-app-manifest-512x512.png",
+    "description": "As joinworkforce.ai.emaildomain, plus a DMARC policy for the subdomain. Used only when the customer's domain publishes no DMARC.",
+    "variableDescription": "%dkimkey%: the DKIM public key (base64) after p=; %region%: the AWS region of the mail servers, e.g. us-east-1",
+    "syncPubKeyDomain": "domainconnect.joinworkforce.ai",
+    "syncRedirectDomain": "dashboard.hireworkforce.ai,dashboard.staging.hireworkforce.ai,dashboard.dev.hireworkforce.ai",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=quarantine;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

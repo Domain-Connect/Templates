@@ -1,0 +1,29 @@
+{
+    "providerId": "creav.io",
+    "providerName": "creavio",
+    "serviceId": "website",
+    "serviceName": "creavio website",
+    "version": 1,
+    "logoUrl": "https://creav.io/creavio-logo-black.png",
+    "description": "Connects a host to a creavio creator website: a CNAME to the creavio custom-hostname target and a TXT ownership proof that creavio checks before the domain goes live",
+    "variableDescription": "token: per-domain ownership token issued by creavio (32 lowercase hex characters)",
+    "syncPubKeyDomain": "domainconnect.creav.io",
+    "syncRedirectDomain": "creav.io",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "customers.creav.io",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_creavio",
+            "data": "creavio-verify=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "creavio-verify="
+        }
+    ]
+}

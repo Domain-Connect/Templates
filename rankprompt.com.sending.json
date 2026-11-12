@@ -1,0 +1,35 @@
+{
+  "providerId": "rankprompt.com",
+  "providerName": "Rank Prompt",
+  "serviceId": "sending",
+  "serviceName": "Rank Prompt email sending domain",
+  "version": 1,
+  "logoUrl": "https://rankprompt.com/images/logos/RankPrompt-Logo-Horizontal-Black.svg",
+  "description": "Lets Rank Prompt send the agency's reports and emails from its own domain, with DKIM and SPF.",
+  "variableDescription": "%dkim%: DKIM public key issued for this domain; %mx%: bounce mail server of the sending region",
+  "syncBlock": false,
+  "syncPubKeyDomain": "rankprompt.com",
+  "syncRedirectDomain": "app.rankprompt.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mx%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

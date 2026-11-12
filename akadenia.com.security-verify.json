@@ -1,0 +1,22 @@
+{
+  "providerId": "akadenia.com",
+  "providerName": "Akadenia",
+  "serviceId": "security-verify",
+  "serviceName": "Akadenia Security domain verification",
+  "version": 1,
+  "logoUrl": "https://security.akadenia.com/logo.svg",
+  "description": "Proves you control a domain or host, so Akadenia Security may scan it.",
+  "variableDescription": "token: the verification token Akadenia Security shows for the target",
+  "syncPubKeyDomain": "security.akadenia.com",
+  "syncRedirectDomain": "security.akadenia.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_akadenia-security",
+      "data": "akadenia-security-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "akadenia-security-verification="
+    }
+  ]
+}

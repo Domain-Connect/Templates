@@ -1,0 +1,26 @@
+{
+  "providerId": "aglyn.com",
+  "providerName": "Aglyn",
+  "serviceId": "website",
+  "serviceName": "Aglyn website",
+  "version": 2,
+  "logoUrl": "https://raw.githubusercontent.com/aglyn/aglyn/main/tools/domain-connect/logo/aglyn-logo-full-dark.png",
+  "description": "Points a domain's root at an Aglyn website, and its www subdomain at the same site. Aglyn serves the name the owner chose and redirects the other one to it.",
+  "variableDescription": "No variables. The records name Aglyn's hosting edge, which is the same for every website.",
+  "syncPubKeyDomain": "aglyn.com",
+  "syncRedirectDomain": "app.aglyn.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.198.79.1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.aglyn.app",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+    "providerId": "ararasearch.com",
+    "providerName": "Arara",
+    "serviceId": "website",
+    "serviceName": "Arara restaurant website",
+    "version": 1,
+    "logoUrl": "https://ararasearch.com/arara-mascot-512.png",
+    "description": "Connects a restaurant's domain to the website Arara hosts for it. Adds a www CNAME to Arara's hosting and a CNAME that lets the host issue and renew the HTTPS certificate. Email records and all other records are left unchanged.",
+    "syncPubKeyDomain": "dc.ararasearch.com",
+    "syncRedirectDomain": "ararasearch.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "sites.ararasearch.com",
+            "ttl": "3600"
+        },
+        {
+            "type": "CNAME",
+            "host": "_acme-challenge.www",
+            "pointsTo": "www.%fqdn%.aa79a4c4fdaaf14e.dcv.cloudflare.com",
+            "ttl": "3600"
+        }
+    ]
+}

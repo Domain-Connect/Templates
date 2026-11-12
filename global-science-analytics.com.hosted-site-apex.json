@@ -1,0 +1,27 @@
+{
+  "providerId": "global-science-analytics.com",
+  "providerName": "Global Science Analytics",
+  "serviceId": "hosted-site-apex",
+  "serviceName": "Hosted journal site (whole domain)",
+  "version": 1,
+  "logoUrl": "https://global-science-analytics.com/assets/brand/global-science-analytics.svg",
+  "description": "Points www at a journal site hosted by Global Science Analytics and forwards the bare domain to www. The certificate is issued automatically. Email (MX) and other records are not touched.",
+  "variableDescription": "No variables.",
+  "syncBlock": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "global-science-analytics.com",
+  "syncRedirectDomain": "login.global-science-analytics.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "hosts.global-science-analytics.com",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}

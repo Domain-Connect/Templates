@@ -1,0 +1,66 @@
+{
+  "providerId": "sendeto.com",
+  "providerName": "Sendeto",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.sendeto.com",
+  "serviceId": "managed-provider-ses",
+  "serviceName": "Sendeto email setup",
+  "description": "Authenticate a dedicated Sendeto email domain and route incoming messages to support.",
+  "logoUrl": "https://sendeto.com/domain-connect/sendeto.svg",
+  "syncRedirectDomain": "sendeto.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%selector1%._domainkey",
+      "pointsTo": "%target1%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%selector2%._domainkey",
+      "pointsTo": "%target2%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%selector3%._domainkey",
+      "pointsTo": "%target3%",
+      "ttl": 300
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "%bounceMx%",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "%bounceSpf%"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "%spf%"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%receivingMx%",
+      "priority": 10,
+      "ttl": 300
+    }
+  ]
+}

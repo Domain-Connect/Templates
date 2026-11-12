@@ -1,0 +1,46 @@
+{
+	"providerId": "mailmoose.dev",
+	"providerName": "MailMoose",
+	"serviceId": "email",
+	"serviceName": "Email",
+	"version": 1,
+	"logoUrl": "https://www.mailmoose.dev/moose-tile-light.png",
+	"description": "Verifies the domain for MailMoose and authorises MailMoose to send mail from it. Leaves the domain's MX records alone, so mail it already receives elsewhere keeps arriving there.",
+	"variableDescription": "dkim1, dkim2, dkim3: Amazon SES DKIM tokens, which verify the domain for receiving mail. pmselector: the Postmark DKIM selector, e.g. 20261018192056pm. pmdkimkey: the Postmark DKIM public key, the base64 after p=.",
+	"syncPubKeyDomain": "mailmoose.dev",
+	"syncRedirectDomain": "mailmoose.dev,www.mailmoose.dev",
+	"hostRequired": false,
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "%dkim1%._domainkey",
+			"pointsTo": "%dkim1%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkim2%._domainkey",
+			"pointsTo": "%dkim2%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkim3%._domainkey",
+			"pointsTo": "%dkim3%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "TXT",
+			"host": "%pmselector%._domainkey",
+			"data": "k=rsa; p=%pmdkimkey%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All"
+		},
+		{
+			"type": "CNAME",
+			"host": "pm-bounces",
+			"pointsTo": "pm.mtasv.net",
+			"ttl": 3600
+		}
+	]
+}

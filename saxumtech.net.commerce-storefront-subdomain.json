@@ -1,0 +1,40 @@
+{
+  "providerId": "saxumtech.net",
+  "providerName": "Saxum Technologies",
+  "serviceId": "commerce-storefront-subdomain",
+  "serviceName": "Saxum Commerce shop (subdomain)",
+  "version": 1,
+  "logoUrl": "https://www.saxumcommerce.app/apple-touch-icon.png",
+  "description": "Connects a subdomain to a Saxum Commerce shop with a CNAME record: a TXT record that proves the subdomain belongs to the shop, the CNAME record that routes it to Saxum's hosting and, when the hosting provider asks for it, its verification TXT record.",
+  "variableDescription": "proof: the shop's ownership value (after saxum-commerce=); target: the hosting CNAME target; vercel: the hosting provider's verification value (after vc-domain-verify=, group vercel).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "saxumtech.net",
+  "syncRedirectDomain": "www.saxumcommerce.app,saxumcommerce.app",
+  "records": [
+    {
+      "groupId": "proof",
+      "type": "TXT",
+      "host": "_saxum-commerce",
+      "data": "saxum-commerce=%proof%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "saxum-commerce="
+    },
+    {
+      "groupId": "cname",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    },
+    {
+      "groupId": "vercel",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%vercel%",
+      "ttl": 300
+    }
+  ]
+}

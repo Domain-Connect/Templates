@@ -1,0 +1,33 @@
+{
+  "providerId": "f14.dev",
+  "providerName": "F14",
+  "serviceId": "email-sending",
+  "serviceName": "F14 email sending",
+  "version": 1,
+  "logoUrl": "https://app.f14.dev/f14-logo.svg",
+  "description": "Adds the DNS records F14 needs to send email from your domain: DKIM signing, SPF and the bounce-handling MX record.",
+  "variableDescription": "region is the AWS SES region F14 sends from, dkimselector is the DKIM selector, dkimkey is the DKIM public key (base64).",
+  "syncPubKeyDomain": "f14.dev",
+  "syncRedirectDomain": "app.f14.dev",
+  "records": [
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

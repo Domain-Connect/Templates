@@ -1,0 +1,21 @@
+{
+  "providerId": "gloteo.com",
+  "providerName": "GlotEO",
+  "serviceId": "project",
+  "serviceName": "Project",
+  "version": 1,
+  "logoUrl": "https://gloteo.com/assets/gloteo-logo-green-v3.png",
+  "description": "Enables a domain to work with GlotEO.",
+  "variableDescription": "ip: IP address of the GlotEO translation proxy.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gloteo.com",
+  "syncRedirectDomain": "app.gloteo.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}

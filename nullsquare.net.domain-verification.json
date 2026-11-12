@@ -1,0 +1,23 @@
+{
+    "providerId": "nullsquare.net",
+    "providerName": "NullSquare",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain ownership verification",
+    "version": 1,
+    "logoUrl": "https://nullsquare.net/web-icon-192.png",
+    "description": "Adds one TXT record that shows NullSquare you own this domain. It changes no other record.",
+    "variableDescription": "token: the verification code NullSquare gives for this domain",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.nullsquare.net",
+    "syncRedirectDomain": "app.nullsquare.net,app-staging.nullsquare.net",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_nullsquare-verify",
+            "data": "ns-verify=%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "None"
+        }
+    ]
+}

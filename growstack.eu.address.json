@@ -1,0 +1,20 @@
+{
+  "providerId": "growstack.eu",
+  "providerName": "Growstack",
+  "serviceId": "address",
+  "serviceName": "Growstack links and booking address",
+  "version": 1,
+  "logoUrl": "https://app.growstack.eu/favicon.svg",
+  "description": "Point a subdomain, such as go or book, at Growstack for short links, email links, hosted pages and booking. Apply it once per subdomain with the host parameter.",
+  "syncPubKeyDomain": "growstack.eu",
+  "syncRedirectDomain": "app.growstack.eu",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.growstack.eu",
+      "ttl": 300
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "providerId": "closekite.com",
+  "providerName": "CloseKite",
+  "serviceId": "web",
+  "serviceName": "CloseKite pages (www)",
+  "version": 1,
+  "logoUrl": "https://closekite.com/apple-touch-icon.png",
+  "description": "Opens your CloseKite pages - booking, forms, careers, property website - at www.yourdomain, and sends people who leave out www to the same pages.",
+  "syncPubKeyDomain": "closekite.com",
+  "syncRedirectDomain": "closekite.com",
+  "records": [
+    {
+      "ttl": 3600,
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.closekite.com"
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}

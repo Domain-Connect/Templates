@@ -1,0 +1,58 @@
+{
+    "providerId": "send16.com",
+    "providerName": "Send16",
+    "serviceId": "sending-domain",
+    "serviceName": "Email sending domain",
+    "version": 1,
+    "logoUrl": "https://send16.com/icon.png",
+    "description": "Sets up a domain to send email through Send16: a DKIM signing key, an ownership check, and a bounce address on its own subdomains. Existing mail, SPF, DMARC and MX records on the domain stay as they are.",
+    "variableDescription": "%selector%: per-domain DKIM selector, for example s9k3df2pa. %dkimKey%: base64 RSA public key for that selector. %token%: per-domain ownership token. %bounceMx%: mail host for bounces on the s16 subdomain. %bounceSpf%: SPF rule for the s16 subdomain.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "send16.com",
+    "syncRedirectDomain": "api.send16.com",
+    "records": [
+        {
+            "groupId": "auth",
+            "type": "TXT",
+            "host": "%selector%._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+            "ttl": 3600,
+            "essential": "Always",
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "auth",
+            "type": "TXT",
+            "host": "_send16",
+            "data": "send16-verification=%token%",
+            "ttl": 3600,
+            "essential": "Always",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "send16-verification="
+        },
+        {
+            "groupId": "bounce",
+            "type": "CNAME",
+            "host": "psrp",
+            "pointsTo": "postal-rp.send16.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "bounce",
+            "type": "MX",
+            "host": "s16",
+            "pointsTo": "%bounceMx%",
+            "priority": 10,
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "bounce",
+            "type": "SPFM",
+            "host": "s16",
+            "spfRules": "%bounceSpf%",
+            "essential": "OnApply"
+        }
+    ]
+}

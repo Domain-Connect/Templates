@@ -1,0 +1,33 @@
+{
+  "providerId": "basecomp.io",
+  "providerName": "Basecomp",
+  "serviceId": "email",
+  "serviceName": "Basecomp email sending",
+  "version": 1,
+  "logoUrl": "https://basecomp.io/img/logo-dark.svg",
+  "description": "Adds the DKIM records that let Basecomp send your store's emails from your own domain.",
+  "variableDescription": "%token%: your store's identifier in our mail zone; %pool%: the key pool it is in (p1, p2, ...)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "basecomp.io",
+  "syncRedirectDomain": "basecomp.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "bc1._domainkey",
+      "pointsTo": "bc1.%token%.%pool%.dkim.basecompmail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "bc2._domainkey",
+      "pointsTo": "bc2.%token%.%pool%.dkim.basecompmail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "bc3._domainkey",
+      "pointsTo": "bc3.%token%.%pool%.dkim.basecompmail.com",
+      "ttl": 3600
+    }
+  ]
+}

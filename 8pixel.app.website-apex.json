@@ -1,0 +1,21 @@
+{
+  "providerId": "8pixel.app",
+  "providerName": "8pixel",
+  "serviceId": "website-apex",
+  "serviceName": "8pixel website",
+  "version": 1,
+  "logoUrl": "https://8pixel.app/8pixel-logo.svg",
+  "description": "Points your domain at your 8pixel website. Email records are not changed.",
+  "variableDescription": "ip: the A record address the hosting provider recommends for this domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "8pixel.app",
+  "syncRedirectDomain": "8pixel.app",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}

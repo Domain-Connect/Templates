@@ -1,0 +1,21 @@
+{
+	"providerId": "vibecodeguardian.co.uk",
+	"providerName": "Vibe Code Guardian",
+	"serviceId": "ownership-verification",
+	"serviceName": "Domain ownership verification",
+	"version": 1,
+	"logoUrl": "https://www.vibecodeguardian.co.uk/favicon.svg",
+	"description": "Adds the TXT record that proves you control the domain, so Vibe Code Guardian can run its full free surface check.",
+	"variableDescription": "token is the verification code shown in the free check.",
+	"syncBlock": false,
+	"syncPubKeyDomain": "vibecodeguardian.co.uk",
+	"syncRedirectDomain": "www.vibecodeguardian.co.uk",
+	"records": [
+		{
+			"type": "TXT",
+			"host": "_vcg-verify",
+			"data": "vcg-verify=%token%",
+			"ttl": 300
+		}
+	]
+}

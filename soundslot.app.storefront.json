@@ -1,0 +1,36 @@
+{
+  "providerId": "soundslot.app",
+  "providerName": "Soundslot",
+  "serviceId": "storefront",
+  "serviceName": "Soundslot storefront",
+  "version": 1,
+  "logoUrl": "https://soundslot.app/logo.svg",
+  "description": "Points a subdomain (for example book) at a studio's Soundslot storefront: a CNAME for traffic, a TXT proving the studio owns it, and a CNAME that lets the certificate issue before traffic moves. Email and other records are not changed.",
+  "variableDescription": "verify: the studio's ownership token, unique per studio and hostname. dcv: the Soundslot account label in Cloudflare's certificate delegation host.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "soundslot.app",
+  "syncRedirectDomain": "hq.soundslot.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "origin.soundslot.app",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_soundslot",
+      "data": "soundslot-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "soundslot-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.%dcv%.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}

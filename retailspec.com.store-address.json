@@ -1,0 +1,22 @@
+{
+  "providerId": "retailspec.com",
+  "providerName": "RetailSpec",
+  "serviceId": "store-address",
+  "serviceName": "RetailSpec store address",
+  "version": 1,
+  "logoUrl": "https://platform.retailspec.com/logo/mark.svg",
+  "description": "Points another address on your domain (for example b2b.yourbrand.com) at your RetailSpec store.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "retailspec.com",
+  "syncRedirectDomain": "platform.retailspec.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.retailspec.com",
+      "ttl": 3600
+    }
+  ]
+}

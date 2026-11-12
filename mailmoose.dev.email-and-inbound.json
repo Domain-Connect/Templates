@@ -1,0 +1,53 @@
+{
+	"providerId": "mailmoose.dev",
+	"providerName": "MailMoose",
+	"serviceId": "email-and-inbound",
+	"serviceName": "Email, including incoming mail",
+	"version": 1,
+	"logoUrl": "https://www.mailmoose.dev/moose-tile-light.png",
+	"description": "Everything in mailmoose.dev/email, plus the MX record that delivers the domain's incoming mail to MailMoose. Replaces any existing MX records, so it is only offered for a domain that receives no mail elsewhere, or once the person has chosen to move their mail.",
+	"variableDescription": "dkim1, dkim2, dkim3: Amazon SES DKIM tokens, which verify the domain for receiving mail. pmselector: the Postmark DKIM selector, e.g. 20261018192056pm. pmdkimkey: the Postmark DKIM public key, the base64 after p=.",
+	"syncPubKeyDomain": "mailmoose.dev",
+	"syncRedirectDomain": "mailmoose.dev,www.mailmoose.dev",
+	"hostRequired": false,
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "%dkim1%._domainkey",
+			"pointsTo": "%dkim1%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkim2%._domainkey",
+			"pointsTo": "%dkim2%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "CNAME",
+			"host": "%dkim3%._domainkey",
+			"pointsTo": "%dkim3%.dkim.amazonses.com",
+			"ttl": 3600
+		},
+		{
+			"type": "TXT",
+			"host": "%pmselector%._domainkey",
+			"data": "k=rsa; p=%pmdkimkey%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All"
+		},
+		{
+			"type": "CNAME",
+			"host": "pm-bounces",
+			"pointsTo": "pm.mtasv.net",
+			"ttl": 3600
+		},
+		{
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "inbound-smtp.eu-west-1.amazonaws.com",
+			"priority": 10,
+			"ttl": 3600
+		}
+	]
+}

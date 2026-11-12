@@ -1,0 +1,27 @@
+{
+  "providerId": "mdmltechnologies.com",
+  "providerName": "MDML Technologies",
+  "serviceId": "website",
+  "serviceName": "MDML website",
+  "version": 1,
+  "logoUrl": "https://mdmltechnologies.com/images/brand/logo-mark.jpg",
+  "description": "Points your domain at the website MDML Technologies builds and hosts for your business.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mdmltechnologies.com",
+  "syncRedirectDomain": "mdmltechnologies.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    }
+  ]
+}

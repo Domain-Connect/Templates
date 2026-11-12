@@ -1,0 +1,21 @@
+{
+  "providerId": "besmi.io",
+  "providerName": "Besmi",
+  "serviceId": "consent-host",
+  "serviceName": "Texting consent page",
+  "version": 1,
+  "logoUrl": "https://besmi.io/icon-512.png",
+  "description": "Points one host of the domain at the page where the business's customers agree to receive text messages, hosted by Besmi.",
+  "variableDescription": "No variables: the record's target is fixed.",
+  "syncPubKeyDomain": "besmi.io",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "95bb9fe581d40bab.vercel-dns-017.com",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+    "providerId": "sweettech.ai",
+    "providerName": "SweetTech",
+    "serviceId": "custom-domain-apex",
+    "serviceName": "Custom apex domain for a SweetTech app",
+    "version": 1,
+    "logoUrl": "https://sweettech.ai/brand/sweet-mark-fintech.svg",
+    "description": "Points a domain you own (its apex) at a SweetTech app (served by Vercel) and adds the Vercel ownership record.",
+    "variableDescription": "verifyValue: the Vercel ownership value after its vc-domain-verify= prefix.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "dck.sweettech.ai",
+    "syncRedirectDomain": "sweettech.ai",
+    "records": [
+        {
+            "groupId": "routing",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "76.76.21.21",
+            "ttl": 3600
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_vercel",
+            "data": "vc-domain-verify=%verifyValue%",
+            "ttl": 3600
+        }
+    ]
+}

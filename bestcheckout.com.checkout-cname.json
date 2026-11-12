@@ -1,0 +1,21 @@
+{
+  "providerId": "bestcheckout.com",
+  "providerName": "BestCheckout",
+  "serviceId": "checkout-cname",
+  "serviceName": "BestCheckout Checkout Domain",
+  "version": 1,
+  "logoUrl": "https://img.bestshopio.com/88511838/def/6fd140a6734a5301e4888aad5ee842e9.svg",
+  "description": "Connect a checkout subdomain to BestCheckout.",
+  "variableDescription": "target is the regional BestCheckout ingress hostname.",
+  "hostRequired": true,
+  "syncPubKeyDomain": "dc.bestcheckout.com",
+  "syncRedirectDomain": "api.stores.bestshopio.com,apieu.stores.bestshopio.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

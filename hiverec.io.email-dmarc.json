@@ -1,0 +1,23 @@
+{
+    "providerId": "hiverec.io",
+    "providerName": "HiveRec",
+    "serviceId": "email-dmarc",
+    "serviceName": "Email DMARC policy",
+    "version": 1,
+    "logoUrl": "https://app.hiverec.io/brand/hiverec-logo.svg",
+    "description": "Optional companion to hiverec.io.email-sending: a monitoring-only DMARC policy (p=none) for the agency's sending domain or subdomain. Applied with the same host parameter as hiverec.io.email-sending. HiveRec only offers it when DNS shows no DMARC record for that name or for the organisational domain, so it never replaces or weakens an existing policy. The agency may tighten or remove it later.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "hiverec.io",
+    "syncRedirectDomain": "app.hiverec.io",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

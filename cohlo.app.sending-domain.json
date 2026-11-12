@@ -1,0 +1,45 @@
+{
+    "providerId": "cohlo.app",
+    "providerName": "Cohlo",
+    "serviceId": "sending-domain",
+    "serviceName": "Cohlo sending domain",
+    "version": 1,
+    "logoUrl": "https://cohlo.app/brand/cohlo-mark.svg",
+    "description": "Lets Cohlo send email from this domain through Amazon SES: three DKIM records, and a bounce (MAIL FROM) MX with its SPF.",
+    "variableDescription": "dkim1, dkim2, dkim3: the domain's SES Easy DKIM tokens. region: the SES region its bounces return to.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.cohlo.app",
+    "syncRedirectDomain": "cohlo.app",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com"
+        }
+    ]
+}

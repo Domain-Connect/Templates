@@ -1,0 +1,16 @@
+{
+  "providerId": "weddedsuite.com",
+  "providerName": "WeddedSuite",
+  "serviceId": "client-portal",
+  "serviceName": "Client address",
+  "version": 1,
+  "description": "Connect a business client subdomain to WeddedSuite and prove ownership. No apex website or email records are configured.",
+  "variableDescription": "verification is the server-generated UUID assigned to the authenticated business domain. The standard host parameter selects the client subdomain.",
+  "syncPubKeyDomain": "domainconnect.weddedsuite.com",
+  "syncRedirectDomain": "www.weddedsuite.com",
+  "hostRequired": true,
+  "records": [
+    {"type": "CNAME", "host": "@", "pointsTo": "clients.weddedsuite.com", "ttl": 600},
+    {"type": "TXT", "host": "_wedded-suite", "data": "wedded-suite-verification=%verification%", "ttl": 600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "wedded-suite-verification="}
+  ]
+}

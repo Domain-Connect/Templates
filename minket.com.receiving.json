@@ -1,0 +1,31 @@
+{
+  "providerId": "minket.com",
+  "providerName": "Minket",
+  "serviceId": "receiving",
+  "serviceName": "Receiving domain",
+  "version": 1,
+  "logoUrl": "https://minket.com/brand/mark.png",
+  "description": "Receives email for the domain through Amazon SES: the MX record that routes the domain's mail to SES, and the public key of the ARC seal Minket adds to the mail it forwards. The MX takes over mail routing for the name it is applied to, so Minket applies the inbound group only when no other MX record holds that name.",
+  "variableDescription": "region is the SES region that receives the mail, such as us-east-1. arcselector is the selector of the organization's ARC key and arckey its RSA public key in base64, published at <arcselector>._domainkey.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "minket.com",
+  "syncRedirectDomain": "minket.com",
+  "records": [
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "arc",
+      "type": "TXT",
+      "host": "%arcselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%arckey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "providerId": "sterlingprospecting.com",
+  "providerName": "Sterling Prospecting",
+  "serviceId": "email-auth",
+  "serviceName": "Email authentication (SPF, DKIM, DMARC)",
+  "version": 1,
+  "logoUrl": "https://sterlingprospecting.com/assets/logo-mark-2x.png",
+  "description": "Sets up email authentication for the domain's own mailbox provider (Google Workspace or Microsoft 365): adds the provider to SPF, publishes the DKIM key the provider generated, and adds a monitor-only DMARC policy (p=none). Sterling Prospecting's domain check applies only the groups the domain is missing.",
+  "variableDescription": "%dkimkey%: public key (p= value) from Google Workspace Admin > Gmail > Authenticate email, used by group dkim_google. %ms1%, %ms2%: CNAME targets for selector1 and selector2 shown in the Microsoft Defender DKIM page, used by group dkim_microsoft.",
+  "syncPubKeyDomain": "sterlingprospecting.com",
+  "syncRedirectDomain": "sterlingprospecting.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "spf_google",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.google.com"
+    },
+    {
+      "groupId": "spf_microsoft",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.protection.outlook.com"
+    },
+    {
+      "groupId": "dkim_google",
+      "type": "TXT",
+      "host": "google._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim_microsoft",
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%ms1%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim_microsoft",
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%ms2%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; adkim=r; aspf=r",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

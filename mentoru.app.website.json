@@ -1,0 +1,21 @@
+{
+  "providerId": "mentoru.app",
+  "providerName": "MentorU",
+  "serviceId": "website",
+  "serviceName": "MentorU website (root domain)",
+  "version": 1,
+  "logoUrl": "https://mentoru.app/apple-icon.png",
+  "description": "Points your domain at your MentorU website by adding one A record.",
+  "variableDescription": "ipv4 is the address MentorU's website host gives for your domain.",
+  "syncPubKeyDomain": "mentoru.app",
+  "syncRedirectDomain": "mentoru.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 3600
+    }
+  ]
+}

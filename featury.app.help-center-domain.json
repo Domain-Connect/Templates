@@ -1,0 +1,21 @@
+{
+    "providerId": "featury.app",
+    "providerName": "featury",
+    "serviceId": "help-center-domain",
+    "serviceName": "Help center on your own domain",
+    "version": 1,
+    "logoUrl": "https://featury.app/favicon.svg",
+    "description": "Points a subdomain of yours, such as help.yourcompany.com, at your featury help center. The subdomain is the host parameter.",
+    "variableDescription": "%target%: the label featury gave this help center, which sits under domains.featury.app.",
+    "syncPubKeyDomain": "featury.app",
+    "syncRedirectDomain": "my.featury.app",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%.domains.featury.app",
+            "ttl": 3600
+        }
+    ]
+}

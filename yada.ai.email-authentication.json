@@ -1,0 +1,48 @@
+{
+  "providerId": "yada.ai",
+  "providerName": "Yada",
+  "serviceId": "email-authentication",
+  "serviceName": "Yada Email Authentication",
+  "version": 1,
+  "logoUrl": "https://app.yada.ai/logo.svg",
+  "description": "Authenticates email Yada sends on the customer's behalf through Twilio SendGrid: the return-path CNAME, two DKIM CNAMEs, and a p=none DMARC record when the domain has none. Apply to the apex or to a sending subdomain via host.",
+  "variableDescription": "emId: numeric id of the SendGrid return-path host (em<emId>, e.g. 8921). sgId: SendGrid white-label account label (e.g. u17223156.wl157), so targets resolve to <sgId>.sendgrid.net.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "yada.ai",
+  "syncRedirectDomain": "app.yada.ai",
+  "shared": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sendgrid",
+      "type": "CNAME",
+      "host": "em%emId%",
+      "pointsTo": "%sgId%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendgrid",
+      "type": "CNAME",
+      "host": "s1._domainkey",
+      "pointsTo": "s1.domainkey.%sgId%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sendgrid",
+      "type": "CNAME",
+      "host": "s2._domainkey",
+      "pointsTo": "s2.domainkey.%sgId%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "providerId": "selfoperate.com",
+  "providerName": "SelfOperate",
+  "serviceId": "site-owner",
+  "serviceName": "Website ownership check",
+  "version": 1,
+  "logoUrl": "https://selfoperate.com/selfoperate-logo.png",
+  "description": "Adds a TXT record that proves to SelfOperate you own this website's domain.",
+  "variableDescription": "token: the one-time code SelfOperate shows you",
+  "syncBlock": false,
+  "syncPubKeyDomain": "selfoperate.com",
+  "syncRedirectDomain": "selfoperate.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_selfoperate-site-owner",
+      "data": "selfoperate-site-owner=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "selfoperate-site-owner="
+    }
+  ]
+}

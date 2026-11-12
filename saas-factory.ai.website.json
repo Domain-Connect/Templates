@@ -1,0 +1,46 @@
+{
+  "providerId": "saas-factory.ai",
+  "providerName": "SaaS Factory",
+  "serviceId": "website",
+  "serviceName": "SaaS Factory product",
+  "version": 1,
+  "logoUrl": "https://saas-factory.ai/domain-connect-logo.png",
+  "description": "Points a domain's apex at a product built and hosted on SaaS Factory, sets up its sign-in address, and proves ownership",
+  "variableDescription": "sfverify: SaaS Factory ownership token (hex); vercelverify: hosting verification token, only when the hosting platform asks for one",
+  "syncPubKeyDomain": "saas-factory.ai",
+  "syncRedirectDomain": "saas-factory.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 600
+    },
+    {
+      "groupId": "auth",
+      "type": "CNAME",
+      "host": "auth",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 600
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_sf-verify",
+      "data": "sf-verify-%sfverify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "vercel",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%vercelverify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vc-domain-verify="
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 	"providerName": "Notix",
 	"serviceId": "email",
 	"serviceName": "Email sending",
-	"version": 1,
+	"version": 2,
 	"syncPubKeyDomain": "usenotix.dev",
 	"syncRedirectDomain": "usenotix.dev",
 	"description": "Authorise Notix to send email from your domain: bounce handling, SPF and DKIM signing.",
@@ -22,7 +22,7 @@
 			"type": "SPFM",
 			"host": "mail",
 			"ttl": 3600,
-			"spfRules": "include:amazonses.com"
+			"spfRules": "include:_spf.usenotix.dev"
 		},
 		{
 			"groupId": "dkim",

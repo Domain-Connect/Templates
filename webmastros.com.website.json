@@ -1,0 +1,20 @@
+{
+  "providerId": "webmastros.com",
+  "providerName": "WebMastros",
+  "serviceId": "website",
+  "serviceName": "WebMastros website",
+  "version": 1,
+  "logoUrl": "https://www2.webmastros.com/assets/brand/logo-horizontal-dark.svg",
+  "description": "Connects a domain of your own to your WebMastros website: one CNAME record on the subdomain you chose, for example www.",
+  "syncPubKeyDomain": "domainconnect.webmastros.com",
+  "syncRedirectDomain": "webmastros.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.webmastros.site",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "providerId": "bycaptur.io",
+  "providerName": "AgencyPro by bycaptur.io",
+  "serviceId": "agencypro",
+  "serviceName": "AgencyPro landing page",
+  "version": 1,
+  "logoUrl": "https://agencypro.bycaptur.io/brand/logo.png",
+  "description": "Puts an AgencyPro landing page on a subdomain of your domain, such as offers.yourbusiness.com.au. Your main website and email are not changed.",
+  "variableDescription": "cname is the hostname AgencyPro's hosting assigns to the page. verify is the ownership token AgencyPro's hosting asks for when the domain has been used elsewhere.",
+  "syncPubKeyDomain": "bycaptur.io",
+  "syncRedirectDomain": "agencypro.bycaptur.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "page",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%verify%",
+      "ttl": 600
+    }
+  ]
+}

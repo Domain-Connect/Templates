@@ -1,0 +1,38 @@
+{
+  "providerId": "dodomain.io",
+  "providerName": "DoDomain",
+  "serviceId": "apex-a-with-verification-v2",
+  "serviceName": "Root domain (A/AAAA) with ownership verification, verification-variable variant",
+  "version": 1,
+  "description": "Points a zone's root (apex) at a SaaS product's published addresses via one A record and, optionally, one AAAA record, and proves ownership with one constrained TXT record at a fixed host. Never a CNAME at the apex. Used by DoDomain (domain-connect-as-a-service) on behalf of its integrator applications; the addresses and the verification value are the only variables. Apply with groupId=apex-a,verify to omit the AAAA record. Variant of dodomain.io/apex-a-with-verification, identical except that its verification variable is named verification instead of token, for DNS providers that reserve the token parameter name.",
+  "variableDescription": "ipv4 = the IPv4 address the integrator application publishes for the root domain; ipv6 = the IPv6 address (group apex-aaaa, optional); verification = the opaque verification token minted by DoDomain for this connect session.",
+  "syncBlock": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "dckeys.dodomain.io",
+  "syncRedirectDomain": "app.dodomain.io",
+  "records": [
+    {
+      "type": "A",
+      "groupId": "apex-a",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "groupId": "apex-aaaa",
+      "host": "@",
+      "pointsTo": "%ipv6%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_dodomain-challenge",
+      "data": "dodomain-verify=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dodomain-verify="
+    }
+  ]
+}

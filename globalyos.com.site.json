@@ -1,0 +1,31 @@
+{
+  "providerId": "globalyos.com",
+  "providerName": "GlobalyOS",
+  "serviceId": "site",
+  "serviceName": "GlobalyOS site address",
+  "version": 1,
+  "logoUrl": "https://globalyos.com/favicon.svg",
+  "description": "Points a subdomain at a GlobalyOS site, such as your help centre or booking page.",
+  "variableDescription": "cfown is the ownership token that proves the subdomain is yours.",
+  "syncPubKeyDomain": "globalyos.com",
+  "syncRedirectDomain": "globalyos.com,www.globalyos.com",
+  "sharedServiceName": true,
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "cname",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "tenants.globalyos.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "own",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cfown%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

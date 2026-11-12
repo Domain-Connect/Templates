@@ -1,0 +1,52 @@
+{
+  "providerId": "lumm.one",
+  "providerName": "Lumm",
+  "serviceId": "email",
+  "serviceName": "Email from your own address",
+  "version": 1,
+  "logoUrl": "https://lumm.one/favicon.svg",
+  "description": "Lets a business on Lumm send its customers' emails from an address at its own domain: the DKIM key, the sending name's MX and SPF, and the return path.",
+  "variableDescription": "dkim: the DKIM public key made for the domain, without its p= prefix; region: the sending region, as in eu-west-1",
+  "syncPubKeyDomain": "lumm.one",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "send",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "send",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "forge",
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

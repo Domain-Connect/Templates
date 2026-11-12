@@ -1,0 +1,42 @@
+{
+  "providerId": "heat-engineer.com",
+  "providerName": "Heat Engineer",
+  "serviceId": "website-apex",
+  "serviceName": "Business website",
+  "version": 1,
+  "description": "Connect your domain to your Heat Engineer website. Existing website routing records for this address will be replaced.",
+  "syncPubKeyDomain": "domainconnect.heat-engineer.com",
+  "syncRedirectDomain": "heat-engineer.com",
+  "variableDescription": "Website routing and domain ownership values are supplied and signed by Heat Engineer.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 300,
+      "groupId": "website"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cname%",
+      "ttl": 300,
+      "groupId": "website"
+    },
+    {
+      "type": "TXT",
+      "host": "%verificationHost1%.%domain%.",
+      "data": "%verificationValue1%",
+      "ttl": 300,
+      "groupId": "ownership1"
+    },
+    {
+      "type": "TXT",
+      "host": "%verificationHost2%.%domain%.",
+      "data": "%verificationValue2%",
+      "ttl": 300,
+      "groupId": "ownership2"
+    }
+  ],
+  "logoUrl": "https://heat-engineer.com/assets/images/heat-engineer-logo.png"
+}
