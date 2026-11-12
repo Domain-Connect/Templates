@@ -1,0 +1,51 @@
+{
+  "providerId": "nextlevelmemberships.app",
+  "providerName": "Next Level Memberships",
+  "version": 1,
+  "syncPubKeyDomain": "nextlevelmemberships.app",
+  "syncRedirectDomain": "nextlevelmemberships.app",
+  "description": "Connect a customer-owned domain to Next Level Memberships.",
+  "serviceId": "email-sending-us-east-1-v1",
+  "serviceName": "Sending email authentication",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_nlm-email-verify",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "groupId": "ownership",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "nlm-email-"
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "groupId": "sending",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p="
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "sending"
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "groupId": "sending"
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600,
+      "groupId": "forge"
+    }
+  ]
+}
