@@ -1,0 +1,28 @@
+{
+  "providerId": "marketing.futechnepal.com",
+  "providerName": "Futech Email Marketing",
+  "serviceId": "sending-domain",
+  "serviceName": "Sending domain",
+  "version": 1,
+  "syncPubKeyDomain": "marketing.futechnepal.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "type": "CNAME",
+      "host": "bounces",
+      "pointsTo": "%bounceTarget%",
+      "ttl": 3600
+    }
+  ],
+  "description": "Adds DKIM and a return-path alias for Futech Email Marketing.",
+  "variableDescription": "dkimSelector: DKIM key selector; dkimKey: base64 RSA public key; bounceTarget: public mail infrastructure hostname that receives bounces.",
+  "syncRedirectDomain": "marketing.futechnepal.com"
+}
