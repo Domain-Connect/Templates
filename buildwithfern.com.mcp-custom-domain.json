@@ -1,0 +1,39 @@
+{
+  "providerId": "buildwithfern.com",
+  "providerName": "Fern",
+  "serviceId": "mcp-custom-domain",
+  "serviceName": "Fern hosted MCP server",
+  "version": 1,
+  "logoUrl": "https://buildwithfern.com/learn/_fern-files/fern.docs.buildwithfern.com/d34f454f5aff85af3ac03156626e81fc89df09da22fd387ce798910adcd149b6/images/logo-primary.svg",
+  "description": "Points a subdomain at your Fern hosted MCP server and proves you own it.",
+  "variableDescription": "cnameTarget is where the subdomain points; ownershipValue and certificateValue are the validation tokens Fern shows for the domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "buildwithfern.com",
+  "syncRedirectDomain": "dashboard.buildwithfern.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "connect",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 300
+    },
+    {
+      "groupId": "connect",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownershipValue%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "certificate",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificateValue%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
