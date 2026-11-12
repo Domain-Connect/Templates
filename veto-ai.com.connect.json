@@ -1,0 +1,20 @@
+{
+  "providerId": "veto-ai.com",
+  "providerName": "Veto",
+  "serviceId": "connect",
+  "serviceName": "Agentic checkout",
+  "version": 1,
+  "logoUrl": "https://veto-ai.com/favicon.png",
+  "description": "Serves the store's agentic checkout at pay.<your-domain> (hosted by Veto) so AI shopping agents can discover and buy from it. One CNAME; nothing on the site itself changes.",
+  "syncBlock": false,
+  "syncRedirectDomain": "merchants.veto-ai.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "pay",
+      "pointsTo": "connect.veto-ai.com",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
