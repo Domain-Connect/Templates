@@ -1,0 +1,30 @@
+{
+  "providerId": "catercloud.io",
+  "providerName": "CaterCloud",
+  "serviceId": "website",
+  "serviceName": "CaterCloud website",
+  "version": 2,
+  "logoUrl": "https://crm.catercloud.io/icon.svg",
+  "description": "Points your domain at the website CaterCloud built for your business, and proves to CaterCloud that the domain is yours.",
+  "variableDescription": "verify: your one-time CaterCloud verification value. The template is applied at host=www, so the website address is www.<your domain>",
+  "syncBlock": false,
+  "syncPubKeyDomain": "catercloud.io",
+  "syncRedirectDomain": "crm.catercloud.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.catercloud.io",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cc-verify",
+      "data": "%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "cc-verify-"
+    }
+  ]
+}

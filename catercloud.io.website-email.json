@@ -1,0 +1,50 @@
+{
+  "providerId": "catercloud.io",
+  "providerName": "CaterCloud",
+  "serviceId": "website-email",
+  "serviceName": "CaterCloud website and email",
+  "version": 2,
+  "logoUrl": "https://crm.catercloud.io/icon.svg",
+  "description": "Points your domain at the website CaterCloud built for your business, proves the domain is yours, and sets up sending email from your domain through CaterCloud. Your existing email settings are not changed.",
+  "variableDescription": "verify: your one-time CaterCloud verification value; dkimkey: the public key of your DKIM record (resend._domainkey); region: the AWS region of the bounce-handling MX record (send). The website address is www.<your domain>.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "catercloud.io",
+  "syncRedirectDomain": "crm.catercloud.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.catercloud.io",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cc-verify.www",
+      "data": "%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "cc-verify-"
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p="
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
