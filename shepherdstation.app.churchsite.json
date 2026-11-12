@@ -1,0 +1,19 @@
+{
+    "providerId": "shepherdstation.app",
+    "providerName": "Shepherd Station",
+    "serviceId": "churchsite",
+    "serviceName": "Church website",
+    "version": 1,
+    "logoUrl": "https://shepherdstation.app/favicon.ico",
+    "description": "Connects a church's domain to its Shepherd Station website. Adds an ownership record, certificate validation records and one CNAME. Email (MX/SPF) is never touched.",
+    "variableDescription": "verify: per-church ownership token; certname/certvalue: certificate validation TXT from the hosting provider",
+    "syncBlock": false,
+    "syncPubKeyDomain": "shepherdstation.app",
+    "syncRedirectDomain": "shepherdstation.app,tenanted-toolbelt.lovable.app",
+    "hostRequired": false,
+    "records": [
+        { "type": "TXT", "host": "_ss-verify", "data": "ss-verify=%verify%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "ss-verify=" },
+        { "type": "TXT", "host": "%certname%", "data": "%certvalue%", "ttl": 3600 },
+        { "type": "CNAME", "host": "www", "pointsTo": "origin.shepherdstation.app", "ttl": 3600 }
+    ]
+}
