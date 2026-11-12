@@ -39,7 +39,7 @@
       "host": "%dkimkey1%._domainkey",
       "data": "v=DKIM1; k=rsa; p=%dkimkey1p%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "None"
+      "txtConflictMatchingMode": "All"
     },
     {
       "groupId": "dkimkey2",
@@ -47,7 +47,7 @@
       "host": "%dkimkey2%._domainkey",
       "data": "v=DKIM1; k=rsa; p=%dkimkey2p%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "None"
+      "txtConflictMatchingMode": "All"
     },
     {
       "groupId": "spf",
