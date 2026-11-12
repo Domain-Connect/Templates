@@ -1,0 +1,29 @@
+{
+  "providerId": "easymail.com.mx",
+  "providerName": "easymail",
+  "serviceId": "mail",
+  "serviceName": "Email Sending",
+  "logoUrl": "https://easymail.com.mx/logo-squircle.png",
+  "version": 1,
+  "description": "Delegates the email sending subdomain (for example mail.example.com) to easymail nameservers, which publish its SPF, DKIM, MX and DMARC records. Records of the main domain are not changed.",
+  "variableDescription": "ns1 and ns2 are the Cloudflare nameservers assigned to the child zone created by easymail for this domain.",
+  "syncPubKeyDomain": "easymail.com.mx",
+  "syncRedirectDomain": "easymail.com.mx",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns1%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns2%",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
