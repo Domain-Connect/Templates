@@ -6,7 +6,6 @@
   "version": 1,
   "logoUrl": "https://my.tpop.com/assets/email/logo-tpop.png",
   "description": "Connects your domain to your TPOP shop: website and order emails.",
-  "variableDescription": "ip: address of the TPOP shop servers",
   "syncBlock": false,
   "sharedProviderName": false,
   "syncPubKeyDomain": "bytpop.com",
@@ -16,7 +15,7 @@
     {
       "type": "A",
       "host": "@",
-      "pointsTo": "%ip%",
+      "pointsTo": "78.232.39.233",
       "ttl": 300
     },
     {
