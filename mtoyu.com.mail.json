@@ -3,9 +3,9 @@
   "providerName": "mtoyu",
   "serviceId": "mail",
   "serviceName": "mtoyu Mail",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://mail.mtoyu.com/icon-512.png",
-  "description": "Connects your domain to mtoyu Mail: receiving mail, sender authentication (SPF, DKIM) and a DMARC policy.",
+  "description": "Connects your domain to mtoyu Mail: receiving mail, sender authentication (SPF, DKIM), a DMARC policy and automatic mail app setup (Outlook Autodiscover).",
   "variableDescription": "verify is the ownership token of the domain in your mtoyu workspace; dkim is the DKIM public key record of the domain.",
   "syncBlock": false,
   "syncPubKeyDomain": "mtoyu.com",
@@ -50,6 +50,19 @@
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "SRV",
+      "name": "@",
+      "service": "_autodiscover",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 0,
+      "port": 443,
+      "target": "autodiscover.mtoyu.com",
+      "ttl": 3600,
       "essential": "OnApply"
     }
   ]
