@@ -1,0 +1,35 @@
+{
+  "providerId": "tpop.com",
+  "providerName": "TPOP",
+  "serviceId": "shop",
+  "serviceName": "TPOP shop",
+  "version": 1,
+  "logoUrl": "https://my.tpop.com/assets/email/logo-tpop.png",
+  "description": "Connects your domain to your TPOP shop: website and order emails.",
+  "variableDescription": "ip: address of the TPOP shop servers",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "bytpop.com",
+  "syncRedirectDomain": "my.tpop.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "shops.bytpop.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "tp1._domainkey",
+      "pointsTo": "tp1._domainkey.tpopemail.com",
+      "ttl": 300
+    }
+  ]
+}
