@@ -1,0 +1,28 @@
+{
+  "providerId": "theboringerp.com",
+  "providerName": "BoringErp",
+  "serviceId": "erp",
+  "serviceName": "BoringErp custom ERP domain",
+  "version": 1,
+  "description": "Connect a customer subdomain to a BoringErp ERP site.",
+  "variableDescription": "token is a tenant-specific BoringErp domain verification token.",
+  "syncPubKeyDomain": "theboringerp.com",
+  "syncRedirectDomain": "app.theboringerp.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_boringerp",
+      "data": "boringerp-verification=%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "boringerp-verification="
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "router.theboringerp.com",
+      "ttl": 600
+    }
+  ]
+}
