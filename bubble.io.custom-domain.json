@@ -1,0 +1,27 @@
+{
+	"providerId": "bubble.io",
+	"providerName": "Bubble",
+	"serviceId": "custom-domain",
+	"serviceName": "Custom domain",
+	"version": 1,
+	"syncPubKeyDomain": "bubble.io",
+	"hostRequired": true,
+	"description": "Point a domain or subdomain at a Bubble app.",
+	"logoUrl": "https://meta-q.cdn.bubble.io/f1756386552835x162920220128838430/Logo%20%281%29.svg",
+	"records": [
+		{
+			"groupId": "domain",
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "app.bubble.io",
+			"ttl": 3600
+		},
+		{
+			"groupId": "www",
+			"type": "CNAME",
+			"host": "www",
+			"pointsTo": "app.bubble.io",
+			"ttl": 3600
+		}
+	]
+}
