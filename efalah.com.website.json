@@ -1,0 +1,60 @@
+{
+    "providerId": "efalah.com",
+    "providerName": "eFalah",
+    "serviceId": "website",
+    "serviceName": "eFalah Website",
+    "version": 1,
+    "description": "Points your domain at your eFalah website: the website address records and, when asked for, the hosting provider's ownership record. E-mail (MX) and other records are not changed.",
+    "variableDescription": "ip1/ip2: the website's IPv4 addresses for the apex; wwwtarget: the hostname www points to; verify1/verify2/verifywww: the hosting provider's ownership verification values",
+    "syncBlock": false,
+    "syncPubKeyDomain": "efalah.com",
+    "syncRedirectDomain": "efalah.com,staging.efalah.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "apex1",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip1%",
+            "ttl": 600
+        },
+        {
+            "groupId": "apex2",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip2%",
+            "ttl": 600
+        },
+        {
+            "groupId": "www",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%wwwtarget%",
+            "ttl": 600
+        },
+        {
+            "groupId": "verify1",
+            "type": "TXT",
+            "host": "_vercel",
+            "data": "%verify1%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "None"
+        },
+        {
+            "groupId": "verify2",
+            "type": "TXT",
+            "host": "_vercel",
+            "data": "%verify2%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "None"
+        },
+        {
+            "groupId": "verifywww",
+            "type": "TXT",
+            "host": "_vercel.www",
+            "data": "%verifywww%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "None"
+        }
+    ]
+}
