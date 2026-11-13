@@ -1,13 +1,13 @@
 {
-  "providerId": "ecomverx.com",
-  "providerName": "EcomverX",
+  "providerId": "upverx.com",
+  "providerName": "UpverX",
   "serviceId": "resend-sending",
   "serviceName": "Email sending through Resend",
   "version": 1,
   "syncBlock": false,
-  "syncPubKeyDomain": "ecomverx.com",
+  "syncPubKeyDomain": "upverx.com",
   "syncRedirectDomain": "dashboard.upverx.com",
-  "description": "Sets up a sending subdomain (the caller's host, e.g. mail) for the email EcomverX's products (UpverX, PayverX, EcomverX Core) send through Resend: the DKIM key, the bounce MX, SPF, the return-path CNAME and the click-tracking CNAME. The apex DMARC is deliberately absent: a template cannot add one only where none exists.",
+  "description": "Sets up a sending subdomain (the caller's host, e.g. mail) for the recovery and lifecycle email UpverX sends for a store through Resend: the DKIM key, the bounce MX, SPF, the return-path CNAME and the click-tracking CNAME. The apex DMARC is deliberately absent: a template cannot add one only where none exists.",
   "variableDescription": "dkimkey: the base64 public key Resend issued for this domain DKIM record, without its leading p=. region: the domain Resend region, as in feedback-smtp.<region>.amazonses.com (us-east-1 today). rsend: the label before .rmta.net in the domain return-path CNAME (send.forge today). links: the label before .resend-dns.com in its click-tracking CNAME (links2 today).",
   "records": [
     {
@@ -42,5 +42,6 @@
       "ttl": 3600,
       "essential": "OnApply"
     }
-  ]
+  ],
+  "logoUrl": "https://upverx.com/icon.svg"
 }
