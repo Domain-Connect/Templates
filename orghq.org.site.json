@@ -11,13 +11,13 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "%host%",
+      "host": "@",
       "pointsTo": "orghq.org",
       "ttl": 3600
     },
     {
       "type": "TXT",
-      "host": "_platform-verify.%host%",
+      "host": "_platform-verify",
       "data": "%verifytoken%",
       "ttl": 3600,
       "txtConflictMatchingMode": "None"

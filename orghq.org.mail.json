@@ -18,12 +18,9 @@
       "txtConflictMatchingMode": "All"
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "send",
-      "data": "v=spf1 include:amazonses.com ~all",
-      "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "v=spf1"
+      "spfRules": "include:amazonses.com"
     },
     {
       "type": "MX",
