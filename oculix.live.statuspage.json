@@ -1,0 +1,30 @@
+{
+  "providerId": "oculix.live",
+  "providerName": "Oculix",
+  "serviceId": "statuspage",
+  "serviceName": "Status page",
+  "version": 1,
+  "logoUrl": "https://oculix.live/oculix-mark.svg",
+  "description": "Shows an Oculix status page on a subdomain such as status.example.com: a CNAME to the Oculix server, and the TXT record that shows the domain belongs to the page.",
+  "variableDescription": "target is the Oculix server the subdomain points at (the hosted service's domains.oculix.live, or a self-hosted server's own address); token is the page's own code for the TXT record, shown on its domain settings.",
+  "syncPubKeyDomain": "domainconnect.oculix.live",
+  "syncRedirectDomain": "oculix.live",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_oculix",
+      "data": "oculix-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "oculix-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
