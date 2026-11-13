@@ -1,0 +1,34 @@
+{
+  "providerId": "dfyweb.com",
+  "providerName": "DFYWeb",
+  "serviceId": "email",
+  "serviceName": "Email",
+  "version": 1,
+  "logoUrl": "https://portal.dfyweb.com/dfyweb-logo.png",
+  "description": "Lets a website built and hosted with DFYWeb send email from the domain (DKIM, return path and DMARC links), when the website itself is already connected.",
+  "variableDescription": "linktoken: the 12-character code DFYWeb gives this website. The email records point at its names on dfywebmail.com, where DFYWeb publishes the sending records (DKIM, return path, SPF) and DMARC.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dfyweb.com",
+  "syncRedirectDomain": "portal.dfyweb.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "tosend._domainkey",
+      "pointsTo": "%linktoken%-k.dfywebmail.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "send",
+      "pointsTo": "%linktoken%-s.dfywebmail.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%linktoken%-d.dfywebmail.com",
+      "ttl": 300,
+      "essential": "OnApply"
+    }
+  ]
+}

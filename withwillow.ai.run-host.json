@@ -1,0 +1,22 @@
+{
+  "providerId": "withwillow.ai",
+  "providerName": "Willow",
+  "serviceId": "run-host",
+  "serviceName": "Willow MCP gateway (hybrid)",
+  "version": 1,
+  "logoUrl": "https://app.withwillow.ai/webrix/willow-logo-green.svg",
+  "description": "Points a subdomain (for example willow.example.com) at the load balancer of the Willow MCP gateway that the domain owner runs in their own cloud. DNS only: proxying breaks MCP streaming.",
+  "variableDescription": "%target%: hostname of the customer's own load balancer that serves the Willow gateway (for example k8s-willow-0123456789.elb.us-east-1.amazonaws.com)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "withwillow.ai",
+  "syncRedirectDomain": "app.withwillow.ai,app.eu.withwillow.ai,app.mcp-s-staging.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ]
+}

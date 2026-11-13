@@ -1,0 +1,39 @@
+{
+  "providerId": "aopy.com",
+  "providerName": "Aopy",
+  "serviceId": "email-core",
+  "serviceName": "Aopy email sending",
+  "version": 1,
+  "logoUrl": "https://aopy.com/brand/bimi-logo.svg",
+  "description": "Publishes the three Amazon SES DKIM CNAMEs for the sending domain ([host.]domain) and the aopy branded link CNAME to Aopy's merchant edge. No root SPF. CNAMEs must stay DNS only (not proxied).",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three Amazon SES DKIM tokens of this sending domain (32 lowercase letters or digits each); %edge%: the first label of Aopy's CloudFront routing endpoint for this environment (<edge>.cloudfront.net). All set by Aopy, never by the user.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "aopy.com",
+  "syncRedirectDomain": "app.aopy.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "aopy",
+      "pointsTo": "%edge%.cloudfront.net",
+      "ttl": 3600
+    }
+  ]
+}

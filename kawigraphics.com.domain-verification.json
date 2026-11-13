@@ -1,0 +1,24 @@
+{
+    "providerId": "kawigraphics.com",
+    "providerName": "Kawigraphics",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain verification",
+    "version": 1,
+    "logoUrl": "https://kawigraphics-553486497662-us-east-1-an.s3.us-east-1.amazonaws.com/cms/kawigraphics.svg",
+    "description": "Adds the TXT record that proves you own this domain, so you can manage its email, SSL certificates, hosting and DNS in your Kawigraphics account.",
+    "variableDescription": "verifytoken: the random part of the verification value shown in your Kawigraphics account",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "syncPubKeyDomain": "kawigraphics.com",
+    "syncRedirectDomain": "kawigraphics.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_kawigraphics-verify",
+            "data": "kawigraphics-verify=%verifytoken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

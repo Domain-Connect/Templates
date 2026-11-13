@@ -1,0 +1,31 @@
+{
+    "providerId": "inkluedit.de",
+    "providerName": "InkluTec",
+    "serviceId": "website",
+    "serviceName": "InkluEdit Website",
+    "version": 1,
+    "logoUrl": "https://admin.inkluedit.de/static/inklutec-logo.png",
+    "description": "Connects a domain or subdomain to a website built with InkluEdit, the accessible website editor by InkluTec. Sets the A record of the domain (and of www, for the domain itself) to the InkluEdit server. Mail (MX) and all other records stay untouched.",
+    "variableDescription": "No variables.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "syncPubKeyDomain": "inkluedit.de",
+    "syncRedirectDomain": "admin.inkluedit.de,staging.inkluedit.de",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "website",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "46.225.58.82",
+            "ttl": 3600
+        },
+        {
+            "groupId": "www",
+            "type": "A",
+            "host": "www",
+            "pointsTo": "46.225.58.82",
+            "ttl": 3600
+        }
+    ]
+}

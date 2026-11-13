@@ -1,0 +1,22 @@
+{
+  "providerId": "nextwavesites.com",
+  "providerName": "Next Wave Sites",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://www.nextwaveservices.com/icon-192.png",
+  "description": "Points www (or the chosen subdomain) of your domain at the website we built for you.",
+  "variableDescription": "No variables. The subdomain is the host parameter.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "nextwavesites.com",
+  "syncRedirectDomain": "go.nextwavesites.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.nextwavesites.com",
+      "ttl": 3600
+    }
+  ]
+}

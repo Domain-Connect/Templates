@@ -1,0 +1,29 @@
+{
+  "providerId": "secuveri.com",
+  "providerName": "secuveri",
+  "serviceId": "verify",
+  "serviceName": "secuveri verification domain",
+  "version": 1,
+  "logoUrl": "https://app.secuveri.com/secuveri.svg",
+  "description": "Serves secuveri's hosted identity verification flow on a subdomain of the customer: a CNAME on the host to secuveri's custom-domain edge, and a TXT record under the host that proves the customer requested it.",
+  "variableDescription": "%token%: per-domain ownership token issued by secuveri (32 lowercase hex characters). The CNAME target is fixed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "secuveri.com",
+  "syncRedirectDomain": "app.secuveri.com,app-staging.secuveri.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom.verify.secuveri.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_secuveri-verify",
+      "data": "secuveri-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "providerId": "surtio.app",
+  "providerName": "Surtio",
+  "serviceId": "storefront",
+  "serviceName": "Tienda en Surtio / Surtio storefront",
+  "version": 1,
+  "logoUrl": "https://surtio.app/brand/wordmark.webp",
+  "description": "Conecta tu dominio con tu tienda de Surtio. / Connects your domain to your Surtio store.",
+  "variableDescription": "target: destino de la tienda; ownershipValue: confirma que el dominio es tuyo; acmeValue: activa el candado HTTPS.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "surtio.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownershipValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%acmeValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

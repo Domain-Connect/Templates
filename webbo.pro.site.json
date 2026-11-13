@@ -1,0 +1,21 @@
+{
+  "providerId": "webbo.pro",
+  "providerName": "Webbo",
+  "serviceId": "site",
+  "serviceName": "Webbo — site ou loja em subdomínio",
+  "version": 1,
+  "logoUrl": "https://cdn.webbo.pro/assets/webbo-logo-black-small.png",
+  "description": "Aponta um subdomínio (ex.: loja.suaempresa.com.br) para um site ou loja hospedado na Webbo.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "webbo.pro",
+  "syncRedirectDomain": "dash.webbo.pro",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.webbo.pro",
+      "ttl": 3600
+    }
+  ]
+}

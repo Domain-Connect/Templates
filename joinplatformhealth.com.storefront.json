@@ -1,0 +1,38 @@
+{
+  "providerId": "joinplatformhealth.com",
+  "providerName": "Platform Health",
+  "serviceId": "storefront",
+  "serviceName": "Platform Health clinic website",
+  "version": 1,
+  "logoUrl": "https://joinplatformhealth.com/brand/platform-health-logo.png",
+  "description": "Points a clinic's own domain at its Platform Health website: an A record at the root and a CNAME for www, plus the TXT record that proves the clinic owns the domain.",
+  "variableDescription": "ip is the address the root domain points to. cname is the hostname www points to. verification is the ownership token written after the fixed ph-verify= prefix.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "joinplatformhealth.com",
+  "syncRedirectDomain": "joinplatformhealth.com",
+  "records": [
+    {
+      "type": "A",
+      "groupId": "apex",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "apex",
+      "host": "www",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_ph-verify",
+      "data": "ph-verify=%verification%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ph-verify="
+    }
+  ]
+}

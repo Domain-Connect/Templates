@@ -1,0 +1,21 @@
+{
+  "providerId": "curios.com",
+  "providerName": "Curios",
+  "serviceId": "website",
+  "serviceName": "Curios website",
+  "version": 1,
+  "logoUrl": "https://studio.curios.com/images/CuriosLogo.svg",
+  "description": "Points www at the creator's Curios website with one CNAME to domains.curios.net. Apply to the registered domain with no host. Email and other records are not changed.",
+  "variableDescription": "No variables. The CNAME target is fixed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "curios.net",
+  "syncRedirectDomain": "studio.curios.com,studio-staging.curios.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "domains.curios.net",
+      "ttl": 3600
+    }
+  ]
+}

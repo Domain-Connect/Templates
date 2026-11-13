@@ -1,0 +1,49 @@
+{
+    "providerId": "tekravel.com",
+    "providerName": "Tekravel",
+    "serviceId": "website",
+    "serviceName": "Tekravel website",
+    "version": 1,
+    "logoUrl": "https://tekravel.com/apple-touch-icon.png",
+    "description": "Connects your domain to your Tekravel travel website.",
+    "variableDescription": "target: hostname the site is served from (CNAME target; the template applies to a subdomain such as www, root domains are set up by hand); asuid: Azure App Service domain verification ID; edgeOwnership: Cloudflare custom hostname ownership token; verifyToken: Tekravel domain ownership token.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "syncPubKeyDomain": "tekravel.com",
+    "syncRedirectDomain": "dubaitrip.com,staging.dubaitrip.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "groupId": "route-cname",
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "asuid",
+            "type": "TXT",
+            "host": "asuid",
+            "data": "%asuid%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "edge-ownership",
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%edgeOwnership%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "ownership",
+            "type": "TXT",
+            "host": "_tekravel-verify",
+            "data": "tekravel-verify=%verifyToken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "tekravel-verify="
+        }
+    ]
+}

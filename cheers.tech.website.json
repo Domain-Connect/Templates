@@ -1,0 +1,16 @@
+{
+  "providerId": "cheers.tech",
+  "providerName": "Cheers",
+  "serviceId": "website",
+  "serviceName": "Cheers website",
+  "version": 1,
+  "description": "Points the domain and www at the customer's Cheers-built website on Vercel. Changes only the apex A, the www CNAME and Vercel's _vercel verification TXT.",
+  "syncPubKeyDomain": "domainconnect.cheers.tech",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "groupId": "apex1", "host": "@", "pointsTo": "%apexip1%", "ttl": 600 },
+    { "type": "A", "groupId": "apex2", "host": "@", "pointsTo": "%apexip2%", "ttl": 600 },
+    { "type": "CNAME", "groupId": "www", "host": "www", "pointsTo": "%wwwcname%", "ttl": 600 },
+    { "type": "TXT", "groupId": "verify", "host": "_vercel", "data": "vc-domain-verify=%verify%", "ttl": 600, "txtConflictMatchingMode": "None" }
+  ]
+}

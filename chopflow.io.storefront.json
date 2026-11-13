@@ -1,0 +1,21 @@
+{
+  "providerId": "chopflow.io",
+  "providerName": "Chopflow",
+  "serviceId": "storefront",
+  "serviceName": "Chopflow menu",
+  "version": 1,
+  "logoUrl": "https://www.chopflow.io/apple-touch-icon-180.png",
+  "description": "Step 2 of connecting a restaurant's own domain to its Chopflow menu: points the host (www) at Chopflow's origin. Applied only after chopflow.io.storefront-records has let Cloudflare issue the certificate, so the switch is never made before the site can be served.",
+  "syncPubKeyDomain": "chopflow.io",
+  "syncRedirectDomain": "connect.chopflow.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "origin.chopflowsites.com",
+      "ttl": 600
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "providerId": "selfmades.co",
+  "providerName": "Selfmades",
+  "serviceId": "dmarc-monitoring",
+  "serviceName": "DMARC monitoring policy",
+  "version": 1,
+  "logoUrl": "https://selfmades.co/selfmades-icon-green-v2.png",
+  "description": "Publishes a monitoring-only DMARC policy (p=none) for a domain that has none, so receivers find a policy for the mail its owner sends through Selfmades. Selfmades offers it only when the domain and its organizational domain have no DMARC record; an existing policy is never changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "selfmades.co",
+  "syncRedirectDomain": "selfmades.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

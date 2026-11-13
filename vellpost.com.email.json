@@ -1,0 +1,70 @@
+{
+  "providerId": "vellpost.com",
+  "providerName": "Vellpost",
+  "serviceId": "email",
+  "serviceName": "Vellpost email",
+  "version": 1,
+  "description": "Connect your domain to Vellpost for incoming and outgoing email.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "vellpost.com",
+  "variableDescription": "verification: Vellpost ownership token; azureVerification: Azure Communication Services verification token; dkimSelector and dkim2Selector: Azure DKIM selectors; dkimTarget and dkim2Target: Azure DKIM target prefixes before .azurecomm.net.",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_vellpost",
+      "data": "vellpost-verify=%verification%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vellpost-verify="
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.vellpost.com",
+      "priority": 10,
+      "ttl": 600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.protection.outlook.com",
+      "ttl": 600
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "@",
+      "data": "ms-domain-verification=%azureVerification%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ms-domain-verification="
+    },
+    {
+      "groupId": "mail",
+      "type": "CNAME",
+      "host": "%dkimSelector%._domainkey",
+      "pointsTo": "%dkimTarget%.azurecomm.net",
+      "ttl": 600
+    },
+    {
+      "groupId": "mail",
+      "type": "CNAME",
+      "host": "%dkim2Selector%._domainkey",
+      "pointsTo": "%dkim2Target%.azurecomm.net",
+      "ttl": 600
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

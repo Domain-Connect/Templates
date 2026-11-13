@@ -1,0 +1,23 @@
+{
+  "providerId": "clerq.nz",
+  "providerName": "Clerq",
+  "serviceId": "maildmarc",
+  "serviceName": "Clerq starter DMARC policy",
+  "version": 1,
+  "logoUrl": "https://clerq.nz/public/logo/clerq-q-mark.svg",
+  "description": "Publishes a monitoring-only DMARC record (p=none) for a domain a Clerq practice sends email from. Clerq checks the domain first and offers this only when it finds no DMARC record. The practice can tighten or remove the record at any time without affecting Clerq's sending-domain records.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.clerq.nz",
+  "syncRedirectDomain": "app.clerq.nz",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

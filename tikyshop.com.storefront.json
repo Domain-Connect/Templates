@@ -1,0 +1,29 @@
+{
+  "providerId": "tikyshop.com",
+  "providerName": "Tikyshop",
+  "serviceId": "storefront",
+  "serviceName": "Tikyshop storefront (certificate and address)",
+  "version": 1,
+  "description": "Adds the record Amazon Web Services checks for your store's security certificate, and points this name at your Tikyshop store. Any other record at this exact name is replaced. Set both to DNS only if your provider offers a proxy.",
+  "variableDescription": "acmname: the validation name AWS gave, relative to this host; acmtarget: the validation target AWS gave without the .acm-validations.aws suffix; target: the address AWS gave for your storefront",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.tikyshop.com",
+  "syncRedirectDomain": "tikyshop.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%acmname%",
+      "pointsTo": "%acmtarget%.acm-validations.aws",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ],
+  "logoUrl": "https://tikyshop.com/access-assets/email/tikyshop-logo.png"
+}

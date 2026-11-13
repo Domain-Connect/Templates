@@ -3,7 +3,7 @@
   "providerName": "Kodiggo",
   "serviceId": "kodipages",
   "serviceName": "Kodipages",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://kodiggo.com/brand/kodiggo-logo.svg",
   "description": "Serve a Kodipage (link-in-bio page, products, forms) on this domain.",
   "hostRequired": true,
@@ -25,6 +25,12 @@
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "kodiggo-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.881a24e204d656a3.dcv.cloudflare.com",
+      "ttl": 3600
     }
   ]
 }

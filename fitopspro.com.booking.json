@@ -1,0 +1,18 @@
+{
+  "providerId": "fitopspro.com",
+  "providerName": "FitOps Pro",
+  "serviceId": "booking",
+  "serviceName": "FitOps Pro booking pages",
+  "version": 1,
+  "logoUrl": "https://app.fitopspro.com/assets/brand/fitops-icon-sapphire.svg",
+  "description": "Puts your FitOps Pro booking pages on an address of your own domain, such as book.yourgym.com.",
+  "variableDescription": "owner: the ownership value Cloudflare for SaaS gives for the booking address",
+  "syncBlock": false,
+  "syncPubKeyDomain": "fitopspro.com",
+  "syncRedirectDomain": "app.fitopspro.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "bookings.fitopspro.com", "ttl": 3600 },
+    { "type": "TXT", "host": "_cf-custom-hostname", "data": "%owner%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "providerId": "mailronix.com",
+  "providerName": "Mailronix",
+  "serviceId": "email-sending",
+  "serviceName": "Mailronix sending domain",
+  "version": 1,
+  "logoUrl": "https://mailronix.com/logo/mailronix-logo.svg",
+  "description": "Publishes the DKIM records that let Mailronix send email from your domain.",
+  "variableDescription": "dkim1, dkim2, dkim3: the three DKIM tokens issued for the domain.",
+  "syncPubKeyDomain": "domainconnect.mailronix.com",
+  "syncRedirectDomain": "app.mailronix.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

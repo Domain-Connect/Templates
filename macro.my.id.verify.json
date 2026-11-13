@@ -1,0 +1,22 @@
+{
+  "providerId": "macro.my.id",
+  "providerName": "Macro",
+  "serviceId": "verify",
+  "serviceName": "Macro Site Verification",
+  "version": 1,
+  "logoUrl": "https://macro.my.id/favicon.svg",
+  "description": "Authorize DNS TXT verification record for Macro traffic planning.",
+  "variableDescription": "token is the verification code issued by Macro to verify domain ownership.",
+  "syncPubKeyDomain": "macro.my.id",
+  "syncRedirectDomain": "macro.my.id",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_macro-verify",
+      "data": "%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

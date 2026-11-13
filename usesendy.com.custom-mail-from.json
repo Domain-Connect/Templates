@@ -1,0 +1,16 @@
+{
+  "providerId": "usesendy.com",
+  "providerName": "Sendy",
+  "serviceId": "custom-mail-from",
+  "serviceName": "Custom email return address",
+  "version": 1,
+  "description": "Use your own subdomain for Sendy delivery feedback by publishing MX and SPF records.",
+  "variableDescription": "region: the SES region, such as eu-west-2. Use the protocol host parameter to select the custom MAIL FROM subdomain.",
+  "syncPubKeyDomain": "domainconnect.usesendy.com",
+  "syncRedirectDomain": "usesendy.com",
+  "syncBlock": false,
+  "records": [
+    { "type": "MX", "host": "@", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 300 },
+    { "type": "SPFM", "host": "@", "spfRules": "include:amazonses.com" }
+  ]
+}

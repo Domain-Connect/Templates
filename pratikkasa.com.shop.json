@@ -1,0 +1,30 @@
+{
+    "providerId": "pratikkasa.com",
+    "providerName": "PratikKasa",
+    "serviceId": "shop",
+    "serviceName": "PratikKasa Sipariş",
+    "version": 1,
+    "logoUrl": "https://pratikkasa.com/icon.svg",
+    "description": "Connects a subdomain (for example shop.example.com) to the business's PratikKasa store pages and adds the ownership record PratikKasa checks before requesting the certificate. Always applied with the host parameter.",
+    "variableDescription": "token: per-store ownership token issued by PratikKasa (12 lowercase hexadecimal characters); the TXT value becomes pk-<token>.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "pratikkasa.com",
+    "syncRedirectDomain": "shop.pratikkasa.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "shop.pratikkasa.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_pratikkasa",
+            "data": "pk-%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "pk-"
+        }
+    ]
+}

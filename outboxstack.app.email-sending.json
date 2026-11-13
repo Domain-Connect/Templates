@@ -3,8 +3,8 @@
   "providerName": "Outbox Stack",
   "serviceId": "email-sending",
   "serviceName": "Outbox Stack Email Sending",
-  "version": 2,
-  "description": "Configures DKIM signing, domain ownership verification and a custom bounce domain for sending email through Outbox Stack.",
+  "version": 3,
+  "description": "Configures DKIM signing, domain ownership verification, a custom bounce domain and a starter DMARC policy for sending email through Outbox Stack.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.outboxstack.app",
   "syncRedirectDomain": "outboxstack.app",
@@ -46,6 +46,16 @@
       "data": "outbox-verification=%verification%",
       "ttl": 3600,
       "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
     },
     {
       "groupId": "mailfrom",

@@ -1,0 +1,28 @@
+{
+  "providerId": "outray.co",
+  "providerName": "OutRay",
+  "serviceId": "tunnel",
+  "serviceName": "OutRay Tunnel",
+  "version": 1,
+  "logoUrl": "https://outray.co/brand/outray-mark.svg",
+  "description": "Connect one subdomain to an OutRay tunnel and verify its ownership.",
+  "variableDescription": "target: configured OutRay tunnel gateway hostname; verification: existing OutRay domain ownership token. Both values are selected and signed by OutRay, never supplied by the customer.",
+  "syncPubKeyDomain": "domainconnect.outray.co",
+  "syncRedirectDomain": "outray.co",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_outray-challenge",
+      "data": "%verification%",
+      "ttl": 600
+    }
+  ]
+}

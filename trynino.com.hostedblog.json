@@ -1,0 +1,21 @@
+{
+  "providerId": "trynino.com",
+  "providerName": "Nino",
+  "serviceId": "hostedblog",
+  "serviceName": "Nino blog hosting",
+  "version": 1,
+  "logoUrl": "https://trynino.com/assets/brand/nino-lockup.svg",
+  "description": "Points the blog subdomain the customer chose in Nino (for example blog.example.com) at the blog Nino hosts for them. Always applied with the host parameter; no other records are changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "trynino.com",
+  "syncRedirectDomain": "seo.trynino.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "hosted.trynino.com",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+    "providerId": "aeoaction.com",
+    "providerName": "AEO Action",
+    "serviceId": "hosted-pages",
+    "serviceName": "Hosted pages on your subdomain",
+    "version": 1,
+    "logoUrl": "https://www.aeoaction.com/domain-connect/logo.svg",
+    "description": "Points one subdomain of the customer's domain (for example ai.example.com, passed as the host parameter) at AEO Action's hosting on Vercel with a single CNAME record, so the pages the customer approves are served on their own domain. Nothing else in the zone is touched.",
+    "variableDescription": "%target%: the CNAME target Vercel recommends for this hostname (cname.vercel-dns.com or a per-project <id>.vercel-dns-NNN.com name). The service checks it against *.vercel-dns(-NNN).com before signing.",
+    "syncPubKeyDomain": "aeoaction.com",
+    "syncRedirectDomain": "www.aeoaction.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 3600
+        }
+    ]
+}

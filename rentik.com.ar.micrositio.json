@@ -1,0 +1,20 @@
+{
+  "providerId": "rentik.com.ar",
+  "providerName": "Rentik",
+  "serviceId": "micrositio",
+  "serviceName": "Micrositio de propiedades",
+  "version": 1,
+  "logoUrl": "https://www.rentik.com.ar/brand/rentik-logo.png",
+  "description": "Conecta tu dominio o subdominio al micrositio de propiedades de Rentik",
+  "syncPubKeyDomain": "rentik.com.ar",
+  "syncRedirectDomain": "app.rentik.com.ar",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    }
+  ]
+}

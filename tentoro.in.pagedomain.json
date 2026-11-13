@@ -1,0 +1,29 @@
+{
+  "providerId": "tentoro.in",
+  "providerName": "Tentoro",
+  "serviceId": "pagedomain",
+  "serviceName": "Tentoro published page",
+  "version": 1,
+  "logoUrl": "https://cloud.tentoro.in/logo192.png",
+  "description": "Points your domain at a page published with Tentoro and proves you own it.",
+  "variableDescription": "ip: Tentoro's server address; verify: the ownership code shown in Tentoro",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tentoro.in",
+  "syncRedirectDomain": "cloud.tentoro.in",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_tentoro",
+      "data": "tentoro-verify=%verify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "tentoro-verify="
+    }
+  ]
+}
