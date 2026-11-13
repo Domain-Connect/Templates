@@ -1,0 +1,21 @@
+{
+  "providerId": "overroi.app",
+  "providerName": "OverRoi",
+  "serviceId": "overmail-tracking",
+  "serviceName": "OverMail link tracking",
+  "version": 1,
+  "logoUrl": "https://mail.overroi.app/logo/overmail-mark.svg",
+  "description": "Points a subdomain the customer chose at OverMail, so tracked links and the open pixel in their email use their own domain. Apply with domain=<registrable domain> and host=<tracking subdomain>; the template has no variables.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "overroi.app",
+  "syncRedirectDomain": "mail.overroi.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "mail.overroi.app",
+      "ttl": 3600
+    }
+  ]
+}
