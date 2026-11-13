@@ -1,0 +1,29 @@
+{
+  "providerId": "blackkinnect.com",
+  "providerName": "BlackKinnect",
+  "serviceId": "store",
+  "serviceName": "BlackKinnect Store",
+  "version": 1,
+  "logoUrl": "https://blackkinnect.com/icon-512.png",
+  "description": "Points your domain to your BlackKinnect store. Email (MX/TXT) records are not changed.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "blackkinnect.com",
+  "syncRedirectDomain": "blackkinnect.com",
+  "warnPhishing": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.24.57.1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "black-kinnect.onrender.com",
+      "ttl": 3600
+    }
+  ]
+}
