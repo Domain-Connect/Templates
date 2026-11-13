@@ -1,0 +1,26 @@
+{
+  "providerId": "orghq.org",
+  "providerName": "OrgHQ",
+  "serviceId": "site",
+  "serviceName": "OrgHQ Site",
+  "version": 1,
+  "description": "Connects a subdomain (like www or members) to your OrgHQ association site and proves ownership, so HTTPS can be issued automatically.",
+  "syncPubKeyDomain": "orghq.org",
+  "syncRedirectDomain": "orghq.org",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%host%",
+      "pointsTo": "orghq.org",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_platform-verify.%host%",
+      "data": "%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

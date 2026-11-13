@@ -1,0 +1,36 @@
+{
+  "providerId": "orghq.org",
+  "providerName": "OrgHQ",
+  "serviceId": "mail",
+  "serviceName": "OrgHQ Member Email",
+  "version": 1,
+  "description": "Lets your OrgHQ association site send newsletters and member email from your own domain: adds the DKIM signing key and the SPF and MX return-path records for the sending domain.",
+  "variableDescription": "dkimkey: the DKIM public key issued for this sending domain (base64, without the p= prefix); region: the sending region named in the return-path MX host, e.g. us-east-1",
+  "syncPubKeyDomain": "orghq.org",
+  "syncRedirectDomain": "orghq.org",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "send",
+      "data": "v=spf1 include:amazonses.com ~all",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
