@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "providerId": "mosspub.com",
+  "providerName": "moss",
+  "serviceId": "server",
+  "serviceName": "moss website on your own server",
+  "logoUrl": "https://mosspub.com/assets/brand/favicon.svg",
+  "description": "Point a domain at a website published with moss to a server its owner runs: the bare domain at the server's address, and www at the bare domain.",
+  "variableDescription": "ip: the IPv4 address of the web server the site is published to.",
+  "syncPubKeyDomain": "domainconnect.mosspub.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}
