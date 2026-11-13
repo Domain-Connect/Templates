@@ -1,0 +1,22 @@
+{
+  "providerId": "dropify.shop",
+  "providerName": "Dropify",
+  "serviceId": "email",
+  "serviceName": "Dropify store emails (Dropimail)",
+  "version": 1,
+  "logoUrl": "https://static-content-dropify.com/dropify_static_assets/img/dropify-lp/dropify-lp/images/landing-page/company-logo.svg",
+  "description": "Lets your Dropify store send its order and account emails from your own domain (DKIM signing).",
+  "variableDescription": "No variables: one DKIM record pointing at Dropify's signing key.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.dropify.shop",
+  "syncRedirectDomain": "admin.mydropify.shop",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "dropimail._domainkey",
+      "pointsTo": "dkim.dropimail.com",
+      "ttl": 3600
+    }
+  ]
+}
