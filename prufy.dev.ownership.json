@@ -1,0 +1,23 @@
+{
+  "providerId": "prufy.dev",
+  "providerName": "Prufy",
+  "serviceId": "ownership",
+  "serviceName": "Domain ownership verification",
+  "version": 1,
+  "logoUrl": "https://www.prufy.dev/logo.svg",
+  "description": "Publishes a TXT record that proves you control this domain, so it can be used with your Prufy account. It doesn't change anything else in your DNS.",
+  "variableDescription": "%token%: the one-time verification code for this attempt.",
+  "syncPubKeyDomain": "prufy.dev",
+  "syncRedirectDomain": "prufy.dev,www.prufy.dev",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_prufy-challenge",
+      "data": "prufy-domain-verification=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "prufy-domain-verification="
+    }
+  ]
+}
