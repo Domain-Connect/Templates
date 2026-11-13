@@ -13,6 +13,6 @@
   "records": [
     { "type": "TXT", "host": "resend._domainkey", "data": "%dkim%", "ttl": 3600 },
     { "type": "MX", "host": "send", "pointsTo": "%mx%", "priority": 10, "ttl": 3600 },
-    { "type": "TXT", "host": "send", "data": "v=spf1 include:amazonses.com ~all", "ttl": 3600 }
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com", "ttl": 3600 }
   ]
 }
