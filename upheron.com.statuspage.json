@@ -1,0 +1,21 @@
+{
+  "providerId": "upheron.com",
+  "providerName": "UpHeron",
+  "serviceId": "statuspage",
+  "serviceName": "Status page",
+  "version": 1,
+  "logoUrl": "https://upheron.com/icon.svg",
+  "description": "Serves an UpHeron status page at a subdomain: a CNAME from the host to the page's own name under domains.upheron.com.",
+  "variableDescription": "token: the status page's own name under domains.upheron.com, such as pbylenxank3sswdqc",
+  "syncPubKeyDomain": "upheron.com",
+  "syncRedirectDomain": "upheron.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%token%.domains.upheron.com",
+      "ttl": 3600
+    }
+  ]
+}
