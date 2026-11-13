@@ -1,0 +1,29 @@
+{
+  "providerId": "clothify.io",
+  "providerName": "Clothify",
+  "serviceId": "storedomain",
+  "serviceName": "Clothify store",
+  "version": 1,
+  "logoUrl": "https://clothify.io/brand/clothify-mark.svg",
+  "description": "Connects a domain to a Clothify online store: proves domain ownership and points the hostname at Clothify so a certificate can be issued.",
+  "variableDescription": "verification: the per-domain ownership token Clothify shows the owner; it is published as cs-<token>.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "clothify.io",
+  "syncRedirectDomain": "clothify.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.trykickstart.app",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_clothing-studio",
+      "data": "cs-%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
