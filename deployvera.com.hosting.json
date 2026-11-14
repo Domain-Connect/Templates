@@ -1,0 +1,36 @@
+{
+  "providerId": "deployvera.com",
+  "providerName": "DeployVera",
+  "serviceId": "hosting",
+  "serviceName": "DeployVera barındırma (çıplak alan adı)",
+  "version": 1,
+  "logoUrl": "https://deployvera.com/favicon.svg",
+  "description": "Alan adını DeployVera projesine bağlar: sahiplik TXT kaydı, A kaydı ve isteğe bağlı www CNAME.",
+  "variableDescription": "token: sahiplik doğrulama değeri; target: yönlendirme hedefi; ip: çıplak alan adı IPv4 adresi",
+  "syncPubKeyDomain": "deployvera.com",
+  "syncRedirectDomain": "deployvera.com",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_deployvera",
+      "data": "%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ]
+}
