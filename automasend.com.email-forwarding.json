@@ -4,7 +4,7 @@
   "serviceId": "email-forwarding",
   "serviceName": "Automasend Email Forwarding",
   "version": 1,
-  "syncPubKeyDomain": "_domainconnect.automasend.com",
+  "syncPubKeyDomain": "automasend.com",
   "syncRedirectDomain": "automasend.com",
   "records": [
     {
