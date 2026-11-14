@@ -1,0 +1,28 @@
+{
+  "providerId": "vsend.app",
+  "providerName": "VSend",
+  "serviceId": "mail-authentication",
+  "serviceName": "Email authentication",
+  "version": 1,
+  "description": "Authorize VSend hosted email and add its domain-specific DKIM public key. Does not change MX or DMARC.",
+  "variableDescription": "%publicKey%: the base64-encoded RSA DKIM public key generated for this domain.",
+  "logoUrl": "https://vsend.app/brand/logo-original.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.vsend.app",
+  "syncRedirectDomain": "vsend.app",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.hostedemail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "vsend._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%publicKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

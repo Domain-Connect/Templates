@@ -1,0 +1,28 @@
+{
+  "providerId": "rivtar.com",
+  "providerName": "Rivtar",
+  "serviceId": "tienda",
+  "serviceName": "Tienda online",
+  "version": 1,
+  "logoUrl": "https://rivtar.com/icon.png",
+  "description": "Connects a subdomain (usually www) to a Rivtar online store: a TXT record proves the domain belongs to the store and a CNAME points it at Rivtar, which issues the HTTPS certificate.",
+  "variableDescription": "%verification%: per-store, per-hostname verification token (hex) issued by Rivtar.",
+  "hostRequired": true,
+  "syncPubKeyDomain": "rivtar.com",
+  "syncRedirectDomain": "app.rivtar.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_rivtar-verification",
+      "data": "rivtar-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "tiendas.rivtar.com",
+      "ttl": 3600
+    }
+  ]
+}

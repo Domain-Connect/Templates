@@ -1,0 +1,23 @@
+{
+  "providerId": "vsend.app",
+  "providerName": "VSend",
+  "serviceId": "mail-verification",
+  "serviceName": "Domain ownership verification",
+  "version": 1,
+  "description": "Verify domain ownership for VSend without changing email delivery.",
+  "variableDescription": "%verification%: VSend ownership token (64 hexadecimal characters).",
+  "logoUrl": "https://vsend.app/brand/logo-original.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.vsend.app",
+  "syncRedirectDomain": "vsend.app",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "vsend-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vsend-verification="
+    }
+  ]
+}

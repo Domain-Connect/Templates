@@ -1,0 +1,23 @@
+{
+  "providerId": "atlasystem.com.br",
+  "providerName": "Atlas",
+  "serviceId": "paginas-cloudflare",
+  "serviceName": "Endereço das páginas (Cloudflare Pages)",
+  "version": 1,
+  "logoUrl": "https://app.atlasystem.com.br/brand/app-icon/atlas-app-icon-light-1024.svg",
+  "description": "Aponta um subdomínio da sua empresa para o projeto da sua organização no Atlas, onde as páginas que você publica ficam no ar.",
+  "variableDescription": "projeto: o nome do projeto da sua organização no Atlas (o endereço termina sempre em .pages.dev)",
+  "syncBlock": false,
+  "sharedProviderName": true,
+  "hostRequired": true,
+  "syncPubKeyDomain": "atlasystem.com.br",
+  "syncRedirectDomain": "app.atlasystem.com.br",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%projeto%.pages.dev",
+      "ttl": 3600
+    }
+  ]
+}
