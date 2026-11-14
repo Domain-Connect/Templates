@@ -1,0 +1,20 @@
+{
+  "providerId": "heaven.dev",
+  "providerName": "Heaven",
+  "serviceId": "name",
+  "serviceName": "A name for a Computer",
+  "version": 1,
+  "description": "Points one name at a Heaven organization. Heaven serves it from the Computer the organization chose for it.",
+  "variableDescription": "label: the first label of the organization's address, LABEL.domains.heaven.dev: 3 to 32 lower-case letters, digits and hyphens.",
+  "syncPubKeyDomain": "heaven.dev",
+  "syncRedirectDomain": "heaven.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%label%.domains.heaven.dev",
+      "ttl": 300
+    }
+  ]
+}
