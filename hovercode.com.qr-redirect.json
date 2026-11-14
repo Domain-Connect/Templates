@@ -1,0 +1,22 @@
+{
+  "providerId": "hovercode.com",
+  "providerName": "Hovercode",
+  "serviceId": "qr-redirect",
+  "serviceName": "Hovercode QR Code Redirect",
+  "version": 1,
+  "logoUrl": "https://hovercode.com/static/website/images/logo.png",
+  "description": "Connect your domain to Hovercode for branded QR codes, short links, forms, and micro pages.",
+  "variableDescription": "The subdomain people will see when they scan your QR codes or click your links.",
+  "syncPubKeyDomain": "hovercode.com",
+  "syncRedirectDomain": "hovercode.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.hovercode.com",
+      "ttl": 1800
+    }
+  ]
+}
