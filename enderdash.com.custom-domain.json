@@ -1,0 +1,56 @@
+{
+  "providerId": "enderdash.com",
+  "providerName": "EnderDash",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://enderdash.com/logo.svg",
+  "description": "Connect a subdomain to your EnderDash knowledge base, status page, verification forms, or game sign-in.",
+  "syncPubKeyDomain": "domainconnect.enderdash.com",
+  "syncRedirectDomain": "app.enderdash.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.enderda.sh",
+      "ttl": 300,
+      "groupId": "connection"
+    },
+    {
+      "type": "TXT",
+      "host": "_enderdash",
+      "data": "enderdash-domain=%ownershipToken%",
+      "ttl": 300,
+      "groupId": "connection",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "enderdash-domain="
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate1%",
+      "ttl": 300,
+      "groupId": "certificate1",
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate2%",
+      "ttl": 300,
+      "groupId": "certificate2",
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cloudflareOwnership%",
+      "ttl": 300,
+      "groupId": "cloudflareOwnership",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
