@@ -1,0 +1,39 @@
+{
+  "providerId": "mailvina.com",
+  "providerName": "Mailvina",
+  "serviceId": "mail-mta",
+  "serviceName": "Mailvina email sending",
+  "version": 1,
+  "logoUrl": "https://mailvina.com/icon.svg",
+  "description": "Authenticates a domain for sending email with Mailvina: DKIM signing key, SPF for the return-path and the MX record that routes bounces and complaints back to Mailvina.",
+  "variableDescription": "dkimKey: base64 DER of the domain's 2048-bit RSA DKIM public key",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "mailvina.com",
+  "syncRedirectDomain": "mailvina.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "mailvina._domainkey",
+      "data": "p=%dkimKey%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:spf.mailvina.com"
+    },
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.mailvina.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
