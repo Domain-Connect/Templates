@@ -1,0 +1,22 @@
+{
+  "providerId": "buzzybeacon.com",
+  "providerName": "BuzzyBeacon",
+  "serviceId": "hostedpages",
+  "serviceName": "BuzzyBeacon info pages",
+  "version": 1,
+  "logoUrl": "https://www.buzzybeacon.com/icon.svg",
+  "description": "Points one subdomain (for example info.example.com) at BuzzyBeacon, which hosts the business's articles and info pages there.",
+  "variableDescription": "No variables. The subdomain is passed as the host parameter.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "buzzybeacon.com",
+  "syncRedirectDomain": "buzzybeacon.com,www.buzzybeacon.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "hosts.buzzybeacon.com",
+      "ttl": 3600
+    }
+  ]
+}
