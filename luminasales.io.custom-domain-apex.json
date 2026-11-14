@@ -1,0 +1,21 @@
+{
+  "providerId": "luminasales.io",
+  "providerName": "Lumina Sales",
+  "serviceId": "custom-domain-apex",
+  "serviceName": "Custom domain (root)",
+  "version": 1,
+  "logoUrl": "https://luminasales.io/brand/lumina-logo.png",
+  "description": "Points the root of your domain at Lumina Sales so your demos or client portal are served from it. Nothing else in your DNS changes.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dc.luminasales.io",
+  "syncRedirectDomain": "app.luminasales.io",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    }
+  ]
+}
