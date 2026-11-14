@@ -1,0 +1,57 @@
+{
+  "providerId": "postbound.app",
+  "providerName": "Postbound",
+  "serviceId": "email",
+  "serviceName": "Postbound Email",
+  "version": 1,
+  "logoUrl": "https://cdn.paddlewheel.org/brand/postboundsolored.svg",
+  "description": "Publishes the DNS records Postbound needs to send email as your domain: DKIM signing, MAIL FROM (bounce) MX + SPF, ownership verification, and optionally inbound MX when receiving is enabled.",
+  "variableDescription": "%dkim_p%: base64 RSA public key material for the Postbound DKIM TXT (embedded as v=DKIM1; k=rsa; p=%dkim_p%). %ownership_token%: Potoo ownership verification token written as ownership=%ownership_token% at _ownership.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "postbound.app",
+  "syncRedirectDomain": "postbound.app",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "postbound._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkim_p%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback.postbound.app",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:spf.postbound.app",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_ownership",
+      "data": "ownership=%ownership_token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ownership="
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound.postbound.app",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

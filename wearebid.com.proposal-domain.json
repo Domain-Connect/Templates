@@ -1,0 +1,29 @@
+{
+  "providerId": "wearebid.com",
+  "providerName": "wearebid",
+  "serviceId": "proposal-domain",
+  "serviceName": "Proposal links on your own domain",
+  "version": 1,
+  "logoUrl": "https://wearebid.com/brand/wearebid-mark.svg",
+  "description": "Points a subdomain such as proposals.example.com to wearebid so that proposal links open on the customer's own address, and publishes the ownership token wearebid issued for that hostname.",
+  "variableDescription": "token: 32 lowercase hexadecimal characters that wearebid issues per claimed hostname. wearebid serves the hostname only while the TXT record at _wearebid.<host> carries this exact value.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "wearebid.com",
+  "syncRedirectDomain": "wearebid.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.wearebid.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_wearebid",
+      "data": "%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

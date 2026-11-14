@@ -1,0 +1,24 @@
+{
+  "providerId": "business.montclaytech.com",
+  "providerName": "Mont Clay Business",
+  "serviceId": "workspace-verify",
+  "serviceName": "Verify a workspace website",
+  "version": 1,
+  "syncPubKeyDomain": "business.montclaytech.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_mcb",
+      "data": "mcb-domain=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mcb-domain=",
+      "essential": "OnApply"
+    }
+  ],
+  "logoUrl": "https://business.montclaytech.com/favicon.svg",
+  "description": "Verify ownership for MC Business workspace booking and management entrances.",
+  "variableDescription": "verification: workspace-domain identifier and random ownership hash; the mcb-domain= prefix is fixed by this template.",
+  "syncRedirectDomain": "business.montclaytech.com"
+}

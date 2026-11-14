@@ -1,0 +1,88 @@
+{
+  "providerId": "mtoyu.com",
+  "providerName": "mtoyu",
+  "serviceId": "mail",
+  "serviceName": "mtoyu Mail",
+  "version": 2,
+  "logoUrl": "https://mail.mtoyu.com/icon-512.png",
+  "description": "Connects your domain to mtoyu Mail: receiving mail, sender authentication (SPF, DKIM), a DMARC policy and automatic mail app setup (Outlook Autodiscover, Thunderbird autoconfig and the imap/smtp server names).",
+  "variableDescription": "verify is the ownership token of the domain in your mtoyu workspace; dkim is the DKIM public key record of the domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mtoyu.com",
+  "syncRedirectDomain": "mail.mtoyu.com",
+  "records": [
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "@",
+      "data": "mtoyu-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.mtoyu.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.mtoyu.com"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "mtoyu._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; pct=100",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mx.mtoyu.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mx.mtoyu.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "imap",
+      "pointsTo": "mx.mtoyu.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "smtp",
+      "pointsTo": "mx.mtoyu.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

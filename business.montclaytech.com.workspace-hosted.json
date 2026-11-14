@@ -1,0 +1,32 @@
+{
+  "providerId": "business.montclaytech.com",
+  "providerName": "Mont Clay Business",
+  "serviceId": "workspace-hosted",
+  "serviceName": "Connect a workspace booking subdomain",
+  "version": 1,
+  "syncPubKeyDomain": "business.montclaytech.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_mcb",
+      "data": "mcb-domain=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mcb-domain=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.business.montclaytech.com",
+      "ttl": 300,
+      "essential": "OnApply"
+    }
+  ],
+  "logoUrl": "https://business.montclaytech.com/favicon.svg",
+  "description": "Connect a dedicated booking hostname to MC Business without moving the existing website or email.",
+  "variableDescription": "verification: workspace-domain identifier and random ownership hash; the mcb-domain= prefix is fixed by this template.",
+  "syncRedirectDomain": "business.montclaytech.com",
+  "hostRequired": true
+}

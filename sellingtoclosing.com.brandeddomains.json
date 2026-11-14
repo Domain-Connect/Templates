@@ -1,0 +1,16 @@
+{
+  "providerId": "sellingtoclosing.com",
+  "providerName": "Selling To Closing",
+  "serviceId": "brandeddomains",
+  "serviceName": "Branded app, links and tracking",
+  "version": 1,
+  "logoUrl": "https://app.sellingtoclosing.com/app-icon.png",
+  "description": "Connects three subdomains to Selling To Closing on Vercel: stc for the branded app login, link for branded short links, and t for first-party funnel tracking. Each can be applied on its own using its group.",
+  "syncPubKeyDomain": "sellingtoclosing.com",
+  "syncRedirectDomain": "app.sellingtoclosing.com",
+  "records": [
+    { "groupId": "app", "type": "CNAME", "host": "stc", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 },
+    { "groupId": "links", "type": "CNAME", "host": "link", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 },
+    { "groupId": "tracking", "type": "CNAME", "host": "t", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 }
+  ]
+}

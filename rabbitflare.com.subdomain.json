@@ -1,0 +1,31 @@
+{
+  "providerId": "rabbitflare.com",
+  "providerName": "Rabbitflare",
+  "serviceId": "subdomain",
+  "serviceName": "WordPress hosting",
+  "version": 1,
+  "logoUrl": "https://rabbitflare.com/brand/rabbitflare-icon.png",
+  "description": "Connects a subdomain (for example blog.example.com or www.example.com) to a WordPress site hosted on Rabbitflare, by pointing it at the site's own Rabbitflare address (group address), or at its Cloudflare protection name when the site is behind Rabbitflare's Cloudflare protection (group protected). One group is applied at a time.",
+  "variableDescription": "slug: the site's own label on Rabbitflare, so the subdomain points at <slug>.rabbitflare.link (or <slug>.rabbitflare.net when the site is protected).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "rabbitflare.com",
+  "syncRedirectDomain": "app.rabbitflare.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "address",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%slug%.rabbitflare.link",
+      "ttl": 600
+    },
+    {
+      "groupId": "protected",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%slug%.rabbitflare.net",
+      "ttl": 600
+    }
+  ]
+}
