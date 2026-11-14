@@ -1,0 +1,27 @@
+{
+  "providerId": "heaven.dev",
+  "providerName": "Heaven",
+  "serviceId": "root",
+  "serviceName": "A root domain for a Computer, at Cloudflare",
+  "version": 1,
+  "description": "Points a root domain (example.com) at a Heaven organization, and adds the TXT record that shows the domain is that organization's. For Cloudflare DNS only: Cloudflare flattens a CNAME at a zone's own name. Heaven applies it without a host and only at Cloudflare. hostRequired is set only because a CNAME at @ requires it (DCTL1012); Cloudflare ignores it.",
+  "variableDescription": "label: the first label of the organization's address, LABEL.domains.heaven.dev: 3 to 32 lower-case letters, digits and hyphens.",
+  "syncPubKeyDomain": "heaven.dev",
+  "syncRedirectDomain": "heaven.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%label%.domains.heaven.dev",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_heaven",
+      "data": "heaven=%label%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
