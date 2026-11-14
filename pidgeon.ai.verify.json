@@ -5,7 +5,7 @@
   "serviceName": "Pidgeon domain verification",
   "version": 1,
   "logoUrl": "https://pidgeon.ai/brand/logo-light.svg",
-  "description": "Proves the domain belongs to a Pidgeon account, so websites can see which domain stands behind that account's AI agents. One TXT record at _pidgeon.",
+  "description": "Proves the domain belongs to a Pidgeon account, so websites can see which domain stands behind that account's AI agents, and lets Pidgeon sign those agents' Agent-of email declaration as the domain. One TXT record at _pidgeon, and one CNAME at pgn2._domainkey pointing at Pidgeon's agent key.",
   "variableDescription": "token: 32 lowercase hex characters, issued by Pidgeon for this domain.",
   "syncBlock": false,
   "syncPubKeyDomain": "pidgeon.ai",
@@ -18,6 +18,12 @@
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "pidgeon-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "pgn2._domainkey",
+      "pointsTo": "pgn2._domainkey.pidgeon.email",
+      "ttl": 3600
     }
   ]
 }
