@@ -1,11 +1,11 @@
 {
   "providerId": "enderdash.com",
-  "providerName": "EnderDash",
+  "providerName": "Enderdash",
   "serviceId": "custom-domain",
   "serviceName": "Custom domain",
   "version": 1,
   "logoUrl": "https://enderdash.com/logo.svg",
-  "description": "Connect a subdomain to your EnderDash knowledge base, status page, verification forms, or game sign-in.",
+  "description": "Connect a subdomain to your Enderdash knowledge base, status page, verification forms, or game sign-in.",
   "syncPubKeyDomain": "domainconnect.enderdash.com",
   "syncRedirectDomain": "app.enderdash.com",
   "hostRequired": true,
