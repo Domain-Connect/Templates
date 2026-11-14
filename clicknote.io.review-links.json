@@ -1,0 +1,21 @@
+{
+  "providerId": "clicknote.io",
+  "providerName": "ClickNote",
+  "serviceId": "review-links",
+  "serviceName": "Review links on your own domain",
+  "version": 1,
+  "logoUrl": "https://clicknote.io/favicon.svg",
+  "description": "Points a subdomain of an agency's own domain (for example feedback.youragency.com) at the agency's ClickNote workspace, so that the review links it sends to clients open on its own domain. One CNAME record on the host the template is applied to.",
+  "variableDescription": "workspace: the label of the workspace's own target under hosts.clicknote.io, as shown on the brand page in ClickNote (lower-case letters, digits and hyphens).",
+  "syncPubKeyDomain": "clicknote.io",
+  "syncRedirectDomain": "app.clicknote.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%workspace%.hosts.clicknote.io",
+      "ttl": 3600
+    }
+  ]
+}
