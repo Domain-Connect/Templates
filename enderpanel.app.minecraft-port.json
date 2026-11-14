@@ -1,0 +1,34 @@
+{
+  "providerId": "enderpanel.app",
+  "providerName": "EnderPanel",
+  "serviceId": "minecraft-port",
+  "serviceName": "Minecraft server address with port",
+  "version": 1,
+  "logoUrl": "https://enderpanel.app/favicon.png",
+  "description": "Points a name on a domain you own at a Minecraft server on a non-standard port, so players can join without typing the port.",
+  "variableDescription": "ip: the public IPv4 address of the computer running the server; port: the TCP port the server listens on",
+  "syncPubKeyDomain": "enderpanel.app",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": "300",
+      "essential": "Always"
+    },
+    {
+      "type": "SRV",
+      "name": "@",
+      "service": "_minecraft",
+      "protocol": "_tcp",
+      "priority": "0",
+      "weight": "5",
+      "port": "%port%",
+      "target": "%fqdn%.",
+      "ttl": "300",
+      "essential": "Always"
+    }
+  ]
+}
