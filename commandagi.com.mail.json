@@ -1,14 +1,14 @@
 {
   "providerId": "commandagi.com",
   "providerName": "CommandAGI",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://commandagi.com/apple-touch-icon.png",
-  "variableDescription": "verification: the domain's ownership token at CommandAGI; dkim1, dkim2, dkim3: the DKIM tokens Amazon SES issues for the domain",
+  "variableDescription": "verification: the domain's ownership token at CommandAGI; dkimselector: the selector of the DKIM key Postmark issues for the domain; dkimkey: that RSA public key, base64 (the p= value of the DKIM record)",
   "syncPubKeyDomain": "commandagi.com",
   "syncRedirectDomain": "commandagi.com,commandagi.app",
   "serviceId": "mail",
   "serviceName": "CommandAGI Mail",
-  "description": "Receives and sends the mail of a domain with CommandAGI (through Amazon SES): an ownership TXT record, the MX record, the SPF include and three DKIM CNAME records.",
+  "description": "Receives and sends the mail of a domain with CommandAGI (through Postmark): an ownership TXT record, the MX record, the Return-Path CNAME record and the DKIM TXT record.",
   "records": [
     {
       "type": "TXT",
@@ -21,32 +21,22 @@
     {
       "type": "MX",
       "host": "@",
-      "pointsTo": "inbound-smtp.us-east-2.amazonaws.com",
+      "pointsTo": "inbound.postmarkapp.com",
       "priority": 10,
       "ttl": 3600
     },
     {
-      "type": "SPFM",
-      "host": "@",
-      "spfRules": "include:amazonses.com"
-    },
-    {
       "type": "CNAME",
-      "host": "%dkim1%._domainkey",
-      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "host": "pm-bounces",
+      "pointsTo": "pm.mtasv.net",
       "ttl": 3600
     },
     {
-      "type": "CNAME",
-      "host": "%dkim2%._domainkey",
-      "pointsTo": "%dkim2%.dkim.amazonses.com",
-      "ttl": 3600
-    },
-    {
-      "type": "CNAME",
-      "host": "%dkim3%._domainkey",
-      "pointsTo": "%dkim3%.dkim.amazonses.com",
-      "ttl": 3600
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "k=rsa;p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
     }
   ]
 }
