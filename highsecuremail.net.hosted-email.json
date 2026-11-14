@@ -3,11 +3,12 @@
   "providerName": "DATCG HighSecureMail",
   "serviceId": "hosted-email",
   "serviceName": "HighSecureMail Hosted Email",
-  "version": 3,
+  "version": 4,
   "description": "Points a domain's mail to HighSecureMail: MX, SPF (merge), DKIM (RSA-2048), DMARC, and client autodiscovery (autoconfig/autodiscover/MTA-STS/webmail).",
   "variableDescription": "sel_rsa/key_rsa: the domain's DKIM selector and base64 public key, read from the mail platform after the domain is created. mtastsid: MTA-STS policy id (monotonic). verify: domain ownership token issued by the mail platform (TXT at apex).",
   "syncBlock": false,
-  "syncRedirectDomain": "highsecuremail.net",
+  "syncPubKeyDomain": "highsecuremail.com",
+  "syncRedirectDomain": "highsecuremail.com,highsecuremail.net",
   "records": [
     {
       "type": "MX",
