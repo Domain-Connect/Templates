@@ -1,0 +1,19 @@
+{
+  "providerId": "getsaywork.com",
+  "providerName": "Saywork",
+  "serviceId": "artifact",
+  "serviceName": "Saywork Artifacts",
+  "version": 1,
+  "description": "Connect a subdomain to a Saywork website or app.",
+  "syncPubKeyDomain": "getsaywork.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.getsaywork.com",
+      "ttl": "3600"
+    }
+  ]
+}
