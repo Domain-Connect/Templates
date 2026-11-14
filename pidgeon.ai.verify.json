@@ -23,7 +23,8 @@
       "type": "CNAME",
       "host": "pgn2._domainkey",
       "pointsTo": "pgn2._domainkey.pidgeon.email",
-      "ttl": 3600
+      "ttl": 3600,
+      "essential": "OnApply"
     }
   ]
 }
