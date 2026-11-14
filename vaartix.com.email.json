@@ -1,0 +1,37 @@
+{
+  "providerId": "vaartix.com",
+  "providerName": "Vaartix",
+  "serviceId": "email",
+  "serviceName": "Vaartix email sending",
+  "version": 1,
+  "logoUrl": "https://vaartix.com/favicon.svg",
+  "description": "Lets Vaartix send email from your domain: a DKIM signing key and a return path for bounces.",
+  "variableDescription": "selector: DKIM selector; dkimkey: DKIM public key (base64); bounce: return-path label, such as vxmail (vx-bounces on older domains); region: AWS region of the mail servers, such as ap-south-1",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "vaartix.com",
+  "syncRedirectDomain": "app.vaartix.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "type": "MX",
+      "host": "%bounce%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "%bounce%",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
