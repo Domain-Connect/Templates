@@ -3,12 +3,11 @@
     "providerName": "Software4.net",
     "serviceId": "erp-hosting",
     "serviceName": "S4 ERP Website Hosting",
-    "version": 1,
+    "version": 2,
     "description": "Connects the selected hostname to S4 ERP website hosting and verifies domain ownership.",
     "variableDescription": "origin is the Software4 website hosting IPv4 address. proof is the ERP-generated ownership verification token.",
     "syncRedirectDomain": "erp.consultwise.us",
     "syncPubKeyDomain": "software4.net",
-    "multiInstance": true,
     "records": [
         {
             "type": "A",
