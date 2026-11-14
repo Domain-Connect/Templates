@@ -1,0 +1,23 @@
+{
+  "providerId": "sendtier.com",
+  "providerName": "Sendtier",
+  "serviceId": "receive",
+  "serviceName": "Email receiving",
+  "version": 1,
+  "logoUrl": "https://sendtier.com/icon.svg",
+  "description": "Adds the MX record for receiving email with Sendtier on a subdomain.",
+  "variableDescription": "mxtoken: the domain's receiving token",
+  "syncBlock": false,
+  "syncPubKeyDomain": "receive.dc.sendtier.com",
+  "syncRedirectDomain": "app.sendtier.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxtoken%.mx.sendtier.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
