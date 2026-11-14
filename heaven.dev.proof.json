@@ -1,0 +1,20 @@
+{
+  "providerId": "heaven.dev",
+  "providerName": "Heaven",
+  "serviceId": "proof",
+  "serviceName": "The record that shows a domain is an organization's",
+  "version": 1,
+  "description": "Adds the TXT record that shows a domain is a Heaven organization's, for its names that DNS cannot show lead to the organization, such as names behind Cloudflare's proxy. One record covers every name under the domain. Heaven applies it without a host.",
+  "variableDescription": "label: the first label of the organization's address, LABEL.domains.heaven.dev: 3 to 32 lower-case letters, digits and hyphens.",
+  "syncPubKeyDomain": "heaven.dev",
+  "syncRedirectDomain": "heaven.dev",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_heaven",
+      "data": "heaven=%label%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
