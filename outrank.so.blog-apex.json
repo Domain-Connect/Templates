@@ -1,0 +1,38 @@
+{
+  "providerId": "outrank.so",
+  "providerName": "Outrank",
+  "serviceId": "blog-apex",
+  "serviceName": "Outrank Blog on a root domain",
+  "version": 1,
+  "logoUrl": "https://www.outrank.so/icon.svg",
+  "description": "Connects a root domain (for example example.com) to the blog Outrank hosts for the customer on Vercel. The apex group adds the A record and Outrank's ownership TXT record. The optional vercel-verification group adds the TXT record Vercel asks for when the domain is already used on another Vercel account; it is marked OnApply, so removing it later leaves the blog's records in place.",
+  "variableDescription": "%ip%: the IPv4 address Vercel recommends for the root domain, as Outrank shows it (for example 76.76.21.21). %ownershiptoken%: the ownership token Outrank generated for this domain. %vercelverification%: Vercel's TXT value after vc-domain-verify= (the full host name, a comma, then Vercel's code).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.outrank.so",
+  "syncRedirectDomain": "outrank.so,www.outrank.so",
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "apex",
+      "type": "TXT",
+      "host": "_outrank-blog",
+      "data": "%ownershiptoken%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "vercel-verification",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%vercelverification%",
+      "ttl": 600,
+      "essential": "OnApply"
+    }
+  ]
+}
