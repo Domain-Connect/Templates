@@ -1,0 +1,35 @@
+{
+  "providerId": "readygosolutions.com",
+  "providerName": "ReadyGo Solutions",
+  "serviceId": "website",
+  "serviceName": "ReadyGo website and apps",
+  "version": 1,
+  "logoUrl": "https://readygosolutions.com/icon-512.png",
+  "description": "Points your domain to your ReadyGo delivery website and customer app, and proves it is yours.",
+  "variableDescription": "%slug%: the business's ReadyGo address name (its free address is <slug>.readygosolutions.com); %token%: this domain claim's ownership proof.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "readygosolutions.com",
+  "syncRedirectDomain": "apps.readygosolutions.com,readygosolutions.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "147.182.150.211",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%slug%.readygosolutions.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_readygo",
+      "data": "readygo-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
