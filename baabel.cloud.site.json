@@ -1,0 +1,21 @@
+{
+  "providerId": "baabel.cloud",
+  "providerName": "Baabel",
+  "serviceId": "site",
+  "serviceName": "Baabel Sites website",
+  "version": 1,
+  "description": "Points a subdomain (for example www) of your domain at your website built with Baabel Sites.",
+  "variableDescription": "%name%: the name of the site on baabel.cloud; the record points at <name>.baabel.cloud. The subdomain is supplied through the host parameter.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "baabel.cloud",
+  "syncRedirectDomain": "baabel.cloud",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%name%.baabel.cloud",
+      "ttl": 3600
+    }
+  ]
+}
