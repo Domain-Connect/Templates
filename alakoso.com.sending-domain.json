@@ -1,0 +1,35 @@
+{
+  "providerId": "alakoso.com",
+  "providerName": "Alakoso",
+  "serviceId": "sending-domain",
+  "serviceName": "Alakoso sending domain",
+  "version": 1,
+  "logoUrl": "https://alakoso.com/img/alakoso-mark.svg",
+  "description": "Lets Alakoso send email from your domain: SPF, DKIM and a return path for bounces.",
+  "variableDescription": "dkimid: the six-letter id of the DKIM key Alakoso's mail server signs with (selector postal-<id>). dkimkey: that key's public half.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "alakoso.com",
+  "syncRedirectDomain": "app.alakoso.com,admin.alakoso.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.postal.cphsolutions.pro"
+    },
+    {
+      "type": "TXT",
+      "host": "postal-%dkimid%._domainkey",
+      "data": "v=DKIM1; t=s; h=sha256; p=%dkimkey%;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "psrp",
+      "pointsTo": "rp.postal.cphsolutions.pro",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+    "providerId": "senprints.com",
+    "providerName": "SenPrints",
+    "serviceId": "storefront",
+    "serviceName": "SenPrints Storefront",
+    "version": 1,
+    "description": "Point your domain at your SenPrints storefront",
+    "syncBlock": false,
+    "syncPubKeyDomain": "dc.senprints.com",
+    "records": [
+        {
+            "groupId": "storefront",
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "mystoredns.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "email",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mail.mystoredns.com",
+            "priority": 10,
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "email",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mail2.mystoredns.com",
+            "priority": 20,
+            "ttl": 3600,
+            "essential": "OnApply"
+        }
+    ],
+    "hostRequired": true
+}

@@ -1,0 +1,23 @@
+{
+  "providerId": "dropigem.com",
+  "providerName": "Dropigem",
+  "serviceId": "website",
+  "serviceName": "Dropigem website",
+  "version": 1,
+  "logoUrl": "https://dropigem.com/icon.svg",
+  "description": "Connect your website subdomain to your published Dropigem website. Existing website records at this subdomain may be replaced. Email records and root-domain forwarding are not changed.",
+  "variableDescription": "%project% is the published website's Cloudflare Pages project name, for example dropigem-bj98tydar8. Dropigem derives and validates this value server-side from the signed-in user's website.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.dropigem.com",
+  "syncRedirectDomain": "dropigem.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%project%.pages.dev",
+      "ttl": 300,
+      "essential": "OnApply"
+    }
+  ]
+}

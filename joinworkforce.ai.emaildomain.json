@@ -1,0 +1,39 @@
+{
+    "providerId": "joinworkforce.ai",
+    "providerName": "Workforce AI",
+    "serviceId": "emaildomain",
+    "serviceName": "Email from your domain",
+    "version": 2,
+    "logoUrl": "https://dashboard.hireworkforce.ai/web-app-manifest-512x512.png",
+    "description": "Lets the AI employees send and receive email at a subdomain of the customer's domain (applied with host, e.g. bot). Adds only CNAMEs into our own zone, where we keep the mail records (DKIM, SPF, bounce and inbound MX) up to date.",
+    "variableDescription": "%mzone%: where the CNAMEs point in our mail zone, made for the customer's domain: <16 hex>.m.joinworkforce.ai (dev./staging. before m. for our test environments)",
+    "syncPubKeyDomain": "domainconnect.joinworkforce.ai",
+    "syncRedirectDomain": "dashboard.hireworkforce.ai,dashboard.staging.hireworkforce.ai,dashboard.dev.hireworkforce.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%mzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "resend._domainkey",
+            "pointsTo": "resend._domainkey.%mzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "send",
+            "pointsTo": "send.%mzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "rsend",
+            "pointsTo": "rsend.%mzone%",
+            "ttl": 3600
+        }
+    ]
+}

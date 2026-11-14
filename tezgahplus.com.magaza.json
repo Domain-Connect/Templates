@@ -1,0 +1,35 @@
+{
+  "providerId": "tezgahplus.com",
+  "providerName": "Tezgah",
+  "serviceId": "magaza",
+  "serviceName": "Online store on your own domain",
+  "version": 1,
+  "logoUrl": "https://tezgahplus.com/marka/tezgah-isaret.svg",
+  "description": "Points the apex domain (A @) and www (CNAME) to the Tezgah storefront servers and adds the ownership TXT record at _tezgah. IP and CNAME target are fixed; only the token varies.",
+  "variableDescription": "%belirtec%: 32 hex characters of the store's ownership token (the TXT value is fixed to 'magazam-dogrulama=<token>').",
+  "syncPubKeyDomain": "tezgahplus.com",
+  "syncRedirectDomain": "tezgahplus.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "37.60.247.165",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "baglan.tezgahplus.com",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_tezgah",
+      "data": "magazam-dogrulama=%belirtec%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "magazam-dogrulama=",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "providerId": "goxnp.com",
+  "providerName": "XNP",
+  "serviceId": "website",
+  "serviceName": "XNP Website",
+  "version": 1,
+  "logoUrl": "https://goxnp.com/assets/xnp-favicon.svg",
+  "description": "Points a domain and its www at the website XNP builds and hosts for the domain owner (served by Vercel)",
+  "variableDescription": "%ip%: the apex IPv4 address Vercel assigns to the site's project; %cname%: the CNAME target Vercel assigns to the site's project; %verify%: the ownership token Vercel issues when the domain must be verified",
+  "syncBlock": false,
+  "syncPubKeyDomain": "goxnp.com",
+  "syncRedirectDomain": "app.goxnp.com,admin.goxnp.com",
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "apex",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%verify%",
+      "ttl": 600,
+      "essential": "OnApply"
+    }
+  ]
+}

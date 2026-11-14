@@ -1,0 +1,43 @@
+{
+  "providerId": "agent-loadout.com",
+  "providerName": "Agent Loadout",
+  "serviceId": "email",
+  "serviceName": "Custom subdomain email",
+  "version": 1,
+  "logoUrl": "https://agent-loadout.com/favicon.svg",
+  "description": "Prove ownership of the subdomain and point its inbound and bounce mail at Agent Loadout.",
+  "variableDescription": "%token%: ownership TXT token; %region%: SES region for MX hosts",
+  "syncBlock": false,
+  "syncPubKeyDomain": "agent-loadout.com",
+  "syncRedirectDomain": "agent-loadout.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_agentloadout",
+      "data": "agentloadout-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "agentloadout-verify="
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

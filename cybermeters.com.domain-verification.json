@@ -1,0 +1,22 @@
+{
+  "providerId": "cybermeters.com",
+  "providerName": "CyberMeters",
+  "serviceId": "domain-verification",
+  "serviceName": "CyberMeters domain verification",
+  "version": 1,
+  "logoUrl": "https://cybermeters.com/favicon.svg",
+  "description": "Adds the TXT record that proves you control this domain in CyberMeters. No other records are created or changed.",
+  "variableDescription": "verificationToken: 48-character hexadecimal token issued by CyberMeters for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cybermeters.com",
+  "syncRedirectDomain": "app.cybermeters.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_cybermeters",
+      "data": "cybermeters-verification=%verificationToken%",
+      "ttl": 3600
+    }
+  ]
+}

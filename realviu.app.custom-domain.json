@@ -1,0 +1,27 @@
+{
+  "providerId": "realviu.app",
+  "providerName": "RealViu",
+  "serviceId": "custom-domain",
+  "serviceName": "RealViu website on your own domain",
+  "version": 1,
+  "logoUrl": "https://cdn-1.realviu.app/brand/Logo-svg-dark.svg",
+  "description": "Points a brokerage's domain at their RealViu website and adds the certificate-validation record, so HTTPS is issued and renews without further changes. Both records must stay in place.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "realviu.app",
+  "hostRequired": true,
+  "variableDescription": "dcv: the certificate-validation target issued for this exact hostname, copied verbatim from the brokerage's RealViu domain settings (for example www.example.com.7079dafabe2bbc99.dcv.cloudflare.com). It is passed rather than composed from the domain so the value applied is always the one the certificate authority actually issued.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "app.realviu.app",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%dcv%",
+      "ttl": 3600
+    }
+  ]
+}

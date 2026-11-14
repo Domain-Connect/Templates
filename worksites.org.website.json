@@ -1,0 +1,34 @@
+{
+  "providerId": "worksites.org",
+  "providerName": "Worksites",
+  "serviceId": "website",
+  "serviceName": "Worksites website",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "worksites.org",
+  "syncRedirectDomain": "worksites.org,beta.worksites.org",
+  "description": "Connect a Worksites website and verify domain ownership. Keep unrelated and email records.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.24.57.1",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_worksites",
+      "data": "worksites-verification=%verificationToken%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "worksites-verification="
+    }
+  ],
+  "variableDescription": "target: configured Render service hostname; verificationToken: saved Worksites ownership challenge"
+}

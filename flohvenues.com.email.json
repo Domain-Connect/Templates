@@ -1,0 +1,41 @@
+{
+  "providerId": "flohvenues.com",
+  "providerName": "FLOH Venues",
+  "serviceId": "email",
+  "serviceName": "FLOH Venues email",
+  "version": 1,
+  "logoUrl": "https://flohvenues.com/brand/logo.svg",
+  "description": "Sends and receives an event venue's email with its couples through FLOH Venues, on a subdomain of the venue's own domain (for example mail.example.com). Adds the mail server, the sending service's two CNAME records (which must be DNS only, never proxied) and the signing key for that subdomain only.",
+  "variableDescription": "dkimkey: the subdomain's DKIM public key.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.flohvenues.com",
+  "syncRedirectDomain": "flohvenues.com,staging.flohvenues.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "receive.forge.rmta.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "send",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "rsend.forge.rmta.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600
+    }
+  ]
+}

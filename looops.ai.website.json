@@ -1,0 +1,25 @@
+{
+  "providerId": "looops.ai",
+  "providerName": "Looops",
+  "serviceId": "website",
+  "serviceName": "Looops Website",
+  "version": 2,
+  "logoUrl": "https://looops.ai/logo-domainconnect.svg",
+  "description": "Connect your domain to your Looops website (www serves the site; the bare domain redirects to www)",
+  "syncPubKeyDomain": "looops.ai",
+  "syncRedirectDomain": "looops.ai, looops.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "connect.looops.site",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "34.233.43.155",
+      "ttl": 300
+    }
+  ]
+}

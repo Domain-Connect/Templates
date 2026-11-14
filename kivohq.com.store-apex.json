@@ -1,0 +1,28 @@
+{
+    "providerId": "kivohq.com",
+    "providerName": "Kivo",
+    "serviceId": "store-apex",
+    "serviceName": "Kivo online store (root domain)",
+    "version": 1,
+    "logoUrl": "https://kivohq.com/apple-touch-icon.png",
+    "description": "Points your root domain (yourbrand.com) and www at your Kivo online store.",
+    "variableDescription": "No variables.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "syncRedirectDomain": "kivohq.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "216.24.57.1",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "kivo-14et.onrender.com",
+            "ttl": 3600
+        }
+    ],
+    "syncPubKeyDomain": "kivohq.com"
+}

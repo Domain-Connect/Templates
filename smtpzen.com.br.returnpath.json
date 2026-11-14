@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "providerId": "smtpzen.com.br",
+  "providerName": "SMTP Zen",
+  "serviceId": "returnpath",
+  "serviceName": "SMTP Zen — Return-Path alinhado",
+  "logoUrl": "https://smtpzen.com.br/logo.png",
+  "description": "Publica o MX e o SPF do subdomínio que recebe as devoluções dos e-mails enviados pelo SMTP Zen.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "smtpzen.com.br",
+  "syncRedirectDomain": "app.smtpzen.com.br",
+  "hostRequired": true,
+  "sharedProviderName": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxhost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%spfhost%",
+      "ttl": 3600
+    }
+  ]
+}

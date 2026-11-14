@@ -1,0 +1,26 @@
+{
+  "providerId": "interpt.co",
+  "providerName": "interpt",
+  "serviceId": "apexdomain",
+  "serviceName": "interpt domain with www",
+  "version": 1,
+  "logoUrl": "https://interpt.co/favicon-dark.svg",
+  "description": "Serves www at a website or app hosted by interpt and redirects the bare domain to www.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "interpt.co",
+  "syncRedirectDomain": "cloud.interpt.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "edge.interpt.net",
+      "ttl": 600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}

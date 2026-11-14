@@ -1,0 +1,22 @@
+{
+  "providerId": "unicornasaurusrex.net",
+  "providerName": "Unicornasaurus Rex Sites",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://www.unicornasaurusrex.com/img/apple-touch-icon.png",
+  "description": "Points www (or the chosen subdomain) of your domain at the website we built for you.",
+  "variableDescription": "No variables. The subdomain is the host parameter.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "unicornasaurusrex.net",
+  "syncRedirectDomain": "go.unicornasaurusrex.net",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.unicornasaurusrex.net",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "providerId": "saypages.com",
+  "providerName": "SayPages",
+  "serviceId": "website",
+  "serviceName": "SayPages website",
+  "version": 1,
+  "logoUrl": "https://saypages.com/apple-touch-icon.png",
+  "description": "Points www at a website hosted on SayPages, lets SayPages issue its HTTPS certificate, and forwards the bare domain to www. Email (MX) and other records are not touched.",
+  "variableDescription": "dcv is the certificate delegation id of SayPages' Cloudflare zone (16 hex characters).",
+  "syncPubKeyDomain": "saypages.com",
+  "syncRedirectDomain": "app.saypages.com",
+  "records": [
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "ingress.saypages.app",
+      "ttl": 3600
+    },
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "_acme-challenge.www",
+      "pointsTo": "www.%fqdn%.%dcv%.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "root",
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%",
+      "essential": "OnApply"
+    }
+  ]
+}

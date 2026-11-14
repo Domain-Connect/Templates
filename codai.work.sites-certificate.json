@@ -1,0 +1,18 @@
+{
+  "providerId": "codai.work",
+  "providerName": "CODAÍ",
+  "serviceId": "sites-certificate",
+  "serviceName": "Publicação e HTTPS de site CODAÍ",
+  "version": 1,
+  "description": "Connect a subdomain to CODAI and validate its HTTPS certificate using an ACME DNS challenge.",
+  "variableDescription": "%certificate% is the exact ACME DNS challenge returned by Cloudflare for SaaS. ACME does not permit adding a service prefix.",
+  "logoUrl": "https://www.codai.work/icon.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect-signing.codai.work",
+  "syncRedirectDomain": "www.codai.work",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "connect.codai.work", "ttl": 300 },
+    { "type": "TXT", "host": "_acme-challenge", "data": "%certificate%", "ttl": 300, "txtConflictMatchingMode": "None", "essential": "OnApply" }
+  ]
+}

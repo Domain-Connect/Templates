@@ -1,0 +1,51 @@
+{
+  "providerId": "boothstudio.io",
+  "providerName": "Booth Studio",
+  "serviceId": "email",
+  "serviceName": "Booth Studio Email",
+  "version": 1,
+  "description": "Sets up a sending and receiving address on a name inside the customer's own domain, so mail leaves from their own brand and their clients' replies arrive back in Booth Studio rather than a separate inbox.",
+  "variableDescription": "%dkim%: the DKIM public key minted for this host. %bounces%: the MX host that collects bounce notifications. %returnpath%: the return-path CNAME target. %inbound%: the MX host that receives the customer's mail. All three are minted per host by the mail platform and cannot be pre-filled.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "boothstudio.io",
+  "syncRedirectDomain": "boothstudio.io",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%bounces%",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "%returnpath%",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%inbound%",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}

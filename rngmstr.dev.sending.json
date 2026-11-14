@@ -1,0 +1,20 @@
+{
+  "providerId": "rngmstr.dev",
+  "providerName": "Ringmaster",
+  "serviceId": "sending",
+  "serviceName": "Ringmaster email sending",
+  "version": 2,
+  "logoUrl": "https://rngmstr.dev/icon.svg",
+  "description": "Lets Ringmaster send email from this domain: a return-path MX record and SPF include for Amazon SES, a CNAME to Resend's mail servers, and the domain's DKIM signing key.",
+  "variableDescription": "region is the Amazon SES region of the domain's feedback host, such as eu-west-1. forge is the first label of the rsend CNAME's target under forge.rmta.net, such as send. dkimkey is the domain's DKIM public key, the base64 after p=.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "rngmstr.dev",
+  "syncRedirectDomain": "app.rngmstr.dev",
+  "hostRequired": false,
+  "records": [
+    { "type": "MX", "host": "send", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com" },
+    { "type": "CNAME", "host": "rsend", "pointsTo": "%forge%.forge.rmta.net", "ttl": 3600 },
+    { "type": "TXT", "host": "resend._domainkey", "data": "p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}

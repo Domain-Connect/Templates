@@ -1,0 +1,46 @@
+{
+    "providerId": "sporty.plus",
+    "providerName": "SportyPlus",
+    "serviceId": "club-email-sending",
+    "serviceName": "Club email sending",
+    "version": 1,
+    "syncPubKeyDomain": "sporty.plus",
+    "logoUrl": "https://www.sporty.plus/logo.svg",
+    "description": "Lets SportyPlus send a club's email from an address on the club's own domain, through Mailgun. Applied to a dedicated subdomain (host, normally mg), so the domain's own SPF and MX records are not touched.",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:mailgun.org"
+        },
+        {
+            "type": "TXT",
+            "host": "%dkimselector%._domainkey",
+            "data": "k=rsa; p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mxa.eu.mailgun.org",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mxb.eu.mailgun.org",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "email",
+            "pointsTo": "eu.mailgun.org",
+            "ttl": 3600
+        }
+    ]
+}

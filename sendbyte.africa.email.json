@@ -1,0 +1,53 @@
+{
+  "providerId": "sendbyte.africa",
+  "providerName": "SendByte",
+  "serviceId": "email",
+  "serviceName": "SendByte email sending",
+  "version": 1,
+  "logoUrl": "https://sendbyte.africa/favicon.svg",
+  "description": "Authenticates email sent through SendByte: a DKIM key, SPF for Amazon SES on the domain and on its mail Return-Path subdomain, and a DMARC record when the domain has none.",
+  "variableDescription": "%dkimkey%: base64 RSA public key SendByte generated for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sendbyte.africa",
+  "syncRedirectDomain": "app.sendbyte.africa",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "sb._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.af-south-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@sendbyte.africa",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 3600
+    }
+  ]
+}

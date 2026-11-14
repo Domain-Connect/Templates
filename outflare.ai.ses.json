@@ -1,0 +1,60 @@
+{
+  "providerId": "outflare.ai",
+  "providerName": "Outflare",
+  "serviceId": "ses",
+  "serviceName": "Sending domain (Amazon SES)",
+  "version": 1,
+  "logoUrl": "https://outflare.ai/brand/png/outflare-mark-black-256.png",
+  "description": "Lets Amazon SES send email for the domain from your own SES account: DKIM, a MAIL FROM subdomain (mail) with its SPF, and a DMARC policy when there is none.",
+  "variableDescription": "dkim1-3: the SES DKIM tokens; dkimzone: SES's DKIM zone for the region (dkim.amazonses.com); region: the SES region (us-east-1)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "outflare.ai",
+  "syncRedirectDomain": "app.outflare.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "dkim",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "groupId": "mailfrom",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "type": "SPFM",
+      "groupId": "mailfrom",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

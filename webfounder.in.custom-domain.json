@@ -1,0 +1,21 @@
+{
+  "providerId": "webfounder.in",
+  "providerName": "WebFounder",
+  "serviceId": "custom-domain",
+  "serviceName": "WebFounder Custom Domain",
+  "version": 1,
+  "logoUrl": "https://app.webfounder.in/logo.svg",
+  "description": "Connect a subdomain of your domain to your WebFounder site.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "webfounder.in",
+  "syncRedirectDomain": "app.webfounder.in",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites-origin.webfounder.in",
+      "ttl": 3600
+    }
+  ]
+}

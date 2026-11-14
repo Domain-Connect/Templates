@@ -1,0 +1,29 @@
+{
+    "providerId": "mainstreetspruce.com",
+    "providerName": "Main Street Spruce",
+    "serviceId": "website",
+    "serviceName": "Website",
+    "version": 1,
+    "logoUrl": "https://portal.mainstreetspruce.com/brand/mss-logo-512.png",
+    "description": "Connects your domain to the website Main Street Spruce built for you. Adds a CNAME that points the hostname to our hosting and a TXT record that confirms the domain is yours.",
+    "variableDescription": "%verifytoken%: per-customer ownership token issued in the Main Street Spruce portal",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.mainstreetspruce.com",
+    "syncRedirectDomain": "portal.mainstreetspruce.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "sites.mainstreetspruce.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_mss-verify",
+            "data": "verify=%verifytoken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

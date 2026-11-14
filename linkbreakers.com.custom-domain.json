@@ -1,0 +1,29 @@
+{
+  "providerId": "linkbreakers.com",
+  "providerName": "Linkbreakers",
+  "serviceId": "custom-domain",
+  "serviceName": "Linkbreakers custom domain",
+  "version": 1,
+  "logoUrl": "https://linkbreakers.com/apple-touch-icon.png",
+  "description": "Points one hostname of the customer's domain (for example qr.example.com) at Linkbreakers so their QR codes and short links use their own domain, and delegates certificate validation for that hostname to Cloudflare so its HTTPS certificate issues and renews with no further DNS edits. Applied with host set to the subdomain label; the zone apex is never changed.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "syncPubKeyDomain": "linkbreakers.com",
+  "syncRedirectDomain": "app.linkbreakers.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.linkbreakers.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.956b483ca92e02fa.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}

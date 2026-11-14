@@ -1,0 +1,40 @@
+{
+  "providerId": "qrdx.dev",
+  "providerName": "QRdx",
+  "serviceId": "qrdx",
+  "serviceName": "QRdx custom domain",
+  "version": 1,
+  "logoUrl": "https://qrdx.dev/favicon.svg",
+  "description": "Points a subdomain (for example go.example.com) at QRdx so it can serve dynamic QR code short links. Group route sets the CNAME. Group vercel adds Vercel's ownership TXT on the zone apex, only when Vercel asks for one. Group qrdx adds the ownership TXT that self-hosted QRdx checks.",
+  "variableDescription": "target: the CNAME target QRdx shows for the domain, either the Vercel project's target (for example cname.vercel-dns.com) or a self-hosted server's host name. vercel: Vercel's TXT value after vc-domain-verify= (the full host name, a comma, then Vercel's code). token: the hex token after qrdx-verify=.",
+  "syncPubKeyDomain": "qrdx.dev",
+  "syncRedirectDomain": "qrdx.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "route",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "vercel",
+      "type": "TXT",
+      "host": "_vercel.%domain%.",
+      "data": "vc-domain-verify=%vercel%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "qrdx",
+      "type": "TXT",
+      "host": "_qrdx-challenge",
+      "data": "qrdx-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "qrdx-verify=",
+      "essential": "OnApply"
+    }
+  ]
+}

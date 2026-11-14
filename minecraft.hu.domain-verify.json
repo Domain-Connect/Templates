@@ -1,0 +1,23 @@
+{
+  "providerId": "minecraft.hu",
+  "providerName": "Minecraft.hu",
+  "serviceId": "domain-verify",
+  "serviceName": "Domain verification",
+  "version": 1,
+  "logoUrl": "https://cdn.minecraft.hu/images/logo/logo-simple.svg",
+  "description": "Adds the TXT record with which a Minecraft server team proves control of its domain on Minecraft.hu",
+  "variableDescription": "verifytoken: the domain's verification token (64 hexadecimal characters)",
+  "syncPubKeyDomain": "domainconnect.minecraft.hu",
+  "syncRedirectDomain": "minecraft.hu",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_mchu-verify",
+      "data": "mchu-verify=%verifytoken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mchu-verify="
+    }
+  ]
+}

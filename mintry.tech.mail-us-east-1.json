@@ -1,0 +1,43 @@
+{
+  "providerId": "mintry.tech",
+  "providerName": "Mintry",
+  "serviceId": "mail-us-east-1",
+  "serviceName": "Mintry Kundenservice-Mails (us-east-1)",
+  "version": 1,
+  "logoUrl": "https://mintry.tech/static/favicon.svg",
+  "description": "Connects a Shopify merchant's support address to Mintry: receives customer emails (MX) and sends replies with DKIM and SPF.",
+  "variableDescription": "dkimkey: public DKIM key of the merchant's domain at Resend (the value after p=)",
+  "syncBlock": false,
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.us-east-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    }
+  ],
+  "syncPubKeyDomain": "mintry.tech",
+  "syncRedirectDomain": "mintry.tech"
+}

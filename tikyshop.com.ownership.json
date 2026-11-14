@@ -1,0 +1,24 @@
+{
+  "providerId": "tikyshop.com",
+  "providerName": "Tikyshop",
+  "serviceId": "ownership",
+  "serviceName": "Tikyshop domain ownership check",
+  "version": 1,
+  "description": "Adds one TXT record that proves to Tikyshop you control this name. It changes nothing else.",
+  "variableDescription": "token: the ownership value Tikyshop generated for this domain",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.tikyshop.com",
+  "syncRedirectDomain": "tikyshop.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_tiky-verify",
+      "data": "tiky-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ],
+  "logoUrl": "https://tikyshop.com/access-assets/email/tikyshop-logo.png"
+}

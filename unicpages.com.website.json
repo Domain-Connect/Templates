@@ -1,0 +1,67 @@
+{
+  "providerId": "unicpages.com",
+  "providerName": "UnicPages",
+  "serviceId": "website",
+  "serviceName": "UnicPages Website",
+  "version": 1,
+  "logoUrl": "https://unicpages.com/bimi/logo.svg",
+  "description": "Points a root domain (and its www) to a website hosted on UnicPages",
+  "variableDescription": "ip1 and ip2 are the IPv4 addresses of the UnicPages edge. dono and donowww are the ownership tokens, ssl and sslwww are the certificate validation tokens issued for the domain and its www.",
+  "syncPubKeyDomain": "domainconnect.unicpages.com",
+  "syncRedirectDomain": "app.unicpages.com",
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": 600
+    },
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": 600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "unic.page",
+      "ttl": 600
+    },
+    {
+      "groupId": "dono",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%dono%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "donowww",
+      "type": "TXT",
+      "host": "_cf-custom-hostname.www",
+      "data": "%donowww%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "ssl",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%ssl%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "sslwww",
+      "type": "TXT",
+      "host": "_acme-challenge.www",
+      "data": "%sslwww%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

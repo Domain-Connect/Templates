@@ -1,0 +1,64 @@
+{
+  "providerId": "thecommandcenter.pro",
+  "providerName": "The Command Center",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://thecommandcenter.pro/favicon.png",
+  "description": "Points a hostname at The Command Center website (CNAME to customers.tcommcen.com) and publishes the Cloudflare for SaaS ownership TXT. Pass groupId=txt for the ACME TXT at _acme-challenge, or groupId=dcv for the delegated DCV CNAME used for wildcard certificates. Each group includes the traffic CNAME and the ownership TXT. Callers must pass one groupId. Synchronous apply redirects back to The Command Center.",
+  "variableDescription": "%ownership%: Cloudflare for SaaS ownership_verification value, written verbatim at _cf-custom-hostname. %certificate%: ACME DNS-01 token, written verbatim at _acme-challenge (group txt only). %dcvid%: single DNS label of the zone DCV delegation id; the CNAME target is %fqdn%.%dcvid%.dcv.cloudflare.com (group dcv only). host and domain are the Domain Connect host and zone. %fqdn% is built in.",
+  "syncPubKeyDomain": "thecommandcenter.pro",
+  "syncRedirectDomain": "thecommandcenter.pro,www.thecommandcenter.pro,staging.thecommandcenter.pro",
+  "hostRequired": true,
+  "shared": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "txt",
+      "host": "@",
+      "pointsTo": "customers.tcommcen.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "txt",
+      "host": "_acme-challenge",
+      "data": "%certificate%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dcv",
+      "host": "@",
+      "pointsTo": "customers.tcommcen.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "dcv",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dcv",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.%dcvid%.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}

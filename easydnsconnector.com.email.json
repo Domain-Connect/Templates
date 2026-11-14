@@ -1,0 +1,49 @@
+{
+  "providerId": "easydnsconnector.com",
+  "providerName": "EasyDNSConnector",
+  "serviceId": "email",
+  "serviceName": "Managed Email DNS Setup",
+  "version": 1,
+  "description": "Adds and verifies five standardized DNS records for domain ownership, authenticated sending, and inbound mail through EasyDNSConnector.",
+  "variableDescription": "%verificationtoken%: EasyDNSConnector connection token; %dkimselector% and %dkimvalue%: DKIM selector and public key; %mailfrommxtarget%: outbound feedback server; %spfinclude%: authorized sending domain; %inboundmxtarget%: inbound mail server",
+  "syncPubKeyDomain": "keys.easydnsconnector.com",
+  "syncRedirectDomain": "api.easydnsconnector.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "easydnsconnector-verification=%verificationtoken%",
+      "ttl": "3600",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "easydnsconnector-verification="
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "%dkimvalue%",
+      "ttl": "3600",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "p="
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%mailfrommxtarget%",
+      "priority": "10",
+      "ttl": "3600"
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:%spfinclude%",
+      "ttl": "3600"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%inboundmxtarget%",
+      "priority": "10",
+      "ttl": "3600"
+    }
+  ]
+}

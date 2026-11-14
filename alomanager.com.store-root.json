@@ -1,0 +1,45 @@
+{
+  "providerId": "alomanager.com",
+  "providerName": "AloManager",
+  "serviceId": "store-root",
+  "serviceName": "AloManager online store",
+  "version": 1,
+  "description": "Points a domain itself at a company's AloManager online store: two A records at the root and www as a CNAME to it. The ownership group adds the TXT record AloManager asks for when the domain was in another AloManager account.",
+  "variableDescription": "ip1, ip2: the two fixed addresses of AloManager's own-domain layer. ownership: the code AloManager shows for that domain.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "alomanager.com",
+  "records": [
+    {
+      "groupId": "records",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "records",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "records",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_alomanager",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ],
+  "logoUrl": "https://alomanager.com/logo.png"
+}

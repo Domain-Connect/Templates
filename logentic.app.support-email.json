@@ -1,0 +1,16 @@
+{
+  "providerId": "logentic.app",
+  "providerName": "Logentic",
+  "serviceId": "support-email",
+  "serviceName": "Support email sending",
+  "version": 1,
+  "logoUrl": "https://logentic.app/apple-icon.png",
+  "description": "Lets Logentic send a brand's support replies from its own address through Resend (Amazon SES): a DKIM key, plus the bounce MX and SPF on a dedicated return-path subdomain.",
+  "syncPubKeyDomain": "logentic.app",
+  "syncRedirectDomain": "logentic.app,dev.logentic.app",
+  "records": [
+    { "type": "TXT", "host": "resend._domainkey", "data": "p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "MX", "host": "logentic", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "logentic", "spfRules": "include:amazonses.com", "ttl": 3600 }
+  ]
+}

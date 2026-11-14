@@ -1,0 +1,51 @@
+{
+	"providerId": "mailcrew.app",
+	"providerName": "MailCrew",
+	"serviceId": "mail",
+	"serviceName": "Set up MailCrew email",
+	"logoUrl": "https://mailcrew.app/icon-96.png",
+	"version": 1,
+	"syncPubKeyDomain": "mailcrew.app",
+	"syncRedirectDomain": "mail.mailcrew.app",
+	"records": [
+		{
+			"groupId": "signing",
+			"type": "CNAME",
+			"host": "%dkim1%._domainkey",
+			"pointsTo": "%dkim1%.%dkimZone%",
+			"ttl": 300
+		},
+		{
+			"groupId": "signing",
+			"type": "CNAME",
+			"host": "%dkim2%._domainkey",
+			"pointsTo": "%dkim2%.%dkimZone%",
+			"ttl": 300
+		},
+		{
+			"groupId": "signing",
+			"type": "CNAME",
+			"host": "%dkim3%._domainkey",
+			"pointsTo": "%dkim3%.%dkimZone%",
+			"ttl": 300
+		},
+		{
+			"groupId": "policy",
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "v=DMARC1; p=none",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1;",
+			"essential": "OnApply",
+			"ttl": 300
+		},
+		{
+			"groupId": "receive",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "inbound-smtp.%region%.amazonaws.com",
+			"priority": 10,
+			"ttl": 300
+		}
+	]
+}

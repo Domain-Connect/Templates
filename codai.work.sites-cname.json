@@ -1,0 +1,16 @@
+{
+  "providerId": "codai.work",
+  "providerName": "CODAÍ",
+  "serviceId": "sites-cname",
+  "serviceName": "Publicação de site CODAÍ",
+  "version": 1,
+  "description": "Connect an existing subdomain to its published CODAI website. Does not modify email or nameservers.",
+  "logoUrl": "https://www.codai.work/icon.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect-signing.codai.work",
+  "syncRedirectDomain": "www.codai.work",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "connect.codai.work", "ttl": 300 }
+  ]
+}

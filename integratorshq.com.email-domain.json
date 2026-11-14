@@ -1,0 +1,23 @@
+{
+  "providerId": "integratorshq.com",
+  "providerName": "IntegratorHQ",
+  "version": 1,
+  "logoUrl": "https://integratorshq.com/marketing/symbol-primary.svg",
+  "syncPubKeyDomain": "domainconnect.integratorshq.com",
+  "syncRedirectDomain": "integratorshq.com",
+  "syncBlock": false,
+  "serviceId": "email-domain",
+  "serviceName": "Workspace email domain verification",
+  "description": "Verify your company email domain for workspace sign-in. This does not change email delivery.",
+  "variableDescription": "verification: workspace-specific ownership verification token.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_integratorhq",
+      "data": "integratorhq-verification=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "integratorhq-verification="
+    }
+  ]
+}

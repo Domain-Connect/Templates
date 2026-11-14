@@ -1,0 +1,32 @@
+{
+  "providerId": "shipyard.works",
+  "providerName": "Shipyard",
+  "serviceId": "website",
+  "serviceName": "Shipyard website",
+  "version": 1,
+  "logoUrl": "https://shipyard.works/logo-icon.png",
+  "description": "Connects your domain to the website Shipyard built for you: www with one CNAME, and the plain domain with an A and an AAAA record that send visitors to www with a secure certificate.",
+  "variableDescription": "",
+  "syncPubKeyDomain": "shipyard.works",
+  "syncRedirectDomain": "shipyard.works",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "custom-domains.shipyard.works",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "137.66.30.242",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "2a09:8280:1::1ce:5e4:0",
+      "ttl": 3600
+    }
+  ]
+}

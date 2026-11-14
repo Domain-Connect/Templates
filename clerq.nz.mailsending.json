@@ -1,0 +1,51 @@
+{
+  "providerId": "clerq.nz",
+  "providerName": "Clerq",
+  "serviceId": "mailsending",
+  "serviceName": "Clerq sending domain",
+  "version": 1,
+  "logoUrl": "https://clerq.nz/public/logo/clerq-q-mark.svg",
+  "description": "Lets a Clerq practice send email from its own domain through Amazon SES. Adds the three Amazon SES Easy DKIM CNAME records (group dkim) and the custom MAIL FROM (return-path) MX and SPF records on a subdomain the practice chooses in Clerq (group mailfrom). The domain's root SPF record and its MX records are never changed. Clerq does not send from the domain until Amazon SES reports the DKIM records as verified.",
+  "variableDescription": "dkim1, dkim2, dkim3: the Amazon SES Easy DKIM tokens issued for this domain's SES identity (each record is <token>._domainkey CNAME <token>.dkim.amazonses.com). mailfrom: the relative MAIL FROM subdomain label chosen in Clerq for this domain, normally 'mail', or 'bounce' when mail.<domain> is already in use (for example by webmail). It is a variable host because the practice picks it in Clerq and SES requires the MX and SPF to sit on exactly that label; it is always relative to the domain being configured. region: the AWS region of the SES sending identity, for example ap-southeast-2.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.clerq.nz",
+  "syncRedirectDomain": "app.clerq.nz",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "%mailfrom%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "%mailfrom%",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

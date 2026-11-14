@@ -1,0 +1,30 @@
+{
+  "providerId": "tezgahplus.com",
+  "providerName": "Tezgah",
+  "serviceId": "magaza-altalan",
+  "serviceName": "Online store on a subdomain",
+  "version": 1,
+  "logoUrl": "https://tezgahplus.com/marka/tezgah-isaret.svg",
+  "description": "Points a subdomain (host parameter, CNAME) to the Tezgah storefront servers and adds the ownership TXT record at _tezgah.<host>. CNAME target is fixed; only the token varies.",
+  "variableDescription": "%belirtec%: 32 hex characters of the store's ownership token (the TXT value is fixed to 'magazam-dogrulama=<token>').",
+  "syncPubKeyDomain": "tezgahplus.com",
+  "syncRedirectDomain": "tezgahplus.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "baglan.tezgahplus.com",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_tezgah",
+      "data": "magazam-dogrulama=%belirtec%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "magazam-dogrulama=",
+      "essential": "OnApply"
+    }
+  ]
+}

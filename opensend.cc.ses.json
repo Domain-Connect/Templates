@@ -1,0 +1,69 @@
+{
+  "providerId": "opensend.cc",
+  "providerName": "Opensend",
+  "serviceId": "ses",
+  "serviceName": "Opensend sending domain",
+  "version": 1,
+  "logoUrl": "https://opensend.cc/icon.svg",
+  "description": "Verifies a domain for sending email through Amazon SES with Opensend: Easy DKIM, a custom MAIL FROM domain, an optional DMARC policy and optional inbound mail.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the Easy DKIM tokens Amazon SES issued; %mailfrom%: the MAIL FROM subdomain label chosen for the domain (default send); %region%: the AWS region of the SES account",
+  "syncBlock": false,
+  "syncPubKeyDomain": "opensend.cc",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "%mailfrom%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "%mailfrom%",
+      "spfRules": "include:amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 300
+    }
+  ]
+}

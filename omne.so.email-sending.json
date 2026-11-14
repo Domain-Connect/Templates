@@ -1,0 +1,21 @@
+{
+  "providerId": "omne.so",
+  "providerName": "Omne",
+  "serviceId": "email-sending",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://cdn.omne.so/brand/omne-icon-512.png",
+  "description": "Lets Omne send email from your domain: three DKIM signing records, a bounce address with its SPF, and a DMARC policy.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three DKIM selectors made for the domain. %region%: the sending region, such as us-east-1.",
+  "syncPubKeyDomain": "omne.so",
+  "syncRedirectDomain": "app.omne.so",
+  "hostRequired": false,
+  "records": [
+    { "groupId": "sending", "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "sending", "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "sending", "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "sending", "type": "MX", "host": "bounce", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "groupId": "sending", "type": "SPFM", "host": "bounce", "spfRules": "include:amazonses.com" },
+    { "groupId": "dmarc", "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none;", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply" }
+  ]
+}

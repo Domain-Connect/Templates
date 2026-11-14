@@ -1,0 +1,23 @@
+{
+  "providerId": "mailrise.io",
+  "providerName": "MailRise",
+  "serviceId": "email-dmarc",
+  "serviceName": "Protect your domain with DMARC",
+  "version": 1,
+  "logoUrl": "https://mailrise.io/logo.svg",
+  "description": "Adds a DMARC record so providers know what to do with email that pretends to be you, and so you can receive reports about who sends as you. It replaces any DMARC record you already have.",
+  "variableDescription": "policy: none, quarantine or reject. pct: the percentage of email the policy applies to (1 to 100). rua: the email address that receives the daily reports.",
+  "syncPubKeyDomain": "mailrise.io",
+  "syncRedirectDomain": "mailrise.io",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "v=DMARC1; p=%policy%; pct=%pct%; rua=mailto:%rua%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

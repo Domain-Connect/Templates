@@ -1,0 +1,27 @@
+{
+  "providerId": "webrenewalcompany",
+  "providerName": "Web Renewal Company",
+  "serviceId": "clientportal",
+  "serviceName": "Client portal",
+  "version": 1,
+  "logoUrl": "https://webrenewal.co/img/brand/logo.svg",
+  "description": "Point your domain at your new website hosted by Web Renewal Company.",
+  "variableDescription": "ip: the IPv4 address of the Web Renewal Company server that hosts the website.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "keys.webrenewal.co",
+  "syncRedirectDomain": "portal.webrenewal.co",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 600
+    }
+  ]
+}

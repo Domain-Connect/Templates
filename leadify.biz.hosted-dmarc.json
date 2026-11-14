@@ -1,0 +1,22 @@
+{
+  "providerId": "leadify.biz",
+  "providerName": "Leadify SecureMark",
+  "serviceId": "hosted-dmarc",
+  "serviceName": "Hosted DMARC record",
+  "version": 1,
+  "logoUrl": "https://securemark.leadify.biz/images/logo.png",
+  "description": "Points the domain's DMARC record at the one SecureMark hosts, so its policy can be changed in SecureMark without editing DNS again.",
+  "variableDescription": "target is the domain and a random label, such as example.com.ab12cd34, that SecureMark hosts the record under",
+  "syncBlock": false,
+  "syncPubKeyDomain": "leadify.biz",
+  "syncRedirectDomain": "securemark.leadify.biz",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%target%.dmarc.ldfysrv.net",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

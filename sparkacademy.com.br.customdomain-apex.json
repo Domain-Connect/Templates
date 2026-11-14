@@ -1,0 +1,27 @@
+{
+  "providerId": "sparkacademy.com.br",
+  "providerName": "Spark Academy",
+  "serviceId": "customdomain-apex",
+  "serviceName": "Spark Academy custom domain (root)",
+  "version": 1,
+  "logoUrl": "https://sparkacademy.com.br/favicon.svg",
+  "description": "Points the root of the domain to the customer's Spark Academy learning platform and proves domain ownership.",
+  "variableDescription": "%token%: ownership verification token issued by Spark Academy for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sparkacademy.com.br",
+  "syncRedirectDomain": "sparkacademy.com.br",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "75.2.60.5",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_spark-verify",
+      "data": "spark-verify=%token%",
+      "ttl": 3600
+    }
+  ]
+}

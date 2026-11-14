@@ -1,0 +1,52 @@
+{
+  "providerId": "secria.me",
+  "providerName": "Secria",
+  "serviceId": "mail-sending",
+  "serviceName": "Secria mail: sending",
+  "logoUrl": "https://secria.me/logo.png",
+  "version": 2,
+  "syncBlock": false,
+  "syncPubKeyDomain": "secria.me",
+  "syncRedirectDomain": "app.secria.me",
+  "description": "Proves the domain is the firm's and lets Secria send and sign its mail. It changes no MX record and no DMARC record, so incoming mail keeps reaching the current provider.",
+  "variableDescription": "ownership: the domain's ownership token. dkimlabel: the domain's opaque label in Secria's DKIM zone (group dkimhosted). dkimselector and dkimkey: the selector and public key of a domain still on its own TXT key (group dkimtxt).",
+  "records": [
+    {
+      "groupId": "base",
+      "type": "TXT",
+      "host": "@",
+      "data": "secria-validate=%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "secria-validate="
+    },
+    {
+      "groupId": "base",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.secria.me"
+    },
+    {
+      "groupId": "dkimhosted",
+      "type": "CNAME",
+      "host": "secria1._domainkey",
+      "pointsTo": "secria1.%dkimlabel%.dkim.secria.me",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkimhosted",
+      "type": "CNAME",
+      "host": "secria2._domainkey",
+      "pointsTo": "secria2.%dkimlabel%.dkim.secria.me",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkimtxt",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "providerId": "trustholm.com",
+  "providerName": "Trustholm Bridge",
+  "serviceId": "bridge-hostname-eu",
+  "serviceName": "Trustholm Bridge hostname (EU)",
+  "version": 1,
+  "logoUrl": "https://bridge.trustholm.com/logo-trustholm.png",
+  "description": "Point a guest hostname at Trustholm Bridge (CNAME, DNS only) and publish the ownership TXT. Do not proxy the CNAME if the zone is on Cloudflare.",
+  "variableDescription": "%txt% is the Bridge-minted ownership token (sx-verify-…). It is signed in the apply URL and is not user-supplied.",
+  "syncPubKeyDomain": "trustholm.com",
+  "syncRedirectDomain": "us.bridge.trustholm.com,au.bridge.trustholm.com,eu.bridge.trustholm.com,bridge.trustholm.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.eu.bridge.trustholm.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_trustholm-bridge-verify",
+      "data": "%txt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "sx-verify-"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "providerId": "tenantcore.io",
+  "providerName": "TenantCore",
+  "serviceId": "microsoft365",
+  "serviceName": "Microsoft 365",
+  "version": 1,
+  "description": "Configures Microsoft 365 verification, mail routing, SPF, Autodiscover, DKIM, and TenantCore DMARC records for a TenantCore-managed sending domain.",
+  "variableDescription": "%verificationToken% is the Microsoft MS= verification token without the MS= prefix; %mxValue% is the Microsoft 365 MX target; %dkimSelector1% and %dkimSelector2% are Microsoft DKIM CNAME targets.",
+  "syncPubKeyDomain": "tenantcore.io",
+  "syncRedirectDomain": "api.tenantcore.io",
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "ttl": 3600,
+      "data": "MS=%verificationToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "MS="
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxValue%",
+      "priority": 0,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.protection.outlook.com"
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "autodiscover.outlook.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%dkimSelector1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%dkimSelector2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s;",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

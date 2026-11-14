@@ -1,0 +1,25 @@
+{
+  "providerId": "run.cloud",
+  "providerName": "run.cloud",
+  "serviceId": "red",
+  "serviceName": "Red",
+  "version": 1,
+  "logoUrl": "https://red.run.cloud/favicon.svg",
+  "description": "Adds the TXT record that proves you control this domain to the Red account that asked for it. Approving lets that account scan the domain for vulnerabilities, including an active red-team scan if it orders one. Only approve if you requested it.",
+  "variableDescription": "token: the hex part of the red-verify value Red shows for this domain",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "run.cloud",
+  "syncRedirectDomain": "red.run.cloud",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_red",
+      "data": "red-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "red-verify="
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "providerId": "circulr.io",
+  "providerName": "Circulr",
+  "serviceId": "web",
+  "serviceName": "Web address on your domain",
+  "version": 1,
+  "logoUrl": "https://circulr.io/brand/circulr/email/circulr-lockup-on-light@2x.png",
+  "description": "Points a subdomain you choose (for example app.yourdomain.com) at your publication on Circulr. Adds one CNAME record; nothing else on your domain changes.",
+  "variableDescription": "railwayid: the identifier Circulr's hosting issues for this address (the part before .up.railway.app).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "circulr.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%railwayid%.up.railway.app",
+      "ttl": 3600
+    }
+  ]
+}

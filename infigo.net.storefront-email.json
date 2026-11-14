@@ -1,0 +1,73 @@
+{
+  "providerId": "infigo.net",
+  "providerName": "Infigo",
+  "serviceId": "storefront-email",
+  "serviceName": "Infigo storefront email",
+  "version": 1,
+  "logoUrl": "https://www.infigo.net/logo",
+  "description": "Lets your Infigo Web2Print storefront send email from your domain: the DKIM keys, the SPF include and the bounce domain of its email provider.",
+  "variableDescription": "dkim1-dkim3: DKIM selectors and dkim1target-dkim3target their CNAME targets; dkimkey1, dkimkey2: DKIM key selectors and dkimkey1p, dkimkey2p the public keys; spfinclude: the SPF include domain; mailfrommx, mailfromspf: the bounce domain's mail server and SPF include",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.infigo.net",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim1",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim2",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim3",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkimkey1",
+      "type": "TXT",
+      "host": "%dkimkey1%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey1p%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dkimkey2",
+      "type": "TXT",
+      "host": "%dkimkey2%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey2p%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%spfinclude%"
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "%mailfrommx%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:%mailfromspf%"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+    "providerId": "keryxis.com",
+    "providerName": "Keryxis",
+    "serviceId": "pages",
+    "serviceName": "Keryxis text-message pages",
+    "version": 1,
+    "logoUrl": "https://keryxis.com/logo.svg",
+    "description": "Points a subdomain (for example sms.yourbusiness.com) at Keryxis, which serves your text-message sign-up, terms and privacy pages there.",
+    "variableDescription": "No variables.",
+    "syncPubKeyDomain": "domainconnect.keryxis.com",
+    "syncRedirectDomain": "app.keryxis.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "pages.keryxis.com",
+            "ttl": 3600
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "providerId": "primalhosted.com",
+    "providerName": "Primal Hosted",
+    "serviceId": "tenant-site",
+    "serviceName": "Community website",
+    "version": 1,
+    "logoUrl": "https://primalhosted.com/img/logo-hero-420.png",
+    "description": "Connects a domain (or a subdomain of it) to a game community's website hosted on Primal Hosted: a CNAME points the name at the Primal Hosted edge, where Cloudflare for SaaS issues its TLS certificate, and a TXT record carries the per-domain token that proves the domain's owner chose Primal Hosted. On Cloudflare the CNAME may sit on the zone apex (CNAME flattening).",
+    "variableDescription": "%verifytoken%: the domain's ownership token from the Primal Hosted panel, 32 lowercase hex characters (published as ph-verify=<token>).",
+    "syncPubKeyDomain": "primalhosted.com",
+    "syncRedirectDomain": "panel.primalhosted.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "primalhosted.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_ph-verify",
+            "data": "ph-verify=%verifytoken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

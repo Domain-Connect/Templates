@@ -1,0 +1,21 @@
+{
+  "providerId": "zaakaan.nl",
+  "providerName": "ZaakAan",
+  "serviceId": "website",
+  "serviceName": "Je website koppelen",
+  "version": 1,
+  "logoUrl": "https://www.zaakaan.nl/zaakaan-logo.svg",
+  "description": "Verbind het gekozen subdomein met je ZaakAan-website.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "zaakaan.nl",
+  "syncRedirectDomain": "app.zaakaan.nl",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.zaakaan.nl",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "providerId": "mycyberstanding.com",
+  "providerName": "CyberStanding",
+  "serviceId": "emailsecurity",
+  "serviceName": "Email security records for your Cyber Credential",
+  "version": 1,
+  "logoUrl": "https://csmedia8841.blob.core.windows.net/tutorials/brand/cyberstanding-logo-180.png",
+  "description": "Publishes the email authentication and transport security records a small business needs: SPF (merged into any existing SPF record, never a second one), DMARC in monitoring mode (p=none), MTA-STS in testing mode with a policy hosted by CyberStanding, TLS reporting, and the DKIM records Microsoft 365 or Google Workspace issues for the domain. CyberStanding applies only the groups the domain is missing. None of these records changes where the business's mail is delivered.",
+  "variableDescription": "dmarcrua: mailbox that receives DMARC aggregate reports. tlsrptrua: mailbox that receives TLS reports. stsid: MTA-STS policy id (date-based). dkim1, dkim2: the two DKIM CNAME targets Microsoft 365 shows for the domain. googledkim: the DKIM TXT value Google Workspace generates for the domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.mycyberstanding.com",
+  "syncRedirectDomain": "mycyberstanding.com",
+  "hostRequired": false,
+  "records": [
+    { "groupId": "spfmicrosoft", "type": "SPFM", "host": "@", "spfRules": "include:spf.protection.outlook.com" },
+    { "groupId": "spfgoogle", "type": "SPFM", "host": "@", "spfRules": "include:_spf.google.com" },
+    { "groupId": "dmarc", "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none; rua=mailto:%dmarcrua%", "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply" },
+    { "groupId": "transport", "type": "CNAME", "host": "mta-sts", "pointsTo": "policy.mycyberstanding.com", "ttl": 3600 },
+    { "groupId": "transport", "type": "TXT", "host": "_mta-sts", "data": "v=STSv1; id=%stsid%", "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=STSv1" },
+    { "groupId": "tlsrpt", "type": "TXT", "host": "_smtp._tls", "data": "v=TLSRPTv1; rua=mailto:%tlsrptrua%", "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=TLSRPTv1" },
+    { "groupId": "dkimmicrosoft", "type": "CNAME", "host": "selector1._domainkey", "pointsTo": "%dkim1%", "ttl": 3600 },
+    { "groupId": "dkimmicrosoft", "type": "CNAME", "host": "selector2._domainkey", "pointsTo": "%dkim2%", "ttl": 3600 },
+    { "groupId": "dkimgoogle", "type": "TXT", "host": "google._domainkey", "data": "%googledkim%", "ttl": 3600,
+      "txtConflictMatchingMode": "All" }
+  ]
+}

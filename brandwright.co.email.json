@@ -1,0 +1,35 @@
+{
+  "providerId": "brandwright.co",
+  "providerName": "BrandWright",
+  "serviceId": "email",
+  "serviceName": "BrandWright email sending",
+  "version": 1,
+  "logoUrl": "https://brandwright.co/brand/brandwright/favicon/icon-512.png",
+  "description": "Lets your BrandWright storefront send order and marketing email from your domain. Your existing inbox (the domain's own MX) is not changed.",
+  "variableDescription": "dkim: the DKIM public key (after p=); region: the sending region for bounce handling, e.g. us-east-1",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "brandwright.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

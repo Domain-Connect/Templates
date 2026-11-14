@@ -1,0 +1,23 @@
+{
+  "providerId": "crazyidea.app",
+  "providerName": "CrazyIdea",
+  "serviceId": "cname",
+  "serviceName": "Waitlist page",
+  "version": 1,
+  "logoUrl": "https://crazyidea.app/favicon.svg",
+  "description": "Points a hostname at a CrazyIdea waitlist page.",
+  "variableDescription": "%cnameTarget%: the hostname this name should point to. The label comes from the host parameter.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncRedirectDomain": "crazyidea.app",
+  "syncPubKeyDomain": "crazyidea.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnameTarget%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

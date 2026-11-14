@@ -1,0 +1,30 @@
+{
+  "providerId": "pagesprinter.com",
+  "providerName": "PagesPrinter",
+  "serviceId": "subdomain",
+  "serviceName": "PagesPrinter site on a subdomain",
+  "version": 1,
+  "description": "Connects a subdomain (for example blog.example.com) to a PagesPrinter site: a TXT record proves ownership and the subdomain points to PagesPrinter.",
+  "variableDescription": "token: the domain's ownership value (the part after pagesprinter-verification=)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.pagesprinter.com",
+  "syncRedirectDomain": "api.pagesprinter.com,app.pagesprinter.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_pagesprinter",
+      "ttl": 3600,
+      "data": "pagesprinter-verification=%token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "pagesprinter-verification="
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.pagesprinter.com",
+      "ttl": 3600
+    }
+  ]
+}

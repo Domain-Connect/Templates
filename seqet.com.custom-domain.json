@@ -1,0 +1,35 @@
+{
+  "providerId": "seqet.com",
+  "providerName": "seqet",
+  "serviceId": "custom-domain",
+  "serviceName": "Connect your domain to your seqet store",
+  "version": 1,
+  "logoUrl": "https://seqet.com/assets/logo-dark.png",
+  "description": "Points your domain to your seqet online store and proves that you own it.",
+  "variableDescription": "TOKEN is a one-time ownership code shown in your seqet account; IP is the address of the seqet servers.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.seqet.com",
+  "syncRedirectDomain": "seqet.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_seqet",
+      "data": "seqet-verify=%TOKEN%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%IP%",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "providerId": "mojobase.ai",
+  "providerName": "Mojobase",
+  "serviceId": "domain-verify",
+  "serviceName": "Mojobase domain verification",
+  "version": 1,
+  "logoUrl": "https://mojobase.ai/favicon.svg",
+  "description": "Adds the TXT record that proves the customer controls the domain, before Mojobase hosts email on it.",
+  "variableDescription": "token: the verification token Mojobase shows for this domain (32 hex characters).",
+  "syncPubKeyDomain": "mojobase.app",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "mojobase-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mojobase-verify=",
+      "essential": "OnApply"
+    }
+  ]
+}

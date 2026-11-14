@@ -5,7 +5,7 @@
   "serviceName": "Spinlab Casino Platform",
   "description": "Configures DNS records for hosting a white-label casino website and email sending with Spinlab.",
   "variableDescription": "resend_dkim: DKIM public key for email authentication (provided by Resend API)",
-  "version": 4,
+  "version": 5,
   "logoUrl": "https://cdn.spinlab.studio/logo-spinlab.svg",
   "syncBlock": false,
   "syncPubKeyDomain": "spinlab.studio",
@@ -41,6 +41,12 @@
       "type": "SPFM",
       "host": "send",
       "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "send.forge.rmta.net",
+      "ttl": 3600
     },
     {
       "type": "TXT",

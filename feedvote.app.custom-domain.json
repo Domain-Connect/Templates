@@ -1,0 +1,21 @@
+{
+  "providerId": "feedvote.app",
+  "providerName": "Feedvote",
+  "serviceId": "custom-domain",
+  "serviceName": "Customer feedback portal",
+  "version": 1,
+  "logoUrl": "https://feedvote.app/images/logo/logo.svg",
+  "description": "Connect your chosen subdomain to your Feedvote feedback portal.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect-keys.feedvote.app",
+  "syncRedirectDomain": "feedvote.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.feedvote.app",
+      "ttl": 300
+    }
+  ]
+}

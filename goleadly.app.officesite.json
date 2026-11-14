@@ -1,0 +1,19 @@
+{
+ "providerId": "goleadly.app",
+ "providerName": "Leadly",
+ "serviceId": "officesite",
+ "serviceName": "Leadly office website",
+ "version": 1,
+ "logoUrl": "https://ai.goleadly.app/icons/leadly-512.png",
+ "description": "Connects a domain to a real-estate office website built on Leadly (goleadly.app): www becomes a CNAME to goleadly.app and the bare domain an A record to the Leadly web server, which redirects it to www. Email (MX) and other records are not touched.",
+ "variableDescription": "ip: IPv4 address of the Leadly web server (the A record of goleadly.app)",
+ "syncBlock": false,
+ "sharedProviderName": false,
+ "syncPubKeyDomain": "goleadly.app",
+ "syncRedirectDomain": "ai.goleadly.app",
+ "hostRequired": false,
+ "records": [
+  { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 3600 },
+  { "type": "CNAME", "host": "www", "pointsTo": "goleadly.app", "ttl": 3600 }
+ ]
+}

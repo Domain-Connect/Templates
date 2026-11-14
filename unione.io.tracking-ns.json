@@ -1,0 +1,32 @@
+{
+  "providerId": "unione.io",
+  "providerName": "UniOne",
+  "serviceId": "tracking-ns",
+  "serviceName": "UniOne tracking domain",
+  "version": 1,
+  "logoUrl": "https://s.selzy.com/unione/notification/logo-unione-520-180.png",
+  "description": "Sets up the UniOne tracking domain (NS).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "unione.io",
+  "syncRedirectDomain": "unione.io,eu1.unione.io,us1.unione.io",
+  "records": [
+    {
+      "type": "NS",
+      "host": "tracking",
+      "pointsTo": "uns1.selzy.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "host": "tracking",
+      "pointsTo": "uns2.selzy.com.",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "host": "tracking",
+      "pointsTo": "uns3.selzy.com.",
+      "ttl": 3600
+    }
+  ]
+}

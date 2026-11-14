@@ -1,0 +1,26 @@
+{
+  "providerId": "context.lc",
+  "providerName": "Context",
+  "serviceId": "website",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "description": "Opens a Context workspace's published links at a domain you own.",
+  "logoUrl": "https://context.lc/icon.png",
+  "syncPubKeyDomain": "domainconnect.context.lc",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_context",
+      "data": "context-verification=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.context.lc",
+      "ttl": 300
+    }
+  ]
+}

@@ -3,28 +3,30 @@
   "providerName": "Dub",
   "serviceId": "links-subdomain",
   "serviceName": "Dub Links (subdomain)",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://assets.dub.co/brand/logo.svg",
   "syncPubKeyDomain": "dub.co",
   "syncRedirectDomain": "app.dub.co,preview.dub.co,dub.co",
   "syncBlock": false,
-  "hostRequired": true,
-  "description": "CNAME on the Domain Connect host label (e.g. www or go) to cname.dub.co; optional ownership TXT.",
-  "variableDescription": "Set Domain Connect host to the DNS label (e.g. www for apex+CNAME, or go for go.example.com). CNAME record uses @ relative to that host. verification group: txtHost and txtValue must match Dub custom domain setup.",
+  "hostRequired": false,
+  "multiInstance": true,
+  "description": "CNAME for one subdomain label to cname.dub.co. Optional Vercel ownership TXT at _vercel on the zone apex.",
+  "variableDescription": "Do not pass the Domain Connect host parameter. cnameHost is the subdomain label only (go for go.example.com). verification group: txtValue is the Vercel TXT value (vc-domain-verify=...). The TXT name is fixed at _vercel so it is not written under the subdomain. multiInstance so a later subdomain does not remove an earlier one. txtConflictMatchingMode None so another _vercel TXT value is added beside existing ones.",
   "records": [
     {
       "groupId": "subdomain",
       "type": "CNAME",
-      "host": "@",
+      "host": "%cnameHost%",
       "pointsTo": "cname.dub.co",
       "ttl": 3600
     },
     {
       "groupId": "verification",
       "type": "TXT",
-      "host": "%txtHost%",
+      "host": "_vercel",
       "data": "%txtValue%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
     }
   ]
 }

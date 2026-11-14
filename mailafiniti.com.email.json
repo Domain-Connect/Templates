@@ -1,0 +1,44 @@
+{
+  "providerId": "mailafiniti.com",
+  "providerName": "Mailafiniti",
+  "serviceId": "email",
+  "serviceName": "Mailafiniti Email",
+  "version": 1,
+  "logoUrl": "https://mailafiniti.com/Mailafiniti-Logo-04.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mailafiniti.com",
+  "syncRedirectDomain": "app.mailafiniti.io",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.mailafiniti.io",
+      "ttl": 3600,
+      "priority": 10,
+      "essential": "Always"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.mailafiniti.io",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

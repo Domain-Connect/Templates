@@ -1,0 +1,22 @@
+{
+  "providerId": "sendeto.com",
+  "providerName": "Sendeto",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.sendeto.com",
+  "serviceId": "managed-provider-mxroute-ownership",
+  "serviceName": "Sendeto email ownership",
+  "description": "Verify ownership of a dedicated Sendeto support email domain before setup.",
+  "logoUrl": "https://sendeto.com/domain-connect/sendeto.svg",
+  "syncRedirectDomain": "sendeto.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_da-verify-%account%",
+      "data": "domain-verified",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

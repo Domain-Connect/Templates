@@ -1,0 +1,28 @@
+{
+    "providerId": "shutte.rs",
+    "providerName": "Shutters",
+    "serviceId": "customhostname",
+    "serviceName": "Custom hostname",
+    "version": 1,
+    "logoUrl": "https://shutte.rs/domain-connect/logo.svg",
+    "description": "Publishes a Shutters member's public photos on a hostname they own: a CNAME to customers.shutte.rs, and a TXT record that proves they own the hostname.",
+    "variableDescription": "%token%: a short-lived ownership token Shutters generates for the member's pending hostname; Shutters checks it in this TXT record itself",
+    "syncBlock": false,
+    "syncPubKeyDomain": "shutte.rs",
+    "syncRedirectDomain": "shutte.rs",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "customers.shutte.rs",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_shutters-challenge",
+            "data": "shutters-verify=%token%",
+            "ttl": 3600
+        }
+    ]
+}

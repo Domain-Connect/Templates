@@ -1,0 +1,32 @@
+{
+  "providerId": "tally-works.com",
+  "providerName": "Tally",
+  "serviceId": "shop",
+  "serviceName": "Studio shop",
+  "version": 1,
+  "logoUrl": "https://tally-works.com/brand/icon-512.png",
+  "description": "Connects a studio's shop on Tally to an address on the studio's own domain, such as shop.example.com. Apply it with host set to the address's label. The TXT record proves the studio controls the address, and Tally serves the shop there only once it finds it. The CNAME points the address at Tally's hosting, which then issues its certificate. Group verify is the TXT record and group point the CNAME; an address whose TXT record Tally has already found is applied with groupId=point.",
+  "variableDescription": "%token%: the random token Tally issued for this address (32 lowercase hex characters).",
+  "syncPubKeyDomain": "tally-works.com",
+  "syncRedirectDomain": "tally-works.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_tally-shop",
+      "data": "tally-shop=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "tally-shop=",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "point",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "tally-web-4c38.onrender.com",
+      "ttl": 3600
+    }
+  ]
+}

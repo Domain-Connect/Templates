@@ -1,0 +1,63 @@
+{
+  "providerId": "postpike.com",
+  "providerName": "PostPike",
+  "serviceId": "mail",
+  "serviceName": "PostPike mail",
+  "version": 1,
+  "logoUrl": "https://admin.postpike.com/favicon.svg",
+  "description": "Hosted email on the customer's own domain: MX, SPF, DKIM, DMARC and mail app setup.",
+  "variableDescription": "edselector, edkey: selector and public key of the domain's Ed25519 DKIM key. rsaselector, rsakey: the same for its RSA key. The mail server generates both for each domain.",
+  "syncPubKeyDomain": "postpike.com",
+  "syncRedirectDomain": "admin.postpike.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.postpike.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a:mx1.postpike.net"
+    },
+    {
+      "type": "TXT",
+      "host": "%edselector%._domainkey",
+      "data": "v=DKIM1; k=ed25519; h=sha256; p=%edkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "%rsaselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; h=sha256; p=%rsakey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "autoconfig.postpike.net",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "autodiscover.postpike.net",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

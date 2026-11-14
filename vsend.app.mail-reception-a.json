@@ -1,0 +1,21 @@
+{
+  "providerId": "vsend.app",
+  "providerName": "VSend",
+  "serviceId": "mail-reception-a",
+  "serviceName": "Hosted email delivery (cluster A)",
+  "version": 1,
+  "description": "Switch incoming email to VSend hosted mail cluster A. Apply only after all intended mailboxes and forwarding addresses are active.",
+  "logoUrl": "https://vsend.app/brand/logo-original.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.vsend.app",
+  "syncRedirectDomain": "vsend.app",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.%fqdn%.cust.hostedemail.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

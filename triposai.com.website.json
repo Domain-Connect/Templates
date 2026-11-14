@@ -1,0 +1,29 @@
+{
+  "providerId": "triposai.com",
+  "providerName": "TripOS AI",
+  "serviceId": "website",
+  "serviceName": "TripOS website",
+  "version": 1,
+  "logoUrl": "https://www.triposai.com/icon-512.png",
+  "description": "Points your domain (yourbrand.com and www) at the travel website you built on TripOS AI.",
+  "variableDescription": "No variables: every record points at TripOS hosting.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "triposai.com",
+  "syncRedirectDomain": "app.triposai.com,triposai.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.198.79.1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

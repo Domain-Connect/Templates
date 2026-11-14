@@ -1,0 +1,19 @@
+{
+    "providerId": "simplytics.dev",
+    "providerName": "Simplytics",
+    "serviceId": "custom-domain",
+    "serviceName": "Custom domain",
+    "version": 1,
+    "description": "Points the subdomain given in host (for example stats.example.com) at proxy.simplytics.dev, so Simplytics can serve the customer's tracking script and public analytics dashboard there. The target is a Cloudflare for SaaS hostname: the record must stay DNS-only (not proxied).",
+    "syncPubKeyDomain": "simplytics.dev",
+    "syncRedirectDomain": "simplytics.dev",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "proxy.simplytics.dev",
+            "ttl": 3600
+        }
+    ]
+}

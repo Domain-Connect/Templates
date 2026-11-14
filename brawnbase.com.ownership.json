@@ -1,0 +1,22 @@
+{
+    "providerId": "brawnbase.com",
+    "providerName": "Brawnbase",
+    "serviceId": "ownership",
+    "serviceName": "Brawnbase domain ownership",
+    "version": 1,
+    "logoUrl": "https://brawnbase.com/brand/favicon.svg",
+    "description": "Proves a domain belongs to a Brawnbase customer: an ownership TXT record carrying the claim's token. Used for a bare domain, where the website template's CNAME cannot go.",
+    "variableDescription": "%token%: the ownership token Brawnbase issued for this domain claim (lowercase hex)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "brawnbase.com",
+    "syncRedirectDomain": "app.brawnbase.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_brawnbase-connect",
+            "data": "%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "None"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "providerId": "tsoftcloud.com",
+    "providerName": "TSoftCloud",
+    "serviceId": "app-apex",
+    "serviceName": "Your TSoftCloud app at the domain itself",
+    "version": 1,
+    "description": "Points the domain itself, such as example.com, to TSoftCloud's edge with one A record, because a CNAME cannot sit at the apex of a domain. The IP is TSoftCloud's production edge address, fixed in this template: a change of that address needs a new template version.",
+    "variableDescription": "None. The record is fixed to the production edge address 152.53.83.88.",
+    "syncPubKeyDomain": "tsoftcloud.com",
+    "syncRedirectDomain": "tsoftcloud.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "152.53.83.88",
+            "ttl": "3600"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "providerId": "syolo.co.uk",
+    "providerName": "Syolo",
+    "serviceId": "portal",
+    "serviceName": "Driver portal custom domain",
+    "version": 1,
+    "logoUrl": "https://syolo.co.uk/mail/syolo-icon.png",
+    "description": "Points a subdomain at your fleet's Syolo driver portal.",
+    "variableDescription": "target: the hostname the portal is served from, which the custom domain points at (for example to.laravel.cloud)",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": true,
+    "syncPubKeyDomain": "syolo.co.uk",
+    "syncRedirectDomain": "syolo.co.uk,manager.icabbi.com,syolo.dev",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 3600
+        }
+    ]
+}

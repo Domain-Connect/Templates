@@ -1,0 +1,20 @@
+{
+  "providerId": "1platform.pro",
+  "providerName": "1Platform",
+  "serviceId": "mail",
+  "serviceName": "Correo con dominio propio",
+  "version": 1,
+  "logoUrl": "https://1platform.pro/brand/domain-connect-logo.svg",
+  "description": "Configura los registros de correo de tu dominio para usarlo en 1Platform.",
+  "variableDescription": "%dkimKey%: llave pública DKIM (base64, sin 'p='); %region%: región, p. ej. us-east-1; %forgeHost%: etiqueta del destino de retorno, p. ej. send.forge",
+  "syncBlock": false,
+  "syncPubKeyDomain": "1platform.pro",
+  "syncRedirectDomain": "1platform.pro",
+  "records": [
+    {"groupId": "dkim", "type": "TXT", "host": "resend._domainkey", "data": "p=%dkimKey%", "ttl": 3600, "txtConflictMatchingMode": "All"},
+    {"groupId": "return", "type": "MX", "host": "bounce", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600},
+    {"groupId": "return", "type": "SPFM", "host": "bounce", "spfRules": "include:amazonses.com", "ttl": 3600},
+    {"groupId": "forge", "type": "CNAME", "host": "rbounce", "pointsTo": "%forgeHost%.rmta.net", "ttl": 3600},
+    {"groupId": "inbound", "type": "MX", "host": "@", "pointsTo": "inbound-smtp.%region%.amazonaws.com", "priority": 10, "ttl": 3600}
+  ]
+}

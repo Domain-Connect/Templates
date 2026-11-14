@@ -1,0 +1,23 @@
+{
+  "providerId": "selfmades.co",
+  "providerName": "Selfmades",
+  "serviceId": "dkim-google-workspace",
+  "serviceName": "DKIM for Google Workspace",
+  "version": 1,
+  "logoUrl": "https://selfmades.co/selfmades-icon-green-v2.png",
+  "description": "Publishes the DKIM key the domain's administrator generated in the Google Admin console, so that Google Workspace can sign the domain's mail once authentication is started there. The key is Google's; Selfmades only passes on the value the administrator copied from the console.",
+  "variableDescription": "%dkimkey%: the public key (the value after p=) of the DKIM record generated in the Google Admin console under Apps > Google Workspace > Gmail > Authenticate email, with the default selector prefix google",
+  "syncBlock": false,
+  "syncPubKeyDomain": "selfmades.co",
+  "syncRedirectDomain": "selfmades.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "google._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

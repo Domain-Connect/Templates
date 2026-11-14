@@ -1,0 +1,129 @@
+name: Non-Template Changes
+
+# Templates live as JSON files in the repo root. Any other changed file must
+# match a pattern in .github/non-template-files.txt, otherwise the check fails.
+# Matching files are allowed but the run then waits for a reviewer of the
+# "non-template-changes" environment to approve it. Every new push requires a
+# new approval.
+#
+# Make both "Check changed files" and "Approve non-template changes" required
+# status checks. A skipped approval job (template-only PRs) counts as passing.
+
+on:
+  pull_request_target:
+    branches:
+      - master
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check:
+    name: Check changed files
+    runs-on: ubuntu-26.04
+    permissions:
+      contents: read
+      pull-requests: write
+    outputs:
+      non_template_changed: ${{ steps.classify.outputs.non_template_changed }}
+
+    steps:
+      # Read the list from the base branch so a PR cannot widen it for itself.
+      - name: Check out non-template file list
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          sparse-checkout: .github/non-template-files.txt
+          sparse-checkout-cone-mode: false
+
+      - name: Classify changed files
+        id: classify
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+          LIST_FILE: .github/non-template-files.txt
+        run: |
+          mapfile -t patterns < <(grep -v -e '^[[:space:]]*#' -e '^[[:space:]]*$' "$LIST_FILE")
+
+          # The PR files API also lists removed files and the previous name
+          # of renamed files.
+          mapfile -t changed_files < <(gh api --paginate "repos/$REPO/pulls/$PR_NUMBER/files" \
+            --jq '.[] | .filename, (.previous_filename // empty)' | sort -u)
+
+          errors=()
+          non_template=()
+          for file in "${changed_files[@]}"; do
+            for pattern in "${patterns[@]}"; do
+              # Unquoted on purpose: glob match against the pattern.
+              if [[ "$file" == $pattern ]]; then
+                non_template+=("$file")
+                continue 2
+              fi
+            done
+            if [[ "$file" == */* ]]; then
+              errors+=("File in subdirectory not allowed: \`$file\`")
+            elif [[ "$file" != *.json ]]; then
+              errors+=("Non-JSON file not allowed: \`$file\`")
+            fi
+          done
+
+          if [ ${#non_template[@]} -gt 0 ]; then
+            echo "non_template_changed=true" >> "$GITHUB_OUTPUT"
+            {
+              echo "### Non-template files changed — maintainer approval required"
+              for file in "${non_template[@]}"; do
+                echo "- \`$file\`"
+              done
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+          if [ ${#errors[@]} -gt 0 ]; then
+            {
+              echo "unexpected_files_output<<EOF"
+              for err in "${errors[@]}"; do
+                echo "- $err"
+              done
+              echo "EOF"
+            } >> "$GITHUB_ENV"
+            exit 1
+          fi
+          echo "All changed files are root-level JSON files or listed non-template files."
+
+      - name: Comment PR - unexpected files
+        if: steps.classify.outcome == 'failure'
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
+        with:
+          message: |
+            ❌  **Unexpected Files**
+
+            Only template JSON files in the repository root may be changed.
+
+            ${{ env.unexpected_files_output }}
+          comment-tag: unexpected_files
+          mode: upsert
+
+      - name: Remove unexpected files comment
+        if: steps.classify.outcome != 'failure'
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
+        with:
+          message: "No unexpected files"
+          comment-tag: unexpected_files
+          mode: delete
+          create-if-not-exists: false
+
+      - name: Fail job if unexpected files found
+        if: steps.classify.outcome == 'failure'
+        run: exit 1
+
+  approve:
+    name: Approve non-template changes
+    needs: check
+    if: needs.check.outputs.non_template_changed == 'true'
+    runs-on: ubuntu-26.04
+    environment: non-template-changes
+    permissions: {}
+    steps:
+      - name: Record approval
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: echo "Non-template changes approved for $HEAD_SHA"

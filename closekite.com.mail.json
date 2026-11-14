@@ -1,0 +1,116 @@
+{
+  "providerId": "closekite.com",
+  "providerName": "CloseKite",
+  "serviceId": "mail",
+  "serviceName": "CloseKite email",
+  "version": 1,
+  "logoUrl": "https://closekite.com/apple-touch-icon.png",
+  "description": "Email on your own domain with CloseKite. Group mail: delivers your email to CloseKite, lets CloseKite send and sign email as you and keeps it encrypted. Group apps: lets phones and mail apps find the settings by themselves.",
+  "syncPubKeyDomain": "closekite.com",
+  "syncRedirectDomain": "closekite.com",
+  "variableDescription": "dkimsel: the DKIM selector made for this domain (letters and numbers); dkimkey: its public key (base64); stsid: the MTA-STS policy id (letters and numbers)",
+  "records": [
+    {
+      "groupId": "mail",
+      "ttl": 3600,
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.closekite.com",
+      "priority": 10
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.closekite.com"
+    },
+    {
+      "groupId": "mail",
+      "ttl": 3600,
+      "type": "TXT",
+      "host": "%dkimsel%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mail",
+      "ttl": 3600,
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@reports.closekite.com; adkim=r; aspf=r",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mail",
+      "ttl": 3600,
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "mail.closekite.com",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mail",
+      "ttl": 3600,
+      "type": "TXT",
+      "host": "_mta-sts",
+      "data": "v=STSv1; id=%stsid%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=STSv1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mail",
+      "ttl": 3600,
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "v=TLSRPTv1; rua=mailto:tlsrpt@reports.closekite.com",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=TLSRPTv1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "apps",
+      "ttl": 3600,
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mail.closekite.com",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "apps",
+      "ttl": 3600,
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mail.closekite.com",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "apps",
+      "ttl": 3600,
+      "type": "SRV",
+      "name": "@",
+      "service": "_imaps",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 993,
+      "target": "mail.closekite.com",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "apps",
+      "ttl": 3600,
+      "type": "SRV",
+      "name": "@",
+      "service": "_submissions",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 465,
+      "target": "mail.closekite.com",
+      "essential": "OnApply"
+    }
+  ]
+}

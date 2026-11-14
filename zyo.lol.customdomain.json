@@ -1,0 +1,22 @@
+{
+    "providerId": "zyo.lol",
+    "providerName": "zyo.lol",
+    "serviceId": "customdomain",
+    "serviceName": "Custom domain",
+    "version": 1,
+    "logoUrl": "https://r2.zyo.lol/local/circleLogo.png",
+    "description": "Points a subdomain (for example bio.example.com) to the user's zyo.lol profile page via a CNAME to domains.zyo.lol.",
+    "variableDescription": "No custom variables. The CNAME always points to domains.zyo.lol.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "zyo.lol",
+    "syncRedirectDomain": "zyo.lol",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "domains.zyo.lol",
+            "ttl": 3600
+        }
+    ]
+}

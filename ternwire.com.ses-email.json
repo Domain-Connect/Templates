@@ -1,0 +1,34 @@
+{
+  "providerId": "ternwire.com",
+  "providerName": "Ternwire",
+  "serviceId": "ses-email",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://ternwire.com/icon.svg",
+  "description": "Lets Ternwire send email from your domain: a DKIM key, plus the MX and SPF records of a send subdomain used as the return path. Your website and existing mailboxes are not changed.",
+  "variableDescription": "%dkimSelector%: DKIM selector issued for this domain; %dkimKey%: DKIM public key issued for this domain; %region%: AWS region of the sending service",
+  "syncBlock": false,
+  "syncPubKeyDomain": "ternwire.com",
+  "syncRedirectDomain": "ternwire.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

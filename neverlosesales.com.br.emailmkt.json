@@ -1,0 +1,22 @@
+{
+  "providerId": "neverlosesales.com.br",
+  "providerName": "Never Lose",
+  "serviceId": "emailmkt",
+  "serviceName": "E-mail marketing",
+  "version": 1,
+  "logoUrl": "https://app.neverlosesales.com.br/favicon.svg",
+  "description": "Lets Never Lose send e-mail campaigns from your domain through Amazon SES: DKIM signing and a custom MAIL FROM domain with SPF.",
+  "variableDescription": "dkim1-3: Amazon SES DKIM selectors; regiao: Amazon SES region (e.g. us-east-2)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "neverlosesales.com.br",
+  "syncRedirectDomain": "app.neverlosesales.com.br",
+  "hostRequired": false,
+  "records": [
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "MX", "host": "envio", "pointsTo": "feedback-smtp.%regiao%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "envio", "spfRules": "include:amazonses.com" }
+  ]
+}

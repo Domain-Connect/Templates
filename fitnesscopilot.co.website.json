@@ -1,0 +1,25 @@
+{
+  "providerId": "fitnesscopilot.co",
+  "providerName": "Fitness Copilot",
+  "serviceId": "website",
+  "serviceName": "Fitness Copilot website",
+  "version": 1,
+  "logoUrl": "https://fitnesscopilot.co/favicon.svg",
+  "description": "Points www at the Fitness Copilot site host and forwards the bare domain to www.",
+  "syncPubKeyDomain": "fitnesscopilot.co",
+  "syncRedirectDomain": "fitnesscopilot.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.fitnesscopilot.co",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}

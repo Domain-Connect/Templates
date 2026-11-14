@@ -1,0 +1,29 @@
+{
+  "providerId": "handoff.ai",
+  "providerName": "Handoff",
+  "serviceId": "links",
+  "serviceName": "Client links",
+  "version": 3,
+  "logoUrl": "https://app.handoff.ai/logo512.png",
+  "description": "Serve your Handoff proposals, invoices, documents and client portal from your own subdomain, so the links your clients open show your brand instead of ours.",
+  "variableDescription": "verificationtoken proves which Handoff organization requested this hostname, so it cannot be claimed by a different customer.",
+  "hostRequired": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "go.handoff.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.go.handoff.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_handoff-verify",
+      "data": "handoff-domain-verification=%verificationtoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "handoff-domain-verification="
+    }
+  ]
+}

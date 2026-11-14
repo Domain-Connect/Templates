@@ -1,0 +1,38 @@
+{
+  "providerId": "mailsenpai.com",
+  "providerName": "MailSenpai",
+  "serviceId": "invio-cname",
+  "serviceName": "SMTP Senpai sending subdomain",
+  "version": 1,
+  "logoUrl": "https://www.mailsenpai.com/wp-content/uploads/2026/10/mailsenpai-logo-orizzontale-340.png",
+  "description": "Sets up a sending subdomain (passed as host) for SMTP Senpai: a CNAME on the subdomain that carries SPF and bounce handling, a CNAME for the DKIM key and a DMARC policy for the subdomain.",
+  "variableDescription": "dkimkey: the 10 hexadecimal characters of the DKIM selector assigned by MailSenpai (the selector is sm followed by dkimkey)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "mailsenpai.com",
+  "syncRedirectDomain": "app.mailsenpai.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "rp.senpaimta.net",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "sm%dkimkey%._domainkey",
+      "pointsTo": "sm%dkimkey%.dkim.senpaimta.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject; rua=mailto:dmarc@%fqdn%; ruf=mailto:dmarc@%fqdn%; pct=100",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

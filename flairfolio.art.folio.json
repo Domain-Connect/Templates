@@ -1,0 +1,30 @@
+{
+  "providerId": "flairfolio.art",
+  "providerName": "Flair Folio",
+  "serviceId": "folio",
+  "serviceName": "Flair Folio website",
+  "version": 1,
+  "logoUrl": "https://flairfolio.art/images/logo/mark-small-light.svg",
+  "description": "Points a domain or subdomain (usually www) at the artist's Flair Folio website. Sets one CNAME to the artist's own code in front of customers.flairfolio.art (served through Cloudflare for SaaS, which makes the certificate) and one TXT ownership record. Touches no other records, and never MX, SPF, DKIM or DMARC, so the artist's email keeps working.",
+  "variableDescription": "token: the artist's own 32 character code, a-f and 0-9, made by Flair Folio when they start connecting the domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "flairfolio.art",
+  "syncRedirectDomain": "flairfolio.art",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%token%.customers.flairfolio.art",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_flairfolio",
+      "data": "flairfolio=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "flairfolio="
+    }
+  ]
+}

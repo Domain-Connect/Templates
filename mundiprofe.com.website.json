@@ -1,0 +1,25 @@
+{
+  "providerId": "mundiprofe.com",
+  "providerName": "Mundiprofe",
+  "serviceId": "website",
+  "serviceName": "Tu web de clases",
+  "version": 1,
+  "description": "Connect this address to your teaching website. Sets one A record and one ownership TXT record. Review the DNS changes shown by your provider before accepting; cancel if existing mail or other addresses would be affected.",
+  "variableDescription": "verification: a 32-character hexadecimal ownership token issued by Mundiprofe for the selected address.",
+  "syncPubKeyDomain": "domainconnect.mundiprofe.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "200.234.237.131",
+      "ttl": "600"
+    },
+    {
+      "type": "TXT",
+      "host": "_mundoprofe",
+      "data": "mundiprofe-verification=%verification%",
+      "txtConflictMatchingMode": "All",
+      "ttl": "600"
+    }
+  ]
+}

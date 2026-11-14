@@ -1,0 +1,30 @@
+{
+    "providerId": "dnstoolbox.app",
+    "providerName": "DNS Toolbox",
+    "serviceId": "caa",
+    "serviceName": "Certificate authority (CAA)",
+    "version": 1,
+    "logoUrl": "https://dnstoolbox.app/wp-content/plugins/dns-toolbox/assets/public/brand/favicon.svg",
+    "description": "Allows the certificate authority that issues the site's certificate in the domain's CAA records, when an existing CAA policy would block its next renewal.",
+    "variableDescription": "issuer: the certificate authority's CAA domain, e.g. 'letsencrypt.org'. Group 'issue' allows ordinary certificates; group 'issuewild' also allows wildcard certificates.",
+    "syncPubKeyDomain": "dnstoolbox.app",
+    "syncRedirectDomain": "dnstoolbox.app",
+    "records": [
+        {
+            "groupId": "issue",
+            "type": "CAA",
+            "host": "@",
+            "data": "0 issue \"%issuer%\"",
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "issuewild",
+            "type": "CAA",
+            "host": "@",
+            "data": "0 issuewild \"%issuer%\"",
+            "ttl": 3600,
+            "essential": "OnApply"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+  "providerId": "fastdigitalproduct.com",
+  "providerName": "Fast Digital Product",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain for sales pages",
+  "version": 1,
+  "logoUrl": "https://fastdigitalproduct.com/icon.png",
+  "description": "Points a subdomain at Fast Digital Product so the creator's sales pages show on it.",
+  "variableDescription": "host: the subdomain the creator chose, for example get or www.",
+  "syncPubKeyDomain": "fastdigitalproduct.com",
+  "syncRedirectDomain": "fastdigitalproduct.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.fdp.page",
+      "ttl": 3600
+    }
+  ]
+}

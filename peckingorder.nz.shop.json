@@ -1,0 +1,30 @@
+{
+  "providerId": "peckingorder.nz",
+  "providerName": "Pecking Order",
+  "serviceId": "shop",
+  "serviceName": "Pecking Order shop address",
+  "version": 1,
+  "logoUrl": "https://peckingorder.nz/brand/logo-mark.png",
+  "description": "Points the domain or subdomain you choose (for example yourfarm.co.nz or shop.yourfarm.co.nz) at your Pecking Order shop, and adds the TXT record that proves you own it. Your email and every other DNS record are left exactly as they are.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.peckingorder.nz",
+  "syncRedirectDomain": "app.peckingorder.nz",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "shops.peckingorder.nz",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_peckingorder-challenge",
+      "data": "po-verify=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "po-verify="
+    }
+  ]
+}

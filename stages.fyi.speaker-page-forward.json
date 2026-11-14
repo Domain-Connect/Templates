@@ -1,0 +1,22 @@
+{
+  "providerId": "stages.fyi",
+  "providerName": "Stages",
+  "serviceId": "speaker-page-forward",
+  "serviceName": "Forward this domain to your Stages speaker page",
+  "version": 1,
+  "description": "Forwards this domain, apex and www, to the member's speaker page on Stages with a permanent redirect. Stages signs every apply request.",
+  "variableDescription": "%slug%: the member's page slug on Stages, the part after stages.fyi/u/",
+  "syncPubKeyDomain": "stages.fyi",
+  "records": [
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.stages.fyi/u/%slug%"
+    },
+    {
+      "type": "REDIR301",
+      "host": "www",
+      "target": "https://www.stages.fyi/u/%slug%"
+    }
+  ]
+}

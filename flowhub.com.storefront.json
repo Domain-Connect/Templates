@@ -1,0 +1,21 @@
+{
+  "providerId": "flowhub.com",
+  "providerName": "Flowhub",
+  "serviceId": "storefront",
+  "serviceName": "Online Store",
+  "version": 1,
+  "logoUrl": "https://my.flowhub.com/icons-512.png",
+  "description": "Points a merchant's subdomain (for example shop.example.com) at their Flowhub online store with one CNAME. Apply it with the host parameter; a CNAME can't sit at a zone apex.",
+  "variableDescription": "%target%: the Flowhub storefront routing endpoint the subdomain points to, a hostname such as d111111abcdef8.cloudfront.net. It differs between Flowhub's environments.",
+  "syncPubKeyDomain": "flowhub.com",
+  "syncRedirectDomain": "my.flowhub.com,my.flowhub.in",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

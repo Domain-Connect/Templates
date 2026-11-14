@@ -1,0 +1,51 @@
+{
+    "providerId": "successobm.com",
+    "providerName": "SuccessOBM",
+    "serviceId": "newsletter-sending",
+    "serviceName": "Newsletter sending",
+    "version": 1,
+    "logoUrl": "https://successobm.com/assets/logo/successsobm_icon.svg",
+    "description": "Lets SuccessOBM send newsletters from a subdomain of your domain (for example news.example.com). Only that subdomain gets records; your regular email is not changed.",
+    "variableDescription": "%dkimkey%: the DKIM public key (base64) issued for this sending subdomain. The subdomain itself is the host parameter (for example news).",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "syncPubKeyDomain": "successobm.com",
+    "syncRedirectDomain": "app.successobm.com",
+    "records": [
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:mailgun.org"
+        },
+        {
+            "type": "TXT",
+            "host": "obm._domainkey",
+            "data": "k=rsa; p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mxa.mailgun.org",
+            "priority": 10,
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mxb.mailgun.org",
+            "priority": 10,
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "type": "CNAME",
+            "host": "email",
+            "pointsTo": "mailgun.org",
+            "ttl": 3600,
+            "essential": "OnApply"
+        }
+    ]
+}

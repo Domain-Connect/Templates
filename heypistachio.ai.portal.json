@@ -1,0 +1,34 @@
+{
+    "providerId": "heypistachio.ai",
+    "providerName": "Pistachio",
+    "serviceId": "portal",
+    "serviceName": "Client portal",
+    "version": 1,
+    "logoUrl": "https://heypistachio.ai/brands/pistachio/logo.svg",
+    "description": "Points a domain or subdomain at a coach's Pistachio client portal: the address record, the hostname check and the certificate check that Pistachio's hosting (Laravel Cloud, on Cloudflare for SaaS) asks for. Nothing else on the domain is touched.",
+    "variableDescription": "%ip%: the IPv4 address the hosting gives for the portal. %hostname%: the hostname verification token the hosting issues (a UUID). %dcv%: the certificate validation id the hosting issues (the part between the portal's name and .dcv.cloudflare.com).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "heypistachio.ai",
+    "syncRedirectDomain": "heypistachio.ai",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%hostname%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "CNAME",
+            "host": "_acme-challenge",
+            "pointsTo": "%fqdn%.%dcv%.dcv.cloudflare.com",
+            "ttl": 3600
+        }
+    ]
+}

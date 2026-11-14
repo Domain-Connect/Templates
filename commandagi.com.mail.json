@@ -1,0 +1,42 @@
+{
+  "providerId": "commandagi.com",
+  "providerName": "CommandAGI",
+  "version": 2,
+  "logoUrl": "https://commandagi.com/apple-touch-icon.png",
+  "variableDescription": "verification: the domain's ownership token at CommandAGI; dkimselector: the selector of the DKIM key Postmark issues for the domain; dkimkey: that RSA public key, base64 (the p= value of the DKIM record)",
+  "syncPubKeyDomain": "commandagi.com",
+  "syncRedirectDomain": "commandagi.com,commandagi.app",
+  "serviceId": "mail",
+  "serviceName": "CommandAGI Mail",
+  "description": "Receives and sends the mail of a domain with CommandAGI (through Postmark): an ownership TXT record, the MX record, the Return-Path CNAME record and the DKIM TXT record.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "commandagi-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "commandagi-verification="
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound.postmarkapp.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "pm-bounces",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "k=rsa;p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

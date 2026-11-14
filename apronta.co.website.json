@@ -1,0 +1,40 @@
+{
+  "providerId": "apronta.co",
+  "providerName": "Apronta",
+  "serviceId": "website",
+  "serviceName": "Apronta page on your domain",
+  "version": 1,
+  "logoUrl": "https://apronta.co/brand/logo.png",
+  "description": "Connects a domain itself (example.com) to a shop's Apronta page: a TXT record that proves the domain is the shop's, the A record that points the domain at the page, and optionally its www, which Apronta redirects to the domain.",
+  "variableDescription": "token: the shop's ownership token. ip: the IPv4 address Vercel recommends for the domain on Apronta's project. target: the CNAME Vercel recommends for its www.",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "apronta.co",
+  "syncRedirectDomain": "apronta.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_apronta",
+      "data": "apronta-verificacao=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "apronta-verificacao="
+    },
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "providerId": "closekite.com",
+  "providerName": "CloseKite",
+  "serviceId": "websub",
+  "serviceName": "CloseKite pages",
+  "version": 1,
+  "logoUrl": "https://closekite.com/apple-touch-icon.png",
+  "description": "Opens your CloseKite pages - booking, forms, careers, property website - at the name you chose on your domain (like book.yourdomain).",
+  "syncPubKeyDomain": "closekite.com",
+  "syncRedirectDomain": "closekite.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "ttl": 3600,
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.closekite.com"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "providerId": "iadasaude.com",
+  "providerName": "Radar Materno",
+  "serviceId": "radar-verification",
+  "serviceName": "Confirmar dominio do site",
+  "version": 1,
+  "syncPubKeyDomain": "iadasaude.com",
+  "syncRedirectDomain": "site.iadasaude.com",
+  "description": "Verify domain control and Vercel ownership without changing web traffic or email.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_radar-verify",
+      "data": "radar-verification=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "radar-verification=",
+      "groupId": "control"
+    },
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%vercelVerification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vc-domain-verify=",
+      "groupId": "vercel"
+    }
+  ]
+}

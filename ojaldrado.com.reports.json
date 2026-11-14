@@ -1,0 +1,37 @@
+{
+  "providerId": "ojaldrado.com",
+  "providerName": "Ojaldrado",
+  "serviceId": "reports",
+  "serviceName": "Ojaldrado reports",
+  "version": 1,
+  "logoUrl": "https://ojaldrado.com/favicon.svg",
+  "description": "Serves an organization's Ojaldrado campaign reports on a subdomain of its own, with its certificate renewed automatically.",
+  "variableDescription": "dcvid: the label Cloudflare for SaaS gives this hostname for certificate validation, before .dcv.cloudflare.com (<hostname>.<uuid>). ownership: the hostname ownership token, only when Cloudflare asks for one.",
+  "syncPubKeyDomain": "ojaldrado.com",
+  "syncRedirectDomain": "app.ojaldrado.com,pre.ojaldrado.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "saas.ojaldrado.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%dcvid%.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    }
+  ]
+}

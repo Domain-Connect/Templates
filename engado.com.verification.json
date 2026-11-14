@@ -1,0 +1,23 @@
+{
+  "providerId": "engado.com",
+  "providerName": "Engado",
+  "serviceId": "verification",
+  "serviceName": "Engado website verification",
+  "version": 1,
+  "logoUrl": "https://app.engado.com/engado-logo.svg",
+  "description": "Adds the TXT record that proves you own this domain, so your website can join Engado.",
+  "variableDescription": "code: this website's Engado verification code, shown on the verify screen in the Engado app",
+  "syncBlock": false,
+  "syncPubKeyDomain": "engado.com",
+  "syncRedirectDomain": "app.engado.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "ttl": 3600,
+      "data": "engado-verification=%code%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "engado-verification="
+    }
+  ]
+}

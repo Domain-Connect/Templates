@@ -1,0 +1,17 @@
+{
+  "providerId": "unimail.ge",
+  "providerName": "Unimail",
+  "serviceId": "mail",
+  "serviceName": "Unimail email",
+  "version": 1,
+  "logoUrl": "https://unimail.ge/favicon.svg",
+  "description": "Connect your domain to Unimail email on your existing mail hosting account.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.unimail.ge",
+  "records": [
+    { "type": "A", "host": "mail", "pointsTo": "%ip%", "ttl": 3600 },
+    { "type": "MX", "host": "@", "pointsTo": "mail.%fqdn%", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "@", "spfRules": "%spfRules%" },
+    { "type": "TXT", "host": "x._domainkey", "data": "%dkim%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}

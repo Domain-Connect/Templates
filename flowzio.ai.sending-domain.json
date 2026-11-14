@@ -1,0 +1,19 @@
+{
+  "providerId": "flowzio.ai",
+  "providerName": "Flowzio",
+  "serviceId": "sending-domain",
+  "serviceName": "Email sending",
+  "logoUrl": "https://flowzio.ai/brand/mark.svg",
+  "version": 1,
+  "description": "Configure email authentication and bounce handling for Flowzio.",
+  "variableDescription": "%dkim%: the public DKIM key issued by the sending provider; %region%: the AWS region in the provider-issued bounce MX target. The mail group configures DKIM, MX and SPF. Include the routing group only when the sending provider requires rsend CNAME send.forge.rmta.net.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.flowzio.ai",
+  "syncRedirectDomain": "flowzio.ai",
+  "records": [
+    { "type": "TXT", "host": "resend._domainkey", "data": "p=%dkim%", "ttl": 300, "groupId": "mail", "txtConflictMatchingMode": "All" },
+    { "type": "MX", "host": "send", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 300, "groupId": "mail" },
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com", "ttl": 300, "groupId": "mail" },
+    { "type": "CNAME", "host": "rsend", "pointsTo": "send.forge.rmta.net", "ttl": 300, "groupId": "routing" }
+  ]
+}

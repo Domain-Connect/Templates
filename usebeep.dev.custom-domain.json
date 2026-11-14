@@ -1,0 +1,29 @@
+{
+  "providerId": "usebeep.dev",
+  "providerName": "Beep",
+  "serviceId": "custom-domain",
+  "serviceName": "Beep custom domain",
+  "version": 1,
+  "logoUrl": "https://usebeep.dev/favicon.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.usebeep.dev",
+  "syncRedirectDomain": "app.usebeep.dev,app.staging.usebeep.dev,app.preprod.usebeep.dev",
+  "hostRequired": true,
+  "description": "Connect your domain to your Beep service.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%claim%.proxy.%edgeDomain%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_beep",
+      "data": "beep-verification=%claim%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "beep-verification="
+    }
+  ]
+}

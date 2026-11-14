@@ -1,0 +1,23 @@
+{
+  "providerId": "mailprofessionale.com",
+  "providerName": "MailProfessionale",
+  "logoUrl": "https://clienti.mailprofessionale.com/domain-connect/logo.svg",
+  "syncPubKeyDomain": "mailprofessionale.com",
+  "syncRedirectDomain": "clienti.mailprofessionale.com",
+  "serviceId": "email-autoconfig",
+  "serviceName": "MailProfessionale Email Autoconfiguration",
+  "version": 1,
+  "description": "Optional records for MailProfessionale email hosting: automatic configuration of mail, calendar and contacts apps (7 SRV records in group 'srv', 2 CNAME records in group 'autoconfig') and TLS reporting (group 'tlsrpt'). All values are fixed: this template has no variables.",
+  "records": [
+    {"groupId": "srv", "type": "SRV", "name": "@", "service": "_imaps", "protocol": "_tcp", "target": "in.mailprofessionale.com", "priority": 0, "weight": 1, "port": 993, "ttl": 3600},
+    {"groupId": "srv", "type": "SRV", "name": "@", "service": "_pop3s", "protocol": "_tcp", "target": "in.mailprofessionale.com", "priority": 0, "weight": 1, "port": 995, "ttl": 3600},
+    {"groupId": "srv", "type": "SRV", "name": "@", "service": "_submissions", "protocol": "_tcp", "target": "out.mailprofessionale.com", "priority": 0, "weight": 1, "port": 465, "ttl": 3600},
+    {"groupId": "srv", "type": "SRV", "name": "@", "service": "_autodiscover", "protocol": "_tcp", "target": "autodiscover.mailprofessionale.com", "priority": 0, "weight": 1, "port": 443, "ttl": 3600},
+    {"groupId": "srv", "type": "SRV", "name": "@", "service": "_caldavs", "protocol": "_tcp", "target": "calendario.mailprofessionale.com", "priority": 0, "weight": 1, "port": 443, "ttl": 3600},
+    {"groupId": "srv", "type": "SRV", "name": "@", "service": "_carddavs", "protocol": "_tcp", "target": "calendario.mailprofessionale.com", "priority": 0, "weight": 1, "port": 443, "ttl": 3600},
+    {"groupId": "srv", "type": "SRV", "name": "@", "service": "_jmap", "protocol": "_tcp", "target": "mx1.mailprofessionale.com", "priority": 0, "weight": 1, "port": 443, "ttl": 3600},
+    {"groupId": "autoconfig", "type": "CNAME", "host": "autoconfig", "pointsTo": "mx1.mailprofessionale.com", "ttl": 3600},
+    {"groupId": "autoconfig", "type": "CNAME", "host": "autodiscover", "pointsTo": "mx1.mailprofessionale.com", "ttl": 3600},
+    {"groupId": "tlsrpt", "type": "TXT", "host": "_smtp._tls", "data": "v=TLSRPTv1; rua=mailto:dmarc@reports.mailprofessionale.com", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=TLSRPTv1"}
+  ]
+}

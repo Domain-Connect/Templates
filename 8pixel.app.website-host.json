@@ -1,0 +1,22 @@
+{
+  "providerId": "8pixel.app",
+  "providerName": "8pixel",
+  "serviceId": "website-host",
+  "serviceName": "8pixel website",
+  "version": 1,
+  "logoUrl": "https://8pixel.app/8pixel-logo.svg",
+  "description": "Points this address (for example www or shop) at your 8pixel website. Email records are not changed.",
+  "variableDescription": "target: the CNAME target the hosting provider recommends for this address.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "8pixel.app",
+  "syncRedirectDomain": "8pixel.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

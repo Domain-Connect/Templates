@@ -1,0 +1,49 @@
+{
+  "providerId": "maildots.com",
+  "providerName": "MailDots",
+  "serviceId": "email",
+  "serviceName": "MailDots Business Email",
+  "version": 1,
+  "logoUrl": "https://maildots.com/brand/icon-blue.svg",
+  "description": "Sets up MailDots business email on the domain: routes incoming mail to MailDots (MX) and authenticates outgoing mail (DKIM, Return-Path, DMARC).",
+  "variableDescription": "%dkimselector%: DKIM selector issued for this domain (e.g. 20261020101834pm); %dkimkey%: base64 RSA public key of the DKIM record; %dmarc%: full DMARC policy record (v=DMARC1; ...), customer-defined, so it is passed as a whole",
+  "syncBlock": false,
+  "syncPubKeyDomain": "maildots.com",
+  "syncRedirectDomain": "app.maildots.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.maildots.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "returnpath",
+      "type": "CNAME",
+      "host": "pm-bounces",
+      "pointsTo": "pm.mtasv.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

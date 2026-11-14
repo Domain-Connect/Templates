@@ -1,0 +1,28 @@
+{
+  "providerId": "pushpad.fun",
+  "providerName": "Pushpad",
+  "serviceId": "root",
+  "serviceName": "Pushpad app on a root domain",
+  "version": 1,
+  "logoUrl": "https://pushpad.fun/brand/apple-touch-icon-180.png",
+  "description": "Points a root domain at an app hosted on Pushpad, through Pushpad's fixed IP address, and its www, which redirects to the domain.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "pushpad.fun",
+  "syncRedirectDomain": "pushpad.fun",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "159.65.214.59",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "edge-in.pushapp.live",
+      "ttl": 3600
+    }
+  ]
+}

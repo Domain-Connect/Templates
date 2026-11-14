@@ -1,0 +1,42 @@
+{
+  "providerId": "bytefoundry.co.in",
+  "providerName": "Bytefoundry Notifications",
+  "serviceId": "notifications-email",
+  "serviceName": "Email domain verification and Amazon SES DKIM",
+  "version": 1,
+  "logoUrl": "https://notifications.bytefoundry.co.in/domain-connect-logo.svg",
+  "description": "Verify your email sending domain and configure its Amazon SES DKIM records.",
+  "syncPubKeyDomain": "domainconnect.notifications.bytefoundry.co.in",
+  "hostRequired": false,
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_notifications-verification",
+      "data": "notifications-verification=%verification%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim1",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim2",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "groupId": "dkim3",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 300
+    }
+  ]
+}

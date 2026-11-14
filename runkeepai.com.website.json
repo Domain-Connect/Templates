@@ -1,0 +1,36 @@
+{
+  "providerId": "runkeepai.com",
+  "providerName": "RunKeepAI",
+  "serviceId": "website",
+  "serviceName": "Website lease hosting",
+  "version": 1,
+  "logoUrl": "https://runkeepai.com/icon-192.png",
+  "description": "Points the domain at the RunKeepAI hosting platform so the leased website goes live on it. WEB RECORDS ONLY. This template does not write, change, or delete MX, SPF, DKIM, DMARC, or any other mail record. Email stays exactly where it is.",
+  "variableDescription": "No variables. Every record below is a fixed RunKeepAI hosting endpoint, identical for every customer, so the values shown at approval time are the values written.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "runkeepai.com",
+  "syncRedirectDomain": "runkeepai.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "172.66.47.51",
+      "ttl": 600,
+      "essential": "Always"
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "172.66.44.205",
+      "ttl": 600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "rk-previews.pages.dev",
+      "ttl": 600,
+      "essential": "Always"
+    }
+  ]
+}

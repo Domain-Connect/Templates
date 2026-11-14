@@ -1,0 +1,22 @@
+{
+  "providerId": "hasty.com.br",
+  "providerName": "Hasty",
+  "serviceId": "storefront",
+  "serviceName": "Hasty Storefront custom domain",
+  "version": 1,
+  "logoUrl": "https://hasty.com.br/brand/symbol-acelera.svg",
+  "description": "Points a subdomain at a Hasty Storefront (Minecraft server store).",
+  "variableDescription": "claim: the opaque claim token Hasty issued for this hostname.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.hasty.com.br",
+  "syncRedirectDomain": "app.hasty.com.br",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%claim%.domains.hasty.com.br",
+      "ttl": 300
+    }
+  ]
+}

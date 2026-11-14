@@ -1,0 +1,36 @@
+{
+    "providerId": "klareseite.de",
+    "providerName": "klareseite",
+    "serviceId": "website",
+    "serviceName": "Website",
+    "version": 1,
+    "logoUrl": "https://klareseite.de/apple-icon.png",
+    "description": "Points a customer's domain at the website klareseite builds and hosts for them: A and AAAA records for the apex and www to klareseite's web server. Replaces whatever the domain served before; mail records are not touched.",
+    "syncPubKeyDomain": "klareseite.de",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "178.104.24.5",
+            "ttl": 3600
+        },
+        {
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "2a01:4f8:1c1a:2c93::1",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "host": "www",
+            "pointsTo": "178.104.24.5",
+            "ttl": 3600
+        },
+        {
+            "type": "AAAA",
+            "host": "www",
+            "pointsTo": "2a01:4f8:1c1a:2c93::1",
+            "ttl": 3600
+        }
+    ]
+}

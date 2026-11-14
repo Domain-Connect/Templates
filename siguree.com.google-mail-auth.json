@@ -1,0 +1,28 @@
+{
+  "providerId": "siguree.com",
+  "providerName": "Siguree",
+  "version": 1,
+  "logoUrl": "https://app.siguree.com/brand/logo-mark.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "siguree.com",
+  "syncRedirectDomain": "app.siguree.com",
+  "hostRequired": false,
+  "serviceId": "google-mail-auth",
+  "serviceName": "Siguree mail authentication (Google Workspace)",
+  "description": "Adds the DKIM key Siguree signs with and merges Google Workspace into SPF, so mail signed by Siguree passes DKIM and SPF.",
+  "variableDescription": "dkimkey: DKIM public key (base64) issued by Siguree for this domain",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "siguree._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.google.com"
+    }
+  ]
+}

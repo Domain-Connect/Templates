@@ -1,0 +1,25 @@
+{
+  "providerId": "miraahealth.com",
+  "providerName": "Miraa",
+  "serviceId": "clinicownership",
+  "serviceName": "Practice website ownership check",
+  "version": 1,
+  "description": "Adds only the TXT record that proves a domain (or, with host, a subdomain) belongs to a medical practice using Miraa Sites. It changes no website, email or other records: the practice's current website keeps working until it separately approves the switch.",
+  "variableDescription": "miraatoken: a single-use ownership code (32 hex characters) minted for this one approval, group 'ownership'.",
+  "sharedServiceName": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "miraahealth.com",
+  "syncRedirectDomain": "app.miraahealth.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_miraa-site",
+      "data": "miraa-site-verify=%miraatoken%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "miraa-site-verify="
+    }
+  ]
+}

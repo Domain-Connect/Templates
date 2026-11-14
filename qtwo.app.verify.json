@@ -1,0 +1,23 @@
+{
+  "providerId": "qtwo.app",
+  "providerName": "Q2",
+  "serviceId": "verify",
+  "serviceName": "Q2 domain verification",
+  "version": 1,
+  "logoUrl": "https://qtwo.app/qtwo-pug.png",
+  "description": "Adds the TXT record that proves you control the domain, so you can chat on Q2 as an address at it",
+  "variableDescription": "code: the verification code Q2 shows for your device (hex)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "qtwo.app",
+  "syncRedirectDomain": "chat.qtwo.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_q2",
+      "data": "q2-verify=%code%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

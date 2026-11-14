@@ -1,0 +1,60 @@
+{
+    "providerId": "send.io",
+    "providerName": "send.io",
+    "serviceId": "combined",
+    "serviceName": "send.io email",
+    "version": 1,
+    "logoUrl": "https://app.send.io/favicon.svg",
+    "description": "Sends email for this domain through send.io: one DKIM key and a return path that work for every send.io sending route, plus optional receiving and optional branded open and click tracking.",
+    "variableDescription": "selector: the DKIM selector (e.g. sio1); dkimkey: the domain's key label in send.io's key zone; inboundHost: the send.io inbound host label (e.g. mx); certkey, certvalue, certzone: the labels of the Amazon certificate validation record for the tracking host track.\u003cdomain\u003e (_certkey.track -\u003e _certvalue.certzone.acm-validations.aws).",
+    "syncPubKeyDomain": "send.io",
+    "syncRedirectDomain": "app.send.io",
+    "records": [
+        {
+            "type": "CNAME",
+            "groupId": "dkim",
+            "host": "%selector%._domainkey",
+            "pointsTo": "%dkimkey%.dkim.sendiodns.com",
+            "ttl": "3600"
+        },
+        {
+            "type": "CNAME",
+            "groupId": "outbound",
+            "host": "send",
+            "pointsTo": "rp.sendiodns.com",
+            "ttl": "3600"
+        },
+        {
+            "type": "TXT",
+            "groupId": "dmarc",
+            "essential": "OnApply",
+            "host": "_dmarc",
+            "ttl": "3600",
+            "data": "v=DMARC1; p=none;",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        },
+        {
+            "type": "MX",
+            "groupId": "inbound",
+            "host": "@",
+            "pointsTo": "%inboundHost%.sendiodns.com",
+            "ttl": "3600",
+            "priority": "10"
+        },
+        {
+            "type": "CNAME",
+            "groupId": "tracking",
+            "host": "track",
+            "pointsTo": "track.send.io",
+            "ttl": "3600"
+        },
+        {
+            "type": "CNAME",
+            "groupId": "tracking",
+            "host": "_%certkey%.track",
+            "pointsTo": "_%certvalue%.%certzone%.acm-validations.aws",
+            "ttl": "3600"
+        }
+    ]
+}

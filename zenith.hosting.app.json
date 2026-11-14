@@ -3,9 +3,10 @@
   "providerName": "Zenith Hosting",
   "serviceId": "app",
   "serviceName": "Custom domain for your app",
-  "description": "Points a custom domain at a Zenith-hosted app by adding one CNAME to the deployment's canonical zenith.hosting host.",
+  "description": "Connects a custom domain to a Zenith-hosted app with a routing CNAME and a TXT record for ownership verification.",
+  "variableDescription": "target is the deployment's canonical hostname. verificationToken is the ownership token from Zenith without the zenith-verification= prefix.",
   "logoUrl": "https://zenith.hosting/assets/wordmark.svg",
-  "version": 1,
+  "version": 2,
   "syncBlock": false,
   "syncPubKeyDomain": "zenith.hosting",
   "hostRequired": true,
@@ -16,6 +17,15 @@
       "host": "@",
       "pointsTo": "%target%",
       "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "zenith",
+      "host": "_zenith-verification",
+      "data": "zenith-verification=%verificationToken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "zenith-verification="
     }
   ]
 }

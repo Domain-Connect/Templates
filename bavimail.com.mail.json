@@ -1,0 +1,82 @@
+{
+  "providerId": "bavimail.com",
+  "providerName": "Bavimail",
+  "serviceId": "mail",
+  "serviceName": "Bavimail Email",
+  "version": 1,
+  "syncPubKeyDomain": "dc.bavimail.com",
+  "syncRedirectDomain": "bavimail.com",
+  "logoUrl": "https://bavimail.com/logo.svg",
+  "description": "Proves ownership of the domain to a Bavimail account (group verification), configures the DKIM, SPF and return-path (MAIL FROM) records needed to send email through Bavimail (group outbound), publishes a monitoring-only DMARC baseline for domains that have no DMARC record yet (group dmarc) and, for domains that also receive email through Bavimail, points the domain's MX record at Bavimail (group inbound). Bavimail always applies verification and outbound together, adds dmarc only when the domain has no DMARC record and inbound only when receiving is enabled for the domain; an existing DMARC policy is never replaced. The domain is not used for sending until the verification record and DKIM are confirmed, and the verification record must stay published while the domain is on Bavimail. The inbound group replaces the existing MX records of the domain.",
+  "variableDescription": "token is the domain ownership verification value shown by Bavimail for this account and domain: a stable, non-secret proof value derived by Bavimail for the account and domain pair, not a private key or credential. dkim1/dkim2/dkim3 are the Amazon SES Easy DKIM selectors generated per domain; signingzone is the SES DKIM signing hosted zone (for example dkim.amazonses.com); region is the AWS region of the sending identity (for example us-east-1); mailfrom is the relative MAIL FROM subdomain label chosen for the domain in Bavimail (for example bounce or bounce.eu), on which the return-path MX and SPF records are placed. It is a variable host because each Bavimail domain selects its own MAIL FROM label; it is always relative to the domain (and optional host) being configured and never contains a private key or credential.",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "@",
+      "data": "bavimail-domain-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "bavimail-domain-verification=",
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "outbound",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.%signingzone%",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "groupId": "outbound",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.%signingzone%",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "groupId": "outbound",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.%signingzone%",
+      "ttl": 1800
+    },
+    {
+      "type": "SPFM",
+      "groupId": "outbound",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "MX",
+      "groupId": "outbound",
+      "host": "%mailfrom%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 1800
+    },
+    {
+      "type": "SPFM",
+      "groupId": "outbound",
+      "host": "%mailfrom%",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 1800,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "groupId": "inbound",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+      "priority": 10,
+      "ttl": 1800
+    }
+  ]
+}

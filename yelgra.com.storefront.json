@@ -1,0 +1,20 @@
+{
+  "providerId": "yelgra.com",
+  "providerName": "Yelgra",
+  "serviceId": "storefront",
+  "serviceName": "B2B Storefront",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "yelgra.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.yelgra.com",
+      "ttl": 3600
+    }
+  ],
+  "hostRequired": true,
+  "logoUrl": "https://origin.yelgra.com/branding/yelgra-logo-v1.svg",
+  "syncRedirectDomain": "origin.yelgra.com"
+}

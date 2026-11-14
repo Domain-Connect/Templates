@@ -1,0 +1,24 @@
+{
+  "providerId": "backlinkhell.com",
+  "providerName": "Backlink Hell",
+  "serviceId": "ownership",
+  "serviceName": "Backlink Hell Domain Ownership Verification",
+  "version": 1,
+  "description": "Adds the TXT record that proves you control this domain to Backlink Hell.",
+  "variableDescription": "token: the one-time ownership challenge value issued by Backlink Hell.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dckeys.backlinkhell.com",
+  "syncRedirectDomain": "backlinkhell.com",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_backlinkhell-challenge",
+      "data": "backlinkhell-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "backlinkhell-verify=",
+      "essential": "OnApply"
+    }
+  ]
+}

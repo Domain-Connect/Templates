@@ -1,0 +1,20 @@
+{
+  "providerId": "agentia.marketing",
+  "providerName": "AgentIA",
+  "serviceId": "web-raiz",
+  "serviceName": "AgentIA pages (root domain)",
+  "version": 1,
+  "logoUrl": "https://www.agentia.marketing/favicon.png",
+  "description": "Points the root domain at the account's AgentIA public pages: landing pages, quizzes and booking. Email records are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "agentia.marketing",
+  "syncRedirectDomain": "agentia.marketing,www.agentia.marketing",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    }
+  ]
+}

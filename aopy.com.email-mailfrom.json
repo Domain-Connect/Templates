@@ -1,0 +1,27 @@
+{
+  "providerId": "aopy.com",
+  "providerName": "Aopy",
+  "serviceId": "email-mailfrom",
+  "serviceName": "Aopy bounce handling",
+  "version": 1,
+  "logoUrl": "https://aopy.com/brand/bimi-logo.svg",
+  "description": "Publishes the custom MAIL FROM records for Amazon SES (MX, and SPF merged through SPFM) at the applied host, which is always the MAIL FROM subdomain of the sending domain (for example host=send or host=send.mail). Never applied without a host: at the zone root it would replace the domain's own mail MX.",
+  "variableDescription": "No variables: the MAIL FROM subdomain comes in the standard host parameter, set by Aopy to a label it has read as free of CNAME, MX and SPF.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "aopy.com",
+  "syncRedirectDomain": "app.aopy.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

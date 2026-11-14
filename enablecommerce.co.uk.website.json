@@ -1,0 +1,18 @@
+{
+  "providerId": "enablecommerce.co.uk",
+  "providerName": "Enable",
+  "serviceId": "website",
+  "serviceName": "Enable website hosting",
+  "version": 1,
+  "logoUrl": "https://app.enablecommerce.co.uk/domain-connect/logo.png",
+  "description": "Points this domain and its www at your website hosted by Enable. Adds an A record for the domain and a CNAME for www; nothing else in your DNS changes.",
+  "variableDescription": "No variables: the records always point at Enable's web servers.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "enablecommerce.co.uk",
+  "syncRedirectDomain": "app.enablecommerce.co.uk",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "89.167.34.142", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "sites.enablecommerce.co.uk", "ttl": 3600 }
+  ]
+}

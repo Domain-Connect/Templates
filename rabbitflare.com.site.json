@@ -1,0 +1,38 @@
+{
+  "providerId": "rabbitflare.com",
+  "providerName": "Rabbitflare",
+  "serviceId": "site",
+  "serviceName": "WordPress hosting",
+  "version": 1,
+  "logoUrl": "https://rabbitflare.com/brand/rabbitflare-icon.png",
+  "description": "Connects a domain to a WordPress site hosted on Rabbitflare: the domain itself points at the site's server, and www at the site's own Rabbitflare address (rabbitflare.link), or at its Cloudflare protection name (rabbitflare.net) when the site is behind Rabbitflare's Cloudflare protection. The apex group alone is applied when the customer connects only the domain itself; www and www-protected are never applied together.",
+  "variableDescription": "ip: the IPv4 address of the server the site runs on. slug: the site's own label on Rabbitflare, so www points at <slug>.rabbitflare.link (or <slug>.rabbitflare.net when the site is protected).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "rabbitflare.com",
+  "syncRedirectDomain": "app.rabbitflare.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%slug%.rabbitflare.link",
+      "ttl": 600
+    },
+    {
+      "groupId": "www-protected",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%slug%.rabbitflare.net",
+      "ttl": 600
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "providerId": "dartpanel.com",
+  "providerName": "DartPanel",
+  "serviceId": "connect",
+  "serviceName": "DartPanel website and client area",
+  "version": 1,
+  "logoUrl": "https://dartpanel.com/assets/images/logo.png",
+  "description": "Connects a domain to DartPanel (https://dartpanel.com) by CNAME: the website or online store at the name itself, its www name, and optionally a reseller's client area on a subdomain the reseller chooses. All records point to panels.dartpanel.com.",
+  "variableDescription": "portal: the label of the reseller's client area beside its store (for example clientarea), chosen by the reseller in DartPanel",
+  "syncPubKeyDomain": "domainconnect.dartpanel.com",
+  "syncRedirectDomain": "console.dartpanel.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "main",
+      "host": "@",
+      "pointsTo": "panels.dartpanel.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "groupId": "www",
+      "host": "www",
+      "pointsTo": "panels.dartpanel.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "groupId": "portal",
+      "host": "%portal%",
+      "pointsTo": "panels.dartpanel.com",
+      "ttl": 300
+    }
+  ]
+}

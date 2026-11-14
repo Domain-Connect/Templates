@@ -1,0 +1,62 @@
+{
+  "providerId": "epostix.com",
+  "providerName": "Epostix",
+  "serviceId": "mail",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://epostix.com/brand/svg/epostix-icon-vermilion.svg",
+  "description": "Publishes the records Epostix needs to send and receive bounces for a domain: inbound MX, SPF, DKIM and the ownership proof. The dmarc group adds a monitoring DMARC policy and is applied only to domains that have none.",
+  "variableDescription": "sendinghost: sending subdomain relative to the applied host, empty for the host itself; mxa, mxb: inbound MX hosts; spfrules: SPF include terms; dkimkey: base64 DKIM public key; ownership: domain ownership proof.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "epostix.com",
+  "syncRedirectDomain": "app.epostix.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "%sendinghost%",
+      "pointsTo": "%mxa%",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "mail"
+    },
+    {
+      "type": "MX",
+      "host": "%sendinghost%",
+      "pointsTo": "%mxb%",
+      "priority": 10,
+      "ttl": 3600,
+      "groupId": "mail"
+    },
+    {
+      "type": "SPFM",
+      "host": "%sendinghost%",
+      "spfRules": "%spfrules%",
+      "groupId": "mail"
+    },
+    {
+      "type": "TXT",
+      "host": "epostix._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "groupId": "mail"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "epostix-verification=%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "groupId": "mail"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
+      "groupId": "dmarc"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+    "providerId": "tsoftcloud.com",
+    "providerName": "TSoftCloud",
+    "serviceId": "app",
+    "serviceName": "Your TSoftCloud app",
+    "version": 1,
+    "description": "Points one subdomain, such as shop.example.com, to your TSoftCloud app with one CNAME. The subdomain is the host the flow is started for; nothing else is written.",
+    "variableDescription": "%app%: the app's name on TSoftCloud (its label under app.tsoftcloud.com, for example shop gives shop.app.tsoftcloud.com).",
+    "hostRequired": true,
+    "syncPubKeyDomain": "tsoftcloud.com",
+    "syncRedirectDomain": "tsoftcloud.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%app%.app.tsoftcloud.com",
+            "ttl": "3600"
+        }
+    ]
+}

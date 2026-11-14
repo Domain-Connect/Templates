@@ -1,0 +1,22 @@
+{
+  "providerId": "warmlight1.com",
+  "providerName": "Darkhorse",
+  "serviceId": "darkhorse-verify",
+  "serviceName": "Darkhorse domain verification",
+  "version": 1,
+  "logoUrl": "https://darkhorse.warmlight1.com/logo.svg",
+  "description": "Adds a TXT record proving you own this domain so Darkhorse can run remote security checks against it.",
+  "variableDescription": "token: random per-domain verification value",
+  "syncBlock": false,
+  "syncPubKeyDomain": "warmlight1.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_darkhorse-challenge",
+      "data": "darkhorse-verification=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "darkhorse-verification="
+    }
+  ]
+}

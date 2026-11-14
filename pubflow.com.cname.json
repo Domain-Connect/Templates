@@ -1,0 +1,22 @@
+{
+  "providerId": "pubflow.com",
+  "providerName": "Pubflow",
+  "serviceId": "cname",
+  "serviceName": "Pubflow custom domain",
+  "version": 1,
+  "logoUrl": "https://cloud.notside.com/pbfl/logo.svg",
+  "description": "Points a domain at a Pubflow deployment with a CNAME record.",
+  "variableDescription": "%target%: hostname of the Pubflow deployment, for example app-name.example.net",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domain-connect.pubflow.com",
+  "syncRedirectDomain": "platform.pubflow.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ]
+}

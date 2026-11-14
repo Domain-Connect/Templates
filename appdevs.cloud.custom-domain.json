@@ -1,0 +1,21 @@
+{
+  "providerId": "appdevs.cloud",
+  "providerName": "AppDevs Cloud",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://appdevs.cloud/assets/logo/fav_icon.png",
+  "description": "Connect a customer-controlled subdomain to AppDevs Cloud. The record must be DNS-only when Cloudflare is the authoritative DNS provider.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "appdevs.cloud",
+  "syncRedirectDomain": "appdevs.cloud",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.appdevs.cloud",
+      "ttl": 600
+    }
+  ]
+}

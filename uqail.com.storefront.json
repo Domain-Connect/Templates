@@ -1,0 +1,31 @@
+{
+  "providerId": "uqail.com",
+  "providerName": "Uqail",
+  "serviceId": "storefront",
+  "serviceName": "Online store",
+  "version": 1,
+  "logoUrl": "https://uqail.com/logo-icon.svg",
+  "description": "Points a domain at the merchant's Uqail online store: the domain itself to the storefront's addresses, and www to cname.uqail.com.",
+  "syncPubKeyDomain": "uqail.com",
+  "syncRedirectDomain": "uqail.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "66.241.124.13",
+      "ttl": 600
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "2a09:8280:1::13f:2d57:0",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.uqail.com",
+      "ttl": 600
+    }
+  ]
+}

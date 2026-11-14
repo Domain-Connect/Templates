@@ -1,0 +1,21 @@
+{
+  "providerId": "leonai.io",
+  "providerName": "LeonAI",
+  "serviceId": "portal-custom-domain",
+  "serviceName": "LeonAI Customer Portal custom domain",
+  "version": 1,
+  "logoUrl": "https://signflow.leonai.io/leonai-logo.png",
+  "description": "Points a subdomain of your domain at your LeonAI Customer Portal with one CNAME record",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.leonai.io",
+  "syncRedirectDomain": "portal.leonai.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "portal.leonai.io",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "providerId": "ojaldrado.com",
+  "providerName": "Ojaldrado",
+  "serviceId": "mail",
+  "serviceName": "Ojaldrado mail sender",
+  "version": 1,
+  "logoUrl": "https://ojaldrado.com/favicon.svg",
+  "description": "Lets an organization's Ojaldrado report mails be sent from a subdomain of its own: DKIM key, return-path MX and SPF, and a monitoring DMARC policy when the subdomain has none.",
+  "variableDescription": "dkimkey: the base64 DKIM public key given for this subdomain, after p=. region: the sending region of its return-path server (feedback-smtp.<region>.amazonses.com), such as eu-west-1.",
+  "syncPubKeyDomain": "ojaldrado.com",
+  "syncRedirectDomain": "app.ojaldrado.com,pre.ojaldrado.com",
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 3600
+    }
+  ]
+}

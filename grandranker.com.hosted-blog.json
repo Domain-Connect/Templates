@@ -1,0 +1,19 @@
+{
+  "providerId": "grandranker.com",
+  "providerName": "GrandRanker",
+  "serviceId": "hosted-blog",
+  "serviceName": "GrandRanker Blog",
+  "version": 1,
+  "description": "Points the customer's blog subdomain at GrandRanker's hosted blog with a single CNAME record (DNS only / grey cloud).",
+  "syncPubKeyDomain": "grandranker.com",
+  "syncRedirectDomain": "app.grandranker.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.grandranker.com",
+      "ttl": 3600
+    }
+  ]
+}

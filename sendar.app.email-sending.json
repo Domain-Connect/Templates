@@ -1,0 +1,25 @@
+{
+  "providerId": "sendar.app",
+  "providerName": "Sendar",
+  "serviceId": "email-sending",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://sendar.app/favicon.png",
+  "description": "Configure Sendar DKIM signing and merge the SPF rules required for sending email. Website and incoming mailbox records are not changed.",
+  "syncPubKeyDomain": "domainconnect.sendar.app",
+  "syncRedirectDomain": "sendar.app",
+  "variableDescription": "sendingDomain is the complete sending domain, including any subdomain; region is the Oracle Email Delivery region identifier from the issued DKIM target.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "sendar._domainkey",
+      "pointsTo": "sendar.%sendingDomain%.dkim.%region%.oracleemaildelivery.com",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:rp.oracleemaildelivery.com include:ap.rp.oracleemaildelivery.com include:eu.rp.oracleemaildelivery.com"
+    }
+  ]
+}

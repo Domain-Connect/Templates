@@ -1,0 +1,29 @@
+{
+  "providerId": "moosyc.com",
+  "providerName": "MOOSYC",
+  "serviceId": "website",
+  "serviceName": "MOOSYC Sites",
+  "version": 1,
+  "logoUrl": "https://moosyc.com/apple-touch-icon.png",
+  "description": "Points your domain at the website MOOSYC built for you. Email and other records stay untouched.",
+  "variableDescription": "No variables. The apex A record and the www CNAME point at the MOOSYC Sites platform (Vercel).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.moosyc.com",
+  "syncRedirectDomain": "moosyc.com,www.moosyc.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

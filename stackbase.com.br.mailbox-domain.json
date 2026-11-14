@@ -1,0 +1,65 @@
+{
+  "providerId": "stackbase.com.br",
+  "providerName": "Stackbase",
+  "serviceId": "mailbox-domain",
+  "serviceName": "Stackbase Caixa de E-mail",
+  "version": 1,
+  "logoUrl": "https://stackbase.com.br/android-icon-192x192.png",
+  "description": "Authorizes Stackbase Mailbox to send (and optionally receive) email for the domain: ownership proof TXT, DKIM, SPF (merged via SPFM) on the return-path subdomain, DMARC (only when absent) and optional inbound MX.",
+  "variableDescription": "%verifytoken%: ownership proof token; %dkimselector%: DKIM selector issued for the domain; %dkimkey%: DKIM public key (base64, without the p= prefix); %returnpathmx%: return-path MX host of the sending region; %inboundmx%: inbound MX host",
+  "syncBlock": false,
+  "syncPubKeyDomain": "stackbase.com.br",
+  "syncRedirectDomain": "stackbase.com.br",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_stackbase-verify",
+      "data": "stackbase-verify=%verifytoken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "stackbase-verify="
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%returnpathmx%",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%fqdn%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%inboundmx%",
+      "priority": 10,
+      "ttl": 300
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "providerId": "gb7synq.com",
+  "providerName": "GB7 SYNQ",
+  "serviceId": "verify",
+  "serviceName": "Domain verification",
+  "version": 1,
+  "logoUrl": "https://gb7synq.com/assets/img/logo-mark.svg",
+  "description": "Proves that the domain belongs to the organisation in GB7 SYNQ (company login, invitations, mail server).",
+  "variableDescription": "token: the organisation's verification token for this domain",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "gb7synq.com",
+  "syncRedirectDomain": "gb7synq.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_gb7synq",
+      "data": "gb7synq-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "gb7synq-verify="
+    }
+  ]
+}

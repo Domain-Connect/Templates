@@ -1,0 +1,36 @@
+{
+  "providerId": "onesend.eu",
+  "providerName": "onesend",
+  "serviceId": "email",
+  "serviceName": "onesend Email Sending",
+  "version": 1,
+  "description": "Authenticate your domain for sending transactional email through onesend (DKIM, SPF, ownership).",
+  "syncPubKeyDomain": "onesend.eu",
+  "syncRedirectDomain": "app.onesend.eu",
+  "records": [
+    {
+      "groupId": "onesend",
+      "type": "TXT",
+      "host": "onesend._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "groupId": "onesend",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:onesend.eu",
+      "ttl": 3600
+    },
+    {
+      "groupId": "onesend",
+      "type": "TXT",
+      "host": "_onesend",
+      "data": "onesend-verify=%token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "onesend-verify=",
+      "ttl": 3600
+    }
+  ]
+}

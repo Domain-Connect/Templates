@@ -1,0 +1,33 @@
+{
+    "providerId": "shapilo.com",
+    "providerName": "Shapilo",
+    "serviceId": "shop-www",
+    "serviceName": "Shapilo e-shop",
+    "version": 1,
+    "logoUrl": "https://shapilo.com/assets/shapilo/logo-shapilo.svg",
+    "description": "Connects a domain to a Shapilo e-shop: the shop runs on the www address, the bare domain is redirected to it by the DNS provider, and HTTPS is issued automatically.",
+    "variableDescription": "dcv: the Cloudflare DCV delegation id of the e-shop's zone",
+    "syncBlock": false,
+    "syncPubKeyDomain": "shapilo.com",
+    "syncRedirectDomain": "shapilo.com,shopbase.sk",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "fallback.shapilo.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "_acme-challenge.www",
+            "pointsTo": "www.%fqdn%.%dcv%.dcv.cloudflare.com",
+            "ttl": 3600
+        },
+        {
+            "type": "REDIR301",
+            "host": "@",
+            "target": "https://www.%fqdn%"
+        }
+    ]
+}

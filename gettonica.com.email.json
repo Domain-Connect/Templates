@@ -1,0 +1,71 @@
+{
+  "providerId": "gettonica.com",
+  "providerName": "Tonica",
+  "serviceId": "email",
+  "serviceName": "Tonica business email",
+  "version": 1,
+  "logoUrl": "https://gettonica.com/brand/tonica-app-icon-512.png",
+  "description": "Routes the domain's email to the mailbox included in Tonica and lets it send mail: MX, client autoconfiguration, SPF, the sending service verification record and DKIM.",
+  "variableDescription": "sestoken: Amazon SES domain verification token (value prescribed by Amazon SES, no prefix possible); dkim1, dkim2, dkim3: Amazon SES DKIM selectors; dkimkey: DKIM public key of the mailbox server",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gettonica.com",
+  "syncRedirectDomain": "gettonica.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.op-email.eu",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mail.op-email.eu",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mail.op-email.eu",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx a"
+    },
+    {
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%sestoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "data": "v=DKIM1;k=rsa;t=s;s=email;p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

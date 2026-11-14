@@ -1,0 +1,78 @@
+{
+    "providerId": "thiio.net",
+    "providerName": "Thiio",
+    "serviceId": "ses-sending",
+    "serviceName": "Thiio Email",
+    "version": 1,
+    "logoUrl": "https://thiio.net/logo.svg",
+    "description": "Point a branded thiio.<yourdomain> subdomain at Thiio for sending email through Amazon SES and receiving replies. Group branded is always applied; group root adds the DKIM records for sending from the root domain.",
+    "variableDescription": "%dkim1%, %dkim2%, %dkim3%: SES Easy DKIM tokens for the thiio subdomain; %rootdkim1%, %rootdkim2%, %rootdkim3%: tokens for the root identity (group root); %hostedzone%: SigningHostedZone returned by SES; %region%: SES region.",
+    "syncPubKeyDomain": "thiio.net",
+    "syncRedirectDomain": "thiio.net,izcalia.dev",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey.thiio",
+            "pointsTo": "%dkim1%.%hostedzone%",
+            "ttl": 3600,
+            "groupId": "branded"
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey.thiio",
+            "pointsTo": "%dkim2%.%hostedzone%",
+            "ttl": 3600,
+            "groupId": "branded"
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey.thiio",
+            "pointsTo": "%dkim3%.%hostedzone%",
+            "ttl": 3600,
+            "groupId": "branded"
+        },
+        {
+            "type": "MX",
+            "host": "bounce.thiio",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600,
+            "groupId": "branded"
+        },
+        {
+            "type": "SPFM",
+            "host": "bounce.thiio",
+            "spfRules": "include:amazonses.com",
+            "groupId": "branded"
+        },
+        {
+            "type": "MX",
+            "host": "thiio",
+            "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+            "priority": 10,
+            "ttl": 3600,
+            "groupId": "branded"
+        },
+        {
+            "type": "CNAME",
+            "host": "%rootdkim1%._domainkey",
+            "pointsTo": "%rootdkim1%.%hostedzone%",
+            "ttl": 3600,
+            "groupId": "root"
+        },
+        {
+            "type": "CNAME",
+            "host": "%rootdkim2%._domainkey",
+            "pointsTo": "%rootdkim2%.%hostedzone%",
+            "ttl": 3600,
+            "groupId": "root"
+        },
+        {
+            "type": "CNAME",
+            "host": "%rootdkim3%._domainkey",
+            "pointsTo": "%rootdkim3%.%hostedzone%",
+            "ttl": 3600,
+            "groupId": "root"
+        }
+    ]
+}

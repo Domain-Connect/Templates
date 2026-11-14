@@ -1,0 +1,36 @@
+{
+  "providerId": "allio.dk",
+  "providerName": "Allio",
+  "serviceId": "email",
+  "serviceName": "Allio e-mail",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "allio.dk",
+  "syncRedirectDomain": "allio.dk,app.allio.dk",
+  "logoUrl": "https://allio.dk/favicon.svg",
+  "description": "Godkend at Allio kan sende e-mail fra dit domæne (DKIM, SPF og return-path).",
+  "records": [
+    {
+      "groupId": "outbound",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "outbound",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimPublicKey%",
+      "ttl": 3600
+    }
+  ]
+}

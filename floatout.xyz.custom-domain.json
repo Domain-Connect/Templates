@@ -1,0 +1,21 @@
+{
+  "providerId": "floatout.xyz",
+  "providerName": "floatout",
+  "version": 1,
+  "syncPubKeyDomain": "floatout.xyz",
+  "syncRedirectDomain": "app.floatout.xyz",
+  "syncBlock": false,
+  "serviceId": "custom-domain",
+  "serviceName": "floatout DEX custom domain",
+  "logoUrl": "https://floatout.xyz/logo.png",
+  "description": "Points a host of the customer domain at their floatout-hosted DEX (CNAME to dexes.floatout.trade). The host is supplied by the caller, e.g. trade.customer.com.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "dexes.floatout.trade",
+      "ttl": 3600
+    }
+  ]
+}

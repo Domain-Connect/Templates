@@ -1,0 +1,30 @@
+{
+  "providerId": "casccade.com",
+  "providerName": "Casccade",
+  "serviceId": "sites",
+  "serviceName": "Casccade sites",
+  "version": 1,
+  "logoUrl": "https://sites.casccade.com/casccade-logo.svg",
+  "description": "Serve a Casccade website or funnel on this domain.",
+  "hostRequired": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "dcpubkey.casccade.com",
+  "syncRedirectDomain": "casccade.com",
+  "variableDescription": "token: the verification token Casccade shows for this domain.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.casccade.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_casccade",
+      "data": "casccade-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "casccade-verify="
+    }
+  ]
+}

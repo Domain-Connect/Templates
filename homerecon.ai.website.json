@@ -1,0 +1,38 @@
+{
+    "providerId": "homerecon.ai",
+    "providerName": "HomeRecon AI",
+    "serviceId": "website",
+    "serviceName": "HomeRecon website",
+    "version": 1,
+    "logoUrl": "https://homerecon.ai/media/homerecon-logo.png",
+    "description": "Connects a home inspector's own domain to the website HomeRecon AI hosts for them. A TXT record on the bare domain proves the inspector controls it, www points at HomeRecon's site host, and the bare domain forwards to www. Applied at the domain apex only (no host parameter): the inspector's address is always www.<domain>.",
+    "variableDescription": "%token%: the per-domain ownership code HomeRecon issued when the inspector added the domain in the app. HomeRecon reads it back from the _homerecon-challenge TXT record to prove control of the domain before the address goes live.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "homerecon.ai",
+    "syncRedirectDomain": "app.homerecon.ai",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_homerecon-challenge",
+            "data": "homerecon-verify=%token%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "homerecon-verify="
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "sites.homerecon.ai",
+            "ttl": 600,
+            "essential": "OnApply"
+        },
+        {
+            "type": "REDIR301",
+            "host": "@",
+            "target": "https://www.%domain%/",
+            "essential": "OnApply"
+        }
+    ]
+}

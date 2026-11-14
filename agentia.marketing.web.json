@@ -1,0 +1,21 @@
+{
+  "providerId": "agentia.marketing",
+  "providerName": "AgentIA",
+  "serviceId": "web",
+  "serviceName": "AgentIA pages",
+  "version": 1,
+  "logoUrl": "https://www.agentia.marketing/favicon.png",
+  "description": "Points this address (for example go or www) at the account's AgentIA public pages: landing pages, quizzes and booking. Email records are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "agentia.marketing",
+  "syncRedirectDomain": "agentia.marketing,www.agentia.marketing",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "c550ca9f1fce1641.vercel-dns-017.com",
+      "ttl": 3600
+    }
+  ]
+}

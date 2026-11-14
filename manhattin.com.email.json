@@ -1,0 +1,60 @@
+{
+  "providerId": "manhattin.com",
+  "providerName": "Manhattin",
+  "serviceId": "email",
+  "serviceName": "Manhattin Email Sending",
+  "version": 1,
+  "logoUrl": "https://manhattin.com/logo.svg",
+  "description": "Lets Manhattin send email as your domain (DKIM signature and bounce-handling subdomain). Optional groups add a reply subdomain and a starter DMARC record. Your existing mailbox (root MX) is never changed.",
+  "variableDescription": "%dkimSelector%: DKIM selector given by Manhattin (e.g. resend); %dkimPublicKey%: DKIM public key, base64, without p=; %returnPathTarget%: host the send subdomain points to (bounce handling and SPF); %sesRegion%: AWS region of the legacy return path (e.g. us-east-1); %replyMxHost%: inbound mail host for the reply subdomain; %dmarcPolicy%: none, quarantine or reject",
+  "syncPubKeyDomain": "domainconnect.manhattin.com",
+  "syncRedirectDomain": "manhattin.com",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "p=%dkimPublicKey%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "returnpath",
+      "type": "CNAME",
+      "host": "send",
+      "pointsTo": "%returnPathTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "returnpath-legacy",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "returnpath-legacy",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "reply",
+      "type": "MX",
+      "host": "reply",
+      "pointsTo": "%replyMxHost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%dmarcPolicy%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "providerId": "infigo.net",
+  "providerName": "Infigo",
+  "serviceId": "storefront-apex",
+  "serviceName": "Infigo storefront (apex domain)",
+  "version": 1,
+  "logoUrl": "https://www.infigo.net/logo",
+  "description": "Points your domain at your Infigo Web2Print storefront and lets Infigo issue its certificate.",
+  "variableDescription": "ip1, ip2: the storefront's IP addresses; acme: the certificate validation target",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.infigo.net",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "acme",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%acme%",
+      "ttl": 3600
+    }
+  ]
+}

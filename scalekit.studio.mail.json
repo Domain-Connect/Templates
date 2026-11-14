@@ -1,0 +1,71 @@
+{
+    "providerId": "scalekit.studio",
+    "providerName": "scaleKit studio",
+    "serviceId": "mail",
+    "serviceName": "SKSYA Mail",
+    "version": 1,
+    "logoUrl": "https://scalekit.studio/favicon.svg",
+    "description": "Sends and receives mail for your domain through SKSYA: ownership proof, DKIM, a custom MAIL FROM, SPF merged into your existing record, an optional DMARC record, and an optional MX cut-over.",
+    "variableDescription": "proof: 32 hex characters proving domain ownership. dkimp: base64 RSA public key for the sks1 DKIM selector. region: the AWS SES region the domain sends from, e.g. ap-south-1.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "dc.sks-mail.scalekit.studio",
+    "syncRedirectDomain": "sksya.work",
+    "records": [
+        {
+            "groupId": "proof",
+            "type": "TXT",
+            "host": "_sks-challenge",
+            "data": "sks-verify=%proof%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "sks-verify="
+        },
+        {
+            "groupId": "send",
+            "type": "TXT",
+            "host": "sks1._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimp%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DKIM1"
+        },
+        {
+            "groupId": "send",
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "send",
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "send",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:_spf.sks-mail.scalekit.studio"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; aspf=r; adkim=r",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "receive",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx1.sks-mail.scalekit.studio",
+            "priority": 10,
+            "ttl": 3600
+        }
+    ]
+}

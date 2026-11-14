@@ -1,0 +1,37 @@
+{
+  "providerId": "northdigitalaxis.com",
+  "providerName": "NDA Mail",
+  "serviceId": "nda-mail",
+  "serviceName": "NDA Mail",
+  "version": 1,
+  "logoUrl": "https://mail.northdigitalaxis.com/logo.svg",
+  "description": "Authenticates this domain for sending email through NDA Mail: SPF, a DKIM signing key and a DMARC policy.",
+  "variableDescription": "selector: the DKIM selector issued for this domain; dkim: its public key; spf: the include to authorise our senders; dmarc: where the reports go.",
+  "syncPubKeyDomain": "northdigitalaxis.com",
+  "syncRedirectDomain": "mail.northdigitalaxis.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%spf%",
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

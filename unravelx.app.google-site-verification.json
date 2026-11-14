@@ -1,0 +1,24 @@
+{
+    "providerId": "unravelx.app",
+    "providerName": "UnravelX",
+    "serviceId": "google-site-verification",
+    "serviceName": "Google Search Console verification",
+    "version": 1,
+    "description": "Add only the Google ownership verification TXT record. Website and email routing are unchanged.",
+    "variableDescription": "verification: the Google-generated verification code without the fixed TXT prefix",
+    "logoUrl": "https://unravelx.app/data/UnravelX_Logo_Pink.svg",
+    "multiInstance": true,
+    "syncBlock": false,
+    "syncPubKeyDomain": "unravelx.app",
+    "syncRedirectDomain": "unravelx.app",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "@",
+            "data": "google-site-verification=%verification%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "None",
+            "essential": "OnApply"
+        }
+    ]
+}

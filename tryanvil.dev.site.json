@@ -1,0 +1,30 @@
+{
+  "providerId": "tryanvil.dev",
+  "providerName": "Anvil",
+  "serviceId": "site",
+  "serviceName": "Anvil website",
+  "version": 1,
+  "logoUrl": "https://www.tryanvil.dev/favicon.svg",
+  "description": "Points your domain at a website built with Anvil and proves you own it.",
+  "variableDescription": "ip: Anvil's server address; token: this project's ownership token",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tryanvil.dev",
+  "syncRedirectDomain": "tryanvil.dev,www.tryanvil.dev",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_anvil",
+      "data": "anvil-verify=%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "anvil-verify="
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    }
+  ]
+}

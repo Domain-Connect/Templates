@@ -9,26 +9,79 @@ on:
     branches:
       - master    
 jobs:
+  detect:
+    # skip on merge queue, because PR context not available to make any checks
+    if: github.event_name != 'merge_group'
+    uses: ./.github/workflows/detect-non-template-changes.yml
+    permissions:
+      contents: read
+      pull-requests: read
+
+  # PRs changing non-template files go to manual review: don't check the
+  # description, and clear labels and comments left by earlier runs.
+  skip-non-template:
+    needs: detect
+    if: needs.detect.outputs.non_template_changed == 'true'
+    runs-on: ubuntu-26.04
+    permissions:
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Remove PR description labels
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Non-template files changed, skipping PR description check"
+          for label in "PR description incomplete" "Checklist of common problems not complete" "Test links missing"; do
+            gh pr edit "$PR_NUMBER" --repo "$REPO" --remove-label "$label" 2>/dev/null || true
+          done
+
+      - name: Comment PR - delete fail comment
+        continue-on-error: true
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
+        with:
+          comment-tag: pr_description_check
+          mode: delete
+
   check-description:
-    runs-on: ubuntu-latest
+    needs: detect
+    runs-on: ubuntu-26.04
     permissions:
       pull-requests: write
       issues: write
     # skip on merge queue, because PR context not available to make any checks
-    if: github.event_name != 'merge_group'
+    if: github.event_name != 'merge_group' && needs.detect.outputs.non_template_changed != 'true'
 
     steps:
-      - name: Check out code
+      # The PR's code is only read as data. The scripts that run with the
+      # write token come from the base branch, so a PR can't change them.
+      - name: Check out PR code
         uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+          persist-credentials: false
           allow-unsafe-pr-checkout: true
+
+      - name: Check out scripts from base branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base
+          persist-credentials: false
+          sparse-checkout: .github/scripts
+          sparse-checkout-cone-mode: false
 
       - name: Get changed template JSON files
         id: changed-templates
-        uses: tj-actions/changed-files@v47
+        uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
         with:
+          path: pr
           files: '*.json'
+          files_ignore: '.github/**'
 
       - name: Set up Python
         uses: actions/setup-python@v7
@@ -44,9 +97,10 @@ jobs:
           LABELS_REMOVE_FILE: /tmp/pr_labels_remove.txt
           REQUIRED_PAYLOAD_KEYS: ${{ secrets.REQUIRED_PAYLOAD_KEYS }}
           DC_APPLY_STATE_HMAC_KEY: ${{ secrets.DC_APPLY_STATE_HMAC_KEY }}
+        working-directory: pr
         run: |
           set +e
-          python .github/scripts/check_pr_description.py 2>&1 | tee /tmp/pr_check_output.txt
+          python ../base/.github/scripts/check_pr_description.py 2>&1 | tee /tmp/pr_check_output.txt
           echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
           {
             echo "check_output<<EOF"
@@ -93,14 +147,14 @@ jobs:
       - name: Comment PR - delete ok comment on failure
         if: steps.pr-check.outputs.exit_code != '0'
         continue-on-error: true
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
-          comment_tag: pr_description_check_ok
+          comment-tag: pr_description_check_ok
           mode: delete
 
       - name: Comment PR - check failed
         if: steps.pr-check.outputs.exit_code != '0'
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           message: |
             ## PR Description Check Failed
@@ -114,20 +168,20 @@ jobs:
             ```
 
             </details>
-          comment_tag: pr_description_check
+          comment-tag: pr_description_check
           mode: recreate
 
       - name: Comment PR - delete fail comment on success
         if: steps.pr-check.outputs.exit_code == '0'
         continue-on-error: true
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
-          comment_tag: pr_description_check
+          comment-tag: pr_description_check
           mode: delete
 
       - name: Comment PR - check passed
         if: steps.pr-check.outputs.exit_code == '0'
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           message: |
             ## PR Description Check Passed
@@ -141,7 +195,7 @@ jobs:
             ```
 
             </details>
-          comment_tag: pr_description_check_ok
+          comment-tag: pr_description_check_ok
 
       - name: Fail job if check failed
         if: steps.pr-check.outputs.exit_code != '0'

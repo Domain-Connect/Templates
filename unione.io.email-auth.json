@@ -1,0 +1,42 @@
+{
+  "providerId": "unione.io",
+  "providerName": "UniOne",
+  "serviceId": "email-auth",
+  "serviceName": "UniOne domain authentication",
+  "version": 2,
+  "logoUrl": "https://s.selzy.com/unione/notification/logo-unione-520-180.png",
+  "description": "Sets up SPF, DKIM, domain verification, and DMARC for UniOne.",
+  "variableDescription": "dkimKey: RSA public key (p= value). validateHash: ownership hash without the unione-validate-hash= prefix.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "unione.io",
+  "syncRedirectDomain": "unione.io,eu1.unione.io,us1.unione.io",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.unione.io",
+      "ttl": 1800
+    },
+    {
+      "type": "TXT",
+      "host": "us._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+      "ttl": 1800,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "unione-validate-hash=%validateHash%",
+      "ttl": 1800,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "unione-validate-hash="
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%fqdn%.dmarc.unione.io.",
+      "ttl": 1800
+    }
+  ]
+}

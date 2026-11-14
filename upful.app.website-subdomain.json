@@ -1,0 +1,21 @@
+{
+    "providerId": "upful.app",
+    "providerName": "Upful",
+    "version": 1,
+    "logoUrl": "https://upful.app/upful/icon-512.png",
+    "syncPubKeyDomain": "upful.app",
+    "syncRedirectDomain": "upful.app",
+    "serviceId": "website-subdomain",
+    "serviceName": "Website on a subdomain",
+    "description": "Points one address under the domain (passed as host, like book or tickets) at the business's pages on Upful.",
+    "variableDescription": "%target%: the CNAME target Upful's hosting assigns to its websites (e.g. 1a0c274fe87f15f6.vercel-dns-016.com)",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 3600
+        }
+    ]
+}

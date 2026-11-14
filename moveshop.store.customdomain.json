@@ -1,0 +1,21 @@
+{
+  "providerId": "moveshop.store",
+  "providerName": "MoveShop",
+  "serviceId": "customdomain",
+  "serviceName": "Custom storefront domain",
+  "version": 2,
+  "logoUrl": "https://moveshop.store/brand/moveshop-logo.svg",
+  "description": "Connects a domain to a MoveShop storefront with a CNAME to MoveShop. MoveShop validates the hostname and issues its SSL certificate over HTTP once the CNAME is in place, so no other records are needed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "moveshop.store",
+  "syncRedirectDomain": "moveshop.store,moveshop.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "moveshop.store",
+      "ttl": 3600
+    }
+  ]
+}

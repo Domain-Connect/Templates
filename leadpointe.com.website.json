@@ -1,0 +1,21 @@
+{
+    "providerId": "leadpointe.com",
+    "providerName": "LeadPointe",
+    "serviceId": "website",
+    "serviceName": "LeadPointe website",
+    "version": 1,
+    "logoUrl": "https://crm.leadpointe.com/assets/img/leadpointe-logo.png",
+    "description": "Points this address (for example www) at the website LeadPointe builds and hosts for your business. Email records are not changed.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "leadpointe.com",
+    "syncRedirectDomain": "crm.leadpointe.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "sites.leadpointe.com",
+            "ttl": 3600
+        }
+    ]
+}

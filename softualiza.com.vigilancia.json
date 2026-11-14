@@ -1,0 +1,23 @@
+{
+    "providerId": "softualiza.com",
+    "providerName": "Softualiza",
+    "serviceId": "vigilancia",
+    "serviceName": "Verificación de dominio para Vigilancia de dominio",
+    "version": 1,
+    "logoUrl": "https://softualiza.com/favicon.svg",
+    "description": "Añade un registro TXT que confirma que eres el titular del dominio para poder vigilarlo (correo, certificado, web y caducidad).",
+    "variableDescription": "token: código de verificación único de tu dominio",
+    "syncRedirectDomain": "app.softualiza.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_softualiza",
+            "data": "softualiza-verificacion=%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "softualiza-verificacion=",
+            "essential": "OnApply"
+        }
+    ],
+    "syncPubKeyDomain": "domainconnect.softualiza.com"
+}

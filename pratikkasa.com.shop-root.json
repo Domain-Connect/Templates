@@ -1,0 +1,37 @@
+{
+    "providerId": "pratikkasa.com",
+    "providerName": "PratikKasa",
+    "serviceId": "shop-root",
+    "serviceName": "PratikKasa Sipariş",
+    "version": 1,
+    "logoUrl": "https://pratikkasa.com/icon.svg",
+    "description": "Connects the www address of a domain to the business's PratikKasa store pages and adds the ownership record. Group apex redirects the bare domain to www and is requested only from DNS providers that support REDIR301 without side effects. Groups: www, verify, apex.",
+    "variableDescription": "token: per-store ownership token issued by PratikKasa (12 lowercase hexadecimal characters); the TXT value becomes pk-<token>.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "pratikkasa.com",
+    "syncRedirectDomain": "shop.pratikkasa.com",
+    "records": [
+        {
+            "groupId": "www",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "shop.pratikkasa.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_pratikkasa",
+            "data": "pk-%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "pk-"
+        },
+        {
+            "groupId": "apex",
+            "type": "REDIR301",
+            "host": "@",
+            "target": "https://www.%fqdn%"
+        }
+    ]
+}

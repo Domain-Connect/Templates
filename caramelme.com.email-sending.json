@@ -1,0 +1,20 @@
+{
+  "providerId": "caramelme.com",
+  "providerName": "Caramel",
+  "serviceId": "email-sending",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://app.caramelme.com/caramel-icon.svg",
+  "description": "Authenticates a domain for sending email from Caramel: three DKIM CNAME records and an optional custom MAIL FROM (MX + SPF).",
+  "variableDescription": "dkim1, dkim2, dkim3: per-domain DKIM selector tokens. dkimzone: DKIM signing zone (e.g. dkim.amazonses.com). region: sending region for the MAIL FROM feedback MX (e.g. eu-west-1).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "caramelme.com",
+  "syncRedirectDomain": "api.caramelme.com,tcafwdazdelfwqmizwxr.supabase.co",
+  "records": [
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.%dkimzone%", "ttl": 1800 },
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.%dkimzone%", "ttl": 1800 },
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.%dkimzone%", "ttl": 1800 },
+    { "groupId": "mailfrom", "type": "MX", "host": "mail", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 1800 },
+    { "groupId": "mailfrom", "type": "SPFM", "host": "mail", "spfRules": "include:amazonses.com" }
+  ]
+}

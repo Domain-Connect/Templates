@@ -1,0 +1,35 @@
+{
+  "providerId": "univu.app",
+  "providerName": "UNIVU",
+  "serviceId": "website",
+  "serviceName": "UNIVU Website",
+  "version": 1,
+  "logoUrl": "https://univu.app/favicon.svg",
+  "description": "Connects your domain to your UNIVU website.",
+  "syncPubKeyDomain": "univu.app",
+  "syncRedirectDomain": "univu.app",
+  "syncBlock": false,
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "169.155.56.59",
+      "ttl": 3600
+    },
+    {
+      "groupId": "apex",
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "2a09:8280:1::12e:d42:0",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "connect.univu.site",
+      "ttl": 3600
+    }
+  ]
+}

@@ -12,6 +12,8 @@ https://github.com/Domain-Connect/spec/blob/master/Domain%20Connect%20Spec%20Dra
 
 Follow these steps carefully when contributing a new or updated template:
 
+> 🚀 **Fast track:** Pull Requests whose templates pass the automated [Automerge Check](.github/workflows/automerge-check.yml) (`dc-template-linter -merge-or-fail`) get the `automerge-possible` label and are approved and merged **much faster**. All other Pull Requests are queued for **manual review by a maintainer**, which can take considerably longer. Run the linter locally (see [step 2](#2-lint-your-template)) before opening your PR.
+
 ### 1. Create and Test Your Template
 
 1. Open the [Online Editor](https://domainconnect.paulonet.eu/dc/free/templateedit).
@@ -24,7 +26,46 @@ Follow these steps carefully when contributing a new or updated template:
 
 > ⚠️ **Test results MUST match the submitted template.** Pull Requests with outdated tests will not be reviewed.
 
-### 2. Name Your File Correctly
+### 2. Lint Your Template
+
+Validate every template file you add or change with the official [dc-template-linter](https://github.com/Domain-Connect/dc-template-linter). This requires [Go](https://go.dev/dl/) 1.22 or newer.
+
+1. Install (or update) the linter:
+
+   ```bash
+   go install github.com/Domain-Connect/dc-template-linter@latest
+   ```
+
+   The binary is installed to `$(go env GOPATH)/bin` — make sure that directory is on your `PATH`.
+
+2. Run the **fast-track check** — the same check the [Automerge Check](.github/workflows/automerge-check.yml) workflow runs on your PR:
+
+   ```bash
+   dc-template-linter -merge-or-fail <providerId>.<serviceId>.json
+   ```
+
+   - **Exit code `0`** (no output): the template qualifies for the fast track.
+   - **Non-zero exit code**: the template does not qualify. Each reported problem has a `DCTLxxxx` code explained in the [linter wiki](https://github.com/Domain-Connect/dc-template-linter/wiki) (e.g. [DCTL1029](https://github.com/Domain-Connect/dc-template-linter/wiki/DCTL1029)). Fix the issues and re-run, or — if the deviation is intentional (see the exceptions in [Template Quality Guidelines](#template-quality-guidelines)) — justify it in the PR description and expect a manual review.
+
+3. Run the **full check** — the same check the [Lint Domain Connect Templates](.github/workflows/dc-template-lint.yml) workflow runs on your PR:
+
+   ```bash
+   dc-template-linter -tolerate warn <providerId>.<serviceId>.json
+   ```
+
+   This must exit with code `0`. If it fails, the workflow fails and comments the findings on your PR — such PRs cannot be merged. Informational findings (`"level":"info"`) do not fail this check, but they still disqualify the PR from the fast track.
+
+4. **Modified templates only:** increment the `version` field. The workflow fails if a changed template does not contain a `version` update.
+
+5. Optionally verify that `logoUrl` is reachable (this is not part of CI, but it is a checkbox in the PR template):
+
+   ```bash
+   dc-template-linter -logos <providerId>.<serviceId>.json
+   ```
+
+You can check the exit code with `echo $?` right after running the command.
+
+### 3. Name Your File Correctly
 
 Ensure your template file follows the required naming convention and is placed in the root folder of the repository:
 
@@ -34,7 +75,7 @@ providerId.serviceId.json
 
 For example: `myprovider.com.website.json`
 
-### 3. Open a Pull Request
+### 4. Open a Pull Request
 
 When opening your Pull Request:
 
@@ -160,8 +201,7 @@ Following is an example of a complete Domain Connect template, with examples of 
     "description": "Example description explaining overall purpose of the record updates",
     "variableDescription": "%a%: domain apex IP; %sub%: sub record destination; %cnamehost%: host pointing to sub destination; %txt%: domain apex text; %mx%: domain apex mail destination; %target%: domain apex service record target; %ttlvar%: variable TTL for SRV record; %srvport%: variable port for SRV record; %srvproto%: variable ptotocol of SRV record; %srvservice%: variable service of SRV record",
     "syncPubKeyDomain": "keys.example.com",
-    "syncRedirectDomain": "www.example.com, www.example.net",
-    "warnPhishing": true,
+    "syncRedirectDomain": "www.example.com,www.example.net",
     "records": [
         {
             "type": "A",
@@ -253,4 +293,4 @@ Following is an example of a complete Domain Connect template, with examples of 
 
 ## Template validation tool
 
-Please see https://github.com/Domain-Connect/dc-template-linter
+Use [dc-template-linter](https://github.com/Domain-Connect/dc-template-linter) to validate templates — see [Lint Your Template](#2-lint-your-template) for installation and usage.

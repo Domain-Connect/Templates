@@ -1,0 +1,27 @@
+{
+  "providerId": "happlosystems.com",
+  "providerName": "Happlo",
+  "serviceId": "website",
+  "serviceName": "Happlo Website",
+  "version": 1,
+  "logoUrl": "https://happlosystems.com/icon.png",
+  "description": "Points your domain to your Happlo website. Your email settings are not changed.",
+  "variableDescription": "No variables. www points to Happlo's site host; the bare domain (or host) forwards to its www.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "happlosites.com",
+  "syncRedirectDomain": "my.happlosystems.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.happlosites.com",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}

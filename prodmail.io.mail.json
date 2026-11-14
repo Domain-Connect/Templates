@@ -1,0 +1,16 @@
+{
+  "providerId": "prodmail.io",
+  "providerName": "Prodmail",
+  "serviceId": "mail",
+  "serviceName": "Prodmail mail hosting",
+  "version": 1,
+  "description": "Verifies the domain for Prodmail. Mail records follow once the domain is verified.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "prodmail.io",
+  "syncRedirectDomain": "prodmail.io",
+  "variableDescription": "token: the verification value shown in Prodmail",
+  "records": [
+    {"type": "TXT", "host": "_prodmail", "data": "prodmail-verify=%token%", "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "prodmail-verify=", "essential": "OnApply"}
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "providerId": "codai.work",
+  "providerName": "CODAÍ",
+  "serviceId": "sites-ownership",
+  "serviceName": "Publicação e verificação de site CODAÍ",
+  "version": 1,
+  "description": "Connect a subdomain to CODAI and verify hostname ownership with Cloudflare for SaaS.",
+  "variableDescription": "%ownership% is the exact hostname ownership token returned by Cloudflare for SaaS. It cannot carry a service prefix.",
+  "logoUrl": "https://www.codai.work/icon.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect-signing.codai.work",
+  "syncRedirectDomain": "www.codai.work",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "connect.codai.work", "ttl": 300 },
+    { "type": "TXT", "host": "_cf-custom-hostname", "data": "%ownership%", "ttl": 300, "txtConflictMatchingMode": "None", "essential": "OnApply" }
+  ]
+}

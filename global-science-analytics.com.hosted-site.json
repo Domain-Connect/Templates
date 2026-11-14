@@ -1,0 +1,22 @@
+{
+  "providerId": "global-science-analytics.com",
+  "providerName": "Global Science Analytics",
+  "serviceId": "hosted-site",
+  "serviceName": "Hosted journal site",
+  "version": 1,
+  "logoUrl": "https://global-science-analytics.com/assets/brand/global-science-analytics.svg",
+  "description": "Points a sub-domain (for example journal.your-society.org) at a journal site hosted by Global Science Analytics. One CNAME; the certificate is issued automatically. Email and other records are not touched.",
+  "variableDescription": "No variables.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "global-science-analytics.com",
+  "syncRedirectDomain": "login.global-science-analytics.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "hosts.global-science-analytics.com",
+      "ttl": 3600
+    }
+  ]
+}

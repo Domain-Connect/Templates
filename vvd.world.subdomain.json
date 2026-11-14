@@ -1,0 +1,15 @@
+{
+  "providerId": "vvd.world",
+  "providerName": "vvd",
+  "serviceId": "subdomain",
+  "serviceName": "vvd site on your subdomain",
+  "version": 1,
+  "logoUrl": "https://vvd.world/vvd-logo.svg",
+  "description": "Points one subdomain (the host the person typed, e.g. wiki.example.com) at a site published on vvd. One CNAME; nothing else in the zone is touched.",
+  "syncPubKeyDomain": "domainconnect.vvd.world",
+  "syncRedirectDomain": "vvd.world",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "vvd.world", "ttl": 3600 }
+  ]
+}

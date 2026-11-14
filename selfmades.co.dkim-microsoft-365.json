@@ -1,0 +1,28 @@
+{
+  "providerId": "selfmades.co",
+  "providerName": "Selfmades",
+  "serviceId": "dkim-microsoft-365",
+  "serviceName": "DKIM for Microsoft 365",
+  "version": 1,
+  "logoUrl": "https://selfmades.co/selfmades-icon-green-v2.png",
+  "description": "Publishes the two DKIM CNAME records Microsoft 365 assigned to this domain, so that Microsoft 365 can sign the domain's mail once signing is switched on in the customer's own tenant. Both point at keys Microsoft hosts, never at Selfmades; the administrator copies them from the Microsoft Defender portal.",
+  "variableDescription": "%selectorone%: the target Microsoft 365 assigned to the selector1 DKIM key of this domain, for example selector1-contoso-com._domainkey.contoso.n-v1.dkim.mail.microsoft (domains set up before May 2025 keep the older selector1-contoso-com._domainkey.contoso.onmicrosoft.com). %selectortwo%: the same for selector2",
+  "syncBlock": false,
+  "syncPubKeyDomain": "selfmades.co",
+  "syncRedirectDomain": "selfmades.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%selectorone%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "%selectortwo%",
+      "ttl": 3600
+    }
+  ]
+}

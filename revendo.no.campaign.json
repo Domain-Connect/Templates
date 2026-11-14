@@ -1,0 +1,22 @@
+{
+    "providerId": "revendo.no",
+    "providerName": "Revendo",
+    "serviceId": "campaign",
+    "serviceName": "Revendo campaign website (subdomain)",
+    "version": 1,
+    "logoUrl": "https://revendo.no/icon.png",
+    "description": "Points a subdomain (for example tilbud.example.com) at the Revendo campaign pages hosted by Revendo's hosting platform. Always applied with the host parameter; the bare domain uses the campaign-apex template.",
+    "variableDescription": "cname: the CNAME target given by the hosting platform for this hostname.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "revendo.no",
+    "syncRedirectDomain": "app.revendo.no,revendo.no",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%cname%",
+            "ttl": 3600
+        }
+    ]
+}

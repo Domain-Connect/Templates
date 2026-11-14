@@ -1,0 +1,33 @@
+{
+    "providerId": "arbadger.com",
+    "providerName": "AR Badger",
+    "serviceId": "sendgrid-domain-auth",
+    "serviceName": "AR Badger email sending",
+    "version": 1,
+    "logoUrl": "https://www.arbadger.com/img/logos/AR-Badger-Full-noBG.png",
+    "description": "Lets AR Badger send invoice reminders from your domain. Adds the three CNAME records that authenticate the domain for sending (return path and two DKIM keys). Website and mailbox records are not changed.",
+    "variableDescription": "%mailid%: the digits of the SendGrid-assigned return-path label (em1234 gives 1234). %sgaccount%: the SendGrid account and whitelabel labels the records point to (u1234567.wl123). Both are issued by the SendGrid domain authentication API for this sending domain.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "arbadger.com",
+    "syncRedirectDomain": "www.arbadger.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "em%mailid%",
+            "pointsTo": "%sgaccount%.sendgrid.net",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "s1._domainkey",
+            "pointsTo": "s1.domainkey.%sgaccount%.sendgrid.net",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "s2._domainkey",
+            "pointsTo": "s2.domainkey.%sgaccount%.sendgrid.net",
+            "ttl": 3600
+        }
+    ]
+}

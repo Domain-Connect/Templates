@@ -1,0 +1,32 @@
+{
+  "providerId": "dineora.io",
+  "providerName": "Dineora",
+  "serviceId": "site",
+  "serviceName": "Dineora restaurant website",
+  "version": 1,
+  "logoUrl": "https://dineora.io/logo-domain-connect.png",
+  "description": "Points www at the restaurant's Dineora website and adds the ownership verification record. Does not touch mail records.",
+  "variableDescription": "token = ownership verification token, unique to the restaurant's Dineora account",
+  "syncPubKeyDomain": "dineora.io",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "template-7n5.pages.dev",
+      "ttl": 300,
+      "groupId": "site",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_dineora-verification",
+      "data": "dineora-verification=%token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dineora-verification=",
+      "ttl": 300,
+      "groupId": "site",
+      "essential": "OnApply"
+    }
+  ]
+}

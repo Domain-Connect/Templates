@@ -1,0 +1,34 @@
+{
+    "providerId": "pols.so",
+    "providerName": "pols.so",
+    "serviceId": "site-apex",
+    "serviceName": "pols.so site on a domain",
+    "version": 1,
+    "logoUrl": "https://pols.so/favicon.svg",
+    "description": "Serves a pols.so site at the domain itself (for example example.com): A and AAAA records to the pols.so edge, and the TXT record that proves control of the domain.",
+    "variableDescription": "%token%: the domain's verification token, shown on the site's Domains tab",
+    "syncPubKeyDomain": "domainconnect.pols.so",
+    "syncRedirectDomain": "my.pols.so",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "94.130.67.146",
+            "ttl": 3600
+        },
+        {
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "2a01:4f8:10b:3127::2",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_pols",
+            "data": "pols-verify=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "pols-verify="
+        }
+    ]
+}

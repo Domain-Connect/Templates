@@ -1,0 +1,21 @@
+{
+  "providerId": "htmlhost.co",
+  "providerName": "htmlhost",
+  "serviceId": "ownership",
+  "serviceName": "htmlhost domain ownership",
+  "version": 1,
+  "logoUrl": "https://htmlhost.co/favicon.svg",
+  "description": "Confirms you own the domain, so htmlhost's hosting can serve your website on it.",
+  "variableDescription": "token: the verification code htmlhost's hosting issued for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "htmlhost.co",
+  "syncRedirectDomain": "htmlhost.co",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%token%",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "providerId": "chopflow.io",
+  "providerName": "Chopflow",
+  "serviceId": "storefront-records",
+  "serviceName": "Chopflow menu: verification records",
+  "version": 1,
+  "logoUrl": "https://www.chopflow.io/apple-touch-icon-180.png",
+  "description": "Step 1 of connecting a restaurant's own domain to its Chopflow menu: the TXT records Cloudflare checks before it issues the certificate. The CNAME is a separate template (chopflow.io.storefront), applied once the certificate is ready, so a site already on www is never switched before it can be served.",
+  "variableDescription": "cfOwnership: Cloudflare's ownership token for the hostname. cfCertificate1 and cfCertificate2: Cloudflare's certificate validation tokens (opaque values issued per hostname; a second one is not always issued, in which case its group is not applied).",
+  "syncPubKeyDomain": "chopflow.io",
+  "syncRedirectDomain": "connect.chopflow.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cfOwnership%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "certificate",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%cfCertificate1%",
+      "ttl": 600
+    },
+    {
+      "groupId": "certificate2",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%cfCertificate2%",
+      "ttl": 600
+    }
+  ]
+}

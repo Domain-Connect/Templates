@@ -1,0 +1,19 @@
+{
+  "providerId": "heaven.dev",
+  "providerName": "Heaven",
+  "serviceId": "challenge",
+  "serviceName": "A certificate for a name behind Cloudflare's proxy",
+  "version": 1,
+  "description": "Lets Heaven get the certificate of one name whose visitors reach it through Cloudflare's proxy: _acme-challenge at the name, a CNAME to the organization's address. Heaven applies it with the name as the host, or without one for the domain itself.",
+  "variableDescription": "label: the first label of the organization's address, LABEL.domains.heaven.dev: 3 to 32 lower-case letters, digits and hyphens.",
+  "syncPubKeyDomain": "heaven.dev",
+  "syncRedirectDomain": "heaven.dev",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%label%.domains.heaven.dev",
+      "ttl": 300
+    }
+  ]
+}

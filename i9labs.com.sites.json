@@ -1,0 +1,50 @@
+{
+  "providerId": "i9labs.com",
+  "providerName": "i9labs",
+  "serviceId": "sites",
+  "serviceName": "i9labs Sites",
+  "version": 1,
+  "logoUrl": "https://www.i9labs.com/images/i9LabsLogo.svg",
+  "description": "Points a host (e.g. www) at the i9labs Sites edge with a CNAME, and optionally adds the Cloudflare for SaaS ownership (_cf-custom-hostname) and certificate validation (_acme-challenge) TXT records Cloudflare asks for while the custom hostname is pending. Apply with host set; the CNAME cannot sit at the apex. Group edge = the CNAME; ownership, dcv and dcv2 = the TXT records (Cloudflare may issue two DCV tokens), applied only when the service passes a value for them.",
+  "variableDescription": "%target%: the site's edge hostname, e.g. s-1a2b3c4d5e6f.allhyipdata.com (issued per site by our hosting platform); %cfowner%: Cloudflare for SaaS custom hostname ownership verification token; %cfdcv%: Cloudflare certificate (DCV) TXT validation token; %cfdcv2%: the second DCV TXT token, when Cloudflare issues two",
+  "syncBlock": false,
+  "syncPubKeyDomain": "i9labs.com",
+  "syncRedirectDomain": "sites.i9labs.com,stage-sites.i9labs.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "edge",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cfowner%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dcv",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%cfdcv%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dcv2",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%cfdcv2%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

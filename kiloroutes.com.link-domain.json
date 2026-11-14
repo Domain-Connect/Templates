@@ -1,0 +1,29 @@
+{
+  "providerId": "kiloroutes.com",
+  "providerName": "Kilo Routes",
+  "serviceId": "link-domain",
+  "serviceName": "Kilo branded link domain",
+  "version": 2,
+  "logoUrl": "https://kiloroutes.com/domain-connect-logo.svg",
+  "description": "Points a subdomain at Kilo so short links and QR codes resolve on the customer's own hostname. Writes an ownership-challenge TXT record and a CNAME to the Kilo edge. The CNAME must be DNS-only / unproxied: it terminates at a Cloudflare-for-SaaS custom hostname, and proxying it produces a 1014.",
+  "variableDescription": "txtvalue: the per-domain ownership token, 32 hex characters. It is the only variable; the record prefix and the CNAME target are fixed in the template.",
+  "syncPubKeyDomain": "kiloroutes.com",
+  "syncRedirectDomain": "app.kiloroutes.com,kiloroutes.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_qr2r-challenge",
+      "data": "qr2r-domain-verification=%txtvalue%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "qr2r-domain-verification="
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.link3r.link",
+      "ttl": 300
+    }
+  ]
+}

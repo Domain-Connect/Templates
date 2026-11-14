@@ -1,0 +1,24 @@
+{
+  "providerId": "opensend.mx",
+  "providerName": "OpenSend",
+  "serviceId": "mail",
+  "serviceName": "Mail",
+  "version": 2,
+  "description": "Authenticate sending, prove domain ownership, and optionally configure receiving, custom MAIL FROM and branded tracking for OpenSend.",
+  "logoUrl": "https://opensend.mx/favicon.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.opensend.mx",
+  "syncRedirectDomain": "opensend.mx",
+  "hostRequired": false,
+  "records": [
+    { "groupId": "sending", "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.%dkimZone%.amazonses.com", "ttl": 3600 },
+    { "groupId": "sending", "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.%dkimZone%.amazonses.com", "ttl": 3600 },
+    { "groupId": "sending", "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.%dkimZone%.amazonses.com", "ttl": 3600 },
+    { "groupId": "ownership", "type": "TXT", "host": "_opensend", "data": "%ownership%", "txtConflictMatchingMode": "All", "ttl": 3600 },
+    { "groupId": "receiving", "type": "MX", "host": "@", "pointsTo": "inbound-smtp.%inboundRegion%.amazonaws.com", "priority": 10, "ttl": 3600, "essential": "OnApply" },
+    { "groupId": "receivingReply", "type": "MX", "host": "reply", "pointsTo": "inbound-smtp.%inboundRegion%.amazonaws.com", "priority": 10, "ttl": 3600, "essential": "OnApply" },
+    { "groupId": "mailfrom", "type": "MX", "host": "email", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600, "essential": "OnApply" },
+    { "groupId": "mailfrom", "type": "SPFM", "host": "email", "spfRules": "include:amazonses.com", "ttl": 3600, "essential": "OnApply" },
+    { "groupId": "tracking", "type": "CNAME", "host": "track", "pointsTo": "%trackingDistribution%.cloudfront.net", "ttl": 3600 }
+  ]
+}

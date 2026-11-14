@@ -1,0 +1,19 @@
+{
+  "providerId": "blokz.de",
+  "providerName": "BLOKZ",
+  "serviceId": "website",
+  "serviceName": "BLOKZ Website",
+  "version": 1,
+  "logoUrl": "https://blokz.de/logo.png",
+  "description": "Connects a domain to a website built and hosted by BLOKZ. www points to the BLOKZ customer host, the apex points to the BLOKZ server, which redirects it to www. Mail records are not touched.",
+  "variableDescription": "No variables are used.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.blokz.de",
+  "syncRedirectDomain": "blokz.de",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "178.104.21.69", "ttl": 3600 },
+    { "type": "AAAA", "host": "@", "pointsTo": "2a01:4f8:1c1b:df8c::1", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "kunden.blokz.de", "ttl": 3600 }
+  ]
+}

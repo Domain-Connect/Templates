@@ -1,0 +1,22 @@
+{
+  "providerId": "htmlhost.co",
+  "providerName": "htmlhost",
+  "serviceId": "subdomain",
+  "serviceName": "htmlhost website (subdomain)",
+  "version": 1,
+  "logoUrl": "https://htmlhost.co/favicon.svg",
+  "description": "Points a subdomain, such as www, at a website hosted on htmlhost.",
+  "variableDescription": "target: the hostname htmlhost's hosting recommends for this subdomain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "htmlhost.co",
+  "syncRedirectDomain": "htmlhost.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

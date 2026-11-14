@@ -1,0 +1,46 @@
+{
+  "providerId": "portaly.cc",
+  "providerName": "Portaly",
+  "serviceId": "email",
+  "serviceName": "Portaly sending domain",
+  "version": 1,
+  "logoUrl": "https://portaly.cc/domain-connect/portaly.svg",
+  "description": "Verifies a domain for sending email through Portaly (Amazon SES): Easy DKIM and a custom MAIL FROM domain.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: Amazon SES Easy DKIM tokens; %region%: AWS region of the SES account",
+  "syncBlock": false,
+  "syncPubKeyDomain": "portaly.cc",
+  "syncRedirectDomain": "portaly.cc",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

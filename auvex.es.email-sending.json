@@ -1,0 +1,74 @@
+{
+  "providerId": "auvex.es",
+  "providerName": "Auvex",
+  "serviceId": "email-sending",
+  "serviceName": "Auvex Email Sending",
+  "version": 1,
+  "syncPubKeyDomain": "auvex.es",
+  "syncRedirectDomain": "dc-callback.auvex.es",
+  "logoUrl": "https://auvex.es/favicon-96x96.png",
+  "description": "Authenticates the email that Auvex CRM sends on behalf of a real estate agency from its own domain: DKIM and a return-path subdomain for marketing campaigns, optional DKIM and return path for the agency's client portal emails, and an optional monitoring-only DMARC record when the domain has none.",
+  "variableDescription": "%dkim1%, %dkim2% and %dkim3% are the Easy DKIM tokens issued for the domain. %portaldkim% is the public key (without the p= prefix) of the client portal DKIM record. %portalforge% is the label of the client portal return-path target under rmta.net.",
+  "records": [
+    {
+      "groupId": "campaigns",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "campaigns",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "campaigns",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "campaigns",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "campaigns",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "portal",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%portaldkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "portal",
+      "type": "CNAME",
+      "host": "send",
+      "pointsTo": "%portalforge%.rmta.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

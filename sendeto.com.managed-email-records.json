@@ -1,0 +1,116 @@
+{
+  "providerId": "sendeto.com",
+  "providerName": "Sendeto",
+  "version": 2,
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.sendeto.com",
+  "serviceId": "managed-email-records",
+  "serviceName": "Sendeto email authentication and receiving",
+  "description": "Configure SES sending and private support receiving on the dedicated m.s and t.s subdomains.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%marketingSelector1%._domainkey.m.s",
+      "pointsTo": "%marketingTarget1%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%marketingSelector2%._domainkey.m.s",
+      "pointsTo": "%marketingTarget2%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%marketingSelector3%._domainkey.m.s",
+      "pointsTo": "%marketingTarget3%",
+      "ttl": 300
+    },
+    {
+      "type": "MX",
+      "host": "bounce.m.s",
+      "pointsTo": "%marketingBounceMxHost%",
+      "priority": "%marketingBounceMxPriority%",
+      "ttl": 300
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce.m.s",
+      "spfRules": "%marketingBounceSpfRules%"
+    },
+    {
+      "type": "SPFM",
+      "host": "m.s",
+      "spfRules": "%marketingSpfRules%"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc.m.s",
+      "data": "%marketingDmarc%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "m.s",
+      "pointsTo": "%marketingReceivingMxHost%",
+      "priority": "%marketingReceivingMxPriority%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%transactionalSelector1%._domainkey.t.s",
+      "pointsTo": "%transactionalTarget1%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%transactionalSelector2%._domainkey.t.s",
+      "pointsTo": "%transactionalTarget2%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%transactionalSelector3%._domainkey.t.s",
+      "pointsTo": "%transactionalTarget3%",
+      "ttl": 300
+    },
+    {
+      "type": "MX",
+      "host": "bounce.t.s",
+      "pointsTo": "%transactionalBounceMxHost%",
+      "priority": "%transactionalBounceMxPriority%",
+      "ttl": 300
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce.t.s",
+      "spfRules": "%transactionalBounceSpfRules%"
+    },
+    {
+      "type": "SPFM",
+      "host": "t.s",
+      "spfRules": "%transactionalSpfRules%"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc.t.s",
+      "data": "%transactionalDmarc%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "t.s",
+      "pointsTo": "%transactionalReceivingMxHost%",
+      "priority": "%transactionalReceivingMxPriority%",
+      "ttl": 300
+    }
+  ],
+  "logoUrl": "https://sendeto.com/domain-connect/sendeto.svg",
+  "syncRedirectDomain": "sendeto.com"
+}

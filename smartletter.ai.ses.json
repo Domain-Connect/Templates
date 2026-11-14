@@ -1,0 +1,62 @@
+{
+    "providerId": "smartletter.ai",
+    "providerName": "Smartletter",
+    "serviceId": "ses",
+    "serviceName": "Smartletter Email Sending",
+    "version": 2,
+    "logoUrl": "https://smartletter.ai/logo.svg",
+    "description": "Configure DNS records so Smartletter can send newsletters from your domain (DKIM, custom MAIL FROM, SPF, DMARC).",
+    "variableDescription": "dkim1/dkim2/dkim3 are the Amazon SES Easy DKIM tokens for this domain. dkimzone is the SES DKIM signing hosted zone. region is the AWS region of the SES identity. verifytoken is the per-workspace ownership token Smartletter checks in the _smartletter-verify TXT record.",
+    "syncPubKeyDomain": "smartletter.ai",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.%dkimzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.%dkimzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.%dkimzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "ttl": 3600,
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "type": "TXT",
+            "host": "_smartletter-verify",
+            "data": "smartletter-verify=%verifytoken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "smartletter-verify="
+        }
+    ],
+    "syncRedirectDomain": "smartletter.ai"
+}

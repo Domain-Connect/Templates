@@ -1,0 +1,20 @@
+{
+  "providerId": "donate.chat",
+  "providerName": "donate.chat",
+  "serviceId": "customdomain",
+  "serviceName": "Custom domain for a donation page",
+  "version": 1,
+  "logoUrl": "https://donate.chat/icon.svg",
+  "description": "Points a subdomain at the streamer's donate.chat donation page, hosted on Vercel.",
+  "syncPubKeyDomain": "donate.chat",
+  "syncRedirectDomain": "donate.chat,dev.donate.chat",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

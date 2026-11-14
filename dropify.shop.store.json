@@ -1,0 +1,28 @@
+{
+  "providerId": "dropify.shop",
+  "providerName": "Dropify",
+  "serviceId": "store",
+  "serviceName": "Dropify online store",
+  "version": 1,
+  "logoUrl": "https://static-content-dropify.com/dropify_static_assets/img/dropify-lp/dropify-lp/images/landing-page/company-logo.svg",
+  "description": "Points your domain to your Dropify online store (apex and www).",
+  "variableDescription": "No variables: both records point to the Dropify edge.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.dropify.shop",
+  "syncRedirectDomain": "admin.mydropify.shop",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "167.233.84.76",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "167.233.84.76",
+      "ttl": 600
+    }
+  ]
+}

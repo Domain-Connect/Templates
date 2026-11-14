@@ -1,0 +1,24 @@
+{
+  "providerId": "themesmith.ai",
+  "providerName": "ThemeSmith",
+  "serviceId": "bimi",
+  "serviceName": "BIMI",
+  "version": 1,
+  "logoUrl": "https://themesmith.ai/favicon.svg",
+  "description": "Publishes the logo inbox providers can show beside email from this domain.",
+  "variableDescription": "%logoPath%: the path of the logo file on bimi.dns.themesmith.ai",
+  "syncBlock": false,
+  "syncPubKeyDomain": "themesmith.ai",
+  "syncRedirectDomain": "app.themesmith.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "default._bimi",
+      "data": "v=BIMI1; l=https://bimi.dns.themesmith.ai/%logoPath%",
+      "ttl": "300",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=BIMI1",
+      "essential": "OnApply"
+    }
+  ]
+}

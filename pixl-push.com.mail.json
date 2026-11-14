@@ -1,0 +1,41 @@
+{
+  "providerId": "pixl-push.com",
+  "providerName": "PixlPush",
+  "serviceId": "mail",
+  "serviceName": "Email sending",
+  "version": 2,
+  "logoUrl": "https://pixl-push.com/assets/logo.png",
+  "description": "Adds the three Amazon SES Easy DKIM records to a DNS zone that supports Domain Connect.",
+  "variableDescription": "sesDkim1/2/3: the three Amazon SES Easy DKIM tokens; sesDkim1Target/2Target/3Target: their CNAME targets",
+  "syncPubKeyDomain": "pixl-push.com",
+  "syncRedirectDomain": "pixl-push.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%sesDkim1%._domainkey",
+      "pointsTo": "%sesDkim1Target%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sesDkim2%._domainkey",
+      "pointsTo": "%sesDkim2Target%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%sesDkim3%._domainkey",
+      "pointsTo": "%sesDkim3Target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

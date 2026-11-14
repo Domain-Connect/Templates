@@ -1,0 +1,28 @@
+{
+    "providerId": "tanqory.com",
+    "providerName": "Tanqory",
+    "serviceId": "online-store-subdomain",
+    "serviceName": "Online store on a subdomain",
+    "version": 1,
+    "logoUrl": "https://tanqory.com/favicon.ico",
+    "description": "Points a subdomain (the host parameter, such as shop) at a Tanqory online store, and adds the TXT record that proves the store owns it. Email records are not changed.",
+    "variableDescription": "%target%: storefront target host (shops.mytanqory.com); %code%: this connection's ownership code, shown on the store's domain page",
+    "syncPubKeyDomain": "tanqory.com",
+    "syncRedirectDomain": "admin.tanqory.com,admin.tanqory.dev",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": "3600"
+        },
+        {
+            "type": "TXT",
+            "host": "_tanqory-verification",
+            "ttl": "3600",
+            "data": "tanqory-verification=%code%",
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

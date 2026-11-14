@@ -1,0 +1,36 @@
+{
+  "providerId": "zeoply.com",
+  "providerName": "Zeoply",
+  "serviceId": "custom-domain",
+  "serviceName": "Zeoply Custom Domain",
+  "version": 1,
+  "logoUrl": "https://www.zeoply.com/logo.svg",
+  "description": "Connects a custom domain to a Zeoply project: routes traffic to the project's load balancer and validates its SSL certificate.",
+  "variableDescription": "%lbtarget%: DNS name of the project's load balancer; %acmname%: SSL certificate validation record label without the leading underscore; %acmvalue%: SSL certificate validation record target; %verifytoken%: unique domain ownership verification token",
+  "syncPubKeyDomain": "dc.zeoply.com",
+  "syncRedirectDomain": "www.zeoply.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%lbtarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_%acmname%",
+      "pointsTo": "%acmvalue%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_zeoply-verify",
+      "data": "zeoply-verification=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "zeoply-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}

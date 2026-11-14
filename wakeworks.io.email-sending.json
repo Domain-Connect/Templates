@@ -1,0 +1,47 @@
+{
+  "providerId": "wakeworks.io",
+  "providerName": "WakeWorks",
+  "serviceId": "email-sending",
+  "serviceName": "Dealership email sending",
+  "version": 1,
+  "logoUrl": "https://wakeworks.io/apple-touch-icon.png",
+  "description": "Publishes the records a WakeWorks dealership needs to send email from its own domain through Resend (Amazon SES): a bounce MX and SPF on send.<host>, a DKIM key on resend._domainkey.<host>, and, only when the domain has none, a monitoring-only DMARC policy. Group 'sending' is always applied; group 'dmarc' is applied only when WakeWorks found no existing DMARC record, so an existing policy is never replaced.",
+  "variableDescription": "dkim: the Resend DKIM public key value for this domain, 'p=' followed by base64. region: the Amazon SES region in the bounce MX host, e.g. us-east-1.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "wakeworks.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

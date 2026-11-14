@@ -1,0 +1,27 @@
+{
+    "providerId": "nurture.email",
+    "providerName": "Nurture",
+    "serviceId": "sending-domain",
+    "serviceName": "Nurture sending domain",
+    "version": 1,
+    "logoUrl": "https://www.nurture.email/assets/logo-mark-256.png",
+    "description": "Lets Nurture send email from your domain: points its DKIM selector at the key Nurture hosts for it, and adds Nurture to your SPF record.",
+    "variableDescription": "dkimselector: the DKIM selector Nurture signs with (nurture1)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "dkim.nurture.email",
+    "syncRedirectDomain": "nurture.email",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkimselector%._domainkey",
+            "pointsTo": "%dkimselector%.%fqdn%.dkim.nurture.email",
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:spf.nurture.email"
+        }
+    ]
+}

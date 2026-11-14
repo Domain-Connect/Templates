@@ -1,0 +1,39 @@
+{
+  "providerId": "runsite.app",
+  "providerName": "Runsite",
+  "serviceId": "email",
+  "serviceName": "Runsite Email Service",
+  "version": 1,
+  "logoUrl": "https://runsite.app/logo.svg",
+  "description": "Adds the return-path, DKIM and DMARC records needed to send email through Runsite.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "runsite.app",
+  "syncRedirectDomain": "dashboard.runsite.app",
+  "records": [
+    {
+      "groupId": "returnpath",
+      "type": "CNAME",
+      "host": "swg",
+      "pointsTo": "%sweegoId%.sweego.co",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "%sweegoId%-dkim.sweego.co",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ],
+  "variableDescription": "%sweegoId%: identifier of the sending domain at the email delivery provider"
+}

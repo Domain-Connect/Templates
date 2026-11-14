@@ -1,0 +1,23 @@
+{
+    "providerId": "quietmountain.ai",
+    "providerName": "Quiet Mountain",
+    "serviceId": "website",
+    "serviceName": "Quiet Mountain Website",
+    "version": 1,
+    "logoUrl": "https://quietmountainlabs.com/assets/brand/quiet-mountain-logo.svg",
+    "description": "Points www to the website Quiet Mountain builds and hosts for your business. Email (MX) and all other records are left unchanged.",
+    "variableDescription": "No variables.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "syncPubKeyDomain": "quietmountain.ai",
+    "syncRedirectDomain": "edit.quietmountainlabs.com,my.quietmountainlabs.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "sites-origin.quietmountain.ai",
+            "ttl": 3600
+        }
+    ]
+}
