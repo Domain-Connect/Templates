@@ -1,0 +1,38 @@
+{
+  "providerId": "connectyourdomains.com",
+  "providerName": "Connect Your Domains",
+  "serviceId": "site-www",
+  "serviceName": "Website address with its bare domain",
+  "version": 2,
+  "logoUrl": "https://connectyourdomains.com/dc-logo.svg",
+  "description": "Points www at a website hosted by Connect Your Domains and the bare domain (example.com) at Connect Your Domains's redirect, which sends visitors on to https://www.example.com; with a TXT record proving the domain's owner chose it. Applied with no host. Three records; never touches MX, SPF, DKIM, DMARC or any other record.",
+  "variableDescription": "%token%: a random per-hostname ownership token, 32 lowercase letters and digits. %apexip%: the IPv4 address of Connect Your Domains's bare-domain redirect, one fixed address; a bare variable because an A record's value is an address and cannot carry a prefix.",
+  "syncPubKeyDomain": "connectyourdomains.com",
+  "syncRedirectDomain": "connect.connectyourdomains.com",
+  "hostRequired": false,
+  "shared": true,
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_site-verify.www",
+      "data": "site-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "site-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.connectyourdomains.com",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%apexip%",
+      "ttl": 600
+    }
+  ]
+}
