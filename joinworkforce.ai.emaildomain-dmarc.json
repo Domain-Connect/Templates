@@ -3,47 +3,43 @@
     "providerName": "Workforce AI",
     "serviceId": "emaildomain-dmarc",
     "serviceName": "Email from your domain",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://dashboard.hireworkforce.ai/web-app-manifest-512x512.png",
-    "description": "As joinworkforce.ai.emaildomain, plus a DMARC policy for the subdomain. Used only when the customer's domain publishes no DMARC.",
-    "variableDescription": "%dkimkey%: the DKIM public key (base64) after p=; %region%: the AWS region of the mail servers, e.g. us-east-1",
+    "description": "As joinworkforce.ai.emaildomain, plus a DMARC policy for the subdomain (kept in our zone). Used only when the customer's domain publishes no DMARC.",
+    "variableDescription": "%mzone%: where the CNAMEs point in our mail zone, made for the customer's domain: <16 hex>.m.joinworkforce.ai (dev./staging. before m. for our test environments)",
     "syncPubKeyDomain": "domainconnect.joinworkforce.ai",
     "syncRedirectDomain": "dashboard.hireworkforce.ai,dashboard.staging.hireworkforce.ai,dashboard.dev.hireworkforce.ai",
+    "hostRequired": true,
     "records": [
         {
-            "type": "TXT",
-            "host": "resend._domainkey",
-            "data": "p=%dkimkey%",
-            "ttl": 3600,
-            "txtConflictMatchingMode": "All"
-        },
-        {
-            "type": "MX",
-            "host": "send",
-            "pointsTo": "feedback-smtp.%region%.amazonses.com",
-            "priority": 10,
-            "ttl": 3600
-        },
-        {
-            "type": "SPFM",
-            "host": "send",
-            "spfRules": "include:amazonses.com"
-        },
-        {
-            "type": "MX",
+            "type": "CNAME",
             "host": "@",
-            "pointsTo": "inbound-smtp.%region%.amazonaws.com",
-            "priority": 10,
+            "pointsTo": "%mzone%",
             "ttl": 3600
         },
         {
-            "type": "TXT",
+            "type": "CNAME",
+            "host": "resend._domainkey",
+            "pointsTo": "resend._domainkey.%mzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "send",
+            "pointsTo": "send.%mzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "rsend",
+            "pointsTo": "rsend.%mzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
             "host": "_dmarc",
-            "data": "v=DMARC1; p=quarantine;",
-            "ttl": 3600,
-            "txtConflictMatchingMode": "Prefix",
-            "txtConflictMatchingPrefix": "v=DMARC1",
-            "essential": "OnApply"
+            "pointsTo": "_dmarc.%mzone%",
+            "ttl": 3600
         }
     ]
 }
