@@ -1,0 +1,20 @@
+{
+  "providerId": "aioslive.app",
+  "providerName": "AIOS",
+  "serviceId": "mailreceive",
+  "serviceName": "AIOS Mail receiving",
+  "version": 1,
+  "logoUrl": "https://cdn.aioshq.com/desktop/aios-wordmark.svg",
+  "description": "Receive the email of a domain in AIOS Mail. This replaces the MX records of the domain, so all its mail moves to AIOS Mail.",
+  "syncPubKeyDomain": "aioslive.app",
+  "syncRedirectDomain": "aioslive.app",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.us-east-2.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
