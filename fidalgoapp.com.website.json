@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://www.fidalgoapp.com/sites/fidalgo/domain-connect-logo.png",
   "description": "Points your domain at your FidalgoApp website.",
-  "variableDescription": "ip: the website\u0027s IP address; target: its host name; verify: the hosting domain verification ID (Azure App Service).",
+  "variableDescription": "ip: the website\u0027s IP address; target: its host name; verify: the hosting domain verification ID (Azure App Service); sub: the subdomain to point at the website (sub group only).",
   "syncBlock": false,
   "syncPubKeyDomain": "fidalgoapp.com",
   "syncRedirectDomain": "fidalgoapp.com",
@@ -44,14 +44,14 @@
     {
       "groupId": "sub",
       "type": "CNAME",
-      "host": "@",
+      "host": "%sub%",
       "pointsTo": "%target%",
       "ttl": 600
     },
     {
       "groupId": "sub",
       "type": "TXT",
-      "host": "asuid",
+      "host": "asuid.%sub%",
       "data": "%verify%",
       "ttl": 600,
       "txtConflictMatchingMode": "All"
