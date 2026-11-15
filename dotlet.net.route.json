@@ -1,0 +1,32 @@
+{
+  "providerId": "dotlet.net",
+  "providerName": "Dotlet",
+  "serviceId": "route",
+  "serviceName": "Dotlet domain connection",
+  "version": 1,
+  "logoUrl": "https://dotlet.net/wp-content/themes/dotlet-theme/assets/img/dotlet-logo.svg",
+  "description": "Connects a customer subdomain to an organisation's ingress hostname and proves ownership of that subdomain with one constrained TXT record beneath it.",
+  "variableDescription": "target = the organisation's ingress hostname supplied by Dotlet (e.g. cdn.crmsoftware.com); token = the opaque verification token minted by Dotlet for this connection.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "dc.dotlet.net",
+  "syncRedirectDomain": "dotlet.net,checkout.dotlet.net",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "connect",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_dotlet-connect",
+      "data": "dotlet-connect=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dotlet-connect="
+    }
+  ]
+}
