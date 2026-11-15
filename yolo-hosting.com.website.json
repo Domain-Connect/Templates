@@ -1,0 +1,62 @@
+{
+    "providerId": "yolo-hosting.com",
+    "providerName": "YOLO Hosting",
+    "serviceId": "website",
+    "serviceName": "WordPress website",
+    "version": 1,
+    "logoUrl": "https://yolo-hosting.com/favicon.svg",
+    "description": "Points a domain (and, when asked, its www name) at the customer's WordPress site on YOLO Hosting, and can add the one-time TXT record that proves the customer controls the domain. It sets A, AAAA and one TXT record under _yolo-hosting only: no MX, SPF, DKIM or DMARC record is created or replaced.",
+    "variableDescription": "ip: the IPv4 address of the YOLO Hosting server the site is on. ip6: that server's IPv6 address. token: the one-time code YOLO Hosting issued for this name when the customer added it to their site (24 hexadecimal characters). wwwtoken: the same for the www name. The request is signed, so these values cannot be changed on the way. Groups: ipv4 and ipv6 point the name itself; verify adds its proof record; www-ipv4, www-ipv6 and www-verify do the same for www under it and are only asked for when the template is applied at the top of the zone.",
+    "syncPubKeyDomain": "domainconnect.yolo-hosting.com",
+    "syncRedirectDomain": "yolo-hosting.com",
+    "records": [
+        {
+            "groupId": "ipv4",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 600
+        },
+        {
+            "groupId": "ipv6",
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "%ip6%",
+            "ttl": 600
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_yolo-hosting",
+            "data": "yolo-hosting-verify=%token%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "yolo-hosting-verify=",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "www-ipv4",
+            "type": "A",
+            "host": "www",
+            "pointsTo": "%ip%",
+            "ttl": 600
+        },
+        {
+            "groupId": "www-ipv6",
+            "type": "AAAA",
+            "host": "www",
+            "pointsTo": "%ip6%",
+            "ttl": 600
+        },
+        {
+            "groupId": "www-verify",
+            "type": "TXT",
+            "host": "_yolo-hosting.www",
+            "data": "yolo-hosting-verify=%wwwtoken%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "yolo-hosting-verify=",
+            "essential": "OnApply"
+        }
+    ]
+}
