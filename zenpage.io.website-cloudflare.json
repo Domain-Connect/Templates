@@ -1,0 +1,19 @@
+{
+  "providerId": "zenpage.io",
+  "providerName": "Zenpage",
+  "serviceId": "website-cloudflare",
+  "serviceName": "Zenpage author website (Cloudflare DNS)",
+  "version": 1,
+  "logoUrl": "https://zenpage.io/favicon.svg",
+  "description": "For domains on Cloudflare DNS. Points www and the bare domain at a Zenpage author website. Cloudflare flattens the bare-domain CNAME. Zenpage applies it without a host; hostRequired is set only because a CNAME at @ requires it (DCTL1012).",
+  "variableDescription": "site: the Zenpage site name, for example janedoe for janedoe.zenpage.io",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "zenpage.io",
+  "syncRedirectDomain": "zenpage.io",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "%site%.zenpage.io", "ttl": 3600 },
+    { "type": "CNAME", "host": "@", "pointsTo": "%site%.zenpage.io", "ttl": 3600 }
+  ]
+}
