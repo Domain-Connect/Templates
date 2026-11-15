@@ -1,0 +1,19 @@
+{
+  "providerId": "finish.tax",
+  "providerName": "FinishTax",
+  "serviceId": "website",
+  "serviceName": "Firm website",
+  "version": 1,
+  "logoUrl": "https://finish.tax/images/apple-touch-icon.png",
+  "description": "Points a firm's own domain at its FinishTax website: the root of the domain and www.",
+  "variableDescription": "address: the IPv4 address of FinishTax's hosting platform for this website. target: the hosting platform's host name that www points to. verify1, verify2: one-time values that prove the domain belongs to the firm; each is the part after vc-domain-verify= and is applied only when the hosting platform asks for it. Every request is signed, so no value can be changed on the way.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "finish.tax",
+  "syncRedirectDomain": "finish.tax",
+  "records": [
+    { "groupId": "site", "type": "A", "host": "@", "pointsTo": "%address%", "ttl": 3600 },
+    { "groupId": "site", "type": "CNAME", "host": "www", "pointsTo": "%target%", "ttl": 3600 },
+    { "groupId": "verify1", "type": "TXT", "host": "_vercel", "data": "vc-domain-verify=%verify1%", "ttl": 3600, "txtConflictMatchingMode": "None", "essential": "OnApply" },
+    { "groupId": "verify2", "type": "TXT", "host": "_vercel", "data": "vc-domain-verify=%verify2%", "ttl": 3600, "txtConflictMatchingMode": "None", "essential": "OnApply" }
+  ]
+}
