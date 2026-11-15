@@ -1,0 +1,60 @@
+{
+  "providerId": "fidalgoapp.com",
+  "providerName": "FidalgoApp",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://www.fidalgoapp.com/sites/fidalgo/domain-connect-logo.png",
+  "description": "Points your domain at your FidalgoApp website.",
+  "variableDescription": "ip: the website\u0027s IP address; target: its host name; verify: the hosting domain verification ID (Azure App Service).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "fidalgoapp.com",
+  "syncRedirectDomain": "fidalgoapp.com",
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "apex",
+      "type": "TXT",
+      "host": "asuid",
+      "data": "%verify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "apex",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 600
+    },
+    {
+      "groupId": "apex",
+      "type": "TXT",
+      "host": "asuid.www",
+      "data": "%verify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "sub",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 600
+    },
+    {
+      "groupId": "sub",
+      "type": "TXT",
+      "host": "asuid",
+      "data": "%verify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
