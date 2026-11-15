@@ -3,18 +3,40 @@
   "providerName": "MoveShop",
   "serviceId": "customdomain",
   "serviceName": "Custom storefront domain",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://moveshop.store/brand/moveshop-logo.svg",
-  "description": "Connects a domain to a MoveShop storefront with a CNAME to MoveShop. MoveShop validates the hostname and issues its SSL certificate over HTTP once the CNAME is in place, so no other records are needed.",
+  "description": "Connects a domain to a MoveShop storefront with A records to MoveShop's two fixed IP addresses. MoveShop issues the SSL certificate on the first visit, so no other records are needed. Group 'site' points the domain itself (the root, or the host given); group 'www' also points the www of a root domain.",
   "syncBlock": false,
   "syncPubKeyDomain": "moveshop.store",
   "syncRedirectDomain": "moveshop.store,moveshop.app",
-  "hostRequired": true,
+  "hostRequired": false,
   "records": [
     {
-      "type": "CNAME",
+      "groupId": "site",
+      "type": "A",
       "host": "@",
-      "pointsTo": "moveshop.store",
+      "pointsTo": "52.76.224.170",
+      "ttl": 3600
+    },
+    {
+      "groupId": "site",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "54.169.34.88",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "A",
+      "host": "www",
+      "pointsTo": "52.76.224.170",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "A",
+      "host": "www",
+      "pointsTo": "54.169.34.88",
       "ttl": 3600
     }
   ]
