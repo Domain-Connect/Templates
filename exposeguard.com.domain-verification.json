@@ -1,0 +1,23 @@
+{
+  "providerId": "exposeguard.com",
+  "providerName": "ExposeGuard",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain ownership verification",
+  "version": 1,
+  "logoUrl": "https://exposeguard.com/logo-mark.png",
+  "description": "Adds the TXT record ExposeGuard uses to confirm you own a domain before it scans it.",
+  "variableDescription": "code: the per-domain verification code shown in the ExposeGuard dashboard (letters and digits).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "exposeguard.com",
+  "syncRedirectDomain": "app.exposeguard.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_exposeguard",
+      "data": "exposeguard-verify=%code%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
