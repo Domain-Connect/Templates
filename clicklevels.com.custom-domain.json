@@ -1,0 +1,31 @@
+{
+  "providerId": "clicklevels.com",
+  "providerName": "Click Levels",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "description": "Points a subdomain at Click Levels (websites, funnels, client portals, booking pages and white-label app domains) and adds the TXT record that proves its ownership.",
+  "variableDescription": "verifytoken: the ownership token Click Levels shows for the domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "clicklevels.com",
+  "syncRedirectDomain": "app.clicklevels.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "route",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "custom.clicklevels.site",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_opencrm-verify",
+      "data": "opencrm-verify=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
