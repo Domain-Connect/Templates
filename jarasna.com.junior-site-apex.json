@@ -1,0 +1,29 @@
+{
+  "providerId": "jarasna.com",
+  "providerName": "Jarasna Junior",
+  "version": 1,
+  "logoUrl": "https://junior.jarasna.com/brand/app-icon-512.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.jarasna.com",
+  "syncRedirectDomain": "junior.jarasna.com,little-jarasna.netlify.app,develop--little-jarasna.netlify.app",
+  "variableDescription": "verify: the one-time token that proves this domain belongs to the nursery's site on Jarasna Junior",
+  "serviceId": "junior-site-apex",
+  "serviceName": "Nursery website (root domain)",
+  "description": "Points the root of a domain at a nursery's website on Jarasna Junior (an A record to the platform's load balancer) and adds the TXT record that proves the nursery owns it.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "75.2.60.5",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_junior-verify",
+      "data": "junior-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "junior-verify="
+    }
+  ]
+}
