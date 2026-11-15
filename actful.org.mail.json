@@ -4,6 +4,7 @@
   "serviceId": "mail",
   "serviceName": "Actful email",
   "version": 1,
+  "logoUrl": "https://assets.actful.org/actful-mark.svg",
   "description": "Shows the organization owns its sending domain, lets Actful sign its email with Amazon SES DKIM, and adds a starting DMARC policy where there is none.",
   "variableDescription": "verify: the organization's ownership token. dkim1, dkim2, dkim3: the DKIM selectors Amazon SES issued for the sending domain.",
   "syncBlock": false,

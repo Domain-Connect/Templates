@@ -4,6 +4,7 @@
   "serviceId": "pages",
   "serviceName": "Actful pages",
   "version": 1,
+  "logoUrl": "https://assets.actful.org/actful-mark.svg",
   "description": "Serves an organization's Actful action pages on a subdomain of its own, such as act.example.org.",
   "syncBlock": false,
   "shared": false,
