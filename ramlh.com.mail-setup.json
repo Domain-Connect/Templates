@@ -1,0 +1,50 @@
+{
+  "providerId": "ramlh.com",
+  "providerName": "Ramlh",
+  "serviceId": "mail-setup",
+  "serviceName": "Ramlh Mail setup",
+  "version": 1,
+  "logoUrl": "https://app.ramlh.com/brand/auth/ramlh-monolith-mark.svg",
+  "description": "Verifies the domain for Ramlh and lets Ramlh Mail send for it: ownership TXT, SPF, DKIM and DMARC. It does not change MX, so email keeps arriving where it does now. Each group is applied on its own.",
+  "variableDescription": "verification: the per-company token in _ramlh TXT; selector: the DKIM selector; dkimkey: the base64 DKIM public key",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.ramlh.com",
+  "syncRedirectDomain": "app.ramlh.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_ramlh",
+      "data": "ramlh-verification=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ramlh-verification=",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.hostedemail.com"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
