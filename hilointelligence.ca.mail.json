@@ -3,9 +3,9 @@
   "providerName": "AI Center",
   "serviceId": "mail",
   "serviceName": "AI Center Communications — hosted mail",
-  "version": 1,
-  "description": "DNS for a domain whose mailboxes are hosted by AI Center Communications: ownership verification, SPF (merged), DKIM, DMARC and the MX. Groups let the wizard apply the ownership record first, the authentication records while the previous mail service still delivers, and the MX as a separate deliberate step.",
-  "variableDescription": "%verify%: the ownership token the wizard issued; %spf%: SPF mechanisms authorizing the deployment's mail host (merged into any existing SPF); %dkim1sel% / %dkim1% and %dkim2sel% / %dkim2%: DKIM selectors and the tags after v=DKIM1 for the two published keys; %dmarc%: the DMARC tags after v=DMARC1 (merged by the wizard with any existing policy); %mx%: the deployment's mail host.",
+  "version": 2,
+  "description": "DNS for a domain whose mailboxes are hosted by AI Center Communications: ownership verification, SPF (merged), DKIM, DMARC and the MX. Groups let the wizard apply the ownership record first, the authentication records while the previous mail service still delivers, DMARC only where the domain has no policy yet, and the MX as a separate deliberate step.",
+  "variableDescription": "%verify%: the ownership token the wizard issued; %spf%: SPF mechanisms authorizing the deployment's mail host (merged into any existing SPF); %dkim1sel% / %dkim1% and %dkim2sel% / %dkim2%: DKIM selectors and the tags after v=DKIM1 for the two published keys; %dmarc%: the DMARC tags after v=DMARC1 (the dmarc group is applied only when the domain has no DMARC record yet); %mx%: the deployment's mail host.",
   "syncBlock": false,
   "syncPubKeyDomain": "dc.hilointelligence.ca",
   "records": [
@@ -25,7 +25,7 @@
       "spfRules": "%spf%"
     },
     {
-      "groupId": "auth",
+      "groupId": "dkim1",
       "type": "TXT",
       "host": "%dkim1sel%._domainkey",
       "data": "v=DKIM1; %dkim1%",
@@ -41,7 +41,7 @@
       "txtConflictMatchingMode": "All"
     },
     {
-      "groupId": "auth",
+      "groupId": "dmarc",
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; %dmarc%",

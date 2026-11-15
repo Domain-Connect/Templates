@@ -1,0 +1,36 @@
+{
+  "providerId": "gomry.com",
+  "providerName": "Gomry",
+  "serviceId": "website",
+  "serviceName": "Gomry Websites",
+  "version": 1,
+  "logoUrl": "https://www.gomry.com/logo.svg",
+  "description": "Connects a domain to a website built with Gomry: www serves the site and the bare domain redirects to it.",
+  "variableDescription": "ip: the address the bare domain points at; target: the name www points at; token: proves the domain belongs to the Gomry account connecting it",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.gomry.com",
+  "syncRedirectDomain": "gomry.com,www.gomry.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_gomry-verify",
+      "data": "gomry-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "gomry-verify="
+    }
+  ]
+}

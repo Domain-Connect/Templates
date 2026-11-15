@@ -3,10 +3,10 @@
   "providerName": "Groundmail",
   "serviceId": "mail",
   "serviceName": "Transactional email",
-  "version": 1,
+  "version": 2,
   "syncBlock": false,
   "logoUrl": "https://app.groundmail.dev/images/logo.svg",
-  "description": "Verify domain ownership and enable authenticated transactional email (SPF, DKIM, return-path, DMARC).",
+  "description": "Verify domain ownership, enable authenticated transactional email (SPF, DKIM, return-path, DMARC) and receive mail on subdomains (MX).",
   "syncPubKeyDomain": "groundmail.dev",
   "syncRedirectDomain": "app.groundmail.dev",
   "records": [
@@ -50,6 +50,21 @@
       "type": "CNAME",
       "host": "%trackingHost%",
       "pointsTo": "%trackingTarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "agent-spf",
+      "type": "SPFM",
+      "host": "@",
+      "ttl": 3600,
+      "spfRules": "include:spf.groundmailbox.com"
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxTarget%",
+      "priority": 10,
       "ttl": 3600
     }
   ]

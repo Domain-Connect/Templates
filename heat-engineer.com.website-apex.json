@@ -3,11 +3,12 @@
   "providerName": "Heat Engineer",
   "serviceId": "website-apex",
   "serviceName": "Business website",
-  "version": 1,
+  "version": 2,
+  "logoUrl": "https://heat-engineer.com/assets/images/heat-engineer-logo.png",
   "description": "Connect your domain to your Heat Engineer website. Existing website routing records for this address will be replaced.",
   "syncPubKeyDomain": "domainconnect.heat-engineer.com",
   "syncRedirectDomain": "heat-engineer.com",
-  "variableDescription": "Website routing and domain ownership values are supplied and signed by Heat Engineer.",
+  "variableDescription": "Website values are supplied and signed by Heat Engineer. cnamePrefix and cnameSuffix reconstruct the exact Vercel target; cnameSuffix is empty or a hyphen followed by digits. verificationHostSuffix1 and verificationHostSuffix2 are empty or a dot followed by relative DNS labels below _vercel. verificationToken1 and verificationToken2 contain the challenge after vc-domain-verify=. Do not pass host.",
   "records": [
     {
       "type": "A",
@@ -19,24 +20,23 @@
     {
       "type": "CNAME",
       "host": "www",
-      "pointsTo": "%cname%",
+      "pointsTo": "%cnamePrefix%.vercel-dns%cnameSuffix%.com",
       "ttl": 300,
       "groupId": "website"
     },
     {
       "type": "TXT",
-      "host": "%verificationHost1%.%domain%.",
-      "data": "%verificationValue1%",
+      "host": "_vercel%verificationHostSuffix1%",
+      "data": "vc-domain-verify=%verificationToken1%",
       "ttl": 300,
       "groupId": "ownership1"
     },
     {
       "type": "TXT",
-      "host": "%verificationHost2%.%domain%.",
-      "data": "%verificationValue2%",
+      "host": "_vercel%verificationHostSuffix2%",
+      "data": "vc-domain-verify=%verificationToken2%",
       "ttl": 300,
       "groupId": "ownership2"
     }
-  ],
-  "logoUrl": "https://heat-engineer.com/assets/images/heat-engineer-logo.png"
+  ]
 }

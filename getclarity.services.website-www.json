@@ -1,0 +1,20 @@
+{
+  "providerId": "getclarity.services",
+  "providerName": "Clarity",
+  "serviceId": "website-www",
+  "serviceName": "Clarity website (www)",
+  "version": 1,
+  "logoUrl": "https://getclarity.services/logos/clarity-logo.svg",
+  "description": "Points www at Clarity website hosting and adds the hostname ownership check and the two certificate checks that Clarity's hosting (Cloudflare for SaaS) needs. Changes only www, _cf-custom-hostname.www and _acme-challenge.www under the applied domain; mail and apex records are not touched.",
+  "variableDescription": "cfhv: hostname ownership token issued by Cloudflare for SaaS (a UUID). acme1, acme2: the two ACME DNS-01 certificate validation values for www (43-character base64url each).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.getclarity.services",
+  "syncRedirectDomain": "getclarity.services",
+  "hostRequired": false,
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "sites.getclarity.marketing", "ttl": 3600 },
+    { "type": "TXT", "host": "_cf-custom-hostname.www", "data": "%cfhv%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "TXT", "host": "_acme-challenge.www", "data": "%acme1%", "ttl": 300, "txtConflictMatchingMode": "None" },
+    { "type": "TXT", "host": "_acme-challenge.www", "data": "%acme2%", "ttl": 300, "txtConflictMatchingMode": "None" }
+  ]
+}

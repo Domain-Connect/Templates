@@ -1,0 +1,46 @@
+{
+  "providerId": "gb7synq.com",
+  "providerName": "GB7 SYNQ",
+  "serviceId": "mail",
+  "serviceName": "SYNQ Mail",
+  "version": 1,
+  "logoUrl": "https://gb7synq.com/assets/img/logo-mark.svg",
+  "description": "E-mail for the domain on the SYNQ Mail server mail.gb7synq.com: MX, SPF, DKIM and DMARC.",
+  "variableDescription": "dkimselector: DKIM selector of the domain; dkimkey: DKIM public key (base64)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "gb7synq.com",
+  "syncRedirectDomain": "gb7synq.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.gb7synq.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx a:mail.gb7synq.com"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "txtConflictMatchingPrefix": ""
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; adkim=r; aspf=r",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

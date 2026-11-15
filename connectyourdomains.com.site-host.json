@@ -1,0 +1,32 @@
+{
+  "providerId": "connectyourdomains.com",
+  "providerName": "Connect Your Domains",
+  "serviceId": "site-host",
+  "serviceName": "Website address",
+  "version": 2,
+  "logoUrl": "https://connectyourdomains.com/dc-logo.svg",
+  "description": "Points one hostname (for example www or blog) at a website hosted by Connect Your Domains, with a TXT record proving the domain's owner chose it. Two records; never touches MX, SPF, DKIM, DMARC or any other record.",
+  "variableDescription": "%token%: a random per-hostname ownership token, 32 lowercase letters and digits.",
+  "syncPubKeyDomain": "connectyourdomains.com",
+  "syncRedirectDomain": "connect.connectyourdomains.com",
+  "hostRequired": true,
+  "shared": true,
+  "sharedProviderName": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_site-verify",
+      "data": "site-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "site-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.connectyourdomains.com",
+      "ttl": 600
+    }
+  ]
+}

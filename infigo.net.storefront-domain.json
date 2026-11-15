@@ -1,0 +1,30 @@
+{
+  "providerId": "infigo.net",
+  "providerName": "Infigo",
+  "serviceId": "storefront-domain",
+  "serviceName": "Infigo storefront",
+  "version": 1,
+  "logoUrl": "https://www.infigo.net/logo",
+  "description": "Points your subdomain at your Infigo Web2Print storefront and lets Infigo issue its certificate.",
+  "variableDescription": "target: the storefront's CNAME target; acme: the certificate validation target",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.infigo.net",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "sub",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "acme",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%acme%",
+      "ttl": 3600
+    }
+  ]
+}

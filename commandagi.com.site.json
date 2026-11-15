@@ -1,0 +1,28 @@
+{
+  "providerId": "commandagi.com",
+  "providerName": "CommandAGI",
+  "version": 1,
+  "logoUrl": "https://commandagi.com/apple-touch-icon.png",
+  "variableDescription": "ownership: the value of the _cf-custom-hostname TXT record that Cloudflare issues for the hostname",
+  "syncPubKeyDomain": "commandagi.com",
+  "syncRedirectDomain": "commandagi.com,commandagi.app",
+  "serviceId": "site",
+  "serviceName": "CommandAGI Sites",
+  "description": "Points a subdomain at a site hosted by CommandAGI and adds its ownership TXT record.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.commandagi.app",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

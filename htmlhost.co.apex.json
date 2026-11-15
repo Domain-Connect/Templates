@@ -1,0 +1,21 @@
+{
+  "providerId": "htmlhost.co",
+  "providerName": "htmlhost",
+  "serviceId": "apex",
+  "serviceName": "htmlhost website (root domain)",
+  "version": 1,
+  "logoUrl": "https://htmlhost.co/favicon.svg",
+  "description": "Points the root domain at a website hosted on htmlhost.",
+  "variableDescription": "ip: the IPv4 address htmlhost's hosting recommends for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "htmlhost.co",
+  "syncRedirectDomain": "htmlhost.co",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}

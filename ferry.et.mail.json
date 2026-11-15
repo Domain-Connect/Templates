@@ -1,0 +1,63 @@
+{
+  "providerId": "ferry.et",
+  "providerName": "Ferry",
+  "serviceId": "mail",
+  "serviceName": "Ferry business email",
+  "version": 1,
+  "logoUrl": "https://ferry.et/icon.svg",
+  "description": "Connects a domain to Ferry business email: ownership check, incoming mail (MX), sending (SPF and DKIM) and a DMARC policy.",
+  "variableDescription": "token: Ferry ownership token. dkimdate: date part of the DKIM selectors Ferry issues, e.g. 20261101. edkey: Ed25519 DKIM public key (base64, without p=). rsakey: RSA DKIM public key (base64, without p=). Groups: verify (ownership), inbound (MX, skipped for send-only domains), sending (SPF and DKIM), dmarc (applied only when the domain has no DMARC record).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "ferry.et",
+  "syncRedirectDomain": "console.ferry.et",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_ferry",
+      "data": "ferry-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.ferry.et",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.ferry.et"
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "v1-ed25519-%dkimdate%._domainkey",
+      "data": "v=DKIM1; k=ed25519; h=sha256; p=%edkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "v1-rsa-%dkimdate%._domainkey",
+      "data": "v=DKIM1; k=rsa; h=sha256; p=%rsakey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@ferry.et",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

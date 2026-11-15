@@ -1,0 +1,19 @@
+{
+  "providerId": "heaven.dev",
+  "providerName": "Heaven",
+  "serviceId": "wildcard",
+  "serviceName": "Every name under a domain, for Computers",
+  "version": 1,
+  "description": "Points every name one level under a domain, or under one of its subdomains, at a Heaven organization. Names with records of their own keep them.",
+  "variableDescription": "label: the first label of the organization's address, LABEL.domains.heaven.dev: 3 to 32 lower-case letters, digits and hyphens.",
+  "syncPubKeyDomain": "heaven.dev",
+  "syncRedirectDomain": "heaven.dev",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "*",
+      "pointsTo": "%label%.domains.heaven.dev",
+      "ttl": 300
+    }
+  ]
+}

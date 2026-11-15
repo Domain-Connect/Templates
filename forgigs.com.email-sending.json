@@ -3,9 +3,9 @@
     "providerName": "Forgigs",
     "serviceId": "email-sending",
     "serviceName": "Send email from your domain",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://pages.forgigs.com/logo.svg",
-    "description": "Adds the DNS records Amazon SES needs so Forgigs can send email from your domain. Orders, tickets, and requests use the domain. Newsletters use the news subdomain. This does not change the website address.",
+    "description": "Adds the DNS records Amazon SES needs so Forgigs can send email from your domain, and a DMARC record so inboxes can check the mail is really from you. Orders, tickets, and requests use the domain. Newsletters use the news subdomain. This does not change the website address.",
     "variableDescription": "%dkim1% %dkim2% %dkim3%: Easy DKIM selectors for the domain. %news_dkim1% %news_dkim2% %news_dkim3%: Easy DKIM selectors for news.yourdomain. %region%: SES region in the MAIL FROM host, such as us-east-1.",
     "syncPubKeyDomain": "keys.forgigs.com",
     "syncRedirectDomain": "pages.forgigs.com",
@@ -81,6 +81,22 @@
             "host": "bounce.news",
             "spfRules": "include:amazonses.com",
             "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "news_dmarc",
+            "type": "TXT",
+            "host": "_dmarc.news",
+            "data": "v=DMARC1; p=none",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
         }
     ]
 }

@@ -3,14 +3,25 @@
   "providerName": "AIOS",
   "serviceId": "site",
   "serviceName": "AIOS Sites",
-  "version": 1,
-  "logoUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://aioshq.com&size=128",
+  "version": 2,
+  "logoUrl": "https://cdn.aioshq.com/desktop/aios-wordmark.svg",
   "description": "Point a domain at a site published with AIOS Sites.",
+  "variableDescription": "%proof%: the one-time token that proves the domain belongs to the AIOS member who claimed it (32 hex characters).",
   "syncPubKeyDomain": "aioslive.app",
   "syncRedirectDomain": "aioslive.app",
   "hostRequired": true,
   "records": [
     {
+      "groupId": "proof",
+      "type": "TXT",
+      "host": "_aios-site",
+      "data": "aios-site=%proof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "aios-site="
+    },
+    {
+      "groupId": "site",
       "type": "CNAME",
       "host": "@",
       "pointsTo": "fallback.aioslive.app",

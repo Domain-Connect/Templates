@@ -1,0 +1,45 @@
+{
+  "providerId": "studioip.digital",
+  "providerName": "Studio IP",
+  "serviceId": "chamal-mail-nodmarc",
+  "serviceName": "UP Chamal campaign email (DKIM, MAIL FROM)",
+  "version": 1,
+  "logoUrl": "https://studioip.digital/assets/logo.svg",
+  "description": "Lets UP Chamal, the fundraising platform by Studio IP, send a campaign's email from the organization's own domain through Amazon SES: three DKIM records and a MAIL FROM subdomain (bounce) with its MX record and SPF rule. Used when the domain already publishes DMARC, which is left unchanged. Apply with the host parameter to set up a subdomain.",
+  "variableDescription": "dkim1, dkim2, dkim3: the Easy DKIM tokens Amazon SES issues for the domain; dkimzone: the Amazon SES DKIM zone of the region without the amazonses.com suffix (dkim, or dkim.<region> in newer regions, e.g. dkim.il-central-1); region: the Amazon SES region that receives bounces (e.g. il-central-1)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "studioip.digital",
+  "syncRedirectDomain": "chamal.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.%dkimzone%.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.%dkimzone%.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.%dkimzone%.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

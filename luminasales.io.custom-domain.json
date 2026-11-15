@@ -1,0 +1,22 @@
+{
+  "providerId": "luminasales.io",
+  "providerName": "Lumina Sales",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://luminasales.io/brand/lumina-logo.png",
+  "description": "Points a subdomain at Lumina Sales so your demos or client portal are served from your own domain. Nothing else in your DNS changes.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "dc.luminasales.io",
+  "syncRedirectDomain": "app.luminasales.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

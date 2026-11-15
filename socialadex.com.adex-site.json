@@ -1,0 +1,22 @@
+{
+  "providerId": "socialadex.com",
+  "providerName": "SocialAdex",
+  "serviceId": "adex-site",
+  "serviceName": "Adex site",
+  "version": 1,
+  "logoUrl": "https://app.socialadex.com/brand/socialadex-logo.png",
+  "description": "Points one subdomain (for example adex.yourdomain.com) to SocialAdex, which hosts a search-ready site built from the business's own details. The main website is not changed.",
+  "variableDescription": "No variables. The subdomain is chosen with the host parameter.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "socialadex.com",
+  "syncRedirectDomain": "app.socialadex.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.socialadex.com",
+      "ttl": 3600
+    }
+  ]
+}

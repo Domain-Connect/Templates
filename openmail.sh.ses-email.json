@@ -3,10 +3,10 @@
   "providerName": "OpenMail",
   "serviceId": "ses-email",
   "serviceName": "OpenMail",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://openmail.sh/bimi/logo.svg",
   "description": "Configure email sending and receiving with OpenMail.",
-  "variableDescription": "region: AWS SES region provisioned by OpenMail (for example, eu-north-1). selector: DKIM selector provisioned by OpenMail (currently omail). domainKey: base64-encoded RSA public key for that selector, without PEM headers or the v=DKIM1; k=rsa; p= prefix. dmarcrua: email address for aggregate DMARC reports, without the mailto: prefix.",
+  "variableDescription": "region: AWS SES region provisioned by OpenMail (for example, eu-north-1). selector: DKIM selector provisioned by OpenMail (currently omail). domainKey: base64-encoded RSA public key for that selector, without PEM headers or the v=DKIM1; k=rsa; p= prefix.",
   "syncPubKeyDomain": "domainconnect.openmail.sh",
   "syncRedirectDomain": "console.openmail.sh",
   "records": [
@@ -39,7 +39,7 @@
       "type": "TXT",
       "host": "_dmarc",
       "ttl": 3600,
-      "data": "v=DMARC1; p=reject; rua=mailto:%dmarcrua%",
+      "data": "v=DMARC1; p=none",
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1",
       "essential": "OnApply"

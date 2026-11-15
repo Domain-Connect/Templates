@@ -1,0 +1,26 @@
+{
+  "providerId": "webbo.pro",
+  "providerName": "Webbo",
+  "serviceId": "site-apex",
+  "serviceName": "Webbo — site ou loja no domínio raiz",
+  "version": 1,
+  "logoUrl": "https://cdn.webbo.pro/assets/webbo-logo-black-small.png",
+  "description": "Aponta o domínio raiz (ex.: suaempresa.com.br) e o www para um site ou loja hospedado na Webbo.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "webbo.pro",
+  "syncRedirectDomain": "dash.webbo.pro",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "72.60.50.206",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.webbo.pro",
+      "ttl": 3600
+    }
+  ]
+}

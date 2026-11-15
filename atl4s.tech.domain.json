@@ -1,0 +1,27 @@
+{
+    "providerId": "atl4s.tech",
+    "providerName": "Atl4s",
+    "serviceId": "domain",
+    "serviceName": "Atl4s Builder",
+    "version": 1,
+    "description": "Connects a subdomain of the customer to the Atl4s platform: a CNAME to domains.atl4s.tech (DNS only) and the TXT proof of ownership at _atl4s.",
+    "variableDescription": "proof: the ownership token of the workspace for this host (lowercase letters and digits).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "atl4s.tech",
+    "syncRedirectDomain": "atl4s.tech,builder.atl4s.tech",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "domains.atl4s.tech",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "host": "_atl4s",
+            "data": "atl4s-verify=%proof%",
+            "ttl": 300
+        }
+    ]
+}

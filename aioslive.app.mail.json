@@ -1,0 +1,45 @@
+{
+  "providerId": "aioslive.app",
+  "providerName": "AIOS",
+  "serviceId": "mail",
+  "serviceName": "AIOS Mail",
+  "version": 1,
+  "logoUrl": "https://cdn.aioshq.com/desktop/aios-wordmark.svg",
+  "description": "Send email from a domain with AIOS Mail (Amazon SES): DKIM signatures and the bounce and SPF records on send.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three DKIM selectors Amazon SES made for this domain (32 lowercase base32 characters each).",
+  "syncPubKeyDomain": "aioslive.app",
+  "syncRedirectDomain": "aioslive.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.us-east-2.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

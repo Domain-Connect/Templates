@@ -1,0 +1,45 @@
+{
+    "providerId": "joinworkforce.ai",
+    "providerName": "Workforce AI",
+    "serviceId": "emaildomain-dmarc",
+    "serviceName": "Email from your domain",
+    "version": 2,
+    "logoUrl": "https://dashboard.hireworkforce.ai/web-app-manifest-512x512.png",
+    "description": "As joinworkforce.ai.emaildomain, plus a DMARC policy for the subdomain (kept in our zone). Used only when the customer's domain publishes no DMARC.",
+    "variableDescription": "%mzone%: where the CNAMEs point in our mail zone, made for the customer's domain: <16 hex>.m.joinworkforce.ai (dev./staging. before m. for our test environments)",
+    "syncPubKeyDomain": "domainconnect.joinworkforce.ai",
+    "syncRedirectDomain": "dashboard.hireworkforce.ai,dashboard.staging.hireworkforce.ai,dashboard.dev.hireworkforce.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%mzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "resend._domainkey",
+            "pointsTo": "resend._domainkey.%mzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "send",
+            "pointsTo": "send.%mzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "rsend",
+            "pointsTo": "rsend.%mzone%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "_dmarc",
+            "pointsTo": "_dmarc.%mzone%",
+            "ttl": 3600
+        }
+    ]
+}

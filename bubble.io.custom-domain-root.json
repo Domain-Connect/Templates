@@ -1,0 +1,47 @@
+{
+	"providerId": "bubble.io",
+	"providerName": "Bubble",
+	"serviceId": "custom-domain-root",
+	"serviceName": "Custom root domain",
+	"version": 1,
+	"syncPubKeyDomain": "bubble.io",
+	"description": "Point a root domain at a Bubble app where the DNS provider can't hold a CNAME at the root.",
+	"logoUrl": "https://meta-q.cdn.bubble.io/f1756386552835x162920220128838430/Logo%20%281%29.svg",
+	"records": [
+		{
+			"groupId": "domain",
+			"type": "A",
+			"host": "@",
+			"pointsTo": "104.16.36.105",
+			"ttl": 3600
+		},
+		{
+			"groupId": "domain",
+			"type": "A",
+			"host": "@",
+			"pointsTo": "104.16.42.105",
+			"ttl": 3600
+		},
+		{
+			"groupId": "domain",
+			"type": "A",
+			"host": "@",
+			"pointsTo": "104.19.240.93",
+			"ttl": 3600
+		},
+		{
+			"groupId": "domain",
+			"type": "A",
+			"host": "@",
+			"pointsTo": "104.19.241.93",
+			"ttl": 3600
+		},
+		{
+			"groupId": "www",
+			"type": "CNAME",
+			"host": "www",
+			"pointsTo": "app.bubble.io",
+			"ttl": 3600
+		}
+	]
+}

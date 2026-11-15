@@ -1,0 +1,30 @@
+{
+  "providerId": "fast.site",
+  "providerName": "fast.site",
+  "serviceId": "edge-www",
+  "serviceName": "Website acceleration (www)",
+  "version": 1,
+  "logoUrl": "https://fast.site/icon.svg",
+  "description": "Connects your domain to the fast.site edge network: an ownership TXT record, and www pointed at edge.fast.site. For DNS providers without apex CNAME support; the domain itself is pointed separately.",
+  "variableDescription": "token: the per-domain ownership token shown in the fast.site dashboard",
+  "syncBlock": false,
+  "syncPubKeyDomain": "fast.site",
+  "syncRedirectDomain": "fast.site",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_fastsite-verify",
+      "data": "fastsite-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "edge.fast.site",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "providerId": "samlify.com",
+  "providerName": "Samlify",
+  "serviceId": "website",
+  "serviceName": "Samlify website",
+  "version": 1,
+  "logoUrl": "https://samlify.com/assets/samlify-03.svg",
+  "description": "Points one subdomain (for example www.example.com) at the website Samlify made for you. Nothing else on the domain is changed.",
+  "variableDescription": "No variables. The subdomain is the host the template is applied to.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "samlify.com",
+  "syncRedirectDomain": "hemsida.samlify.com,app.samlify.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.samlify.app",
+      "ttl": 3600
+    }
+  ]
+}

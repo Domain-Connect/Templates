@@ -1,0 +1,20 @@
+{
+  "providerId": "seitenigel.de",
+  "providerName": "Seitenigel",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://seitenigel.de/brand/seitenigel-zeichen-1024.png",
+  "description": "Points www or a chosen subdomain at the Seitenigel website platform. Group 'prepare' adds the two Cloudflare custom-hostname validation records first, so the certificate is ready before the switch; group 'switch' then adds the CNAME. Mail records are never touched.",
+  "variableDescription": "%owntxt%: the Cloudflare custom-hostname ownership token, minted per hostname. %acmetxt%: the certificate DCV token for the same hostname. Both are opaque single-purpose values prescribed by Cloudflare and cannot carry a prefix.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "seitenigel.de",
+  "syncRedirectDomain": "seitenigel.de",
+  "records": [
+    { "groupId": "prepare", "type": "TXT", "host": "_cf-custom-hostname", "data": "%owntxt%", "ttl": 3600, "essential": "Always", "txtConflictMatchingMode": "All" },
+    { "groupId": "prepare", "type": "TXT", "host": "_acme-challenge", "data": "%acmetxt%", "ttl": 3600, "essential": "Always", "txtConflictMatchingMode": "All" },
+    { "groupId": "switch", "type": "CNAME", "host": "@", "pointsTo": "kunden.seitenigel.de", "ttl": 3600, "essential": "Always" }
+  ]
+}

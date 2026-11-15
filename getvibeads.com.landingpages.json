@@ -1,0 +1,23 @@
+{
+  "providerId": "getvibeads.com",
+  "providerName": "VibeAds",
+  "serviceId": "landingpages",
+  "serviceName": "VibeAds landing pages",
+  "version": 1,
+  "logoUrl": "https://getvibeads.com/icon-512.png",
+  "description": "Points www at your VibeAds landing pages.",
+  "variableDescription": "No variables.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "getvibeads.com",
+  "syncRedirectDomain": "getvibeads.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "customers.localad.app",
+      "ttl": 3600
+    }
+  ]
+}

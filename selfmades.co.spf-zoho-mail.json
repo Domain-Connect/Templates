@@ -1,0 +1,20 @@
+{
+  "providerId": "selfmades.co",
+  "providerName": "Selfmades",
+  "serviceId": "spf-zoho-mail",
+  "serviceName": "SPF for Zoho Mail",
+  "version": 1,
+  "logoUrl": "https://selfmades.co/selfmades-icon-green-v2.png",
+  "description": "Merges Zoho Mail into the domain's SPF record, so that mail sent from a Zoho Mail mailbox the domain's owner connected to Selfmades passes SPF. Selfmades offers it only when the domain's SPF does not authorize Zoho Mail yet; the existing record and its other senders are kept.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "selfmades.co",
+  "syncRedirectDomain": "selfmades.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:zohomail.com"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "providerId": "zernio.com",
+  "providerName": "Zernio",
+  "serviceId": "tracking",
+  "serviceName": "Zernio server-side tracking",
+  "version": 1,
+  "logoUrl": "https://zernio.com/icon.png",
+  "description": "Points a subdomain of your site at Zernio's tracking server, so tracking loads from your own domain.",
+  "variableDescription": "host: the subdomain tracking loads from, such as t",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "zernio.com",
+  "syncRedirectDomain": "zernio.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.zernio-edge.com",
+      "ttl": 3600
+    }
+  ]
+}

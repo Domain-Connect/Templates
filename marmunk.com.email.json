@@ -1,0 +1,45 @@
+{
+  "providerId": "marmunk.com",
+  "providerName": "Marmunk",
+  "serviceId": "email",
+  "serviceName": "Marmunk sending domain",
+  "version": 1,
+  "logoUrl": "https://marmunk.com/marmunk-symbol.svg",
+  "description": "Adds Amazon SES Easy DKIM CNAMEs and a custom MAIL FROM (MX + SPF) so Marmunk can send from this domain. Does not change DMARC.",
+  "variableDescription": "dkim1/dkim2/dkim3 = the three Amazon SES Easy-DKIM tokens; region = the SES region for the MAIL FROM feedback host.",
+  "syncPubKeyDomain": "marmunk.com",
+  "syncRedirectDomain": "marmunk.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

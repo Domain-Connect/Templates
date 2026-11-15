@@ -1,0 +1,37 @@
+{
+  "providerId": "gethelm.ai",
+  "providerName": "Helm",
+  "serviceId": "email",
+  "serviceName": "Helm Email",
+  "version": 1,
+  "logoUrl": "https://gethelm.ai/brand/helm-mark.svg",
+  "description": "Lets Helm send email from your domain (DKIM and bounce handling) and brand the links in your emails.",
+  "variableDescription": "dkimselector: the DKIM selector Helm's mail provider assigned to this domain, e.g. 20260921202930pm. helmid: Helm's identifier for this domain, e.g. send-refinerywp-com-q9e3.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "helm-email.com",
+  "syncRedirectDomain": "app.gethelm.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkimselector%._domainkey",
+      "pointsTo": "%helmid%.dkim.helm-email.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "helm-bounce",
+      "pointsTo": "%helmid%.bounce.helm-email.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "link.helm-email.com",
+      "ttl": 3600
+    }
+  ]
+}

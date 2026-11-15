@@ -1,0 +1,18 @@
+{
+    "providerId": "bedsite.de",
+    "providerName": "bedsite",
+    "serviceId": "website",
+    "serviceName": "bedsite Hotel-Website",
+    "version": 1,
+    "logoUrl": "https://bedsite.de/logo.svg",
+    "description": "Points the domain to the hotel website hosted by bedsite: www via CNAME to bedsite, the apex via A/AAAA to the bedsite redirect server (301 to www). MX records and TXT records on the apex are not modified.",
+    "variableDescription": "ip4: IPv4 address of the bedsite redirect server; ip6: IPv6 address of the bedsite redirect server",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.bedsite.de",
+    "syncRedirectDomain": "app.bedsite.de,dev.bedsite.de",
+    "records": [
+        { "type": "A",     "host": "@",   "pointsTo": "%ip4%",           "ttl": 3600 },
+        { "type": "AAAA",  "host": "@",   "pointsTo": "%ip6%",           "ttl": 3600 },
+        { "type": "CNAME", "host": "www", "pointsTo": "edge.bedsite.de", "ttl": 3600 }
+    ]
+}

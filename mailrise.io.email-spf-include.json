@@ -1,0 +1,20 @@
+{
+  "providerId": "mailrise.io",
+  "providerName": "MailRise",
+  "serviceId": "email-spf-include",
+  "serviceName": "Allow an email service to send for your domain",
+  "version": 1,
+  "logoUrl": "https://mailrise.io/logo.svg",
+  "description": "Adds an email service (for example Google Workspace or Mailchimp) to your domain's SPF record, so email it sends for you is trusted. Anything already allowed stays allowed.",
+  "variableDescription": "include: the SPF include name of the email service, for example _spf.google.com.",
+  "syncPubKeyDomain": "mailrise.io",
+  "syncRedirectDomain": "mailrise.io",
+  "multiInstance": true,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:%include%"
+    }
+  ]
+}

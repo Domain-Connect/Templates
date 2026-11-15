@@ -1,0 +1,67 @@
+{
+  "providerId": "getzero.email",
+  "providerName": "Zero",
+  "serviceId": "mail",
+  "serviceName": "Zero email",
+  "version": 1,
+  "logoUrl": "https://getzero.email/favicon.svg",
+  "description": "Hosts email for this domain with Zero (getzero.email): the mail server, sending (SPF and DKIM) and DMARC. The mailboxes live on Zero's mail host, PurelyMail.",
+  "variableDescription": "%token%: the Zero account's verification token for this domain (published as the TXT record zero-verify=<token>)",
+  "syncPubKeyDomain": "getzero.email",
+  "syncRedirectDomain": "getzero.email",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "zero-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "zero-verify="
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "purelymail_ownership_proof=97fb703bf374f1208c4ebe3d3ecc20d2b4042d6f54ba1d0f917b52433830ebbf2156d5d1c432d09f71159321b5733832fc88c1d9689e6e5815ee62f7961c459c",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "purelymail_ownership_proof="
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mailserver.purelymail.com",
+      "priority": 50,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.purelymail.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "purelymail1._domainkey",
+      "pointsTo": "key1.dkimroot.purelymail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "purelymail2._domainkey",
+      "pointsTo": "key2.dkimroot.purelymail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "purelymail3._domainkey",
+      "pointsTo": "key3.dkimroot.purelymail.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "dmarcroot.purelymail.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

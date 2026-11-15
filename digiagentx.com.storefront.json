@@ -1,0 +1,33 @@
+{
+    "providerId": "digiagentx.com",
+    "providerName": "DigiAgentX",
+    "serviceId": "storefront",
+    "serviceName": "DigiAgentX storefront",
+    "version": 1,
+    "description": "Points a domain at a DigiAgentX storefront and publishes the two TXT values Cloudflare needs to issue its certificate",
+    "variableDescription": "target: the platform hostname the domain points at; acme1, acme2: the two certificate validation values for the domain",
+    "syncBlock": false,
+    "syncPubKeyDomain": "digiagentx.com",
+    "syncRedirectDomain": "digiagentx.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_acme-challenge",
+            "data": "%acme1%",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "host": "_acme-challenge",
+            "data": "%acme2%",
+            "ttl": 300
+        }
+    ]
+}

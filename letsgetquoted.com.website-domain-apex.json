@@ -1,0 +1,18 @@
+{
+  "providerId": "letsgetquoted.com",
+  "providerName": "Let's Get Quoted",
+  "serviceId": "website-domain-apex",
+  "serviceName": "Let's Get Quoted website on your domain",
+  "version": 1,
+  "logoUrl": "https://letsgetquoted.com/lets-get-quoted-logo.png",
+  "description": "Points your domain and its www address at your Let's Get Quoted website, and adds the one TXT record that proves you own the domain. Email, mailbox and other records are not changed.",
+  "variableDescription": "ownerhost is the name of the ownership record and token is its value. ip is the website address for your root domain and cname is the host that www points to.",
+  "syncPubKeyDomain": "letsgetquoted.com",
+  "syncRedirectDomain": "app.letsgetquoted.com,letsgetquoted.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "TXT", "host": "%ownerhost%", "data": "lgq-domain-verify=%token%", "ttl": 3600 },
+    { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "%cname%", "ttl": 3600 }
+  ]
+}
