@@ -1,0 +1,22 @@
+{
+  "providerId": "ramlh.com",
+  "providerName": "Ramlh",
+  "serviceId": "mail-route",
+  "serviceName": "Ramlh Mail delivery",
+  "version": 1,
+  "logoUrl": "https://app.ramlh.com/brand/auth/ramlh-monolith-mark.svg",
+  "description": "Moves email for the domain to Ramlh Mail (hosted by OpenSRS) by setting its MX record. Applied only when the owner chooses to move their email.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.ramlh.com",
+  "syncRedirectDomain": "app.ramlh.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.%fqdn%.cust.a.hostedemail.com",
+      "priority": 0,
+      "ttl": 300
+    }
+  ]
+}
