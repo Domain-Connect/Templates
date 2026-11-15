@@ -1,0 +1,30 @@
+{
+  "providerId": "automasend.com",
+  "providerName": "Automasend",
+  "serviceId": "email-forwarding",
+  "serviceName": "Automasend Email Forwarding",
+  "version": 1,
+  "syncPubKeyDomain": "automasend.com",
+  "syncRedirectDomain": "automasend.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "route1.mx.automasend.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "route2.mx.automasend.com",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.cloudflare.net"
+    }
+  ]
+}
