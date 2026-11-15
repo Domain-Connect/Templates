@@ -1,0 +1,47 @@
+{
+    "providerId": "roamze.com",
+    "providerName": "Roamze",
+    "serviceId": "email-sending",
+    "serviceName": "Roamze business email",
+    "version": 1,
+    "logoUrl": "https://roamze.com/apple-touch-icon.png",
+    "description": "Lets Roamze send email for your business from your own address: a DKIM key, SPF and bounce handling on the send subdomain, and an optional open/click tracking record. Does not change where your email is delivered.",
+    "variableDescription": "%dkim%: DKIM public key (base64, without the p= prefix); %region%: Amazon SES region of the bounce MX, e.g. us-east-1",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "roamze.com",
+    "syncRedirectDomain": "roamze.com",
+    "records": [
+        {
+            "groupId": "core",
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%dkim%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "core",
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "core",
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "tracking",
+            "type": "CNAME",
+            "host": "rsend",
+            "pointsTo": "send.forge.rmta.net",
+            "ttl": 3600
+        }
+    ]
+}
