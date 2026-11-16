@@ -1,0 +1,47 @@
+{
+  "providerId": "mailengin.app",
+  "providerName": "MailEngin",
+  "serviceId": "email",
+  "serviceName": "MailEngin email sending",
+  "version": 1,
+  "logoUrl": "https://mailengin.app/mailengin-logo-metallic.png",
+  "description": "Adds the DKIM signing keys, the return-path MX record (mail subdomain) and the SPF include that MailEngin needs to send email from this domain.",
+  "variableDescription": "dkim1-3: DKIM selector tokens; dkimzone: DKIM signing zone (e.g. dkim.amazonses.com); region: AWS SES region (e.g. us-east-1)",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "mailengin.app",
+  "syncRedirectDomain": "api.mailengin.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.%dkimzone%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
