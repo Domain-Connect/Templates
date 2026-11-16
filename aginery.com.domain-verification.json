@@ -1,0 +1,24 @@
+{
+  "providerId": "aginery.com",
+  "providerName": "Agent Machinery",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain verification",
+  "version": 1,
+  "logoUrl": "https://aginery.com/logo.png",
+  "description": "Proves your organization owns this domain, so Agent Machinery can send people with addresses in it to your organization's single sign-on.",
+  "variableDescription": "token: the verification value shown in Agent Machinery, without the am-verify= prefix",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "aginery.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_agent-machinery",
+      "data": "am-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "am-verify="
+    }
+  ]
+}
