@@ -3,9 +3,9 @@
   "providerName": "FaultyPacket",
   "serviceId": "emailauth",
   "serviceName": "Email security fixes (SPF and DMARC)",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://faultypacket.co.uk/assets/faultypacket-logo.svg",
-  "description": "Adds the services that send email for your domain to SPF (merged with the SPF record you already have) and publishes or replaces your DMARC record, so receivers can spot email that fakes your domain.",
+  "description": "Adds the services that send email for your domain to SPF (merged with the SPF record you already have) and publishes or replaces your DMARC record, so receivers can spot email that fakes your domain. SPF and DMARC are separate record groups, so either can be applied on its own.",
   "variableDescription": "%spfrules%: SPF mechanisms for the services that send as this domain, e.g. include:spf.protection.outlook.com; %dmarcpolicy%: none, quarantine or reject; %dmarcrua%: mailbox for DMARC aggregate reports, e.g. dmarc-reports@example.co.uk",
   "syncBlock": false,
   "syncPubKeyDomain": "faultypacket.co.uk",
@@ -15,7 +15,8 @@
     {
       "type": "SPFM",
       "host": "@",
-      "spfRules": "%spfrules%"
+      "spfRules": "%spfrules%",
+      "groupId": "spf"
     },
     {
       "type": "TXT",
@@ -24,7 +25,8 @@
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
       "txtConflictMatchingPrefix": "v=DMARC1",
-      "essential": "OnApply"
+      "essential": "OnApply",
+      "groupId": "dmarc"
     }
   ]
 }
