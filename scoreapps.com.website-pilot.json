@@ -1,0 +1,41 @@
+{
+  "providerId": "scoreapps.com",
+  "providerName": "ScoreApps",
+  "serviceId": "website-pilot",
+  "serviceName": "ScoreApps Websites Pilot",
+  "version": 1,
+  "logoUrl": "https://scoreapps.com/assets/imgs/general/logo-scoreapps.svg",
+  "description": "Cloudflare-only development pilot connecting the apex and www to the fixed ScoreApps SaaS target. It adds Cloudflare custom-hostname ownership proofs. Certificate issuance and renewal use automatic HTTP DCV, not DNS certificate tokens.",
+  "variableDescription": "rootOwnership and wwwOwnership are the exact Cloudflare ownership_verification.value returned for the apex and www custom hostnames, respectively. These values must come from the trusted SaaS backend, never from arbitrary user input. They must not be prefixed because Cloudflare prescribes their complete values.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.scoreapps.info",
+  "syncRedirectDomain": "staging-app.scoreapps.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.apps4pymes.com",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "domains.apps4pymes.com",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%rootOwnership%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname.www",
+      "data": "%wwwOwnership%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 600
+    }
+  ]
+}
