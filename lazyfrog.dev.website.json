@@ -1,0 +1,22 @@
+{
+  "providerId": "lazyfrog.dev",
+  "providerName": "LazyFrog",
+  "serviceId": "website",
+  "serviceName": "LazyFrog website",
+  "version": 1,
+  "logoUrl": "https://lazyfrog.dev/brand/lazyfrog-mark-512.png",
+  "description": "Connects a hostname of your domain to your LazyFrog site: a CNAME to customers.lazyfrog.app. The hostname's HTTPS certificate is issued automatically once the record is in place.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "lazyfrog.dev",
+  "syncRedirectDomain": "app.lazyfrog.dev",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.lazyfrog.app",
+      "ttl": 3600
+    }
+  ]
+}
