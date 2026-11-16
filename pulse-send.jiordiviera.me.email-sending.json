@@ -1,0 +1,55 @@
+{
+    "providerId": "pulse-send.jiordiviera.me",
+    "providerName": "PulseSend",
+    "serviceId": "email-sending",
+    "serviceName": "PulseSend Email Sending",
+    "version": 1,
+    "logoUrl": "https://pulse-send.jiordiviera.me/mark.png",
+    "description": "Lets PulseSend send transactional email for your domain, with DKIM, SPF (return path) and DMARC.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "pulse-send.jiordiviera.me",
+    "syncRedirectDomain": "pulse-send.jiordiviera.me",
+    "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three DKIM selectors Amazon SES issued for this domain; %region%: the Amazon SES sending region (e.g. eu-west-3)",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}
