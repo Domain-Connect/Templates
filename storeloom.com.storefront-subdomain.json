@@ -1,0 +1,29 @@
+{
+  "providerId": "storeloom.com",
+  "providerName": "Storeloom",
+  "serviceId": "storefront-subdomain",
+  "serviceName": "Storeloom storefront subdomain",
+  "version": 1,
+  "logoUrl": "https://storeloom.com/assets/brand/storeloom-mark.png",
+  "description": "Connects a selected subdomain to a Storeloom storefront and adds its ownership proof.",
+  "variableDescription": "%claim% is the Storeloom routing label. %proof% is the corresponding Storeloom ownership token.",
+  "syncPubKeyDomain": "dns-connect.storeloom.com",
+  "syncRedirectDomain": "admin.storeloom.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%claim%.custom.storeloom.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_storeloom-challenge",
+      "data": "storeloom-verify=%proof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "storeloom-verify="
+    }
+  ]
+}
