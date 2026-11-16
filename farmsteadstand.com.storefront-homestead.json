@@ -1,0 +1,22 @@
+{
+  "providerId": "farmsteadstand.com",
+  "providerName": "Farmstead Stand",
+  "serviceId": "storefront-homestead",
+  "serviceName": "Online store (Homestead Stand)",
+  "version": 1,
+  "logoUrl": "https://farmsteadstand.com/branding/homesteadstand/android-chrome-512x512.png",
+  "description": "Points a subdomain (for example shop.yourfarm.com) at your Homestead Stand online store.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "farmsteadstand.com",
+  "syncRedirectDomain": "api.farmsteadstand.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "ssl.homesteadstand.com",
+      "ttl": 3600
+    }
+  ]
+}
