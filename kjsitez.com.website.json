@@ -1,0 +1,19 @@
+{
+    "providerId": "kjsitez.com",
+    "providerName": "KJ Sitez",
+    "serviceId": "website",
+    "serviceName": "Website",
+    "version": 1,
+    "logoUrl": "https://kjsitez.com/logo.png",
+    "description": "Points the www subdomain of your domain to your KJ Sitez website by creating a single CNAME record. Other DNS records, including MX, TXT, SPF and the root domain, are not changed.",
+    "syncPubKeyDomain": "kjsitez.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "customers.kjsitez.com",
+            "ttl": 3600
+        }
+    ],
+    "syncRedirectDomain": "kjwidgetz-api.onrender.com"
+}
