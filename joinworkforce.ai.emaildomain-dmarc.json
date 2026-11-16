@@ -3,7 +3,7 @@
     "providerName": "Workforce AI",
     "serviceId": "emaildomain-dmarc",
     "serviceName": "Email from your domain",
-    "version": 2,
+    "version": 3,
     "logoUrl": "https://dashboard.hireworkforce.ai/web-app-manifest-512x512.png",
     "description": "As joinworkforce.ai.emaildomain, plus a DMARC policy for the subdomain (kept in our zone). Used only when the customer's domain publishes no DMARC.",
     "variableDescription": "%mzone%: where the CNAMEs point in our mail zone, made for the customer's domain: <16 hex>.m.joinworkforce.ai (dev./staging. before m. for our test environments)",
@@ -32,7 +32,7 @@
         {
             "type": "CNAME",
             "host": "rsend",
-            "pointsTo": "rsend.%mzone%",
+            "pointsTo": "send.forge.rmta.net",
             "ttl": 3600
         },
         {
