@@ -1,0 +1,33 @@
+{
+    "providerId": "teasylink",
+    "providerName": "TeasyLink",
+    "serviceId": "customdomain",
+    "serviceName": "Custom domain",
+    "version": 1,
+    "logoUrl": "https://cdn.teasy.link/teasy/logo.svg",
+    "description": "Connects your domain to TeasyLink: routes traffic, enables automatic SSL renewal and verifies domain ownership.",
+    "variableDescription": "token: per-domain ownership verification token issued by Cloudflare for SaaS",
+    "syncPubKeyDomain": "teasy.link",
+    "syncRedirectDomain": "dashboard.teasy.link",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "domains.teasy.link",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "_acme-challenge",
+            "pointsTo": "%fqdn%.603c5a841a87b590.dcv.cloudflare.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%token%",
+            "ttl": 3600
+        }
+    ]
+}
