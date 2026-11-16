@@ -1,0 +1,111 @@
+{
+  "providerId": "wazobiamail.com",
+  "providerName": "WazobiaMail",
+  "serviceId": "email",
+  "serviceName": "WazobiaMail Email & Deliverability",
+  "version": 1,
+  "logoUrl": "https://wazobiamail.com/logo.svg",
+  "description": "Configure SPF, DKIM, DMARC, domain verification, open/click tracking, bounce routing, and incoming mail routing for WazobiaMail.",
+  "variableDescription": "verifyToken and sendVerifyToken are unique per-domain ownership verification tokens; dkimKey and sendDkimKey are 2048-bit RSA DKIM public keys (base64); relay is the WazobiaMail MTA relay domain (e.g. mta.wazobiamail.app); mxHost is the WazobiaMail inbound MX target (e.g. mail.wazobiamail.app); sendHost is the sending subdomain label (e.g. mta).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "wazobiamail.app",
+  "syncRedirectDomain": "app.wazobiamail.com,api.wazobiamail.com,wazobiamail.app,wazobiamail.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_wazobia-verify",
+      "data": "wazobia-domain-verification=%verifyToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "wazobia-domain-verification=",
+      "essential": "OnApply",
+      "ttl": 300
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.%relay%"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "s1._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1",
+      "ttl": 300
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxHost%",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 300
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "track",
+      "pointsTo": "track.%relay%",
+      "ttl": 300
+    },
+    {
+      "groupId": "bounces",
+      "type": "CNAME",
+      "host": "bounces",
+      "pointsTo": "mx.%relay%",
+      "ttl": 300
+    },
+    {
+      "groupId": "sendVerify",
+      "type": "TXT",
+      "host": "_wazobia-verify.%sendHost%",
+      "data": "wazobia-domain-verification=%sendVerifyToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "wazobia-domain-verification=",
+      "essential": "OnApply",
+      "ttl": 300
+    },
+    {
+      "groupId": "sendSpf",
+      "type": "SPFM",
+      "host": "%sendHost%",
+      "spfRules": "include:_spf.%relay%"
+    },
+    {
+      "groupId": "sendDkim",
+      "type": "TXT",
+      "host": "s1._domainkey.%sendHost%",
+      "data": "v=DKIM1; k=rsa; p=%sendDkimKey%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1",
+      "ttl": 300
+    },
+    {
+      "groupId": "sendTracking",
+      "type": "CNAME",
+      "host": "track.%sendHost%",
+      "pointsTo": "track.%relay%",
+      "ttl": 300
+    },
+    {
+      "groupId": "sendBounces",
+      "type": "CNAME",
+      "host": "bounces.%sendHost%",
+      "pointsTo": "mx.%relay%",
+      "ttl": 300
+    }
+  ]
+}
