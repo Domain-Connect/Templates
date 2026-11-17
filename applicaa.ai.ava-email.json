@@ -1,0 +1,20 @@
+{
+    "providerId": "applicaa.ai",
+    "providerName": "Applicaa",
+    "serviceId": "ava-email",
+    "serviceName": "AVA email sending",
+    "version": 1,
+    "syncBlock": false,
+    "syncPubKeyDomain": "applicaa.ai",
+    "syncRedirectDomain": "ava.applicaa.ai",
+    "description": "Authenticates a school's domain so AVA (ava.applicaa.ai) can send email from it through SendGrid: return-path and DKIM CNAMEs, link branding CNAMEs and an AVA ownership TXT. No MX, SPF or DMARC changes. Group 'auth' is always applied; group 'link' when link branding is enabled.",
+    "variableDescription": "returnId: digits of the SendGrid return-path label em<digits>; sgTarget: SendGrid account target without .sendgrid.net (e.g. u1234567.wl123); ownershipToken: 32 hex chars issued by AVA; linkId: digits of the SendGrid link branding label url<digits>; ownerId: numeric SendGrid link owner label.",
+    "records": [
+        { "groupId": "auth", "type": "CNAME", "host": "em%returnId%", "pointsTo": "%sgTarget%.sendgrid.net", "ttl": 3600 },
+        { "groupId": "auth", "type": "CNAME", "host": "s1._domainkey", "pointsTo": "s1.domainkey.%sgTarget%.sendgrid.net", "ttl": 3600 },
+        { "groupId": "auth", "type": "CNAME", "host": "s2._domainkey", "pointsTo": "s2.domainkey.%sgTarget%.sendgrid.net", "ttl": 3600 },
+        { "groupId": "auth", "type": "TXT", "host": "_ava", "data": "ava-domain-verification=%ownershipToken%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "ava-domain-verification=" },
+        { "groupId": "link", "type": "CNAME", "host": "url%linkId%", "pointsTo": "sendgrid.net", "ttl": 3600 },
+        { "groupId": "link", "type": "CNAME", "host": "%ownerId%", "pointsTo": "sendgrid.net", "ttl": 3600 }
+    ]
+}
