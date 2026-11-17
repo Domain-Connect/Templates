@@ -1,0 +1,36 @@
+{
+  "providerId": "farmsteadstand.com",
+  "providerName": "Farmstead Stand",
+  "serviceId": "email",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://farmsteadstand.com/branding/farmsteadstand/android-chrome-512x512.png",
+  "description": "Lets your Farmstead Stand store send email from your own domain (for example orders@yourfarm.com).",
+  "variableDescription": "dkimkey: the DKIM public key (after p=) our email provider issued for your domain",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "farmsteadstand.com",
+  "syncRedirectDomain": "api.farmsteadstand.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
