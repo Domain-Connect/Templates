@@ -1,0 +1,30 @@
+{
+  "providerId": "aspirethemes.com",
+  "providerName": "Aspire Themes",
+  "serviceId": "sites",
+  "serviceName": "Aspire Sites",
+  "version": 1,
+  "logoUrl": "https://aspirethemes.com/images/assets/aspirethemes-logo.jpg",
+  "description": "Points a domain or subdomain at a Ghost site hosted on Aspire Sites, and adds the record that proves the domain is yours.",
+  "variableDescription": "%verification%: the ownership value Aspire Sites shows for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sites.aspirethemes.com",
+  "syncRedirectDomain": "sites.aspirethemes.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites-edge.aspirethemes.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_aspire-sites",
+      "data": "aspire-sites-verify=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "aspire-sites-verify="
+    }
+  ]
+}
