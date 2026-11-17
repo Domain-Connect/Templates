@@ -1,0 +1,60 @@
+{
+  "providerId": "coachautomator.com",
+  "providerName": "CoachAutomator",
+  "serviceId": "email-security",
+  "serviceName": "CoachAutomator email sending",
+  "version": 1,
+  "logoUrl": "https://www.coachautomator.com/app/images/logos/calogo225.png",
+  "description": "Adds the DKIM, SPF, MAIL FROM and DMARC records that let CoachAutomator send authenticated email for this domain.",
+  "variableDescription": "dkimToken1, dkimToken2, dkimToken3: the three DKIM signing tokens of the sending service for this domain. region: the sending region, for example eu-central-1.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "coachautomator.com",
+  "syncRedirectDomain": "app.coachautomator.com",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
