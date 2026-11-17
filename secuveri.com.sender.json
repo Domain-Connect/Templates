@@ -1,0 +1,41 @@
+{
+  "providerId": "secuveri.com",
+  "providerName": "secuveri",
+  "serviceId": "sender",
+  "serviceName": "secuveri email sender domain",
+  "version": 1,
+  "logoUrl": "https://app.secuveri.com/secuveri.svg",
+  "description": "Lets secuveri send its customer's verification and dashboard emails from the customer's own domain: the three Amazon SES Easy DKIM CNAME records for the domain identity secuveri registers, and a TXT record that proves the customer requested it.",
+  "variableDescription": "%dkimSelector1%, %dkimSelector2%, %dkimSelector3%: the Easy DKIM tokens Amazon SES issues for the domain (32 lowercase letters and digits each). %token%: per-domain ownership token issued by secuveri (32 lowercase hex characters). The DKIM target zone is fixed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "secuveri.com",
+  "syncRedirectDomain": "app.secuveri.com,app-staging.secuveri.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkimSelector1%._domainkey",
+      "pointsTo": "%dkimSelector1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimSelector2%._domainkey",
+      "pointsTo": "%dkimSelector2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimSelector3%._domainkey",
+      "pointsTo": "%dkimSelector3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_secuveri-sender",
+      "data": "secuveri-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
