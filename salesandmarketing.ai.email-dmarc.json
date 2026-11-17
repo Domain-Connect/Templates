@@ -1,0 +1,32 @@
+{
+    "providerId": "salesandmarketing.ai",
+    "providerName": "SalesAndMarketing.ai",
+    "version": 1,
+    "syncPubKeyDomain": "salesandmarketing.ai",
+    "syncRedirectDomain": "webapp.salesandmarketing.ai,devwebapp.salesandmarketing.ai,qapywebapp.salesandmarketing.ai",
+    "serviceId": "email-dmarc",
+    "serviceName": "Email sending (DKIM, SPF and DMARC)",
+    "description": "Same as salesandmarketing.ai.email, plus a DMARC record (p=none, reports to DMARC Analyzer). Used only when the domain has no DMARC record yet, so an existing DMARC policy is not replaced.",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "sammail._domainkey",
+            "pointsTo": "dkim.salesandmarketing.ai",
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:servers.salesandmarketing.ai"
+        },
+        {
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:c05b0825cd96066@rep.dmarcanalyzer.com; ruf=mailto:c05b0825cd96066@for.dmarcanalyzer.com; fo=1",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}
