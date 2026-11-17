@@ -1,0 +1,18 @@
+{
+  "providerId": "getopenpass.com",
+  "providerName": "OpenPass",
+  "serviceId": "website",
+  "serviceName": "OpenPass gym website",
+  "version": 1,
+  "logoUrl": "https://getopenpass.com/app-icon-512.png",
+  "description": "Shows a gym's OpenPass website at its own www address, and adds a code that proves the address is theirs.",
+  "variableDescription": "code: the gym's OpenPass check code (24 letters and numbers)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "getopenpass.com",
+  "syncRedirectDomain": "getopenpass.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "sites.getopenpass.com", "ttl": 3600 },
+    { "type": "TXT", "host": "_openpass.www", "data": "openpass-verify-%code%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "openpass-verify-" }
+  ]
+}
