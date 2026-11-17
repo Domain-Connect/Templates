@@ -1,0 +1,22 @@
+{
+  "providerId": "aywapay.com",
+  "providerName": "AywaPay",
+  "serviceId": "paymentdomain",
+  "serviceName": "Payment domain",
+  "version": 1,
+  "logoUrl": "https://aywapay.com/icon1.svg",
+  "description": "Opens a store's crypto payment pages on its own subdomain (for example pay.yourshop.com)",
+  "variableDescription": "token: the store's id on AywaPay's payment domains",
+  "syncBlock": false,
+  "syncPubKeyDomain": "aywapay.com",
+  "syncRedirectDomain": "pay.aywapay.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%token%.domains.aywapay.com",
+      "ttl": 3600
+    }
+  ]
+}
