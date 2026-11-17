@@ -1,0 +1,19 @@
+{
+  "providerId": "jobsitebooked.com",
+  "providerName": "JobsiteBooked",
+  "serviceId": "email",
+  "serviceName": "JobsiteBooked email sending",
+  "version": 1,
+  "logoUrl": "https://go.jobsitebooked.com/plain-logo.svg",
+  "description": "Lets JobsiteBooked send your company's client emails (estimates, invoices, booking confirmations) from your own domain, with SPF and DKIM for sending only. Your website and your existing mailboxes are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "jobsitebooked.com",
+  "syncRedirectDomain": "jobsitebooked.com,go.jobsitebooked.com,go-own.jobsitebooked.com,app-own.jobsitebooked.com,go-test.jobsitebooked.com",
+  "variableDescription": "%sesregion%: the Amazon SES region the domain sends from (e.g. us-east-1); %dkimkey%: the DKIM public key issued for this domain, the part after p=.",
+  "records": [
+    { "type": "MX", "host": "send", "pointsTo": "feedback-smtp.%sesregion%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com" },
+    { "type": "TXT", "host": "resend._domainkey", "data": "p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "CNAME", "host": "rsend", "pointsTo": "send.forge.rmta.net", "ttl": 3600 }
+  ]
+}
