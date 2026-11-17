@@ -1,0 +1,49 @@
+{
+  "providerId": "smalt.eu",
+  "providerName": "smalt",
+  "serviceId": "mail",
+  "serviceName": "Email authentication (Google Workspace)",
+  "version": 1,
+  "logoUrl": "https://smalt.eu/icon.png",
+  "description": "Authenticates email that a business sends through smalt from its own domain with Google Workspace: adds Google to the SPF record, publishes the Workspace DKIM key, sets a DMARC policy when the domain has none, and optionally adds the Google site verification token.",
+  "variableDescription": "dkimkey: the DKIM public key Google Admin shows for google._domainkey (the value after p=). gsv: the Google site verification token (the value after google-site-verification=).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "smalt.eu",
+  "syncRedirectDomain": "api2.smalt.eu,staging-api.smalt.eu",
+  "records": [
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.google.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "google._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "google-site-verification=%gsv%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
