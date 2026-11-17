@@ -1,0 +1,44 @@
+{
+  "providerId": "xaedros.com",
+  "providerName": "Xaedros",
+  "serviceId": "whitelabel",
+  "serviceName": "Xaedros pages on your domain",
+  "version": 1,
+  "logoUrl": "https://app.xaedros.com/icons/brand/domain-connect-logo.svg",
+  "description": "Points the business's sign, get, form and book addresses at Xaedros, so its signing pages, lead funnels, forms and booking load on its own domain.",
+  "variableDescription": "ip: the Xaedros server address the records point at.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "xaedros.com",
+  "syncRedirectDomain": "app.xaedros.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sign",
+      "type": "A",
+      "host": "sign",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "get",
+      "type": "A",
+      "host": "get",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "form",
+      "type": "A",
+      "host": "form",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "book",
+      "type": "A",
+      "host": "book",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}
