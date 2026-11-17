@@ -1,0 +1,39 @@
+{
+  "providerId": "withwillow.ai",
+  "providerName": "Willow",
+  "serviceId": "agent-email",
+  "serviceName": "Willow background agent email",
+  "version": 1,
+  "logoUrl": "https://app.withwillow.ai/webrix/willow-logo-green.svg",
+  "description": "Lets Willow background agents receive and send email at a domain the owner chose (for example agents.example.com): routes the domain's mail to Amazon SES, which Willow receives it through, and publishes the domain's three Amazon SES DKIM keys.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the Easy DKIM tokens Amazon SES generated for the domain (for example 3esqwbkdcckx7owabzcg437gvnnd5ir4)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "withwillow.ai",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.us-east-2.amazonaws.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 300
+    }
+  ]
+}
