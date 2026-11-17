@@ -1,0 +1,23 @@
+{
+  "providerId": "utxopayments.com",
+  "providerName": "UTXO Payments",
+  "serviceId": "domain-verification",
+  "serviceName": "Shop domain verification",
+  "version": 1,
+  "description": "Verify ownership of your shop domain for UTXO Payments using a single TXT record. Website and email routing are unchanged.",
+  "logoUrl": "https://utxopayments.com/domain-connect-logo.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.utxopayments.com",
+  "syncRedirectDomain": "utxopayments.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_utxopayments",
+      "data": "utxopayments-verification=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "utxopayments-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}
