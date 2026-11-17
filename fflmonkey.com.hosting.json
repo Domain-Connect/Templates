@@ -1,0 +1,27 @@
+{
+    "providerId": "fflmonkey.com",
+    "providerName": "FFL Monkey",
+    "serviceId": "hosting",
+    "serviceName": "Unmanaged Hosting",
+    "version": 1,
+    "logoUrl": "https://fflmonkey.com/assets/img/brand/mark.svg",
+    "description": "Points a domain, or one of its subdomains, at its website on FFL Monkey's Unmanaged Hosting.",
+    "variableDescription": "%ip%: the hosting server's IPv4 address. %ipv6%: the hosting server's IPv6 address.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "fflmonkey.com",
+    "syncRedirectDomain": "backend.fflmonkey.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 3600
+        },
+        {
+            "type": "AAAA",
+            "host": "@",
+            "pointsTo": "%ipv6%",
+            "ttl": 3600
+        }
+    ]
+}
