@@ -1,0 +1,29 @@
+{
+  "providerId": "dominicputrus.com",
+  "providerName": "Dominic Putrus",
+  "serviceId": "redirect-cloudflare",
+  "serviceName": "Redirect to dominicputrus.com (Cloudflare)",
+  "version": 1,
+  "logoUrl": "https://dominicputrus.com/android-chrome-192x192.png",
+  "description": "Points the domain and its www at dominicputrus.com, which redirects all visitors (HTTPS included) to https://dominicputrus.com. For Cloudflare DNS, which flattens the CNAME at the zone apex.",
+  "variableDescription": "No variables.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dominicputrus.com",
+  "syncRedirectDomain": "admin.dominicputrus.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.dominicputrus.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "connect.dominicputrus.com",
+      "ttl": 3600
+    }
+  ]
+}
