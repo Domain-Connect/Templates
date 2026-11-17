@@ -1,0 +1,30 @@
+{
+  "providerId": "sadorra.app",
+  "providerName": "Sadorra",
+  "serviceId": "website",
+  "serviceName": "Sadorra website and listening address",
+  "version": 1,
+  "logoUrl": "https://sadorra.app/img/mark-512.png",
+  "description": "Points this address (for example news or listen) at your Sadorra newsletter website or listening links, and adds a TXT record proving your Sadorra workspace claimed it. Email records are not changed.",
+  "variableDescription": "token: the verification token Sadorra shows for this address.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sadorra.app",
+  "syncRedirectDomain": "sadorra.app,studio.sadorra.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "read.sadorra.app",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_sadorra",
+      "data": "sadorra-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "sadorra-verify="
+    }
+  ]
+}
