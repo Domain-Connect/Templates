@@ -1,0 +1,23 @@
+{
+  "providerId": "clickhunt.ai",
+  "providerName": "ClickHunt",
+  "serviceId": "blog",
+  "serviceName": "Blog",
+  "version": 1,
+  "logoUrl": "https://app.clickhunt.ai/icone-branco.svg",
+  "description": "Points a subdomain (e.g. blog.example.com) to the ClickHunt blog, hosted on Vercel.",
+  "variableDescription": "No variables: the CNAME target is fixed.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "clickhunt.ai",
+  "syncRedirectDomain": "app.clickhunt.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

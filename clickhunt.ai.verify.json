@@ -1,0 +1,24 @@
+{
+  "providerId": "clickhunt.ai",
+  "providerName": "ClickHunt",
+  "serviceId": "verify",
+  "serviceName": "Blog domain ownership",
+  "version": 1,
+  "logoUrl": "https://app.clickhunt.ai/icone-branco.svg",
+  "description": "Adds the _vercel TXT ownership record that Vercel issues for the blog domain, at the zone root, next to any existing _vercel values.",
+  "variableDescription": "txtverify: the part after 'vc-domain-verify=' of the TXT value Vercel issued for this domain (e.g. blog.example.com,abc123).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "clickhunt.ai",
+  "syncRedirectDomain": "app.clickhunt.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%txtverify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
