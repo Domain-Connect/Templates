@@ -1,0 +1,24 @@
+{
+  "providerId": "dmarcreport.com",
+  "providerName": "DMARC Report",
+  "serviceId": "dmarc-monitoring",
+  "serviceName": "DMARC monitoring",
+  "version": 1,
+  "logoUrl": "https://dmarcreport.com/favicon.svg",
+  "description": "Start DMARC monitoring for your domain. Publishes your DMARC record with DMARC Report's reporting addresses, so aggregate reports reach DMARC Report.",
+  "variableDescription": "dmarcValue is the DMARC TXT record DMARC Report prepared for your domain (v=DMARC1; p=...; rua=mailto:...)",
+  "syncRedirectDomain": "app.dmarcreport.com,dmarcreport.com",
+  "syncPubKeyDomain": "domainconnect.dmarcreport.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarcValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
