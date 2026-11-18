@@ -1,0 +1,31 @@
+{
+  "providerId": "vividiainfosys.com",
+  "providerName": "Vividia Infosys",
+  "serviceId": "hosting",
+  "serviceName": "Vividia Hosting",
+  "version": 1,
+  "logoUrl": "https://fe.vividiasuite.com/brand/vividia.png",
+  "description": "Points a domain (and its www) at a website hosted on Vividia Hosting.",
+  "variableDescription": "ip: IPv4 address of the Vividia Hosting server that serves the site",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "domainconnect.vividiasuite.com",
+  "syncRedirectDomain": "fe.vividiasuite.com",
+  "records": [
+    {
+      "groupId": "main",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}
