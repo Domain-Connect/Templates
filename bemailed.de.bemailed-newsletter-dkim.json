@@ -1,7 +1,6 @@
 {
   "providerId": "bemailed.de",
   "providerName": "bemailed",
-  "providerWebsite": "https://www.bemailed.de",
   "serviceId": "bemailed-newsletter-dkim",
   "serviceName": "bemailed Newsletter: DKIM-Authentifizierung",
   "version": 2,
