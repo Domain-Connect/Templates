@@ -1,0 +1,35 @@
+{
+  "providerId": "bemailed.de",
+  "providerName": "bemailed",
+  "providerWebsite": "https://www.bemailed.de",
+  "serviceId": "bemailed-newsletter-dkim",
+  "serviceName": "bemailed Newsletter: DKIM-Authentifizierung",
+  "version": 2,
+  "logoUrl": "https://www.bemailed.de/brand/zeichen.png",
+  "description": "Verifiziert deine Domain als Versand-Adresse für bemailed Newsletter. Setzt drei DKIM-Einträge, damit deine Mails als echt erkannt werden.",
+  "variableDescription": "token1, token2, token3: die drei DKIM-Kennungen, die Amazon SES für diese Domain vergeben hat.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "bemailed.de",
+  "syncRedirectDomain": "bemailed.de,www.bemailed.de",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%token1%._domainkey",
+      "pointsTo": "%token1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%token2%._domainkey",
+      "pointsTo": "%token2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%token3%._domainkey",
+      "pointsTo": "%token3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
