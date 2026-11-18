@@ -1,0 +1,24 @@
+{
+  "providerId": "deliverlens.com",
+  "providerName": "Deliverlens",
+  "serviceId": "dmarc-reporting",
+  "serviceName": "DMARC report collection",
+  "version": 1,
+  "description": "DMARC report collection for Deliverlens Delivery Center.",
+  "logoUrl": "https://www.deliverlens.com/logo-mark.svg",
+  "syncPubKeyDomain": "dc.deliverlens.com",
+  "syncRedirectDomain": "app.deliverlens.com",
+  "syncBlock": false,
+  "variableDescription": "policy contains the existing policy tags with the Deliverlens reporting address added. Existing policy and other reporting destinations are preserved.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "data": "v=DMARC1; %policy%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1;",
+      "essential": "OnApply"
+    }
+  ]
+}
