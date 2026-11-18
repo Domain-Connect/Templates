@@ -1,0 +1,14 @@
+{
+  "providerId": "astra-via.com",
+  "providerName": "Menzies by Astra Via",
+  "serviceId": "menzies-verification",
+  "serviceName": "Verify a company domain",
+  "version": 1,
+  "description": "Add a TXT record to demonstrate control of this company domain in Menzies. Website and email routing are unchanged.",
+  "logoUrl": "https://menzies.astra-via.com/mark.svg",
+  "variableDescription": "verification: the organisation-bound random challenge, excluding the fixed menzies-verification= prefix.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.astra-via.com",
+  "syncRedirectDomain": "menzies.astra-via.com",
+  "records": [{"type": "TXT", "host": "_menzies-verification", "data": "menzies-verification=%verification%", "ttl": 600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "menzies-verification=", "essential": "OnApply"}]
+}
