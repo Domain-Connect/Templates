@@ -1,0 +1,24 @@
+{
+  "providerId": "deliverlens.com",
+  "providerName": "Deliverlens",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain ownership verification",
+  "version": 1,
+  "description": "Domain ownership verification for Deliverlens Delivery Center.",
+  "logoUrl": "https://www.deliverlens.com/logo-mark.svg",
+  "syncPubKeyDomain": "dc.deliverlens.com",
+  "syncRedirectDomain": "app.deliverlens.com",
+  "syncBlock": false,
+  "variableDescription": "verificationToken is the account-bound ownership challenge.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_deliverlens",
+      "ttl": 3600,
+      "data": "deliverlens-verification=%verificationToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "deliverlens-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}
