@@ -1,0 +1,22 @@
+{
+  "providerId": "blendin.ai",
+  "providerName": "Blendin",
+  "version": 1,
+  "logoUrl": "https://app.blendin.ai/blendin-logo.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.blendin.ai",
+  "syncRedirectDomain": "app.blendin.ai",
+  "serviceId": "linkinbioapex",
+  "serviceName": "Blendin Link in bio (root domain)",
+  "description": "Shows your Blendin Link in bio page on your root domain.",
+  "variableDescription": "ip is the address Blendin gives your page.",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    }
+  ]
+}
