@@ -1,0 +1,82 @@
+{
+  "providerId": "getmailbridge.com",
+  "providerName": "Mail Bridge",
+  "serviceId": "email",
+  "serviceName": "Email forwarding",
+  "version": 1,
+  "logoUrl": "https://getmailbridge.com/mailbridge-mark.svg",
+  "description": "Configure ownership verification, email forwarding, authenticated sending, and reply routing for Mail Bridge.",
+  "variableDescription": "%verificationToken%: Mail Bridge domain claim token; %dkimSelector%: Mailgun DKIM selector; %dkimValue%: Mailgun DKIM public key; %dmarcValue%: DMARC policy supplied for this domain",
+  "syncPubKeyDomain": "domain-connect.getmailbridge.com",
+  "syncRedirectDomain": "api.getmailbridge.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_mailbridge-verify",
+      "data": "mailbridge-verification=%verificationToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mailbridge-verification="
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "receiving",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarcValue%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "groupId": "reply-routing",
+      "type": "MX",
+      "host": "email",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "reply-routing",
+      "type": "MX",
+      "host": "email",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
