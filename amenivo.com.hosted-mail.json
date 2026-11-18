@@ -1,0 +1,45 @@
+{
+  "providerId": "amenivo.com",
+  "providerName": "Amenivo",
+  "serviceId": "hosted-mail",
+  "serviceName": "Relay hosted email",
+  "version": 1,
+  "description": "Connects a subdomain to a Relay hosted inbox.",
+  "variableDescription": "proofLabel and proof: Relay ownership TXT; dkim1Host through dkim3Host and dkim1Target through dkim3Target: SES signing records; mx: SES receiving server.",
+  "syncPubKeyDomain": "dc-relay.amenivo.com",
+  "syncRedirectDomain": "amenivo.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%proofLabel%",
+      "data": "%proof%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1Host%",
+      "pointsTo": "%dkim1Target%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2Host%",
+      "pointsTo": "%dkim2Target%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3Host%",
+      "pointsTo": "%dkim3Target%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx%",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ],
+  "hostRequired": true
+}
