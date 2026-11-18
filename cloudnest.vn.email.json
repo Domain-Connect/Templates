@@ -1,0 +1,62 @@
+{
+  "providerId": "cloudnest.vn",
+  "providerName": "CloudNest",
+  "serviceId": "email",
+  "serviceName": "CloudNest Email",
+  "version": 1,
+  "logoUrl": "https://sportal.cloudnest.vn/brand/cloudnest-logo.svg",
+  "description": "Business email hosted by CloudNest (Vietnam): MX, SPF (SPFM merge), DKIM, DMARC and mail client autodiscovery. Records are grouped so the caller only applies what is missing; apply to a subdomain with the host parameter.",
+  "variableDescription": "mxhost: label of the CloudNest mail server under cloudnest.vn (e.g. mx1 for mx1.cloudnest.vn); dkimselector: DKIM selector label (default dkim); dkimkey: base64 RSA public key of the domain's DKIM key (the p= value).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cloudnest.vn",
+  "syncRedirectDomain": "sportal.cloudnest.vn",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxhost%.cloudnest.vn",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1;k=rsa;t=s;s=email;p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "autoconfig",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "%mxhost%.cloudnest.vn",
+      "ttl": 3600
+    },
+    {
+      "groupId": "autoconfig",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "%mxhost%.cloudnest.vn",
+      "ttl": 3600
+    }
+  ]
+}
