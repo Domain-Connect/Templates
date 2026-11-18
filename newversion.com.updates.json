@@ -7,6 +7,7 @@
   "description": "Points a hostname at NewVersion so a desktop app can check for updates and activate licenses there.",
   "variableDescription": "The hostname is chosen in the NewVersion console.",
   "syncBlock": false,
+  "syncPubKeyDomain": "newversion.com",
   "syncRedirectDomain": "admin.newversion.com",
   "sharedProviderName": false,
   "hostRequired": true,
