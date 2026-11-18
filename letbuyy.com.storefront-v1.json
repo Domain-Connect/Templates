@@ -1,0 +1,86 @@
+{
+  "providerId": "letbuyy.com",
+  "providerName": "LetBuyy",
+  "serviceId": "storefront-v1",
+  "serviceName": "LetBuyy Subdomain Storefront",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.letbuyy.com",
+  "syncRedirectDomain": "admin.letbuyy.com",
+  "syncBlock": false,
+  "description": "Configure only the approved storefront, ownership and selected checkout hostnames. Keep mail and unrelated records.",
+  "records": [
+    {
+      "groupId": "routing-cname",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "storefront",
+      "type": "TXT",
+      "host": "_letbuyy-challenge",
+      "data": "%verificationToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "hosting1",
+      "type": "TXT",
+      "host": "%providerHost1%",
+      "data": "%providerValue1%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "hosting2",
+      "type": "TXT",
+      "host": "%providerHost2%",
+      "data": "%providerValue2%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "hosting3",
+      "type": "TXT",
+      "host": "%providerHost3%",
+      "data": "%providerValue3%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "hosting4",
+      "type": "TXT",
+      "host": "%providerHost4%",
+      "data": "%providerValue4%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "hosting5",
+      "type": "TXT",
+      "host": "%providerHost5%",
+      "data": "%providerValue5%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "hosting6",
+      "type": "TXT",
+      "host": "%providerHost6%",
+      "data": "%providerValue6%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ],
+  "variableDescription": "verificationToken and wwwToken: exact persisted LetBuyy ownership challenges; target and ipv4: exact operator/provider routing values; providerHost1..6 and providerValue1..6: optional provider-issued TXT evidence names relative to the selected host and their exact values. No parameter changes unrelated hostnames.",
+  "hostRequired": true
+}
