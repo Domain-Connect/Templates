@@ -1,0 +1,19 @@
+{
+  "providerId": "purplepandacms.com",
+  "providerName": "PurplePanda",
+  "version": 1,
+  "variableDescription": "siteid: the PurplePanda site id; the record points at <siteid>.hosting.purplepandacms.com",
+  "syncPubKeyDomain": "purplepandacms.com",
+  "serviceId": "hosting",
+  "serviceName": "PurplePanda website (subdomain)",
+  "description": "Points a subdomain at a website hosted on PurplePanda.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%siteid%.hosting.purplepandacms.com",
+      "ttl": 3600
+    }
+  ]
+}

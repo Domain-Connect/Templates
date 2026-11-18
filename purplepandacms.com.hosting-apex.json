@@ -1,0 +1,18 @@
+{
+  "providerId": "purplepandacms.com",
+  "providerName": "PurplePanda",
+  "version": 1,
+  "variableDescription": "siteid: the PurplePanda site id; the record points at <siteid>.hosting.purplepandacms.com",
+  "syncPubKeyDomain": "purplepandacms.com",
+  "serviceId": "hosting-apex",
+  "serviceName": "PurplePanda website (apex domain)",
+  "description": "Points an apex domain at a website hosted on PurplePanda, with a flattened CNAME.",
+  "records": [
+    {
+      "type": "APEXCNAME",
+      "host": "@",
+      "pointsTo": "%siteid%.hosting.purplepandacms.com",
+      "ttl": 3600
+    }
+  ]
+}
