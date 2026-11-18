@@ -41,5 +41,6 @@
       "ttl": 3600
     }
   ],
-  "hostRequired": true
+  "hostRequired": true,
+  "logoUrl": "https://amenivo.com/brand/amenivo-logo.png"
 }
