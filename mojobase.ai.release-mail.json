@@ -14,7 +14,8 @@
       "host": "_osrs_he",
       "data": "%dnskey%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "All"
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
     }
   ]
 }
