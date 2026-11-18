@@ -2,6 +2,7 @@
   "providerId": "purplepandacms.com",
   "providerName": "PurplePanda",
   "version": 1,
+  "logoUrl": "https://purplepandacms.com/image/dec829bb-8674-4005-9097-dcb114747f31",
   "variableDescription": "siteid: the PurplePanda site id; the record points at <siteid>.hosting.purplepandacms.com",
   "syncPubKeyDomain": "purplepandacms.com",
   "serviceId": "hosting",
