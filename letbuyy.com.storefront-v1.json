@@ -83,5 +83,5 @@
   ],
   "variableDescription": "verificationToken and wwwToken: exact persisted LetBuyy ownership challenges; target and ipv4: exact operator/provider routing values; providerHost1..6 and providerValue1..6: optional provider-issued TXT evidence names relative to the selected host and their exact values. No parameter changes unrelated hostnames.",
   "hostRequired": true,
-  "logoUrl": "https://play-lh.googleusercontent.com/6fVsX-cWqHwVRjppclzW-zhmQTSd1G0nKHALA4MlVgt--grTKPBL3aPEwmV40_eB-Vf5k_qdsTA92OBlkdt_hw=s0-br30"
+  "logoUrl": "https://www.letbuyy.com/icons/letbuyy-store-logo-light-v3.svg"
 }
