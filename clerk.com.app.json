@@ -3,7 +3,7 @@
   "providerName": "Clerk",
   "serviceId": "app",
   "serviceName": "Clerk Application",
-  "version": 4,
+  "version": 5,
   "description": "Enables a domain to work with Clerk",
   "syncPubKeyDomain": "domainconnect.dashboard.clerk.com",
   "syncRedirectDomain": "dashboard.clerk.com",
@@ -56,7 +56,7 @@
       "type":"CNAME",
       "groupId": "secondary_mail",
       "host": "clkmail2",
-      "pointsTo": "clkmail2.%mailtoken%.clerk.services",
+      "pointsTo": "mail2.%mailtoken%.clerk.services",
       "ttl":3600
     },
     {
