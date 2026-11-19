@@ -1,0 +1,34 @@
+{
+  "providerId": "channext.com",
+  "providerName": "Channext",
+  "serviceId": "email-domain",
+  "serviceName": "Channext email sending domain",
+  "version": 1,
+  "logoUrl": "https://files.channext.com/static/channext-mainlogo-dark.png",
+  "description": "Adds the three CNAME records that authenticate this domain for emails Channext sends on the domain owner's behalf (SPF and DKIM).",
+  "variableDescription": "mailhost is the return-path label issued for this domain (for example em1234); mailtarget, dkim1target and dkim2target are the exact CNAME targets issued for this domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "channext.com",
+  "syncRedirectDomain": "app.channext.com,channext.com,channext.eu",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%mailhost%",
+      "pointsTo": "%mailtarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "cxp._domainkey",
+      "pointsTo": "%dkim1target%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "cxp2._domainkey",
+      "pointsTo": "%dkim2target%",
+      "ttl": 3600
+    }
+  ]
+}
