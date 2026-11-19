@@ -1,0 +1,21 @@
+{
+  "providerId": "nohard.app",
+  "providerName": "nohard Mail",
+  "serviceId": "mail-ses",
+  "serviceName": "Email sending and receiving",
+  "version": 1,
+  "logoUrl": "https://nohard.app/brand/nohard.png",
+  "description": "Configure your domain to send and receive application email with nohard Mail.",
+  "syncPubKeyDomain": "domainconnect-keys.nohard.app",
+  "syncRedirectDomain": "nohard.app,auth.nohard.app",
+  "variableDescription": "proof: nohard domain ownership token without its prefix; dkim1, dkim2, dkim3: Amazon SES DKIM selectors.",
+  "records": [
+    { "type": "TXT", "host": "_nohard-mail", "data": "nohard-mail=%proof%", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "nohard-mail=", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "SPFM", "host": "nh-bounce", "spfRules": "include:amazonses.com", "ttl": 3600 },
+    { "type": "MX", "host": "nh-bounce", "pointsTo": "feedback-smtp.us-east-1.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "MX", "host": "@", "pointsTo": "inbound-smtp.us-east-1.amazonaws.com", "priority": 10, "ttl": 3600 }
+  ]
+}
