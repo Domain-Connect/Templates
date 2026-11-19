@@ -1,0 +1,42 @@
+{
+  "providerId": "viavib.com",
+  "providerName": "ViaVib",
+  "serviceId": "email-ses",
+  "serviceName": "Email sending domain",
+  "version": 2,
+  "description": "Verify domain ownership and add only the three Amazon SES signing records. Existing website and incoming email records are unchanged.",
+  "syncPubKeyDomain": "viavib.com",
+  "syncRedirectDomain": "viavib.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_viavib",
+      "data": "viavib-verify=%ownershipToken%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "viavib-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimSelector1%._domainkey",
+      "pointsTo": "%dkimSelector1%.%dkimZone%.amazonses.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimSelector2%._domainkey",
+      "pointsTo": "%dkimSelector2%.%dkimZone%.amazonses.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimSelector3%._domainkey",
+      "pointsTo": "%dkimSelector3%.%dkimZone%.amazonses.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
