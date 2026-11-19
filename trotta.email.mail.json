@@ -1,0 +1,56 @@
+{
+    "providerId": "trotta.email",
+    "providerName": "Trotta Mail",
+    "serviceId": "mail",
+    "serviceName": "Trotta Mail",
+    "version": 1,
+    "logoUrl": "https://trotta.email/favicon.svg",
+    "description": "Receive and send mail at a domain or subdomain with Trotta Mail: an ownership TXT record, MX, SPF (as SPFM), a DKIM key and, in its own group, a DMARC policy that is left out when the domain already has one.",
+    "variableDescription": "%verify%: the ownership token Trotta Mail issued for this domain, 32 hex characters. %dkim%: the base64 RSA public key Trotta Mail signs this domain's mail with.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "trotta.email",
+    "syncRedirectDomain": "trotta.email",
+    "records": [
+        {
+            "groupId": "mail",
+            "type": "TXT",
+            "host": "_trotta-mail",
+            "data": "trotta-mail-verify=%verify%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "trotta-mail-verify="
+        },
+        {
+            "groupId": "mail",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx.trotta.email",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mail",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:_spf.trotta.email"
+        },
+        {
+            "groupId": "mail",
+            "type": "TXT",
+            "host": "trotta._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkim%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=quarantine; rua=mailto:dmarc@trotta.email",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}
