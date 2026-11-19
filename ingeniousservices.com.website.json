@@ -3,10 +3,10 @@
   "providerName": "Ingenious Services",
   "serviceId": "website",
   "serviceName": "Ingenious Services website",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://ingeniousservices.com/favicon.svg",
-  "description": "Points the www name of your domain at the website Ingenious Services built and hosts for you. The certificate is issued automatically once the record is in place. Only this one record is touched; mail and other records are left alone. The bare domain is connected with the separate website-apex template.",
-  "variableDescription": "No variables: the record always points at Ingenious Services hosting.",
+  "description": "Points the www name of your domain at the website Ingenious Services built and hosts for you. The certificate is issued automatically once the record is in place. Also writes one TXT record, _simple-verify.www, holding a token that proves to Ingenious Services that the domain's owner asked for the connection. Only these two records are touched; mail and other records are left alone. The bare domain is connected with the separate website-apex template.",
+  "variableDescription": "verify: the 32-hex proof token Ingenious Services shows the owner for this domain; the record reads simple-verify=<token>.",
   "syncBlock": false,
   "syncPubKeyDomain": "ingeniousservices.com",
   "syncRedirectDomain": "ingeniousservices.com,my.ingeniousservices.com,business.ingeniousservices.com",
@@ -17,6 +17,13 @@
       "host": "www",
       "pointsTo": "sites.ingeniousservices.com",
       "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_simple-verify.www",
+      "data": "simple-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
     }
   ]
 }
