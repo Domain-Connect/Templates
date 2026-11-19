@@ -1,0 +1,55 @@
+{
+    "providerId": "3dmockups.app",
+    "providerName": "3DMockups",
+    "serviceId": "storefront",
+    "serviceName": "Online store",
+    "version": 1,
+    "logoUrl": "https://www.3dmockups.app/brand/3dm-icon.svg",
+    "description": "Points a root domain and its www at a 3DMockups online store hosted on Vercel. www becomes the main address and the root domain redirects to it. Email (MX) and every other record stay as they are.",
+    "variableDescription": "ip1: the Vercel IPv4 address for the root domain (Vercel assigns it per project, for example 216.150.1.65). ip2: a second Vercel IPv4 address, only applied when Vercel recommends two (group site-ip2). target: the Vercel host name www points to (per project, for example f1484cc966e27e11.vercel-dns-016.com). verify, verify2: the Vercel ownership value after vc-domain-verify=, only applied when the domain or its www is still claimed by another Vercel account (groups verify and verify2).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "3dmockups.app",
+    "syncRedirectDomain": "3dmockups.app,www.3dmockups.app",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "site",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip1%",
+            "ttl": 600
+        },
+        {
+            "groupId": "site-ip2",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip2%",
+            "ttl": 600
+        },
+        {
+            "groupId": "site",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%target%",
+            "ttl": 600
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_vercel",
+            "data": "vc-domain-verify=%verify%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "None",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "verify2",
+            "type": "TXT",
+            "host": "_vercel",
+            "data": "vc-domain-verify=%verify2%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "None",
+            "essential": "OnApply"
+        }
+    ]
+}
