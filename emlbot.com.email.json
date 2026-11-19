@@ -3,6 +3,7 @@
   "providerName": "EMLbot",
   "serviceId": "email",
   "serviceName": "EMLbot email",
+  "logoUrl": "https://emlbot.com/assets/brand/emlbot-mark-color.svg",
   "version": 2,
   "hostRequired": true,
   "syncBlock": false,
