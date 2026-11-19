@@ -1,0 +1,62 @@
+{
+  "providerId": "phluit.com",
+  "providerName": "Phluit",
+  "serviceId": "mailboxes",
+  "serviceName": "Phluit Mail",
+  "version": 1,
+  "logoUrl": "https://phluit.com/images/phluit-icon.svg",
+  "description": "Connects a domain to Phluit Mail business mailboxes, in three steps the customer approves one at a time: \"verify\" proves the domain is theirs, \"connect\" lets Phluit send email for the domain (SPF and DKIM), and \"switch\" sends the domain's incoming email to Phluit (MX) and lets email apps find their settings.",
+  "variableDescription": "verifytoken: the ownership token Phluit shows for the domain; dkimkey: the base64 DKIM public key created for the domain",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dc.phluit.com",
+  "syncRedirectDomain": "portal.phluit.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_phluit",
+      "data": "phluit-verify=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "phluit-verify="
+    },
+    {
+      "groupId": "connect",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.mail20.phluit.net"
+    },
+    {
+      "groupId": "connect",
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "data": "v=DKIM1;k=rsa;t=s;s=email;p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "switch",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail20.phluit.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "switch",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mail20.phluit.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "switch",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mail20.phluit.net",
+      "ttl": 3600
+    }
+  ]
+}
