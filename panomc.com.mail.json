@@ -1,0 +1,32 @@
+{
+  "providerId": "panomc.com",
+  "providerName": "Pano",
+  "serviceId": "mail",
+  "serviceName": "Pano mail sending domain",
+  "version": 1,
+  "logoUrl": "https://panomc.com/assets/img/logo.svg",
+  "description": "Lets Pano send e-mail from your domain: DKIM signing keys, a bounce subdomain with its mail server and SPF, and a DMARC policy.",
+  "variableDescription": "dkim1, dkim2, dkim3: the DKIM selectors; region: the sending region of the bounce mail server",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "panomc.com",
+  "syncRedirectDomain": "panomc.com,dev.panomc.com,local.panomc.com",
+  "hostRequired": false,
+  "records": [
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "dkim", "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "groupId": "mailfrom", "type": "MX", "host": "pano-bounce", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "groupId": "mailfrom", "type": "SPFM", "host": "pano-bounce", "spfRules": "include:amazonses.com" },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "providerId": "panomc.com",
+  "providerName": "Pano",
+  "serviceId": "hostname",
+  "serviceName": "Pano custom domain",
+  "version": 1,
+  "logoUrl": "https://panomc.com/assets/img/logo.svg",
+  "description": "Points a domain or subdomain at a website hosted by Pano and proves you own it.",
+  "variableDescription": "target: the label of the Pano edge hostname under panomc.site; ownership: the ownership verification token; acme1, acme2: certificate validation tokens",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "panomc.com",
+  "syncRedirectDomain": "panomc.com,dev.panomc.com,local.panomc.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%.panomc.site",
+      "ttl": 3600
+    },
+    {
+      "groupId": "site",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "acme1",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%acme1%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "acme2",
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%acme2%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
