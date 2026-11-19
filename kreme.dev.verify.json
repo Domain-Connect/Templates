@@ -1,0 +1,23 @@
+{
+  "providerId": "kreme.dev",
+  "providerName": "Kreme",
+  "logoUrl": "https://kreme.dev/logo.svg",
+  "syncPubKeyDomain": "kreme.dev",
+  "syncRedirectDomain": "kreme.dev",
+  "shared": true,
+  "sharedProviderName": true,
+  "serviceId": "verify",
+  "serviceName": "Domain ownership verification",
+  "version": 1,
+  "description": "Adds the TXT record an app asks for to verify the domain owner controls the domain, at the root or at a host such as _app.example.com.",
+  "variableDescription": "%token%: the full verification value prescribed by the app, for example appname-verification=abc123",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%token%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
