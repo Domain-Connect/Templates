@@ -1,0 +1,63 @@
+{
+  "providerId": "airhug.ai",
+  "providerName": "Airhug",
+  "serviceId": "email",
+  "serviceName": "Airhug business email",
+  "version": 1,
+  "logoUrl": "https://airhug.ai/apple-touch-icon.png",
+  "description": "Sends and receives a business's email through Airhug: DKIM and SPF for sending, DMARC, and optionally the mail record so Airhug hosts the domain's mailboxes.",
+  "variableDescription": "dkim1, dkim2, dkim3: the three DKIM tokens Amazon SES issued for this domain. Group 'sending' adds DKIM, SPF and DMARC; group 'hosted' also moves the domain's mail (MX) to Airhug.",
+  "syncBlock": false,
+  "sharedProviderName": true,
+  "syncPubKeyDomain": "domainconnect.airhug.ai",
+  "syncRedirectDomain": "app.airhug.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "sending",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; adkim=r; aspf=r",
+      "ttl": 1800,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "hosted",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.us-east-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 1800
+    }
+  ],
+  "shared": true
+}

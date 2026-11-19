@@ -3,7 +3,7 @@
   "providerName": "Macro",
   "serviceId": "verify",
   "serviceName": "Macro Site Verification",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://macro.my.id/favicon.svg",
   "description": "Authorize DNS TXT verification record for Macro traffic planning.",
   "variableDescription": "token is the verification code issued by Macro to verify domain ownership.",
@@ -14,7 +14,7 @@
     {
       "type": "TXT",
       "host": "_macro-verify",
-      "data": "%token%",
+      "data": "macro-verify=%token%",
       "ttl": 300,
       "txtConflictMatchingMode": "None"
     }

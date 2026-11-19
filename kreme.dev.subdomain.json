@@ -1,0 +1,23 @@
+{
+  "providerId": "kreme.dev",
+  "providerName": "Kreme",
+  "logoUrl": "https://kreme.dev/logo.svg",
+  "syncPubKeyDomain": "kreme.dev",
+  "syncRedirectDomain": "kreme.dev",
+  "shared": true,
+  "sharedProviderName": true,
+  "serviceId": "subdomain",
+  "serviceName": "Custom domain (subdomain)",
+  "version": 1,
+  "description": "Points a subdomain the domain owner chooses (for example shop.example.com) at the app they are connecting through Kreme.",
+  "variableDescription": "%target%: hostname of the app the subdomain should point to, for example sites.exampleapp.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

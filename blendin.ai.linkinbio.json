@@ -1,0 +1,22 @@
+{
+  "providerId": "blendin.ai",
+  "providerName": "Blendin",
+  "version": 1,
+  "logoUrl": "https://app.blendin.ai/blendin-logo.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.blendin.ai",
+  "syncRedirectDomain": "app.blendin.ai",
+  "serviceId": "linkinbio",
+  "serviceName": "Blendin Link in bio (subdomain)",
+  "description": "Shows your Blendin Link in bio page on a subdomain of your own domain.",
+  "variableDescription": "cname is the address Blendin gives your page.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    }
+  ]
+}

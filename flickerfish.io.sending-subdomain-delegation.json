@@ -1,0 +1,28 @@
+{
+  "providerId": "flickerfish.io",
+  "providerName": "Flickerfish",
+  "serviceId": "sending-subdomain-delegation",
+  "serviceName": "Flickerfish sending domain",
+  "version": 2,
+  "description": "Delegates one sending subdomain of your domain (for example mail.example.com) to Flickerfish's nameservers, so Flickerfish can publish the records that let it send email as that subdomain. No other record of your domain is changed.",
+  "variableDescription": "%nameserver1% and %nameserver2%: the two Flickerfish nameservers assigned to this sending subdomain, for example ns1.flickerfish.io and ns2.flickerfish.io. The template is applied with host set to the sending subdomain, never at the domain apex.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "flickerfish.io",
+  "hostRequired": true,
+  "logoUrl": "https://flickerfish.io/brand/flickerfish-logo.svg",
+  "syncRedirectDomain": "flickerfish.io",
+  "records": [
+    {
+      "type": "NS",
+      "host": "@",
+      "ttl": 3600,
+      "pointsTo": "%nameserver1%"
+    },
+    {
+      "type": "NS",
+      "host": "@",
+      "ttl": 3600,
+      "pointsTo": "%nameserver2%"
+    }
+  ]
+}
