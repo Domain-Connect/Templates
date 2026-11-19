@@ -15,8 +15,7 @@
       "host": "_centira-verification",
       "data": "centira-verify=%verification%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "None",
-      "essential": "OnApply"
+      "txtConflictMatchingMode": "None"
     }
   ]
 }
