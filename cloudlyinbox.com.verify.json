@@ -1,0 +1,25 @@
+{
+  "providerId": "cloudlyinbox.com",
+  "providerName": "Cloudly Inbox",
+  "serviceId": "verify",
+  "serviceName": "Verify domain for Cloudly Inbox",
+  "version": 1,
+  "logoUrl": "https://cloudlyinbox.com/apple-touch-icon.png",
+  "description": "Adds one TXT record proving you own this domain, so Cloudly Inbox can create your mailbox. It doesn't change where your email goes.",
+  "variableDescription": "token: the verification code for this order",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.cloudlyinbox.com",
+  "syncRedirectDomain": "cloudlyinbox.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "cloudlyinbox-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "cloudlyinbox-verification="
+    }
+  ]
+}

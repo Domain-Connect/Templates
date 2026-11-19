@@ -1,0 +1,36 @@
+{
+  "providerId": "cloudlyinbox.com",
+  "providerName": "Cloudly Inbox",
+  "serviceId": "mail",
+  "serviceName": "Cloudly Inbox email",
+  "version": 1,
+  "logoUrl": "https://cloudlyinbox.com/apple-touch-icon.png",
+  "description": "Moves this domain's email to Cloudly Inbox. It replaces the domain's current MX records, so new email arrives in Cloudly Inbox, adds Cloudly Inbox to your SPF record and adds the DKIM key that signs your mail.",
+  "variableDescription": "selector: DKIM selector; dkimkey: DKIM public key for this domain",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.cloudlyinbox.com",
+  "syncRedirectDomain": "cloudlyinbox.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.cloudlyinbox.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:cloudlyinbox.com"
+    },
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
