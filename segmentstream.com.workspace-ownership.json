@@ -1,0 +1,19 @@
+{
+  "providerId": "segmentstream.com",
+  "providerName": "SegmentStream",
+  "logoUrl": "https://segmentstream.com/segmentstream-logo-black.svg",
+  "serviceId": "workspace-ownership",
+  "serviceName": "Workspace domain ownership",
+  "version": 1,
+  "description": "Verify ownership of the hostname for a SegmentStream organization.",
+  "variableDescription": "proof is the organization ownership challenge.",
+  "syncPubKeyDomain": "domainconnect.segmentstream.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_segmentstream-challenge",
+      "data": "%proof%",
+      "ttl": 600
+    }
+  ]
+}
