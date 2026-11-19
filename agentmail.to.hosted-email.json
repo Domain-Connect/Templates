@@ -3,9 +3,10 @@
   "providerName": "AgentMail",
   "serviceId": "hosted-email",
   "serviceName": "Hosted Email",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://www.agentmail.to/favicon.ico",
   "description": "Sets up the MX, SPF, DKIM, and DMARC records required to receive and send email for your domain through AgentMail hosted email.",
+  "variableDescription": "mxregion: AWS region of the AgentMail inbound endpoint, for example us-east-1. mxregionmail: AWS SES region of the mail feedback endpoint, for example us-east-1. mxpriority and mxprioritymail: MX priorities supplied by AgentMail. dkimp: base64 RSA public key payload supplied by AgentMail, without the v=DKIM1; k=rsa; p= prefix.",
   "syncPubKeyDomain": "inboxtopia.com",
   "syncRedirectDomain": "inboxtopia.com",
   "hostRequired": false,
@@ -14,7 +15,7 @@
       "groupId": "a",
       "type": "MX",
       "host": "@",
-      "pointsTo": "%mxtarget%",
+      "pointsTo": "inbound-smtp.%mxregion%.amazonaws.com",
       "priority": "%mxpriority%",
       "ttl": 3600
     },
@@ -22,7 +23,7 @@
       "groupId": "a",
       "type": "MX",
       "host": "mail",
-      "pointsTo": "%mxtargetmail%",
+      "pointsTo": "feedback-smtp.%mxregionmail%.amazonses.com",
       "priority": "%mxprioritymail%",
       "ttl": 3600
     },
@@ -31,6 +32,8 @@
       "type": "TXT",
       "host": "agentmail._domainkey",
       "data": "v=DKIM1; k=rsa; p=%dkimp%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1",
       "ttl": 3600
     },
     {
