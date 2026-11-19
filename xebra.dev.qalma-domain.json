@@ -1,0 +1,30 @@
+{
+  "providerId": "xebra.dev",
+  "providerName": "Xebra",
+  "serviceId": "qalma-domain",
+  "serviceName": "QALMA custom booking domain",
+  "version": 1,
+  "logoUrl": "https://qalma.se/logo.svg",
+  "description": "Serves a clinic's QALMA booking page from its own subdomain (the host, e.g. boka.<domain>), and proves the clinic controls the domain.",
+  "variableDescription": "token: the clinic's ownership token, published as TXT _qalma.<host> so QALMA can verify the domain belongs to the clinic.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "xebra.dev",
+  "syncRedirectDomain": "qalma.se,test.qalma.se",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.qalma.se",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_qalma",
+      "data": "qalma-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "qalma-verification="
+    }
+  ]
+}
