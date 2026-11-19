@@ -1,0 +1,22 @@
+{
+  "providerId": "cybersafe24.de",
+  "providerName": "CyberSafe24",
+  "serviceId": "centira-verification",
+  "serviceName": "Centira domain ownership confirmation",
+  "version": 1,
+  "logoUrl": "https://app.cybersafe24.de/icon.svg",
+  "description": "Adds one TXT record that confirms to Centira that the Centira account which created this request may manage the domain. No other record is added, changed or removed.",
+  "variableDescription": "verification: the random part of the proof value Centira shows to the customer (base64url characters only)",
+  "syncPubKeyDomain": "cybersafe24.de",
+  "syncRedirectDomain": "app.cybersafe24.de",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_centira-verification",
+      "data": "centira-verify=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}
