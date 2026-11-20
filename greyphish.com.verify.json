@@ -1,0 +1,25 @@
+{
+  "providerId": "greyphish.com",
+  "providerName": "GreyPhish",
+  "serviceId": "verify",
+  "serviceName": "Domain ownership verification",
+  "version": 1,
+  "logoUrl": "https://greyphish.com/logo-grey.svg",
+  "description": "Adds a TXT record that proves you control this domain, so GreyPhish can monitor lookalike and phishing domains that imitate it.",
+  "variableDescription": "token: the 40-character verification token shown in the GreyPhish dashboard, without the greyphish-verify= prefix",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "greyphish.com",
+  "syncRedirectDomain": "greyphish.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_greyphish",
+      "data": "greyphish-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "greyphish-verify="
+    }
+  ]
+}
