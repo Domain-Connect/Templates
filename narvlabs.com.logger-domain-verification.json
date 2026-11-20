@@ -1,0 +1,26 @@
+{
+  "providerId": "narvlabs.com",
+  "providerName": "NARV Labs",
+  "serviceId": "logger-domain-verification",
+  "serviceName": "NARV Logger domain verification",
+  "version": 1,
+  "logoUrl": "https://app.narvlabs.com/icon.png",
+  "description": "Proves that your company owns this domain for its NARV Logger workspace. Adds one TXT record and changes nothing else.",
+  "variableDescription": "token: the verification value Logger shows the workspace admin",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "narvlabs.com",
+  "syncRedirectDomain": "app.narvlabs.com,team.narvlabs.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "narv-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "narv-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}
