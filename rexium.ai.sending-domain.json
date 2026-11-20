@@ -1,0 +1,47 @@
+{
+  "providerId": "rexium.ai",
+  "providerName": "Rexium",
+  "serviceId": "sending-domain",
+  "serviceName": "Email sending domain",
+  "version": 1,
+  "logoUrl": "https://www.rexium.ai/rexium-logo.png",
+  "description": "Lets Rexium send your marketing email from your own domain (Amazon SES: DKIM and a MAIL FROM subdomain).",
+  "variableDescription": "dkim1, dkim2, dkim3: the Amazon SES Easy DKIM tokens of this domain.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "rexium.ai",
+  "syncRedirectDomain": "www.rexium.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
