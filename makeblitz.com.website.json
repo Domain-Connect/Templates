@@ -1,0 +1,27 @@
+{
+  "providerId": "makeblitz.com",
+  "providerName": "MakeBlitz",
+  "serviceId": "website",
+  "serviceName": "MakeBlitz website",
+  "version": 1,
+  "logoUrl": "https://makeblitz.com/apple-icon.png",
+  "description": "Points your domain and www to the new website MakeBlitz built and hosts for you. Email (MX) and TXT records are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "makeblitz.com",
+  "syncRedirectDomain": "makeblitz.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "15.204.89.90",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.makeblitz.com",
+      "ttl": 3600
+    }
+  ]
+}
