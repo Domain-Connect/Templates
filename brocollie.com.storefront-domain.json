@@ -1,0 +1,30 @@
+{
+    "providerId": "brocollie.com",
+    "providerName": "Brocollie",
+    "serviceId": "storefront-domain",
+    "serviceName": "Brocollie online store",
+    "version": 1,
+    "logoUrl": "https://brocollie.com/brocollie-logo-full.png",
+    "description": "Connects a subdomain (for example www) to a store's online shop on Brocollie, a retail platform. Adds a CNAME to Brocollie's custom-hostname endpoint and a TXT record proving the store owner controls the name. Brocollie checks both records itself before the domain goes live. The service name passed with each apply names the store, so the owner sees which shop the name will point to.",
+    "variableDescription": "token: the 40-character hexadecimal verification token Brocollie created for this one connection; published as brocollie-verify=<token>.",
+    "sharedServiceName": true,
+    "syncPubKeyDomain": "brocollie.com",
+    "syncRedirectDomain": "brocollie.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "stores.brocollie.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_brocollie",
+            "data": "brocollie-verify=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "brocollie-verify="
+        }
+    ]
+}
