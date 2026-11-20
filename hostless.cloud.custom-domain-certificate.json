@@ -1,0 +1,23 @@
+{
+    "providerId": "hostless.cloud",
+    "providerName": "Hostless",
+    "serviceId": "custom-domain-certificate",
+    "serviceName": "Custom domain certificate",
+    "version": 1,
+    "logoUrl": "https://hostless.cloud/logo/logo_single.svg",
+    "description": "Lets Hostless issue the HTTPS certificate for a custom domain before traffic moves to Hostless.",
+    "variableDescription": "%challenge%: 24 hex characters that Hostless gives to this domain",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "domainconnect.hostless.cloud",
+    "syncRedirectDomain": "hostless.cloud",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "_acme-challenge",
+            "pointsTo": "%challenge%.hostless-certs.com",
+            "ttl": 600
+        }
+    ]
+}
