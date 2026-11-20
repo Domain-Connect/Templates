@@ -1,0 +1,21 @@
+{
+  "providerId": "thepasturemarket.com",
+  "providerName": "The Pasture Market",
+  "serviceId": "customdomain",
+  "serviceName": "Custom Domain",
+  "version": 1,
+  "logoUrl": "https://thepasturemarket.com/img/logo-square.png",
+  "description": "Connects a domain you own to your storefront on The Pasture Market with one CNAME record at the subdomain you choose, such as www or shop.",
+  "variableDescription": "%store%: your store address name; the record points to %store%.thepasturemarket.com",
+  "syncPubKeyDomain": "domainconnect.thepasturemarket.com",
+  "syncRedirectDomain": "thepasturemarket.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%store%.thepasturemarket.com",
+      "ttl": 3600
+    }
+  ]
+}
