@@ -1,0 +1,24 @@
+{
+  "providerId": "salesio.app",
+  "providerName": "Salesio",
+  "serviceId": "web",
+  "serviceName": "Salesio Website",
+  "version": 1,
+  "logoUrl": "https://www.salesio.app/logo.png",
+  "description": "Connects your domain to your Salesio website. Points www at Salesio and forwards the bare domain to www.",
+  "syncPubKeyDomain": "salesio.app",
+  "syncRedirectDomain": "salesio.app,webapp.salesio.app,www.salesio.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.salesio.site",
+      "ttl": 600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}
