@@ -18,8 +18,7 @@
       "host": "_greyphish",
       "data": "greyphish-verify=%token%",
       "ttl": 3600,
-      "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "greyphish-verify="
+      "txtConflictMatchingMode": "None"
     }
   ]
 }
