@@ -1,0 +1,48 @@
+{
+  "providerId": "omnybot.com",
+  "providerName": "omnybot.com",
+  "serviceId": "email-dns-brevo",
+  "serviceName": "Email sending domain authentication",
+  "version": 1,
+  "description": "Authenticates a customer domain for outbound email sending via OmnyBot and Brevo (workspace ownership TXT, DKIM CNAMEs, Brevo verification TXT, and DMARC TXT).",
+  "variableDescription": "omnybot_verify_token is the per-workspace hex token for _omnybot TXT, dkim1_value and dkim2_value are per-domain DKIM CNAME targets, brevo_code_value is a per-account verification TXT value, and dmarc_value is the DMARC policy TXT value.",
+  "syncPubKeyDomain": "omnybot.com",
+  "syncRedirectDomain": "omnybot.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_omnybot",
+      "data": "omnybot-verify=%omnybot_verify_token%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "brevo1._domainkey",
+      "pointsTo": "%dkim1_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "brevo2._domainkey",
+      "pointsTo": "%dkim2_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%brevo_code_value%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_value%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
