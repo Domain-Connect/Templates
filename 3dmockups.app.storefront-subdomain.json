@@ -1,0 +1,22 @@
+{
+    "providerId": "3dmockups.app",
+    "providerName": "3DMockups",
+    "serviceId": "storefront-subdomain",
+    "serviceName": "Online store",
+    "version": 1,
+    "logoUrl": "https://www.3dmockups.app/brand/3dm-icon.svg",
+    "description": "Points a subdomain (for example shop.example.com) at a 3DMockups online store hosted on Vercel, so the seller can keep another website on the root domain. Every other record stays as it is.",
+    "variableDescription": "target: the Vercel host name the subdomain points to (per project, for example f1484cc966e27e11.vercel-dns-016.com). Ownership TXT records, when Vercel asks for them, are applied at the root domain with the verify group of the 3dmockups.app storefront template.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "3dmockups.app",
+    "syncRedirectDomain": "3dmockups.app,www.3dmockups.app",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 600
+        }
+    ]
+}
