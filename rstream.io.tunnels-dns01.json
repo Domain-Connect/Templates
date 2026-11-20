@@ -1,0 +1,35 @@
+{
+  "providerId": "rstream.io",
+  "providerName": "rstream",
+  "serviceId": "tunnels-dns01",
+  "serviceName": "rstream tunnels with DNS certificate validation",
+  "version": 1,
+  "logoUrl": "https://rstream.io/images/brand/rstream-logo-square-light.svg",
+  "description": "Route a custom subdomain through your rstream tunnel and delegate TLS certificate validation.",
+  "variableDescription": "%cluster%: CNAME target pointing at the rstream edge; %verifytoken%: hex token used to prove ownership of the hostname. %challenge%: rstream-managed CNAME target for ACME DNS-01 validation.",
+  "syncPubKeyDomain": "rstream.io",
+  "syncRedirectDomain": "rstream.io",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cluster%.",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_rstream-verify",
+      "data": "rstream-verify=%verifytoken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%challenge%.",
+      "ttl": 300
+    }
+  ]
+}
