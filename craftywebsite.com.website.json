@@ -1,0 +1,27 @@
+{
+  "providerId": "craftywebsite.com",
+  "providerName": "Crafty Website",
+  "serviceId": "website",
+  "serviceName": "Crafty Website",
+  "version": 1,
+  "logoUrl": "https://craftywebsite.com/img/cw-logo.png",
+  "description": "Points the bare domain and www at a website built with Crafty Website. Email (MX, TXT) records are not touched.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "craftywebsite.com",
+  "syncRedirectDomain": "app.craftywebsite.com,test.craftywebsite.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "217.155.61.18",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}
