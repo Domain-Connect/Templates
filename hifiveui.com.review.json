@@ -1,0 +1,27 @@
+{
+  "providerId": "hifiveui.com",
+  "providerName": "HiFiveUI",
+  "serviceId": "review",
+  "serviceName": "Review sharing",
+  "version": 1,
+  "hostRequired": true,
+  "description": "Connect a review subdomain and verify its ownership.",
+  "syncPubKeyDomain": "hifiveui.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "reviews.hi5ui-preview.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_hifive-review",
+      "data": "%proof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "hifive-review="
+    }
+  ],
+  "logoUrl": "https://hifiveui.com/favicon.svg"
+}
