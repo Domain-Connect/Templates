@@ -1,32 +1,35 @@
-  {
-      "providerId": "xellux.com",
-      "providerName": "Xellux",
-      "serviceId": "domain-verification",
-      "serviceName": "Domain Verification",
-      "version": 2,
-      "logoUrl": "https://cdn-edge.xellux.com/i/73f312de-3ea8-4063-8b6d-85af107d5b99-rem-0f395230",
-      "description": "Verifies domain ownership and points a chosen subdomain at Xellux ID so the customer's branded login lives on their own domain.",
-      "variableDescription": "Subdomain to host Xellux ID under (e.g. 'auth') plus a one-time verification code supplied by Xellux.",
-      "syncBlock": false,
-      "syncPubKeyDomain": "domainconnect.xellux.com",
-      "syncRedirectDomain": "xellux.com",
-      "hostRequired": false,
-      "records": [
-          {
-              "groupId": "verification",
-              "type": "TXT",
-              "host": "@",
-              "data": "xellux-verification=%verifytxt%",
-              "ttl": 3600,
-              "txtConflictMatchingMode": "Prefix",
-              "txtConflictMatchingPrefix": "xellux-verification="
-          },
-          {
-              "groupId": "routing",
-              "type": "CNAME",
-              "host": "%authhost%",
-              "pointsTo": "auth.xellux.com",
-              "ttl": 3600
-          }
-      ]
-  }
+{
+  "providerId": "xellux.com",
+  "providerName": "Xellux",
+  "serviceId": "domain-verification",
+  "serviceName": "Xellux Custom Domain",
+  "version": 3,
+  "logoUrl": "https://xellux.com/brand/xellux-logo.png",
+  "description": "Connects your domain to Xellux: a TXT record proves that you own the domain, and a CNAME points a subdomain of your choice at Xellux, so your branded login (for example auth.example.com) and your booking page (for example termine.example.com) run on your own domain.",
+  "variableDescription": "verifytxt: one-time verification code issued by Xellux for this domain. authhost: the subdomain to connect, for example 'auth' for the login or 'termine' for the booking page.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.xellux.com",
+  "syncRedirectDomain": "xellux.com,auth.xellux.com,account.xellux.com",
+  "multiInstance": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "@",
+      "data": "xellux-verification=%verifytxt%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "xellux-verification=",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "%authhost%",
+      "pointsTo": "auth.xellux.com",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}
