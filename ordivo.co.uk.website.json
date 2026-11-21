@@ -1,0 +1,27 @@
+{
+  "providerId": "ordivo.co.uk",
+  "providerName": "Ordivo",
+  "serviceId": "website",
+  "serviceName": "Restaurant website",
+  "version": 1,
+  "logoUrl": "https://ordivo.co.uk/icon.png",
+  "description": "Opens your Ordivo restaurant website on your own domain (www and the bare name).",
+  "variableDescription": "No variables.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "ordivo.co.uk",
+  "syncRedirectDomain": "ordivo.co.uk",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "fallback.ordivo.co.uk",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "providerId": "ordivo.co.uk",
+  "providerName": "Ordivo",
+  "serviceId": "subdomain",
+  "serviceName": "Restaurant page on a subdomain",
+  "version": 1,
+  "logoUrl": "https://ordivo.co.uk/icon.png",
+  "description": "Opens your Ordivo ordering or website page on a subdomain such as order.yourrestaurant.com.",
+  "variableDescription": "No variables. The subdomain is the host.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "ordivo.co.uk",
+  "syncRedirectDomain": "ordivo.co.uk",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.ordivo.co.uk",
+      "ttl": 3600
+    }
+  ]
+}
