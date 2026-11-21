@@ -1,0 +1,39 @@
+{
+  "providerId": "lton.io",
+  "providerName": "lton",
+  "serviceId": "page",
+  "serviceName": "Custom domain for a page",
+  "version": 1,
+  "logoUrl": "https://lton.io/icon.svg",
+  "description": "Points a domain at a page on lton.io, so the page opens at the domain; the TXT record at _lton names the page where the CNAME record is flattened. The proof group adds the TXT record that proves the domain to Cloudflare for SaaS, which serves lton.io's custom domains; it is applied only while that proof is asked for. hostRequired is set only because a CNAME at @ requires it.",
+  "variableDescription": "handle: the page's handle on lton.io, for example alice for alice.lton.io; proof: the ownership verification value Cloudflare for SaaS issues for the domain (a UUID)",
+  "syncPubKeyDomain": "lton.io",
+  "syncRedirectDomain": "lton.io",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "page",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%handle%.lton.io",
+      "ttl": 3600
+    },
+    {
+      "groupId": "page",
+      "type": "TXT",
+      "host": "_lton",
+      "data": "%handle%.lton.io",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    },
+    {
+      "groupId": "proof",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%proof%",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600
+    }
+  ]
+}
