@@ -1,0 +1,22 @@
+{
+  "providerId": "go1000.ai",
+  "providerName": "Go1000.ai",
+  "version": 1,
+  "logoUrl": "https://go1000.ai/go1000-logo.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "go1000.ai",
+  "syncRedirectDomain": "app.go1000.ai",
+  "serviceId": "website-verify",
+  "serviceName": "Go1000.ai Website (ownership)",
+  "description": "Proves you own the domain, so your Go1000.ai website can use it.",
+  "variableDescription": "verification: the ownership code Go1000.ai's hosting asks for, after vc-domain-verify=",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
