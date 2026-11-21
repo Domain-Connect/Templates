@@ -1,0 +1,32 @@
+{
+  "providerId": "absolutejs.ai",
+  "providerName": "AbsoluteJS",
+  "serviceId": "custom-domain-apex",
+  "serviceName": "AbsoluteJS custom domain (root domain)",
+  "version": 1,
+  "logoUrl": "https://avatars.githubusercontent.com/u/207762196?v=4",
+  "description": "Connect a root domain to an app hosted on AbsoluteJS: a certificate validation record, and the A record that sends visitors to the AbsoluteJS edge.",
+  "variableDescription": "%acmeToken%: the domain's certificate validation token issued by AbsoluteJS, a 32-character hexadecimal string",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.absolutejs.ai",
+  "syncRedirectDomain": "absolutejs.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "certificate",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%acmeToken%.acme.absolutejs.app",
+      "ttl": 600,
+      "essential": "Always"
+    },
+    {
+      "groupId": "traffic",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "129.212.153.70",
+      "ttl": 600,
+      "essential": "Always"
+    }
+  ]
+}
