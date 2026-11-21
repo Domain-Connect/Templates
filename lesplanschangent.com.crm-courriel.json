@@ -1,0 +1,22 @@
+{
+  "providerId": "lesplanschangent.com",
+  "providerName": "Les Plans Changent",
+  "serviceId": "crm-courriel",
+  "serviceName": "Courriels depuis le domaine du client (Chantier Pro CRM, Resend)",
+  "version": 1,
+  "logoUrl": "https://crm-staging.lesplanschangent.com/statique/logo-lpc.svg",
+  "description": "Authorizes email sending from a subdomain of the customer's domain (e.g. mail.example.com): DKIM, SPF, bounce handling and DMARC.",
+  "variableDescription": "dkimkey: DKIM public key (base64, without the p= prefix) issued by Resend for the domain; region: Amazon SES region of the bounce MX (e.g. us-east-1).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "lesplanschangent.com",
+  "syncRedirectDomain": "crm-staging.lesplanschangent.com,crm.lesplanschangent.com",
+  "hostRequired": true,
+  "records": [
+    {"type": "TXT", "host": "resend._domainkey", "data": "p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All"},
+    {"type": "MX", "host": "send", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600},
+    {"type": "SPFM", "host": "send", "spfRules": "include:amazonses.com"},
+    {"type": "CNAME", "host": "rsend", "pointsTo": "send.forge.rmta.net", "ttl": 3600},
+    {"type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none;", "ttl": 3600, "txtConflictMatchingMode": "Prefix",
+     "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply"}
+  ]
+}
