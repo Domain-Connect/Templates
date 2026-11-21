@@ -1,0 +1,20 @@
+{
+    "providerId": "trustane.com",
+    "providerName": "Trustane",
+    "serviceId": "portal",
+    "serviceName": "White-label portal",
+    "version": 1,
+    "logoUrl": "https://trustane.com/icon.svg",
+    "description": "Points one hostname of the customer's domain at the Trustane console with a single CNAME record.",
+    "syncPubKeyDomain": "trustane.com",
+    "syncRedirectDomain": "trustane.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "console.trustane.com",
+            "ttl": 3600
+        }
+    ]
+}
