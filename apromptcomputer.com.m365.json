@@ -1,0 +1,58 @@
+{
+  "providerId": "apromptcomputer.com",
+  "providerName": "Aprompt IT",
+  "serviceId": "m365",
+  "serviceName": "Microsoft 365 domain",
+  "version": 1,
+  "logoUrl": "https://img1.wsimg.com/isteam/ip/7eb212bb-07f8-464a-a1f2-2d60c3311496/apromptLogo.png",
+  "description": "Connects a domain to the client's Microsoft 365 tenant, managed by Aprompt IT: the ownership record, the mail records (MX, Autodiscover, Microsoft in SPF) and the device-enrollment records.",
+  "variableDescription": "msid: the code from Microsoft's verification TXT record, without the MS= (ms12345678); mx: the MX host Microsoft 365 shows for the domain (contoso-com.mail.protection.outlook.com)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "apromptcomputer.com",
+  "syncRedirectDomain": "azure.apromptcomputer.com",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "@",
+      "data": "MS=%msid%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "MX",
+      "groupId": "mail",
+      "host": "@",
+      "pointsTo": "%mx%",
+      "ttl": 3600,
+      "priority": 0
+    },
+    {
+      "type": "CNAME",
+      "groupId": "mail",
+      "host": "autodiscover",
+      "pointsTo": "autodiscover.outlook.com",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "groupId": "mail",
+      "host": "@",
+      "spfRules": "include:spf.protection.outlook.com"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "devices",
+      "host": "enterpriseregistration",
+      "pointsTo": "enterpriseregistration.windows.net",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "devices",
+      "host": "enterpriseenrollment",
+      "pointsTo": "enterpriseenrollment.manage.microsoft.com",
+      "ttl": 3600
+    }
+  ]
+}
