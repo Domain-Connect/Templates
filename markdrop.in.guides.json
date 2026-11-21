@@ -1,0 +1,22 @@
+{
+  "providerId": "markdrop.in",
+  "providerName": "Markdrop",
+  "serviceId": "guides",
+  "serviceName": "Markdrop Guides",
+  "version": 1,
+  "logoUrl": "https://www.markdrop.in/icon.svg",
+  "description": "Serves a Markdrop Guides help center or docs site on the customer's own subdomain (for example help.example.com). Adds one CNAME record at the host the customer chose, pointing at cname.guides.markdrop.in; Markdrop issues the HTTPS certificate itself.",
+  "variableDescription": "No variables. Apply with a host (the subdomain); the template refuses the bare domain, since a CNAME can't sit at the zone apex.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "markdrop.in",
+  "syncRedirectDomain": "markdrop.in",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.guides.markdrop.in",
+      "ttl": 3600
+    }
+  ]
+}
