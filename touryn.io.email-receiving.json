@@ -1,0 +1,23 @@
+{
+  "providerId": "touryn.io",
+  "providerName": "Touryn",
+  "serviceId": "email-receiving",
+  "serviceName": "Touryn email replies",
+  "version": 1,
+  "logoUrl": "https://touryn.io/images/brand/touryn-app-icon-128.png",
+  "syncPubKeyDomain": "touryn.io",
+  "syncRedirectDomain": "app.touryn.io",
+  "multiInstance": true,
+  "hostRequired": true,
+  "description": "Configure only the designated receiving subdomain. Preserve existing mailbox MX and DMARC.",
+  "variableDescription": "Exact DNS values from the current canonical Resend provider identity. MX priority is supported only when the provider returns 10; otherwise use manual setup.",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%receiveMx%",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
