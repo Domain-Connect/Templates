@@ -1,0 +1,35 @@
+{
+  "providerId": "phluit.com",
+  "providerName": "Phluit",
+  "serviceId": "emailsending",
+  "serviceName": "Email Sending",
+  "version": 1,
+  "logoUrl": "https://phluit.com/images/phluit-icon.svg",
+  "description": "Sets up a domain to send transactional email through Phluit Email Sending: adds Phluit to the domain's SPF record, publishes the DKIM signing key and creates the return path that receives bounces.",
+  "variableDescription": "dkimselector: the DKIM selector created for the domain (for example postal-ab12cd); dkimkey: the base64 DKIM public key",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dc.phluit.com",
+  "syncRedirectDomain": "portal.phluit.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.postal20.phluit.net"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; t=s; h=sha256; p=%dkimkey%;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "psrp",
+      "pointsTo": "rp.postal20.phluit.net",
+      "ttl": 3600
+    }
+  ]
+}
