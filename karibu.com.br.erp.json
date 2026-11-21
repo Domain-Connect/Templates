@@ -1,0 +1,27 @@
+{
+  "providerId": "karibu.com.br",
+  "providerName": "Karibu",
+  "serviceId": "erp",
+  "serviceName": "Karibu ERP",
+  "version": 1,
+  "logoUrl": "https://erp.karibu.com.br/brand/email/karibu-wordmark.png",
+  "description": "Abre o ERP do Karibu no domínio da sua empresa.",
+  "variableDescription": "token: código de posse do domínio gerado pelo Karibu",
+  "hostRequired": true,
+  "syncPubKeyDomain": "karibu.com.br",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_karibu",
+      "ttl": 3600,
+      "data": "karibu-%token%",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "dominios.karibu.com.br",
+      "ttl": 3600
+    }
+  ]
+}
