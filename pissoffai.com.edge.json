@@ -1,0 +1,15 @@
+{
+  "providerId": "pissoffai.com",
+  "providerName": "pissoffAI",
+  "serviceId": "edge",
+  "serviceName": "pissoffAI site protection",
+  "version": 1,
+  "logoUrl": "https://pissoffai.com/icon.svg",
+  "description": "Points a subdomain (usually www) at the pissoffAI edge, which serves the site to people as normal and makes it useless to AI training scrapers.",
+  "hostRequired": true,
+  "syncPubKeyDomain": "pissoffai.com",
+  "syncRedirectDomain": "pissoffai.com",
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "edge.pissoffai.com", "ttl": 3600 }
+  ]
+}
