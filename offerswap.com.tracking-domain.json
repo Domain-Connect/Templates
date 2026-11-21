@@ -1,0 +1,16 @@
+{
+  "providerId": "offerswap.com",
+  "providerName": "OfferSwap",
+  "serviceId": "tracking-domain",
+  "serviceName": "OfferSwap tracking domain",
+  "version": 1,
+  "logoUrl": "https://app.offerswap.com/favicon.svg",
+  "description": "Points a subdomain at OfferSwap for first-party tracking and branded short links.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.offerswap.com",
+  "syncRedirectDomain": "app.offerswap.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "offerswap.com", "ttl": 3600 }
+  ]
+}
