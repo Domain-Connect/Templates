@@ -1,23 +1,39 @@
 {
-  "version": 1,
+  "version": 2,
   "providerId": "mosspub.com",
   "providerName": "moss",
   "serviceId": "website",
   "serviceName": "moss website",
-  "description": "Point a domain at a website published with moss.",
-  "variableDescription": "No variables. %domain% is the built-in for the domain being configured; the trailing dot pins both records to the zone apex, because moss publishes a whole site rather than a subdomain.",
+  "logoUrl": "https://mosspub.com/assets/brand/favicon.svg",
+  "description": "Point a domain at a website published with moss: the bare domain at moss's server, which redirects it to www, and www at moss's edge with its certificate validated there.",
+  "variableDescription": "dcvtarget: the certificate-validation target Cloudflare assigns this hostname. ownertoken: the hostname-ownership token Cloudflare assigns it. Both are read by moss's server from Cloudflare and sent in a signed apply link.",
+  "syncPubKeyDomain": "domainconnect.mosspub.com",
+  "syncBlock": false,
   "records": [
     {
       "type": "A",
-      "host": "%domain%.",
+      "host": "@",
       "pointsTo": "45.76.13.224",
       "ttl": 3600
     },
     {
-      "type": "A",
-      "host": "www.%domain%.",
-      "pointsTo": "45.76.13.224",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.mosspub.com",
       "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge.www",
+      "pointsTo": "%dcvtarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname.www",
+      "data": "%ownertoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
     }
   ]
 }
