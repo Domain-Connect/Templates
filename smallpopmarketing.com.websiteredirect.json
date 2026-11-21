@@ -1,0 +1,36 @@
+{
+  "providerId": "smallpopmarketing.com",
+  "providerName": "SmallPOP Marketing",
+  "serviceId": "websiteredirect",
+  "serviceName": "SmallPOP website, bare domain forwarded to www",
+  "version": 1,
+  "logoUrl": "https://smallpopmarketing.com/favicon.svg",
+  "description": "Shows the website SmallPOP Marketing built for you at www.%domain%, forwards %domain% to it with a permanent redirect and proves the domain is yours. Email and every other record stay as they are.",
+  "variableDescription": "verify: the token after smallpop-verify= that proves this domain belongs to the SmallPOP account that asked",
+  "syncBlock": false,
+  "syncPubKeyDomain": "smallpopmarketing.com",
+  "syncRedirectDomain": "app.smallpopmarketing.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_smallpop-verify",
+      "data": "smallpop-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "smallpop-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.smallpophost.com",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}
