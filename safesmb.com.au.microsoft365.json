@@ -1,0 +1,76 @@
+{
+  "providerId": "safesmb.com.au",
+  "providerName": "SafeSMB",
+  "serviceId": "microsoft365",
+  "serviceName": "Microsoft 365 email",
+  "version": 1,
+  "logoUrl": "https://365.sankaia.com/brand/safesmb-horizontal.png",
+  "description": "Connects a business's domain to the Microsoft 365 that SafeSMB set up for it: Microsoft's ownership check, mail delivery (MX, either Microsoft's classic or its newer DNSSEC host), Microsoft in the SPF record, Autodiscover for Outlook and phones, and optionally DKIM and a starting DMARC policy.",
+  "variableDescription": "verify: the digits of Microsoft's verification token (MS=ms12345678 gives 12345678); mx: the part of the MX host Microsoft shows before .mail.protection.outlook.com (group mx) or before .mx.microsoft (group mxdnssec), e.g. example-com or example-com.l-v1; dkim1, dkim2: Microsoft's DKIM targets after the fixed selector1- and selector2- prefixes",
+  "syncPubKeyDomain": "safesmb.com.au",
+  "syncRedirectDomain": "365.sankaia.com,api.sankaia.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "@",
+      "data": "MS=ms%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "MS="
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx%.mail.protection.outlook.com",
+      "priority": 0,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mxdnssec",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx%.mx.microsoft",
+      "priority": 0,
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.protection.outlook.com"
+    },
+    {
+      "groupId": "autodiscover",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "autodiscover.outlook.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "selector1._domainkey",
+      "pointsTo": "selector1-%dkim1%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "selector2._domainkey",
+      "pointsTo": "selector2-%dkim2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
