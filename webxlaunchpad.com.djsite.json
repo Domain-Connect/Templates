@@ -11,7 +11,6 @@
   "syncPubKeyDomain": "webxlaunchpad.com",
   "syncRedirectDomain": "dj.webxlaunchpad.com,webxlaunchpad.com",
   "hostRequired": false,
-  "warnPhishing": true,
   "records": [
     { "type": "CNAME", "host": "www", "pointsTo": "sites.webxlaunchpad.com", "ttl": 3600 },
     { "type": "TXT", "host": "_webx-verify.www", "data": "%hubverify%", "ttl": 3600, "txtConflictMatchingMode": "All" },
