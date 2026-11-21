@@ -1,0 +1,98 @@
+{
+  "providerId": "dodomain.io",
+  "providerName": "DoDomain",
+  "serviceId": "site-verification",
+  "serviceName": "Site verification",
+  "version": 1,
+  "logoUrl": "https://dodomain.io/icon.svg",
+  "description": "Adds third-party domain-ownership tokens at the domain, one group per vendor with a fixed token prefix (Google, Facebook, Microsoft 365, Apple, Atlassian, DocuSign, Adobe, GlobalSign, OpenAI, Pinterest). Each token is added beside any existing TXT record (conflict mode None), because a domain often holds several tokens of one vendor. Only the groups passed via groupId are applied. Used by DoDomain (domain-connect-as-a-service) on behalf of its integrator applications; sharedProviderName is set so the consent screen can name the integrator beside DoDomain.",
+  "variableDescription": "<vendor>Token = the token after that vendor's fixed prefix, for vendor = google (google-site-verification=), facebook (facebook-domain-verification=), microsoft (MS=), apple (apple-domain-verification=), atlassian (atlassian-domain-verification=), docusign (docusign=), adobe (adobe-idp-site-verification=), globalsign (globalsign-domain-verification=), openai (openai-domain-verification=), pinterest (pinterest-site-verification=); the group is the vendor name. Variables: googleToken, facebookToken, microsoftToken, appleToken, atlassianToken, docusignToken, adobeToken, globalsignToken, openaiToken, pinterestToken.",
+  "syncBlock": false,
+  "shared": true,
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "syncPubKeyDomain": "dckeys.dodomain.io",
+  "syncRedirectDomain": "app.dodomain.io",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "google",
+      "host": "@",
+      "data": "google-site-verification=%googleToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "facebook",
+      "host": "@",
+      "data": "facebook-domain-verification=%facebookToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "microsoft",
+      "host": "@",
+      "data": "MS=%microsoftToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "apple",
+      "host": "@",
+      "data": "apple-domain-verification=%appleToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "atlassian",
+      "host": "@",
+      "data": "atlassian-domain-verification=%atlassianToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "docusign",
+      "host": "@",
+      "data": "docusign=%docusignToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "adobe",
+      "host": "@",
+      "data": "adobe-idp-site-verification=%adobeToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "globalsign",
+      "host": "@",
+      "data": "globalsign-domain-verification=%globalsignToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "openai",
+      "host": "@",
+      "data": "openai-domain-verification=%openaiToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "pinterest",
+      "host": "@",
+      "data": "pinterest-site-verification=%pinterestToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

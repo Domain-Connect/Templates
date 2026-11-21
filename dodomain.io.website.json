@@ -1,0 +1,90 @@
+{
+  "providerId": "dodomain.io",
+  "providerName": "DoDomain",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://dodomain.io/icon.svg",
+  "description": "Points a domain (or, with the host parameter, a subdomain) at a SaaS product's website hosting: up to four A and two AAAA records at the root, a www CNAME, a wildcard (*) CNAME, the _acme-challenge CNAME the host uses to issue the site's certificate, and DoDomain's ownership TXT at _dodomain-challenge. Every record is its own group, applied via groupId; record hosts are fixed. Used by DoDomain (domain-connect-as-a-service) on behalf of its integrator applications; sharedProviderName is set so the consent screen can name the integrator beside DoDomain.",
+  "variableDescription": "ipv4a..ipv4d = the IPv4 addresses of the root A records (groups a-a..a-d); ipv6a, ipv6b = the IPv6 addresses of the root AAAA records (groups aaaa-a, aaaa-b); wwwTarget = the CNAME destination of www (group www); wildcardTarget = the CNAME destination of * (group wildcard); acmeTarget = the CNAME destination of _acme-challenge (group acme-challenge); token = DoDomain's ownership token after the fixed 'dodomain-verify=' prefix (group verify). Variables: ipv4a, ipv4b, ipv4c, ipv4d, ipv6a, ipv6b, wwwTarget, wildcardTarget, acmeTarget, token.",
+  "syncBlock": false,
+  "shared": true,
+  "sharedProviderName": true,
+  "hostRequired": false,
+  "syncPubKeyDomain": "dckeys.dodomain.io",
+  "syncRedirectDomain": "app.dodomain.io",
+  "records": [
+    {
+      "type": "A",
+      "groupId": "a-a",
+      "host": "@",
+      "pointsTo": "%ipv4a%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "a-b",
+      "host": "@",
+      "pointsTo": "%ipv4b%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "a-c",
+      "host": "@",
+      "pointsTo": "%ipv4c%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "groupId": "a-d",
+      "host": "@",
+      "pointsTo": "%ipv4d%",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "groupId": "aaaa-a",
+      "host": "@",
+      "pointsTo": "%ipv6a%",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "groupId": "aaaa-b",
+      "host": "@",
+      "pointsTo": "%ipv6b%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "www",
+      "host": "www",
+      "pointsTo": "%wwwTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "wildcard",
+      "host": "*",
+      "pointsTo": "%wildcardTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "groupId": "acme-challenge",
+      "host": "_acme-challenge",
+      "pointsTo": "%acmeTarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_dodomain-challenge",
+      "data": "dodomain-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dodomain-verify="
+    }
+  ]
+}
