@@ -1,0 +1,21 @@
+{
+  "providerId": "spyira.com",
+  "providerName": "Spyira",
+  "serviceId": "store",
+  "serviceName": "Spyira Store",
+  "version": 1,
+  "logoUrl": "https://app.spyira.com/icon-512.png",
+  "description": "Connects a domain or subdomain to a Spyira online store (CNAME to the Spyira edge, SSL issued automatically).",
+  "variableDescription": "No variables. host = the subdomain to connect (e.g. www).",
+  "hostRequired": true,
+  "syncPubKeyDomain": "spyira.com",
+  "syncRedirectDomain": "app.spyira.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "stores.spyira.com",
+      "ttl": 3600
+    }
+  ]
+}
