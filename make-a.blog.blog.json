@@ -1,0 +1,18 @@
+{
+  "providerId": "make-a.blog",
+  "providerName": "make-a.blog",
+  "serviceId": "blog",
+  "serviceName": "make-a.blog custom domain",
+  "version": 1,
+  "logoUrl": "https://make-a.blog/logo.svg",
+  "description": "Shows your make-a.blog blog on your own domain: a CNAME to domains.make-a.blog and a TXT record that proves the domain belongs to your blog.",
+  "variableDescription": "verify: verification code for your blog, created by make-a.blog",
+  "syncBlock": false,
+  "syncPubKeyDomain": "make-a.blog",
+  "syncRedirectDomain": "make-a.blog",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "domains.make-a.blog", "ttl": 3600 },
+    { "type": "TXT", "host": "_make-a-blog", "data": "mab-%verify%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}
