@@ -1,0 +1,27 @@
+{
+    "providerId": "novaipulse.com",
+    "providerName": "NOVAI Pulse",
+    "serviceId": "website",
+    "serviceName": "NOVAI Pulse website",
+    "version": 1,
+    "logoUrl": "https://novaipulse.com/static/site/img/logo-dark.webp",
+    "description": "Points the domain to the website NOVAI Pulse builds and hosts for the customer.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "novaipulse.com",
+    "syncRedirectDomain": "novaipulse.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "152.53.112.211",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "@",
+            "ttl": 3600
+        }
+    ]
+}
