@@ -1,0 +1,16 @@
+{
+  "providerId": "marginkeeping.com",
+  "providerName": "MarginKeeping",
+  "serviceId": "restoran-sitesi",
+  "serviceName": "Restaurant website",
+  "version": 1,
+  "logoUrl": "https://marginkeeping.com/api/alan-adi/logo.svg",
+  "description": "Connects your restaurant's online ordering site and owner panel to your domain.",
+  "syncPubKeyDomain": "marginkeeping.com",
+  "syncRedirectDomain": "marginkeeping.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "kiraci.marginkeeping.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "panel", "pointsTo": "kiraci.marginkeeping.com", "ttl": 3600 }
+  ]
+}
