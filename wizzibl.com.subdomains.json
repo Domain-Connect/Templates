@@ -1,0 +1,19 @@
+{
+  "providerId": "wizzibl.com",
+  "providerName": "Wizzibl",
+  "serviceId": "subdomains",
+  "serviceName": "Wizzibl subdomain website",
+  "version": 1,
+  "logoUrl": "https://wizzibl.com/favicon.png",
+  "description": "Points a user-provided subdomain to a website hosted on Wizzibl.",
+  "syncPubKeyDomain": "wizzibl.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.wizzibl.com",
+      "ttl": 3600
+    }
+  ]
+}
