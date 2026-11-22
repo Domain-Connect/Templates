@@ -1,0 +1,18 @@
+{
+  "providerId": "mulholland.ai",
+  "providerName": "Mulholland Technologies",
+  "serviceId": "app",
+  "serviceName": "App",
+  "version": 2,
+  "logoUrl": "https://mulholland.ai/site/art/brand/apple-touch-icon.png",
+  "description": "Points app and api of the domain at its app, and verifies the domain with Google for its sign-in.",
+  "variableDescription": "target: the hostname app and api point at; token: Google's site verification token for the domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mulholland.ai",
+  "hostRequired": false,
+  "records": [
+    { "type": "CNAME", "host": "app", "pointsTo": "%target%", "ttl": 3600 },
+    { "type": "CNAME", "host": "api", "pointsTo": "%target%", "ttl": 3600 },
+    { "type": "TXT", "host": "@", "data": "google-site-verification=%token%", "ttl": 3600 }
+  ]
+}
