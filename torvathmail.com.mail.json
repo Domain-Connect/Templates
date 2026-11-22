@@ -1,0 +1,57 @@
+{
+  "providerId": "torvathmail.com",
+  "providerName": "Torvath Mail",
+  "serviceId": "mail",
+  "serviceName": "Torvath Mail",
+  "version": 1,
+  "logoUrl": "https://torvathmail.com/logo.png",
+  "description": "Business email by Torvath: proves you own the domain, signs and authorises the mail you send, and, when you choose, receives your mail.",
+  "variableDescription": "verifyToken: the code that ties the domain to your Torvath account",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "torvathmail.com",
+  "syncRedirectDomain": "app.torvathmail.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_mailhost-verify",
+      "data": "tv-verify=%verifyToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "tv-verify="
+    },
+    {
+      "groupId": "send",
+      "type": "CNAME",
+      "host": "tv1._domainkey",
+      "pointsTo": "tv1.dkim.torvathmail.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "send",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.torvathmail.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@torvathmail.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "receive",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.torvathmail.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

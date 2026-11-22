@@ -1,0 +1,14 @@
+{
+  "providerId": "attribi.com",
+  "providerName": "Attribi",
+  "serviceId": "first-party-tracking",
+  "serviceName": "Attribi first-party tracking",
+  "version": 1,
+  "logoUrl": "https://attribi.com/apple-icon.png",
+  "description": "Adds a first-party tracking subdomain (track) so analytics load from your own domain and survive ad-blockers and Safari ITP.",
+  "syncPubKeyDomain": "attribi.com",
+  "syncRedirectDomain": "attribi.com",
+  "records": [
+    { "type": "CNAME", "host": "track", "pointsTo": "%cname%", "ttl": 1800 }
+  ]
+}

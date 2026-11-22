@@ -1,0 +1,29 @@
+{
+    "providerId": "heypistachio.ai",
+    "providerName": "Pistachio",
+    "serviceId": "replies",
+    "serviceName": "Email replies",
+    "version": 1,
+    "logoUrl": "https://heypistachio.ai/brands/pistachio/logo.svg",
+    "description": "Lets clients' email replies reach a coach's Pistachio workspace on a receive-only subdomain (reply.<domain>), through Resend: the DKIM key and the MX that hands the subdomain's mail to Resend. Apply it to the reply subdomain only, never to a domain that already receives mail.",
+    "variableDescription": "%dkim%: the DKIM public key Resend issues for the subdomain (the base64 part after p=). %region%: the Amazon SES region that receives for it, e.g. eu-west-1.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "heypistachio.ai",
+    "syncRedirectDomain": "heypistachio.ai",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%dkim%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "inbound-smtp.%region%.amazonaws.com",
+            "priority": 10,
+            "ttl": 3600
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "providerId": "sporty.plus",
+    "providerName": "SportyPlus",
+    "serviceId": "club-custom-subdomain",
+    "serviceName": "Club website (subdomain)",
+    "version": 1,
+    "syncPubKeyDomain": "sporty.plus",
+    "logoUrl": "https://www.sporty.plus/logo.svg",
+    "description": "Points a subdomain of the club's own domain at their SportyPlus club website, for a club using something like app.example.com rather than the domain itself.",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "origin.sporty.plus",
+            "ttl": 300
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+  "providerId": "toshiku.com",
+  "providerName": "Toshiku",
+  "serviceId": "domain-verification",
+  "serviceName": "Toshiku Domain Verification",
+  "version": 1,
+  "logoUrl": "https://toshiku.com/favicon.svg",
+  "description": "Adds the DNS TXT record that verifies domain ownership with Toshiku.",
+  "variableDescription": "%verification% is the domain-verification token issued by Toshiku.",
+  "syncPubKeyDomain": "domainconnect.toshiku.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "toshiku-pen-verify=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "toshiku-pen-verify=",
+      "essential": "OnApply"
+    }
+  ]
+}

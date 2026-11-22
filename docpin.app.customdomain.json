@@ -1,0 +1,21 @@
+{
+  "providerId": "docpin.app",
+  "providerName": "DocPin",
+  "serviceId": "customdomain",
+  "serviceName": "DocPin custom domain",
+  "version": 1,
+  "logoUrl": "https://docpin.app/assets/icon.svg",
+  "description": "Points a subdomain at DocPin so a workspace's pages are served from it, for example docs.example.com.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.docpin.app",
+  "syncRedirectDomain": "docpin.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.docpin.app",
+      "ttl": 3600
+    }
+  ]
+}

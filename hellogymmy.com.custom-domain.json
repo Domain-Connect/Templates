@@ -1,0 +1,20 @@
+{
+    "providerId": "hellogymmy.com",
+    "providerName": "Gymmy",
+    "serviceId": "custom-domain",
+    "serviceName": "Gymmy custom domain",
+    "version": 1,
+    "logoUrl": "https://hellogymmy.com/brand/mark.svg",
+    "description": "Points a subdomain of the gym's own domain (for example book.yourgym.com) to its Gymmy booking page. Gymmy serves the hostname through Cloudflare for SaaS, which validates it and issues the HTTPS certificate once this CNAME is in place. The host is supplied by the caller and the CNAME target is fixed, so the template has no variables.",
+    "syncPubKeyDomain": "hellogymmy.com",
+    "syncRedirectDomain": "hellogymmy.com,hellogymmy.fr",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "domains.hellogymmy.com",
+            "ttl": 3600
+        }
+    ]
+}

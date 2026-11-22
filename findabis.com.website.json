@@ -1,0 +1,16 @@
+{
+  "providerId": "findabis.com",
+  "providerName": "Findabis",
+  "serviceId": "website",
+  "serviceName": "Findabis website",
+  "version": 1,
+  "logoUrl": "https://findabis.com/domain-connect/logo.png",
+  "description": "Points this address (for example www.yourclinic.co.uk) at the website you run on Findabis.",
+  "syncPubKeyDomain": "findabis.com",
+  "syncRedirectDomain": "findabis.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "portal.findabis.com", "ttl": 3600 }
+  ]
+}

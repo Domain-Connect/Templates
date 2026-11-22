@@ -1,0 +1,21 @@
+{
+    "providerId": "greatpages.dev.br",
+    "providerName": "Great Pages LAB",
+    "version": 1,
+    "logoUrl": "https://app.greatpages.com.br/images/great-pages-icon.svg",
+    "syncPubKeyDomain": "greatpages.dev.br",
+    "syncRedirectDomain": "greatpages.dev.br",
+    "serviceId": "subdomain",
+    "serviceName": "Great Pages LAB (subdomínio)",
+    "description": "Aponta o subdomínio informado em host para a página publicada na Great Pages.",
+    "variableDescription": "Sem variáveis.",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cname.greatssl.dev.br",
+            "ttl": 300
+        }
+    ]
+}

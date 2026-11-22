@@ -1,0 +1,24 @@
+{
+  "providerId": "btfs.sh",
+  "providerName": "btfs.sh",
+  "serviceId": "connect-apex",
+  "serviceName": "Custom root domain",
+  "version": 1,
+  "logoUrl": "https://btfs.sh/logo.svg",
+  "description": "Points a domain at the IP address given by the hosting service of the app that sent you here, and adds its verification record.",
+  "variableDescription": "ip: IPv4 address the domain should point to; verifyLabel: label after the leading underscore of the verification record; verifyValue: verification token",
+  "sharedProviderName": true,
+  "shared": true,
+  "syncPubKeyDomain": "btfs.sh",
+  "records": [
+    { "groupId": "a", "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 3600 },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_%verifyLabel%",
+      "data": "%verifyValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

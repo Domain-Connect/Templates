@@ -1,0 +1,21 @@
+{
+  "providerId": "closekite.com",
+  "providerName": "CloseKite",
+  "serviceId": "verify",
+  "serviceName": "CloseKite domain check",
+  "version": 1,
+  "logoUrl": "https://closekite.com/apple-touch-icon.png",
+  "description": "Shows CloseKite that the domain is yours.",
+  "syncPubKeyDomain": "closekite.com",
+  "syncRedirectDomain": "closekite.com",
+  "variableDescription": "token: the check code CloseKite made for this domain (32 hex characters)",
+  "records": [
+    {
+      "ttl": 3600,
+      "type": "TXT",
+      "host": "_closekite",
+      "data": "closekite-verify=%token%",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

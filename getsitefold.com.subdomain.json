@@ -1,0 +1,17 @@
+{
+  "providerId": "getsitefold.com",
+  "providerName": "Sitefold",
+  "serviceId": "subdomain",
+  "serviceName": "Website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://getsitefold.com/favicon.svg",
+  "description": "Connects a subdomain (for example shop.example.com) to a website with one CNAME. Nothing else in the zone is touched.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "getsitefold.com",
+  "syncRedirectDomain": "app.getsitefold.com,staging.getsitefold.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "sites.getsitefold.com", "ttl": 3600 }
+  ]
+}

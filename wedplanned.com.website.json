@@ -1,0 +1,20 @@
+{
+  "providerId": "wedplanned.com",
+  "providerName": "WedPlanned",
+  "version": 1,
+  "logoUrl": "https://wedplanned.com/brand/wedplanned-pink-dark.png",
+  "syncPubKeyDomain": "domainconnect.wedplanned.com",
+  "syncRedirectDomain": "app.wedplanned.com",
+  "serviceId": "website",
+  "serviceName": "Studio website",
+  "description": "Connect a verified website address to the published WedPlanned Studio website.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.wedplanned.com",
+      "ttl": 3600
+    }
+  ],
+  "hostRequired": true
+}

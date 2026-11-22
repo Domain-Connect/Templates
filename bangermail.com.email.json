@@ -1,0 +1,70 @@
+{
+  "providerId": "bangermail.com",
+  "providerName": "Banger",
+  "serviceId": "email",
+  "serviceName": "Banger email",
+  "version": 1,
+  "logoUrl": "https://bangermail.com/assets/banger-app-logo-light.svg",
+  "description": "Lets Banger receive and send email for a domain or subdomain: inbound MX, Amazon SES DKIM, a return-path subdomain for bounces, and a monitoring-only DMARC policy. Apply once per mail domain, with host set to its subdomain (blank for the root).",
+  "variableDescription": "%inbound%: Banger's inbound MX host for the environment (ingest-v2.bangermail.com). %dkim1%, %dkim2%, %dkim3%: the three Amazon SES Easy DKIM tokens issued for this domain. %region%: the Amazon SES region that sends for this domain (eu-central-1).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "bangermail.com",
+  "syncRedirectDomain": "app.bangermail.com,app.bangermail-staging.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%inbound%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "returnpath",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "returnpath",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "providerId": "globihome.com",
+  "providerName": "Globihome",
+  "serviceId": "agency-website",
+  "serviceName": "Agency website",
+  "version": 1,
+  "description": "Connect this address to your agency website on Globihome (Cloudflare DNS only). Cloudflare ignores hostRequired and supports flattened apex CNAME records; hostRequired is set for the shared template schema. Omit host for an apex address.",
+  "variableDescription": "ownership: Cloudflare hostname verification token; certificate: Cloudflare certificate validation token",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.globihome.com",
+  "syncRedirectDomain": "studio.globihome.com,studio.globihome.dev",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "routing",
+      "host": "@",
+      "pointsTo": "sites-cname.globi.page",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "groupId": "certificate",
+      "host": "_acme-challenge",
+      "data": "%certificate%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

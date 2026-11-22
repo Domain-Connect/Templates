@@ -1,0 +1,23 @@
+{
+  "providerId": "corpusrank.com",
+  "providerName": "CorpusRank",
+  "serviceId": "gsc-verify",
+  "serviceName": "CorpusRank Search Console Verification",
+  "version": 1,
+  "logoUrl": "https://www.corpusrank.com/logo.svg",
+  "description": "Adds the Google Search Console DNS verification record so CorpusRank can read Search Console data for this domain.",
+  "variableDescription": "%token%: the Google Search Console verification token issued for this domain and Google account (the value after 'google-site-verification=')",
+  "syncPubKeyDomain": "dc-keys.corpusrank.com",
+  "syncRedirectDomain": "corpusrank.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "ttl": 600,
+      "data": "google-site-verification=%token%",
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}

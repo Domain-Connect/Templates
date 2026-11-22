@@ -1,0 +1,25 @@
+{
+  "providerId": "segmentstream.com",
+  "providerName": "SegmentStream",
+  "logoUrl": "https://segmentstream.com/segmentstream-logo-black.svg",
+  "serviceId": "workspace-address-pair",
+  "serviceName": "Workspace address pair",
+  "version": 1,
+  "description": "Point this hostname to both IPv4 addresses assigned to the workspace app.",
+  "variableDescription": "address1 and address2 are the two assigned workspace IPv4 addresses.",
+  "syncPubKeyDomain": "domainconnect.segmentstream.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%address1%",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%address2%",
+      "ttl": 600
+    }
+  ]
+}

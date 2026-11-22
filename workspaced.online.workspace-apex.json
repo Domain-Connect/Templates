@@ -1,0 +1,33 @@
+{
+  "providerId": "workspaced.online",
+  "providerName": "workspaced",
+  "serviceId": "workspace-apex",
+  "serviceName": "workspaced workspace (root domain)",
+  "version": 1,
+  "logoUrl": "https://ai.workspaced.online/favicon.svg",
+  "description": "Points your domain and its www at your workspaced workspace, so the sites you run there answer on it. The domain's current A and AAAA records and its www record are replaced, so a website already on the domain stops answering there. Email (MX) and other records are not changed.",
+  "variableDescription": "ipv4/ipv6: the workspace's public addresses; vmid: the workspace's id, whose name under vm.workspaced.online www points at",
+  "syncBlock": false,
+  "syncPubKeyDomain": "workspaced.online",
+  "syncRedirectDomain": "ai.workspaced.online",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 300
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "%ipv6%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%vmid%.vm.workspaced.online",
+      "ttl": 300
+    }
+  ]
+}

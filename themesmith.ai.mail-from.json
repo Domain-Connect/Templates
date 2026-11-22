@@ -1,0 +1,27 @@
+{
+  "providerId": "themesmith.ai",
+  "providerName": "ThemeSmith",
+  "serviceId": "mail-from",
+  "serviceName": "Mail from",
+  "version": 1,
+  "logoUrl": "https://themesmith.ai/favicon.svg",
+  "description": "Sets the envelope address for mail ThemeSmith sends as this domain, on the name mail. Delivery records at the bare domain are left as they are.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "themesmith.ai",
+  "syncRedirectDomain": "app.themesmith.ai",
+  "records": [
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": "10",
+      "ttl": "300"
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:_spf.dns.themesmith.ai",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "providerId": "peachjam.dev",
+  "providerName": "PeachJam",
+  "serviceId": "custom-domain-apex",
+  "serviceName": "PeachJam custom domain",
+  "version": 1,
+  "logoUrl": "https://peachjam.dev/favicon.svg",
+  "description": "Connects an apex domain to a PeachJam project and adds the ownership verification record.",
+  "variableDescription": "verification is the project's ownership verification value.",
+  "syncPubKeyDomain": "peachjam.dev",
+  "syncRedirectDomain": "peachjam.dev",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "91.107.206.143",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_peachjam-challenge",
+      "data": "peachjam-site-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "peachjam-site-verification="
+    }
+  ]
+}

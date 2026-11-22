@@ -1,0 +1,18 @@
+{
+  "providerId": "tuti.so",
+  "providerName": "Tuti",
+  "serviceId": "custom-domain",
+  "serviceName": "Help center and portal on your domain",
+  "version": 1,
+  "logoUrl": "https://tuti.so/icon.svg",
+  "description": "Points the team's subdomain (help.example.com) at Tuti and proves it's theirs with a TXT record.",
+  "variableDescription": "%target%: where portals' domains point (customers.tuti.so); %token%: the domain's verification token",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tuti.so",
+  "syncRedirectDomain": "tuti.so",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 3600 },
+    { "type": "TXT", "host": "_tuti", "data": "tuti-verify=%token%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}

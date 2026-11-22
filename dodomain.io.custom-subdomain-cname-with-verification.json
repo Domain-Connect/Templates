@@ -1,0 +1,31 @@
+{
+  "providerId": "dodomain.io",
+  "providerName": "DoDomain",
+  "serviceId": "custom-subdomain-cname-with-verification",
+  "serviceName": "Custom domain (CNAME) with ownership verification",
+  "version": 1,
+  "description": "Points one subdomain at a SaaS product via a single CNAME and proves ownership of that subdomain with one constrained TXT record beneath it (the A/CNAME + TXT pattern). Used by DoDomain (domain-connect-as-a-service) on behalf of its integrator applications; the CNAME target and the verification token are the only variables.",
+  "variableDescription": "target = the CNAME destination host provided by the integrator application (e.g. cname.integrator-app.com); token = the opaque verification token minted by DoDomain for this connect session.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "dckeys.dodomain.io",
+  "syncRedirectDomain": "app.dodomain.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "connect",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "groupId": "verify",
+      "host": "_dodomain-challenge",
+      "data": "dodomain-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dodomain-verify="
+    }
+  ]
+}

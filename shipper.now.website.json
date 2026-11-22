@@ -1,0 +1,21 @@
+{
+  "providerId": "shipper.now",
+  "providerName": "Shipper",
+  "serviceId": "website",
+  "serviceName": "Shipper website",
+  "version": 1,
+  "logoUrl": "https://app.shipper.now/logo_color.png",
+  "description": "Points www at a website hosted on Shipper and forwards the bare domain to www. Email (MX) and other records are not touched.",
+  "variableDescription": "No variables.",
+  "syncPubKeyDomain": "shipper.now",
+  "syncRedirectDomain": "app.shipper.now",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.shipper.now",
+      "ttl": 3600
+    },
+    { "type": "REDIR301", "host": "@", "target": "https://www.%fqdn%" }
+  ]
+}

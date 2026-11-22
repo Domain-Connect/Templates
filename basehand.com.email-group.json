@@ -1,0 +1,44 @@
+{
+  "providerId": "basehand.com",
+  "providerName": "Basehand",
+  "serviceId": "email-group",
+  "serviceName": "Google Group email sending",
+  "description": "Sends as verified Google Groups, keeping Google Workspace mail",
+  "syncPubKeyDomain": "basehand.com",
+  "syncRedirectDomain": "basehand.com,app.basehand.com",
+  "version": 1,
+  "logoUrl": "https://basehand.com/domain-connect-logo.svg",
+  "variableDescription": "feedback: bounce MX; dkim1, dkim2, and dkim3: SES DKIM tokens",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": "3600"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": "3600"
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "%feedback%",
+      "priority": "10",
+      "ttl": "3600"
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+    "providerId": "orvlabs.com",
+    "providerName": "Orvene",
+    "serviceId": "iris",
+    "serviceName": "Iris transactional email",
+    "version": 1,
+    "syncPubKeyDomain": "orvlabs.com",
+    "logoUrl": "https://iris.orvlabs.com/iris.svg",
+    "description": "Publishes the TXT records that let Iris send email for the domain: the _iris ownership code, DKIM keys for Iris's mail server and relays, the relays' own ownership codes, SPF (merged into any existing record) and a DMARC record when the domain has none.",
+    "variableDescription": "token: Iris ownership code. spf: SPF mechanisms to merge (include: and mx). dmarc: DMARC tags after v=DMARC1, only applied when the domain has no DMARC record. d1sel..d6sel, d1..d6: DKIM selectors and the key tags after v=DKIM1. t1host..t2host, t1..t2: ownership TXT records whose name and value a relay chooses (for example Mailjet's mailjet._<code>).",
+    "records": [
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_iris",
+            "data": "iris-verification=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "iris-verification="
+        },
+        {
+            "groupId": "spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "%spf%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; %dmarc%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "d1",
+            "type": "TXT",
+            "host": "%d1sel%._domainkey",
+            "data": "v=DKIM1; %d1%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "d2",
+            "type": "TXT",
+            "host": "%d2sel%._domainkey",
+            "data": "v=DKIM1; %d2%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "d3",
+            "type": "TXT",
+            "host": "%d3sel%._domainkey",
+            "data": "v=DKIM1; %d3%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "d4",
+            "type": "TXT",
+            "host": "%d4sel%._domainkey",
+            "data": "v=DKIM1; %d4%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "d5",
+            "type": "TXT",
+            "host": "%d5sel%._domainkey",
+            "data": "v=DKIM1; %d5%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "d6",
+            "type": "TXT",
+            "host": "%d6sel%._domainkey",
+            "data": "v=DKIM1; %d6%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "t1",
+            "type": "TXT",
+            "host": "%t1host%",
+            "data": "%t1%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "t2",
+            "type": "TXT",
+            "host": "%t2host%",
+            "data": "%t2%",
+            "ttl": 3600
+        }
+    ],
+    "syncRedirectDomain": "iris.orvlabs.com"
+}

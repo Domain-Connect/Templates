@@ -1,0 +1,56 @@
+{
+  "providerId": "overvio.com",
+  "providerName": "Overvio",
+  "serviceId": "email-domain",
+  "serviceName": "Overvio email domain",
+  "version": 1,
+  "logoUrl": "https://dashboard.overvio.com/logos/v2/overvio-logo-light.svg",
+  "description": "Sets up a part of a shop's domain made only for its marketing email (for example news.example.com) so Overvio can send from it through Amazon SES: the ownership record, the DKIM key, the custom MAIL FROM MX and SPF, DMARC and the link tracking CNAME. Every record goes under the host the template is applied to; the root domain is never changed.",
+  "variableDescription": "%verify_token%: the ownership token Overvio made for the domain (hex). %dkim_id%: the DKIM selector after its fixed ovr prefix (8 hex). %dkim_public_key%: the base64 public half of the DKIM key Overvio made for the domain. %dmarc_token%: the domain's DMARC report token (32 hex).",
+  "syncPubKeyDomain": "overvio.com",
+  "syncRedirectDomain": "dashboard.overvio.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_overvio-verify",
+      "data": "overvio-verify=%verify_token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "overvio-verify="
+    },
+    {
+      "type": "TXT",
+      "host": "ovr%dkim_id%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkim_public_key%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.eu-central-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1;p=none;rua=mailto:dmarc+%dmarc_token%@dmarc.overvio.com;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "click",
+      "pointsTo": "track.overvio.com",
+      "ttl": 3600
+    }
+  ]
+}

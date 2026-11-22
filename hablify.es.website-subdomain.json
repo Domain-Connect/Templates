@@ -1,0 +1,32 @@
+{
+  "providerId": "hablify.es",
+  "providerName": "Hablify",
+  "serviceId": "website-subdomain",
+  "serviceName": "Web de Hablify en un subdominio",
+  "version": 1,
+  "logoUrl": "https://hablify.es/logo.svg",
+  "description": "Points a subdomain (www, shop…) at a Hablify website: the ownership record Hablify checks and a CNAME to the website's address on hablify.es.",
+  "variableDescription": "token: the per-domain ownership token Hablify generates (32 hex characters). It is an opaque single-purpose value on its own dedicated label (_hablify-verify), so it is used bare. site: the label of the website's free address (bar-ana in bar-ana.hablify.es); the target is always fixed under hablify.es.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.hablify.es",
+  "syncRedirectDomain": "app.hablify.es",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_hablify-verify",
+      "data": "%token%",
+      "ttl": 3600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%site%.hablify.es",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}

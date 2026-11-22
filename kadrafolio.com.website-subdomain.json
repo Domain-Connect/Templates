@@ -1,0 +1,21 @@
+{
+    "providerId": "kadrafolio.com",
+    "providerName": "Kadrafolio",
+    "serviceId": "website-subdomain",
+    "serviceName": "Photographer website on a subdomain",
+    "version": 1,
+    "description": "Connects a subdomain (for example photo.example.com, set with the host parameter) to a photographer website built with Kadrafolio and hosted on Vercel: one CNAME to the target Vercel assigns to the Kadrafolio project. For the apex domain use the website template.",
+    "variableDescription": "cname and pool: label and pool number of the Vercel CNAME target from the domain configuration of the Kadrafolio project (e.g. d1d4fc829fe7bc7c and 017 for d1d4fc829fe7bc7c.vercel-dns-017.com).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "kadrafolio.com",
+    "syncRedirectDomain": "kadrasys.dev",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%cname%.vercel-dns-%pool%.com",
+            "ttl": 3600
+        }
+    ]
+}

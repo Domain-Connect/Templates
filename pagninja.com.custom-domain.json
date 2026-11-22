@@ -1,0 +1,34 @@
+{
+    "providerId": "pagninja.com",
+    "providerName": "Pag Ninja",
+    "serviceId": "custom-domain",
+    "serviceName": "Domínio personalizado",
+    "version": 1,
+    "description": "Conecta um subdomínio à Pag Ninja e cria os registros de validação do hostname e do certificado TLS.",
+    "variableDescription": "%ownership%: token de propriedade emitido pela Cloudflare for SaaS; %certificate%: token de validação do certificado TLS",
+    "syncBlock": false,
+    "syncPubKeyDomain": "pagninja.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%ownership%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "TXT",
+            "host": "_acme-challenge",
+            "data": "%certificate%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "None"
+        },
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "customers.pag.ninja",
+            "ttl": 300
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+  "providerId": "selfmades.co",
+  "providerName": "Selfmades",
+  "serviceId": "spf-hostinger-email",
+  "serviceName": "SPF for Hostinger Email",
+  "version": 1,
+  "logoUrl": "https://selfmades.co/selfmades-icon-green-v2.png",
+  "description": "Merges Hostinger Email into the domain's SPF record, so that mail sent from a Hostinger Email mailbox the domain's owner connected to Selfmades passes SPF. Selfmades offers it only when the domain's SPF does not authorize Hostinger Email yet; the existing record and its other senders are kept.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "selfmades.co",
+  "syncRedirectDomain": "selfmades.co",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.mail.hostinger.com"
+    }
+  ]
+}

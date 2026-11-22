@@ -1,0 +1,23 @@
+{
+  "providerId": "blendin.ai",
+  "providerName": "Blendin",
+  "version": 1,
+  "logoUrl": "https://app.blendin.ai/blendin-logo.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.blendin.ai",
+  "syncRedirectDomain": "app.blendin.ai",
+  "serviceId": "linkinbioverify",
+  "serviceName": "Blendin Link in bio (ownership check)",
+  "description": "Adds the one time ownership code Blendin asks for when the domain is already used elsewhere.",
+  "variableDescription": "txt is the one time ownership code.",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%txt%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

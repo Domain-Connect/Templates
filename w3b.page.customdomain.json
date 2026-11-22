@@ -1,0 +1,29 @@
+{
+  "providerId": "w3b.page",
+  "providerName": "W3B.page",
+  "serviceId": "customdomain",
+  "serviceName": "W3B.page website",
+  "version": 1,
+  "logoUrl": "https://w3b.page/favicon.ico",
+  "description": "Points a customer's (sub)domain at their W3B.page website: an ownership TXT record and a CNAME to domains.w3b.page.",
+  "variableDescription": "token: ownership token shown on the W3B.page Domains screen.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "w3b.page",
+  "syncRedirectDomain": "w3b.page",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.w3b.page",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_w3b-verify",
+      "data": "w3b-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

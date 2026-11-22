@@ -1,0 +1,23 @@
+{
+  "providerId": "okidoki.sh",
+  "providerName": "Okidoki Analytics",
+  "serviceId": "own-subdomain",
+  "serviceName": "Okidoki Analytics",
+  "version": 1,
+  "logoUrl": "https://okidoki.sh/okidoki-icon-512.png",
+  "description": "Points one subdomain of your site at Okidoki Analytics, so visits are counted from your own address. No other record is added or changed.",
+  "variableDescription": "No variables. The subdomain is the host, like x7f3k for x7f3k.mysite.com.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.okidoki.sh",
+  "syncRedirectDomain": "okidoki.sh",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

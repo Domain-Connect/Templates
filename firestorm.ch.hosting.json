@@ -1,0 +1,29 @@
+{
+    "providerId": "firestorm.ch",
+    "providerName": "FireStorm",
+    "serviceId": "hosting",
+    "serviceName": "FireStorm Web and Mail Hosting",
+    "version": 1,
+    "logoUrl": "https://www.firestorm.ch/wp-content/uploads/2018/06/logo_firestorm.png",
+    "description": "Points a domain to a FireStorm web and mail hosting package (Plesk).",
+    "variableDescription": "IP4 and IP6 are the IPv4 and IPv6 addresses of the customer's FireStorm hosting server.",
+    "syncPubKeyDomain": "firestorm.ch",
+    "syncRedirectDomain": "admin.firestorm.ch",
+    "records": [
+        { "groupId": "web", "type": "A", "host": "@", "pointsTo": "%IP4%", "ttl": 3600 },
+        { "groupId": "web", "type": "AAAA", "host": "@", "pointsTo": "%IP6%", "ttl": 3600 },
+        { "groupId": "web", "type": "A", "host": "www", "pointsTo": "%IP4%", "ttl": 3600 },
+        { "groupId": "web", "type": "AAAA", "host": "www", "pointsTo": "%IP6%", "ttl": 3600 },
+        { "groupId": "mail", "type": "A", "host": "mail", "pointsTo": "%IP4%", "ttl": 3600 },
+        { "groupId": "mail", "type": "AAAA", "host": "mail", "pointsTo": "%IP6%", "ttl": 3600 },
+        { "groupId": "mail", "type": "A", "host": "webmail", "pointsTo": "%IP4%", "ttl": 3600 },
+        { "groupId": "mail", "type": "AAAA", "host": "webmail", "pointsTo": "%IP6%", "ttl": 3600 },
+        { "groupId": "mail", "type": "A", "host": "autodiscover", "pointsTo": "%IP4%", "ttl": 3600 },
+        { "groupId": "mail", "type": "AAAA", "host": "autodiscover", "pointsTo": "%IP6%", "ttl": 3600 },
+        { "groupId": "mail", "type": "MX", "host": "@", "pointsTo": "mail.%fqdn%", "priority": 10, "ttl": 3600 },
+        { "groupId": "mail", "type": "SPFM", "host": "@", "spfRules": "include:spf.firestorm.ch" },
+        { "groupId": "mail", "type": "CNAME", "host": "firestorm1._domainkey", "pointsTo": "firestorm1._domainkey.firestorm.ch", "ttl": 3600 },
+        { "groupId": "mail", "type": "CNAME", "host": "firestorm2._domainkey", "pointsTo": "firestorm2._domainkey.firestorm.ch", "ttl": 3600 },
+        { "groupId": "mail", "type": "TXT", "host": "_dmarc", "data": "v=DMARC1;p=quarantine;adkim=r;aspf=s", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply" }
+    ]
+}

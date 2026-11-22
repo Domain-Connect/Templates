@@ -1,0 +1,26 @@
+{
+  "providerId": "mevin.ai",
+  "providerName": "Mevin",
+  "serviceId": "website",
+  "serviceName": "Mevin Website",
+  "version": 1,
+  "logoUrl": "https://mevin.ai/android-chrome-192x192.png",
+  "description": "Point a domain you own at a website built with Mevin. Sets an A record at the apex and a CNAME for www.",
+  "variableDescription": "No variables.",
+  "syncPubKeyDomain": "mevin.ai",
+  "syncRedirectDomain": "mevin.ai,www.mevin.ai",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "3.79.226.167",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "cname.mevin.ai",
+      "ttl": 3600
+    }
+  ]
+}

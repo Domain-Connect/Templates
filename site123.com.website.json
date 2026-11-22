@@ -1,0 +1,28 @@
+{
+  "providerId": "site123.com",
+  "providerName": "SITE123",
+  "serviceId": "website",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://static.s123-cdn-network-a.com/admin/InterfaceStatisFiles/allOther/ads/site123/brand_kit_2026/SITE123-Logo-2026/png/site123-logo.png",
+  "description": "Connects your domain to your SITE123 website: points the domain to the SITE123 website servers and www to the SITE123 secure (SSL) host.",
+  "shared": true,
+  "sharedProviderName": true,
+  "sharedServiceName": true,
+  "syncPubKeyDomain": "site123.com",
+  "syncRedirectDomain": "app.site123.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "166.117.120.15",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "ssl.site123.com",
+      "ttl": 3600
+    }
+  ]
+}

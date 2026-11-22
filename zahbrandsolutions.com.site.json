@@ -1,0 +1,29 @@
+{
+  "providerId": "zahbrandsolutions.com",
+  "providerName": "Zah Brand Solutions",
+  "serviceId": "site",
+  "serviceName": "Connect your domain to your Zah Brand Solutions website",
+  "version": 1,
+  "logoUrl": "https://zahbrandsolutions.com/brand/zah-logo-alt.png",
+  "description": "Points a subdomain (for example wellness.example.com) at the website Zah Brand Solutions hosts for you, and adds a verification record so the site can prove it owns the name and issue its certificate. No other DNS records are changed.",
+  "variableDescription": "%target%: the up.railway.app label assigned to the hosting service for your site. %verify%: the per-domain ownership token issued when the domain is added to your site.",
+  "syncPubKeyDomain": "zahbrandsolutions.com",
+  "syncRedirectDomain": "zahbrandsolutions.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_railway-verify",
+      "data": "railway-verify=%verify%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "railway-verify=",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%.up.railway.app",
+      "ttl": 3600
+    }
+  ]
+}

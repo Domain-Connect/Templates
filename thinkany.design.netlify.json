@@ -1,0 +1,28 @@
+{
+  "providerId": "thinkany.design",
+  "providerName": "Thinkany.Design",
+  "serviceId": "netlify",
+  "serviceName": "Your website (Netlify)",
+  "version": 1,
+  "logoUrl": "https://derive.thinkany.design/domain-connect/logo.svg",
+  "description": "Points a domain and its www at a website published to Netlify with Thinkany.Design. Email and every other record stay as they are.",
+  "variableDescription": "site: the site’s Netlify name (the part before .netlify.app)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "thinkany.design",
+  "syncRedirectDomain": "derive.thinkany.design",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "75.2.60.5",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%site%.netlify.app",
+      "ttl": 3600
+    }
+  ]
+}

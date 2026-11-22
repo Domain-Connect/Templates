@@ -1,0 +1,46 @@
+{
+  "providerId": "humfrid.com",
+  "providerName": "Humfrid",
+  "serviceId": "website",
+  "serviceName": "Humfrid website",
+  "version": 2,
+  "logoUrl": "https://humfrid.com/apple-touch-icon.png",
+  "description": "Shows the website Humfrid made for you at your own domain, in two steps so it never goes down: first www and the certificate for your bare domain, then your bare domain. Your email and every other record stay as they are.",
+  "variableDescription": "proof: the token after humfrid-verify= that proves this domain belongs to the Humfrid workspace that asked; certid: the label Google Certificate Manager gives the certificate authorization record of the bare domain; certtoken: the labels before .authorize.certificatemanager.goog in its target",
+  "syncBlock": false,
+  "syncPubKeyDomain": "humfrid.com",
+  "syncRedirectDomain": "humfrid.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "www",
+      "type": "TXT",
+      "host": "_humfrid",
+      "data": "humfrid-verify=%proof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "humfrid-verify="
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "_acme-challenge_%certid%",
+      "pointsTo": "%certtoken%.authorize.certificatemanager.goog",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "connect.byhumfrid.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "bare",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "8.232.109.105",
+      "ttl": 3600
+    }
+  ]
+}

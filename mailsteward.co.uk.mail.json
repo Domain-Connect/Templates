@@ -1,0 +1,97 @@
+{
+    "providerId": "mailsteward.co.uk",
+    "providerName": "Mail Steward",
+    "serviceId": "mail",
+    "serviceName": "Mail Steward email",
+    "version": 1,
+    "logoUrl": "https://mailsteward.co.uk/brand/mark.svg",
+    "description": "Sets up a domain for email hosted by Mail Steward: incoming mail (MX), SPF and DKIM for sending, a DMARC policy, mail app auto-configuration (SRV) and the records for Mail Steward's relay through Resend.",
+    "variableDescription": "dkimselector: the DKIM selector Mail Steward generated for the domain (for example v1-rsa-20261120). dkimkey: the base64 RSA public key for that selector. resenddkim: the base64 public key Resend issued for the domain (Resend's DKIM, used when mail is relayed through Resend).",
+    "syncPubKeyDomain": "mailsteward.co.uk",
+    "syncRedirectDomain": "app.mailsteward.co.uk,admin.mailsteward.co.uk",
+    "records": [
+        {
+            "groupId": "send",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:_spf.mailsteward.co.uk"
+        },
+        {
+            "groupId": "send",
+            "type": "TXT",
+            "host": "%dkimselector%._domainkey",
+            "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimkey%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "receive",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx.mailsteward.co.uk",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=quarantine",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "clients",
+            "type": "SRV",
+            "name": "@",
+            "service": "_submissions",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 1,
+            "port": 465,
+            "target": "mail.mailsteward.co.uk",
+            "ttl": 3600
+        },
+        {
+            "groupId": "clients",
+            "type": "SRV",
+            "name": "@",
+            "service": "_imaps",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 1,
+            "port": 993,
+            "target": "mail.mailsteward.co.uk",
+            "ttl": 3600
+        },
+        {
+            "groupId": "resend",
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%resenddkim%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "resend",
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "resend",
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "resend",
+            "type": "CNAME",
+            "host": "rsend",
+            "pointsTo": "send.forge.rmta.net",
+            "ttl": 3600
+        }
+    ]
+}

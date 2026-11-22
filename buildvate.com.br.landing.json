@@ -1,0 +1,20 @@
+{
+  "providerId": "buildvate.com.br",
+  "providerName": "Buildvate",
+  "serviceId": "landing",
+  "serviceName": "Landing pages",
+  "version": 1,
+  "logoUrl": "https://buildvate.com.br/brand/buildvate-icone-512.png",
+  "description": "Points a subdomain (e.g. www) to landing pages hosted by Buildvate.",
+  "syncPubKeyDomain": "buildvate.com.br",
+  "syncRedirectDomain": "buildvate.com.br",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.pages.buildvate.com.br",
+      "ttl": 3600
+    }
+  ]
+}

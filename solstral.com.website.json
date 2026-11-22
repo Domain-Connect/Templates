@@ -1,0 +1,39 @@
+{
+  "providerId": "solstral.com",
+  "providerName": "Solstral",
+  "serviceId": "website",
+  "serviceName": "Solstral custom domain",
+  "logoUrl": "https://solstral.com/api/brand/asset/logoLight",
+  "description": "Point a domain or subdomain at Solstral to serve a website or a white-labelled CRM address.",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "dcsig.solstral.com",
+  "syncRedirectDomain": "solstral.com,app.solstral.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "saas.solstral.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownership%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%dcv1%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%dcv2%",
+      "ttl": 3600
+    }
+  ]
+}

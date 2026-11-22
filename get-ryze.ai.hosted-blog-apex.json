@@ -1,0 +1,20 @@
+{
+  "providerId": "get-ryze.ai",
+  "providerName": "Ryze AI",
+  "serviceId": "hosted-blog-apex",
+  "serviceName": "Ryze Hosting (root domain)",
+  "version": 1,
+  "logoUrl": "https://reports.get-ryze.ai/apple-touch-icon.png",
+  "description": "Points a root domain (e.g. example.com) to a Ryze hosted blog with one A record.",
+  "variableDescription": "No template variables.",
+  "syncPubKeyDomain": "get-ryze.ai",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    }
+  ]
+}

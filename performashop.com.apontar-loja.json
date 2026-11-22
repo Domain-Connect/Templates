@@ -1,0 +1,19 @@
+{
+  "providerId": "performashop.com",
+  "providerName": "PerformaShop",
+  "serviceId": "apontar-loja",
+  "serviceName": "Apontar domínio da loja",
+  "version": 1,
+  "syncPubKeyDomain": "performashop.com",
+  "logoUrl": "https://performashop.com/logo-oauth.png",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.performashop.com",
+      "ttl": 3600,
+      "essential": "Always"
+    }
+  ]
+}

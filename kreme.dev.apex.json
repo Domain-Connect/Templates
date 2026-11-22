@@ -1,0 +1,30 @@
+{
+  "providerId": "kreme.dev",
+  "providerName": "Kreme",
+  "logoUrl": "https://kreme.dev/logo.svg",
+  "syncPubKeyDomain": "kreme.dev",
+  "syncRedirectDomain": "kreme.dev",
+  "shared": true,
+  "sharedProviderName": true,
+  "serviceId": "apex",
+  "serviceName": "Custom domain (root domain)",
+  "version": 1,
+  "description": "Points the root domain at the app the domain owner is connecting through Kreme, and optionally www as well.",
+  "variableDescription": "%ip%: IPv4 address of the app; %wwwtarget%: hostname www should point to (group www, optional)",
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%wwwtarget%",
+      "ttl": 3600
+    }
+  ]
+}

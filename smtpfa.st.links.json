@@ -1,0 +1,21 @@
+{
+  "providerId": "smtpfa.st",
+  "providerName": "SMTPfast",
+  "serviceId": "links",
+  "serviceName": "SMTPfast Link Domain",
+  "version": 1,
+  "logoUrl": "https://smtpfa.st/logo.png",
+  "description": "Points a custom link domain (such as links.example.com) at SMTPfast, which then serves the open tracking, click tracking and unsubscribe links of email sent from the domain.",
+  "syncPubKeyDomain": "smtpfa.st",
+  "syncRedirectDomain": "smtpfa.st",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "links.smtpfa.st",
+      "ttl": 3600
+    }
+  ]
+}

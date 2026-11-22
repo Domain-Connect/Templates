@@ -1,0 +1,59 @@
+{
+  "providerId": "spark.site",
+  "providerName": "Spark",
+  "serviceId": "email",
+  "serviceName": "Spark email",
+  "version": 1,
+  "logoUrl": "https://spark.site/favicon.svg",
+  "description": "Lets a project built with Spark send email from the domain: the three Amazon SES DKIM records that sign its mail, the spark-mail address that receives bounces and carries its SPF, and the TXT record that proves the domain belongs to the Spark project. Apply it with the host parameter for an address below the domain, such as hello@mail.example.com.",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the domain's Amazon SES DKIM tokens, 32 lowercase letters and digits each; %token%: the Spark project's verification token for the domain, 32 lowercase hexadecimal characters",
+  "syncBlock": false,
+  "syncPubKeyDomain": "spark.site",
+  "syncRedirectDomain": "app.spark.site",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 300
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "spark-mail",
+      "pointsTo": "feedback-smtp.us-east-2.amazonses.com",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "spark-mail",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "verification",
+      "type": "TXT",
+      "host": "_spark-verify",
+      "data": "spark-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}

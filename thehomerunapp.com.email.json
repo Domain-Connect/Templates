@@ -1,0 +1,21 @@
+{
+  "providerId": "thehomerunapp.com",
+  "providerName": "HOMERUN",
+  "serviceId": "email",
+  "serviceName": "Business email",
+  "version": 1,
+  "description": "Send email from the business address and receive replies on its in subdomain.",
+  "logoUrl": "https://thehomerunapp.com/brand/homerun-logo-horizontal.svg",
+  "syncPubKeyDomain": "domainconnect.thehomerunapp.com",
+  "syncRedirectDomain": "app.thehomerunapp.com",
+  "variableDescription": "selector and inSelector are DKIM selector labels. publicKey and inPublicKey are RSA public keys. primaryPriority and secondaryPriority are the provider-supplied MX priorities.",
+  "records": [
+    { "groupId": "sending-spf", "type": "SPFM", "host": "@", "spfRules": "include:mailgun.org", "ttl": 300 },
+    { "groupId": "sending-dkim", "type": "TXT", "host": "%selector%._domainkey", "data": "k=rsa; p=%publicKey%", "txtConflictMatchingMode": "All", "ttl": 300 },
+    { "groupId": "tracking", "type": "CNAME", "host": "email", "pointsTo": "mailgun.org", "ttl": 300 },
+    { "groupId": "receiving-spf", "type": "SPFM", "host": "in", "spfRules": "include:mailgun.org", "ttl": 300 },
+    { "groupId": "receiving-dkim", "type": "TXT", "host": "%inSelector%._domainkey.in", "data": "k=rsa; p=%inPublicKey%", "txtConflictMatchingMode": "All", "ttl": 300 },
+    { "groupId": "receiving-mx", "type": "MX", "host": "in", "pointsTo": "mxa.mailgun.org", "priority": "%primaryPriority%", "ttl": 300 },
+    { "groupId": "receiving-mx", "type": "MX", "host": "in", "pointsTo": "mxb.mailgun.org", "priority": "%secondaryPriority%", "ttl": 300 }
+  ]
+}

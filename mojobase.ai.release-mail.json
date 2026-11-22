@@ -1,0 +1,21 @@
+{
+  "providerId": "mojobase.ai",
+  "providerName": "Mojobase",
+  "serviceId": "release-mail",
+  "serviceName": "Mojobase email: free the domain from its old provider",
+  "version": 1,
+  "logoUrl": "https://mojobase.ai/favicon.svg",
+  "description": "Adds the TXT record at _osrs_he that frees the domain's email from another provider on OpenSRS (hostedemail.com), so Mojobase can host it. This deletes the domain's email service, mailboxes and mail at that other provider.",
+  "variableDescription": "dnskey: Mojobase's OpenSRS company DNS key, published to release a domain held by another OpenSRS reseller.",
+  "syncPubKeyDomain": "mojobase.app",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_osrs_he",
+      "data": "%dnskey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

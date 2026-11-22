@@ -1,0 +1,69 @@
+{
+  "providerId": "polpomail.com",
+  "providerName": "Polpo Mail",
+  "serviceId": "mail",
+  "serviceName": "Polpo Mail email hosting",
+  "version": 1,
+  "logoUrl": "https://polpomail.com/static/favicon.svg",
+  "description": "Receive and send email for your domain with Polpo Mail: domain ownership verification, MX, SPF, DKIM and DMARC records, and the delivery network (SMTP2GO) CNAME records.",
+  "variableDescription": "verifytoken: domain ownership token; dkimselector and dkimkey: the domain's DKIM selector and RSA public key (base64); dmarcrua: mailbox that receives DMARC aggregate reports; relaydkimselector: SMTP2GO DKIM selector; relayrpid: number in the SMTP2GO return-path host.",
+  "syncPubKeyDomain": "polpomail.com",
+  "syncRedirectDomain": "polpomail.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_polpomail-verify",
+      "data": "polpomail-verification=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx.polpomail.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx a:mx.polpomail.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; adkim=r; aspf=r; rua=mailto:%dmarcrua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "relay",
+      "type": "CNAME",
+      "host": "%relaydkimselector%._domainkey",
+      "pointsTo": "dkim.smtp2go.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "relay",
+      "type": "CNAME",
+      "host": "em%relayrpid%",
+      "pointsTo": "return.smtp2go.net",
+      "ttl": 3600
+    }
+  ]
+}

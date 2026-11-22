@@ -1,0 +1,25 @@
+{
+  "providerId": "profactr.app",
+  "providerName": "Profactr",
+  "serviceId": "shop-site",
+  "serviceName": "Profactr shop website",
+  "version": 1,
+  "logoUrl": "https://profactr.com/profactr-connect.png",
+  "description": "Points your domain at your Profactr shop website.",
+  "syncPubKeyDomain": "profactr.app",
+  "syncRedirectDomain": "profactr.app",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%apexIp%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%wwwTarget%",
+      "ttl": 3600
+    }
+  ]
+}

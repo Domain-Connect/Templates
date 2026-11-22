@@ -1,0 +1,28 @@
+{
+  "providerId": "getblissed.io",
+  "providerName": "Blissed",
+  "serviceId": "receiving",
+  "serviceName": "Blissed receiving domain",
+  "version": 1,
+  "logoUrl": "https://app.getblissed.io/images/logo/blissed-mark-2026.svg",
+  "description": "Routes replies to a business's emails into its Blissed inbox: two MX records on the receiving host.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "getblissed.io",
+  "syncRedirectDomain": "getblissed.io",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

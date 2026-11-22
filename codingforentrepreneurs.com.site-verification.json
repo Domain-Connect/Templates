@@ -1,0 +1,23 @@
+{
+  "providerId": "codingforentrepreneurs.com",
+  "providerName": "Coding for Entrepreneurs",
+  "serviceId": "site-verification",
+  "serviceName": "Domain verification",
+  "version": 2,
+  "logoUrl": "https://codingforentrepreneurs.com/cfe.svg",
+  "description": "Coding for Entrepreneurs uses this TXT record to verify you own the domain for its services.",
+  "variableDescription": "verifytoken: per-monitor verification token issued by Coding for Entrepreneurs",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cfe.sh",
+  "syncRedirectDomain": "codingforentrepreneurs.com,www.codingforentrepreneurs.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_cfe-verify",
+      "data": "cfe-site-verification=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

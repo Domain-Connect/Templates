@@ -1,0 +1,62 @@
+{
+  "providerId": "viato.ai",
+  "providerName": "Viato",
+  "serviceId": "bulk-email-mailgun",
+  "serviceName": "Viato bulk email via Mailgun",
+  "version": 1,
+  "logoUrl": "https://viato.ai/viato-logo.png",
+  "description": "Adds the Mailgun sending records (SPF include, DKIM key or DKIM delegation, tracking) so a Mailgun domain can send Viato bulk email. Never changes MX or DMARC.",
+  "variableDescription": "%dkimselector%: DKIM selector Mailgun issued for this domain; %dkimkey%: DKIM public key Mailgun issued for this domain; %dkimdelegate%: account segment of Mailgun's Automatic Sender Security DKIM target (for example 9d876.dkim1)",
+  "syncPubKeyDomain": "viato.ai",
+  "syncRedirectDomain": "viato.ai",
+  "records": [
+    {
+      "groupId": "spf-us",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailgun.org"
+    },
+    {
+      "groupId": "spf-eu",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:eu.mailgun.org"
+    },
+    {
+      "groupId": "dkim-txt",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dkim-pdk",
+      "type": "CNAME",
+      "host": "pdk1._domainkey",
+      "pointsTo": "pdk1._domainkey.%dkimdelegate%.mailgun.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim-pdk",
+      "type": "CNAME",
+      "host": "pdk2._domainkey",
+      "pointsTo": "pdk2._domainkey.%dkimdelegate%.mailgun.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tracking-us",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600
+    },
+    {
+      "groupId": "tracking-eu",
+      "type": "CNAME",
+      "host": "email",
+      "pointsTo": "eu.mailgun.org",
+      "ttl": 3600
+    }
+  ]
+}

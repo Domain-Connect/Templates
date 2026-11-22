@@ -1,0 +1,21 @@
+{
+  "providerId": "parkstack.net",
+  "providerName": "Parkstack",
+  "serviceId": "website",
+  "serviceName": "Your park's website",
+  "version": 1,
+  "logoUrl": "https://parkstack.net/platform/icons/icon-512.png",
+  "description": "Points your web address, such as www.yourpark.co.uk, at your park's website on Parkstack.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "parkstack.net",
+  "syncRedirectDomain": "console.parkstack.net",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.parkstack.net",
+      "ttl": 3600
+    }
+  ]
+}

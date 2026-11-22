@@ -1,0 +1,51 @@
+{
+  "providerId": "mailnail.com",
+  "providerName": "MailNail",
+  "serviceId": "mailbox",
+  "serviceName": "Mailbox",
+  "version": 1,
+  "logoUrl": "https://app.mailnail.com/logo.svg",
+  "description": "Receive email at your domain with MailNail (MX, SPF, DKIM).",
+  "variableDescription": "dkimpk = the domain's DKIM public key; dmarc = the DMARC policy record value",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mailnail.com",
+  "syncRedirectDomain": "app.mailnail.com",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.mailnail.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.mailnail.com",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.mailnail.com"
+    },
+    {
+      "type": "TXT",
+      "host": "mn._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimpk%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "providerId": "t3store.com.br",
+  "providerName": "T3 Store",
+  "serviceId": "loja",
+  "serviceName": "Loja virtual T3 Store",
+  "version": 1,
+  "logoUrl": "https://admin.t3store.com.br/marca/t3store-email.png",
+  "description": "Liga o domínio à sua loja virtual na T3 Store.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "t3store.com.br",
+  "syncRedirectDomain": "admin.t3store.com.br,admin-hml.t3store.com.br",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "lojas.t3loja.com.br",
+      "ttl": 3600
+    }
+  ]
+}

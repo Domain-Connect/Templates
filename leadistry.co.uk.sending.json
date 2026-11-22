@@ -1,0 +1,16 @@
+{
+  "providerId": "leadistry.co.uk",
+  "providerName": "Leadistry",
+  "serviceId": "sending",
+  "serviceName": "Sent by Leadistry",
+  "version": 1,
+  "logoUrl": "https://leadistry.co.uk/icon-512.png",
+  "description": "Lets Leadistry send email from your own domain through its mail server. Adds a DKIM record on your domain, and a mail route and SPF record on reply.yourdomain so replies come back to Leadistry. Your domain's own mail and SPF records are not changed, so your everyday email carries on as it is.",
+  "syncPubKeyDomain": "leadistry-send.co.uk",
+  "syncRedirectDomain": "leadistry.co.uk",
+  "records": [
+    { "type": "CNAME", "host": "ld._domainkey", "pointsTo": "%fqdn%.keys.leadistry-send.co.uk", "ttl": 3600 },
+    { "type": "MX", "host": "reply", "pointsTo": "mail.leadistry-send.co.uk", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "reply", "spfRules": "a:mail.leadistry-send.co.uk" }
+  ]
+}

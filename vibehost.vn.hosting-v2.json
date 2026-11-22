@@ -1,0 +1,32 @@
+{
+  "providerId": "vibehost.vn",
+  "providerName": "VibeHost",
+  "serviceId": "hosting-v2",
+  "serviceName": "VibeHost Hosting",
+  "version": 2,
+  "logoUrl": "https://vibehost.vn/image.svg",
+  "description": "Point your domain at VibeHost hosting with a stable CNAME and a TXT ownership challenge.",
+  "variableDescription": "stable is the per-hosting stable target; txtValue is the ownership challenge token. The host is supplied via the host= apply parameter (omit it for the apex).",
+  "syncBlock": false,
+  "hostRequired": true,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dc.vibehost.vn",
+  "syncRedirectDomain": "vibehost.vn",
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "hosting",
+      "host": "@",
+      "pointsTo": "%stable%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_vibehost-challenge",
+      "data": "vibehost-verification=%txtValue%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

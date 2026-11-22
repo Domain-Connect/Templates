@@ -1,0 +1,29 @@
+{
+    "providerId": "aimai.co.uk",
+    "providerName": "AIMAI",
+    "serviceId": "prismsite",
+    "serviceName": "PRISM website",
+    "version": 2,
+    "logoUrl": "https://app.aimai.co.uk/domain-connect/aimai-logo.svg",
+    "description": "Points a subdomain at the organisation's PRISM workspace and validates its SSL certificate",
+    "variableDescription": "%instance%: the PRISM workspace label under aimai.co.uk (for example thebrokerage); %acmname%: AWS Certificate Manager validation record name without the leading underscore; %acmvalue%: AWS Certificate Manager validation value without the leading underscore and the acm-validations.aws suffix",
+    "syncBlock": false,
+    "shared": true,
+    "sharedProviderName": true,
+    "syncPubKeyDomain": "aimai.co.uk",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%instance%.aimai.co.uk",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "_%acmname%",
+            "pointsTo": "_%acmvalue%.acm-validations.aws",
+            "ttl": 3600
+        }
+    ]
+}

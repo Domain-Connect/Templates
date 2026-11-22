@@ -1,0 +1,48 @@
+{
+  "providerId": "ticketcord.com",
+  "providerName": "TicketCord",
+  "serviceId": "email-inbox",
+  "serviceName": "TicketCord Email Inbox",
+  "version": 1,
+  "logoUrl": "https://ticketcord.com/logo.png",
+  "description": "Lets TicketCord receive email sent to a support domain as Discord tickets and send replies from that domain: a TXT record that proves control of the domain, three DKIM CNAME records and one MX record.",
+  "variableDescription": "%token%: the verification code made for this connection; %dkim1%, %dkim2%, %dkim3%: the three DKIM selectors issued for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "ticketcord.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_ticketcord",
+      "data": "ticketcord-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ticketcord-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.eu-north-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

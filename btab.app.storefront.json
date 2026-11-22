@@ -1,0 +1,33 @@
+{
+    "providerId": "btab.app",
+    "providerName": "BTAB",
+    "serviceId": "storefront",
+    "serviceName": "BTAB online store",
+    "version": 1,
+    "logoUrl": "https://btab.app/icon.svg",
+    "description": "Points the domain at the merchant's BTAB online store and lets BTAB send the store's email from it (DKIM).",
+    "variableDescription": "%dkimslug%: per-domain DKIM key label that BTAB publishes under dkim.btab.app",
+    "syncPubKeyDomain": "btab.app",
+    "syncRedirectDomain": "dashboard.btab.app",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "46.62.186.137",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "sites.btab.app",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "btab._domainkey",
+            "pointsTo": "%dkimslug%.dkim.btab.app",
+            "ttl": 3600,
+            "essential": "OnApply"
+        }
+    ]
+}

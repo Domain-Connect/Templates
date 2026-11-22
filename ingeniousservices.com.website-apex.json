@@ -1,0 +1,29 @@
+{
+  "providerId": "ingeniousservices.com",
+  "providerName": "Ingenious Services",
+  "serviceId": "website-apex",
+  "serviceName": "Ingenious Services website on the bare domain",
+  "version": 1,
+  "logoUrl": "https://ingeniousservices.com/favicon.svg",
+  "description": "Sends visitors of the bare domain (example.com) to the website Ingenious Services hosts on its www name. Apply one group: 'alias' where the DNS provider supports APEXCNAME (the bare domain is served by Ingenious Services, which redirects it to www), otherwise 'forward' (the DNS provider redirects the bare domain to www). Used together with the website template, which points www.",
+  "variableDescription": "No variables: the alias points at Ingenious Services hosting and the forward goes to the www name of the same domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "ingeniousservices.com",
+  "syncRedirectDomain": "ingeniousservices.com,my.ingeniousservices.com,business.ingeniousservices.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "alias",
+      "type": "APEXCNAME",
+      "host": "@",
+      "pointsTo": "sites.ingeniousservices.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "forward",
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}

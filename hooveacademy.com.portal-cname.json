@@ -1,0 +1,22 @@
+{
+  "providerId": "hooveacademy.com",
+  "providerName": "Hoove Academy",
+  "serviceId": "portal-cname",
+  "serviceName": "Hoove Academy public portal on a custom domain",
+  "version": 1,
+  "logoUrl": "https://storage.googleapis.com/prd-focus-conecta-public/domainconnect/hooveacademy-logo.png",
+  "description": "Points a subdomain chosen by the customer (e.g. courses.example.com) to the Hoove Academy public course portal with a CNAME record.",
+  "variableDescription": "No variables. The subdomain is given by the standard host parameter.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.hooveacademy.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.hooveacademy.com",
+      "ttl": 3600
+    }
+  ]
+}

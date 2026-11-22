@@ -1,0 +1,23 @@
+{
+  "providerId": "trustsealed.com",
+  "providerName": "TrustSealed",
+  "serviceId": "verify",
+  "serviceName": "Domain ownership verification",
+  "version": 1,
+  "logoUrl": "https://trustsealed.com/trustsealed-seal.svg",
+  "description": "Adds the TXT record TrustSealed uses to confirm you own this domain before issuing its trust seal.",
+  "variableDescription": "token: one-time ownership token TrustSealed issued for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.trustsealed.com",
+  "syncRedirectDomain": "trustsealed.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_trustsealed",
+      "data": "trustsealed-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "trustsealed-verify="
+    }
+  ]
+}

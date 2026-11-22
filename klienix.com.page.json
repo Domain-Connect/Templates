@@ -1,0 +1,23 @@
+{
+  "providerId": "klienix.com",
+  "providerName": "Klienix",
+  "serviceId": "page",
+  "serviceName": "Klienix business page",
+  "version": 1,
+  "logoUrl": "https://klienix.com/icons/icon-512.png",
+  "description": "Points a subdomain (for example www) of the customer's domain to their Klienix business page.",
+  "variableDescription": "No variables. The subdomain is given by the host parameter.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "klienix.com",
+  "syncRedirectDomain": "klienix.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "pages.klienix.com",
+      "ttl": 3600
+    }
+  ]
+}

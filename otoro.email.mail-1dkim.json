@@ -1,0 +1,45 @@
+{
+  "providerId": "otoro.email",
+  "providerName": "OTORO Mail",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "connect.otoro.email",
+  "syncRedirectDomain": "app.otoro.email",
+  "serviceId": "mail-1dkim",
+  "serviceName": "Connect business email",
+  "description": "Connect your business domain to OTORO Mail.",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx%",
+      "priority": 10,
+      "ttl": 300,
+      "groupId": "delivery"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx",
+      "groupId": "delivery"
+    },
+    {
+      "type": "TXT",
+      "host": "%selector1%._domainkey",
+      "data": "%dkim1%",
+      "ttl": 300,
+      "groupId": "delivery",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc%",
+      "ttl": 300,
+      "groupId": "policy",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ],
+  "logoUrl": "https://app.otoro.email/brand/otoro-logo-128.png"
+}

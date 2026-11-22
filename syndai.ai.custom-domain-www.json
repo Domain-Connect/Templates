@@ -1,0 +1,17 @@
+{
+  "providerId": "syndai.ai",
+  "providerName": "Syndai",
+  "serviceId": "custom-domain-www",
+  "serviceName": "Your site on your own domain (www, with the bare domain forwarding to it)",
+  "version": 1,
+  "logoUrl": "https://syndai.ai/icon.png",
+  "description": "Points www at the site Syndai hosts for you and forwards the bare domain to www. Email records are not touched.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "domainconnect.syndai.ai",
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "cdn.syndai.app", "ttl": 3600 },
+    { "type": "REDIR301", "host": "@", "target": "https://www.%fqdn%" }
+  ]
+}

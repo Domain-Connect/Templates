@@ -1,0 +1,21 @@
+{
+  "providerId": "interpt.co",
+  "providerName": "interpt",
+  "serviceId": "customdomain",
+  "serviceName": "interpt custom domain",
+  "version": 1,
+  "logoUrl": "https://interpt.co/favicon-dark.svg",
+  "description": "Points a subdomain such as www or shop at a website or app hosted by interpt.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "interpt.co",
+  "syncRedirectDomain": "cloud.interpt.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.interpt.net",
+      "ttl": 600
+    }
+  ]
+}

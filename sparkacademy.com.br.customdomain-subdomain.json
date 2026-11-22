@@ -1,0 +1,28 @@
+{
+  "providerId": "sparkacademy.com.br",
+  "providerName": "Spark Academy",
+  "serviceId": "customdomain-subdomain",
+  "serviceName": "Spark Academy custom domain (subdomain)",
+  "version": 1,
+  "logoUrl": "https://sparkacademy.com.br/favicon.svg",
+  "description": "Points a subdomain to the customer's Spark Academy learning platform and proves domain ownership.",
+  "variableDescription": "%token%: ownership verification token issued by Spark Academy; %target%: the academy hostname on sparkacademy.com.br",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sparkacademy.com.br",
+  "syncRedirectDomain": "sparkacademy.com.br",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_spark-verify",
+      "data": "spark-verify=%token%",
+      "ttl": 3600
+    }
+  ]
+}

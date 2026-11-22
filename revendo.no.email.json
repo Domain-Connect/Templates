@@ -1,0 +1,36 @@
+{
+    "providerId": "revendo.no",
+    "providerName": "Revendo",
+    "serviceId": "email",
+    "serviceName": "Revendo branded email",
+    "version": 1,
+    "logoUrl": "https://revendo.no/icon.png",
+    "description": "Lets Revendo send campaign email from the customer's own domain or subdomain through its email provider: DKIM key, return-path MX and SPF.",
+    "variableDescription": "dkimkey: the DKIM public key issued for this domain (the value after p=). mxtarget: the return-path mail exchanger for the sending region. spfinclude: the SPF include host for the return-path subdomain.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "revendo.no",
+    "syncRedirectDomain": "app.revendo.no,revendo.no",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "%mxtarget%",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:%spfinclude%",
+            "ttl": 3600
+        }
+    ]
+}

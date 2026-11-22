@@ -1,0 +1,20 @@
+{
+  "providerId": "sikkasoft.com",
+  "providerName": "Sikka Website Builder",
+  "serviceId": "verify",
+  "serviceName": "Sikka Website Builder - Domain Verification",
+  "version": 1,
+  "logoUrl": "https://publicweb-sikka-logo.s3.amazonaws.com/2024-sikka-ai-official-logo-usa.svg",
+  "description": "Verifies domain ownership so Sikka can issue an SSL certificate for your website",
+  "variableDescription": "host and value are provided by AWS Certificate Manager and are unique to your domain",
+  "syncRedirectDomain": "sdp.sikkasoft.com",
+  "syncPubKeyDomain": "sdp.sikkasoft.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%acmhost%",
+      "pointsTo": "%acmvalue%",
+      "ttl": 300
+    }
+  ]
+}

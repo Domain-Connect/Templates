@@ -1,0 +1,41 @@
+{
+  "providerId": "askotter.ai",
+  "providerName": "AskOtter",
+  "serviceId": "site",
+  "serviceName": "AskOtter Website",
+  "version": 1,
+  "logoUrl": "https://app.askotter.ai/logosquare.png",
+  "description": "Connects a customer's primary domain to the website AskOtter hosts for them: the bare domain reaches AskOtter's redirect service and is sent to www, www serves the site, and two verification records prove ownership to AskOtter and to Azure before certificates are issued.",
+  "variableDescription": "apexip: IPv4 address of the AskOtter redirect service that forwards the bare domain to www. asuid: Azure App Service custom-domain verification ID for that redirect service. site: the label of the Azure Static Web Apps host serving this customer's site, without the fixed azurestaticapps.net suffix (e.g. 'wonderful-sea-09faea50f.7'). token: a single-use ownership token minted per site by AskOtter; the TXT value is always the literal prefix 'askotter-verify=' followed by that token.",
+  "syncPubKeyDomain": "askotter.ai",
+  "syncRedirectDomain": "app.askotter.ai",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%apexip%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "asuid",
+      "data": "%asuid%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%site%.azurestaticapps.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "askotter-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "askotter-verify="
+    }
+  ]
+}

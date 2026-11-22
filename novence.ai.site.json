@@ -1,0 +1,27 @@
+{
+  "providerId": "novence.ai",
+  "providerName": "Novence",
+  "serviceId": "site",
+  "serviceName": "Website",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "novence.ai",
+  "syncRedirectDomain": "novence.ai",
+  "hostRequired": true,
+  "description": "Point this domain and its www host at a site hosted on Novence.",
+  "logoUrl": "https://novence.ai/novence-logo.svg",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "fallback.novence.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "fallback.novence.ai",
+      "ttl": 3600
+    }
+  ]
+}

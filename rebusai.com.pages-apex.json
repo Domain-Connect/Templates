@@ -1,0 +1,16 @@
+{
+  "providerId": "rebusai.com",
+  "providerName": "RebusAI",
+  "serviceId": "pages-apex",
+  "serviceName": "RebusAI — your pages (root domain)",
+  "version": 1,
+  "logoUrl": "https://www.rebusai.com/brand/icon-192.png",
+  "description": "Serve your RebusAI pages from the root of your domain.",
+  "variableDescription": "%ip%: primary RebusAI edge IP; %ip2%: secondary RebusAI edge IP",
+  "syncPubKeyDomain": "rebusai.com",
+  "syncRedirectDomain": "www.rebusai.com",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 3600 },
+    { "type": "A", "host": "@", "pointsTo": "%ip2%", "ttl": 3600 }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "providerId": "askyourshop.com",
+  "providerName": "AskYourShop",
+  "serviceId": "company",
+  "serviceName": "AskYourShop company assistant",
+  "version": 2,
+  "logoUrl": "https://askyourshop.com/favicon.svg",
+  "description": "Points a subdomain (like ai.yourcompany.com) at your company's AskYourShop assistant, and adds the TXT record proving your company owns it.",
+  "variableDescription": "token: your company's ownership token from AskYourShop. The host is the subdomain you chose there.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "askyourshop.com",
+  "syncRedirectDomain": "app.askyourshop.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "askyourshop.onrender.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_askyourshop",
+      "data": "ays-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ays-verify="
+    }
+  ]
+}

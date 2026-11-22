@@ -1,0 +1,60 @@
+{
+  "providerId": "1hoursites.com",
+  "providerName": "1HourSites",
+  "serviceId": "email",
+  "serviceName": "Email Sending Domain",
+  "version": 1,
+  "logoUrl": "https://1hoursites.com/apple-touch-icon.png",
+  "description": "Sets up m.<domain> as a dedicated sending domain so the customer's automated email leaves from their own domain, SPF-authorised and DKIM-signed.",
+  "variableDescription": "%selector%: the DKIM selector minted for this domain (commonly k1, but not guaranteed). %dkim%: the full DKIM TXT value for that selector. Both are minted per domain by the mail platform and cannot be pre-filled.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "1hoursites.com",
+  "syncRedirectDomain": "1hoursites.com",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "m",
+      "spfRules": "include:mailgun.org include:spf.leadconnectorhq.com"
+    },
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey.m",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "m",
+      "pointsTo": "mxa.mailgun.org",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "MX",
+      "host": "m",
+      "pointsTo": "mxb.mailgun.org",
+      "priority": 20,
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "email.m",
+      "pointsTo": "mailgun.org",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc.m",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "providerId": "runsite.app",
+  "providerName": "Runsite",
+  "serviceId": "staticsite",
+  "serviceName": "Runsite static site domain",
+  "version": 1,
+  "logoUrl": "https://runsite.app/logo.svg",
+  "description": "Points a subdomain at a static site hosted on Runsite.",
+  "hostRequired": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "runsite.app",
+  "syncRedirectDomain": "dashboard.runsite.app",
+  "records": [
+    {
+      "groupId": "cname",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cdn.runsite.site",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cfValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ],
+  "variableDescription": "%cfValue%: Cloudflare for SaaS hostname ownership token issued for this domain"
+}

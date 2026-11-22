@@ -1,0 +1,19 @@
+{
+  "providerId": "tella.tv",
+  "providerName": "Tella",
+  "serviceId": "workspace-subdomain",
+  "serviceName": "Tella Workspace (Subdomain)",
+  "version": 1,
+  "syncPubKeyDomain": "tella.tv",
+  "syncRedirectDomain": "tella.tv",
+  "description": "Connect your domain to your Tella workspace.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.tella.tv",
+      "ttl": 3600
+    }
+  ],
+  "hostRequired": true
+}

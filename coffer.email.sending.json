@@ -1,0 +1,32 @@
+{
+  "providerId": "coffer.email",
+  "providerName": "Coffer",
+  "serviceId": "sending",
+  "serviceName": "Send mail from your own domain",
+  "version": 1,
+  "logoUrl": "https://coffer.email/icon.svg",
+  "description": "Lets Coffer send replies from addresses on this domain, signed so they are not treated as forgeries.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "coffer.email",
+  "syncRedirectDomain": "coffer.email",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 1800
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 1800
+    }
+  ]
+}

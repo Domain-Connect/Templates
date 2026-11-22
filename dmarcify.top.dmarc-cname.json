@@ -1,0 +1,22 @@
+{
+  "providerId": "dmarcify.top",
+  "providerName": "DMARCify",
+  "serviceId": "dmarc-cname",
+  "serviceName": "Managed DMARC CNAME Delegation",
+  "version": 1,
+  "logoUrl": "https://dmarcify.top/assets/logo.svg",
+  "description": "Configures a managed CNAME delegation record for DMARC aggregate report ingestion and real-time policy enforcement.",
+  "variableDescription": "%token%: DMARCify ingestion token identifier",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dmarcify.top",
+  "syncRedirectDomain": "dmarcify.top",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%token%._dmarc.dmarcify.top",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

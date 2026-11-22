@@ -1,0 +1,42 @@
+{
+  "providerId": "oben.care",
+  "providerName": "Oben",
+  "serviceId": "email-delegation",
+  "serviceName": "Oben email sending",
+  "version": 1,
+  "logoUrl": "https://oben.care/oben-symbol.svg",
+  "description": "Delegates one sending subdomain of the clinic's domain (for example care.yourclinic.com) to Oben's DNS servers, so Oben can publish and maintain the clinic's email authentication records (DKIM, SPF via a custom MAIL FROM, DMARC) on that subdomain only. Nothing else on the domain changes.",
+  "variableDescription": "host: the sending subdomain word chosen in Oben (never the bare domain or www). ns1-ns4: the four name servers of the Oben-managed zone created for that subdomain.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "oben.care",
+  "syncRedirectDomain": "staff.oben.care",
+  "records": [
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns1%",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns2%",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns3%",
+      "ttl": 3600
+    },
+    {
+      "type": "NS",
+      "host": "@",
+      "pointsTo": "%ns4%",
+      "ttl": 3600
+    }
+  ]
+}

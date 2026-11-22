@@ -1,0 +1,20 @@
+{
+  "providerId": "echovod.com",
+  "providerName": "Echo",
+  "serviceId": "echo-sites",
+  "serviceName": "Echo property websites",
+  "version": 1,
+  "logoUrl": "https://echovod.com/favicon.png",
+  "description": "Points a subdomain (for example tours.example.com) at the property, agent and brokerage pages an Echo account publishes. One CNAME; nothing at the root of the domain is changed.",
+  "syncPubKeyDomain": "echovod.com",
+  "syncRedirectDomain": "echovod.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.echovod.com",
+      "ttl": 3600
+    }
+  ]
+}

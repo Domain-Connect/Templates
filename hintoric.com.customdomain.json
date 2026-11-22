@@ -1,0 +1,21 @@
+{
+    "providerId": "hintoric.com",
+    "providerName": "Hintoric",
+    "serviceId": "customdomain",
+    "serviceName": "Custom domain",
+    "version": 1,
+    "logoUrl": "https://cdn.hintoric.com/assets/logo/dc/black.svg",
+    "description": "Enables a subdomain to work with Hintoric",
+    "variableDescription": "`slug` identifies the organisation at Hintoric and is supplied by Hintoric, not by the user.",
+    "syncPubKeyDomain": "hintoric.com",
+    "syncRedirectDomain": "hintoric.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%slug%.hintoric-dns.com",
+            "ttl": 300
+        }
+    ]
+}

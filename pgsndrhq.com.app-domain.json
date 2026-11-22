@@ -1,0 +1,29 @@
+{
+    "providerId": "pgsndrhq.com",
+    "providerName": "PageSender",
+    "serviceId": "app-domain",
+    "serviceName": "App domain",
+    "version": 1,
+    "logoUrl": "https://cdn.pgsndrhq.cloud/pgsndrhq/pgsender-logo.svg",
+    "description": "Points an agency's own login subdomain (for example app) at the platform and publishes the ownership token the platform checks before issuing a certificate.",
+    "variableDescription": "%edge%: the platform edge label under pgsndr.com (for example funnels). %token%: the per-agency domain verification token issued by the platform.",
+    "syncPubKeyDomain": "pgsndrhq.com",
+    "syncRedirectDomain": "pgsndrhq.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%edge%.pgsndr.com",
+            "ttl": "3600"
+        },
+        {
+            "type": "TXT",
+            "host": "sq",
+            "ttl": "3600",
+            "data": "pagesender-verify=%token%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "pagesender-verify="
+        }
+    ]
+}

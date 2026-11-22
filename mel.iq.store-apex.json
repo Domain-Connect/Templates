@@ -1,0 +1,18 @@
+{
+  "providerId": "mel.iq",
+  "providerName": "Mel",
+  "serviceId": "store-apex",
+  "serviceName": "Mel Storefront Apex",
+  "version": 1,
+  "logoUrl": "https://www.mel.iq/logo.png",
+  "description": "Connect your apex domain to Mel storefront",
+  "syncPubKeyDomain": "mel.iq",
+  "syncRedirectDomain": "mel.iq",
+  "records": [
+    {
+      "type": "APEXCNAME",
+      "pointsTo": "cname.mel.iq",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "providerId": "holyrogue.com",
+  "providerName": "Holy Rogue",
+  "serviceId": "site-sub",
+  "serviceName": "Holy Rogue / Sovere site on a subdomain",
+  "version": 1,
+  "logoUrl": "https://holyrogue.com/logo/Holy%20Rogue%20LOGO%20Black.png",
+  "description": "Points a subdomain (for example shop.yourdomain.com) at your Holy Rogue or Sovere site. Holy Rogue then issues the site's certificate.",
+  "syncPubKeyDomain": "dc.holyrogue.com",
+  "syncRedirectDomain": "holyrogue.com,sovere.ink",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "sites.sovereign.ink", "ttl": 300 }
+  ]
+}

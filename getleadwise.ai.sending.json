@@ -1,0 +1,45 @@
+{
+  "providerId": "getleadwise.ai",
+  "providerName": "LeadWise",
+  "serviceId": "sending",
+  "serviceName": "LeadWise sending domain",
+  "version": 1,
+  "logoUrl": "https://getleadwise.ai/logo.png",
+  "description": "Sets up a subdomain to send sales email from with LeadWise through Google Workspace: who may send for it (SPF), where its mail is received (MX) and what to do with mail that fails those checks (DMARC).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "getleadwise.ai",
+  "syncRedirectDomain": "getleadwise.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.google.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "aspmx.l.google.com",
+      "priority": 1,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "alt1.aspmx.l.google.com",
+      "priority": 5,
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "providerId": "roving.express",
+  "providerName": "Roving Express",
+  "serviceId": "website-ownership",
+  "serviceName": "Prove you own your domain",
+  "version": 1,
+  "logoUrl": "https://workshopandweb.com/domain-connect/roving-express.svg",
+  "description": "Adds one TXT record that proves to Roving Express that you own this domain, so your website can be connected to it. No other record is changed.",
+  "variableDescription": "%proofToken%: the 64-character ownership code shown on your Roving Express domain page",
+  "syncPubKeyDomain": "roving.express",
+  "syncRedirectDomain": "workshopandweb.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_roving-verify",
+      "ttl": 3600,
+      "data": "roving-domain-v1=%proofToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "roving-domain-v1=",
+      "essential": "OnApply"
+    }
+  ]
+}

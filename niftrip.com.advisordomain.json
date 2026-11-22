@@ -1,0 +1,75 @@
+{
+  "providerId": "niftrip.com",
+  "providerName": "Niftrip",
+  "serviceId": "advisordomain",
+  "serviceName": "Niftrip advisor website and email",
+  "version": 1,
+  "logoUrl": "https://niftrip.com/domain-connect/logo.svg",
+  "description": "Points www at the advisor's Niftrip website, forwards the bare domain to https://www, and sets up the domain's email on Niftrip's Google Workspace: Google verification, MX, Google in SPF, a DKIM key Niftrip publishes, and a DMARC record when the domain has none. Each part is its own group so only the parts the advisor chose are applied.",
+  "variableDescription": "gsv: the Google Site Verification token for this domain (the part after google-site-verification=); dkimid: Niftrip's id for this domain's DKIM key, published by Niftrip at <dkimid>.dkim.niftrip.com; dkimkey: the base64 public key Google Admin shows (only for the dkimtxt group, used if the CNAME form is refused)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "niftrip.com",
+  "syncRedirectDomain": "app.niftrip.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.niftrip.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "apex",
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%domain%"
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "@",
+      "data": "google-site-verification=%gsv%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "smtp.google.com",
+      "priority": 1,
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.google.com"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "niftrip._domainkey",
+      "pointsTo": "%dkimid%.dkim.niftrip.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkimtxt",
+      "type": "TXT",
+      "host": "niftrip._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@niftrip.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

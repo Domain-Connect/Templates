@@ -1,0 +1,16 @@
+{
+  "providerId": "vvd.world",
+  "providerName": "vvd",
+  "serviceId": "domain-cloudflare",
+  "serviceName": "vvd site on your domain (Cloudflare DNS)",
+  "version": 1,
+  "logoUrl": "https://vvd.world/vvd-logo.svg",
+  "description": "Points a bare domain and its www name at a site published on vvd. For Cloudflare DNS only: Cloudflare flattens the root CNAME and does not support APEXCNAME. vvd requests this service only when discovery returns cloudflare.com, without host. hostRequired is set only because a CNAME at @ requires it (DCTL1012); Cloudflare ignores it. Mail and other records are left alone.",
+  "syncPubKeyDomain": "domainconnect.vvd.world",
+  "syncRedirectDomain": "vvd.world",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "vvd.world", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "vvd.world", "ttl": 3600 }
+  ]
+}

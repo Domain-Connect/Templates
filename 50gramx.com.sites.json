@@ -1,0 +1,29 @@
+{
+  "providerId": "50gramx.com",
+  "providerName": "50GRAMx",
+  "version": 1,
+  "logoUrl": "https://50gramx.com/icon.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.50gramx.com",
+  "syncRedirectDomain": "50gramx.com",
+  "serviceId": "sites",
+  "serviceName": "50GRAMx Sites",
+  "description": "Serves a website from the 50GRAMx network on a subdomain (e.g. www or shop), and proves which 50GRAMx account owns it.",
+  "variableDescription": "target: the site's network name (e.g. saturn-crux-50gramx-50.gramx.50gramx.com); owner: the owner's DID",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_epn",
+      "data": "epn-owner=%owner%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

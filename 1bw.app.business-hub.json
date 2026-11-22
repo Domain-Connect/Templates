@@ -1,0 +1,1 @@
+{"providerId": "1bw.app", "providerName": "1BusinessWorld", "serviceId": "business-hub", "serviceName": "Business Hub website", "version": 1, "description": "Points a hostname at the member's 1BusinessWorld Business Hub.", "syncPubKeyDomain": "dck.1bw.app", "hostRequired": true, "records": [{"type": "CNAME", "host": "@", "pointsTo": "domains.1bw.app", "ttl": 3600}]}

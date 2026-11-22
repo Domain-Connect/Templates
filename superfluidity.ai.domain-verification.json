@@ -1,0 +1,22 @@
+{
+  "providerId": "superfluidity.ai",
+  "providerName": "Superfluidity",
+  "serviceId": "domain-verification",
+  "serviceName": "Superfluidity Domain verification",
+  "version": 1,
+  "logoUrl": "https://www.superfluidity.ai/icon.svg",
+  "description": "Proves you control this domain so you can claim its listing on Superfluidity.",
+  "syncPubKeyDomain": "superfluidity.ai",
+  "syncRedirectDomain": "superfluidity.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "superfluidity-verify=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "superfluidity-verify=",
+      "essential": "OnApply"
+    }
+  ]
+}

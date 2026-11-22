@@ -1,0 +1,29 @@
+{
+  "providerId": "askotter.ai",
+  "providerName": "AskOtter",
+  "serviceId": "subdomain",
+  "serviceName": "AskOtter Website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://app.askotter.ai/logosquare.png",
+  "description": "Points one subdomain at the website AskOtter hosts for the customer, and publishes the ownership-verification TXT record AskOtter checks before issuing an SSL certificate. Deliberately touches nothing at the bare domain, so a customer whose main website lives elsewhere keeps it.",
+  "variableDescription": "site: the label of the Azure Static Web Apps host serving this customer's site, without the fixed azurestaticapps.net suffix (e.g. 'wonderful-sea-09faea50f.7'). token: a single-use ownership token minted per site by AskOtter; the TXT value is always the literal prefix 'askotter-verify=' followed by that token.",
+  "syncPubKeyDomain": "askotter.ai",
+  "syncRedirectDomain": "app.askotter.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%site%.azurestaticapps.net",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_askotter",
+      "data": "askotter-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "askotter-verify="
+    }
+  ]
+}

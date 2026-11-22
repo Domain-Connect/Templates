@@ -1,0 +1,24 @@
+{
+  "providerId": "viztime.com",
+  "providerName": "VizTime",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC reports",
+  "version": 1,
+  "logoUrl": "https://app.viztime.com/logo/viztime-logo.svg",
+  "description": "Replaces the domain's DMARC record (_dmarc TXT) with the value VizTime computed from the current record: the same policy and report addresses, plus VizTime's address in rua= so VizTime receives the daily DMARC aggregate reports.",
+  "variableDescription": "dmarctags: the DMARC tags after v=DMARC1, computed by VizTime from the domain's current record (same policy and report addresses, plus VizTime's address in rua=), e.g. p=reject; rua=mailto:reports@example.com,mailto:dmarc-reports@viztime.com",
+  "syncPubKeyDomain": "viztime.com",
+  "syncRedirectDomain": "app.viztime.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarctags%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

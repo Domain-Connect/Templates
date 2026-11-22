@@ -1,0 +1,42 @@
+{
+  "providerId": "mailanzu.com",
+  "providerName": "Mailanzu",
+  "serviceId": "mail",
+  "serviceName": "Mailanzu Mail",
+  "version": 1,
+  "logoUrl": "https://mailanzu.com/logo.svg",
+  "description": "Configure the DNS records Mailanzu needs to send email on your behalf: SPF, DKIM, DMARC and a bounce CNAME.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mailanzu.com",
+  "syncRedirectDomain": "mailanzu.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mailanzu.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%domain%; adkim=r; aspf=r",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "bounces",
+      "pointsTo": "mail1.mailanzu.com",
+      "ttl": 3600
+    }
+  ]
+}

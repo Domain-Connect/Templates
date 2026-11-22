@@ -1,0 +1,22 @@
+{
+  "providerId": "mailanzu.com",
+  "providerName": "Mailanzu",
+  "serviceId": "mailbox",
+  "serviceName": "Mailanzu Mailboxes",
+  "version": 1,
+  "logoUrl": "https://mailanzu.com/logo.svg",
+  "description": "Point your domain's MX record at Mailanzu so incoming mail is delivered to your Mailanzu mailboxes.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mailanzu.com",
+  "syncRedirectDomain": "mailanzu.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail1.mailanzu.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "providerId": "singlespace.ai",
+  "providerName": "SingleSpace",
+  "version": 1,
+  "logoUrl": "https://app.singlespace.ai/brand/singlespace-mark-light.svg",
+  "syncPubKeyDomain": "domainconnect.singlespace.ai",
+  "syncRedirectDomain": "app.singlespace.ai",
+  "syncBlock": false,
+  "hostRequired": true,
+  "serviceId": "share-links",
+  "serviceName": "SingleSpace Shared Links",
+  "description": "Connect a dedicated subdomain for SingleSpace shared links.",
+  "variableDescription": "ownership: fresh SingleSpace ownership challenge for this hostname.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.singlespace.ai",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_singlespace",
+      "data": "%ownership%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

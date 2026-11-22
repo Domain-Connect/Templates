@@ -1,0 +1,45 @@
+{
+  "providerId": "tawked.com",
+  "providerName": "Tawked",
+  "serviceId": "email",
+  "serviceName": "Tawked Email",
+  "version": 3,
+  "logoUrl": "https://tawked.com/icon.svg",
+  "description": "Authorizes Tawked to send email from your domain: the DKIM record that verifies the domain and signs its mail with Tawked's key for it, and, optionally, the two records of the domain's return path that make SPF match the domain, and the MX record of a receiving address on a subdomain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tawked.com",
+  "syncRedirectDomain": "tawked.com",
+  "variableDescription": "%selector%: the DKIM selector (tawked or tawked2); %publickey%: the domain's DKIM public key, base64, made by Tawked for this domain; %mailfrom%: the return path's label before the domain (send); %inbound%: the receiving address's label before the domain (inbound)",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "p=%publickey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "%mailfrom%",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "%mailfrom%",
+      "spfRules": "include:_spf.tawked.com"
+    },
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "%inbound%",
+      "pointsTo": "inbound-smtp.eu-west-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "providerId": "listlogist.com",
+  "providerName": "Listlogist",
+  "serviceId": "website",
+  "serviceName": "Listlogist website",
+  "version": 1,
+  "logoUrl": "https://listlogist.com/icon.svg",
+  "description": "Points a host name at a website built with Listlogist.",
+  "variableDescription": "sitekey: identifier of the Listlogist site the host name is connected to",
+  "syncBlock": false,
+  "syncPubKeyDomain": "listlogist.com",
+  "syncRedirectDomain": "listlogist.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%sitekey%.sites.listlogist.com",
+      "ttl": 3600
+    }
+  ]
+}

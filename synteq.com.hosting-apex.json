@@ -1,0 +1,30 @@
+{
+  "providerId": "synteq.com",
+  "providerName": "Synteq",
+  "serviceId": "hosting-apex",
+  "serviceName": "Synteq Apps & Functions (root domain)",
+  "version": 1,
+  "logoUrl": "https://synteq.com/domain-connect/logo.png",
+  "description": "Points a root domain at your Synteq app or function and proves you own it.",
+  "variableDescription": "ip: the IPv4 address of the Synteq gateway serving the app or function. token: the ownership challenge Synteq generated for this domain.",
+  "syncPubKeyDomain": "synteq.com",
+  "syncRedirectDomain": "cloud.synteq.com,staging.cloud.synteq.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "host": "_synteq-challenge",
+      "data": "synteq-verify=%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "synteq-verify="
+    }
+  ]
+}

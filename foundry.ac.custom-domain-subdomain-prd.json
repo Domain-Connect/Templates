@@ -1,0 +1,31 @@
+{
+  "providerId": "foundry.ac",
+  "providerName": "Foundry",
+  "serviceId": "custom-domain-subdomain-prd",
+  "serviceName": "Foundry custom domain (production subdomain)",
+  "version": 1,
+  "logoUrl": "https://assets.foundry.ac/brand-identity/logo/icon-only/Icon_Green.svg",
+  "description": "Connect a subdomain to Foundry.",
+  "variableDescription": "%verificationValue% is a fresh Foundry ownership value for this connection attempt.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "keys.foundry.ac",
+  "syncRedirectDomain": "app.foundry.ac",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domain.foundry.ac",
+      "ttl": "300"
+    },
+    {
+      "type": "TXT",
+      "host": "_foundry-verification",
+      "data": "foundry-verification=%verificationValue%",
+      "ttl": "300",
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "foundry-verification="
+    }
+  ]
+}

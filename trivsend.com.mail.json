@@ -1,0 +1,36 @@
+{
+  "providerId": "trivsend.com",
+  "providerName": "TrivSend",
+  "serviceId": "mail",
+  "serviceName": "TrivSend email sending",
+  "version": 1,
+  "logoUrl": "https://trivsend.com/apple-icon.png",
+  "description": "Lets TrivSend send email for your domain: the DKIM signing key, the MX record that receives bounces, and SPF for the bounce address. Your own mail and existing SPF are not changed.",
+  "variableDescription": "dkimkey: the domain's DKIM public key, shown in TrivSend",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "trivsend.com",
+  "syncRedirectDomain": "app.trivsend.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "trivsend._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "bounces",
+      "pointsTo": "mail.trivsend.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounces",
+      "spfRules": "include:_spf.trivsend.com"
+    }
+  ]
+}

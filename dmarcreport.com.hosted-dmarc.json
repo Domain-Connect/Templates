@@ -1,0 +1,23 @@
+{
+  "providerId": "dmarcreport.com",
+  "providerName": "DMARC Report",
+  "serviceId": "hosted-dmarc",
+  "serviceName": "Hosted DMARC",
+  "version": 1,
+  "logoUrl": "https://dmarcreport.com/favicon.svg",
+  "description": "Let DMARC Report host your DMARC record. Points _dmarc at DMARC Report with a CNAME, so policy changes are made in DMARC Report without editing DNS again.",
+  "variableDescription": "dmarcHostId is your domain's hosted DMARC label in DMARC Report",
+  "syncRedirectDomain": "app.dmarcreport.com,dmarcreport.com",
+  "syncPubKeyDomain": "domainconnect.dmarcreport.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%dmarcHostId%._d.dmarcinput.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

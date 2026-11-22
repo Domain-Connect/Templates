@@ -1,0 +1,20 @@
+{
+  "providerId": "photoview.io",
+  "providerName": "PhotoView.io",
+  "serviceId": "website-apex",
+  "serviceName": "PhotoView.io website",
+  "version": 1,
+  "logoUrl": "https://photoview.io/brand/photoview-logo-horizontal-transparent.png",
+  "syncPubKeyDomain": "photoview.io",
+  "syncRedirectDomain": "photoview.io",
+  "description": "Connects a domain apex to a published PhotoView.io photography website.",
+  "variableDescription": "%ipv4% is the signed IPv4 destination recommended for this domain by PhotoView.io's hosting provider.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 3600
+    }
+  ]
+}

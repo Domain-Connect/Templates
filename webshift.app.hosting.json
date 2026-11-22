@@ -1,0 +1,20 @@
+{
+  "providerId": "webshift.app",
+  "providerName": "WebShift",
+  "serviceId": "hosting",
+  "serviceName": "Website hosting",
+  "version": 1,
+  "description": "Connect a subdomain to a website hosted by WebShift.",
+  "variableDescription": "target is the fully qualified CNAME destination supplied by WebShift for the site's hosting.",
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.webshift.app",
+  "syncRedirectDomain": "webshift.app,www.webshift.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 600
+    }
+  ]
+}

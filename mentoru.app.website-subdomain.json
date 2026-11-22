@@ -1,0 +1,21 @@
+{
+  "providerId": "mentoru.app",
+  "providerName": "MentorU",
+  "serviceId": "website-subdomain",
+  "serviceName": "MentorU website (subdomain)",
+  "version": 1,
+  "logoUrl": "https://mentoru.app/apple-icon.png",
+  "description": "Points a subdomain of your domain, such as www or coaching, at your MentorU website by adding one CNAME record.",
+  "variableDescription": "cname is the address MentorU's website host gives for your subdomain. The subdomain itself is passed as the host parameter.",
+  "syncPubKeyDomain": "mentoru.app",
+  "syncRedirectDomain": "mentoru.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 3600
+    }
+  ]
+}

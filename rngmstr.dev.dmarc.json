@@ -1,0 +1,24 @@
+{
+  "providerId": "rngmstr.dev",
+  "providerName": "Ringmaster",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC monitoring policy",
+  "version": 1,
+  "logoUrl": "https://rngmstr.dev/icon.svg",
+  "description": "Publishes a DMARC policy of p=none for the domain, which Gmail and Yahoo require of bulk senders. It blocks no mail. Ringmaster offers it only when the domain has no DMARC policy.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "rngmstr.dev",
+  "syncRedirectDomain": "app.rngmstr.dev",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

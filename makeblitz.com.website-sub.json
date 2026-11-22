@@ -1,0 +1,21 @@
+{
+  "providerId": "makeblitz.com",
+  "providerName": "MakeBlitz",
+  "serviceId": "website-sub",
+  "serviceName": "MakeBlitz website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://makeblitz.com/apple-icon.png",
+  "description": "Points one subdomain (for example order.yourdomain.com) to the website MakeBlitz built and hosts for you. Nothing else is changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "makeblitz.com",
+  "syncRedirectDomain": "makeblitz.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.makeblitz.com",
+      "ttl": 3600
+    }
+  ]
+}

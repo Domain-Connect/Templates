@@ -1,0 +1,45 @@
+{
+    "providerId": "bonmoniq.com",
+    "providerName": "Bonmoniq",
+    "serviceId": "email",
+    "serviceName": "Bonmoniq Email",
+    "version": 1,
+    "logoUrl": "https://bonmoniq.com/brand/logo-main-light.png",
+    "description": "Connects a domain (or a subdomain such as mail.example.com) to Bonmoniq Email: three DKIM records so mail Bonmoniq sends for you is signed for your domain, and the MX record that delivers mail for that host to Bonmoniq.",
+    "variableDescription": "dkim1, dkim2, dkim3: the three Amazon SES Easy DKIM tokens issued for this domain (the label in front of .dkim.amazonses.com).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "bonmoniq.com",
+    "syncRedirectDomain": "app.bonmoniq.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "inbound",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "inbound-smtp.eu-west-3.amazonaws.com",
+            "priority": 10,
+            "ttl": 3600
+        }
+    ]
+}

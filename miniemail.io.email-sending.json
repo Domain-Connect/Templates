@@ -1,0 +1,59 @@
+{
+  "providerId": "miniemail.io",
+  "providerName": "Miniemail",
+  "serviceId": "email-sending",
+  "serviceName": "Envío de emails desde tu dominio",
+  "version": 1,
+  "logoUrl": "https://miniemail.io/ui/logo.png",
+  "description": "Authenticates the email Miniemail sends from the creator's own domain through Amazon SES (eu-west-1): three Easy DKIM CNAMEs, a custom MAIL FROM subdomain (MX for bounces plus SPF merged with SPFM) and an optional monitoring-only DMARC record that Miniemail only requests (groupId=dmarc) after checking that the domain has no DMARC record. Apply on the sending domain: domain=<zone>, host=<subdomain> when the creator sends from a subdomain. No root SPF and no root MX are touched. CNAMEs must be DNS only (not proxied).",
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three Amazon SES Easy DKIM tokens of the sending identity (32 lowercase letters or digits each). Set by Miniemail, never by the user.",
+  "syncPubKeyDomain": "miniemail.io",
+  "syncRedirectDomain": "app.miniemail.io",
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "envios",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "envios",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

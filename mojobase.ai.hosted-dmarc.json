@@ -1,0 +1,21 @@
+{
+  "providerId": "mojobase.ai",
+  "providerName": "Mojobase",
+  "serviceId": "hosted-dmarc",
+  "serviceName": "Mojobase email: DMARC",
+  "version": 1,
+  "logoUrl": "https://mojobase.ai/favicon.svg",
+  "description": "Adds a DMARC record with policy none at _dmarc, for a domain whose email Mojobase hosts. Mojobase offers it only while the domain has no DMARC record, so it never replaces one.",
+  "syncPubKeyDomain": "mojobase.app",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

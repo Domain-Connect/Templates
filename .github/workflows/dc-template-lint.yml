@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Setup refs
         id: setup-refs
@@ -33,9 +33,10 @@ jobs:
 
       - name: Get all changed json files
         id: changed-json-files
-        uses: tj-actions/changed-files@v47
+        uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
         with:
           files: '*.json'
+          files_ignore: '.github/**'
       - name: Print all changed json files
         if: steps.changed-json-files.outputs.any_changed == 'true'
         env:
@@ -70,23 +71,23 @@ jobs:
 
       - name: Comment PR with version check result
         if: steps.check-version-bump-needed.outputs.version_bump_check == 1 && github.event_name == 'pull_request_target'
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           message: |
             Version bump needed for the files:
             ```
             ${{ env.version_bump_check }}
             ```
-          comment_tag: version_bump
+          comment-tag: version_bump
 
       - name: Remove comment PR with version check result if not needed
         if: steps.check-version-bump-needed.outputs.version_bump_check != 1 && github.event_name == 'pull_request_target'
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           message: "Version bump not needed"
           mode: delete
-          create_if_not_exists: false
-          comment_tag: version_bump
+          create-if-not-exists: false
+          comment-tag: version_bump
 
       - name: Set up Go
         uses: actions/setup-go@v7
@@ -133,23 +134,23 @@ jobs:
 
       - name: Comment PR with linter error result
         if: steps.linter-output.outputs.linter_error == 1 && github.event_name == 'pull_request_target'
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           message: |
             ## Linter error
 
             ${{ env.linter_output }}
-          comment_tag: linter
+          comment-tag: linter
 
       - name: Comment PR with linter OK result
         if: steps.linter-output.outputs.linter_error != 1 && github.event_name == 'pull_request_target'
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
           message: |
             ## Linter OK
 
             ${{ env.linter_output }}
-          comment_tag: linter
+          comment-tag: linter
 
       - name: Fail job if version check or linter fails
         if: steps.linter-output.outputs.linter_error == 1 || steps.check-version-bump-needed.outputs.version_bump_check == 1

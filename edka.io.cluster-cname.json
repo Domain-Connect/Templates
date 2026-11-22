@@ -1,0 +1,37 @@
+{
+    "providerId": "edka.io",
+    "providerName": "Edka",
+    "serviceId": "cluster-cname",
+    "serviceName": "Cluster domain (CNAME)",
+    "version": 1,
+    "logoUrl": "https://assets.edka.io/logo.svg",
+    "syncBlock": false,
+    "hostRequired": true,
+    "syncPubKeyDomain": "domainconnect.edka.io",
+    "syncRedirectDomain": "console.edka.io",
+    "description": "Point a subdomain or wildcard subdomain to an Edka cluster hostname and delegate DNS-01 certificate validation.",
+    "variableDescription": "%tlsTarget%: Edka ACME delegation target; %cnameTarget%: cluster hostname target.",
+    "records": [
+        {
+            "groupId": "tls",
+            "type": "CNAME",
+            "host": "_acme-challenge",
+            "pointsTo": "%tlsTarget%",
+            "ttl": 300
+        },
+        {
+            "groupId": "apex-cname",
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%cnameTarget%",
+            "ttl": 300
+        },
+        {
+            "groupId": "wildcard-cname",
+            "type": "CNAME",
+            "host": "*",
+            "pointsTo": "%cnameTarget%",
+            "ttl": 300
+        }
+    ]
+}

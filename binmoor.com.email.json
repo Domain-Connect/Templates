@@ -1,0 +1,44 @@
+{
+  "providerId": "binmoor.com",
+  "providerName": "Binmoor",
+  "serviceId": "email",
+  "serviceName": "Binmoor email sending",
+  "version": 1,
+  "logoUrl": "https://binmoor.com/brand/binmoor-mark.png",
+  "description": "Authenticates a domain to send email through Binmoor's email service (Brevo): the ownership code, the two DKIM signing CNAMEs and the Brevo sender in the SPF record (merged into the existing SPF record, never replacing it). Each part is its own group. No DMARC record is part of the template: the domain keeps its own policy.",
+  "variableDescription": "brevocode: ownership code published as brevo-code:<brevocode> (letters and digits). dkimzone: the domain name with dots replaced by dashes, as used by Brevo in the DKIM CNAME targets b1.<dkimzone>.dkim.brevo.com and b2.<dkimzone>.dkim.brevo.com.",
+  "syncPubKeyDomain": "binmoor.com",
+  "syncRedirectDomain": "binmoor.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "@",
+      "data": "brevo-code:%brevocode%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "brevo-code:"
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "brevo1._domainkey",
+      "pointsTo": "b1.%dkimzone%.dkim.brevo.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "brevo2._domainkey",
+      "pointsTo": "b2.%dkimzone%.dkim.brevo.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:spf.brevo.com"
+    }
+  ]
+}

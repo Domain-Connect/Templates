@@ -1,0 +1,31 @@
+{
+  "providerId": "apronta.co",
+  "providerName": "Apronta",
+  "serviceId": "website-sub",
+  "serviceName": "Apronta page on a subdomain",
+  "version": 1,
+  "logoUrl": "https://apronta.co/brand/logo.png",
+  "description": "Connects a name under a domain (menu.example.com) to a shop's Apronta page: a TXT record that proves the name is the shop's, and the CNAME that points it at the page.",
+  "variableDescription": "token: the shop's ownership token. target: the CNAME Vercel recommends for the name on Apronta's project.",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "apronta.co",
+  "syncRedirectDomain": "apronta.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_apronta",
+      "data": "apronta-verificacao=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "apronta-verificacao="
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

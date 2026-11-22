@@ -1,0 +1,48 @@
+{
+  "providerId": "secria.me",
+  "providerName": "Secria",
+  "serviceId": "mail-receiving",
+  "serviceName": "Secria mail: receiving",
+  "logoUrl": "https://secria.me/logo.png",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "secria.me",
+  "syncRedirectDomain": "app.secria.me",
+  "description": "Moves the domain's incoming mail to Secria, and publishes a first DMARC record, at p=none, where the domain has none.",
+  "records": [
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.secria.me",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.secria.me",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "essential": "OnApply",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "dmarcreports",
+      "essential": "OnApply",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@secria.me;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

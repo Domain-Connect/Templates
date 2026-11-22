@@ -1,0 +1,21 @@
+{
+  "providerId": "miniemail.io",
+  "providerName": "Miniemail",
+  "serviceId": "landing-domain",
+  "serviceName": "Landings de Miniemail en tu dominio",
+  "version": 1,
+  "logoUrl": "https://miniemail.io/ui/logo.png",
+  "description": "Points the creator's publishing subdomain (the standard host parameter, e.g. host=go or host=landing) to Miniemail's landing servers with a single CNAME to landings.miniemail.io. Always applied with a host; never at the zone apex. DNS only (not proxied): Miniemail verifies the CNAME before issuing the TLS certificate.",
+  "variableDescription": "No variables: the subdomain comes in the standard host parameter.",
+  "syncPubKeyDomain": "miniemail.io",
+  "syncRedirectDomain": "app.miniemail.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "landings.miniemail.io",
+      "ttl": 3600
+    }
+  ]
+}

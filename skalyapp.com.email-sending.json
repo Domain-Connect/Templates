@@ -1,0 +1,34 @@
+{
+  "providerId": "skalyapp.com",
+  "providerName": "Skaly",
+  "serviceId": "email-sending",
+  "serviceName": "Skaly Outreach Email Sending",
+  "version": 1,
+  "logoUrl": "https://skalyapp.com/pwa-192x192.png",
+  "description": "Lets Skaly send your outreach emails from your own domain through Amazon SES. Adds the three Amazon SES DKIM signing records only; your website, mailbox and existing email settings are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "skalyapp.com",
+  "syncRedirectDomain": "skalyapp.com,develop.skalyapp.com",
+  "hostRequired": false,
+  "variableDescription": "%dkimToken1%, %dkimToken2%, %dkimToken3%: the three Easy DKIM tokens Amazon SES issues for this domain",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

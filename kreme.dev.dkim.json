@@ -1,0 +1,23 @@
+{
+  "providerId": "kreme.dev",
+  "providerName": "Kreme",
+  "logoUrl": "https://kreme.dev/logo.svg",
+  "syncPubKeyDomain": "kreme.dev",
+  "syncRedirectDomain": "kreme.dev",
+  "shared": true,
+  "sharedProviderName": true,
+  "serviceId": "dkim",
+  "serviceName": "Email signing (DKIM TXT)",
+  "version": 1,
+  "description": "Adds a DKIM public key so email the app sends for the domain owner is signed and delivered.",
+  "variableDescription": "%selector%: DKIM selector, for example s1; %dkim%: DKIM record value, for example v=DKIM1; k=rsa; p=MIGf...",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%selector%._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

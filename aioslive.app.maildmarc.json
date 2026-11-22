@@ -1,0 +1,22 @@
+{
+  "providerId": "aioslive.app",
+  "providerName": "AIOS",
+  "serviceId": "maildmarc",
+  "serviceName": "AIOS Mail DMARC",
+  "version": 1,
+  "logoUrl": "https://cdn.aioshq.com/desktop/aios-wordmark.svg",
+  "description": "Add a DMARC record (p=none) for a domain that sends with AIOS Mail and has no DMARC record yet.",
+  "syncPubKeyDomain": "aioslive.app",
+  "syncRedirectDomain": "aioslive.app",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

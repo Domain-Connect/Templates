@@ -1,0 +1,43 @@
+{
+  "providerId": "morada.ai",
+  "providerName": "Morada.ai",
+  "serviceId": "email-sending",
+  "serviceName": "Email sending domain",
+  "version": 1,
+  "logoUrl": "https://morada.ai/wp-content/themes/moradaai-v2/assets/home-v2/logos/logo-morada.svg",
+  "description": "Connects a sending subdomain (for example news.example.com) to Morada.ai email campaigns: DKIM signing, bounce handling, DMARC policy and branded tracking links. All records are CNAMEs that point into the morada-ai.email zone managed by Morada.ai.",
+  "variableDescription": "selector: the DKIM selector issued by Morada.ai (for example morada1). code: the per-domain code issued by Morada.ai that scopes the DKIM, bounce and DMARC targets. The sending subdomain (for example news) is passed through the host parameter.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "morada-ai.email",
+  "syncRedirectDomain": "morada.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%selector%._domainkey",
+      "pointsTo": "%selector%.%code%.dkim.morada-ai.email",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "bounce",
+      "pointsTo": "%code%.bounce.morada-ai.email",
+      "ttl": 3600,
+      "essential": "Always"
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%code%.dmarc.morada-ai.email",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "links",
+      "pointsTo": "links.morada-ai.email",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

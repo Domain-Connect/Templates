@@ -1,0 +1,23 @@
+{
+    "providerId": "transica.dev",
+    "providerName": "Transica",
+    "serviceId": "site-verify",
+    "serviceName": "Site Verification",
+    "version": 1,
+    "logoUrl": "https://transica.dev/brand/transica-app-icon-512.png",
+    "description": "Adds a TXT record that proves you own this site, so Transica can run AI agent tests on it.",
+    "variableDescription": "code: the per-site verification code Transica generates when the site is added.",
+    "syncPubKeyDomain": "transica.dev",
+    "syncRedirectDomain": "transica.dev,staging.transica.dev",
+    "syncBlock": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_transica-verify",
+            "data": "transica-verify=%code%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "transica-verify="
+        }
+    ]
+}

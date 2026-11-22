@@ -1,0 +1,30 @@
+{
+  "providerId": "oculix.live",
+  "providerName": "Oculix",
+  "serviceId": "statuspage-tunnel",
+  "serviceName": "Status page, behind a Cloudflare Tunnel",
+  "version": 1,
+  "logoUrl": "https://oculix.live/oculix-mark.svg",
+  "description": "Shows an Oculix status page on a subdomain such as status.example.com, for an Oculix server reached through a Cloudflare Tunnel: a CNAME to the tunnel, and the TXT record that shows the domain belongs to the page.",
+  "variableDescription": "tunnel is the ID of the Cloudflare Tunnel in front of the Oculix server; token is the page's own code for the TXT record, shown on its domain settings.",
+  "syncPubKeyDomain": "domainconnect.oculix.live",
+  "syncRedirectDomain": "oculix.live",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_oculix",
+      "data": "oculix-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "oculix-verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%tunnel%.cfargotunnel.com",
+      "ttl": 3600
+    }
+  ]
+}

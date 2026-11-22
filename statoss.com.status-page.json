@@ -1,0 +1,29 @@
+{
+  "providerId": "statoss.com",
+  "providerName": "StatOSS",
+  "serviceId": "status-page",
+  "serviceName": "Status page",
+  "version": 2,
+  "logoUrl": "https://statoss.com/images/statoss-mark-64.png",
+  "description": "Points a subdomain such as status.example.com at a StatOSS status page with a CNAME, and adds the TXT record that shows the domain belongs to the page.",
+  "variableDescription": "token is the page's own token for the TXT record, shown on its domain settings.",
+  "syncPubKeyDomain": "statoss.com",
+  "syncRedirectDomain": "statoss.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.statoss.com",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_statoss",
+      "data": "statoss-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "statoss-verify="
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "providerId": "sokie.sh",
+  "providerName": "Sokie",
+  "serviceId": "exact-domain",
+  "serviceName": "Server domain",
+  "version": 1,
+  "logoUrl": "https://sokie.sh/domain-connect/sokie.svg",
+  "description": "Serves one MCP server hosted on Sokie at this name. A TXT record at _sokie proves the name is the owner's, and a CNAME sends it to Sokie's edge. Applied with host set to the name, never at the apex.",
+  "variableDescription": "%token%: the server domain's verification code, 12 hex characters. %target%: Sokie's edge hostname, like edge.sokie.site.",
+  "syncPubKeyDomain": "sokie.sh",
+  "syncRedirectDomain": "sokie.sh,staging.sokie.sh",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_sokie",
+      "data": "sokie-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "sokie-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ]
+}

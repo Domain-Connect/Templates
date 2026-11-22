@@ -1,0 +1,44 @@
+{
+  "providerId": "araute.com",
+  "providerName": "Araute",
+  "serviceId": "email-sending-resend",
+  "serviceName": "Araute Email Sending (Resend)",
+  "version": 1,
+  "logoUrl": "https://www.araute.com/favicon.svg",
+  "description": "Autoriza a Araute a enviar e-mails em nome do seu domínio, com SPF, DKIM e DMARC.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "araute.com",
+  "syncRedirectDomain": "app.araute.com",
+  "variableDescription": "%dkimSelector%: seletor da chave DKIM emitida para este domínio; %dkimValue%: chave pública DKIM; %spfTarget%: host de retorno da região de envio",
+  "records": [
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%spfTarget%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "%dkimSelector%._domainkey",
+      "data": "%dkimValue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

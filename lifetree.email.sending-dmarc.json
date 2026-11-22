@@ -1,0 +1,21 @@
+{
+  "providerId": "lifetree.email",
+  "providerName": "Lifetree Email",
+  "serviceId": "sending-dmarc",
+  "serviceName": "Lifetree Email sending, with DMARC",
+  "version": 2,
+  "logoUrl": "https://lifetree.email/logo.svg",
+  "description": "Lets Lifetree Email send mail from this domain: DKIM signing keys, a bounce subdomain with its own MX and SPF, and a monitoring-only DMARC policy (p=none). Lifetree only offers this template when the domain has no DMARC policy, so an existing one is never changed. Mail you receive on this domain is not affected.",
+  "variableDescription": "dkim1, dkim2, dkim3: the Amazon SES DKIM tokens for this domain. region: the Amazon SES region that handles its bounces.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.lifetree.email",
+  "syncRedirectDomain": "lifetree.email,app.lifetree.email,dev-app.lifetree.email",
+  "records": [
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "MX", "host": "bounce", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "bounce", "spfRules": "include:amazonses.com" },
+    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none; rua=mailto:dmarc@lifetree.email", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply" }
+  ]
+}

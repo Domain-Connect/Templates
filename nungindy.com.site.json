@@ -1,0 +1,21 @@
+{
+  "providerId": "nungindy.com",
+  "providerName": "NungIndy",
+  "serviceId": "site",
+  "serviceName": "NungIndy rented site",
+  "version": 1,
+  "logoUrl": "https://nungindy.com/assets/logo-mark.svg",
+  "description": "Points a subdomain (for example www) to a website rented from NungIndy by adding one CNAME record to sites.nungindy.com (DNS only, not proxied).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "nungindy.com",
+  "syncRedirectDomain": "nungindy.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.nungindy.com",
+      "ttl": 3600
+    }
+  ]
+}

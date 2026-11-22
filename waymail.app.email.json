@@ -1,0 +1,51 @@
+{
+  "providerId": "waymail.app",
+  "providerName": "Waymail",
+  "serviceId": "email",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://waymail.app/icon-192.png",
+  "description": "Lets Waymail send email from this domain: DKIM signing keys, and a MAIL FROM domain with its SPF record.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "waymail.app",
+  "syncRedirectDomain": "console.waymail.app",
+  "hostRequired": false,
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three DKIM selectors Amazon SES issued for this domain. %sesRegion%: the AWS region Waymail sends from, e.g. eu-central-1.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 1800,
+      "groupId": "dkim"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 1800,
+      "groupId": "dkim"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 1800,
+      "groupId": "dkim"
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 1800,
+      "groupId": "mail_from"
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com",
+      "groupId": "mail_from"
+    }
+  ]
+}

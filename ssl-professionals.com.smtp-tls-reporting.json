@@ -1,0 +1,24 @@
+{
+  "providerId": "ssl-professionals.com",
+  "providerName": "SSL Professionals",
+  "serviceId": "smtp-tls-reporting",
+  "serviceName": "SMTP TLS reporting",
+  "version": 1,
+  "logoUrl": "https://ssl-professionals.com/images/logo-dark.svg",
+  "description": "Publish an SMTP TLS reporting record with reports sent to the approved reporting mailbox.",
+  "variableDescription": "rua_mailbox: the approved mailbox that receives SMTP TLS reports, without the mailto: prefix.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.ssl-professionals.com",
+  "syncRedirectDomain": "ssl-professionals.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "v=TLSRPTv1; rua=mailto:%rua_mailbox%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=TLSRPTv1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+    "providerId": "emailsecurity.pro",
+    "providerName": "Signet",
+    "serviceId": "ownership",
+    "serviceName": "Domain ownership verification",
+    "version": 1,
+    "logoUrl": "https://emailsecurity.pro/brand/signet-badge.svg",
+    "description": "Publishes the TXT record that proves to Signet that the customer controls the domain. The token is issued per domain and per Signet organisation; nothing about mail changes.",
+    "variableDescription": "%token%: the verification token Signet issued for this domain (64 hex characters)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "emailsecurity.pro",
+    "syncRedirectDomain": "app.emailsecurity.pro",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_emus-verify",
+            "data": "%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "None"
+        }
+    ]
+}

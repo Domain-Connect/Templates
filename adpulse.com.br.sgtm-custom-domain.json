@@ -1,0 +1,20 @@
+{
+  "providerId": "adpulse.com.br",
+  "providerName": "AdPulse",
+  "serviceId": "sgtm-custom-domain",
+  "serviceName": "AdPulse Server Tag Manager",
+  "version": 1,
+  "logoUrl": "https://docs.adpulse.com.br/assets/images/logo-light.png",
+  "description": "Serve your server-side GTM container from your own domain. One click configures the DNS record and your subdomain starts running on AdPulse Server Tag Manager — pages that load faster, cleaner data and fewer blocked requests, with no servers to manage.",
+  "syncPubKeyDomain": "adpulse.com.br",
+  "syncRedirectDomain": "api.adpulse.com.br,adpulse.com.br",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cdn.turbo-ssl.com",
+      "ttl": 300
+    }
+  ]
+}

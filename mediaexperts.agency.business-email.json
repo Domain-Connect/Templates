@@ -1,0 +1,45 @@
+{
+    "providerId": "mediaexperts.agency",
+    "providerName": "Media Experts",
+    "serviceId": "business-email",
+    "serviceName": "Business email",
+    "version": 1,
+    "logoUrl": "https://mediaexperts.agency/favicon.svg",
+    "description": "Lets a business send replies from its own domain through the Media Experts platform (Ledger). Adds the sending service to the domain's SPF record (merged with any existing SPF, never a second record), the per-domain DKIM signature record, the bounce (return-path) CNAME, and optionally a monitoring-only DMARC record. Never touches MX, A, NS or any record that receives mail. Records are in separate groups so the platform applies only the ones its own DNS check found missing.",
+    "variableDescription": "%dkimselector%: the DKIM selector the sending service issued for this domain (host becomes <selector>._domainkey); %dkimpublickey%: the base64 public key from that DKIM record (the part after p=); %bouncetarget%: the CNAME target the sending service issued for this domain's bounce address. All three are copied from the sending service's console for that one domain and stored on the domain's row in Ledger; the apply URL is always signed.",
+    "syncPubKeyDomain": "mediaexperts.agency",
+    "syncRedirectDomain": "ledger.brandverify.net,os.ihayz.com",
+    "records": [
+        {
+            "groupId": "spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:zeptomail.net"
+        },
+        {
+            "groupId": "dkim",
+            "type": "TXT",
+            "host": "%dkimselector%._domainkey",
+            "data": "k=rsa; p=%dkimpublickey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "bounce",
+            "type": "CNAME",
+            "host": "bounce-zem",
+            "pointsTo": "%bouncetarget%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

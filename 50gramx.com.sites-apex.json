@@ -1,0 +1,35 @@
+{
+  "providerId": "50gramx.com",
+  "providerName": "50GRAMx",
+  "version": 1,
+  "logoUrl": "https://50gramx.com/icon.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dc.50gramx.com",
+  "syncRedirectDomain": "50gramx.com",
+  "serviceId": "sites-apex",
+  "serviceName": "50GRAMx Sites (bare domain)",
+  "description": "Serves a website from the 50GRAMx network on the bare domain (example.com), and proves which 50GRAMx account owns it.",
+  "variableDescription": "ip4/ip6: the 50GRAMx edge addresses; owner: the owner's DID",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip4%",
+      "ttl": 3600
+    },
+    {
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "%ip6%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_epn",
+      "data": "epn-owner=%owner%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

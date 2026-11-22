@@ -1,0 +1,63 @@
+{
+  "providerId": "kitemailer.com",
+  "providerName": "Kite Mailer",
+  "serviceId": "send",
+  "serviceName": "Sending",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "kitemailer.com",
+  "description": "Prove this domain and publish the DKIM and DMARC records Kite uses to send its mail. Inbox MX records are left as they are.",
+  "logoUrl": "https://kitemailer.com/kite.svg",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_kite",
+      "data": "kite-verify=%proof%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%token1%._domainkey",
+      "pointsTo": "%token1%.%dkimZone%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%token2%._domainkey",
+      "pointsTo": "%token2%.%dkimZone%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%token3%._domainkey",
+      "pointsTo": "%token3%.%dkimZone%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "%mailHost%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "%mailHost%",
+      "ttl": 3600,
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

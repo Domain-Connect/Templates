@@ -1,0 +1,34 @@
+{
+    "providerId": "hiverec.io",
+    "providerName": "HiveRec",
+    "serviceId": "email-sending",
+    "serviceName": "Email sending",
+    "version": 1,
+    "logoUrl": "https://app.hiverec.io/brand/hiverec-logo.svg",
+    "description": "Lets HiveRec send a recruitment agency's emails (through Resend, EU region eu-west-1) from the agency's own domain: an MX record and SPF for bounces on the send. name, and the DKIM key on resend._domainkey. Applied with the host parameter set to the agency's sending subdomain (for example host=mail for bookings@mail.example.co.uk), or with no host when the agency sends from the domain itself. The domain's own MX records, website and mailboxes are not changed.",
+    "variableDescription": "%dkimkey%: the DKIM public key Resend issued for this sending domain, base64 only (the part after p=).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "hiverec.io",
+    "syncRedirectDomain": "app.hiverec.io",
+    "records": [
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "type": "TXT",
+            "host": "resend._domainkey",
+            "data": "p=%dkimkey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

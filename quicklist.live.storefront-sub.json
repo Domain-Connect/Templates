@@ -1,0 +1,16 @@
+{
+  "providerId": "quicklist.live",
+  "providerName": "Quicklist",
+  "serviceId": "storefront-sub",
+  "serviceName": "Quicklist Online Store (subdomain)",
+  "version": 1,
+  "logoUrl": "https://quicklist.live/logo.png",
+  "description": "Points a subdomain (e.g. shop.yourbrand.com or www.yourbrand.com) at a Quicklist online store.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "quicklist.live",
+  "syncRedirectDomain": "quicklist.live",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "cname.quicklist.live", "ttl": 600 }
+  ]
+}

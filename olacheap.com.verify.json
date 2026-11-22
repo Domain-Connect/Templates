@@ -1,0 +1,25 @@
+{
+  "providerId": "olacheap.com",
+  "providerName": "OlaCheap",
+  "serviceId": "verify",
+  "serviceName": "Website ownership verification",
+  "version": 1,
+  "logoUrl": "https://olacheap.com/icon.svg",
+  "description": "Adds the TXT record that proves you control this domain, so you can use it with OlaCheap (MIA Co., Ltd., Japan).",
+  "variableDescription": "token: the verification code shown on your OlaCheap project page",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "olacheap.com",
+  "syncRedirectDomain": "olacheap.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_olacheap-verify",
+      "data": "olacheap-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "olacheap-verify="
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+    "providerId": "reelisticapp.com",
+    "providerName": "Reelistic",
+    "serviceId": "email-sending",
+    "serviceName": "Reelistic email sending",
+    "version": 1,
+    "logoUrl": "https://www.reelisticapp.com/reelistic-logo.png",
+    "description": "Authenticates the domain for the email campaigns a brand sends with Reelistic (Amazon SES): domain verification, DKIM signing, a bounce subdomain for SPF alignment and, when the domain has none, a DMARC policy. Nothing existing is replaced.",
+    "variableDescription": "verify: SES domain verification token; dkim1-3: SES DKIM tokens; region: SES region (e.g. eu-west-1)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "reelisticapp.com",
+    "syncRedirectDomain": "reelisticapp.com,www.reelisticapp.com,dev.reelisticapp.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "ses",
+            "type": "TXT",
+            "host": "_amazonses",
+            "data": "%verify%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "None"
+        },
+        {
+            "groupId": "ses",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 300
+        },
+        {
+            "groupId": "ses",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 300
+        },
+        {
+            "groupId": "ses",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 300
+        },
+        {
+            "groupId": "ses",
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 300
+        },
+        {
+            "groupId": "ses",
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc@reelisticapp.com",
+            "ttl": 300,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

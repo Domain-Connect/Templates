@@ -1,0 +1,21 @@
+{
+  "providerId": "darkstrata.io",
+  "providerName": "DarkStrata",
+  "serviceId": "custom-portal-domain",
+  "serviceName": "Custom Portal Domain",
+  "version": 1,
+  "logoUrl": "https://darkstrata.io/images/favicons/favicon-512.png",
+  "description": "Serve your DarkStrata portal on your own subdomain, such as portal.example.com",
+  "multiInstance": false,
+  "syncBlock": false,
+  "syncPubKeyDomain": "darkstrata.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.darkstrata.io",
+      "ttl": 3600
+    }
+  ]
+}

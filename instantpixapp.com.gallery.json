@@ -1,0 +1,28 @@
+{
+  "providerId": "instantpixapp.com",
+  "providerName": "InstantPix",
+  "serviceId": "gallery",
+  "serviceName": "InstantPix Client Gallery",
+  "version": 1,
+  "logoUrl": "https://www.instantpixapp.com/app-icon.svg",
+  "description": "Serves your InstantPix client photo galleries from a sub-domain of your own domain",
+  "variableDescription": "`studio` is the InstantPix studio label the gallery sub-domain is pointed at (the photographer's account slug); the CNAME therefore resolves to the InstantPix gallery ingress. `token` is the single-use ownership-verification code InstantPix issues for this domain — it is published as `instantpix-verify=<token>`, and InstantPix reads that record back and compares it byte-for-byte before it will issue a TLS certificate for the host.",
+  "syncPubKeyDomain": "domainconnect.instantpixapp.com",
+  "syncRedirectDomain": "www.instantpixapp.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%studio%.instantpixapp.com",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_instantpix-verify",
+      "data": "instantpix-verify=%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

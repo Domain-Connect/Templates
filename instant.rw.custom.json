@@ -1,0 +1,30 @@
+{
+	"providerId": "instant.rw",
+	"providerName": "Instant",
+	"serviceId": "custom",
+	"serviceName": "Instant Custom Domain",
+	"version": 1,
+	"description": "Connect a custom domain to an Instant project.",
+	"variableDescription": "target is the Instant CNAME endpoint. verifyHost is the TXT record host for ownership verification. verification is the verification token.",
+	"syncPubKeyDomain": "domainconnect.instant.rw",
+	"syncRedirectDomain": "instant.rw",
+	"hostRequired": true,
+	"records": [
+		{
+			"type": "CNAME",
+			"groupId": "cname",
+			"host": "@",
+			"pointsTo": "%target%",
+			"ttl": "3600"
+		},
+		{
+			"type": "TXT",
+			"groupId": "verification",
+			"host": "%verifyHost%",
+			"ttl": "3600",
+			"data": "verify=%verification%",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "verify="
+		}
+	]
+}

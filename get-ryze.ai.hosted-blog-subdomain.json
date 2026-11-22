@@ -1,0 +1,21 @@
+{
+  "providerId": "get-ryze.ai",
+  "providerName": "Ryze AI",
+  "serviceId": "hosted-blog-subdomain",
+  "serviceName": "Ryze Hosting (subdomain)",
+  "version": 1,
+  "logoUrl": "https://reports.get-ryze.ai/apple-touch-icon.png",
+  "description": "Points a subdomain (e.g. blog.example.com) to a Ryze hosted blog with one CNAME record.",
+  "variableDescription": "No template variables. The subdomain is the standard Domain Connect host parameter; the CNAME uses @ relative to it.",
+  "syncPubKeyDomain": "get-ryze.ai",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

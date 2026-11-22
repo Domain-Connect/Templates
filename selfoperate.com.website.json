@@ -1,0 +1,22 @@
+{
+  "providerId": "selfoperate.com",
+  "providerName": "SelfOperate",
+  "serviceId": "website",
+  "serviceName": "Website hosting",
+  "version": 1,
+  "logoUrl": "https://selfoperate.com/selfoperate-logo.png",
+  "description": "Points a subdomain of your domain (usually www) at your SelfOperate website.",
+  "variableDescription": "siteid: the 24-character id of your SelfOperate site",
+  "syncBlock": false,
+  "syncPubKeyDomain": "selfoperate.com",
+  "syncRedirectDomain": "selfoperate.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "site-%siteid%.edge.sites.selfoperate.com",
+      "ttl": 3600
+    }
+  ]
+}

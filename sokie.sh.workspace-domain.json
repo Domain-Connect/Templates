@@ -1,0 +1,28 @@
+{
+  "providerId": "sokie.sh",
+  "providerName": "Sokie",
+  "serviceId": "workspace-domain",
+  "serviceName": "Workspace domain",
+  "version": 1,
+  "logoUrl": "https://sokie.sh/domain-connect/sokie.svg",
+  "description": "Gives every MCP server in a Sokie workspace an address under this domain. A TXT record at _sokie proves the domain is the workspace's, and a wildcard CNAME sends every name under it to Sokie's edge.",
+  "variableDescription": "%token%: the workspace's verification code, 12 hex characters. %target%: Sokie's edge hostname, like edge.sokie.site.",
+  "syncPubKeyDomain": "sokie.sh",
+  "syncRedirectDomain": "sokie.sh,staging.sokie.sh",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_sokie",
+      "data": "sokie-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "sokie-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "*",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ]
+}

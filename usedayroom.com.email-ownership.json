@@ -1,0 +1,23 @@
+{
+  "providerId": "usedayroom.com",
+  "providerName": "Dayroom",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.usedayroom.com",
+  "syncRedirectDomain": "app.usedayroom.com",
+  "syncBlock": false,
+  "serviceId": "email-ownership",
+  "serviceName": "Verify your Dayroom email domain",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dayroom-mail",
+      "data": "dayroom-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "dayroom-verification="
+    }
+  ],
+  "logoUrl": "https://app.usedayroom.com/assets/email/dayroom-logo-dark.png",
+  "description": "Verify ownership of a company domain for Dayroom email. Does not change mail routing.",
+  "variableDescription": "verification: workspace-bound random verification token, signed by Dayroom."
+}

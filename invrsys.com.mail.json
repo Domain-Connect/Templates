@@ -1,0 +1,100 @@
+{
+  "providerId": "invrsys.com",
+  "providerName": "INVRSYS",
+  "serviceId": "mail",
+  "serviceName": "INVRSYS Mail",
+  "version": 1,
+  "description": "Sends and receives a domain's email with INVRSYS Mail: domain verification, DKIM signing (Amazon SES), incoming mail (MX), the MAIL FROM domain, DMARC, and mail-app discovery (SRV).",
+  "variableDescription": "verifytoken: the domain's verification token; dkim1, dkim2, dkim3: its Amazon SES DKIM tokens",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "invrsys.com",
+  "syncRedirectDomain": "imail.invrsys.com",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_invrsys-verification",
+      "data": "invrsys-verification=%verifytoken%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mx",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.ap-south-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.ap-south-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "apps",
+      "type": "SRV",
+      "name": "@",
+      "service": "_imaps",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 993,
+      "target": "imap.invrsys.cloud",
+      "ttl": 3600
+    },
+    {
+      "groupId": "apps",
+      "type": "SRV",
+      "name": "@",
+      "service": "_submissions",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 465,
+      "target": "smtp.invrsys.cloud",
+      "ttl": 3600
+    }
+  ]
+}

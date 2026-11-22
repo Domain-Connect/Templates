@@ -17,25 +17,53 @@ Key schema requirements:
 
 ## Template Validation
 
-Before submitting changes, you **MUST** validate templates using the official linter:
+Before submitting changes, you **MUST** validate every added or modified template with the official linter.
+
+### Fast track vs. manual review
+
+PRs whose templates pass the [Automerge Check](.github/workflows/automerge-check.yml) workflow (`dc-template-linter -merge-or-fail`) receive the `automerge-possible` label and are **approved and merged much faster**. PRs that fail it are **queued for manual review** by a maintainer, which takes considerably longer. Always aim for a clean `-merge-or-fail` run; only deviate when a documented exception applies, and then justify it in the PR description.
 
 ### Installation
+
+Requires Go 1.22 or newer:
 
 ```bash
 go install github.com/Domain-Connect/dc-template-linter@latest
 ```
 
+The binary lands in `$(go env GOPATH)/bin`; ensure it is on `PATH`.
+
 ### Usage
 
-Validate a template file with:
+Run these checks on **each** changed template file and inspect the exit code (`echo $?`):
 
-```bash
-dc-template-linter -loglevel error -tolerate info -logos <template-file.json>
-```
+1. **Fast-track check** (identical to the Automerge Check workflow):
 
-**All templates must pass linting without errors before being considered valid.**
+   ```bash
+   dc-template-linter -merge-or-fail <template-file.json>
+   ```
 
-> **Note:** If `dc-template-linter` returns a non-zero exit value, the template is invalid and must be corrected before submission.
+   Exit code `0` means the PR qualifies for fast-track approval. A non-zero exit code means it will go to manual review — fix the reported `DCTLxxxx` issues (see the [linter wiki](https://github.com/Domain-Connect/dc-template-linter/wiki)) and re-run.
+
+2. **Full check** (identical to the [Lint Domain Connect Templates](.github/workflows/dc-template-lint.yml) workflow):
+
+   ```bash
+   dc-template-linter -tolerate warn <template-file.json>
+   ```
+
+   Must exit `0`, otherwise the workflow fails and the PR cannot be merged.
+
+3. **Version bump** (modified templates only): the `version` field must be incremented; the workflow fails if a changed template has no `version` change.
+
+4. **Logo reachability** (not run in CI, but required by the PR template checkbox; requires network):
+
+   ```bash
+   dc-template-linter -logos <template-file.json>
+   ```
+
+**All templates must pass the full check and, if modified, carry a version bump before being considered valid.**
+
+> **Note:** If `dc-template-linter` returns a non-zero exit value, the template is invalid (full check) or not eligible for fast track (`-merge-or-fail`) and should be corrected before submission. Never report a check as passed without actually running it and seeing exit code `0`.
 
 ## Template Naming Convention
 

@@ -1,0 +1,63 @@
+{
+  "providerId": "inflowave.io",
+  "providerName": "Inflowave",
+  "serviceId": "client-domain",
+  "serviceName": "Website and email for your domain",
+  "version": 1,
+  "logoUrl": "https://inflowave.io/logo.svg",
+  "description": "Points the customer's domain at their Inflowave website and authenticates the domain for sending email (DKIM and return path). Groups: website (A records on the applied host), www (A records on www, only when applied to a root domain), email (three CNAME records minted per domain by the mail platform).",
+  "variableDescription": "%emid%: digits of the per-domain mail return-path label (em<digits>), minted per domain by the mail platform. %sguser%: the per-domain mail platform account label (u<digits>) used in the CNAME targets.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "inflowave.io",
+  "records": [
+    {
+      "groupId": "website",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "75.2.60.5",
+      "ttl": 3600
+    },
+    {
+      "groupId": "website",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "99.83.231.61",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "A",
+      "host": "www",
+      "pointsTo": "75.2.60.5",
+      "ttl": 3600
+    },
+    {
+      "groupId": "www",
+      "type": "A",
+      "host": "www",
+      "pointsTo": "99.83.231.61",
+      "ttl": 3600
+    },
+    {
+      "groupId": "email",
+      "type": "CNAME",
+      "host": "em%emid%",
+      "pointsTo": "%sguser%.wl.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "email",
+      "type": "CNAME",
+      "host": "s1._domainkey",
+      "pointsTo": "s1.domainkey.%sguser%.wl.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "email",
+      "type": "CNAME",
+      "host": "s2._domainkey",
+      "pointsTo": "s2.domainkey.%sguser%.wl.sendgrid.net",
+      "ttl": 3600
+    }
+  ]
+}

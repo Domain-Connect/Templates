@@ -1,0 +1,32 @@
+{
+  "providerId": "cartqu.com",
+  "providerName": "CartQu",
+  "serviceId": "custom-domain-apex",
+  "serviceName": "Connect a CartQu store apex domain",
+  "version": 1,
+  "logoUrl": "https://cartqu.com/images/logo.png",
+  "description": "Connect this apex domain and its www alias to a CartQu store and prove ownership.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cartqu.com",
+  "syncRedirectDomain": "api.cartqu.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_cartqu-verification",
+      "data": "%verification%",
+      "ttl": 300
+    }
+  ]
+}

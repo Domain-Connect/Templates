@@ -1,0 +1,28 @@
+{
+  "providerId": "adwave.com",
+  "providerName": "Adwave",
+  "serviceId": "waverunner-landing-staging",
+  "serviceName": "Landing pages (staging)",
+  "version": 3,
+  "description": "Connect a test subdomain to staging business landing pages.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.adwave.com",
+  "syncRedirectDomain": "waverunner-staging.adwave.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.staging.current.page",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_waverunner",
+      "data": "waverunner-domain:%ownershipToken%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "waverunner-domain:",
+      "ttl": 600
+    }
+  ]
+}

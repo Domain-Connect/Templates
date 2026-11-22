@@ -1,0 +1,25 @@
+{
+  "providerId": "keybrum.com",
+  "providerName": "Keybrum",
+  "serviceId": "ownership",
+  "serviceName": "Prove domain ownership",
+  "version": 1,
+  "logoUrl": "https://keybrum.com/icon.svg",
+  "description": "Adds one TXT record so Keybrum can confirm you control this domain before it attacks the app.",
+  "variableDescription": "%token%: the ownership token for this app",
+  "syncPubKeyDomain": "keybrum.com",
+  "syncRedirectDomain": "keybrum.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "ownership",
+      "host": "_keybrum",
+      "ttl": 3600,
+      "data": "keybrum-verify=%token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "keybrum-verify=",
+      "essential": "OnApply"
+    }
+  ]
+}

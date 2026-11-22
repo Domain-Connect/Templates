@@ -1,0 +1,67 @@
+{
+  "providerId": "mailfully.com",
+  "providerName": "Mailfully",
+  "serviceId": "mail",
+  "serviceName": "Mail",
+  "version": 1,
+  "syncPubKeyDomain": "mailfully.com",
+  "syncRedirectDomain": "mailfully.com",
+  "description": "Verify your domain and enable authenticated email sending through Mailfully.",
+  "variableDescription": "%dkim1% %dkim2% %dkim3%: per-domain DKIM selector tokens issued by Mailfully; %mailFromLabel%: customer-chosen custom MAIL FROM subdomain label; %region%: AWS SES region the domain sends from; %trackingLabel%: customer-chosen open/click tracking subdomain label",
+  "logoUrl": "https://mailfully.com/mailfully-wordmark-on-light.svg",
+  "records": [
+    {
+      "groupId": "core",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.mailfully.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "core",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.mailfully.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "core",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.mailfully.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "core",
+      "type": "MX",
+      "host": "%mailFromLabel%",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "core",
+      "type": "SPFM",
+      "host": "%mailFromLabel%",
+      "spfRules": "include:_spf.mailfully.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "groupId": "tracking",
+      "type": "CNAME",
+      "host": "%trackingLabel%",
+      "pointsTo": "track.mailfully.com",
+      "ttl": 3600
+    }
+  ]
+}

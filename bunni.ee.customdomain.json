@@ -1,0 +1,36 @@
+{
+  "providerId": "bunni.ee",
+  "providerName": "Bunni",
+  "serviceId": "customdomain",
+  "serviceName": "Bunni Custom Domain",
+  "version": 1,
+  "logoUrl": "https://cdn.bunni.ee/assets/logo/bunni-logo.svg",
+  "description": "Serve your Bunni profile and deeplinks from your own domain.",
+  "syncPubKeyDomain": "dc.bunni.ee",
+  "syncRedirectDomain": "bunni.ee",
+  "syncBlock": false,
+  "hostRequired": true,
+  "variableDescription": "dcvuuid: the DCV delegation id of the bunni.ee zone, which lets Cloudflare answer certificate renewals without the domain owner acting again. ownershiptoken: a one-time value proving the connection was started from the owner's own bunni.ee dashboard.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.bunni.ee",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.%dcvuuid%.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_bunni-verify",
+      "data": "bunni-verification=%ownershiptoken%",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
+      "ttl": 3600
+    }
+  ]
+}

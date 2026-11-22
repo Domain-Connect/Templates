@@ -1,0 +1,22 @@
+{
+  "providerId": "pineapplelab.com",
+  "providerName": "PineappleCMS",
+  "serviceId": "firebase-hosting",
+  "serviceName": "Website and app hosting",
+  "version": 1,
+  "logoUrl": "https://pineapplelab.com/domain-connect/pineapplecms-logo.png",
+  "description": "Points the customer apex, www and app hostnames at PineappleCMS (Firebase Hosting) and publishes the certificate challenge records.",
+  "variableDescription": "apexip is the Firebase Hosting address. landingsite and appsite are the Firebase Hosting site ids of the website and the app (they build the hosting-site TXT value and the CNAME targets <site>.web.app). acmeapex, acmewww and acmeapp are the certificate challenge TXT values for the apex, www and app hostnames.",
+  "syncPubKeyDomain": "pineapplelab.com",
+  "syncRedirectDomain": "app.pineapplelab.com,app-dev.pineapplelab.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "groupId": "apex", "host": "@", "pointsTo": "%apexip%", "ttl": 3600 },
+    { "type": "TXT", "groupId": "apex", "host": "@", "data": "hosting-site=%landingsite%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "hosting-site=" },
+    { "type": "CNAME", "groupId": "www", "host": "www", "pointsTo": "%landingsite%.web.app", "ttl": 3600 },
+    { "type": "CNAME", "groupId": "app", "host": "app", "pointsTo": "%appsite%.web.app", "ttl": 3600 },
+    { "type": "TXT", "groupId": "acme-apex", "host": "_acme-challenge", "data": "%acmeapex%", "ttl": 3600 },
+    { "type": "TXT", "groupId": "acme-www", "host": "_acme-challenge.www", "data": "%acmewww%", "ttl": 3600 },
+    { "type": "TXT", "groupId": "acme-app", "host": "_acme-challenge.app", "data": "%acmeapp%", "ttl": 3600 }
+  ]
+}

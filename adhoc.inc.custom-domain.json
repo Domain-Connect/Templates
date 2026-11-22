@@ -1,0 +1,22 @@
+{
+  "providerId": "adhoc.inc",
+  "providerName": "Adhoc",
+  "version": 1,
+  "syncPubKeyDomain": "adhoc.inc",
+  "syncRedirectDomain": "www.adhoc.inc",
+  "syncBlock": false,
+  "serviceId": "custom-domain",
+  "serviceName": "Odoo by Adhoc",
+  "logoUrl": "https://raw.githubusercontent.com/ingadhoc/ansible_notebooks/7aa78c7ca9f9b0ff86be1d8be58b91a5de6a83c7/docs/assets/adhoc-isotipo-violeta.png",
+  "description": "Points a host of the customer domain to their Odoo instance hosted by Adhoc. The host is supplied by the caller, so both www.customer.com and odoo.customer.com are covered. Odoo does not support more than one subdomain level, so the host is never fixed in the template.",
+  "variableDescription": "database: name of the customer instance on the Adhoc platform. The CNAME target is always <database>.adhoc.inc, so the variable is limited to the instance label.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%database%.adhoc.inc",
+      "ttl": 3600
+    }
+  ]
+}

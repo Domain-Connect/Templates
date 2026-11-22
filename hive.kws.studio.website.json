@@ -1,0 +1,35 @@
+{
+  "providerId": "hive.kws.studio",
+  "providerName": "HIVE Website Studio by Keystone Web Studios",
+  "serviceId": "website",
+  "serviceName": "Connect your HIVE website",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "hive.kws.studio",
+  "syncRedirectDomain": "gowithhive.com,acceptance.gowithhive.com,hive.kws.studio",
+  "description": "Connect the apex and www to a published HIVE website. Leaves nameservers, MX, email TXT, and unrelated records unchanged. Website record conflicts require customer consent at the DNS provider.",
+  "variableDescription": "verification is a random, domain-specific HIVE ownership proof.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "20.120.88.236",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%domain%",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_hive-verification",
+      "data": "%verification%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "hive-"
+    }
+  ],
+  "logoUrl": "https://gowithhive.com/images/hive/favicon-20261115.svg"
+}

@@ -1,0 +1,39 @@
+{
+  "providerId": "outrank.so",
+  "providerName": "Outrank",
+  "serviceId": "blog-subdomain",
+  "serviceName": "Outrank Blog on a subdomain",
+  "version": 1,
+  "logoUrl": "https://www.outrank.so/icon.svg",
+  "description": "Connects a subdomain, passed as host (for example blog), to the blog Outrank hosts for the customer on Vercel. The subdomain group adds the CNAME and Outrank's ownership TXT record on the host. The optional vercel-verification group adds the TXT record Vercel asks for at the zone apex when the domain is already used on another Vercel account; it is marked OnApply, so removing it later leaves the blog's records in place.",
+  "variableDescription": "%cname%: the CNAME target Vercel recommends for the subdomain, as Outrank shows it (for example d1d4fc829fe7bc7c.vercel-dns-017.com). %ownershiptoken%: the ownership token Outrank generated for this domain. %vercelverification%: Vercel's TXT value after vc-domain-verify= (the full host name, a comma, then Vercel's code).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.outrank.so",
+  "syncRedirectDomain": "outrank.so,www.outrank.so",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "subdomain",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    },
+    {
+      "groupId": "subdomain",
+      "type": "TXT",
+      "host": "_outrank-blog",
+      "data": "%ownershiptoken%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "vercel-verification",
+      "type": "TXT",
+      "host": "_vercel.%domain%.",
+      "data": "vc-domain-verify=%vercelverification%",
+      "ttl": 600,
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "providerId": "leadify.biz",
+  "providerName": "Leadify SecureMark",
+  "serviceId": "hosted-mta-sts",
+  "serviceName": "Hosted MTA-STS and TLS reporting",
+  "version": 1,
+  "logoUrl": "https://securemark.leadify.biz/images/logo.png",
+  "description": "Points the domain's MTA-STS and TLS reporting records at SecureMark, which serves the MTA-STS policy and receives TLS reports for it.",
+  "variableDescription": "target is the domain and a random label, such as example.com.ab12cd34, that SecureMark publishes the records under",
+  "syncBlock": false,
+  "syncPubKeyDomain": "leadify.biz",
+  "syncRedirectDomain": "securemark.leadify.biz",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "_mta-sts",
+      "pointsTo": "_mta-sts.%target%.dmarc.ldfysrv.net",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "_smtp._tls",
+      "pointsTo": "_smtp._tls.%target%.dmarc.ldfysrv.net",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "sts.ldfysrv.net",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

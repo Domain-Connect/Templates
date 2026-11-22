@@ -1,0 +1,39 @@
+{
+    "providerId": "merio.io",
+    "providerName": "Merio",
+    "serviceId": "verify",
+    "serviceName": "Merio: verify a docs hostname",
+    "version": 1,
+    "logoUrl": "https://cdn.merio.io/brand/logo.svg",
+    "description": "Proves you own the hostname and lets Cloudflare issue its certificate before any traffic moves.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "merio.io",
+    "syncRedirectDomain": "app.merio.io",
+    "variableDescription": "ownervalue: ownership token; acmevalue, acmevalue2: certificate tokens",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%ownervalue%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply"
+        },
+        {
+            "type": "TXT",
+            "host": "_acme-challenge",
+            "data": "%acmevalue%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply"
+        },
+        {
+            "type": "TXT",
+            "host": "_acme-challenge",
+            "data": "%acmevalue2%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply"
+        }
+    ]
+}

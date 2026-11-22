@@ -1,0 +1,67 @@
+{
+  "providerId": "werkmail.eu",
+  "providerName": "Werkmail",
+  "serviceId": "email",
+  "serviceName": "Werkmail Email Authentication",
+  "version": 2,
+  "logoUrl": "https://werkmail.eu/bimi-logo.svg",
+  "description": "Configures AWS SES Easy DKIM, custom MAIL FROM (bounce), apex SPF, and DMARC so Werkmail can send authenticated email from your domain.",
+  "variableDescription": "%dkim1%, %dkim2%, and %dkim3% are the three Amazon SES Easy-DKIM CNAME tokens for this sending domain. MAIL FROM MX targets eu-central-1 (static).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "werkmail.eu",
+  "syncRedirectDomain": "werkmail.eu",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.eu-central-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; pct=100; adkim=r; aspf=r; rua=mailto:dmarc-reports@%domain%; fo=1",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

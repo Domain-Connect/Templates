@@ -1,0 +1,24 @@
+{
+    "providerId": "emailsecurity.pro",
+    "providerName": "Signet",
+    "serviceId": "tlsrpt",
+    "serviceName": "SMTP TLS reporting",
+    "version": 1,
+    "logoUrl": "https://emailsecurity.pro/brand/signet-badge.svg",
+    "description": "Publishes the SMTP TLS reporting record (RFC 8460) with Signet's report address. Replaces any existing record beginning v=TLSRPTv1 at _smtp._tls.",
+    "variableDescription": "%tlstoken%: the per-domain mailbox token Signet issued for TLS reports",
+    "syncBlock": false,
+    "syncPubKeyDomain": "emailsecurity.pro",
+    "syncRedirectDomain": "app.emailsecurity.pro",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_smtp._tls",
+            "data": "v=TLSRPTv1; rua=mailto:%tlstoken%@tls.emailsecurity.pro",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=TLSRPTv1",
+            "essential": "OnApply"
+        }
+    ]
+}

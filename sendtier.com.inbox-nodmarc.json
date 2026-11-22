@@ -1,0 +1,36 @@
+{
+  "providerId": "sendtier.com",
+  "providerName": "Sendtier",
+  "serviceId": "inbox-nodmarc",
+  "serviceName": "Email sending and receiving (existing DMARC)",
+  "version": 1,
+  "logoUrl": "https://sendtier.com/icon.svg",
+  "description": "Adds the DKIM and return-path records for sending email with Sendtier, and the MX record for receiving on a subdomain, for a domain that already publishes DMARC.",
+  "variableDescription": "dkimkey: the domain's DKIM public key (base64); mxtoken: the domain's receiving token",
+  "syncBlock": false,
+  "syncPubKeyDomain": "inbox-nodmarc.dc.sendtier.com",
+  "syncRedirectDomain": "app.sendtier.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "st1._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "send",
+      "pointsTo": "rp.sendtier.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxtoken%.mx.sendtier.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

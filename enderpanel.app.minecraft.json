@@ -1,0 +1,22 @@
+{
+  "providerId": "enderpanel.app",
+  "providerName": "EnderPanel",
+  "serviceId": "minecraft",
+  "serviceName": "Minecraft server address",
+  "version": 1,
+  "logoUrl": "https://enderpanel.app/favicon.png",
+  "description": "Points a name on a domain you own at a Minecraft server running on your own computer.",
+  "variableDescription": "ip: the public IPv4 address of the computer running the server",
+  "syncPubKeyDomain": "enderpanel.app",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": "300",
+      "essential": "Always"
+    }
+  ]
+}

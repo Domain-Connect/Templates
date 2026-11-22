@@ -1,0 +1,39 @@
+{
+  "providerId": "themesmith.ai",
+  "providerName": "ThemeSmith",
+  "serviceId": "email-sending",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://themesmith.ai/favicon.svg",
+  "description": "Lets ThemeSmith send email that uses this domain. If an SPF record already exists, the ThemeSmith rule is added to it. Mail delivery records are left as they are.",
+  "variableDescription": "%dkim1%, %dkim2% and %dkim3%: the three Amazon SES DKIM selectors. The same selector is used on both sides of each CNAME.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "themesmith.ai",
+  "syncRedirectDomain": "app.themesmith.ai",
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.dns.themesmith.ai",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.dns.themesmith.ai",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.dns.themesmith.ai",
+      "ttl": "300"
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.dns.themesmith.ai",
+      "ttl": "300"
+    }
+  ]
+}

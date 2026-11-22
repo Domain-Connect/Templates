@@ -1,0 +1,21 @@
+{
+  "providerId": "faction.chat",
+  "providerName": "Faction",
+  "serviceId": "self-host-node",
+  "serviceName": "Faction Self-Hosted Node",
+  "version": 1,
+  "logoUrl": "https://faction.chat/apple-touch-icon.png",
+  "description": "Points your domain at the server that runs your own Faction node, so people can reach it over HTTPS.",
+  "variableDescription": "ip is the public IPv4 address of the server that runs your Faction node.",
+  "syncPubKeyDomain": "faction.chat",
+  "syncRedirectDomain": "faction.chat",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 300
+    }
+  ]
+}

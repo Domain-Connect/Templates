@@ -1,0 +1,21 @@
+{
+    "providerId": "merio.io",
+    "providerName": "Merio",
+    "serviceId": "connect",
+    "serviceName": "Merio: connect a docs hostname",
+    "version": 1,
+    "logoUrl": "https://cdn.merio.io/brand/logo.svg",
+    "description": "Points the hostname at Merio, which serves your documentation with its assistant.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "merio.io",
+    "syncRedirectDomain": "app.merio.io",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "edge.merio.io",
+            "ttl": 300
+        }
+    ]
+}

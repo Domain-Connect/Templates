@@ -1,0 +1,21 @@
+{
+	"providerId": "formahand.com",
+	"providerName": "Formahand",
+	"serviceId": "storefront",
+	"serviceName": "Formahand storefront",
+	"version": 1,
+	"logoUrl": "https://formahand.com/formahand-logo.png",
+	"description": "Points a subdomain such as shop.example.com at your Formahand storefront with one CNAME record. Ownership and the TLS certificate are verified automatically once the record is live.",
+	"syncRedirectDomain": "formahand.com",
+	"syncPubKeyDomain": "formahand.com",
+	"hostRequired": true,
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "customers.formahand.com",
+			"ttl": 3600,
+			"essential": "Always"
+		}
+	]
+}

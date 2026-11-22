@@ -1,0 +1,17 @@
+{
+    "providerId": "modulify.ai",
+    "providerName": "Modulify",
+    "serviceId": "connect-v2-cname",
+    "serviceName": "Connect a subdomain to Modulify",
+    "description": "Points a subdomain to your Modulify-hosted site. The SSL certificate is issued automatically once the record is in place.",
+    "variableDescription": "The target hostname is supplied by Modulify for your specific site.",
+    "version": 1,
+    "logoUrl": "https://modulify.ai/logo.svg",
+    "syncPubKeyDomain": "modulify.ai",
+    "syncRedirectDomain": "app.modulify.ai",
+    "syncBlock": false,
+    "hostRequired": true,
+    "records": [
+        { "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 300 }
+    ]
+}

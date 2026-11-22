@@ -1,0 +1,20 @@
+{
+  "providerId": "liha.dev",
+  "providerName": "Liha Sitebase",
+  "serviceId": "sitebase",
+  "serviceName": "Sitebase custom domain",
+  "version": 1,
+  "logoUrl": "https://liha.dev/favicon.svg",
+  "description": "Connect a custom domain to a Liha Sitebase website.",
+  "syncPubKeyDomain": "domainconnect.liha.dev",
+  "syncRedirectDomain": "sitebase-api.liha.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.liha.app",
+      "ttl": 3600
+    }
+  ]
+}

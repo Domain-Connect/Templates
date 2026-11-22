@@ -1,0 +1,30 @@
+{
+  "providerId": "puestin.com",
+  "providerName": "Puestin",
+  "serviceId": "connect-subdomain",
+  "serviceName": "Connect your subdomain to your Puestin shop",
+  "version": 1,
+  "logoUrl": "https://puestin.com/logo.svg",
+  "description": "Point a subdomain (e.g. shop.example.com) at your Puestin storefront and prove ownership so Puestin can issue an HTTPS certificate for it.",
+  "variableDescription": "Adds a CNAME that routes your subdomain to your Puestin shop plus a TXT record that verifies you control it.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "puestin.com",
+  "hostRequired": true,
+  "syncRedirectDomain": "app.puestin.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_puestin-verify",
+      "data": "puestin-verify=%token%",
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply",
+      "ttl": 300
+    }
+  ]
+}

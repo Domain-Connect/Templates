@@ -1,0 +1,40 @@
+{
+  "providerId": "dfyweb.com",
+  "providerName": "DFYWeb",
+  "serviceId": "website-email-own-dmarc",
+  "serviceName": "Website and email (keeps your DMARC record)",
+  "version": 1,
+  "logoUrl": "https://portal.dfyweb.com/dfyweb-logo.png",
+  "description": "As website-email, for a domain that already has its own DMARC record, which stays as it is.",
+  "hostRequired": true,
+  "variableDescription": "linktoken: the 12-character code DFYWeb gives this website. The email records point at its names on dfywebmail.com, where DFYWeb publishes the sending records (DKIM, return path, SPF) and DMARC.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dfyweb.com",
+  "syncRedirectDomain": "portal.dfyweb.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.dfyweb.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "customers.dfyweb.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "tosend._domainkey",
+      "pointsTo": "%linktoken%-k.dfywebmail.com",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "send",
+      "pointsTo": "%linktoken%-s.dfywebmail.com",
+      "ttl": 300
+    }
+  ]
+}

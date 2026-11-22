@@ -1,0 +1,21 @@
+{
+  "providerId": "fusionprevent.com",
+  "providerName": "Fusion Prevent",
+  "serviceId": "dmarc",
+  "serviceName": "DMARC email protection",
+  "description": "Publishes a DMARC policy so criminals cannot send email that appears to come from your domain.",
+  "logoUrl": "https://www.fusionprevent.com/logo.png",
+  "version": 1,
+  "syncPubKeyDomain": "fusionprevent.com",
+  "syncRedirectDomain": "app.fusionprevent.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%; rua=mailto:%rua%; adkim=r; aspf=r",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

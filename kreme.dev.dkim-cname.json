@@ -1,0 +1,22 @@
+{
+  "providerId": "kreme.dev",
+  "providerName": "Kreme",
+  "logoUrl": "https://kreme.dev/logo.svg",
+  "syncPubKeyDomain": "kreme.dev",
+  "syncRedirectDomain": "kreme.dev",
+  "shared": true,
+  "sharedProviderName": true,
+  "serviceId": "dkim-cname",
+  "serviceName": "Email signing (DKIM CNAME)",
+  "version": 1,
+  "description": "Delegates a DKIM selector to the email provider the app uses, so email sent for the domain owner is signed and delivered.",
+  "variableDescription": "%selector%: DKIM selector, for example s1; %target%: hostname the selector delegates to, for example s1.domainkey.u123.wl.sendgrid.net",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%selector%._domainkey",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

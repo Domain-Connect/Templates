@@ -1,0 +1,24 @@
+{
+    "providerId": "bonmoniq.com",
+    "providerName": "Bonmoniq",
+    "serviceId": "website-chat",
+    "serviceName": "Bonmoniq Website Chat",
+    "version": 1,
+    "logoUrl": "https://bonmoniq.com/brand/logo-main-light.png",
+    "description": "Proves to Bonmoniq that you control this website's domain, so the Bonmoniq Website Chat widget can run on it. Adds one TXT verification record at _bonmoniq-challenge.",
+    "variableDescription": "token: the verification value Bonmoniq issued for this website domain (the part after bonmoniq-site-verification=).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "bonmoniq.com",
+    "syncRedirectDomain": "app.bonmoniq.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_bonmoniq-challenge",
+            "data": "bonmoniq-site-verification=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "bonmoniq-site-verification="
+        }
+    ]
+}

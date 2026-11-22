@@ -1,0 +1,17 @@
+{
+  "providerId": "noxto.com",
+  "providerName": "Noxto",
+  "serviceId": "site",
+  "serviceName": "Noxto site",
+  "version": 1,
+  "logoUrl": "https://cdn.noxto.com/assets/brand/emblem-dark.png",
+  "description": "Points a subdomain such as www.example.com at a site hosted on Noxto (CNAME to Noxto's edge) and proves ownership of the name with a TXT record that Noxto checks.",
+  "variableDescription": "token: the ownership token Noxto issued for this hostname.",
+  "syncPubKeyDomain": "noxto.com",
+  "syncRedirectDomain": "admin.noxto.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "edge.noxto.io", "ttl": 3600 },
+    { "type": "TXT", "host": "_noxto", "data": "noxto-verify=%token%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "noxto-verify=" }
+  ]
+}

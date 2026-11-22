@@ -1,0 +1,32 @@
+{
+  "providerId": "render.com",
+  "providerName": "Render",
+  "serviceId": "custom-domain-apex",
+  "serviceName": "Render custom domain (root domain, CNAME)",
+  "version": 1,
+  "logoUrl": "https://assets.render.com/brands/logos/render-logo-black.svg",
+  "description": "Connect a custom domain to your Render application. For DNS providers that support CNAME records at the zone apex, via flattening or ALIAS.",
+  "variableDescription": "%renderService%: the onrender.com hostname of the Render service the domain points at, for example my-app.onrender.com",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.render.com",
+  "syncRedirectDomain": "render.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%renderService%",
+      "ttl": 300,
+      "essential": "Always"
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%renderService%",
+      "ttl": 300,
+      "essential": "Always"
+    }
+  ]
+}

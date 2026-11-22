@@ -1,0 +1,24 @@
+{
+  "providerId": "watchpal.ai",
+  "providerName": "WatchPal",
+  "serviceId": "dmarc",
+  "serviceName": "Fake email block (DMARC)",
+  "version": 1,
+  "logoUrl": "https://watchpal.ai/static/favicon.svg",
+  "description": "Adds a first DMARC record for a domain that has none, so mail servers know what to do with email that pretends to come from it.",
+  "variableDescription": "policy: none (report only) or quarantine (send fakes to spam), chosen by WatchPal from the domain's SPF and DKIM results",
+  "syncBlock": false,
+  "syncPubKeyDomain": "watchpal.ai",
+  "syncRedirectDomain": "watchpal.ai",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%policy%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

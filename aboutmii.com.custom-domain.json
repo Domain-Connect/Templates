@@ -1,0 +1,25 @@
+{ 
+  "providerId": "aboutmii.com",
+  "providerName": "AboutMii",
+  "serviceId": "custom-domain",
+  "serviceName": "AboutMii Custom Domain",
+  "version": 1,
+  "logoUrl": "https://aboutmii.com/favicon.ico",
+  "description": "Point your domain to AboutMii (A on apex, CNAME on www).",
+  "syncPubKeyDomain": "aboutmii.com",
+  "syncRedirectDomain": "api.aboutmii.com,aboutmii.com,www.aboutmii.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    }
+  ]
+}

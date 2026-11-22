@@ -1,0 +1,55 @@
+{
+  "providerId": "araute.com",
+  "providerName": "Araute",
+  "serviceId": "email-sending-ses",
+  "serviceName": "Araute Email Sending (SES)",
+  "version": 1,
+  "logoUrl": "https://www.araute.com/favicon.svg",
+  "description": "Autoriza a Araute a enviar e-mails em nome do seu domínio, com SPF, DKIM e DMARC.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "araute.com",
+  "syncRedirectDomain": "app.araute.com",
+  "variableDescription": "%dkimToken1%, %dkimToken2%, %dkimToken3%: os três tokens DKIM emitidos para este domínio; %signingZone%: a zona de assinatura, que varia por região; %spfTarget%: host de retorno da região de envio",
+  "records": [
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "%spfTarget%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.%signingZone%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.%signingZone%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.%signingZone%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

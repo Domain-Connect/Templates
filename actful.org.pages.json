@@ -1,0 +1,22 @@
+{
+  "providerId": "actful.org",
+  "providerName": "Actful",
+  "serviceId": "pages",
+  "serviceName": "Actful pages",
+  "version": 1,
+  "logoUrl": "https://assets.actful.org/actful-mark.svg",
+  "description": "Serves an organization's Actful action pages on a subdomain of its own, such as act.example.org.",
+  "syncBlock": false,
+  "shared": false,
+  "syncPubKeyDomain": "actful.org",
+  "syncRedirectDomain": "actful.org",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "pages.actful.org",
+      "ttl": 3600
+    }
+  ]
+}

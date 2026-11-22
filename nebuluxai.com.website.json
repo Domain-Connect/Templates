@@ -1,0 +1,37 @@
+{
+  "providerId": "nebuluxai.com",
+  "providerName": "Nebulux AI",
+  "serviceId": "website",
+  "serviceName": "Nebulux AI website",
+  "version": 1,
+  "logoUrl": "https://nebuluxai.com/logo-small.jpg",
+  "description": "Connects your domain to a website made with Nebulux AI.",
+  "variableDescription": "token: proves the domain belongs to the Nebulux AI user; cfvalue: Cloudflare's certificate check for the domain",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "nebuluxai.com",
+  "syncRedirectDomain": "nebuluxai.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.nebuluxai.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_nebulux-verify",
+      "data": "nebulux-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cfvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

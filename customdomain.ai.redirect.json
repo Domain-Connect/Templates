@@ -3,10 +3,11 @@
   "providerName": "Customdomain",
   "serviceId": "redirect",
   "serviceName": "Forward this domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://customdomain.ai/logo.svg",
   "description": "Forward your root domain to another destination with a permanent (301) redirect. Visitors to your apex (@) are sent to the destination URL or host you supply.",
   "syncPubKeyDomain": "customdomain.ai",
+  "syncRedirectDomain": "api.customdomain.ai,app.customdomain.ai,customdomain.ai",
   "variableDescription": "%redirectTarget%: Destination URL or host to permanently forward the domain to",
   "records": [
     {

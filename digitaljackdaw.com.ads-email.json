@@ -1,0 +1,42 @@
+{
+  "providerId": "digitaljackdaw.com",
+  "providerName": "Jackdaw",
+  "serviceId": "ads-email",
+  "serviceName": "Jackdaw Ads email",
+  "version": 1,
+  "logoUrl": "https://app.jackdawads.com/icon.svg",
+  "description": "Sets up Jackdaw Ads email for a customer domain: an ownership TXT, a DKIM public key, and MX plus SPF on a dedicated reply subdomain. Existing root mail records and nameservers are not changed.",
+  "variableDescription": "%VERIFICATION%: ownership token shown by the app. %DKIM%: the DKIM public key (p= value) minted for this domain. %MX%: the reply-subdomain mail host. %SPF%: the SPF include rules for the sending relay.",
+  "syncPubKeyDomain": "digitaljackdaw.com",
+  "syncRedirectDomain": "app.jackdawads.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_jackdaw-ads",
+      "data": "jackdaw-ads-verification=%VERIFICATION%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "jackdaw-ads-verification="
+    },
+    {
+      "type": "TXT",
+      "host": "jackdawads1._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%DKIM%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "reply-ads",
+      "pointsTo": "%MX%",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "SPFM",
+      "host": "reply-ads",
+      "spfRules": "%SPF%"
+    }
+  ]
+}

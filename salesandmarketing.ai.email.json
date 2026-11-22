@@ -1,0 +1,23 @@
+{
+    "providerId": "salesandmarketing.ai",
+    "providerName": "SalesAndMarketing.ai",
+    "version": 1,
+    "syncPubKeyDomain": "salesandmarketing.ai",
+    "syncRedirectDomain": "webapp.salesandmarketing.ai,devwebapp.salesandmarketing.ai,qapywebapp.salesandmarketing.ai",
+    "serviceId": "email",
+    "serviceName": "Email sending (DKIM and SPF)",
+    "description": "Authorizes SalesAndMarketing.ai mail servers to send email campaigns for the domain: DKIM CNAME sammail._domainkey and the SalesAndMarketing.ai include merged into the domain's SPF record. Used when the domain already has a DMARC record.",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "sammail._domainkey",
+            "pointsTo": "dkim.salesandmarketing.ai",
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:servers.salesandmarketing.ai"
+        }
+    ]
+}

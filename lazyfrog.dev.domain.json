@@ -1,0 +1,27 @@
+{
+  "providerId": "lazyfrog.dev",
+  "providerName": "LazyFrog",
+  "serviceId": "domain",
+  "serviceName": "LazyFrog website (domain and www)",
+  "version": 1,
+  "logoUrl": "https://lazyfrog.dev/brand/lazyfrog-mark-512.png",
+  "description": "Connects a whole domain to your LazyFrog site: www as a CNAME to customers.lazyfrog.app, and the bare domain as an A record to LazyFrog's redirect service, which sends visitors to www over HTTPS. HTTPS certificates are issued automatically once the records are in place.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "lazyfrog.dev",
+  "syncRedirectDomain": "app.lazyfrog.dev",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "customers.lazyfrog.app",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "91.98.101.155",
+      "ttl": 3600
+    }
+  ]
+}

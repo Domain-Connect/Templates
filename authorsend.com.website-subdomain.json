@@ -1,0 +1,28 @@
+{
+    "providerId": "authorsend.com",
+    "providerName": "AuthorSend",
+    "serviceId": "website-subdomain",
+    "serviceName": "AuthorSend author website on a subdomain",
+    "version": 1,
+    "logoUrl": "https://authorsend.com/brand/logo-horizontal.png",
+    "description": "Points a subdomain (such as books.yourname.com) at your AuthorSend author website and proves you own it, so its security certificate can be issued.",
+    "variableDescription": "acmname, acmvalue: the certificate's DNS validation record for the subdomain, as Amazon Certificate Manager issued it (_<acmname>.<subdomain> CNAME _<acmvalue>.acm-validations.aws).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "authorsend.com",
+    "syncRedirectDomain": "authorsend.com,app.authorsend.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "connect.authorsend.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "_%acmname%",
+            "pointsTo": "_%acmvalue%.acm-validations.aws",
+            "ttl": 3600
+        }
+    ]
+}

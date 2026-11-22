@@ -1,0 +1,21 @@
+{
+  "providerId": "shopdepot.pl",
+  "providerName": "ShopDepot",
+  "serviceId": "storefront-apex",
+  "serviceName": "ShopDepot store (root domain)",
+  "version": 1,
+  "logoUrl": "https://shopdepot.pl/brand/favicon.svg",
+  "description": "Points the root domain at a store hosted on ShopDepot.",
+  "variableDescription": "%ip%: the public IPv4 address of the ShopDepot storefront edge",
+  "syncBlock": false,
+  "syncPubKeyDomain": "shopdepot.pl",
+  "syncRedirectDomain": "admin.shopdepot.pl",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    }
+  ]
+}

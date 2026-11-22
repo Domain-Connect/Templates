@@ -1,0 +1,62 @@
+{
+  "providerId": "senddio.com",
+  "providerName": "Senddio",
+  "serviceId": "emailconfiguration",
+  "serviceName": "Email Configuration",
+  "version": 2,
+  "logoUrl": "https://senddio.com/logo.svg",
+  "description": "Configure Senddio email authentication (SPF, DKIM, DMARC)",
+  "syncPubKeyDomain": "senddio.com",
+  "syncRedirectDomain": "api.senddio.com",
+  "syncBlock": false,
+  "variableDescription": "%dkimSelector%: Postal DKIM selector; %dkimPublicKey%: RSA public key in Base64; %postalVerificationToken%: domain ownership token",
+  "records": [
+    {
+      "type": "SPFM",
+      "groupId": "mail",
+      "host": "@",
+      "spfRules": "include:spf.postal.senddio.com"
+    },
+    {
+      "type": "TXT",
+      "groupId": "mail",
+      "host": "%dkimSelector%._domainkey",
+      "txtConflictMatchingMode": "All",
+      "ttl": 3600,
+      "data": "v=DKIM1; t=s; h=sha256; p=%dkimPublicKey%;"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "ttl": 3600,
+      "groupId": "dmarc",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "data": "v=DMARC1; p=none; rua=mailto:reports@senddio.com"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "ttl": 3600,
+      "groupId": "mail",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "postal-verification ",
+      "data": "postal-verification %postalVerificationToken%"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "mail",
+      "host": "track",
+      "ttl": 3600,
+      "pointsTo": "track.senddio.com"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "mail",
+      "host": "psrp",
+      "ttl": 3600,
+      "pointsTo": "rp.postal.senddio.com"
+    }
+  ]
+}

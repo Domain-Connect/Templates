@@ -1,0 +1,23 @@
+{
+  "providerId": "hq0.com",
+  "providerName": "hq0",
+  "serviceId": "roomaddress",
+  "serviceName": "Meeting room address",
+  "version": 1,
+  "logoUrl": "https://hq0.com/favicon-256x256.png",
+  "description": "Opens your hq0 meeting room at a name you own, such as meet.example.com",
+  "variableDescription": "No variables: the record points the name at hq0's meeting rooms",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "dc.hq0.com",
+  "syncRedirectDomain": "hq0.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.hq0.com",
+      "ttl": 3600
+    }
+  ]
+}

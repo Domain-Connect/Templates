@@ -1,0 +1,31 @@
+{
+  "providerId": "linkto.so",
+  "providerName": "Link-to",
+  "serviceId": "links-subdomain",
+  "serviceName": "Link-to branded short links",
+  "version": 1,
+  "logoUrl": "https://linkto.so/logo.svg",
+  "description": "Points a subdomain at Link-to so its short links redirect with automatic HTTPS.",
+  "variableDescription": "%cfToken%: the ownership value Cloudflare for SaaS issues for this hostname, shown in Link-to domain settings.",
+  "syncPubKeyDomain": "linkto.so",
+  "syncRedirectDomain": "linkto.so",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "route",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.linkto.so",
+      "ttl": 3600
+    },
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cfToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

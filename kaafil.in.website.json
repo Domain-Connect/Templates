@@ -1,0 +1,29 @@
+{
+  "providerId": "kaafil.in",
+  "providerName": "Kaafil",
+  "serviceId": "website",
+  "serviceName": "Your own website address for Kaafil",
+  "version": 1,
+  "logoUrl": "https://app.kaafil.in/brand/kaafil-mark.svg",
+  "description": "Points your website address (for example www.yourcompany.com) at your Kaafil trips and booking pages and shows Kaafil that the address is yours.",
+  "syncPubKeyDomain": "kaafil.in",
+  "syncRedirectDomain": "app.kaafil.in",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_kaafil",
+      "data": "kaafil-verify=%kaafiltoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "kaafil-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.kaafil.in",
+      "ttl": 3600
+    }
+  ],
+  "variableDescription": "kaafiltoken: the ownership code Kaafil shows for this address"
+}

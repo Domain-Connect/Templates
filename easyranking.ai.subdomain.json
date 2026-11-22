@@ -1,0 +1,19 @@
+{
+  "providerId": "easyranking.ai",
+  "providerName": "EasyRanking",
+  "serviceId": "subdomain",
+  "serviceName": "Blog and app address (subdomain)",
+  "version": 1,
+  "logoUrl": "https://easyranking.ai/brand/logo-icon.png",
+  "syncPubKeyDomain": "easyranking.ai",
+  "syncRedirectDomain": "app.easyranking.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}

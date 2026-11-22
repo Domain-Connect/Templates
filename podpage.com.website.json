@@ -1,0 +1,26 @@
+{
+    "providerId": "podpage.com",
+    "providerName": "Podpage",
+    "serviceId": "website",
+    "serviceName": "Podpage Website",
+    "version": 1,
+    "logoUrl": "https://static.podpage.com/dashboard/images/apple-icon.png",
+    "description": "Connects www.yourdomain.com and yourdomain.com to your Podpage podcast website.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "podpage.com",
+    "syncRedirectDomain": "podpage.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "domains.podpage.com",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "54.90.47.105",
+            "ttl": 3600
+        }
+    ]
+}

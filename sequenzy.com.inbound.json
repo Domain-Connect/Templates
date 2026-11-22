@@ -1,0 +1,30 @@
+{
+  "providerId": "sequenzy.com",
+  "providerName": "Sequenzy",
+  "serviceId": "inbound",
+  "serviceName": "Inbound",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "sequenzy.com",
+  "syncRedirectDomain": "sequenzy.com,www.sequenzy.com",
+  "description": "Receive email for a custom inbound domain with Sequenzy.",
+  "logoUrl": "https://www.sequenzy.com/logo.png",
+  "records": [
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%inboundRegion%.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "inbound-verification",
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%inboundVerificationToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

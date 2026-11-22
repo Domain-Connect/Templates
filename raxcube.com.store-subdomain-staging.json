@@ -1,0 +1,33 @@
+{
+    "providerId": "raxcube.com",
+    "providerName": "RaxCube",
+    "serviceId": "store-subdomain-staging",
+    "serviceName": "RaxCube online store on a subdomain (pre-production)",
+    "version": 1,
+    "logoUrl": "https://raxcube.com/icon-512.png",
+    "description": "RaxCube's pre-production (staging) environment, identical to raxcube.com.store-subdomain but pointing into rax-cube.shop, where staging stores answer. Connects a subdomain the merchant already owns, such as shop.example.com, to their RaxCube online store. Always applied with the host parameter. Apply the groups separately: verify proves the subdomain is theirs, cname points the subdomain at the store.",
+    "variableDescription": "%token%: the one-time ownership code RaxCube issued for this subdomain (32 hex characters); %target%: the RaxCube edge host the store answers behind, as a label under rax-cube.shop (for example customers)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "raxcube.com",
+    "syncRedirectDomain": "raxcube.com,raxcube.net,rax-cube.com,rax-cube.net",
+    "hostRequired": true,
+    "records": [
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_raxcube-verify",
+            "data": "raxcube-verify=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "raxcube-verify=",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "cname",
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%.rax-cube.shop",
+            "ttl": 3600
+        }
+    ]
+}

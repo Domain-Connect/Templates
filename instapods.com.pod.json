@@ -1,0 +1,22 @@
+{
+  "providerId": "instapods.com",
+  "providerName": "InstaPods",
+  "serviceId": "pod",
+  "serviceName": "InstaPods custom domain",
+  "version": 1,
+  "logoUrl": "https://instapods.com/favicon.svg",
+  "description": "Points a subdomain at an app hosted on InstaPods.",
+  "variableDescription": "target: the pod's InstaPods hostname without the .instapods.app suffix, e.g. my-app.fr-2",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "instapods.com",
+  "syncRedirectDomain": "app.instapods.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%.instapods.app",
+      "ttl": 3600
+    }
+  ]
+}

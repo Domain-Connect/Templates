@@ -1,0 +1,19 @@
+{
+  "providerId": "segmentstream.com",
+  "providerName": "SegmentStream",
+  "logoUrl": "https://segmentstream.com/segmentstream-logo-black.svg",
+  "serviceId": "workspace-verification",
+  "serviceName": "Workspace hosting verification",
+  "version": 1,
+  "description": "Verify this hostname for the workspace hosting project.",
+  "variableDescription": "verification is the assigned hosting verification value.",
+  "syncPubKeyDomain": "domainconnect.segmentstream.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "%verification%",
+      "ttl": 600
+    }
+  ]
+}

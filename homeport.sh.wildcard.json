@@ -1,0 +1,39 @@
+{
+  "providerId": "homeport.sh",
+  "providerName": "homeport",
+  "serviceId": "wildcard",
+  "serviceName": "homeport platform wildcard",
+  "version": 1,
+  "logoUrl": "https://app.homeport.sh/domainconnect/logo.svg",
+  "description": "Points every name under a domain at a platform hosted on homeport, adds the TXT record that proves the domain is yours, and delegates its certificate challenge to homeport so one certificate serves them all.",
+  "variableDescription": "token: this domain's proof of ownership, made by homeport; acmelabel: the domain's name in homeport's certificate challenge zone, made by homeport",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.homeport.sh",
+  "syncRedirectDomain": "app.homeport.sh",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "wildcard",
+      "type": "CNAME",
+      "host": "*",
+      "pointsTo": "edge.homeport.run",
+      "ttl": 300
+    },
+    {
+      "groupId": "wildcard",
+      "type": "TXT",
+      "host": "_homeport",
+      "data": "homeport-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "acme",
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%acmelabel%.hpacme.net",
+      "ttl": 300
+    }
+  ]
+}

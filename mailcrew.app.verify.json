@@ -1,0 +1,20 @@
+{
+	"providerId": "mailcrew.app",
+	"providerName": "MailCrew",
+	"serviceId": "verify",
+	"serviceName": "Verify domain ownership",
+	"logoUrl": "https://mailcrew.app/icon-96.png",
+	"version": 1,
+	"syncPubKeyDomain": "mailcrew.app",
+	"syncRedirectDomain": "mail.mailcrew.app",
+	"records": [
+		{
+			"type": "TXT",
+			"host": "_mailcrew-verify",
+			"data": "mailcrew-verification=%verification%",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "mailcrew-verification=",
+			"ttl": 300
+		}
+	]
+}

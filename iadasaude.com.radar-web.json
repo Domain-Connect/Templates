@@ -1,0 +1,14 @@
+{
+  "providerId": "iadasaude.com",
+  "providerName": "Radar Materno",
+  "serviceId": "radar-web",
+  "serviceName": "Conectar site profissional",
+  "version": 1,
+  "syncPubKeyDomain": "iadasaude.com",
+  "syncRedirectDomain": "site.iadasaude.com",
+  "description": "Change only web apex and www after an approved Radar release is ready. Preserve email and nameservers.",
+  "records": [
+    {"type":"A","host":"@","pointsTo":"%apexIp%","ttl":300},
+    {"type":"CNAME","host":"www","pointsTo":"%wwwTarget%","ttl":300}
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "providerId": "maillogic.io",
+  "providerName": "MailLogic",
+  "serviceId": "box-bulk",
+  "serviceName": "Box Bulk Email",
+  "version": 1,
+  "logoUrl": "https://maillogic.io/static/images/mail-orbit-logo.svg",
+  "description": "Adds the DKIM records MailLogic Box needs to send bulk email (newsletters and announcements) from a domain already connected to Box.",
+  "variableDescription": "%DKIM_ID%: Box domain identifier as 32 lowercase hexadecimal characters",
+  "syncPubKeyDomain": "keys.maillogic.io",
+  "syncRedirectDomain": "maillogic.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "boxb1._domainkey",
+      "pointsTo": "boxb1.%DKIM_ID%.dkim.box.maillogic.io",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "boxb2._domainkey",
+      "pointsTo": "boxb2.%DKIM_ID%.dkim.box.maillogic.io",
+      "ttl": 300
+    }
+  ]
+}

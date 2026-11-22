@@ -1,0 +1,30 @@
+{
+  "providerId": "spark.site",
+  "providerName": "Spark",
+  "serviceId": "subdomain",
+  "serviceName": "Spark site",
+  "version": 1,
+  "logoUrl": "https://spark.site/favicon.svg",
+  "description": "Points one address below a domain, such as www.example.com or shop.example.com, at a site built with Spark, and adds the TXT record that proves the address belongs to the Spark project. Apply it with the host parameter.",
+  "variableDescription": "%token%: the Spark project's verification token for the domain, 32 lowercase hexadecimal characters",
+  "syncBlock": false,
+  "syncPubKeyDomain": "spark.site",
+  "syncRedirectDomain": "app.spark.site",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.spark.site",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_spark-verify",
+      "data": "spark-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}

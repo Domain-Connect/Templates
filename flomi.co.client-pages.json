@@ -1,0 +1,22 @@
+{
+  "providerId": "flomi.co",
+  "providerName": "flomi",
+  "serviceId": "client-pages",
+  "serviceName": "flomi booking and texting pages",
+  "version": 1,
+  "logoUrl": "https://flomi.co/favicon.svg",
+  "description": "Points one subdomain you choose (like book.yourshop.com) at the pages flomi runs for your business: your booking page, privacy policy and terms. Nothing else on your domain changes.",
+  "variableDescription": "Pass the subdomain label as the Domain Connect host parameter (book or text). target is the hostname of flomi's pages (currently masa-booking.pages.dev; it changes when our hosting moves accounts), so it is a variable. Requests are always signed (syncPubKeyDomain), so a third party cannot change it.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "flomi.co",
+  "syncRedirectDomain": "setup.flomi.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}

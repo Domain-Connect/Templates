@@ -1,0 +1,23 @@
+{
+    "providerId": "budgetppc.com",
+    "providerName": "BudgetPPC",
+    "serviceId": "landingpage",
+    "serviceName": "Landing page",
+    "version": 1,
+    "logoUrl": "https://budgetppc.com/wp-content/themes/budgetppc/assets/img/logo-email.png",
+    "description": "Points a subdomain (e.g. get.yourbusiness.com) at the landing page BudgetPPC hosts for you.",
+    "variableDescription": "No variables: the subdomain is the host parameter.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": true,
+    "syncPubKeyDomain": "budgetppc.com",
+    "syncRedirectDomain": "budgetppc.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "pages.budgetppc.com",
+            "ttl": 3600
+        }
+    ]
+}

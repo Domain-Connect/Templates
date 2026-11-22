@@ -1,0 +1,28 @@
+{
+  "providerId": "rynnhq.com",
+  "providerName": "Rynn",
+  "serviceId": "hostedblog",
+  "serviceName": "Rynn Hosted Blog",
+  "version": 1,
+  "description": "Point a subdomain you own (e.g. blog.yourdomain.com) at your Rynn-hosted blog. Sets the CNAME plus the ownership TXT record so the site goes live and its certificate can issue.",
+  "variableDescription": "cnametarget: the Rynn hosted-blog CNAME target. txtvalue: the ownership verification token issued for your subdomain.",
+  "hostRequired": true,
+  "syncPubKeyDomain": "rynnhq.com",
+  "syncRedirectDomain": "rynnhq.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cnametarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%txtvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

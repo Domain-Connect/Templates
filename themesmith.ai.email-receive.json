@@ -1,0 +1,29 @@
+{
+  "providerId": "themesmith.ai",
+  "providerName": "ThemeSmith",
+  "serviceId": "email-receive",
+  "serviceName": "Email receiving",
+  "version": 1,
+  "logoUrl": "https://themesmith.ai/favicon.svg",
+  "description": "Delivers email for this domain to ThemeSmith. This changes where new mail arrives. Use it only when the domain has no mail yet, or when you have agreed to move mail to ThemeSmith.",
+  "variableDescription": "%verificationToken%: the Amazon SES domain-verification token for _amazonses",
+  "syncBlock": false,
+  "syncPubKeyDomain": "themesmith.ai",
+  "syncRedirectDomain": "app.themesmith.ai",
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.eu-west-1.amazonaws.com",
+      "priority": "10",
+      "ttl": "300"
+    },
+    {
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%verificationToken%",
+      "ttl": "300",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

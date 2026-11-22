@@ -1,0 +1,23 @@
+{
+    "providerId": "kissaki.io",
+    "providerName": "Kissaki",
+    "serviceId": "domain-verify",
+    "serviceName": "Kissaki Domain Ownership Verification",
+    "version": 1,
+    "description": "Publishes the TXT record that proves ownership of this domain to Kissaki, authorizing Kissaki to run owner-authorized security scans against it.",
+    "syncPubKeyDomain": "kissaki.io",
+    "syncRedirectDomain": "kissaki.io",
+    "syncBlock": false,
+    "variableDescription": "token: the per-(workspace,domain) ownership challenge issued by Kissaki; the record published is kissaki-verify=<token>.",
+    "records": [
+        {
+            "groupId": "ownership",
+            "type": "TXT",
+            "host": "@",
+            "ttl": 3600,
+            "data": "kissaki-verify=%token%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "kissaki-verify="
+        }
+    ]
+}

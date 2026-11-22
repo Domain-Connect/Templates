@@ -1,0 +1,21 @@
+{
+  "providerId": "testdossier.com",
+  "providerName": "TestDossier",
+  "serviceId": "reports",
+  "serviceName": "Custom report domain",
+  "version": 1,
+  "logoUrl": "https://testdossier.com/assets/email-mark.png",
+  "description": "Connect a subdomain to frozen TestDossier reports. Use DNS only (unproxied).",
+  "variableDescription": "token is the connection's 32-character lowercase hexadecimal identifier.",
+  "syncPubKeyDomain": "domainconnect.testdossier.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "d-%token%.reports.testdossier.com",
+      "ttl": 600
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+    "providerId": "irisend.com",
+    "providerName": "Irisend",
+    "serviceId": "email",
+    "serviceName": "Irisend Email Sending",
+    "version": 1,
+    "logoUrl": "https://irisend.com/icon.svg",
+    "description": "Lets Irisend send email for your domain: publishes the DKIM signing key and the SPF and bounce (MAIL FROM) records for the send subdomain.",
+    "variableDescription": "%dkimpublickey%: base64 DKIM public key Irisend generated for this domain; %region%: AWS SES sending region of the domain, e.g. eu-west-1",
+    "syncBlock": false,
+    "syncPubKeyDomain": "irisend.com",
+    "syncRedirectDomain": "irisend.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "irisend._domainkey",
+            "data": "p=%dkimpublickey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        }
+    ]
+}

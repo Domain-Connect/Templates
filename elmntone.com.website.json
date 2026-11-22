@@ -1,0 +1,48 @@
+{
+  "providerId": "elmntone.com",
+  "providerName": "ELMNT",
+  "serviceId": "website",
+  "serviceName": "Connect your website to ELMNT",
+  "version": 1,
+  "description": "Connect your website using ELMNT's permanent protected address. Existing email records remain unchanged.",
+  "syncBlock": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "domainconnect.elmntsites.com",
+  "syncRedirectDomain": "www.elmntone.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%domain%.",
+      "pointsTo": "connect.elmntsites.com",
+      "ttl": 300,
+      "groupId": "apex-flattening"
+    },
+    {
+      "type": "CNAME",
+      "host": "www.%domain%.",
+      "pointsTo": "connect.elmntsites.com",
+      "ttl": 300,
+      "groupId": "website"
+    },
+    {
+      "type": "TXT",
+      "host": "_elmnt-verify.%domain%.",
+      "data": "elmnt-verify=%apexVerification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "elmnt-verify=",
+      "groupId": "website"
+    },
+    {
+      "type": "TXT",
+      "host": "_elmnt-verify.www.%domain%.",
+      "data": "elmnt-verify=%wwwVerification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "elmnt-verify=",
+      "groupId": "website"
+    }
+  ],
+  "logoUrl": "https://raw.githubusercontent.com/itsc1/Templates/0a63f107e23c8f21b5913c5e1331c6afc86b6f52/assets/elmnt-mark.svg",
+  "variableDescription": "apexVerification: ELMNT-issued ownership token for the apex domain; wwwVerification: separate ELMNT-issued ownership token for www. Tokens contain only URL-safe letters, digits, underscores and hyphens."
+}

@@ -1,0 +1,30 @@
+{
+  "providerId": "velan.app",
+  "providerName": "Velan",
+  "serviceId": "members",
+  "serviceName": "Velan Members Area",
+  "version": 1,
+  "logoUrl": "https://docs.velan.app/images/logo-velan.png",
+  "description": "Connects a subdomain to your Velan members area (ownership TXT + CNAME to cname.velan.app).",
+  "variableDescription": "token: ownership verification value shown in the Velan dashboard",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "velan.app",
+  "syncRedirectDomain": "dash.velan.app",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_velan-verify",
+      "data": "velan-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "velan-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.velan.app",
+      "ttl": 3600
+    }
+  ]
+}

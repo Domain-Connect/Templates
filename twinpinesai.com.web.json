@@ -1,0 +1,25 @@
+{
+  "providerId": "twinpinesai.com",
+  "providerName": "Twin Pines AI",
+  "serviceId": "web",
+  "serviceName": "Twin Pines Website Hosting",
+  "version": 1,
+  "logoUrl": "https://gafcivzf9i7xirzy.public.blob.vercel-storage.com/e0be7b16-a5bf-424c-b276-6412d8a67e32.png",
+  "description": "Connects your root domain (@) and www address to your Twin Pines website while leaving your email (MX/TXT) records untouched.",
+  "syncPubKeyDomain": "twinpinesai.com",
+  "syncRedirectDomain": "twinpinesai.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "connect.twinpinesai.com",
+      "ttl": 600
+    }
+  ]
+}

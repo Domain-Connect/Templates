@@ -1,0 +1,22 @@
+{
+  "providerId": "maleem.app",
+  "providerName": "Maleem",
+  "serviceId": "storefront",
+  "serviceName": "Maleem store",
+  "version": 1,
+  "logoUrl": "https://maleem.app/brand/maleem-open-counter-symbol.svg",
+  "description": "Points a subdomain (normally www) of the customer's domain at their Maleem store. Maleem serves it through Cloudflare for SaaS; the certificate is issued over HTTP once the CNAME resolves.",
+  "variableDescription": "mlstore: the store's own label at Maleem (lowercase letters, digits and hyphens), e.g. nour-x7k2m9. The CNAME target is <mlstore>.stores.maleem.store.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "maleem.app",
+  "syncRedirectDomain": "dashboard.maleem.app",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%mlstore%.stores.maleem.store",
+      "ttl": 3600
+    }
+  ]
+}

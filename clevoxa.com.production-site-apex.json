@@ -1,0 +1,18 @@
+{
+  "providerId": "clevoxa.com",
+  "providerName": "Clevoxa",
+  "serviceId": "production-site-apex",
+  "serviceName": "Site web de production Clevoxa (domaine principal)",
+  "version": 1,
+  "description": "Connecte le domaine principal à un site web de production hébergé par Clevoxa.",
+  "syncPubKeyDomain": "clevoxa.com",
+  "syncRedirectDomain": "clevoxa.com,www.clevoxa.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "135.125.109.165",
+      "ttl": 600
+    }
+  ]
+}

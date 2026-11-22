@@ -1,0 +1,43 @@
+{
+  "providerId": "makershq.dev",
+  "providerName": "Maker’s HQ",
+  "serviceId": "public-domains",
+  "serviceName": "Feature requests and release notes",
+  "version": 2,
+  "description": "Connect a project subdomain to Maker’s HQ",
+  "syncPubKeyDomain": "makershq.dev",
+  "syncRedirectDomain": "makershq.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "public",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "public",
+      "host": "_makershq",
+      "data": "%proof%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "makershq-domain=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "%verificationHost%",
+      "data": "%verification%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "vc-domain-verify=",
+      "essential": "OnApply"
+    }
+  ],
+  "logoUrl": "https://makershq.dev/favicon.svg",
+  "variableDescription": "cname: exact CNAME target returned by Vercel for the registered project hostname; proof: complete server-generated makershq-domain= ownership TXT value; verificationHost: optional Vercel-issued verification TXT name; relative to the request host/domain for Cloudflare, or fully-qualified with a trailing dot for Vercel DNS; verification: complete vc-domain-verify= value returned by Vercel."
+}

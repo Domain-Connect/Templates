@@ -1,0 +1,21 @@
+{
+  "providerId": "haihuia.ro",
+  "providerName": "Haihuia",
+  "serviceId": "site",
+  "serviceName": "Site Haihuia (www și subdomenii)",
+  "version": 1,
+  "logoUrl": "https://haihuia.ro/icon.svg",
+  "description": "Site-ul cazării tale, găzduit de Haihuia, pe adresa ta (www.cabana-ta.ro).",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "haihuia.ro",
+  "syncRedirectDomain": "haihuia.ro",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "haihuia.ro",
+      "ttl": 3600
+    }
+  ]
+}

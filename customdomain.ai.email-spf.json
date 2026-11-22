@@ -3,10 +3,11 @@
   "providerName": "Customdomain",
   "serviceId": "email-spf",
   "serviceName": "Email SPF (merge)",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://customdomain.ai/logo.svg",
   "description": "Authorize your mail provider to send on behalf of this domain by merging an SPF include into the domain's existing SPF policy. Uses an SPFM (SPF merge) record so any SPF record already present is extended, never overwritten.",
   "syncPubKeyDomain": "customdomain.ai",
+  "syncRedirectDomain": "api.customdomain.ai,app.customdomain.ai,customdomain.ai",
   "variableDescription": "%spfInclude%: SPF include domain for your outbound mail provider (the value placed after include:).",
   "records": [
     {

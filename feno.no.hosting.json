@@ -1,0 +1,60 @@
+{
+    "providerId": "feno.no",
+    "providerName": "FENO",
+    "serviceId": "hosting",
+    "serviceName": "FENO webhotell og e-post",
+    "version": 1,
+    "logoUrl": "https://feno.no/feno-wide-email.png",
+    "description": "Connects a domain to a FENO hosting package. Group web points the domain at the package's server (A at the apex, www as a CNAME to the apex). Group mail sets up FENO e-post: MX, SPF and DKIM. Group dmarc adds a p=none DMARC policy and is only requested for a domain that has no DMARC record yet.",
+    "variableDescription": "ip: IPv4 address of the FENO hosting server for the package; dkimkey: base64 DKIM public key for the domain",
+    "syncPubKeyDomain": "feno.no",
+    "syncRedirectDomain": "feno.no",
+    "records": [
+        {
+            "groupId": "web",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": "3600"
+        },
+        {
+            "groupId": "web",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "@",
+            "ttl": "3600"
+        },
+        {
+            "groupId": "mail",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mail.feno.no",
+            "priority": "10",
+            "ttl": "3600"
+        },
+        {
+            "groupId": "mail",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:_spf.feno.no"
+        },
+        {
+            "groupId": "mail",
+            "type": "TXT",
+            "host": "mail._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+            "ttl": "3600",
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none",
+            "ttl": "3600",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}

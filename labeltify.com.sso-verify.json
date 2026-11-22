@@ -1,0 +1,24 @@
+{
+  "providerId": "labeltify.com",
+  "providerName": "LabelTify",
+  "serviceId": "sso-verify",
+  "serviceName": "LabelTify SSO domain verification",
+  "version": 1,
+  "logoUrl": "https://labeltify.com/favicon.svg",
+  "description": "Adds the TXT record that proves you own your email domain, so LabelTify can send your people to your company sign-in (SSO).",
+  "variableDescription": "token: the one-time verification value LabelTify shows for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "labeltify.com",
+  "syncRedirectDomain": "labeltify.com,staging.labeltify.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_labeltify-verify",
+      "data": "labeltify-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "labeltify-verify="
+    }
+  ]
+}

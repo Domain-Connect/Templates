@@ -1,0 +1,20 @@
+{
+  "providerId": "funnellingo.com",
+  "providerName": "FunnelLingo",
+  "serviceId": "custom-domain",
+  "serviceName": "Hosted multilingual pages",
+  "version": 1,
+  "logoUrl": "https://app.funnellingo.com/funnellingo-mark.svg",
+  "description": "Connects one customer-selected hostname to FunnelLingo hosted multilingual pages.",
+  "syncPubKeyDomain": "taptapdns.com",
+  "syncRedirectDomain": "api.taptapdns.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "seo-fallback.funnellingo.com.",
+      "ttl": 300
+    }
+  ]
+}

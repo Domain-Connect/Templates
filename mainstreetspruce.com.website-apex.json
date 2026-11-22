@@ -1,0 +1,34 @@
+{
+    "providerId": "mainstreetspruce.com",
+    "providerName": "Main Street Spruce",
+    "serviceId": "website-apex",
+    "serviceName": "Website (www and root domain)",
+    "version": 1,
+    "logoUrl": "https://portal.mainstreetspruce.com/brand/mss-logo-512.png",
+    "description": "Connects your domain to the website Main Street Spruce built for you. Points www to our hosting, forwards the root domain to www, and adds a TXT record that confirms the domain is yours.",
+    "variableDescription": "%verifytoken%: per-customer ownership token issued in the Main Street Spruce portal",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.mainstreetspruce.com",
+    "syncRedirectDomain": "portal.mainstreetspruce.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "sites.mainstreetspruce.com",
+            "ttl": 3600
+        },
+        {
+            "type": "REDIR301",
+            "host": "@",
+            "target": "https://www.%fqdn%"
+        },
+        {
+            "type": "TXT",
+            "host": "_mss-verify",
+            "data": "verify=%verifytoken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

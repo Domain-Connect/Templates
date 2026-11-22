@@ -1,0 +1,21 @@
+{
+  "providerId": "sequenzy.com",
+  "providerName": "Sequenzy",
+  "serviceId": "landing-page",
+  "serviceName": "Landing Page",
+  "version": 1,
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "sequenzy.com",
+  "syncRedirectDomain": "sequenzy.com,www.sequenzy.com",
+  "description": "Configure a custom domain for Sequenzy landing pages.",
+  "logoUrl": "https://www.sequenzy.com/logo.png",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%landingPageCnameTarget%.sequenzydns.com",
+      "ttl": 3600
+    }
+  ]
+}

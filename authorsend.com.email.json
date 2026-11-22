@@ -1,0 +1,46 @@
+{
+    "providerId": "authorsend.com",
+    "providerName": "AuthorSend",
+    "serviceId": "email",
+    "serviceName": "AuthorSend email from your domain",
+    "version": 1,
+    "logoUrl": "https://authorsend.com/brand/logo-horizontal.png",
+    "description": "Lets AuthorSend send your newsletter from your own domain: signs it with DKIM and handles bounces, so mail providers can tell it is really from you.",
+    "variableDescription": "dkim1, dkim2, dkim3: the three DKIM tokens Amazon SES issued for this domain. region: the SES region (us-east-1).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "authorsend.com",
+    "syncRedirectDomain": "authorsend.com,app.authorsend.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "MX",
+            "host": "bounce",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "bounce",
+            "spfRules": "include:amazonses.com"
+        }
+    ]
+}

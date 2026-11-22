@@ -1,0 +1,64 @@
+{
+    "providerId": "pgsndrhq.com",
+    "providerName": "PageSender",
+    "serviceId": "email-sending",
+    "serviceName": "Email sending",
+    "version": 1,
+    "logoUrl": "https://cdn.pgsndrhq.cloud/pgsndrhq/pgsender-logo.svg",
+    "description": "Authorises a dedicated sending domain (usually a subdomain such as mg) for email sent through the platform's Mailgun EU account: SPF, DKIM and the tracking CNAME. DMARC and the receiving MX records are separate groups so the platform applies them only when the domain has no existing policy or mail service.",
+    "variableDescription": "%dkimselector%: the DKIM selector Mailgun issues for this domain (for example email or s1). %dkimkey%: the base64 public key Mailgun issues for that selector.",
+    "syncPubKeyDomain": "pgsndrhq.com",
+    "syncRedirectDomain": "pgsndrhq.com",
+    "records": [
+        {
+            "type": "SPFM",
+            "groupId": "sending",
+            "host": "@",
+            "ttl": "3600",
+            "spfRules": "include:mailgun.org"
+        },
+        {
+            "type": "TXT",
+            "groupId": "sending",
+            "essential": "Always",
+            "host": "%dkimselector%._domainkey",
+            "ttl": "3600",
+            "data": "k=rsa; p=%dkimkey%",
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "CNAME",
+            "groupId": "sending",
+            "essential": "OnApply",
+            "host": "email",
+            "pointsTo": "eu.mailgun.org",
+            "ttl": "3600"
+        },
+        {
+            "type": "TXT",
+            "groupId": "dmarc",
+            "essential": "OnApply",
+            "host": "_dmarc",
+            "ttl": "3600",
+            "data": "v=DMARC1; p=none;",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        },
+        {
+            "type": "MX",
+            "groupId": "receiving",
+            "host": "@",
+            "pointsTo": "mxa.eu.mailgun.org",
+            "ttl": "3600",
+            "priority": "10"
+        },
+        {
+            "type": "MX",
+            "groupId": "receiving",
+            "host": "@",
+            "pointsTo": "mxb.eu.mailgun.org",
+            "ttl": "3600",
+            "priority": "10"
+        }
+    ]
+}

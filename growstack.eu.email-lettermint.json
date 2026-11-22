@@ -1,0 +1,32 @@
+{
+  "providerId": "growstack.eu",
+  "providerName": "Growstack",
+  "serviceId": "email-lettermint",
+  "serviceName": "Growstack email sending through Lettermint",
+  "version": 1,
+  "logoUrl": "https://app.growstack.eu/favicon.svg",
+  "description": "Send Growstack email from your domain through Lettermint: two DKIM records that let Lettermint rotate signing keys, and the return path that handles bounces and SPF. Apply it with the host parameter set to the sending subdomain, or without it to send from the domain itself.",
+  "variableDescription": "dkimKey: the per-domain part of Lettermint's DKIM targets, as Lettermint issues it for the sending domain.",
+  "syncPubKeyDomain": "growstack.eu",
+  "syncRedirectDomain": "app.growstack.eu",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "lm1._domainkey",
+      "pointsTo": "lm1.%dkimKey%.dkim.lmta.net",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "lm2._domainkey",
+      "pointsTo": "lm2.%dkimKey%.dkim.lmta.net",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "lm-bounces",
+      "pointsTo": "bounces.lmta.net",
+      "ttl": 300
+    }
+  ]
+}

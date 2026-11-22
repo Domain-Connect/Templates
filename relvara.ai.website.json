@@ -1,0 +1,17 @@
+{
+  "providerId": "relvara.ai",
+  "providerName": "Relvara",
+  "serviceId": "website",
+  "serviceName": "Relvara agent website",
+  "version": 1,
+  "description": "Connect your domain and www address to your Relvara agent website. Email and nameservers are not changed.",
+  "variableDescription": "%verification%: the ownership challenge for the signed-in Relvara account, prefixed with relvara-verification=",
+  "syncPubKeyDomain": "domainconnect.relvara.ai",
+  "syncRedirectDomain": "relvara.ai",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "216.24.57.1", "ttl": 300, "essential": "Always" },
+    { "type": "CNAME", "host": "www", "pointsTo": "relvara2.onrender.com", "ttl": 300, "essential": "Always" },
+    { "type": "TXT", "host": "_relvara", "data": "relvara-verification=%verification%", "ttl": 300, "essential": "OnApply", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "relvara-verification=" }
+  ]
+}

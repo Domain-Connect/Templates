@@ -1,0 +1,29 @@
+{
+    "providerId": "AscentsGG",
+    "providerName": "Hubs",
+    "serviceId": "hubs-org-address",
+    "serviceName": "Hubs organization address",
+    "version": 1,
+    "logoUrl": "https://thehubs.gg/icon-512.png",
+    "description": "Points an organization's own subdomain at Hubs (thehubs.gg) and adds the TXT record Hubs reads to confirm the organization controls that subdomain. Apply it with the host parameter set to the subdomain.",
+    "variableDescription": "%challenge%: the ownership value Hubs shows the organization's owner for this subdomain, 48 lowercase hex characters.",
+    "syncPubKeyDomain": "thehubs.gg",
+    "syncRedirectDomain": "thehubs.gg",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "thehubs.gg",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_hubs",
+            "data": "ascent-hubs=%challenge%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "ascent-hubs="
+        }
+    ]
+}

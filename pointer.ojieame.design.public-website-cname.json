@@ -1,0 +1,30 @@
+{
+  "providerId": "pointer.ojieame.design",
+  "providerName": "Pointer",
+  "version": 1,
+  "logoUrl": "https://pointer.ojieame.design/favicon.svg",
+  "variableDescription": "%proof%: 32-character hexadecimal Pointer ownership code, without its fixed pointer- prefix",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.pointer.ojieame.design",
+  "syncRedirectDomain": "pointer.ojieame.design",
+  "serviceId": "public-website-cname",
+  "serviceName": "Connect your website address",
+  "description": "Connect a public website to your chosen subdomain with Pointer.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.livetyped.com",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_pointer",
+      "data": "pointer-%proof%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "pointer-"
+    }
+  ]
+}

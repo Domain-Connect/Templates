@@ -1,0 +1,43 @@
+{
+	"providerId": "theeasystreetcrm.com",
+	"providerName": "Easy Street CRM",
+	"serviceId": "sending",
+	"serviceName": "Email sending",
+	"version": 1,
+	"syncPubKeyDomain": "theeasystreetcrm.com",
+	"syncRedirectDomain": "theeasystreetcrm.com",
+	"logoUrl": "https://app.theeasystreetcrm.com/icon.png",
+	"description": "Verify a domain for newsletter sending from Easy Street CRM. Adds DKIM, SPF and Return-Path records on a subdomain — nothing existing is replaced.",
+	"records": [
+		{
+			"groupId": "outbound",
+			"type": "MX",
+			"host": "%spfDomain%",
+			"pointsTo": "feedback-smtp.%region%.amazonses.com",
+			"ttl": 3600,
+			"priority": 10
+		},
+		{
+			"groupId": "outbound",
+			"type": "SPFM",
+			"host": "%spfDomain%",
+			"ttl": 3600,
+			"spfRules": "include:amazonses.com"
+		},
+		{
+			"groupId": "dkim",
+			"type": "TXT",
+			"host": "resend._domainkey",
+			"ttl": 3600,
+			"data": "p=%domainKey%",
+			"txtConflictMatchingMode": "All"
+		},
+		{
+			"groupId": "click-tracking",
+			"type": "CNAME",
+			"host": "%clickTrackingSubdomain%",
+			"pointsTo": "%clickTrackingCnameTarget%.resend-dns.com",
+			"ttl": 3600
+		}
+	]
+}

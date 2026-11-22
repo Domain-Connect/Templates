@@ -1,0 +1,20 @@
+{
+  "providerId": "fairoperator.com",
+  "providerName": "Fair",
+  "serviceId": "booking",
+  "serviceName": "Fair Booking Site",
+  "version": 1,
+  "logoUrl": "https://fairoperator.com/favicon.svg",
+  "description": "Connect an operator-owned booking subdomain to Fair.",
+  "syncPubKeyDomain": "domainconnect.fairoperator.com",
+  "syncRedirectDomain": "app.fairoperator.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.fairoperator.com",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "providerId": "grupoplugu.com.br",
+  "providerName": "Grupo Plugu",
+  "serviceId": "email-ses",
+  "serviceName": "Email marketing through Amazon SES",
+  "version": 1,
+  "logoUrl": "https://app.grupoplugu.com.br/logo.svg",
+  "description": "Send email marketing from your domain through Amazon SES: three DKIM records, the bounce return path with its SPF rule, and a DMARC policy. Apply it with the host parameter set to the sending subdomain.",
+  "variableDescription": "dkimToken1, dkimToken2, dkimToken3: the DKIM selectors Amazon SES issues for the sending domain. sesRegion: the AWS region that receives bounces, such as us-east-2.",
+  "syncPubKeyDomain": "grupoplugu.com.br",
+  "records": [
+    { "type": "CNAME", "host": "%dkimToken1%._domainkey", "pointsTo": "%dkimToken1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkimToken2%._domainkey", "pointsTo": "%dkimToken2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkimToken3%._domainkey", "pointsTo": "%dkimToken3%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "MX", "host": "envio", "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "envio", "spfRules": "include:amazonses.com" },
+    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=none;", "ttl": 3600, "essential": "OnApply", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1" }
+  ]
+}

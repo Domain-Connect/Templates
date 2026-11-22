@@ -1,0 +1,19 @@
+{
+  "providerId": "rekomi.com",
+  "providerName": "Rekomi",
+  "serviceId": "tracking",
+  "serviceName": "Custom tracking domain",
+  "version": 1,
+  "syncPubKeyDomain": "rekomi.com",
+  "logoUrl": "https://rekomi.com/logo.png",
+  "description": "Connects a custom tracking domain to Rekomi so affiliate click tracking loads first-party from your own domain.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.rekomi.com",
+      "ttl": 3600
+    }
+  ]
+}

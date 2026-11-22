@@ -1,0 +1,19 @@
+{
+    "providerId": "prohost.ai",
+    "providerName": "Prohost AI",
+    "serviceId": "custom-domain-subdomain",
+    "serviceName": "Custom domain (subdomain)",
+    "version": 1,
+    "description": "Points a subdomain (for example book.example.com) at a Prohost AI booking site or guidebook.",
+    "syncPubKeyDomain": "domainconnect.prohost.ai",
+    "syncRedirectDomain": "app.prohost.ai,dev-app.prohost.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cname.prohostai.com",
+            "ttl": 3600
+        }
+    ]
+}

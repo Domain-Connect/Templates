@@ -1,0 +1,31 @@
+{
+  "providerId": "automatenexuscrm.com",
+  "providerName": "AutomateNexus CRM",
+  "serviceId": "site",
+  "serviceName": "Website, app or help center",
+  "version": 1,
+  "logoUrl": "https://automatenexuscrm.com/icon.svg",
+  "description": "Puts a website, app or help center made in AutomateNexus CRM on this address: one record proves the domain is yours, one points the address at it.",
+  "variableDescription": "proof: the one-time proof this address was given.",
+  "shared": true,
+  "sharedProviderName": true,
+  "syncBlock": false,
+  "syncPubKeyDomain": "automatenexuscrm.com",
+  "syncRedirectDomain": "app.automatenexuscrm.com,automatenexuscrm.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_site-verification",
+      "data": "site-verify=%proof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.automatenexuscrm.com",
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+    "providerId": "kivohq.com",
+    "providerName": "Kivo",
+    "serviceId": "store",
+    "serviceName": "Kivo online store",
+    "version": 1,
+    "logoUrl": "https://kivohq.com/apple-touch-icon.png",
+    "description": "Points a subdomain (for example shop.yourbrand.com) at your Kivo online store.",
+    "variableDescription": "No variables.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": true,
+    "syncRedirectDomain": "kivohq.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "kivo-14et.onrender.com",
+            "ttl": 3600
+        }
+    ],
+    "syncPubKeyDomain": "kivohq.com"
+}

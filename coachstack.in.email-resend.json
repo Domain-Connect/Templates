@@ -1,0 +1,47 @@
+{
+  "providerId": "coachstack.in",
+  "providerName": "Coachstack",
+  "serviceId": "email-resend",
+  "serviceName": "Email sending domain",
+  "version": 1,
+  "logoUrl": "https://coachstack.in/brand/coachstack-mark.svg",
+  "description": "Lets Coachstack send your members' email from your own domain through Resend: DKIM, a sending subdomain (send) with its SPF and bounce MX, and a DMARC policy when there is none.",
+  "variableDescription": "dkim: the DKIM public key Resend gives for the domain (p=...); region: Resend's sending region (ap-northeast-1)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "coachstack.in",
+  "syncRedirectDomain": "coachstack.in",
+  "records": [
+    {
+      "type": "TXT",
+      "groupId": "dkim",
+      "host": "resend._domainkey",
+      "data": "%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "groupId": "mailfrom",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "ttl": 3600,
+      "priority": 10
+    },
+    {
+      "type": "SPFM",
+      "groupId": "mailfrom",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

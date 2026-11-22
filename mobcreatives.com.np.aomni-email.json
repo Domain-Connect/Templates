@@ -1,0 +1,53 @@
+{
+  "providerId": "mobcreatives.com.np",
+  "providerName": "Mob Creatives",
+  "serviceId": "aomni-email",
+  "serviceName": "AOMNI email sending",
+  "version": 1,
+  "logoUrl": "https://mobcreatives.com.np/logowithbg.png",
+  "description": "Lets a business send email from its own domain through AOMNI (Amazon SES): three DKIM CNAME records, an SPF include and an optional DMARC record.",
+  "variableDescription": "dkim1, dkim2, dkim3: the three Amazon SES DKIM tokens for this domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mobcreatives.com.np",
+  "syncRedirectDomain": "mobcreatives.com.np",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%fqdn%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

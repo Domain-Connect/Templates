@@ -1,0 +1,31 @@
+{
+    "providerId": "bubix.app",
+    "providerName": "Bubix",
+    "serviceId": "custom",
+    "serviceName": "Bubix Custom Domain",
+    "version": 1,
+    "logoUrl": "https://bubix.app/panel/assets/bubix-logo.png",
+    "description": "Connect a custom domain to a Bubix Site Builder website.",
+    "variableDescription": "target is the Railway CNAME endpoint used by Bubix's hosting. verifyHost is the TXT record host for ownership verification. verification is the verification token.",
+    "syncPubKeyDomain": "domainconnect.bubix.app",
+    "syncRedirectDomain": "bubix.app",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "groupId": "cname",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": "3600"
+        },
+        {
+            "type": "TXT",
+            "groupId": "verification",
+            "host": "%verifyHost%",
+            "ttl": "3600",
+            "data": "railway-verify=%verification%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "railway-verify="
+        }
+    ]
+}

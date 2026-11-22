@@ -1,0 +1,30 @@
+{
+  "providerId": "homeport.sh",
+  "providerName": "homeport",
+  "serviceId": "subdomain",
+  "serviceName": "homeport custom subdomain",
+  "version": 1,
+  "logoUrl": "https://app.homeport.sh/domainconnect/logo.svg",
+  "description": "Points a subdomain at an app hosted on homeport, and adds the TXT record that proves the subdomain is yours.",
+  "variableDescription": "token: this subdomain's proof of ownership, made by homeport",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.homeport.sh",
+  "syncRedirectDomain": "app.homeport.sh",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "edge.homeport.run",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_homeport",
+      "data": "homeport-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "providerId": "smith.ph",
+  "providerName": "Smith",
+  "serviceId": "email-ses",
+  "serviceName": "Send email from your domain",
+  "version": 1,
+  "logoUrl": "https://www.smith.ph/images/logo.png",
+  "description": "Lets Smith send your notifications and newsletters from your own domain through Amazon SES: three DKIM signing records, plus a bounce subdomain with its MX and SPF.",
+  "variableDescription": "dkim1, dkim2, dkim3: the DKIM tokens Amazon SES issued for this domain. region: the SES region, for example us-east-1.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.smith.ph",
+  "syncRedirectDomain": "www.smith.ph",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}

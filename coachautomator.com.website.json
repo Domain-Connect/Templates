@@ -1,0 +1,22 @@
+{
+  "providerId": "coachautomator.com",
+  "providerName": "CoachAutomator",
+  "serviceId": "website",
+  "serviceName": "CoachAutomator website",
+  "version": 1,
+  "logoUrl": "https://www.coachautomator.com/app/images/logos/calogo225.png",
+  "description": "Points this address (for example www) at a website made in CoachAutomator. Email records are not changed.",
+  "variableDescription": "site: the name of the coach's website on CoachAutomator's hosting, for example harbour-coaching for harbour-coaching.pages.dev.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "coachautomator.com",
+  "syncRedirectDomain": "app.coachautomator.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%site%.pages.dev",
+      "ttl": 3600
+    }
+  ]
+}

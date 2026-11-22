@@ -1,0 +1,25 @@
+{
+  "providerId": "supercat.app",
+  "providerName": "SuperCat",
+  "serviceId": "domain",
+  "serviceName": "Website",
+  "version": 1,
+  "logoUrl": "https://supercat.app/brand/supercat-mark.svg",
+  "description": "Points a root domain and its www at a website the customer published on SuperCat.",
+  "syncPubKeyDomain": "supercat.app",
+  "syncRedirectDomain": "supercat.app",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": "600"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%site%.supercat.app",
+      "ttl": "600"
+    }
+  ]
+}

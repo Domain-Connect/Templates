@@ -1,0 +1,19 @@
+{
+    "providerId": "dnstoolbox.app",
+    "providerName": "DNS Toolbox",
+    "serviceId": "spf",
+    "serviceName": "SPF senders",
+    "version": 1,
+    "logoUrl": "https://dnstoolbox.app/wp-content/plugins/dns-toolbox/assets/public/brand/favicon.svg",
+    "description": "Adds the mail services a DNS Toolbox scan found sending for the domain to its SPF record, merged with what the record already allows.",
+    "variableDescription": "spfRules: the SPF mechanisms to add, e.g. 'include:_spf.google.com'.",
+    "syncPubKeyDomain": "dnstoolbox.app",
+    "syncRedirectDomain": "dnstoolbox.app",
+    "records": [
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "%spfRules%"
+        }
+    ]
+}

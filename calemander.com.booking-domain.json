@@ -1,0 +1,21 @@
+{
+  "providerId": "calemander.com",
+  "providerName": "Calemander",
+  "serviceId": "booking-domain",
+  "serviceName": "Calemander Booking Domain",
+  "version": 1,
+  "logoUrl": "https://calemander.com/logo-120.png",
+  "description": "Serve a workspace's booking pages on a subdomain the customer owns (for example book.example.com). Adds exactly one CNAME on that subdomain pointing at Calemander's edge; the certificate is issued by HTTP validation once the CNAME resolves, so no TXT record is needed. The template takes no variables and is only ever applied with a host: it never touches the apex.",
+  "syncBlock": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "calemander.com",
+  "syncRedirectDomain": "calemander.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.calemander.com",
+      "ttl": 3600
+    }
+  ]
+}

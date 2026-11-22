@@ -1,0 +1,22 @@
+{
+  "providerId": "bongobean.com",
+  "providerName": "BongoBean",
+  "serviceId": "verify",
+  "serviceName": "BongoBean listing verification",
+  "version": 1,
+  "logoUrl": "https://bongobean.com/assets/bb-icon-d-180.png",
+  "description": "Adds one TXT record that proves the domain's owner manages the business listed on BongoBean.",
+  "syncPubKeyDomain": "bongobean.com",
+  "syncRedirectDomain": "bongobean.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "bongobean-verify=%code%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "bongobean-verify="
+    }
+  ]
+}

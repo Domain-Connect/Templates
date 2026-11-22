@@ -1,0 +1,22 @@
+{
+  "providerId": "shopdepot.pl",
+  "providerName": "ShopDepot",
+  "serviceId": "storefront",
+  "serviceName": "ShopDepot store (subdomain)",
+  "version": 1,
+  "logoUrl": "https://shopdepot.pl/brand/favicon.svg",
+  "description": "Points a subdomain (e.g. www) at a store hosted on ShopDepot.",
+  "variableDescription": "%store%: the store's handle on ShopDepot, e.g. mystore for mystore.myshopdepot.pl",
+  "syncBlock": false,
+  "syncPubKeyDomain": "shopdepot.pl",
+  "syncRedirectDomain": "admin.shopdepot.pl",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%store%.myshopdepot.pl",
+      "ttl": 3600
+    }
+  ]
+}

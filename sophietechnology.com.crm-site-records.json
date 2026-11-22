@@ -1,0 +1,20 @@
+{
+  "providerId": "sophietechnology.com",
+  "providerName": "Sophie Technology",
+  "serviceId": "crm-site-records",
+  "serviceName": "CRM website hosting",
+  "version": 1,
+  "syncBlock": false,
+  "syncPubKeyDomain": "sophietechnology.com",
+  "syncRedirectDomain": "fluxos.sophietechnology.com",
+  "hostRequired": true,
+  "logoUrl": "https://sophietechnology.com/assets/sophietechnology-logo.png",
+  "description": "Point a verified customer subdomain to Sophie Technology and apply only the selected Cloudflare validation groups. Request DNS-only proxy status during onboarding.",
+  "variableDescription": "Always select routing. Add hostname-verification only when Cloudflare returned one distinct TXT value for _cf-custom-hostname at this exact hostname; cfOwnership is that stored value. For _acme-challenge at this exact hostname, deduplicate identical values and select tls-verification with cfDcv for the first value; select tls-verification-2 with cfDcv2 only when a second distinct value exists (for example RSA and ECDSA validation). Unknown names, more than one distinct ownership value or more than two distinct TLS values use manual setup. The hosting target is fixed, not a variable.",
+  "records": [
+    { "groupId": "routing", "type": "CNAME", "host": "@", "pointsTo": "fluxos-publico.sophietechnology.com", "ttl": 3600 },
+    { "groupId": "hostname-verification", "type": "TXT", "host": "_cf-custom-hostname", "data": "%cfOwnership%", "ttl": 3600 },
+    { "groupId": "tls-verification", "type": "TXT", "host": "_acme-challenge", "data": "%cfDcv%", "ttl": 3600 },
+    { "groupId": "tls-verification-2", "type": "TXT", "host": "_acme-challenge", "data": "%cfDcv2%", "ttl": 3600 }
+  ]
+}

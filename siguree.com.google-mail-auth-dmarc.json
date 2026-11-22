@@ -1,0 +1,37 @@
+{
+  "providerId": "siguree.com",
+  "providerName": "Siguree",
+  "version": 1,
+  "logoUrl": "https://app.siguree.com/brand/logo-mark.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "siguree.com",
+  "syncRedirectDomain": "app.siguree.com",
+  "hostRequired": false,
+  "serviceId": "google-mail-auth-dmarc",
+  "serviceName": "Siguree mail authentication (Google Workspace) with DMARC",
+  "description": "Adds the DKIM key Siguree signs with and merges Google Workspace into SPF, so mail signed by Siguree passes DKIM and SPF. Also publishes a monitoring-only DMARC policy (p=none); Siguree uses this variant only when the domain has no DMARC record yet.",
+  "variableDescription": "dkimkey: DKIM public key (base64) issued by Siguree for this domain",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "siguree._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.google.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

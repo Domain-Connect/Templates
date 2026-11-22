@@ -1,0 +1,41 @@
+{
+  "providerId": "smilehosting.tech",
+  "providerName": "Smile Hosting",
+  "serviceId": "domain",
+  "serviceName": "Website on your own domain",
+  "version": 1,
+  "logoUrl": "https://smilehosting.tech/assets/domain-connect/logo.svg",
+  "description": "Points a root domain (example.com) and its www subdomain at a website hosted on Smile Hosting, and proves the domain belongs to the Smile Hosting account that added it.",
+  "variableDescription": "ip1, ip2: Smile Hosting's addresses for websites on customers' own domains. verify: the one-time code shown for this domain in the Smile Hosting dashboard.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "smilehosting.tech",
+  "syncRedirectDomain": "smilehosting.tech",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip2%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "domains.smilehosting.tech",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_smilehosting",
+      "data": "smilehosting-verify=%verify%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "smilehosting-verify="
+    }
+  ]
+}

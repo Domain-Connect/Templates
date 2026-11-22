@@ -1,0 +1,24 @@
+{
+  "providerId": "estatefunnel.com",
+  "providerName": "EstateFunnel",
+  "serviceId": "website",
+  "serviceName": "EstateFunnel Website",
+  "version": 1,
+  "description": "Connects a domain to an EstateFunnel website without changing its nameservers or unrelated DNS records.",
+  "syncPubKeyDomain": "estatefunnel.com",
+  "syncRedirectDomain": "server.estatefunnel.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "35.203.0.42",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 300
+    }
+  ]
+}

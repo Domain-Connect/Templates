@@ -1,0 +1,21 @@
+{
+  "providerId": "cheers.tech",
+  "providerName": "Cheers",
+  "serviceId": "website-restore",
+  "serviceName": "Cheers website rollback",
+  "version": 1,
+  "description": "Puts back the apex and www records the domain had before it pointed at a Cheers-built website. Changes only apex and www address records and the www CNAME.",
+  "syncPubKeyDomain": "domainconnect.cheers.tech",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "groupId": "apexa1", "host": "@", "pointsTo": "%apexa1%", "ttl": 600 },
+    { "type": "A", "groupId": "apexa2", "host": "@", "pointsTo": "%apexa2%", "ttl": 600 },
+    { "type": "A", "groupId": "apexa3", "host": "@", "pointsTo": "%apexa3%", "ttl": 600 },
+    { "type": "A", "groupId": "apexa4", "host": "@", "pointsTo": "%apexa4%", "ttl": 600 },
+    { "type": "AAAA", "groupId": "apexaaaa1", "host": "@", "pointsTo": "%apexaaaa1%", "ttl": 600 },
+    { "type": "AAAA", "groupId": "apexaaaa2", "host": "@", "pointsTo": "%apexaaaa2%", "ttl": 600 },
+    { "type": "CNAME", "groupId": "wwwcname", "host": "www", "pointsTo": "%wwwcname%", "ttl": 600 },
+    { "type": "A", "groupId": "wwwa1", "host": "www", "pointsTo": "%wwwa1%", "ttl": 600 },
+    { "type": "A", "groupId": "wwwa2", "host": "www", "pointsTo": "%wwwa2%", "ttl": 600 }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+    "providerId": "astrae.us",
+    "providerName": "Astraeus",
+    "serviceId": "verification",
+    "serviceName": "Astraeus Domain Verification",
+    "version": 1,
+    "description": "Creates the TXT ownership record Astraeus needs to verify you control this domain before monitoring its external attack surface.",
+    "logoUrl": "https://astrae.us/icon.svg",
+    "syncPubKeyDomain": "domain-connect.astrae.us",
+    "syncRedirectDomain": "astrae.us",
+    "syncBlock": false,
+    "variableDescription": "txtValue is the full TXT record value (astraeus-verification=<token>) that Astraeus issues per domain.",
+    "records": [
+        {
+            "groupId": "verification",
+            "type": "TXT",
+            "host": "_astraeus",
+            "ttl": "300",
+            "data": "%txtValue%"
+        }
+    ]
+}

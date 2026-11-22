@@ -1,0 +1,69 @@
+{
+  "providerId": "hast-it.de",
+  "providerName": "HAST-IT",
+  "serviceId": "hosting",
+  "serviceName": "Webspace und E-Mail",
+  "version": 1,
+  "logoUrl": "https://portal.hast-it.de/brand/logo-hast-it.svg",
+  "description": "Points a domain at the HAST-IT web and mail platform: website, mail exchange, sender authentication (SPF, DKIM, DMARC) and mail client autoconfiguration.",
+  "variableDescription": "dkimkey: the public part of the DKIM key that HAST-IT generated for this domain, i.e. the value of the p= field, without the p= prefix.",
+  "syncPubKeyDomain": "hast-it.de",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "188.34.130.103",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "188.34.130.103",
+      "ttl": 300,
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail1.hast-it.de",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "a:smtp.hast-it.de"
+    },
+    {
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "data": "v=DKIM1;k=rsa;t=s;s=email;p=%dkimkey%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:postmaster@%domain%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mail1.hast-it.de",
+      "ttl": 300,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mail1.hast-it.de",
+      "ttl": 300,
+      "essential": "OnApply"
+    }
+  ]
+}

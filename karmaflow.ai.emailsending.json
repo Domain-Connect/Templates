@@ -1,0 +1,46 @@
+{
+  "providerId": "karmaflow.ai",
+  "providerName": "Karmaflow",
+  "serviceId": "emailsending",
+  "serviceName": "Karmaflow Email Sending",
+  "version": 1,
+  "logoUrl": "https://karmaflow.ai/images/kflogo-blk.png",
+  "description": "Authenticates a sending domain for Karmaflow email: SPF, DKIM, an optional DMARC starter policy, and the open/click tracking host.",
+  "variableDescription": "spfinclude: the SPF include target for the sending platform. dkimselector/dkimkey: the DKIM selector and public key issued per sending domain. trackinghost/trackingtarget: the open/click tracking CNAME. dmarcpolicy/dmarcrua: a starter DMARC policy, only applied when the zone has none.",
+  "syncPubKeyDomain": "karmaflow.ai",
+  "syncRedirectDomain": "omni.karmaflow.ai,omni-dev.karmaflow.ai",
+  "records": [
+    {
+      "type": "SPFM",
+      "groupId": "sending",
+      "host": "@",
+      "spfRules": "include:%spfinclude%"
+    },
+    {
+      "type": "TXT",
+      "groupId": "sending",
+      "host": "%dkimselector%._domainkey",
+      "data": "k=rsa; p=%dkimkey%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "groupId": "tracking",
+      "host": "%trackinghost%",
+      "pointsTo": "%trackingtarget%",
+      "ttl": 300,
+      "essential": "OnApply"
+    },
+    {
+      "type": "TXT",
+      "groupId": "dmarc",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=%dmarcpolicy%; rua=mailto:%dmarcrua%",
+      "ttl": 300,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "providerId": "serveup.tech",
+  "providerName": "ServeUP",
+  "serviceId": "storefront-staging",
+  "serviceName": "ServeUP storefront staging",
+  "version": 1,
+  "description": "Connect one merchant storefront hostname to ServeUP staging and verify its ownership.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.serveup.tech",
+  "syncRedirectDomain": "merchants-staging.serveup.tech",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_serveup-verification",
+      "data": "serveup-verification=%verification%",
+      "ttl": "300",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "serveup-verification=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "storefront-edge-staging.serveup.tech",
+      "ttl": "300",
+      "essential": "OnApply"
+    }
+  ],
+  "logoUrl": "https://merchants-staging.serveup.tech/customer-display/assets/serveup-logo.svg",
+  "hostRequired": true,
+  "variableDescription": "verification: the 64-character lowercase hexadecimal ownership challenge generated for this merchant and hostname."
+}
