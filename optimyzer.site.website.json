@@ -1,0 +1,34 @@
+{
+  "providerId": "optimyzer.site",
+  "providerName": "Optimyzer",
+  "serviceId": "website",
+  "serviceName": "Optimyzer website",
+  "version": 1,
+  "logoUrl": "https://www.optimyzer.site/favicon.svg",
+  "description": "Connects a domain to the website Optimyzer built and hosts for its owner: the root domain points to the hosting server, www points to the root domain, and a TXT record ties the domain to the owner's Optimyzer account.",
+  "variableDescription": "ip: IPv4 address of the Optimyzer server hosting the site. verify: per-customer token showing the domain's owner connected it.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "optimyzer.site",
+  "syncRedirectDomain": "www.optimyzer.site,optimyzer.site",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_optimyzer-verify",
+      "data": "optimyzer-verify=%verify%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
