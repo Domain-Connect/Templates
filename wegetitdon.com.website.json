@@ -1,0 +1,20 @@
+{
+  "providerId": "wegetitdon.com",
+  "providerName": "DON AI",
+  "serviceId": "website",
+  "serviceName": "DON AI website",
+  "version": 1,
+  "logoUrl": "https://www.wegetitdon.com/assets/logo-ink.png",
+  "description": "Points your domain (and www) at the website DON AI built for you, hosted on Vercel.",
+  "variableDescription": "No variables. Sets the apex A record and the www CNAME to Vercel.",
+  "syncBlock": false,
+  "sharedProviderName": true,
+  "syncPubKeyDomain": "wegetitdon.com",
+  "syncRedirectDomain": "app.wegetitdon.com",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "216.198.79.1", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 }
+  ]
+}
