@@ -1,0 +1,41 @@
+{
+  "providerId": "peptidescientifix.com",
+  "providerName": "Peptide Scientifix",
+  "serviceId": "storefront",
+  "serviceName": "Brand storefront",
+  "version": 1,
+  "logoUrl": "https://peptidescientifix.com/wp-content/themes/peptide-scientifix-child/assets/chrome/icon/icon-512.png",
+  "description": "Points a brand's domain at its Peptide Scientifix storefront: an A record to the storefront server and a TXT record that proves ownership. Group main is always applied; group www (a CNAME from www to the domain) is applied only when the template is applied to an apex domain (groupId=main,www).",
+  "variableDescription": "%ip% is the storefront server's IPv4 address. %token% is the per-domain verification code the portal shows; the platform reads it back at _psx-verify.<host>.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "syncPubKeyDomain": "peptidescientifix.com",
+  "syncRedirectDomain": "peptidescientifix.com,staging.peptidescientifix.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "main",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "main",
+      "type": "TXT",
+      "host": "_psx-verify",
+      "data": "psx-verify=%token%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "psx-verify="
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 600
+    }
+  ]
+}
