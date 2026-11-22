@@ -1,0 +1,20 @@
+{
+  "providerId": "aiagentstore.ai",
+  "providerName": "AI Agent Store",
+  "serviceId": "reseller-subdomain",
+  "serviceName": "Branded customer portal",
+  "version": 1,
+  "hostRequired": true,
+  "logoUrl": "https://aiagentstore.ai/logo.png",
+  "description": "Connects the selected domain or subdomain to the reseller's customer portal.",
+  "variableDescription": "proof verifies the portal owner. ipv4, ipv6, alias, site and acme are the hosting and certificate records required for the selected address.",
+  "syncPubKeyDomain": "aiagentstore.ai",
+  "records": [
+    { "type": "TXT", "groupId": "ownership", "host": "_agent-teams", "data": "%proof%", "ttl": 600, "txtConflictMatchingMode": "None" },
+    { "type": "A", "groupId": "ipv4", "host": "@", "pointsTo": "%ipv4%", "ttl": 600 },
+    { "type": "AAAA", "groupId": "ipv6", "host": "@", "pointsTo": "%ipv6%", "ttl": 600 },
+    { "type": "CNAME", "groupId": "alias", "host": "@", "pointsTo": "%alias%", "ttl": 600 },
+    { "type": "TXT", "groupId": "site", "host": "@", "data": "hosting-site=%site%", "ttl": 600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "hosting-site=" },
+    { "type": "TXT", "groupId": "acme", "host": "_acme-challenge", "data": "%acme%", "ttl": 600, "txtConflictMatchingMode": "None", "essential": "OnApply" }
+  ]
+}
