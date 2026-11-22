@@ -1,0 +1,36 @@
+{
+	"providerId": "smileline.io",
+	"providerName": "Smileline",
+	"serviceId": "mail",
+	"serviceName": "Smileline email sending",
+	"version": 1,
+	"logoUrl": "https://smileline.io/favicon.svg",
+	"description": "DKIM and a custom Return-Path (SPF + MX) so patient email from Smileline is authenticated as your practice.",
+	"syncPubKeyDomain": "smileline.io",
+	"syncRedirectDomain": "smileline.io",
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "TXT",
+			"host": "resend._domainkey",
+			"ttl": 3600,
+			"data": "p=%domainKey%",
+			"txtConflictMatchingMode": "All"
+		},
+		{
+			"groupId": "outbound",
+			"type": "MX",
+			"host": "send",
+			"ttl": 3600,
+			"priority": 10,
+			"pointsTo": "feedback-smtp.%region%.amazonses.com"
+		},
+		{
+			"groupId": "outbound",
+			"type": "SPFM",
+			"host": "send",
+			"ttl": 3600,
+			"spfRules": "include:amazonses.com"
+		}
+	]
+}
