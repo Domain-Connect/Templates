@@ -1,0 +1,45 @@
+{
+  "providerId": "adelin.io",
+  "providerName": "Adelin",
+  "serviceId": "email",
+  "serviceName": "Email sender",
+  "version": 1,
+  "logoUrl": "https://adelin.io/favicon.svg",
+  "description": "Sets up an Amazon SES sending domain for an Adelin app: DKIM signing, custom MAIL FROM and SPF.",
+  "variableDescription": "dkim1, dkim2, dkim3: Amazon SES DKIM selector tokens; sesRegion: Amazon SES region, for example eu-west-1",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.adelin.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    }
+  ],
+  "hostRequired": false
+}
