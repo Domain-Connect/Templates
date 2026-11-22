@@ -1,0 +1,23 @@
+{
+  "providerId": "mocop.ai",
+  "providerName": "mocop",
+  "serviceId": "verify",
+  "serviceName": "Verify domain ownership",
+  "version": 1,
+  "logoUrl": "https://mocop.ai/logo-6.png",
+  "description": "Adds a TXT record that proves you own this domain, so mocop can index it and show its agent-readiness.",
+  "variableDescription": "verification is the verification code shown in your mocop account",
+  "syncPubKeyDomain": "mocop.ai",
+  "syncRedirectDomain": "mocop.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_mocop-verify",
+      "data": "mocop-verify=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mocop-verify="
+    }
+  ]
+}
