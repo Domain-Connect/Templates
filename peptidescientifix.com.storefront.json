@@ -10,7 +10,7 @@
   "syncBlock": false,
   "sharedProviderName": false,
   "sharedServiceName": false,
-  "syncPubKeyDomain": "_dck.peptidescientifix.com",
+  "syncPubKeyDomain": "peptidescientifix.com",
   "syncRedirectDomain": "peptidescientifix.com,staging.peptidescientifix.com",
   "hostRequired": false,
   "records": [
