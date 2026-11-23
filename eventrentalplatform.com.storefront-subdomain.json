@@ -1,0 +1,28 @@
+{
+  "providerId": "eventrentalplatform.com",
+  "providerName": "Event Rental Platform",
+  "serviceId": "storefront-subdomain",
+  "serviceName": "Rental storefront (subdomain)",
+  "version": 1,
+  "description": "Connect a rental storefront at the selected subdomain.",
+  "variableDescription": "proof is the unique ownership verification value created for this storefront hostname.",
+  "syncPubKeyDomain": "eventrentalplatform.com",
+  "syncRedirectDomain": "app.eventrentalplatform.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.eventrentalplatform.com",
+      "ttl": 1800
+    },
+    {
+      "type": "TXT",
+      "host": "_gather-verification",
+      "data": "gather-domain=%proof%",
+      "ttl": 1800,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "gather-domain="
+    }
+  ]
+}
