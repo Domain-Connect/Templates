@@ -1,0 +1,31 @@
+{
+    "providerId": "buti.net",
+    "providerName": "Buti",
+    "serviceId": "ses",
+    "serviceName": "Buti store e-mail (Amazon SES)",
+    "version": 1,
+    "description": "Publishes the three Easy DKIM CNAME records a Buti store needs to send transactional e-mail from its own domain through Amazon SES.",
+    "variableDescription": "dkimSelector1, dkimSelector2, dkimSelector3: the Easy DKIM selectors (tokens) Amazon SES assigned to the domain identity.",
+    "syncPubKeyDomain": "buti.net",
+    "syncRedirectDomain": "buti.net",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "%dkimSelector1%._domainkey",
+            "pointsTo": "%dkimSelector1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkimSelector2%._domainkey",
+            "pointsTo": "%dkimSelector2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkimSelector3%._domainkey",
+            "pointsTo": "%dkimSelector3%.dkim.amazonses.com",
+            "ttl": 3600
+        }
+    ]
+}
