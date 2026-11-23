@@ -1,0 +1,20 @@
+{
+  "providerId": "tokenhouse.site",
+  "providerName": "Letterdock",
+  "serviceId": "letterdock-verification",
+  "serviceName": "Verify receiving domain",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.tokenhouse.site",
+  "syncRedirectDomain": "tokenhouse.site",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_letterdock",
+      "data": "letterdock=%verification%",
+      "ttl": 3600
+    }
+  ],
+  "logoUrl": "https://raw.githubusercontent.com/hamskillah/letterdock/main/public/letterdock.svg",
+  "description": "Verify ownership of a receiving domain in Letterdock.",
+  "variableDescription": "verification: Letterdock ownership challenge."
+}
