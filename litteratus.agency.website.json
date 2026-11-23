@@ -1,0 +1,24 @@
+{
+  "providerId": "litteratus.agency",
+  "providerName": "Litteratus",
+  "serviceId": "website",
+  "serviceName": "Litteratus website",
+  "version": 1,
+  "logoUrl": "https://litteratus.agency/favicon.png",
+  "description": "Points the domain to the website Litteratus built and hosts for it: www goes to the site and the bare domain redirects to www. Email and every other record are left as they are.",
+  "syncPubKeyDomain": "litteratus.agency",
+  "syncRedirectDomain": "check.litteratus.agency",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.litteratus.agency",
+      "ttl": 3600
+    },
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}
