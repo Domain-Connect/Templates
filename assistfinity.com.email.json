@@ -9,7 +9,7 @@
   "syncBlock": false,
   "syncPubKeyDomain": "assistfinity.com",
   "syncRedirectDomain": "assistfinity.com",
-  "variableDescription": "%dkim_selector%: DKIM selector label without ._domainkey. %dkim_data%: full DKIM TXT value for that selector. %mail_prefix%: envelope or tracking host label under the sending host. %track_to%: tracking CNAME target. %env_to%: envelope CNAME target. %dmarc_to%: DMARC CNAME target.",
+  "variableDescription": "%dkim_selector%: DKIM selector. %dkim_data%: DKIM public key. %mail_prefix%: Mail subdomain. %track_to%: Tracking destination. %env_to%: Envelope destination. %dmarc_to%: DMARC destination.",
   "records": [
     {
       "type": "TXT",
