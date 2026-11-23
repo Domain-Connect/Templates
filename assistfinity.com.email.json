@@ -1,0 +1,41 @@
+{
+  "providerId": "assistfinity.com",
+  "providerName": "Assistfinity",
+  "serviceId": "email",
+  "serviceName": "Assistfinity Email",
+  "version": 2,
+  "logoUrl": "https://assistfinity.com/favicon.png",
+  "description": "Adds Infobip email authentication and tracking DNS records for your Assistfinity sending domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "assistfinity.com",
+  "syncRedirectDomain": "assistfinity.com",
+  "variableDescription": "%dkim_selector%: Infobip DKIM selector label without ._domainkey. %dkim_data%: full Infobip DKIM TXT value for that selector. %ib_prefix%: Infobip envelope or tracking host label under the sending host. %track_to%: Infobip tracking CNAME target. %env_to%: Infobip envelope CNAME target. %dmarc_to%: Infobip DMARC CNAME target.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkim_selector%._domainkey",
+      "data": "%dkim_data%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "CNAME",
+      "host": "tracking.%ib_prefix%",
+      "pointsTo": "%track_to%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%ib_prefix%",
+      "pointsTo": "%env_to%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%dmarc_to%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
