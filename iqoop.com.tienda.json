@@ -1,0 +1,19 @@
+{
+    "providerId": "iqoop.com",
+    "providerName": "iQoop",
+    "serviceId": "tienda",
+    "serviceName": "Tienda en línea iQoop",
+    "version": 1,
+    "logoUrl": "https://iqoop.com/icons/icon-512.png",
+    "description": "Points the www host of the merchant's domain to their iQoop online store (tiendas.iqoop.com).",
+    "syncPubKeyDomain": "iqoop.com",
+    "syncRedirectDomain": "admin.iqoop.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "tiendas.iqoop.com",
+            "ttl": 3600
+        }
+    ]
+}
