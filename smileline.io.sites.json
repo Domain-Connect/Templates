@@ -1,0 +1,29 @@
+{
+	"providerId": "smileline.io",
+	"providerName": "Smileline",
+	"serviceId": "sites",
+	"serviceName": "Smileline booking pages and websites",
+	"version": 1,
+	"logoUrl": "https://smileline.io/favicon.svg",
+	"description": "Connects an address of the practice's own, such as book.yourpractice.com, to its Smileline booking pages or website: one TXT record proving the domain is theirs and one CNAME pointing the address at Smileline.",
+	"variableDescription": "proof: the one-time ownership code Smileline shows for the address being connected",
+	"syncPubKeyDomain": "smileline.io",
+	"syncRedirectDomain": "smileline.io",
+	"hostRequired": true,
+	"records": [
+		{
+			"type": "TXT",
+			"host": "_smileline-site",
+			"ttl": 3600,
+			"data": "smileline-site-verification=%proof%",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "smileline-site-verification="
+		},
+		{
+			"type": "CNAME",
+			"host": "@",
+			"ttl": 3600,
+			"pointsTo": "sites.smileline.site"
+		}
+	]
+}

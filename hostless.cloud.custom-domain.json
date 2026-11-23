@@ -1,0 +1,22 @@
+{
+    "providerId": "hostless.cloud",
+    "providerName": "Hostless",
+    "serviceId": "custom-domain",
+    "serviceName": "Custom domain",
+    "version": 1,
+    "logoUrl": "https://hostless.cloud/logo/logo_single.svg",
+    "description": "Points a subdomain to an app or site on Hostless.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": true,
+    "syncPubKeyDomain": "domainconnect.hostless.cloud",
+    "syncRedirectDomain": "hostless.cloud",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "gateway.hostless.cloud",
+            "ttl": 600
+        }
+    ]
+}

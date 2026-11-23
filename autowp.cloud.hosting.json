@@ -1,0 +1,29 @@
+{
+  "providerId": "autowp.cloud",
+  "providerName": "AutoWP",
+  "serviceId": "hosting",
+  "serviceName": "AutoWP WordPress hosting",
+  "version": 1,
+  "logoUrl": "https://autowp.cloud/favicon.svg",
+  "description": "Points a subdomain (www, blog, …) at a WordPress site hosted on AutoWP and proves ownership for its certificate.",
+  "variableDescription": "target: AutoWP's hosting edge (sites.<hosting domain>); txtvalue: the ownership token for this hostname",
+  "syncBlock": false,
+  "syncPubKeyDomain": "autowp.cloud",
+  "syncRedirectDomain": "app.autowp.cloud",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%txtvalue%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+    "providerId": "gocta.ai",
+    "providerName": "gocta",
+    "serviceId": "website",
+    "serviceName": "gocta website",
+    "version": 1,
+    "logoUrl": "https://app.gocta.ai/gocta-wordmark.png",
+    "description": "Points one host name of a domain (www, or another subdomain) at a website built and hosted with gocta",
+    "syncPubKeyDomain": "gocta.ai",
+    "syncRedirectDomain": "app.gocta.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "sites.gocta.ai",
+            "ttl": 3600
+        }
+    ]
+}

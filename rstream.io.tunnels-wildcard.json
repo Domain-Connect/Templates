@@ -1,0 +1,34 @@
+{
+  "providerId": "rstream.io",
+  "providerName": "rstream",
+  "serviceId": "tunnels-wildcard",
+  "serviceName": "rstream tunnels wildcard",
+  "version": 1,
+  "logoUrl": "https://rstream.io/images/brand/rstream-logo-square-light.svg",
+  "description": "Route a wildcard through your rstream tunnel and delegate TLS certificate validation.",
+  "variableDescription": "%cluster%: CNAME target pointing at the rstream edge; %verifytoken%: hex token used to prove ownership of the hostname. %challenge%: rstream-managed CNAME target for ACME DNS-01 validation.",
+  "syncPubKeyDomain": "rstream.io",
+  "syncRedirectDomain": "rstream.io",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "*",
+      "pointsTo": "%cluster%.",
+      "ttl": 300
+    },
+    {
+      "type": "TXT",
+      "host": "_rstream-verify",
+      "data": "rstream-verify=%verifytoken%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%challenge%.",
+      "ttl": 300
+    }
+  ]
+}

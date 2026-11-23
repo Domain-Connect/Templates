@@ -1,0 +1,24 @@
+{
+  "providerId": "onemailstack.com",
+  "providerName": "OneMailStack",
+  "serviceId": "ownership-txt",
+  "serviceName": "Verify domain ownership",
+  "logoUrl": "https://app.onemailstack.com/icon.svg",
+  "description": "Adds the TXT record OneMailStack uses to verify ownership of a domain.",
+  "variableDescription": "token: OneMailStack ownership challenge.",
+  "version": 1,
+  "syncPubKeyDomain": "onemailstack.com",
+  "syncRedirectDomain": "onemailstack.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_oms-verify",
+      "data": "%token%",
+      "ttl": 300,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

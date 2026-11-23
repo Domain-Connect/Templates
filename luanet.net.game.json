@@ -1,0 +1,18 @@
+{
+  "providerId": "luanet.net",
+  "providerName": "LuaNet",
+  "serviceId": "game",
+  "serviceName": "LuaNet game server",
+  "version": 1,
+  "logoUrl": "https://panel.luanet.net/luanet-logo.svg",
+  "description": "Connects a custom address to a LuaNet Luanti server and adds a TXT ownership record. Use a dedicated address: replacing existing address records can break a website at the same name.",
+  "variableDescription": "serverLabel is the LuaNet-managed hostname label under luanet.net. verification is the per-address LuaNet ownership challenge.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "luanet.net",
+  "syncRedirectDomain": "panel.luanet.net",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "%serverLabel%.luanet.net", "ttl": 300 },
+    { "type": "TXT", "host": "_luanet", "data": "luanet-verification=%verification%", "ttl": 300 }
+  ]
+}

@@ -1,18 +1,19 @@
 {
   "providerId": "entro314.com",
   "serviceId": "hosted-mail",
-  "providerName": "Entromail",
+  "providerName": "Entropost",
   "serviceName": "Hosted Mail",
-  "version": 2,
-  "description": "Configures MX, SPF, DKIM, and DMARC records for an Entromail hosted mailbox domain.",
+  "version": 3,
+  "description": "Configures MX, SPF, DKIM, and DMARC records for an Entropost hosted mailbox domain.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.entro314.com",
-  "syncRedirectDomain": "mail.entro314.com",
+  "syncRedirectDomain": "app.entropost.com",
   "records": [
     {
       "type": "MX",
       "host": "@",
       "pointsTo": "%mxTarget%",
+      "groupId": "mail",
       "priority": 10,
       "ttl": 120
     },
@@ -20,12 +21,14 @@
       "type": "SPFM",
       "host": "@",
       "spfRules": "mx",
+      "groupId": "mail",
       "ttl": 120
     },
     {
       "type": "TXT",
       "host": "%selector%._domainkey",
       "data": "%dkimValue%",
+      "groupId": "mail",
       "ttl": 120,
       "txtConflictMatchingMode": "All"
     },
@@ -33,8 +36,9 @@
       "type": "TXT",
       "host": "_dmarc",
       "data": "v=DMARC1; p=none",
+      "groupId": "dmarc",
       "ttl": 120,
-      "txtConflictMatchingMode": "All",
+      "txtConflictMatchingMode": "None",
       "essential": "OnApply"
     }
   ]

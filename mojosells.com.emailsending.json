@@ -1,0 +1,35 @@
+{
+    "providerId": "mojosells.com",
+    "providerName": "Mojo",
+    "serviceId": "emailsending",
+    "serviceName": "Email sending domain",
+    "version": 1,
+    "logoUrl": "https://www.mojosells.com/wp-content/themes/Mojosells_2.2.3/assets/images/logo.svg",
+    "description": "Lets Mojo send email from the customer's domain: the DKIM key CNAME, the tracking links CNAME, and an optional ownership TXT for a further Mojo account on the same domain",
+    "variableDescription": "%dkimkey%: 32-hex DKIM key label of the domain; %verifytoken%: 32-hex ownership token of the Mojo account",
+    "syncBlock": false,
+    "syncPubKeyDomain": "mailfacilities.info",
+    "records": [
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "mojo1._domainkey",
+            "pointsTo": "%dkimkey%.dkim.mailfacilities.info",
+            "ttl": 3600
+        },
+        {
+            "groupId": "links",
+            "type": "CNAME",
+            "host": "links",
+            "pointsTo": "customers.mailfacilities.info",
+            "ttl": 3600
+        },
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_mojo-sender",
+            "data": "mojo-verify=%verifytoken%",
+            "ttl": 3600
+        }
+    ]
+}

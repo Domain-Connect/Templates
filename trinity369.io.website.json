@@ -1,0 +1,36 @@
+
+{
+  "providerId": "trinity369.io",
+  "providerName": "Trinity369",
+  "serviceId": "website",
+  "serviceName": "Trinity369 website",
+  "version": 1,
+  "logoUrl": "https://trinity369.io/brand/trinity-369-logo.png",
+  "description": "Points your domain and its www at a website published with Trinity369 and adds a verification record.",
+  "variableDescription": "token: the Trinity369 verification token of this connection",
+  "syncBlock": false,
+  "syncPubKeyDomain": "trinity369.io",
+  "syncRedirectDomain": "trinity369.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.trinity369.io",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "connect.trinity369.io",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_trinity-verify",
+      "data": "trinity-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

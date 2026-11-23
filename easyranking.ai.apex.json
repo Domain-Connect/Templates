@@ -1,0 +1,18 @@
+{
+  "providerId": "easyranking.ai",
+  "providerName": "EasyRanking",
+  "serviceId": "apex",
+  "serviceName": "Blog and app address (root domain)",
+  "version": 1,
+  "logoUrl": "https://easyranking.ai/brand/logo-icon.png",
+  "syncPubKeyDomain": "easyranking.ai",
+  "syncRedirectDomain": "app.easyranking.ai",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "76.76.21.21",
+      "ttl": 3600
+    }
+  ]
+}

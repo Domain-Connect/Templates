@@ -1,0 +1,40 @@
+{
+  "providerId": "hitch42.com",
+  "providerName": "Hitch",
+  "serviceId": "domain",
+  "serviceName": "Hitch custom domain",
+  "version": 1,
+  "logoUrl": "https://app.hitch42.com/favicon.svg",
+  "description": "Verifies a domain for a Hitch organisation, points www at the Hitch web host, and adds Google Search Console verification.",
+  "variableDescription": "token: Hitch verification token. webtarget: Hitch web host target. googletoken: the Google Search Console token, without the google-site-verification= prefix.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.hitch42.com",
+  "syncRedirectDomain": "hitch42.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_hitch",
+      "data": "hitch-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "web",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%webtarget%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "google",
+      "type": "TXT",
+      "host": "@",
+      "data": "google-site-verification=%googletoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}

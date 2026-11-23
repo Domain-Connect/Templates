@@ -1,0 +1,29 @@
+{
+  "providerId": "kadaispot.com",
+  "providerName": "KadaiSpot",
+  "serviceId": "store",
+  "serviceName": "KadaiSpot online store",
+  "version": 1,
+  "logoUrl": "https://kadaispot.com/kadaispot-favicon.png",
+  "description": "Points your domain (and www) to your KadaiSpot online store.",
+  "variableDescription": "IP: address of the store server",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "kadaispot.com",
+  "syncRedirectDomain": "kadaispot.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IP%",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%IP%",
+      "ttl": 600
+    }
+  ]
+}

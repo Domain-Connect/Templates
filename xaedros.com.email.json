@@ -1,0 +1,62 @@
+{
+  "providerId": "xaedros.com",
+  "providerName": "Xaedros",
+  "serviceId": "email",
+  "serviceName": "Xaedros signed email",
+  "version": 1,
+  "logoUrl": "https://app.xaedros.com/icons/brand/domain-connect-logo.svg",
+  "description": "Lets Xaedros send the business's email (signing requests, invoices, confirmations) signed for its own domain through Amazon SES: DKIM signing, a return-path subdomain with its own SPF, and a monitoring-only DMARC policy where there is none.",
+  "variableDescription": "dkim1, dkim2, dkim3: the DKIM selectors Amazon SES issued for the domain. region: the Amazon SES region, for example us-east-2.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "xaedros.com",
+  "syncRedirectDomain": "app.xaedros.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "providerId": "mycloudsuites.com",
+  "providerName": "MyCloudSuites",
+  "serviceId": "mail",
+  "serviceName": "Cloud Mail",
+  "version": 1,
+  "logoUrl": "https://mycloudsuites.com/img/apple-touch-icon.png",
+  "description": "Sets up a company's own domain for Cloud Mail by MyCloudSuites: proves the domain belongs to the company, signs and authorizes the mail it sends through Amazon SES (DKIM, and a custom MAIL FROM with its bounce MX and SPF), and adds a DMARC record when the domain has none.",
+  "variableDescription": "%verify%: the domain's MyCloudSuites ownership token; %dkim1%, %dkim2%, %dkim3%: the domain's three Amazon SES Easy DKIM selectors; %region%: the AWS region the domain sends from, like us-west-2",
+  "syncPubKeyDomain": "mycloudsuites.com",
+  "syncRedirectDomain": "mycloudsuites.com",
+  "records": [
+    {
+      "groupId": "proof",
+      "type": "TXT",
+      "host": "@",
+      "data": "mycloudsuites-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "mycloudsuites-verify="
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "sending",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@mycloudsuites.com",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}

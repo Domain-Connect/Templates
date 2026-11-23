@@ -1,0 +1,42 @@
+{
+  "providerId": "vivexia.co",
+  "providerName": "VivexIA",
+  "serviceId": "suite-dominio",
+  "serviceName": "Dominio propio en la suite VivexIA",
+  "version": 1,
+  "logoUrl": "https://suite.vivexia.co/brand/logo-vivexia.png",
+  "description": "Conecta un subdominio del cliente a su aplicación en la suite VivexIA: un CNAME hacia VivexIA y los registros TXT con que Cloudflare verifica la propiedad del dominio y emite el certificado.",
+  "variableDescription": "ownershipToken: código de Cloudflare que verifica la propiedad del dominio; acmeToken1 y acmeToken2: códigos para emitir el certificado (el mismo valor dos veces cuando Cloudflare entrega uno solo)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "vivexia.co",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "clientes.vivexia.co",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%ownershipToken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%acmeToken1%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%acmeToken2%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "providerId": "deliverlens.com",
+  "providerName": "Deliverlens",
+  "serviceId": "tls-reporting",
+  "serviceName": "TLS report collection",
+  "version": 1,
+  "description": "TLS report collection for Deliverlens Delivery Center.",
+  "logoUrl": "https://www.deliverlens.com/logo-mark.svg",
+  "syncPubKeyDomain": "dc.deliverlens.com",
+  "syncRedirectDomain": "app.deliverlens.com",
+  "syncBlock": false,
+  "variableDescription": "policy contains the existing policy tags with the Deliverlens reporting address added. Existing policy and other reporting destinations are preserved.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "ttl": 3600,
+      "data": "v=TLSRPTv1; %policy%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=TLSRPTv1;",
+      "essential": "OnApply"
+    }
+  ]
+}

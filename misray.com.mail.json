@@ -1,0 +1,154 @@
+{
+    "providerId": "misray.com",
+    "providerName": "Misray",
+    "serviceId": "mail",
+    "serviceName": "Misray Mail",
+    "version": 1,
+    "logoUrl": "https://misray.com/misray-mark.svg",
+    "description": "Sets up a domain for Misray Mail: ownership check, mail delivery (MX), sender checks (SPF, DKIM, DMARC), mail client discovery, and MTA-STS / TLS reporting.",
+    "variableDescription": "%verifytoken%: one-off domain ownership token; %mxmain%, %mxbackup%: first label of our main and backup mail exchangers under misray.com (e.g. mail2, mail1); %mxmainpri%, %mxbackuppri%: their MX preferences; %dkimid%: the domain's 10-character id in our DKIM zone dkim.misray.com",
+    "syncBlock": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "domainconnect.misray.com",
+    "syncRedirectDomain": "misray.com",
+    "records": [
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_mailapp-challenge",
+            "data": "mailapp-domain-verification=%verifytoken%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "mailapp-domain-verification=",
+            "essential": "OnApply",
+            "ttl": 600
+        },
+        {
+            "groupId": "mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "%mxmain%.misray.com",
+            "priority": "%mxmainpri%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "%mxbackup%.misray.com",
+            "priority": "%mxbackuppri%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:_spf.misray.com"
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "s1._domainkey",
+            "pointsTo": "s1.%dkimid%.dkim.misray.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim",
+            "type": "CNAME",
+            "host": "s2._domainkey",
+            "pointsTo": "s2.%dkimid%.dkim.misray.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:dmarc-reports@misray.com",
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply",
+            "ttl": 3600
+        },
+        {
+            "groupId": "clients",
+            "type": "CNAME",
+            "host": "autoconfig",
+            "pointsTo": "autoconfig.misray.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "clients",
+            "type": "SRV",
+            "name": "@",
+            "service": "_autodiscover",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 0,
+            "port": 443,
+            "target": "autodiscover.misray.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "clients",
+            "type": "SRV",
+            "name": "@",
+            "service": "_submission",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 1,
+            "port": 587,
+            "target": "smtp.misray.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "clients",
+            "type": "SRV",
+            "name": "@",
+            "service": "_submissions",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 1,
+            "port": 465,
+            "target": "smtp.misray.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "clients",
+            "type": "SRV",
+            "name": "@",
+            "service": "_imaps",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 1,
+            "port": 993,
+            "target": "imap.misray.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mtasts",
+            "type": "CNAME",
+            "host": "_acme-challenge.mta-sts",
+            "pointsTo": "acme.%dkimid%.dkim.misray.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mtasts",
+            "type": "CNAME",
+            "host": "mta-sts",
+            "pointsTo": "mta-sts.misray.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mtasts",
+            "type": "CNAME",
+            "host": "_mta-sts",
+            "pointsTo": "mtasts.%dkimid%.dkim.misray.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mtasts",
+            "type": "CNAME",
+            "host": "_smtp._tls",
+            "pointsTo": "tlsrpt.%dkimid%.dkim.misray.com",
+            "ttl": 3600
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "providerId": "gryt.chat",
+  "providerName": "Gryt",
+  "serviceId": "customdomain",
+  "serviceName": "Gryt Cloud custom domain",
+  "version": 1,
+  "logoUrl": "https://gryt.chat/logo.svg",
+  "description": "Points a domain at a Gryt Cloud server.",
+  "variableDescription": "target: the server's gryt.host address",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gryt.chat",
+  "syncRedirectDomain": "cloud.gryt.chat",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 3600 }
+  ]
+}

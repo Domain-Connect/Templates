@@ -1,0 +1,38 @@
+{
+  "providerId": "thinkany.design",
+  "providerName": "Thinkany.Design",
+  "serviceId": "vercel",
+  "serviceName": "Your website (Vercel)",
+  "version": 1,
+  "logoUrl": "https://derive.thinkany.design/domain-connect/logo.svg",
+  "description": "Points a domain and its www at a website published to Vercel with Thinkany.Design. Email and every other record stay as they are.",
+  "variableDescription": "ip: the Vercel address for the domain itself (Vercel gives each project its own); target: the Vercel name www points to; verify: Vercel’s ownership value after vc-domain-verify=, when the domain is in another Vercel account",
+  "syncBlock": false,
+  "syncPubKeyDomain": "thinkany.design",
+  "syncRedirectDomain": "derive.thinkany.design",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "site",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

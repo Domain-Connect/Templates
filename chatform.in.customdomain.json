@@ -1,0 +1,27 @@
+{
+  "providerId": "chatform.in",
+  "providerName": "chatform",
+  "serviceId": "customdomain",
+  "serviceName": "Custom form domain",
+  "version": 1,
+  "logoUrl": "https://chatform.in/logo.svg",
+  "description": "Serve your chatform forms from your own subdomain. Adds the CNAME that points the subdomain at chatform and the TXT record that proves you own it.",
+  "variableDescription": "token is the ownership proof chatform generated for this subdomain.",
+  "syncPubKeyDomain": "chatform.in",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.chatform.in",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_chatform",
+      "data": "chatform-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

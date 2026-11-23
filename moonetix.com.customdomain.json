@@ -1,0 +1,29 @@
+{
+    "providerId": "moonetix.com",
+    "providerName": "Moonetix",
+    "serviceId": "customdomain",
+    "serviceName": "Custom domain",
+    "version": 1,
+    "logoUrl": "https://moonetix.com/assets/img/moonetix-logo.svg",
+    "description": "Connects a publisher's domain or subdomain to Moonetix for branded links and the web offerwall, and adds a TXT record that proves the publisher owns the domain.",
+    "variableDescription": "token: the ownership token Moonetix shows for this domain",
+    "syncBlock": false,
+    "hostRequired": true,
+    "syncPubKeyDomain": "moonetix.com",
+    "syncRedirectDomain": "moonetix.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "domains.mnxgo.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_mnx-verify",
+            "data": "mnx-%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

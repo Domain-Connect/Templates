@@ -1,0 +1,19 @@
+{
+  "providerId": "auevo.io",
+  "providerName": "Auevo",
+  "serviceId": "outreach",
+  "serviceName": "Auevo email sending",
+  "version": 1,
+  "logoUrl": "https://auevo.io/icon.svg",
+  "description": "Lets Auevo send the emails you approve to your business leads from your own domain: the DKIM key and the Return-Path records of its email provider (Resend).",
+  "variableDescription": "dkimkey: the DKIM public key (base64) for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "auevo.io",
+  "syncRedirectDomain": "app.auevo.io",
+  "hostRequired": false,
+  "records": [
+    { "type": "TXT", "host": "resend._domainkey", "data": "p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "CNAME", "host": "rsend", "pointsTo": "rsend.forge.rmta.net", "ttl": 3600 },
+    { "type": "CNAME", "host": "send", "pointsTo": "send.forge.rmta.net", "ttl": 3600 }
+  ]
+}

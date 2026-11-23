@@ -1,0 +1,111 @@
+{
+    "providerId": "ggrgroup.com.mx",
+    "providerName": "GGR",
+    "serviceId": "oficina",
+    "serviceName": "Oficina GGR (correo, calendario y contactos)",
+    "version": 1,
+    "description": "Connects a domain to Oficina GGR (mail, calendar and contacts hosted by GGR). Group envio: SPF merge (mx) and the three Amazon SES Easy DKIM CNAMEs. Group mailfrom: the Amazon SES custom MAIL FROM subdomain (envios), MX and SPF. Groups dkim-ed25519 and dkim-rsa: the GGR mail server DKIM keys, applied only for the algorithms the server publishes. Group dmarc: monitoring policy (p=none with aggregate reports), applied only when the domain has no DMARC record; the customer tightens it later, once the reports are clean. Groups caldav and carddav: calendar and contacts autodiscovery for phones. Group mx: applied last and on its own, at the mailbox cutover.",
+    "variableDescription": "servidor: label of the GGR mail server under ggrgroup.com.mx (mail). ses1, ses2, ses3: Amazon SES Easy DKIM tokens. region: Amazon SES region (us-east-1). dkimed and dkimedp: ed25519 DKIM selector and public key. dkimrsa and dkimrsap: RSA DKIM selector and public key.",
+    "syncPubKeyDomain": "ggrgroup.com.mx",
+    "records": [
+        {
+            "groupId": "envio",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "mx"
+        },
+        {
+            "groupId": "envio",
+            "type": "CNAME",
+            "host": "%ses1%._domainkey",
+            "pointsTo": "%ses1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "envio",
+            "type": "CNAME",
+            "host": "%ses2%._domainkey",
+            "pointsTo": "%ses2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "envio",
+            "type": "CNAME",
+            "host": "%ses3%._domainkey",
+            "pointsTo": "%ses3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "MX",
+            "host": "envios",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "SPFM",
+            "host": "envios",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "dkim-ed25519",
+            "type": "TXT",
+            "host": "%dkimed%._domainkey",
+            "data": "v=DKIM1; k=ed25519; h=sha256; p=%dkimedp%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "dkim-rsa",
+            "type": "TXT",
+            "host": "%dkimrsa%._domainkey",
+            "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimrsap%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none; rua=mailto:postmaster@%domain%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "caldav",
+            "type": "SRV",
+            "name": "@",
+            "service": "_caldavs",
+            "protocol": "_tcp",
+            "priority": 10,
+            "weight": 1,
+            "port": 443,
+            "target": "%servidor%.ggrgroup.com.mx",
+            "ttl": 3600
+        },
+        {
+            "groupId": "carddav",
+            "type": "SRV",
+            "name": "@",
+            "service": "_carddavs",
+            "protocol": "_tcp",
+            "priority": 10,
+            "weight": 1,
+            "port": 443,
+            "target": "%servidor%.ggrgroup.com.mx",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mx",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "%servidor%.ggrgroup.com.mx",
+            "priority": 10,
+            "ttl": 3600
+        }
+    ]
+}

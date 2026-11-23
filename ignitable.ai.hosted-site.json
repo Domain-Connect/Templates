@@ -1,0 +1,18 @@
+{
+  "providerId": "ignitable.ai",
+  "providerName": "Ignitable",
+  "serviceId": "hosted-site",
+  "serviceName": "Ignitable website",
+  "version": 1,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.ignitable.ai",
+  "description": "Connect this website address to your Ignitable site.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.ignitable.site.",
+      "ttl": 3600
+    }
+  ]
+}

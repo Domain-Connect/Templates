@@ -1,0 +1,29 @@
+{
+    "providerId": "wabzen.com",
+    "providerName": "Wabzen",
+    "serviceId": "agency-dashboard",
+    "serviceName": "Agency dashboard",
+    "version": 1,
+    "description": "Connect your dashboard subdomain and verify ownership for the agency workspace.",
+    "variableDescription": "token: the server-generated, workspace-specific domain ownership nonce.",
+    "logoUrl": "https://wabzen.com/assets/logo.svg",
+    "syncRedirectDomain": "wabzen.com",
+    "syncBlock": false,
+    "hostRequired": true,
+    "syncPubKeyDomain": "dc-sign.wabzen.com",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "partner.wabzen.com",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "host": "_agency-verify",
+            "data": "%token%",
+            "txtConflictMatchingMode": "All",
+            "ttl": 300
+        }
+    ]
+}

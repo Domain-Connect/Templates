@@ -1,0 +1,19 @@
+{
+    "providerId": "sendscape.ai",
+    "providerName": "Sendscape",
+    "serviceId": "email-my",
+    "serviceName": "Sendscape Email (Malaysia region)",
+    "version": 1,
+    "logoUrl": "https://sendscape.ai/domain-connect-logo.svg",
+    "description": "Verifies your domain for sending email through Sendscape's Malaysia (ap-southeast-5) region: DKIM CNAMEs plus MX and SPF for the bounce subdomain.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "sendscape.ai",
+    "syncRedirectDomain": "sendscape.ai",
+    "records": [
+        { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.ap-southeast-5.amazonses.com", "ttl": 3600 },
+        { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.ap-southeast-5.amazonses.com", "ttl": 3600 },
+        { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.ap-southeast-5.amazonses.com", "ttl": 3600 },
+        { "type": "MX", "host": "send", "pointsTo": "feedback-smtp.ap-southeast-5.amazonses.com", "priority": 10, "ttl": 3600 },
+        { "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com", "ttl": 3600 }
+    ]
+}
