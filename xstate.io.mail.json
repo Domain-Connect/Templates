@@ -3,9 +3,9 @@
     "providerName": "xstate",
     "serviceId": "mail",
     "serviceName": "xstate Mail",
-    "version": 2,
+    "version": 3,
     "logoUrl": "https://xstate.com/brand/logo.svg",
-    "description": "Sets up a domain for xstate business email: MX to mx.xstate.io, SPF, the three Amazon SES Easy DKIM CNAMEs (outbound mail is relayed and signed by SES) and a DMARC policy. Group 'mail' holds the MX, SPF and DKIM records; group 'dmarc' holds the DMARC record and is left out when the domain already has one.",
+    "description": "Sets up a domain for xstate business email, which Amazon SES receives and sends: MX to inbound-smtp.us-east-2.amazonaws.com, SPF include:amazonses.com (merged into any existing SPF record), the three Amazon SES Easy DKIM CNAMEs and a DMARC policy. Group 'mail' holds the MX, SPF and DKIM records; group 'dmarc' holds the DMARC record and is left out when the domain already has one.",
     "variableDescription": "dkim1, dkim2, dkim3: the domain's three Amazon SES Easy DKIM tokens (e.g. 4pjxbc5l2fp7qkx6zkfgmdgsi3jq2rrd). Each becomes <token>._domainkey CNAME <token>.dkim.amazonses.com.",
     "syncBlock": false,
     "syncPubKeyDomain": "xstate.io",
@@ -16,7 +16,7 @@
             "groupId": "mail",
             "type": "MX",
             "host": "@",
-            "pointsTo": "mx.xstate.io",
+            "pointsTo": "inbound-smtp.us-east-2.amazonaws.com",
             "priority": 10,
             "ttl": 3600
         },
@@ -24,7 +24,7 @@
             "groupId": "mail",
             "type": "SPFM",
             "host": "@",
-            "spfRules": "mx"
+            "spfRules": "include:amazonses.com"
         },
         {
             "groupId": "mail",
@@ -51,7 +51,7 @@
             "groupId": "dmarc",
             "type": "TXT",
             "host": "_dmarc",
-            "data": "v=DMARC1; p=reject; rua=mailto:postmaster@%domain%",
+            "data": "v=DMARC1; p=reject",
             "ttl": 3600,
             "txtConflictMatchingMode": "Prefix",
             "txtConflictMatchingPrefix": "v=DMARC1"
