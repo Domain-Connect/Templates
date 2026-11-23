@@ -5,7 +5,7 @@
 	"serviceName": "FlareSuite Mail",
 	"version": 1,
 	"logoUrl": "https://flaresuite.ai/assets/icon.svg",
-	"description": "Sends and receives email for a FlareSuite workspace on the customer's own domain (mail delivered through Resend).",
+	"description": "Sends and receives email for a FlareSuite workspace on the customer's own domain (mail delivered through Resend), and lets mail apps configure themselves (autoconfig, autodiscover, RFC 6186 SRV records pointing at the FlareSuite mail gateway).",
 	"variableDescription": "dkim: the DKIM public key issued for the domain (base64); region: the sending region, e.g. us-east-1",
 	"syncBlock": false,
 	"syncPubKeyDomain": "flaresuite.ai",
@@ -57,6 +57,68 @@
 			"txtConflictMatchingMode": "Prefix",
 			"txtConflictMatchingPrefix": "v=DMARC1",
 			"essential": "OnApply"
+		},
+		{
+			"groupId": "apps",
+			"type": "CNAME",
+			"host": "autoconfig",
+			"pointsTo": "mail.flaresuite.ai",
+			"ttl": 3600
+		},
+		{
+			"groupId": "apps",
+			"type": "CNAME",
+			"host": "autodiscover",
+			"pointsTo": "mail.flaresuite.ai",
+			"ttl": 3600
+		},
+		{
+			"groupId": "apps",
+			"type": "SRV",
+			"name": "@",
+			"service": "_autodiscover",
+			"protocol": "_tcp",
+			"priority": 0,
+			"weight": 0,
+			"port": 443,
+			"target": "mail.flaresuite.ai",
+			"ttl": 3600
+		},
+		{
+			"groupId": "apps",
+			"type": "SRV",
+			"name": "@",
+			"service": "_imaps",
+			"protocol": "_tcp",
+			"priority": 0,
+			"weight": 1,
+			"port": 993,
+			"target": "mail.flaresuite.ai",
+			"ttl": 3600
+		},
+		{
+			"groupId": "apps",
+			"type": "SRV",
+			"name": "@",
+			"service": "_submissions",
+			"protocol": "_tcp",
+			"priority": 0,
+			"weight": 1,
+			"port": 465,
+			"target": "mail.flaresuite.ai",
+			"ttl": 3600
+		},
+		{
+			"groupId": "apps",
+			"type": "SRV",
+			"name": "@",
+			"service": "_submission",
+			"protocol": "_tcp",
+			"priority": 0,
+			"weight": 1,
+			"port": 587,
+			"target": "mail.flaresuite.ai",
+			"ttl": 3600
 		}
 	]
 }
