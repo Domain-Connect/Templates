@@ -3,13 +3,22 @@
   "providerName": "Eusend",
   "serviceId": "mail",
   "serviceName": "Eusend Email",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://eusend.dev/brand/eusend-logo-black.svg",
-  "description": "Authenticate and send email with Eusend: DKIM signing, a DMARC policy, and an aligned Return-Path for SPF alignment and bounce collection.",
+  "description": "Send and receive email with Eusend: DKIM signing, DMARC, an aligned Return-Path, and an optional receiving MX record. Receiving uses the inbound group at the selected host.",
   "variableDescription": "%dkimselector%: DKIM selector Eusend generated for this domain (e.g. 'eusend'); %dkimpub%: base64-encoded RSA-2048 DKIM public key Eusend generated for this domain",
   "syncPubKeyDomain": "eusend.dev",
   "syncRedirectDomain": "eusend.dev",
   "records": [
+    {
+      "groupId": "inbound",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound.eusend.dev",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
     {
       "groupId": "dkim",
       "type": "TXT",
