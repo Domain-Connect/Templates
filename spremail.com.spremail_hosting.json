@@ -1,0 +1,56 @@
+{
+    "providerId": "spremail.com",
+    "providerName": "Spremail",
+    "serviceId": "spremail_hosting",
+    "serviceName": "Spremail Mail Hosting",
+    "version": 1,
+    "logoUrl": "https://mailadmin.spremail.com/cpanel/mailimage?filename=spremail-logo.png",
+    "description": "Enables custom domain email hosting with Spremail (domain ownership verification, MX, SPF, DKIM, and DMARC).",
+    "variableDescription": "%verifytxt%: Domain ownership verification token placed in _smtp-verify TXT record; %dkim_selector%: DKIM selector prefix (e.g. s1); %dkim_public_key%: Base64-encoded RSA DKIM public key.",
+    "syncBlock": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "spremail.com",
+    "syncRedirectDomain": "mailadmin.spremail.com",
+    "records": [
+        {
+            "groupId": "verification",
+            "type": "TXT",
+            "host": "_smtp-verify",
+            "data": "smtp-verify=%verifytxt%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "smtp-verify=",
+            "ttl": 600
+        },
+        {
+            "groupId": "mail",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx1.spremail.com",
+            "priority": 10,
+            "ttl": 600
+        },
+        {
+            "groupId": "mail",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:spf.spremail.com"
+        },
+        {
+            "groupId": "mail",
+            "type": "TXT",
+            "host": "%dkim_selector%._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkim_public_key%",
+            "txtConflictMatchingMode": "All",
+            "ttl": 600
+        },
+        {
+            "groupId": "mail",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%",
+            "txtConflictMatchingMode": "All",
+            "essential": "OnApply",
+            "ttl": 600
+        }
+    ]
+}
