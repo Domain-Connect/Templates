@@ -1,0 +1,23 @@
+{
+  "providerId": "onebitmail.com",
+  "providerName": "One Bit Mail",
+  "serviceId": "mail",
+  "serviceName": "One Bit Mail email",
+  "version": 1,
+  "logoUrl": "https://onebitmail.com/favicon.svg",
+  "description": "Receive and send email for your domain with One Bit Mail: mail delivery (MX), message signing (DKIM), bounce handling and sending permission (SPF).",
+  "variableDescription": "dkim1, dkim2, dkim3: the domain's three DKIM tokens; region: the mail region, e.g. ap-southeast-1",
+  "syncBlock": false,
+  "syncPubKeyDomain": "onebitmail.com",
+  "syncRedirectDomain": "app.onebitmail.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "MX", "host": "@", "pointsTo": "inbound-smtp.%region%.amazonaws.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "@", "spfRules": "include:amazonses.com" },
+    { "type": "CNAME", "host": "%dkim1%._domainkey", "pointsTo": "%dkim1%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim2%._domainkey", "pointsTo": "%dkim2%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "%dkim3%._domainkey", "pointsTo": "%dkim3%.dkim.amazonses.com", "ttl": 3600 },
+    { "type": "MX", "host": "mail", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM", "host": "mail", "spfRules": "include:amazonses.com" }
+  ]
+}

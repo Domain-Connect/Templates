@@ -1,0 +1,28 @@
+{
+    "providerId": "enpire.app",
+    "providerName": "Enpire",
+    "serviceId": "website",
+    "serviceName": "Enpire website",
+    "version": 1,
+    "logoUrl": "https://enpire.app/brand/basely-logo.svg",
+    "description": "Points a hostname (for example www.yourbrand.com) at the website you built, and adds the TXT record that proves the domain is yours. Records at the bare domain, including mail (MX, SPF, DKIM, DMARC), are not touched.",
+    "variableDescription": "%token%: the ownership value shown for this domain in the domain settings; it is unique per domain and proves who added it.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "enpire.app",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "domains.enpire.app",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_basely-verify",
+            "data": "%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+	"providerId": "mailset.app",
+	"providerName": "Mailset",
+	"serviceId": "tracking",
+	"serviceName": "Link tracking",
+	"version": 1,
+	"logoUrl": "https://mailset.app/assets/brand/mailset-app-icon-square.svg",
+	"description": "A campaign sending domain's tracking host: a CNAME from the host to Mailset's link host, where Cloudflare for SaaS serves its certificate. Always applied with host, such as links.example.com.",
+	"syncPubKeyDomain": "domainconnect.mailset.app",
+	"syncRedirectDomain": "mailset.app",
+	"hostRequired": true,
+	"records": [
+		{
+			"type": "CNAME",
+			"host": "@",
+			"pointsTo": "links.mailset.app",
+			"ttl": 3600
+		}
+	]
+}
