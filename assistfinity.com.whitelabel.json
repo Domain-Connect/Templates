@@ -1,0 +1,22 @@
+{
+  "providerId": "assistfinity.com",
+  "providerName": "Assistfinity",
+  "serviceId": "whitelabel",
+  "serviceName": "Assistfinity white label host",
+  "version": 3,
+  "logoUrl": "https://assistfinity.com/favicon.png",
+  "description": "Points your subdomain at Assistfinity with a CNAME record.",
+  "variableDescription": "%cname%: Assistfinity CNAME target hostname (for example wl.assistfinity.com). Use the Domain Connect host parameter for the relative subdomain label.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "assistfinity.com",
+  "syncRedirectDomain": "assistfinity.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 3600
+    }
+  ]
+}

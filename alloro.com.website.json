@@ -1,0 +1,28 @@
+{
+    "providerId": "alloro.com",
+    "providerName": "Alloro",
+    "serviceId": "website",
+    "serviceName": "Alloro website",
+    "version": 1,
+    "logoUrl": "https://app.getalloro.com/domain-connect-logo.png",
+    "description": "Points your domain at the website Alloro built for your business. Sets the address record for your domain and for www; your email is not changed.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "dckeys.alloro.com",
+    "syncRedirectDomain": "alloro.com,getalloro.com",
+    "sharedProviderName": false,
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "54.159.199.33",
+            "ttl": 3600
+        },
+        {
+            "type": "A",
+            "host": "www",
+            "pointsTo": "54.159.199.33",
+            "ttl": 3600
+        }
+    ]
+}

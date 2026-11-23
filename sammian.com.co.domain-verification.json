@@ -1,0 +1,22 @@
+{
+  "providerId": "sammian.com.co",
+  "providerName": "Presencia",
+  "serviceId": "domain-verification",
+  "serviceName": "Verificación del dominio",
+  "version": 1,
+  "logoUrl": "https://raw.githubusercontent.com/s4duque78-prog/Templates/b46b9c005e7167a24df5c3f290ef8450675511c0/presencia-logo.svg",
+  "description": "Añade únicamente el TXT para demostrar control del dominio en Presencia.",
+  "variableDescription": "%token%: código aleatorio de verificación generado por Presencia para la cuenta y el hostname exactos.",
+  "syncPubKeyDomain": "dc-keys.sammian.com.co",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_presencia-verification",
+      "data": "presencia-verification=%token%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

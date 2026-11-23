@@ -1,0 +1,20 @@
+{
+  "providerId": "trackinho.com.br",
+  "providerName": "Trackinho",
+  "serviceId": "tracking-domain",
+  "serviceName": "First-party tracking domain",
+  "version": 1,
+  "logoUrl": "https://trackinho.com.br/favicon.svg",
+  "description": "Points a subdomain of your site to Trackinho so the tracking tag and events are served first-party from your own domain.",
+  "syncPubKeyDomain": "trackinho.com.br",
+  "syncRedirectDomain": "app.trackinho.com.br",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "api.trackinho.com.br",
+      "ttl": 300
+    }
+  ]
+}

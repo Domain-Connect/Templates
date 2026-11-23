@@ -1,0 +1,35 @@
+{
+  "providerId": "flashtimer.com",
+  "providerName": "Flashtimer",
+  "serviceId": "customdomain",
+  "serviceName": "Custom domain for countdown timers",
+  "version": 1,
+  "logoUrl": "https://media.flashtimer.com/brand/flashtimer-domain-connect.svg",
+  "description": "Serves a Flashtimer workspace's countdown timer images and click links from a subdomain of the customer's domain (for example timers.example.com). The CNAME on the host sends its traffic to Flashtimer, the _acme-challenge CNAME delegates certificate validation (ACME DNS-01) for that host to Cloudflare, which issues and renews its TLS certificate, and the _flashtimer TXT record proves which Flashtimer workspace the domain owner connected.",
+  "variableDescription": "%verification%: the Flashtimer workspace's ownership token for this host, 22-64 characters of [A-Za-z0-9_-].",
+  "hostRequired": true,
+  "syncPubKeyDomain": "flashtimer.com",
+  "syncRedirectDomain": "app.flashtimer.com,app.staging.flashtimer.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.flashtimer.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.f76931307b9b656a.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_flashtimer",
+      "data": "flashtimer-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "flashtimer-verification="
+    }
+  ]
+}

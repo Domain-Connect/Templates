@@ -1,0 +1,40 @@
+{
+  "providerId": "nestsapps.com",
+  "providerName": "Nests",
+  "serviceId": "guestemail",
+  "serviceName": "Guest email from your own domain",
+  "version": 1,
+  "logoUrl": "https://tax.nestsapps.com/assets/favicon.svg",
+  "description": "Lets the Nests app for short-term rental hosts email the host's guests from the host's own domain through Amazon SES (three Easy DKIM CNAME records), and receive the guests' replies on the guest subdomain (one MX record to Amazon SES inbound, eu-west-1).",
+  "variableDescription": "dkim1, dkim2, dkim3: the three Easy DKIM tokens Amazon SES issued for the domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "nestsapps.com",
+  "syncRedirectDomain": "tax.nestsapps.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "guest",
+      "pointsTo": "inbound-smtp.eu-west-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

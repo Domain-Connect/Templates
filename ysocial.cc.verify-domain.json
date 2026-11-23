@@ -1,0 +1,20 @@
+{
+  "providerId": "ysocial.cc",
+  "providerName": "ysocial",
+  "serviceId": "verify-domain",
+  "serviceName": "Verify your domain on ysocial",
+  "version": 1,
+  "logoUrl": "https://ysocial.cc/favicon.png",
+  "description": "Adds the DNS TXT record that proves you own this domain, so it can be shown on your ysocial profile.",
+  "variableDescription": "token is the one-time verification value shown in your ysocial settings",
+  "syncPubKeyDomain": "ysocial.cc",
+  "syncRedirectDomain": "ysocial.cc",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_ysocial-challenge",
+      "data": "ysocial-verify=%token%",
+      "ttl": 300
+    }
+  ]
+}
