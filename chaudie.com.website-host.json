@@ -10,7 +10,6 @@
   "sharedProviderName": false,
   "syncPubKeyDomain": "chaudie.com",
   "syncRedirectDomain": "app.chaudie.com",
-  "warnPhishing": true,
   "hostRequired": true,
   "records": [
     {
