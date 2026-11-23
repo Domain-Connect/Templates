@@ -1,0 +1,68 @@
+{
+  "providerId": "mydose.ai",
+  "providerName": "MyDose",
+  "serviceId": "studio-storefront-redirect",
+  "serviceName": "MyDose Studio storefront (bare domain forwarded to www)",
+  "version": 1,
+  "logoUrl": "https://studio.mydose.ai/apple-touch-icon.png",
+  "description": "Connects your domain to your MyDose storefront: your website (www) and patient portal (app) addresses, permanent records that keep their security certificates renewing automatically, and forwards your bare domain to www.",
+  "variableDescription": "wwwown: Cloudflare for SaaS ownership TXT value for www.%domain% (a UUID Cloudflare issues per hostname); portalown: the same for app.%domain%.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.mydose.ai",
+  "syncRedirectDomain": "studio.mydose.ai,studio.dev.mydose.ai",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "website",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.mydose.store",
+      "ttl": 3600
+    },
+    {
+      "groupId": "portal",
+      "type": "CNAME",
+      "host": "app",
+      "pointsTo": "sites.mydose.store",
+      "ttl": 3600
+    },
+    {
+      "groupId": "websiteown",
+      "type": "TXT",
+      "host": "_cf-custom-hostname.www",
+      "data": "%wwwown%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "portalown",
+      "type": "TXT",
+      "host": "_cf-custom-hostname.app",
+      "data": "%portalown%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "websitedcv",
+      "type": "CNAME",
+      "host": "_acme-challenge.www",
+      "pointsTo": "www.%fqdn%.f7fc08fe556bcdcf.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "portaldcv",
+      "type": "CNAME",
+      "host": "_acme-challenge.app",
+      "pointsTo": "app.%fqdn%.f7fc08fe556bcdcf.dcv.cloudflare.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "apexredirect",
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}
