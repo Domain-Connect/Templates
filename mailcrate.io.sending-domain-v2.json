@@ -1,0 +1,40 @@
+{
+    "providerId": "mailcrate.io",
+    "providerName": "Mailcrate",
+    "serviceId": "sending-domain-v2",
+    "serviceName": "Mailcrate sending domain",
+    "version": 1,
+    "logoUrl": "https://app.mailcrate.io/brand/mailcrate-logo.png",
+    "description": "Verifies a domain for sending email through Mailcrate: an ownership record, two DKIM signing records, and a custom MAIL FROM subdomain for SPF alignment.",
+    "variableDescription": "ownershiptoken: per-workspace ownership token; label: the domain's label under Mailcrate's DKIM and MAIL FROM hosts",
+    "syncPubKeyDomain": "domainconnect.mailcrate.io",
+    "syncRedirectDomain": "app.mailcrate.io",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_mailcrate-challenge",
+            "ttl": "3600",
+            "data": "mailcrate-domain-verification=%ownershiptoken%",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "mailcrate-domain-verification="
+        },
+        {
+            "type": "CNAME",
+            "host": "mc1._domainkey",
+            "pointsTo": "%label%.mc1.dkim.mailcrate.io",
+            "ttl": "3600"
+        },
+        {
+            "type": "CNAME",
+            "host": "mc2._domainkey",
+            "pointsTo": "%label%.mc2.dkim.mailcrate.io",
+            "ttl": "3600"
+        },
+        {
+            "type": "CNAME",
+            "host": "send",
+            "pointsTo": "%label%.return.mailcrate.io",
+            "ttl": "3600"
+        }
+    ]
+}
