@@ -16,7 +16,9 @@
       "type": "TXT",
       "host": "_chaudie",
       "data": "chaudie-site=%token%",
-      "ttl": 3600
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "chaudie-site="
     },
     {
       "type": "CNAME",
