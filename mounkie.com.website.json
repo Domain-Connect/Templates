@@ -1,0 +1,23 @@
+{
+  "providerId": "mounkie.com",
+  "providerName": "Mounkie",
+  "serviceId": "website",
+  "serviceName": "Mounkie website",
+  "version": 1,
+  "logoUrl": "https://admin.mounkie.com/favicon.svg",
+  "description": "Points one name of your domain (for example www.yourcompany.com) at your Mounkie booking site with a single CNAME record.",
+  "variableDescription": "site: the 20-character code of this domain's own Mounkie address (c-<site>.sites.mounkie.com). The record is created at the host passed in the host parameter (for example www).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "mounkie.com",
+  "syncRedirectDomain": "mounkie.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "c-%site%.sites.mounkie.com",
+      "ttl": 3600
+    }
+  ]
+}
