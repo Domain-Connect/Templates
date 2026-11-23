@@ -1,0 +1,27 @@
+{
+    "providerId": "buti.net",
+    "providerName": "Buti",
+    "serviceId": "storefront",
+    "serviceName": "Buti storefront (custom domain)",
+    "version": 1,
+    "description": "Points a subdomain at a Buti store (CNAME to the Buti edge) and publishes the hostname ownership token so the store goes live with TLS without manual DNS work.",
+    "variableDescription": "target: the Buti edge hostname the subdomain is pointed at (e.g. shops.buti.net). cfToken: hostname ownership verification token issued for this store.",
+    "syncPubKeyDomain": "buti.net",
+    "syncRedirectDomain": "buti.net",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%cfToken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}
