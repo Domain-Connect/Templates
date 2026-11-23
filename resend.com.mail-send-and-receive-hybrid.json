@@ -6,7 +6,7 @@
 	"version": 1,
 	"syncPubKeyDomain": "resend.com",
 	"syncRedirectDomain": "resend.com",
-	"description": "Full email configuration for sending through both of Resend's sending engines, and for receiving emails.",
+	"description": "Full email configuration for sending through both Resend sending engines, and for receiving emails.",
 	"logoUrl": "https://cdn.resend.com/brand/resend-wordmark-black.svg",
 	"records": [
 		{
