@@ -1,0 +1,29 @@
+{
+  "providerId": "chaudie.com",
+  "providerName": "Chaudie",
+  "serviceId": "website-host",
+  "serviceName": "Chaudie website on a subdomain",
+  "version": 2,
+  "logoUrl": "https://chaudie.com/favicon.svg",
+  "description": "Points one subdomain (such as shop.example.com) at the business's Chaudie website. Adds a TXT record showing it is the business's. Nothing else is changed.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "chaudie.com",
+  "syncRedirectDomain": "app.chaudie.com",
+  "warnPhishing": true,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_chaudie",
+      "data": "chaudie-site=%token%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.chaudiesites.com",
+      "ttl": 3600
+    }
+  ]
+}
