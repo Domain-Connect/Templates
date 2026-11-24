@@ -1,0 +1,20 @@
+{
+  "providerId": "footer365.com",
+  "providerName": "Footer365",
+  "serviceId": "spf",
+  "serviceName": "Footer365 email signatures",
+  "version": 1,
+  "logoUrl": "https://www.footer365.com/img/footer365-logo-light.svg",
+  "description": "Adds Footer365's mail servers to the domain's SPF record, so email sent through Footer365 to add signatures passes SPF checks.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "footer365.net",
+  "syncRedirectDomain": "app.footer365.net,admin.footer365.net,reseller.footer365.net",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.footer365.net"
+    }
+  ]
+}
