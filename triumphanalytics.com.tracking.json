@@ -1,0 +1,21 @@
+{
+    "providerId": "triumphanalytics.com",
+    "providerName": "Triumph Analytics",
+    "serviceId": "tracking",
+    "serviceName": "Website measurement",
+    "version": 1,
+    "logoUrl": "https://triumphanalytics.com/assets/brand/stacked-light.svg",
+    "description": "Connect your site to Triumph Analytics.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.triumphanalytics.com",
+    "syncRedirectDomain": "triumphanalytics.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "triumalyt.com",
+            "ttl": 3600
+        }
+    ]
+}
