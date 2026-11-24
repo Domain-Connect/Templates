@@ -1,0 +1,16 @@
+{
+  "providerId": "serverhive.us",
+  "providerName": "ServerHive",
+  "serviceId": "website",
+  "serviceName": "ServerHive Website",
+  "version": 1,
+  "description": "Points a domain and its www name at a website hosted on ServerHive.",
+  "variableDescription": "ip: the IPv4 address of the ServerHive entry point that serves the site.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "serverhive.us",
+  "syncRedirectDomain": "portal.serverhive.us",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 3600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "@", "ttl": 3600 }
+  ]
+}
