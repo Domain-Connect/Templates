@@ -1,0 +1,82 @@
+{
+    "providerId": "myds-system.com",
+    "providerName": "MyDS",
+    "serviceId": "website",
+    "serviceName": "MyDS driving school website and email",
+    "version": 1,
+    "description": "Points a driving school's own address at its MyDS website and lets MyDS send its emails from that address.",
+    "variableDescription": "proof: the school's MyDS proof code; dk1, dk2, dk3: the three email signing codes from Amazon SES",
+    "syncPubKeyDomain": "myds-system.com",
+    "syncRedirectDomain": "app.myds-system.com",
+    "records": [
+        {
+            "groupId": "apex",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "191.215.40.52",
+            "ttl": 3600
+        },
+        {
+            "groupId": "apex",
+            "type": "TXT",
+            "host": "_myds-verify",
+            "data": "myds-verify=%proof%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "myds-verify="
+        },
+        {
+            "groupId": "www",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "sites.myds-system.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "www",
+            "type": "TXT",
+            "host": "_myds-verify.www",
+            "data": "myds-verify=%proof%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "myds-verify="
+        },
+        {
+            "groupId": "book",
+            "type": "CNAME",
+            "host": "book",
+            "pointsTo": "sites.myds-system.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "book",
+            "type": "TXT",
+            "host": "_myds-verify.book",
+            "data": "myds-verify=%proof%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "myds-verify="
+        },
+        {
+            "groupId": "mail",
+            "type": "CNAME",
+            "host": "%dk1%._domainkey",
+            "pointsTo": "%dk1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mail",
+            "type": "CNAME",
+            "host": "%dk2%._domainkey",
+            "pointsTo": "%dk2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mail",
+            "type": "CNAME",
+            "host": "%dk3%._domainkey",
+            "pointsTo": "%dk3%.dkim.amazonses.com",
+            "ttl": 3600
+        }
+    ]
+}
