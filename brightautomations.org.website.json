@@ -1,0 +1,28 @@
+{
+  "providerId": "brightautomations.org",
+  "providerName": "Bright Automations",
+  "serviceId": "website",
+  "serviceName": "Your website",
+  "version": 1,
+  "logoUrl": "https://app.brightautomations.org/icons/icon-512.png",
+  "description": "Points a domain and its www at the website Bright Automations built for the business, hosted on Vercel. Email and every other record stay as they are.",
+  "variableDescription": "ip: the Vercel address for the domain itself (Vercel gives each project its own); target: the Vercel name www points to",
+  "syncBlock": false,
+  "syncPubKeyDomain": "brightautomations.org",
+  "syncRedirectDomain": "app.brightautomations.org",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
