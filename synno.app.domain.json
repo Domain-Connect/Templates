@@ -45,7 +45,8 @@
 			"host": "_dmarc",
 			"data": "%dmarc%",
 			"ttl": 3600,
-			"txtConflictMatchingMode": "All"
+			"txtConflictMatchingMode": "All",
+			"essential": "OnApply"
 		},
 		{
 			"groupId": "bounce",
