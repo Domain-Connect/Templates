@@ -1,0 +1,15 @@
+{
+  "providerId": "jfwstudios.com",
+  "providerName": "JFWSTUDIOS",
+  "serviceId": "website",
+  "serviceName": "JFWSTUDIOS Website",
+  "version": 1,
+  "description": "Points this domain and www to a website hosted by JFWSTUDIOS. Email records are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "jfwstudios.com",
+  "syncRedirectDomain": "jfwstudios.com",
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "157.230.74.201", "ttl": 3600 },
+    { "type": "A", "host": "www", "pointsTo": "157.230.74.201", "ttl": 3600 }
+  ]
+}
