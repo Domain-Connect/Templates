@@ -1,0 +1,32 @@
+{
+  "providerId": "serverhive.us",
+  "providerName": "ServerHive",
+  "serviceId": "mail",
+  "serviceName": "ServerHive Mail",
+  "version": 1,
+  "description": "Receiving, sending (SPF, DKIM, DMARC), mail app discovery and the names on the mail server's TLS certificate, for a domain whose mail is hosted on ServerHive Mail.",
+  "variableDescription": "dkimed: the Ed25519 DKIM selector; dkimedkey: its public key. dkimrsa: the RSA DKIM selector; dkimrsakey: its public key. stsid: the MTA-STS policy id.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "serverhive.us",
+  "syncRedirectDomain": "portal.serverhive.us",
+  "records": [
+    { "groupId": "receive", "type": "MX", "host": "@", "pointsTo": "mail.serverhive.us", "priority": 10, "ttl": 3600 },
+    { "groupId": "send", "type": "SPFM", "host": "@", "spfRules": "mx" },
+    { "groupId": "send", "type": "TXT", "host": "%dkimed%._domainkey", "data": "v=DKIM1; k=ed25519; h=sha256; p=%dkimedkey%", "ttl": 3600 },
+    { "groupId": "send", "type": "TXT", "host": "%dkimrsa%._domainkey", "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimrsakey%", "ttl": 3600 },
+    { "groupId": "send", "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=reject; rua=mailto:postmaster@%fqdn%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply" },
+    { "groupId": "certs", "type": "CNAME", "host": "autoconfig", "pointsTo": "mail.serverhive.us", "ttl": 3600 },
+    { "groupId": "certs", "type": "CNAME", "host": "autodiscover", "pointsTo": "mail.serverhive.us", "ttl": 3600 },
+    { "groupId": "certs", "type": "CNAME", "host": "imap", "pointsTo": "mail.serverhive.us", "ttl": 3600 },
+    { "groupId": "certs", "type": "CNAME", "host": "smtp", "pointsTo": "mail.serverhive.us", "ttl": 3600 },
+    { "groupId": "certs", "type": "CNAME", "host": "mta-sts", "pointsTo": "mail.serverhive.us", "ttl": 3600 },
+    { "groupId": "transport", "type": "TXT", "host": "_mta-sts", "data": "v=STSv1; id=%stsid%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=STSv1" },
+    { "groupId": "transport", "type": "TXT", "host": "_smtp._tls", "data": "v=TLSRPTv1; rua=mailto:postmaster@%fqdn%", "ttl": 3600, "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=TLSRPTv1" },
+    { "groupId": "apps", "type": "SRV", "name": "@", "service": "_imaps", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 993, "target": "mail.serverhive.us", "ttl": 3600 },
+    { "groupId": "apps", "type": "SRV", "name": "@", "service": "_pop3s", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 995, "target": "mail.serverhive.us", "ttl": 3600 },
+    { "groupId": "apps", "type": "SRV", "name": "@", "service": "_submissions", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 465, "target": "mail.serverhive.us", "ttl": 3600 },
+    { "groupId": "apps", "type": "SRV", "name": "@", "service": "_jmap", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 443, "target": "mail.serverhive.us", "ttl": 3600 },
+    { "groupId": "apps", "type": "SRV", "name": "@", "service": "_caldavs", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 443, "target": "mail.serverhive.us", "ttl": 3600 },
+    { "groupId": "apps", "type": "SRV", "name": "@", "service": "_carddavs", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 443, "target": "mail.serverhive.us", "ttl": 3600 }
+  ]
+}
