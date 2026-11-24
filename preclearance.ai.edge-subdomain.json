@@ -1,0 +1,17 @@
+{
+  "providerId": "preclearance.ai",
+  "providerName": "Preclearance",
+  "serviceId": "edge-subdomain",
+  "serviceName": "Preclearance Firewall (subdomain)",
+  "version": 1,
+  "logoUrl": "https://preclearance.ai/apple-icon.png",
+  "description": "Puts a website on a subdomain behind Preclearance's web application firewall: the subdomain points at the site's own name on Preclearance's edge.",
+  "variableDescription": "code: the site's code on Preclearance's edge, shown on the site's page in the Preclearance dashboard (lowercase letters and digits)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "preclearance.ai",
+  "syncRedirectDomain": "preclearance.ai",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "%code%.edge.preclearance.ai", "ttl": 600 }
+  ]
+}
