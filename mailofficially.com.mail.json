@@ -1,0 +1,93 @@
+{
+  "providerId": "mailofficially.com",
+  "providerName": "MailOfficially",
+  "serviceId": "mail",
+  "serviceName": "MailOfficially business email",
+  "version": 1,
+  "logoUrl": "https://mailofficially.com/brand/icon-512.png",
+  "description": "Sets up business email on MailOfficially: domain verification, sender authentication (SPF, DKIM, DMARC), and optionally moves incoming mail (MX).",
+  "variableDescription": "verify: domain verification token. dkimkey: DKIM public key (base64) for this domain. ses1, ses2, ses3: Amazon SES DKIM tokens.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "mailofficially.com",
+  "syncRedirectDomain": "mailofficially.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "@",
+      "data": "officially-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "officially-verify="
+    },
+    {
+      "groupId": "auth",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.mailofficially.com"
+    },
+    {
+      "groupId": "auth",
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "data": "v=DKIM1;k=rsa;t=s;s=email;p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "auth",
+      "type": "CNAME",
+      "host": "%ses1%._domainkey",
+      "pointsTo": "%ses1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "auth",
+      "type": "CNAME",
+      "host": "%ses2%._domainkey",
+      "pointsTo": "%ses2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "auth",
+      "type": "CNAME",
+      "host": "%ses3%._domainkey",
+      "pointsTo": "%ses3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "auth",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "auth",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mailofficially.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%; adkim=r; aspf=r; pct=100",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
