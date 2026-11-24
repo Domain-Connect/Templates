@@ -1,0 +1,24 @@
+{
+  "providerId": "abacus.ai",
+  "providerName": "Abacus.AI",
+  "serviceId": "security-verify",
+  "serviceName": "Abacus.AI Security site verification",
+  "version": 1,
+  "logoUrl": "https://static.abacus.ai/app/imgs/logoDark.svg",
+  "description": "Proves to Abacus.AI Security that you control this domain, so the sites on it can be security tested. Only approve it if you started this from your own Abacus.AI account.",
+  "variableDescription": "token: the Abacus.AI workspace's verification token",
+  "syncBlock": false,
+  "syncPubKeyDomain": "abacus.ai",
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_abacus-security",
+      "data": "abacus-security-verification=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
