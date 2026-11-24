@@ -1,0 +1,27 @@
+{
+  "providerId": "photografo.app",
+  "providerName": "Photografo",
+  "serviceId": "customdomain",
+  "serviceName": "Photografo custom domain",
+  "version": 1,
+  "description": "Points a subdomain to the portfolio and albums of a photographer on Photografo, and lets Cloudflare renew its certificate.",
+  "variableDescription": "id: the ID of the domain on Photografo",
+  "syncBlock": false,
+  "syncPubKeyDomain": "photografo.app",
+  "syncRedirectDomain": "photografo.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%id%.edge.photografo.app",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.3867f0665d04d65d.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}
