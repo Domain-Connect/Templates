@@ -1,0 +1,23 @@
+{
+    "providerId": "swarmcomputers.com",
+    "providerName": "Swarm Computers",
+    "serviceId": "domain-verification",
+    "serviceName": "Domain verification",
+    "version": 1,
+    "logoUrl": "https://swarmcomputers.com/favicon.svg",
+    "description": "Adds one TXT record that proves you control a hostname before Swarm Computers security-tests it. No other DNS records are changed.",
+    "variableDescription": "token: the random verification token Swarm Computers shows for this hostname (64 hex characters)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.swarmcomputers.com",
+    "syncRedirectDomain": "swarmcomputers.com",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "_fusion-verification",
+            "data": "fusion-verification=%token%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "fusion-verification="
+        }
+    ]
+}
