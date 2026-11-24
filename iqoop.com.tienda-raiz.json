@@ -1,0 +1,18 @@
+{
+    "providerId": "iqoop.com",
+    "providerName": "iQoop",
+    "serviceId": "tienda-raiz",
+    "serviceName": "Tienda en línea iQoop (dominio sin www)",
+    "version": 1,
+    "logoUrl": "https://iqoop.com/icons/icon-512.png",
+    "description": "Forwards the bare domain to www, where the merchant's iQoop online store is served (applied after iqoop.com.tienda).",
+    "syncPubKeyDomain": "iqoop.com",
+    "syncRedirectDomain": "admin.iqoop.com",
+    "records": [
+        {
+            "type": "REDIR301",
+            "host": "@",
+            "target": "https://www.%fqdn%"
+        }
+    ]
+}
