@@ -1,0 +1,19 @@
+{
+  "providerId": "preclearance.ai",
+  "providerName": "Preclearance",
+  "serviceId": "edge",
+  "serviceName": "Preclearance Firewall",
+  "version": 1,
+  "logoUrl": "https://preclearance.ai/apple-icon.png",
+  "description": "Puts a website behind Preclearance's web application firewall: the domain's addresses point at Preclearance's edge, and www at the site's own name there. Mail records are not touched.",
+  "variableDescription": "code: the site's code on Preclearance's edge, shown on the site's page in the Preclearance dashboard (lowercase letters and digits)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "preclearance.ai",
+  "syncRedirectDomain": "preclearance.ai",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "63.188.121.107", "ttl": 600 },
+    { "type": "A", "host": "@", "pointsTo": "52.29.159.235", "ttl": 600 },
+    { "type": "CNAME", "host": "www", "pointsTo": "%code%.edge.preclearance.ai", "ttl": 600 }
+  ]
+}
