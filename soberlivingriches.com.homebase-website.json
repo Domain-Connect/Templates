@@ -3,8 +3,8 @@
   "providerName": "Homebase by Sober Living Riches",
   "serviceId": "homebase-website",
   "serviceName": "Homebase website",
-  "version": 2,
-  "logoUrl": "https://homebase.soberlivingriches.com/brand/homebase-wordmark-slr-gold-v2.png",
+  "version": 3,
+  "logoUrl": "https://app.withhomebase.com/brand/homebase-wordmark-slr-gold-v2.png",
   "description": "Connect a domain to a published Homebase website.",
   "syncBlock": false,
   "syncPubKeyDomain": "soberlivingriches.com",
@@ -16,5 +16,5 @@
       "ttl": 600
     }
   ],
-  "syncRedirectDomain": "homebase.soberlivingriches.com"
+  "syncRedirectDomain": "homebase.soberlivingriches.com,app.withhomebase.com"
 }
