@@ -1,0 +1,81 @@
+{
+  "providerId": "unimail.ge",
+  "providerName": "Unimail",
+  "serviceId": "mailserver",
+  "serviceName": "Unimail business email",
+  "version": 1,
+  "logoUrl": "https://unimail.ge/favicon.svg",
+  "description": "Receive and send your domain's email with Unimail's own mail server.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.unimail.ge",
+  "records": [
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.unimail.ge",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "mx"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "%dkimEdSelector%._domainkey",
+      "data": "%dkimEd%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "mail",
+      "type": "TXT",
+      "host": "%dkimRsaSelector%._domainkey",
+      "data": "%dkimRsa%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "clients",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "mx1.unimail.ge",
+      "ttl": 3600
+    },
+    {
+      "groupId": "clients",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "mx1.unimail.ge",
+      "ttl": 3600
+    },
+    {
+      "groupId": "clients",
+      "type": "SRV",
+      "name": "@",
+      "service": "_imaps",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 993,
+      "target": "mx1.unimail.ge",
+      "ttl": 3600
+    },
+    {
+      "groupId": "clients",
+      "type": "SRV",
+      "name": "@",
+      "service": "_submissions",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 465,
+      "target": "mx1.unimail.ge",
+      "ttl": 3600
+    }
+  ]
+}
