@@ -4,6 +4,7 @@
   "serviceId": "customdomain",
   "serviceName": "Photografo custom domain",
   "version": 1,
+  "logoUrl": "https://photografo.app/static/favicon.c4f99796a3ee.svg",
   "description": "Points a subdomain to the portfolio and albums of a photographer on Photografo, and lets Cloudflare renew its certificate.",
   "variableDescription": "id: the ID of the domain on Photografo",
   "syncBlock": false,
