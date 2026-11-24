@@ -1,0 +1,27 @@
+{
+  "providerId": "sundayfront.com",
+  "providerName": "SundayFront",
+  "serviceId": "website",
+  "serviceName": "Church website",
+  "version": 1,
+  "logoUrl": "https://www.sundayfront.com/wp-content/themes/sundayfront-site/assets/img/favicon.svg",
+  "description": "Points your domain to your SundayFront church website. Email (MX) records are not changed.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sundayfront.com",
+  "syncRedirectDomain": "www.sundayfront.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "135.148.225.193",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "www.sundayfront.com",
+      "ttl": 3600
+    }
+  ]
+}
