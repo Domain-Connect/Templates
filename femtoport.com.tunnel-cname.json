@@ -1,0 +1,21 @@
+{
+  "providerId": "femtoport.com",
+  "providerName": "Femtoport",
+  "serviceId": "tunnel-cname",
+  "serviceName": "Custom tunnel subdomain",
+  "version": 1,
+  "description": "Points a subdomain at the assigned Femtoport tunnel alias.",
+  "variableDescription": "target is the Femtoport-assigned CNAME destination for this custom domain. host is the subdomain relative to the DNS zone.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.femtoport.com",
+  "syncRedirectDomain": "manage.femtoport.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ]
+}
