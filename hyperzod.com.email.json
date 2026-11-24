@@ -1,0 +1,29 @@
+{
+  "providerId": "hyperzod.com",
+  "providerName": "Hyperzod",
+  "serviceId": "email",
+  "serviceName": "Hyperzod Email",
+  "version": 1,
+  "logoUrl": "https://www.hyperzod.com/images/hyperzod_logo.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "hyperzod.com",
+  "syncRedirectDomain": "hyperzod.com",
+  "description": "Configures DNS records for Hyperzod Email.",
+  "variableDescription": "publickey is the DKIM public key for your domain.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "hyperzod._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%publickey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DKIM1; k=rsa; p="
+    },
+    {
+      "type": "CNAME",
+      "host": "bounce",
+      "pointsTo": "bounce.hyperzodemail.com",
+      "ttl": 3600
+    }
+  ]
+}
