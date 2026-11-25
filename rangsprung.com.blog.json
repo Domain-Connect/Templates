@@ -1,0 +1,23 @@
+{
+  "providerId": "rangsprung.com",
+  "providerName": "Rangsprung",
+  "serviceId": "blog",
+  "serviceName": "Rangsprung Blog",
+  "version": 1,
+  "logoUrl": "https://rangsprung.com/icon.svg",
+  "description": "Connects a subdomain (e.g. blog.example.com) to the blog that Rangsprung hosts for the customer.",
+  "variableDescription": "No variables. The subdomain is passed as host.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "domainconnect.rangsprung.com",
+  "syncRedirectDomain": "rangsprung.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.vercel-dns.com",
+      "ttl": 3600
+    }
+  ]
+}
