@@ -3,9 +3,9 @@
     "providerName": "xstate",
     "serviceId": "mail",
     "serviceName": "xstate Mail",
-    "version": 3,
+    "version": 4,
     "logoUrl": "https://xstate.com/brand/logo.svg",
-    "description": "Sets up a domain for xstate business email, which Amazon SES receives and sends: MX to inbound-smtp.us-east-2.amazonaws.com, SPF include:amazonses.com (merged into any existing SPF record), the three Amazon SES Easy DKIM CNAMEs and a DMARC policy. Group 'mail' holds the MX, SPF and DKIM records; group 'dmarc' holds the DMARC record and is left out when the domain already has one.",
+    "description": "Sets up a domain for xstate business email, which Amazon SES receives and sends: MX to inbound-smtp.us-east-2.amazonaws.com, SPF include:amazonses.com, the three Amazon SES Easy DKIM CNAMEs and a DMARC policy. Group 'mail' holds the MX and DKIM records and is always applied. SPF comes from exactly one of two groups: 'spfm' merges include:amazonses.com into the domain's existing SPF record, and 'spf' adds a new SPF record when the domain has none (some providers' SPFM adds nothing when there is no record to merge into). Group 'dmarc' holds the DMARC record and is left out when the domain already has one.",
     "variableDescription": "dkim1, dkim2, dkim3: the domain's three Amazon SES Easy DKIM tokens (e.g. 4pjxbc5l2fp7qkx6zkfgmdgsi3jq2rrd). Each becomes <token>._domainkey CNAME <token>.dkim.amazonses.com.",
     "syncBlock": false,
     "syncPubKeyDomain": "xstate.io",
@@ -19,12 +19,6 @@
             "pointsTo": "inbound-smtp.us-east-2.amazonaws.com",
             "priority": 10,
             "ttl": 3600
-        },
-        {
-            "groupId": "mail",
-            "type": "SPFM",
-            "host": "@",
-            "spfRules": "include:amazonses.com"
         },
         {
             "groupId": "mail",
@@ -46,6 +40,21 @@
             "host": "%dkim3%._domainkey",
             "pointsTo": "%dkim3%.dkim.amazonses.com",
             "ttl": 3600
+        },
+        {
+            "groupId": "spfm",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "spf",
+            "type": "TXT",
+            "host": "@",
+            "data": "v=spf1 include:amazonses.com -all",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=spf1"
         },
         {
             "groupId": "dmarc",
