@@ -1,0 +1,46 @@
+{
+  "providerId": "recovr.com",
+  "providerName": "Recovr",
+  "serviceId": "email-marketing",
+  "serviceName": "Email marketing",
+  "version": 1,
+  "logoUrl": "https://retention.recovr.com/email-assets/logo.svg",
+  "description": "Lets a fitness business send its email campaigns from its own domain through Recovr (Amazon SES): DKIM signing and a bounce (MAIL FROM) subdomain. DMARC is left to the domain owner.",
+  "variableDescription": "dkim1, dkim2, dkim3: the three Amazon SES Easy DKIM tokens for the sending domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "recovr.com",
+  "syncRedirectDomain": "retention.recovr.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.ap-southeast-2.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
