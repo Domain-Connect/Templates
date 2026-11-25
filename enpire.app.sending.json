@@ -1,0 +1,113 @@
+{
+    "providerId": "enpire.app",
+    "providerName": "Enpire",
+    "serviceId": "sending",
+    "serviceName": "Enpire email sending",
+    "version": 1,
+    "logoUrl": "https://enpire.app/brand/basely-logo.svg",
+    "description": "Adds the records that let your domain send the email you write in Enpire, through Amazon SES: the DKIM keys, the bounce (MAIL FROM) MX and SPF, and a report-only DMARC policy, on the marketing and notify subdomains only. Records at the bare domain, including your own MX, SPF and DMARC, are not touched.",
+    "variableDescription": "Per sending subdomain (marketing, notify): marketingDkim1..3 / notifyDkim1..3 are the Amazon SES Easy DKIM tokens; marketingDkimZone / notifyDkimZone is dkim or dkim.<region>, the SES DKIM domain; marketingRegion / notifyRegion is the SES region bounces return to; marketingRua / notifyRua is empty, or ; rua=mailto:<address> for aggregate DMARC reports.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "enpire.app",
+    "hostRequired": false,
+    "records": [
+        {
+            "groupId": "marketing-dkim",
+            "type": "CNAME",
+            "host": "%marketingDkim1%._domainkey.marketing",
+            "pointsTo": "%marketingDkim1%.%marketingDkimZone%.amazonses.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "marketing-dkim",
+            "type": "CNAME",
+            "host": "%marketingDkim2%._domainkey.marketing",
+            "pointsTo": "%marketingDkim2%.%marketingDkimZone%.amazonses.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "marketing-dkim",
+            "type": "CNAME",
+            "host": "%marketingDkim3%._domainkey.marketing",
+            "pointsTo": "%marketingDkim3%.%marketingDkimZone%.amazonses.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "marketing-mailfrom",
+            "type": "MX",
+            "host": "bounce.marketing",
+            "pointsTo": "feedback-smtp.%marketingRegion%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "marketing-spf",
+            "type": "SPFM",
+            "host": "bounce.marketing",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "marketing-dmarc",
+            "type": "TXT",
+            "host": "_dmarc.marketing",
+            "data": "v=DMARC1; p=none%marketingRua%; fo=1; adkim=r; aspf=r",
+            "ttl": 3600,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        },
+        {
+            "groupId": "notify-dkim",
+            "type": "CNAME",
+            "host": "%notifyDkim1%._domainkey.notify",
+            "pointsTo": "%notifyDkim1%.%notifyDkimZone%.amazonses.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "notify-dkim",
+            "type": "CNAME",
+            "host": "%notifyDkim2%._domainkey.notify",
+            "pointsTo": "%notifyDkim2%.%notifyDkimZone%.amazonses.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "notify-dkim",
+            "type": "CNAME",
+            "host": "%notifyDkim3%._domainkey.notify",
+            "pointsTo": "%notifyDkim3%.%notifyDkimZone%.amazonses.com",
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "notify-mailfrom",
+            "type": "MX",
+            "host": "bounce.notify",
+            "pointsTo": "feedback-smtp.%notifyRegion%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600,
+            "essential": "OnApply"
+        },
+        {
+            "groupId": "notify-spf",
+            "type": "SPFM",
+            "host": "bounce.notify",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "notify-dmarc",
+            "type": "TXT",
+            "host": "_dmarc.notify",
+            "data": "v=DMARC1; p=none%notifyRua%; fo=1; adkim=r; aspf=r",
+            "ttl": 3600,
+            "essential": "OnApply",
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1"
+        }
+    ]
+}
