@@ -3,9 +3,9 @@
   "providerName": "Chaudie",
   "serviceId": "website",
   "serviceName": "Chaudie website",
-  "version": 2,
+  "version": 3,
   "logoUrl": "https://chaudie.com/favicon.svg",
-  "description": "Points www at the business's Chaudie website, and sends the bare domain to www. Adds a TXT record showing the domain is the business's. Email records are not changed.",
+  "description": "Points www at the business's Chaudie website, and sends the bare domain to www. Adds a TXT record showing the domain is the business's. Email records are not changed. Group site is the TXT and www; group redirect is the bare domain's forward, so a provider whose forwarding doesn't fit can apply site alone.",
   "syncBlock": false,
   "sharedProviderName": false,
   "syncPubKeyDomain": "chaudie.com",
@@ -18,18 +18,21 @@
       "data": "chaudie-site=%token%",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "chaudie-site="
+      "txtConflictMatchingPrefix": "chaudie-site=",
+      "groupId": "site"
     },
     {
       "type": "CNAME",
       "host": "www",
       "pointsTo": "sites.chaudiesites.com",
-      "ttl": 3600
+      "ttl": 3600,
+      "groupId": "site"
     },
     {
       "type": "REDIR301",
       "host": "@",
-      "target": "https://www.%domain%"
+      "target": "https://www.%domain%",
+      "groupId": "redirect"
     }
   ]
 }
