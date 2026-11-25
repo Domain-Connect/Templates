@@ -3,7 +3,7 @@
     "providerName": "Tekravel",
     "serviceId": "email",
     "serviceName": "Tekravel email sending",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://tekravel.com/apple-touch-icon.png",
     "description": "Lets Tekravel send booking emails from your domain through Amazon SES (DKIM, custom MAIL FROM and DMARC).",
     "variableDescription": "dkim1, dkim2, dkim3: Amazon SES Easy DKIM tokens; sesRegion: Amazon SES region of the MAIL FROM feedback endpoint (e.g. eu-west-1); dmarcPolicy: DMARC tags after v=DMARC1 (e.g. p=none; rua=mailto:reports@example.com;).",
@@ -46,6 +46,20 @@
             "groupId": "mailfrom",
             "type": "SPFM",
             "host": "mail",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "mailfrom-tkv",
+            "type": "MX",
+            "host": "tkv-mail",
+            "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom-tkv",
+            "type": "SPFM",
+            "host": "tkv-mail",
             "spfRules": "include:amazonses.com"
         },
         {
