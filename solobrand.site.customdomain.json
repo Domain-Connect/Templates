@@ -1,0 +1,23 @@
+{
+    "providerId": "solobrand.site",
+    "providerName": "SoloBrand",
+    "serviceId": "customdomain",
+    "serviceName": "SoloBrand custom domain",
+    "version": 1,
+    "logoUrl": "https://solobrand.ai/images/logo_1080.png",
+    "description": "Points your domain (or a subdomain of it) to your SoloBrand site, sales links or payment pages.",
+    "variableDescription": "No variables: the target is fixed. A host (subdomain such as pay or shop) is required: the CNAME is created at that host, never at the apex.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "solobrand.site",
+    "syncRedirectDomain": "solobrand.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cdn.solobrand.site",
+            "ttl": 3600,
+            "essential": "OnApply"
+        }
+    ]
+}
