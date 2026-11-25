@@ -1,0 +1,20 @@
+{
+  "providerId": "one4oll.com",
+  "providerName": "One4Oll",
+  "serviceId": "website",
+  "serviceName": "Creator website",
+  "version": 1,
+  "logoUrl": "https://one4oll.com/brand/one4oll-icon.png",
+  "description": "Points a creator's domain (the bare domain and www) at their One4Oll site, hosted on Vercel. Group 'verify' adds Vercel's ownership TXT record and is applied only when Vercel asks for it.",
+  "variableDescription": "verifytoken: the value Vercel gives after 'vc-domain-verify=', e.g. example.com,1a2b3c4d5e",
+  "syncPubKeyDomain": "one4oll.com",
+  "syncRedirectDomain": "one4oll.com",
+  "records": [
+    { "groupId": "site", "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600 },
+    { "groupId": "site", "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 },
+    {
+      "groupId": "verify", "type": "TXT", "host": "_vercel", "data": "vc-domain-verify=%verifytoken%", "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "vc-domain-verify=", "essential": "OnApply"
+    }
+  ]
+}
