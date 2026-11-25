@@ -1,0 +1,30 @@
+{
+  "providerId": "storeloom.com",
+  "providerName": "Storeloom",
+  "serviceId": "storefront-apex-v2",
+  "serviceName": "Storeloom storefront root domain (connection branded)",
+  "version": 1,
+  "logoUrl": "https://storeloom.com/assets/brand/favicon-180.png",
+  "description": "Connects the root domain to a Storeloom storefront using Cloudflare CNAME flattening, leaving www records in place.",
+  "variableDescription": "%claim% is the Storeloom routing label. %proof% is its ownership token.",
+  "syncPubKeyDomain": "dns-connect.storeloom.com",
+  "syncRedirectDomain": "admin.storeloom.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%claim%.connect.storeloom.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_storeloom-verification",
+      "data": "verify=%proof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "verify=",
+      "essential": "OnApply"
+    }
+  ]
+}

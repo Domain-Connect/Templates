@@ -1,0 +1,45 @@
+{
+  "providerId": "storeloom.com",
+  "providerName": "Storeloom",
+  "serviceId": "storefront-cloudflare-v2",
+  "serviceName": "Storeloom storefront for Cloudflare DNS (connection branded)",
+  "version": 1,
+  "logoUrl": "https://storeloom.com/assets/brand/favicon-180.png",
+  "description": "Connects the root domain and its www address to a Storeloom storefront and adds the corresponding ownership proofs.",
+  "variableDescription": "%apexClaim% and %wwwClaim% are the two Storeloom routing labels. %apexProof% and %wwwProof% are the respective ownership tokens.",
+  "syncPubKeyDomain": "dns-connect.storeloom.com",
+  "syncRedirectDomain": "admin.storeloom.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%apexClaim%.connect.storeloom.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_storeloom-verification",
+      "data": "verify=%apexProof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "verify=",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%wwwClaim%.connect.storeloom.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_storeloom-verification.www",
+      "data": "verify=%wwwProof%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "verify=",
+      "essential": "OnApply"
+    }
+  ]
+}
