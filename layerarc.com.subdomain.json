@@ -1,0 +1,16 @@
+{
+  "providerId": "layerarc.com",
+  "providerName": "LayerArc",
+  "serviceId": "subdomain",
+  "serviceName": "Publish LayerArc pages",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.layerarc.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    { "groupId": "connection", "type": "CNAME", "host": "@", "pointsTo": "pages.arcsheet.com", "ttl": 600 },
+    { "groupId": "certificate", "type": "CNAME", "host": "_acme-challenge", "pointsTo": "%dcvTarget%.dcv.cloudflare.com", "ttl": 600 },
+    { "groupId": "certificate-txt", "type": "TXT", "host": "_acme-challenge", "data": "%certificateToken%", "txtConflictMatchingMode": "All", "ttl": 600 },
+    { "groupId": "ownership", "type": "TXT", "host": "_cf-custom-hostname", "data": "%ownershipToken%", "txtConflictMatchingMode": "All", "ttl": 600 }
+  ]
+}
