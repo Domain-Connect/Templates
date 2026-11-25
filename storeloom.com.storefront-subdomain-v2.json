@@ -23,7 +23,8 @@
       "data": "verify=%proof%",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "verify="
+      "txtConflictMatchingPrefix": "verify=",
+      "essential": "OnApply"
     }
   ]
 }
