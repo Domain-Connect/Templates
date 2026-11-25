@@ -3,9 +3,9 @@
   "providerName": "Mailsoftly",
   "serviceId": "link-hosts",
   "serviceName": "Mailsoftly Branded Links",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://app.mailsoftly.com/mailsoftly_dark_logo.png",
-  "description": "Points subdomains of your domain at Mailsoftly so the links (links), document pages (docs) and images (cdn) in your emails use your own domain.",
+  "description": "Points subdomains of your domain at Mailsoftly so the links (links), document pages (docs), images (cdn) in your emails, and your landing pages and forms (pages), use your own domain.",
   "syncBlock": false,
   "syncPubKeyDomain": "domainconnect.mailsoftly.com",
   "syncRedirectDomain": "app.mailsoftly.com",
@@ -30,6 +30,13 @@
       "type": "CNAME",
       "host": "cdn",
       "pointsTo": "cdn.%fqdn%.mailsoftly.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "pages",
+      "type": "CNAME",
+      "host": "pages",
+      "pointsTo": "pages.%fqdn%.mailsoftly.net",
       "ttl": 3600
     }
   ]
