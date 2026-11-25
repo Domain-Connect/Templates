@@ -1,0 +1,22 @@
+{
+  "providerId": "suitebear.com",
+  "providerName": "Suitebear",
+  "version": 1,
+  "logoUrl": "https://app.suitebear.com/logo.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "suitebear.com",
+  "syncRedirectDomain": "app.suitebear.com,suitebear.uncoverin.com",
+  "serviceId": "website",
+  "serviceName": "Suitebear website address",
+  "description": "Shows your Suitebear website on your own address (one CNAME record on a sub-domain, never the bare domain).",
+  "variableDescription": "target: the Suitebear address your site is served from",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
