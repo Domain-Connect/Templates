@@ -1,0 +1,29 @@
+{
+  "providerId": "base0.io",
+  "providerName": "base0",
+  "serviceId": "customdomain",
+  "serviceName": "Custom domain for an app",
+  "version": 1,
+  "logoUrl": "https://base0.io/icon.svg",
+  "description": "Points a subdomain to an app published on base0 (base0.cloud) and adds the TXT record that proves you own the domain.",
+  "variableDescription": "app: the app's address label on base0.cloud (e.g. bookings-7f3k2a); token: the ownership proof shown in base0",
+  "syncBlock": false,
+  "syncPubKeyDomain": "base0.io",
+  "syncRedirectDomain": "app.base0.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%app%.base0.cloud",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_base0",
+      "data": "base0-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
