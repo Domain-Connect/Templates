@@ -1,0 +1,21 @@
+{
+  "providerId": "umi.so",
+  "providerName": "Umi",
+  "serviceId": "site",
+  "serviceName": "Umi site on your domain",
+  "version": 1,
+  "logoUrl": "https://umi.so/apple-icon.png",
+  "description": "Points a name under your domain (such as www) at your Umi site, which then gets its certificate and goes live.",
+  "variableDescription": "target: the Umi name the site's address points to; the name under your domain comes from the host parameter",
+  "syncBlock": false,
+  "syncPubKeyDomain": "umi.so",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    }
+  ]
+}
