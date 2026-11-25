@@ -1,0 +1,49 @@
+{
+  "providerId": "treecord.com",
+  "providerName": "Treecord",
+  "serviceId": "email",
+  "serviceName": "Shop email",
+  "version": 1,
+  "logoUrl": "https://treecord.com/icon.svg",
+  "description": "Lets a shop that uses Treecord send email to its customers from its own domain. Does not change where the domain's mail is received.",
+  "variableDescription": "k1, k2, k3: the three DKIM selectors Amazon SES made for the domain",
+  "syncPubKeyDomain": "domainconnect.treecord.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%k1%._domainkey",
+      "pointsTo": "%k1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%k2%._domainkey",
+      "pointsTo": "%k2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "%k3%._domainkey",
+      "pointsTo": "%k3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mailfrom",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
