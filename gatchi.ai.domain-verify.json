@@ -12,7 +12,6 @@
   "variableDescription": "challenge is the random ownership token Gatchi issues for this domain (the part after gatchi-verification=).",
   "records": [
     {
-      "groupId": "ownership",
       "type": "TXT",
       "host": "_gatchi-challenge",
       "data": "gatchi-verification=%challenge%",
