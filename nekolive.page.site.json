@@ -1,10 +1,10 @@
 {
     "providerId": "nekolive.page",
-    "providerName": "Nekolive",
+    "providerName": "Nekolive Creator Page",
     "serviceId": "site",
     "serviceName": "Nekolive Creator Site",
-    "version": 1,
-    "logoUrl": "https://nekolive.net/assets/favicon.svg",
+    "version": 2,
+    "logoUrl": "https://nekolive.net/assets/nekolive.page.svg",
     "description": "Points a subdomain (for example www) to a creator site hosted on Nekolive Page.",
     "variableDescription": "No variables. The record is created on the host chosen by the user.",
     "syncBlock": false,
