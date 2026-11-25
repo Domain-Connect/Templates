@@ -1,15 +1,15 @@
 {
   "providerId": "hyperzod.com",
   "providerName": "Hyperzod",
-  "serviceId": "marketing-mail-branded",
-  "serviceName": "Hyperzod Mail Branded Sending",
+  "serviceId": "email",
+  "serviceName": "Hyperzod Email",
   "version": 1,
   "logoUrl": "https://www.hyperzod.com/images/hyperzod_logo.png",
   "syncBlock": false,
   "syncPubKeyDomain": "hyperzod.com",
   "syncRedirectDomain": "hyperzod.com",
-  "description": "Adds a Hyperzod Mail BYODKIM public key and branded bounce alias to a domain.",
-  "variableDescription": "publickey is the base64 RSA public key without PEM framing; the matching private key is configured separately in Hyperzod Mail.",
+  "description": "Configures DNS records for Hyperzod Email.",
+  "variableDescription": "publickey is the DKIM public key for your domain.",
   "records": [
     {
       "type": "TXT",
