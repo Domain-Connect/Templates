@@ -3,9 +3,9 @@
   "providerName": "Aeonic",
   "serviceId": "partner-domain",
   "serviceName": "Partner website and Client app",
-  "version": 1,
+  "version": 2,
   "description": "Points a Partner's web address (a subdomain such as www or care) at Aeonic and publishes Aeonic's ownership record for that address.",
-  "variableDescription": "%target%: Aeonic's hostname for Partner sites in this environment (for example sites-dev.getaeonic.com); %token%: the one-time ownership value Aeonic issued for this claim",
+  "variableDescription": "%target%: Aeonic's hostname for Partner sites in this environment (for example sites-dev.getaeonic.com); %verifycode%: the one-time ownership value Aeonic issued for this claim",
   "syncPubKeyDomain": "aeonichealthsystems.com",
   "syncRedirectDomain": "partner.aeonichealthsystems.com,partner-dev.aeonichealthsystems.com",
   "hostRequired": true,
@@ -19,7 +19,7 @@
     {
       "type": "TXT",
       "host": "_aeonic-verify",
-      "data": "aeonic-verify=%token%",
+      "data": "aeonic-verify=%verifycode%",
       "ttl": 3600,
       "txtConflictMatchingMode": "All"
     }
