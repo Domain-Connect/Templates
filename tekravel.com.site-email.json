@@ -1,0 +1,108 @@
+{
+    "providerId": "tekravel.com",
+    "providerName": "Tekravel",
+    "serviceId": "site-email",
+    "serviceName": "Tekravel website and email",
+    "version": 1,
+    "logoUrl": "https://tekravel.com/apple-touch-icon.png",
+    "description": "Connects your domain to your Tekravel travel website and lets Tekravel send booking emails from it through Amazon SES (DKIM, custom MAIL FROM and DMARC), in one approval.",
+    "variableDescription": "target: hostname the site is served from (CNAME target); asuid: Azure App Service domain verification ID; edgeOwnership: Cloudflare custom hostname ownership token; verifyToken: Tekravel domain ownership token; dkim1, dkim2, dkim3: Amazon SES Easy DKIM tokens; sesRegion: Amazon SES region of the MAIL FROM feedback endpoint (e.g. eu-west-1); dmarcPolicy: DMARC tags after v=DMARC1 (e.g. p=none; rua=mailto:reports@example.com;).",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "syncPubKeyDomain": "tekravel.com",
+    "syncRedirectDomain": "dubaitrip.com,staging.dubaitrip.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "groupId": "route-cname",
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "asuid",
+            "type": "TXT",
+            "host": "asuid",
+            "data": "%asuid%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "edge-ownership",
+            "type": "TXT",
+            "host": "_cf-custom-hostname",
+            "data": "%edgeOwnership%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "ownership",
+            "type": "TXT",
+            "host": "_tekravel-verify",
+            "data": "tekravel-verify=%verifyToken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "tekravel-verify="
+        },
+        {
+            "groupId": "dkim1",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim2",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dkim3",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "MX",
+            "host": "mail",
+            "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "SPFM",
+            "host": "mail",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "mailfrom-tkv",
+            "type": "MX",
+            "host": "tkv-mail",
+            "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom-tkv",
+            "type": "SPFM",
+            "host": "tkv-mail",
+            "spfRules": "include:amazonses.com"
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; %dmarcPolicy%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}
