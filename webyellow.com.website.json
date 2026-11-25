@@ -1,1 +1,21 @@
-
+{
+    "providerId": "webyellow.com",
+    "providerName": "WebYellow",
+    "serviceId": "website",
+    "serviceName": "WebYellow website",
+    "version": 1,
+    "logoUrl": "https://app.webyellow.com/domain-connect-logo.png",
+    "description": "Points this address (for example www) at the website you built in WebYellow. WebYellow issues the HTTPS certificate automatically. Use an address that is not already in use: records on it are replaced. Your email is not changed.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "webyellowpost.com",
+    "syncRedirectDomain": "app.webyellow.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "sites.webyellowpost.com",
+            "ttl": 3600
+        }
+    ]
+}
