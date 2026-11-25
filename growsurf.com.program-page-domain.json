@@ -1,0 +1,26 @@
+{
+  "providerId": "growsurf.com",
+  "providerName": "GrowSurf",
+  "serviceId": "program-page-domain",
+  "serviceName": "Program Page",
+  "version": 1,
+  "logoUrl": "https://app.growsurf.com/assets/img/logo/iconmark-blue.png",
+  "variableDescription": "certificateLabel: the project-specific label after _acme-challenge_ in Google's DNS authorization record name. certificateTarget: the DNS authorization target before .authorize.certificatemanager.goog.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "growsurf.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "grow.surf",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge_%certificateLabel%",
+      "pointsTo": "%certificateTarget%.authorize.certificatemanager.goog",
+      "ttl": 3600
+    }
+  ]
+}
