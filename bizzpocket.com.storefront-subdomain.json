@@ -1,0 +1,29 @@
+{
+  "providerId": "bizzpocket.com",
+  "providerName": "BizzPocket",
+  "serviceId": "storefront-subdomain",
+  "serviceName": "BizzPocket online store (subdomain)",
+  "version": 1,
+  "logoUrl": "https://bizzpocket.com/logo-mark-512.png",
+  "description": "Connects a subdomain (for example shop.yourdomain.com) to your BizzPocket online store, and adds the record that proves you own it.",
+  "variableDescription": "store: your store's name on BizzPocket (yourstore in yourstore.bizzpocket.com); verifytoken: your store's domain ownership token",
+  "syncPubKeyDomain": "bizzpocket.com",
+  "syncRedirectDomain": "seller.bizzpocket.com,seller.dev.bizzpocket.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%store%.bizzpocket.com",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_bizzpocket-verify",
+      "data": "bizzpocket-verify=%verifytoken%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "bizzpocket-verify="
+    }
+  ]
+}
