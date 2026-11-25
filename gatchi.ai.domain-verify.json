@@ -9,14 +9,16 @@
   "syncPubKeyDomain": "gatchi.ai",
   "syncRedirectDomain": "gatchi.ai",
   "syncBlock": false,
-  "variableDescription": "challenge is the random TXT ownership token Gatchi issues for this domain.",
+  "variableDescription": "challenge is the random ownership token Gatchi issues for this domain (the part after gatchi-verification=).",
   "records": [
     {
       "groupId": "ownership",
       "type": "TXT",
       "host": "_gatchi-challenge",
-      "data": "%challenge%",
-      "ttl": 300
+      "data": "gatchi-verification=%challenge%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "gatchi-verification="
     }
   ]
 }
