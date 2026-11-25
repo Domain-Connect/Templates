@@ -1,0 +1,15 @@
+{
+  "providerId": "one4oll.com",
+  "providerName": "One4Oll",
+  "serviceId": "website-subdomain",
+  "serviceName": "Creator website",
+  "version": 1,
+  "logoUrl": "https://one4oll.com/brand/one4oll-icon.png",
+  "description": "Points a subdomain a creator chose (applied with host, e.g. art.example.com) at their One4Oll site, hosted on Vercel.",
+  "syncPubKeyDomain": "one4oll.com",
+  "syncRedirectDomain": "one4oll.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 }
+  ]
+}
