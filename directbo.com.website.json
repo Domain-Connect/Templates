@@ -1,0 +1,31 @@
+{
+  "providerId": "directbo.com",
+  "providerName": "DirectBo",
+  "serviceId": "website",
+  "serviceName": "DirectBo property website",
+  "version": 1,
+  "logoUrl": "https://directbo.com/brand/directbo-icon.svg",
+  "description": "Connects a subdomain such as www to the owner's DirectBo direct-booking website.",
+  "variableDescription": "token: DirectBo ownership verification value for this domain",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "directbo.com",
+  "syncRedirectDomain": "directbo.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.directbo.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_directbo-challenge",
+      "data": "directbo-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "directbo-verification="
+    }
+  ]
+}

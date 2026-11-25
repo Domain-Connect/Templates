@@ -1,0 +1,34 @@
+{
+  "providerId": "superintern.ai",
+  "providerName": "SuperIntern",
+  "serviceId": "website-test",
+  "serviceName": "SuperIntern website (test environment)",
+  "version": 1,
+  "logoUrl": "https://www.superintern.ai/apple-touch-icon.png",
+  "description": "Connects a name under your domain (such as www) to your SuperIntern website. Only the website record, its ownership check and its certificate record are touched; mail and other records are left alone.",
+  "variableDescription": "verify is the ownership-verification value SuperIntern receives from Cloudflare for SaaS for this hostname.",
+  "syncPubKeyDomain": "superintern.ai",
+  "syncRedirectDomain": "test-app.superintern.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.testforstuff.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge",
+      "pointsTo": "%fqdn%.2c00b35b0afc58a213c2a604a4c45702.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}

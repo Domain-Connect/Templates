@@ -1,0 +1,50 @@
+{
+	"providerId": "mailset.app",
+	"providerName": "Mailset",
+	"serviceId": "sending",
+	"serviceName": "Sending domain",
+	"version": 1,
+	"logoUrl": "https://mailset.app/assets/brand/mailset-app-icon-square.svg",
+	"description": "A domain or subdomain that sends through Mailset while its mail is received elsewhere: DKIM and bounce CNAMEs into Mailset's zone, and an MX to Mailset once replies to it come to Mailset. Applied with host for a subdomain such as news.example.com. The bounce host is mail.<name>, or bounces.<name> when mail.<name> holds something else: one of bouncemail or bouncebounces is applied, never both.",
+	"variableDescription": "%label%: the domain's own name inside Mailset's zone, 24 lowercase hex characters, under which its DKIM keys and bounce host live",
+	"syncPubKeyDomain": "domainconnect.mailset.app",
+	"syncRedirectDomain": "mailset.app",
+	"records": [
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "ms1._domainkey",
+			"pointsTo": "%label%.ms1.dkim.mailset.app",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "ms2._domainkey",
+			"pointsTo": "%label%.ms2.dkim.mailset.app",
+			"ttl": 3600
+		},
+		{
+			"groupId": "bouncemail",
+			"type": "CNAME",
+			"host": "mail",
+			"pointsTo": "%label%.bounces.mailset.app",
+			"ttl": 3600
+		},
+		{
+			"groupId": "bouncebounces",
+			"type": "CNAME",
+			"host": "bounces",
+			"pointsTo": "%label%.bounces.mailset.app",
+			"ttl": 3600
+		},
+		{
+			"groupId": "mx",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "mx1.mailset.app",
+			"priority": 10,
+			"ttl": 3600
+		}
+	]
+}

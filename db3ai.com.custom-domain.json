@@ -1,0 +1,20 @@
+{
+	"providerId": "db3ai.com",
+	"providerName": "db3",
+	"serviceId": "custom-domain",
+	"serviceName": "db3 Cloud app",
+	"version": 1,
+	"logoUrl": "https://github.com/db3ai.png",
+	"description": "Connects a domain or subdomain to an app hosted on db3 Cloud. The ownership and certificate groups add the TXT records that prove the domain is yours and let db3 issue its certificate; the point group sends its visitors to the app.",
+	"variableDescription": "ownership: db3's domain ownership token; certificate: the certificate validation token",
+	"syncBlock": false,
+	"sharedProviderName": false,
+	"syncPubKeyDomain": "db3ai.com",
+	"syncRedirectDomain": "db3.ai",
+	"hostRequired": true,
+	"records": [
+		{ "groupId": "ownership", "type": "TXT", "host": "_cf-custom-hostname", "data": "%ownership%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+		{ "groupId": "certificate", "type": "TXT", "host": "_acme-challenge", "data": "%certificate%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+		{ "groupId": "point", "type": "CNAME", "host": "@", "pointsTo": "custom.db3ai.com", "ttl": 3600 }
+	]
+}

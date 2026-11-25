@@ -1,0 +1,23 @@
+{
+	"providerId": "mailset.app",
+	"providerName": "Mailset",
+	"serviceId": "logo",
+	"serviceName": "Brand logo",
+	"version": 1,
+	"logoUrl": "https://mailset.app/assets/brand/mailset-app-icon-square.svg",
+	"description": "The BIMI record that shows a domain's logo beside its mail in Yahoo, AOL and Fastmail. The logo is served by Mailset, at a URL that changes with each new logo. Without a mark certificate, a= stays empty.",
+	"variableDescription": "%logo%: the logo's version, 12 lowercase hex characters, a hash of the file",
+	"syncPubKeyDomain": "domainconnect.mailset.app",
+	"syncRedirectDomain": "mailset.app",
+	"records": [
+		{
+			"type": "TXT",
+			"host": "default._bimi",
+			"data": "v=BIMI1; l=https://mailset.app/bimi/%fqdn%/%logo%.svg; a=",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=BIMI1",
+			"essential": "OnApply"
+		}
+	]
+}

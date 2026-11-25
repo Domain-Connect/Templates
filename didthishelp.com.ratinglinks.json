@@ -1,0 +1,21 @@
+{
+  "providerId": "didthishelp.com",
+  "providerName": "Did This Help",
+  "serviceId": "ratinglinks",
+  "serviceName": "Rating links on your own domain",
+  "version": 1,
+  "logoUrl": "https://app.didthishelp.com/brand/did-this-help-logo.svg",
+  "description": "Points a subdomain, such as rate.example.com, at Did This Help so the rating links in your help desk replies use your own domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "didthishelp.com",
+  "syncRedirectDomain": "app.didthishelp.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.didthishelp.com",
+      "ttl": 3600
+    }
+  ]
+}

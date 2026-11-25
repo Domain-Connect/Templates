@@ -1,0 +1,22 @@
+{
+    "providerId": "nekolive.page",
+    "providerName": "Nekolive",
+    "serviceId": "site",
+    "serviceName": "Nekolive Creator Site",
+    "version": 1,
+    "logoUrl": "https://nekolive.net/assets/favicon.svg",
+    "description": "Points a subdomain (for example www) to a creator site hosted on Nekolive Page.",
+    "variableDescription": "No variables. The record is created on the host chosen by the user.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "nekolive.page",
+    "syncRedirectDomain": "streamer.nekolive.net",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "sites.nekolive.page",
+            "ttl": 3600
+        }
+    ]
+}

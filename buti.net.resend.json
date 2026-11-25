@@ -1,0 +1,35 @@
+{
+    "providerId": "buti.net",
+    "providerName": "Buti",
+    "serviceId": "resend",
+    "serviceName": "Buti store e-mail (Resend)",
+    "version": 1,
+    "description": "Publishes the DKIM and return-path records a Buti store needs to send transactional e-mail from its own domain through Resend.",
+    "variableDescription": "dkimSelector: DKIM selector Resend assigned (usually 'resend'). dkimPublicKey: base64 DKIM public key from Resend (the part after 'p='). region: AWS region of the Resend return-path host (e.g. eu-west-1).",
+    "syncPubKeyDomain": "buti.net",
+    "syncRedirectDomain": "buti.net",
+    "records": [
+        {
+            "groupId": "dkim",
+            "type": "TXT",
+            "host": "%dkimSelector%._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimPublicKey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "mailfrom",
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com"
+        }
+    ]
+}

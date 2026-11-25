@@ -1,0 +1,31 @@
+{
+  "providerId": "deskpanel.io",
+  "providerName": "DeskPanel",
+  "serviceId": "custom-domain",
+  "serviceName": "DeskPanel Custom Domain",
+  "version": 1,
+  "logoUrl": "https://deskpanel.io/brand/deskpanel.svg",
+  "description": "Serve a DeskPanel workspace's portal, help center, changelog and roadmap on your own domain.",
+  "variableDescription": "verification is the ownership token Cloudflare for SaaS issues for the custom hostname.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.deskpanel.io",
+  "syncRedirectDomain": "deskpanel.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "groupId": "cname",
+      "host": "@",
+      "pointsTo": "domains.deskpanel.io",
+      "ttl": "3600"
+    },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_cf-custom-hostname",
+      "ttl": "3600",
+      "data": "%verification%",
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}

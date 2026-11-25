@@ -1,0 +1,23 @@
+{
+  "providerId": "luminalabs.sh",
+  "providerName": "Lumina",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain verification",
+  "version": 1,
+  "logoUrl": "https://app.luminalabs.sh/icon.svg",
+  "description": "Adds a TXT record that proves you control this domain, so Lumina can run security tests against it.",
+  "variableDescription": "token: the verification code shown in your Lumina workspace",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "luminalabs.sh",
+  "syncRedirectDomain": "app.luminalabs.sh,test-app.luminalabs.sh",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_lumina-verify",
+      "data": "verify-%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}

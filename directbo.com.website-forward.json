@@ -1,0 +1,21 @@
+{
+  "providerId": "directbo.com",
+  "providerName": "DirectBo",
+  "serviceId": "website-forward",
+  "serviceName": "Forward bare domain to www (DirectBo)",
+  "version": 1,
+  "logoUrl": "https://directbo.com/brand/directbo-icon.svg",
+  "description": "Forwards the bare domain (example.com) to the owner's DirectBo website at www.example.com. Applied only when the owner chooses to forward it.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "directbo.com",
+  "syncRedirectDomain": "directbo.com",
+  "records": [
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%domain%"
+    }
+  ]
+}

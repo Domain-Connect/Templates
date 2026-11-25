@@ -1,0 +1,23 @@
+{
+  "providerId": "inbox4u.biz",
+  "providerName": "inbox4u",
+  "serviceId": "mail-receiving",
+  "serviceName": "inbox4u business email (receiving)",
+  "version": 1,
+  "logoUrl": "https://inbox4u.biz/icon.svg",
+  "description": "Routes the domain's incoming email to inbox4u. Replaces the domain's existing MX records.",
+  "variableDescription": "mxhost: the inbound mail host for the domain's region",
+  "syncBlock": false,
+  "syncPubKeyDomain": "inbox4u.biz",
+  "syncRedirectDomain": "app.inbox4u.biz",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mxhost%",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+	"providerId": "mailset.app",
+	"providerName": "Mailset",
+	"serviceId": "mail",
+	"serviceName": "Mail",
+	"version": 1,
+	"logoUrl": "https://mailset.app/assets/brand/mailset-app-icon-square.svg",
+	"description": "Mail for a domain on Mailset: MX to Mailset, Mailset's SPF include, DKIM and bounce CNAMEs into Mailset's zone, a DMARC record when there is none, MTA-STS and TLS-RPT. Each group is one purpose, and Mailset applies only the groups whose records are missing or wrong. The bounce host is mail.<domain>, or bounces.<domain> when mail.<domain> holds something else: one of bouncemail or bouncebounces is applied, never both.",
+	"variableDescription": "%label%: the domain's own name inside Mailset's zone, 24 lowercase hex characters, under which its DKIM keys and bounce host live; %stsid%: the MTA-STS policy id, 16 lowercase hex characters, which changes when the policy does",
+	"syncPubKeyDomain": "domainconnect.mailset.app",
+	"syncRedirectDomain": "mailset.app",
+	"records": [
+		{
+			"groupId": "mx",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "mx1.mailset.app",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "spf",
+			"type": "SPFM",
+			"host": "@",
+			"spfRules": "include:spf.mailset.app"
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "ms1._domainkey",
+			"pointsTo": "%label%.ms1.dkim.mailset.app",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dkim",
+			"type": "CNAME",
+			"host": "ms2._domainkey",
+			"pointsTo": "%label%.ms2.dkim.mailset.app",
+			"ttl": 3600
+		},
+		{
+			"groupId": "bouncemail",
+			"type": "CNAME",
+			"host": "mail",
+			"pointsTo": "%label%.bounces.mailset.app",
+			"ttl": 3600
+		},
+		{
+			"groupId": "bouncebounces",
+			"type": "CNAME",
+			"host": "bounces",
+			"pointsTo": "%label%.bounces.mailset.app",
+			"ttl": 3600
+		},
+		{
+			"groupId": "dmarc",
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "v=DMARC1; p=none; rua=mailto:dmarc@mailset.app",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=DMARC1",
+			"essential": "OnApply"
+		},
+		{
+			"groupId": "mtasts",
+			"type": "TXT",
+			"host": "_mta-sts",
+			"data": "v=STSv1; id=%stsid%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=STSv1",
+			"essential": "OnApply"
+		},
+		{
+			"groupId": "mtastshost",
+			"type": "CNAME",
+			"host": "mta-sts",
+			"pointsTo": "mta-sts.mailset.app",
+			"ttl": 3600
+		},
+		{
+			"groupId": "tlsrpt",
+			"type": "TXT",
+			"host": "_smtp._tls",
+			"data": "v=TLSRPTv1; rua=mailto:tlsrpt@mailset.app",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "v=TLSRPTv1",
+			"essential": "OnApply"
+		}
+	]
+}

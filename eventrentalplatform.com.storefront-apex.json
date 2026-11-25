@@ -1,0 +1,28 @@
+{
+  "providerId": "eventrentalplatform.com",
+  "providerName": "Event Rental Platform",
+  "serviceId": "storefront-apex",
+  "serviceName": "Rental storefront (apex)",
+  "version": 1,
+  "description": "Connect a rental storefront at the root domain.",
+  "variableDescription": "proof is the unique ownership verification value created for this storefront hostname.",
+  "syncPubKeyDomain": "eventrentalplatform.com",
+  "syncRedirectDomain": "app.eventrentalplatform.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "179.66.148.154",
+      "ttl": 1800
+    },
+    {
+      "type": "TXT",
+      "host": "_gather-verification",
+      "data": "gather-domain=%proof%",
+      "ttl": 1800,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "gather-domain="
+    }
+  ]
+}

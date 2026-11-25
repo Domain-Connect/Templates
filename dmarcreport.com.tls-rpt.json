@@ -1,0 +1,25 @@
+{
+  "providerId": "dmarcreport.com",
+  "providerName": "DMARC Report",
+  "serviceId": "tls-rpt",
+  "serviceName": "TLS reporting (TLS-RPT)",
+  "version": 1,
+  "logoUrl": "https://dmarcreport.com/favicon.svg",
+  "description": "Start TLS reporting for your domain. Publishes your TLS-RPT record with DMARC Report's reporting address, so SMTP TLS reports reach DMARC Report.",
+  "variableDescription": "tlsRptId is your domain's reporting ID in DMARC Report",
+  "syncRedirectDomain": "app.dmarcreport.com,dmarcreport.com",
+  "syncPubKeyDomain": "domainconnect.dmarcreport.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_smtp._tls",
+      "data": "v=TLSRPTv1; rua=mailto:%tlsRptId%.m@dmarcinput.com",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=TLSRPTv1",
+      "essential": "OnApply"
+    }
+  ]
+}

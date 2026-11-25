@@ -1,0 +1,20 @@
+{
+  "providerId": "getalbi.com",
+  "providerName": "Albi",
+  "serviceId": "email-sending",
+  "serviceName": "Albi email sending",
+  "version": 1,
+  "logoUrl": "https://portal.getalbi.com/images/albi-neutral-logo-light-transparent.png",
+  "description": "Authenticates the subdomain a business sends its Albi emails from (for example news.theirbusiness.com): a return path, two DKIM keys and two link branding records at SendGrid. Applied with host set to that subdomain; nothing is added at the root of the domain.",
+  "variableDescription": "Apply with host = the sending subdomain label (for example news). returnid: the number in SendGrid's return-path host (em<returnid>). sguser: the business's SendGrid account number. sgwl: SendGrid's white-label number. linkid: the number in SendGrid's link branding host (url<linkid>).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.getalbi.com",
+  "syncRedirectDomain": "admin.getalbi.com,portal.getalbi.com",
+  "records": [
+    { "type": "CNAME", "host": "em%returnid%", "pointsTo": "u%sguser%.wl%sgwl%.sendgrid.net", "ttl": 3600 },
+    { "type": "CNAME", "host": "s1._domainkey", "pointsTo": "s1.domainkey.u%sguser%.wl%sgwl%.sendgrid.net", "ttl": 3600 },
+    { "type": "CNAME", "host": "s2._domainkey", "pointsTo": "s2.domainkey.u%sguser%.wl%sgwl%.sendgrid.net", "ttl": 3600 },
+    { "type": "CNAME", "host": "url%linkid%", "pointsTo": "sendgrid.net", "ttl": 3600 },
+    { "type": "CNAME", "host": "%sguser%", "pointsTo": "sendgrid.net", "ttl": 3600 }
+  ]
+}

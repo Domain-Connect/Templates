@@ -1,0 +1,27 @@
+{
+    "providerId": "selan.ai",
+    "providerName": "Selan",
+    "serviceId": "mailprotect",
+    "serviceName": "E-mail spoofing protection",
+    "version": 1,
+    "logoUrl": "https://selan.ai/logo.svg",
+    "description": "Protects the domain's e-mail from spoofing: merges the domain's mail senders into its SPF record and delegates its DMARC policy by CNAME to a record Selan keeps in its own zone (dmarc.selan.ai), so the policy can later move from monitoring to quarantine without another change to the domain's DNS.",
+    "variableDescription": "%spfRules%: SPF mechanisms of the domain's mail provider(s) for the SPFM merge, without the leading \"v=spf1\" and the final \"all\" (e.g. include:_spf.google.com); %dmarcid%: the label Selan assigns to this domain under dmarc.selan.ai (e.g. example-com)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "selan.ai",
+    "syncRedirectDomain": "selan.ai",
+    "records": [
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "%spfRules%"
+        },
+        {
+            "type": "CNAME",
+            "host": "_dmarc",
+            "pointsTo": "%dmarcid%.dmarc.selan.ai",
+            "ttl": 3600,
+            "essential": "OnApply"
+        }
+    ]
+}

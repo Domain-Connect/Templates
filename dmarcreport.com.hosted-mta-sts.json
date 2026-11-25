@@ -1,0 +1,37 @@
+{
+  "providerId": "dmarcreport.com",
+  "providerName": "DMARC Report",
+  "serviceId": "hosted-mta-sts",
+  "serviceName": "Hosted MTA-STS",
+  "version": 1,
+  "logoUrl": "https://dmarcreport.com/favicon.svg",
+  "description": "Let DMARC Report host MTA-STS and TLS-RPT for your domain. Points mta-sts, _mta-sts and _smtp._tls at DMARC Report with CNAMEs, so policy changes are made in DMARC Report without editing DNS again.",
+  "variableDescription": "mtaStsHostId is your domain's hosted MTA-STS label in DMARC Report",
+  "syncRedirectDomain": "app.dmarcreport.com,dmarcreport.com",
+  "syncPubKeyDomain": "domainconnect.dmarcreport.com",
+  "syncBlock": false,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "%mtaStsHostId%.mta-sts.dmarcinput.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "_mta-sts",
+      "pointsTo": "%mtaStsHostId%._m.dmarcinput.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "_smtp._tls",
+      "pointsTo": "%mtaStsHostId%._smtp_tls.dmarcinput.com",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}

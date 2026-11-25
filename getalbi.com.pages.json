@@ -1,0 +1,15 @@
+{
+  "providerId": "getalbi.com",
+  "providerName": "Albi",
+  "serviceId": "pages",
+  "serviceName": "Albi adaptive pages",
+  "version": 1,
+  "logoUrl": "https://portal.getalbi.com/images/albi-neutral-logo-light-transparent.png",
+  "description": "Serves a business's Albi adaptive pages on pages.<their domain> with one CNAME to Albi. Nothing is added at the root of the domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.getalbi.com",
+  "syncRedirectDomain": "admin.getalbi.com,portal.getalbi.com",
+  "records": [
+    { "type": "CNAME", "host": "pages", "pointsTo": "customers.getalbi.com", "ttl": 3600 }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+	"providerId": "synno.app",
+	"providerName": "Synno",
+	"serviceId": "domain",
+	"serviceName": "Your domain's address and mail",
+	"version": 3,
+	"logoUrl": "https://synno.app/favicon.svg",
+	"description": "Proves the domain is the organization's, points its address at the platform, and publishes the records its mail needs. Only the groups the organization turns on are applied.",
+	"variableDescription": "verification: the ownership TXT value; hostlabel: the address's label, pointed at the platform; spfinclude: what SPF includes; dkimselector, dkimkey: the active DKIM key and its record; dmarc: the DMARC record; feedbackmx, bouncespf: the bounce subdomain's MX at the delivery service and what its SPF includes; mx, webhost, submission: the mail server, the host serving autoconfig, autodiscover and MTA-STS, and the submission host; mtasts, tlsrpt: the MTA-STS and TLS-RPT TXT values.",
+	"syncBlock": false,
+	"syncPubKeyDomain": "synno.app",
+	"syncRedirectDomain": "synno.app",
+	"hostRequired": false,
+	"records": [
+		{
+			"groupId": "ownership",
+			"type": "TXT",
+			"host": "_synno",
+			"data": "%verification%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "host",
+			"type": "CNAME",
+			"host": "%hostlabel%",
+			"pointsTo": "custom.synno.app",
+			"ttl": 3600
+		},
+		{
+			"groupId": "sending",
+			"type": "SPFM",
+			"host": "@",
+			"spfRules": "include:%spfinclude%"
+		},
+		{
+			"groupId": "sending",
+			"type": "TXT",
+			"host": "%dkimselector%._domainkey",
+			"data": "%dkimkey%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "sending",
+			"type": "TXT",
+			"host": "_dmarc",
+			"data": "%dmarc%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All",
+			"essential": "OnApply"
+		},
+		{
+			"groupId": "bounce",
+			"type": "MX",
+			"host": "bounce",
+			"pointsTo": "%feedbackmx%",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "bounce",
+			"type": "SPFM",
+			"host": "bounce",
+			"spfRules": "include:%bouncespf%"
+		},
+		{
+			"groupId": "hosted_mail",
+			"type": "MX",
+			"host": "@",
+			"pointsTo": "%mx%",
+			"priority": 10,
+			"ttl": 3600
+		},
+		{
+			"groupId": "hosted_mail",
+			"type": "CNAME",
+			"host": "autoconfig",
+			"pointsTo": "%webhost%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "hosted_mail",
+			"type": "CNAME",
+			"host": "autodiscover",
+			"pointsTo": "%webhost%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "hosted_mail",
+			"type": "CNAME",
+			"host": "mta-sts",
+			"pointsTo": "%webhost%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "hosted_mail",
+			"type": "TXT",
+			"host": "_mta-sts",
+			"data": "%mtasts%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All"
+		},
+		{
+			"groupId": "hosted_mail",
+			"type": "TXT",
+			"host": "_smtp._tls",
+			"data": "%tlsrpt%",
+			"ttl": 3600,
+			"txtConflictMatchingMode": "All"
+		},
+		{
+			"groupId": "hosted_mail",
+			"type": "SRV",
+			"name": "@",
+			"service": "_submission",
+			"protocol": "_tcp",
+			"priority": 0,
+			"weight": 1,
+			"port": 587,
+			"target": "%submission%",
+			"ttl": 3600
+		},
+		{
+			"groupId": "hosted_mail",
+			"type": "SRV",
+			"name": "@",
+			"service": "_imaps",
+			"protocol": "_tcp",
+			"priority": 0,
+			"weight": 1,
+			"port": 993,
+			"target": "%submission%",
+			"ttl": 3600
+		}
+	]
+}

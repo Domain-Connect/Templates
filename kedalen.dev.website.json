@@ -1,0 +1,28 @@
+{
+  "providerId": "kedalen.dev",
+  "providerName": "Kedalen",
+  "serviceId": "website",
+  "serviceName": "Kedalen website",
+  "version": 1,
+  "description": "Connect a chosen subdomain to its Kedalen website and prove control of that hostname.",
+  "variableDescription": "%site%: the site's assigned Kedalen hostname label; %verification%: the hostname's control token",
+  "syncPubKeyDomain": "kedalen.dev",
+  "syncRedirectDomain": "clients.kedalen.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%site%.kedalen.dev",
+      "ttl": 600
+    },
+    {
+      "type": "TXT",
+      "host": "_kedalen",
+      "data": "kedalen-site-verification=%verification%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "kedalen-site-verification="
+    }
+  ]
+}

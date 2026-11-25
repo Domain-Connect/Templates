@@ -3,9 +3,9 @@
   "providerName": "THOST",
   "serviceId": "hosting",
   "serviceName": "THOST web and email hosting",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://www.t-host.co.uk/og-image.png",
-  "description": "Points your domain at your THOST hosting account: website, www, email delivery, SPF and webmail.",
+  "description": "Points your domain at your THOST hosting account: website (both THOST front-door addresses on the bare domain, www by CNAME), email delivery, SPF and webmail.",
   "syncBlock": false,
   "syncPubKeyDomain": "t-host.co.uk",
   "syncRedirectDomain": "www.t-host.co.uk",
@@ -14,13 +14,19 @@
     {
       "type": "A",
       "host": "@",
-      "pointsTo": "176.20.131.224",
+      "pointsTo": "5.181.124.113",
       "ttl": 3600
     },
     {
       "type": "A",
+      "host": "@",
+      "pointsTo": "51.195.216.9",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
       "host": "www",
-      "pointsTo": "176.20.131.224",
+      "pointsTo": "sites.t-host.co.uk",
       "ttl": 3600
     },
     {
@@ -38,7 +44,7 @@
     {
       "type": "CNAME",
       "host": "webmail",
-      "pointsTo": "webmail.t-host.co.uk",
+      "pointsTo": "sites.t-host.co.uk",
       "ttl": 3600
     }
   ]

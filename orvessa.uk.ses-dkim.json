@@ -1,0 +1,33 @@
+{
+  "providerId": "orvessa.uk",
+  "providerName": "Orvessa",
+  "serviceId": "ses-dkim",
+  "serviceName": "Email sending (Amazon SES DKIM)",
+  "version": 1,
+  "logoUrl": "https://orvessa.uk/icon.png",
+  "description": "Publishes the three Amazon SES Easy DKIM CNAME records so that Orvessa can send e-mail from the domain through Amazon SES.",
+  "variableDescription": "dkimToken1, dkimToken2, dkimToken3: the three Easy DKIM tokens Amazon SES issued for the domain (lower-case letters and digits)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "orvessa.uk",
+  "syncRedirectDomain": "orvessa.uk",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkimToken1%._domainkey",
+      "pointsTo": "%dkimToken1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken2%._domainkey",
+      "pointsTo": "%dkimToken2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkimToken3%._domainkey",
+      "pointsTo": "%dkimToken3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
