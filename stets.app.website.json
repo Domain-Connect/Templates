@@ -1,0 +1,18 @@
+{
+  "providerId": "stets.app",
+  "providerName": "Stets",
+  "serviceId": "website",
+  "serviceName": "Website on Stets",
+  "version": 1,
+  "logoUrl": "https://stets.app/brand/kit/stets-mark.svg",
+  "description": "Points a subdomain (like www) at a website built on Stets, and adds the TXT record that proves the name is the owner's.",
+  "variableDescription": "txt: the ownership value Stets shows for this name",
+  "syncBlock": false,
+  "syncPubKeyDomain": "stets.app",
+  "syncRedirectDomain": "stets.app",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "domains.stets.page", "ttl": 3600 },
+    { "type": "TXT", "host": "_cf-custom-hostname", "data": "%txt%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}
