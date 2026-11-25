@@ -1,0 +1,23 @@
+{
+    "providerId": "rivervo.com",
+    "providerName": "Rivervo",
+    "serviceId": "mail",
+    "serviceName": "Rivervo Business Email",
+    "version": 1,
+    "logoUrl": "https://rivervo.com/favicons/android-chrome-192x192.png",
+    "description": "Connects a domain to Rivervo business email: MX, SPF, DKIM and return-path CNAMEs, DMARC (only when the domain has none) and the Outlook autodiscover SRV record.",
+    "variableDescription": "dkimkey: DKIM selector (host %dkimkey%._domainkey); dkimtarget: the selector's key name at aegis.email; rpkey: return-path key name at aegis.email; dmarcpolicy: DMARC tags after v=DMARC1;",
+    "syncBlock": false,
+    "syncPubKeyDomain": "rivervo.com",
+    "syncRedirectDomain": "rivervo.com",
+    "hostRequired": false,
+    "records": [
+        { "groupId": "mx", "type": "MX", "host": "@", "pointsTo": "mx1.aegis.email", "priority": 10, "ttl": 3600 },
+        { "groupId": "mx", "type": "MX", "host": "@", "pointsTo": "mx2.aegis.email", "priority": 20, "ttl": 3600 },
+        { "groupId": "spf", "type": "SPFM", "host": "@", "spfRules": "include:_spf.aegis.email" },
+        { "groupId": "dkim", "type": "CNAME", "host": "%dkimkey%._domainkey", "pointsTo": "%dkimtarget%._domainkey.aegis.email", "ttl": 3600 },
+        { "groupId": "returnpath", "type": "CNAME", "host": "psrp", "pointsTo": "%rpkey%.aegis.email", "ttl": 3600 },
+        { "groupId": "dmarc", "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; %dmarcpolicy%", "ttl": 3600, "txtConflictMatchingMode": "None", "essential": "OnApply" },
+        { "groupId": "autodiscover", "type": "SRV", "name": "@", "service": "_autodiscover", "protocol": "_tcp", "priority": 0, "weight": 0, "port": 443, "target": "mail.aegis.email", "ttl": 3600 }
+    ]
+}
