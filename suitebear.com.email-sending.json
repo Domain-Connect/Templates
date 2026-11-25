@@ -1,0 +1,48 @@
+{
+  "providerId": "suitebear.com",
+  "providerName": "Suitebear",
+  "version": 1,
+  "logoUrl": "https://app.suitebear.com/logo.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "suitebear.com",
+  "syncRedirectDomain": "app.suitebear.com,suitebear.uncoverin.com",
+  "serviceId": "email-sending",
+  "serviceName": "Suitebear email sending",
+  "description": "Lets Suitebear send email from your domain: signature (DKIM), bounce address (MX and SPF) and DMARC.",
+  "variableDescription": "dkim: DKIM public key (after p=) from the sending service; mxhost: bounce mail server; dmarc: DMARC tags after v=DMARC1;",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "email",
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkim%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "email",
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "%mxhost%",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "email",
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; %dmarc%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
