@@ -1,0 +1,21 @@
+{
+  "providerId": "tyrodesk.com",
+  "serviceId": "workspace-verification",
+  "serviceName": "Workspace domain verification",
+  "providerName": "TyroDesk",
+  "version": 1,
+  "description": "Adds the TXT record that proves control of a TyroDesk workspace hostname.",
+  "variableDescription": "%verification%: TyroDesk workspace and hostname verification token",
+  "syncPubKeyDomain": "domainconnect.tyrodesk.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_tyrodesk-verify",
+      "data": "tyrodesk-verification=%verification%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "tyrodesk-verification=",
+      "essential": "OnApply"
+    }
+  ]
+}
