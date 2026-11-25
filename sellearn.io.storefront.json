@@ -1,0 +1,29 @@
+{
+  "providerId": "sellearn.io",
+  "providerName": "Sellearn",
+  "serviceId": "storefront",
+  "serviceName": "Online store",
+  "version": 1,
+  "logoUrl": "https://sellearn.io/bimi/sellearn.svg",
+  "description": "Points a subdomain (for example shop.example.com) at a Sellearn store. A TXT record proves you own the domain, a CNAME record sends your visitors to your store. Every other record stays as it is.",
+  "variableDescription": "token: the verification code shown on the Custom Domain page of the Sellearn dashboard.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "sellearn.io",
+  "syncRedirectDomain": "sellearn.io",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_sellearn-verify",
+      "data": "sellearn-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.sellearn.io",
+      "ttl": 3600
+    }
+  ]
+}
