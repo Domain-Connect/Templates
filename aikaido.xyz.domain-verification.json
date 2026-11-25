@@ -1,0 +1,24 @@
+{
+	"providerId": "aikaido.xyz",
+	"providerName": "AIKAIDO",
+	"serviceId": "domain-verification",
+	"serviceName": "Domain Verification",
+	"version": 1,
+	"logoUrl": "https://aikaido.xyz/icon.svg",
+	"description": "Proves to AIKAIDO that you control the domain, so its security audit findings are shown to you.",
+	"variableDescription": "%token%: the one-time verification token AIKAIDO issued for this domain",
+	"syncBlock": false,
+	"syncPubKeyDomain": "aikaido.xyz",
+	"syncRedirectDomain": "aikaido.xyz",
+	"records": [
+		{
+			"type": "TXT",
+			"host": "_aikaido",
+			"ttl": 300,
+			"data": "aikaido-verify=%token%",
+			"txtConflictMatchingMode": "Prefix",
+			"txtConflictMatchingPrefix": "aikaido-verify=",
+			"essential": "OnApply"
+		}
+	]
+}
