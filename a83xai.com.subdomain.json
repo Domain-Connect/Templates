@@ -1,0 +1,16 @@
+{
+  "providerId": "a83xai.com",
+  "providerName": "A83Xai",
+  "serviceId": "subdomain",
+  "serviceName": "A83Xai website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://a83xai.com/apple-touch-icon.png",
+  "description": "Opens your A83Xai website at one subdomain you choose, such as shop.yourdomain. Nothing else on the domain is touched.",
+  "variableDescription": "No variables.",
+  "syncPubKeyDomain": "a83xai.com",
+  "syncRedirectDomain": "app.a83xai.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "customers.a83xai.com", "ttl": 3600 }
+  ]
+}
