@@ -9,6 +9,7 @@
   "variableDescription": "%claim% is the Storeloom routing label. %proof% is its ownership token.",
   "syncPubKeyDomain": "dns-connect.storeloom.com",
   "syncRedirectDomain": "admin.storeloom.com",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",

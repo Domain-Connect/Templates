@@ -9,6 +9,7 @@
   "variableDescription": "%apexClaim% and %wwwClaim% are the two Storeloom routing labels. %apexProof% and %wwwProof% are the respective ownership tokens.",
   "syncPubKeyDomain": "dns-connect.storeloom.com",
   "syncRedirectDomain": "admin.storeloom.com",
+  "hostRequired": true,
   "records": [
     {
       "type": "CNAME",
