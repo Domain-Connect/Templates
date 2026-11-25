@@ -1,0 +1,16 @@
+{
+  "providerId": "gofaceless.dev",
+  "providerName": "Faceless",
+  "serviceId": "agents",
+  "serviceName": "AI-readable website",
+  "version": 1,
+  "logoUrl": "https://gofaceless.dev/assets/logo-wordmark.svg",
+  "description": "Points agents.<your domain> to Faceless, which hosts your business's AI-readable website. Nothing else on the domain changes.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gofaceless.dev",
+  "syncRedirectDomain": "app.gofaceless.dev",
+  "hostRequired": false,
+  "records": [
+    { "type": "CNAME", "host": "agents", "pointsTo": "clients.gofaceless.dev", "ttl": 3600 }
+  ]
+}
