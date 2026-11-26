@@ -1,0 +1,30 @@
+{
+  "providerId": "matpace.com",
+  "providerName": "MatPace",
+  "serviceId": "website",
+  "serviceName": "MatPace gym website",
+  "version": 1,
+  "logoUrl": "https://matpace.com/app-icon-512.png",
+  "description": "Shows a gym's MatPace website at its own www address, and adds a code that proves the address is theirs.",
+  "variableDescription": "code: the gym's MatPace check code (24 letters and numbers)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "matpace.com",
+  "syncRedirectDomain": "matpace.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.matpace.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_matpace.www",
+      "data": "matpace-verify-%code%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "matpace-verify-"
+    }
+  ]
+}
