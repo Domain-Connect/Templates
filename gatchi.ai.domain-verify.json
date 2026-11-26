@@ -1,0 +1,23 @@
+{
+  "providerId": "gatchi.ai",
+  "providerName": "Gatchi",
+  "serviceId": "domain-verify",
+  "serviceName": "Gatchi domain verification",
+  "version": 1,
+  "description": "Proves you own this domain so Gatchi can run authorized security assessments. Adds a single TXT ownership record; nothing else is changed.",
+  "logoUrl": "https://gatchi.ai/apple-touch-icon.png",
+  "syncPubKeyDomain": "gatchi.ai",
+  "syncRedirectDomain": "gatchi.ai",
+  "syncBlock": false,
+  "variableDescription": "challenge is the random ownership token Gatchi issues for this domain (the part after gatchi-verification=).",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_gatchi-challenge",
+      "data": "gatchi-verification=%challenge%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "gatchi-verification="
+    }
+  ]
+}
