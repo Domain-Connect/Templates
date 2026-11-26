@@ -1,0 +1,16 @@
+{
+  "providerId": "a83xai.com",
+  "providerName": "A83Xai",
+  "serviceId": "website",
+  "serviceName": "A83Xai website",
+  "version": 1,
+  "logoUrl": "https://a83xai.com/apple-touch-icon.png",
+  "description": "Opens your A83Xai website at www.yourdomain and sends visitors who leave out www to the same site. Email (MX) and other records are not touched.",
+  "variableDescription": "No variables.",
+  "syncPubKeyDomain": "a83xai.com",
+  "syncRedirectDomain": "app.a83xai.com",
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "customers.a83xai.com", "ttl": 3600 },
+    { "type": "REDIR301", "host": "@", "target": "https://www.%fqdn%" }
+  ]
+}
