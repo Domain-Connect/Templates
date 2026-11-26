@@ -1,0 +1,34 @@
+{
+  "providerId": "cartero.fullsend.com.do",
+  "providerName": "Cartero",
+  "serviceId": "sending",
+  "serviceName": "Cartero sending domain",
+  "version": 1,
+  "logoUrl": "https://cartero.fullsend.com.do/brand/logo-ink.svg",
+  "description": "Authenticates a sending domain for Cartero, a transactional email service backed by Twilio SendGrid, by adding SendGrid's three domain-authentication CNAME records (return path and two DKIM keys).",
+  "variableDescription": "%mailid%: the numeric part of the SendGrid return-path host em<id>; %mailtarget%: its target (uNNNN.wlNNN.sendgrid.net); %dkim1target% / %dkim2target%: targets of the s1/s2 DKIM CNAMEs (sN.domainkey.uNNNN.wlNNN.sendgrid.net). All values come from the SendGrid domain-authentication API for the customer's domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "cartero.fullsend.com.do",
+  "syncRedirectDomain": "cartero.fullsend.com.do,cartero-stage.fullsend.com.do",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "em%mailid%",
+      "pointsTo": "%mailtarget%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "s1._domainkey",
+      "pointsTo": "%dkim1target%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "s2._domainkey",
+      "pointsTo": "%dkim2target%",
+      "ttl": 3600
+    }
+  ]
+}
