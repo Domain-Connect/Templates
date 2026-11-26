@@ -1,0 +1,17 @@
+{
+  "providerId": "protectspam.com",
+  "providerName": "ProtectSpam",
+  "serviceId": "mx",
+  "serviceName": "ProtectSpam e-mail filtering",
+  "version": 1,
+  "logoUrl": "https://account.protectspam.com/assets/img/logo-mark.svg",
+  "description": "Points the domain's MX records to the ProtectSpam e-mail filtering gateways.",
+  "syncPubKeyDomain": "protectspam.com",
+  "syncRedirectDomain": "account.protectspam.com",
+  "records": [
+    { "type": "MX", "host": "@", "pointsTo": "mx.protectspam.ch",          "priority": 0,  "ttl": 3600 },
+    { "type": "MX", "host": "@", "pointsTo": "mx.protectspam.com",         "priority": 10, "ttl": 3600 },
+    { "type": "MX", "host": "@", "pointsTo": "alt.mx.protectspam.net",     "priority": 20, "ttl": 3600 },
+    { "type": "MX", "host": "@", "pointsTo": "alt2.mx.protectspam.com.br", "priority": 30, "ttl": 3600 }
+  ]
+}
