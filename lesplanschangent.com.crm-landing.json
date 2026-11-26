@@ -1,0 +1,16 @@
+{
+  "providerId": "lesplanschangent.com",
+  "providerName": "Les Plans Changent",
+  "serviceId": "crm-landing",
+  "serviceName": "Pages d'atterrissage (Chantier Pro CRM)",
+  "version": 1,
+  "logoUrl": "https://crm-staging.lesplanschangent.com/statique/logo-lpc.svg",
+  "description": "Publishes Les Plans Changent landing pages on a subdomain of the customer's domain (e.g. lp.example.com).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "lesplanschangent.com",
+  "syncRedirectDomain": "crm-staging.lesplanschangent.com,crm.lesplanschangent.com",
+  "hostRequired": true,
+  "records": [
+    {"type": "CNAME", "host": "@", "pointsTo": "domaines.lesplanschangent.com", "ttl": 3600}
+  ]
+}
