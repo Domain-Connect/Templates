@@ -1,0 +1,21 @@
+{
+  "providerId": "ganyant.com",
+  "providerName": "ganyant",
+  "serviceId": "status-page",
+  "serviceName": "Status page",
+  "version": 1,
+  "logoUrl": "https://ganyant.com/icon-192.png",
+  "description": "Points a host (for example status.example.com) to the user's public ganyant status page.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "ganyant.com",
+  "syncRedirectDomain": "app.ganyant.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "status.ganyant.com",
+      "ttl": 300
+    }
+  ]
+}
