@@ -1,0 +1,28 @@
+{
+    "providerId": "practisan.com",
+    "providerName": "Practisan",
+    "serviceId": "website",
+    "serviceName": "Your Practisan website",
+    "version": 1,
+    "logoUrl": "https://practisan.com/brand/practisan-logo-light.svg",
+    "description": "Points the domain and its www at the practitioner's website hosted by Practisan (on Netlify). Only these two website records are set: email records (MX, SPF, DKIM, DMARC) and every other record stay exactly as they are.",
+    "variableDescription": "site: the website's Netlify name, the part before .netlify.app (for example example-practice for example-practice.netlify.app)",
+    "syncBlock": false,
+    "syncPubKeyDomain": "practisan.com",
+    "syncRedirectDomain": "practisan.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "75.2.60.5",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "%site%.netlify.app",
+            "ttl": 3600
+        }
+    ]
+}
