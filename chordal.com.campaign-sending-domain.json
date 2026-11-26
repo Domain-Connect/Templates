@@ -1,0 +1,42 @@
+{
+  "providerId": "chordal.com",
+  "providerName": "Chordal",
+  "serviceId": "campaign-sending-domain",
+  "serviceName": "Campaign sending domain",
+  "version": 1,
+  "logoUrl": "https://app.chordal.com/logo.png",
+  "description": "Lets Chordal send your email campaigns from your domain: the DKIM key and the SPF and return-path records of Chordal's email service (Resend).",
+  "variableDescription": "dkimkey: the DKIM public key the email service made for this domain, the part after p= (base64). rsendhost: the email service's return-path host under rmta.net (send.forge).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": false,
+  "syncPubKeyDomain": "domainconnect.chordal.com",
+  "syncRedirectDomain": "app.chordal.com,master.chordal.com,develop.chordal.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.us-east-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "rsend",
+      "pointsTo": "%rsendhost%.rmta.net",
+      "ttl": 3600
+    }
+  ]
+}
