@@ -1,0 +1,45 @@
+{
+  "providerId": "tebaba.io",
+  "providerName": "Tebaba",
+  "serviceId": "doctor-site",
+  "serviceName": "Doctor website",
+  "version": 1,
+  "logoUrl": "https://my.tebaba.io/domain-connect/logo.svg",
+  "description": "Shows a doctor's Tebaba website at the doctor's own domain. Group ours proves to Tebaba that the domain is the doctor's. Group vercel adds the ownership value Vercel asks for, only when it asks. Group apex points the domain itself at the website, group www points its www name there. Nameservers and email records are never written.",
+  "variableDescription": "challenge: Tebaba's ownership code for this domain, 32 lower-case hex characters; vercel: the value Vercel asks for after vc-domain-verify=, only when Vercel asks; ip: the IPv4 address Vercel gives the Tebaba website project for the domain itself; cname: the name Vercel gives the Tebaba website project for www (each project has its own)",
+  "syncPubKeyDomain": "tebaba.io",
+  "syncRedirectDomain": "my.tebaba.io,tebaba.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "ours",
+      "type": "TXT",
+      "host": "_tebaba",
+      "data": "tebaba-site=%challenge%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "vercel",
+      "type": "TXT",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%vercel%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 600
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    }
+  ]
+}
