@@ -4,6 +4,7 @@
   "serviceId": "custom-domain",
   "serviceName": "Custom Domain",
   "version": 1,
+  "logoUrl": "https://fumbled.lol/assets/brand/logo-128.png",
   "description": "Connect your domain or subdomain to your fumbled.lol profile.",
   "variableDescription": "%txtToken%: The hex verification token for your domain.",
   "syncBlock": false,
