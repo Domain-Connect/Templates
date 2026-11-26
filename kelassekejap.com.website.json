@@ -1,0 +1,33 @@
+{
+  "providerId": "kelassekejap.com",
+  "providerName": "Kelas AI",
+  "serviceId": "website",
+  "serviceName": "Kelas AI Website",
+  "version": 1,
+  "logoUrl": "https://ai.kelassekejap.com/icon.png",
+  "description": "Connects your domain or subdomain to your published Kelas AI website by adding the ownership verification TXT record, IPv4 routing A record, and HTTPS certificate authorization CNAME record in one step.",
+  "variableDescription": "%verify_token%: unique ownership verification token issued by Kelas AI. %cert_host%: per-project Google Certificate Manager label suffix under _acme-challenge_. %cert_target%: unique Google Certificate Manager DNS authorization target under authorize.certificatemanager.goog.",
+  "syncPubKeyDomain": "domainconnect.kelassekejap.com",
+  "syncRedirectDomain": "ai.kelassekejap.com",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_kelas-verify",
+      "data": "kelas-site=%verify_token%",
+      "ttl": 300
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "34.36.131.23",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge_%cert_host%",
+      "pointsTo": "%cert_target%.authorize.certificatemanager.goog",
+      "ttl": 300
+    }
+  ]
+}
