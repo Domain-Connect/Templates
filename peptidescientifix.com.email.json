@@ -1,0 +1,36 @@
+{
+  "providerId": "peptidescientifix.com",
+  "providerName": "Peptide Scientifix",
+  "serviceId": "email",
+  "serviceName": "Brand sender email (DKIM)",
+  "version": 1,
+  "logoUrl": "https://peptidescientifix.com/wp-content/themes/peptide-scientifix-child/assets/chrome/icon/icon-512.png",
+  "description": "Lets a brand's emails send from its own domain: three DKIM CNAME records for Amazon SES.",
+  "variableDescription": "%selector1%, %selector2% and %selector3% are the three DKIM selectors (Amazon SES Easy DKIM tokens) for the brand's sending domain; each publishes <selector>._domainkey as a CNAME to <selector>.dkim.amazonses.com.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "sharedServiceName": false,
+  "syncPubKeyDomain": "peptidescientifix.com",
+  "syncRedirectDomain": "peptidescientifix.com,staging.peptidescientifix.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%selector1%._domainkey",
+      "pointsTo": "%selector1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%selector2%._domainkey",
+      "pointsTo": "%selector2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%selector3%._domainkey",
+      "pointsTo": "%selector3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
