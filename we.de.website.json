@@ -1,0 +1,33 @@
+{
+    "providerId": "we.de",
+    "providerName": "we.de",
+    "serviceId": "website",
+    "serviceName": "Website",
+    "version": 1,
+    "logoUrl": "https://assets.we.de/we.de-logo.png",
+    "description": "Points your domain to the website you built with we.de and verifies that you own it.",
+    "syncPubKeyDomain": "we.de",
+    "syncRedirectDomain": "we.de,dev.we.de",
+    "variableDescription": "%ip%: IPv4 address of the we.de edge; %edgezone%: we.de zone of the edge hostname (we.de); %token%: ownership verification token",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "connect.%edgezone%",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_we-de",
+            "data": "wede-%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}
