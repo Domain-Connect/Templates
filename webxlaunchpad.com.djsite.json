@@ -1,0 +1,19 @@
+{
+  "providerId": "webxlaunchpad.com",
+  "providerName": "WebX DJ",
+  "serviceId": "djsite",
+  "serviceName": "WebX DJ website",
+  "version": 1,
+  "logoUrl": "https://webx-core.webxlaunchpad.workers.dev/brand/webx-logo.png",
+  "description": "Points your domain at your WebX DJ website: www goes to your site, your root domain forwards to www, and a TXT record proves the domain is yours. Your email records are not changed.",
+  "variableDescription": "hubverify: WebX DJ Hub domain verification value",
+  "syncBlock": false,
+  "syncPubKeyDomain": "webxlaunchpad.com",
+  "syncRedirectDomain": "dj.webxlaunchpad.com,webxlaunchpad.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "sites.webxlaunchpad.com", "ttl": 3600 },
+    { "type": "TXT", "host": "_webx-verify.www", "data": "%hubverify%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "type": "REDIR301", "host": "@", "target": "https://www.%fqdn%" }
+  ]
+}
