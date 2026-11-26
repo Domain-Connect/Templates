@@ -1,0 +1,22 @@
+{
+  "providerId": "gigabytecentral.com",
+  "providerName": "Gigabyte Central",
+  "serviceId": "mail",
+  "serviceName": "Gigabyte Mail",
+  "version": 1,
+  "logoUrl": "https://gigabytecentral.com/gbc-mark.png",
+  "description": "Configures MX, SPF, DKIM and DMARC so this domain sends and receives email with Gigabyte Mail",
+  "variableDescription": "dkim: this domain's own DKIM public key record, generated per domain by Gigabyte",
+  "syncBlock": false,
+  "syncPubKeyDomain": "gigabytecentral.com",
+  "syncRedirectDomain": "gigabytecentral.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "MX",    "host": "@",               "pointsTo": "mail.gigabytecentral.com", "priority": 10, "ttl": 3600 },
+    { "type": "SPFM",  "host": "@",               "spfRules": "a:mail.gigabytecentral.com" },
+    { "type": "TXT",   "host": "dkim._domainkey", "data": "%dkim%", "ttl": 3600 },
+    { "type": "TXT",   "host": "_dmarc",          "data": "v=DMARC1; p=none", "ttl": 3600, "txtConflictMatchingMode": "All", "essential": "OnApply" },
+    { "type": "CNAME", "host": "autodiscover",    "pointsTo": "mail.gigabytecentral.com", "ttl": 3600 },
+    { "type": "CNAME", "host": "autoconfig",      "pointsTo": "mail.gigabytecentral.com", "ttl": 3600 }
+  ]
+}
