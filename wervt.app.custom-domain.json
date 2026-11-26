@@ -1,0 +1,39 @@
+{
+  "providerId": "wervt.app",
+  "providerName": "wervt",
+  "serviceId": "custom-domain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://wervt.app/favicon.svg",
+  "description": "Points a domain at an app hosted on wervt.",
+  "variableDescription": "%ip%: IPv4 address of the wervt server, %ip6%: its IPv6 address, %app%: name of the app",
+  "syncBlock": false,
+  "syncPubKeyDomain": "wervt.app",
+  "syncRedirectDomain": "wervt.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "apex6",
+      "type": "AAAA",
+      "host": "@",
+      "pointsTo": "%ip6%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_wervt",
+      "data": "wervt-app=%app%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "wervt-app="
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "providerId": "wervt.app",
+  "providerName": "wervt",
+  "serviceId": "custom-domain-subdomain",
+  "serviceName": "Custom subdomain",
+  "version": 1,
+  "logoUrl": "https://wervt.app/favicon.svg",
+  "description": "Points a subdomain at an app hosted on wervt.",
+  "variableDescription": "%app%: name of the app on wervt",
+  "syncBlock": false,
+  "syncPubKeyDomain": "wervt.app",
+  "syncRedirectDomain": "wervt.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.wervt.app",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_wervt",
+      "data": "wervt-app=%app%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "wervt-app="
+    }
+  ]
+}
