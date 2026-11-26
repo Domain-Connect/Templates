@@ -1,0 +1,23 @@
+{
+  "providerId": "getvibeads.com",
+  "providerName": "VibeAds",
+  "serviceId": "adsubdomain",
+  "serviceName": "VibeAds landing pages on a subdomain",
+  "version": 1,
+  "logoUrl": "https://getvibeads.com/icon-512.png",
+  "description": "Points one subdomain of your domain (such as go) at your VibeAds landing pages. Your website on www and the bare domain is not changed.",
+  "variableDescription": "No variables. Applied with the host parameter: host=go sets go.example.com.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "getvibeads.com",
+  "syncRedirectDomain": "getvibeads.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "customers.localad.app",
+      "ttl": 3600
+    }
+  ]
+}
