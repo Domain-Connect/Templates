@@ -1,0 +1,20 @@
+{
+    "providerId": "waid.pro",
+    "providerName": "Waid",
+    "serviceId": "member-area",
+    "serviceName": "Waid - domínio da área de membros",
+    "version": 1,
+    "description": "Aponta um subdomínio seu para a área de membros na Waid (CNAME para dns.curseduca.pro). O certificado HTTPS é emitido automaticamente depois.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "waid.pro",
+    "syncRedirectDomain": "waid.io,waid.pro,curseduca.pro",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "dns.curseduca.pro",
+            "ttl": 3600
+        }
+    ]
+}
