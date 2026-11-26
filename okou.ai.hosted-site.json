@@ -1,0 +1,30 @@
+{
+    "providerId": "okou.ai",
+    "providerName": "Okou",
+    "serviceId": "hosted-site",
+    "serviceName": "Hosted website",
+    "version": 1,
+    "logoUrl": "https://static.okou.io/public/okou-logo-wordmark-light-339c25e162eb.svg",
+    "description": "Connect your Okou website with an ownership TXT record and a CNAME. HTTPS is configured automatically.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.okou.ai",
+    "syncRedirectDomain": "app.okou.ai",
+    "hostRequired": true,
+    "variableDescription": "verification: unique website ownership token; target: Okou-managed website target label.",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%.okou.app",
+            "ttl": 300
+        },
+        {
+            "type": "TXT",
+            "host": "_okou-challenge",
+            "data": "okou-verification=%verification%",
+            "ttl": 300,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "okou-verification="
+        }
+    ]
+}
