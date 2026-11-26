@@ -1,0 +1,14 @@
+{
+  "providerId": "tokone.ai",
+  "providerName": "Chameo",
+  "serviceId": "chameo-inbox",
+  "serviceName": "Chameo Inbox",
+  "description": "Verify domain ownership and route incoming mail to Chameo.",
+  "variableDescription": "challenge is the account-specific verification token.",
+  "version": 1,
+  "syncPubKeyDomain": "connect.tokone.ai",
+  "records": [
+    {"type": "TXT", "host": "_chameo", "data": "chameo=%challenge%", "ttl": 300, "txtConflictMatchingMode": "None"},
+    {"type": "MX", "host": "@", "pointsTo": "inbox.tokone.ai.", "priority": 10, "ttl": 300}
+  ]
+}
