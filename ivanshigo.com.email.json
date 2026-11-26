@@ -1,0 +1,34 @@
+{
+    "providerId": "ivanshigo.com",
+    "providerName": "Ivanshigo",
+    "serviceId": "email",
+    "serviceName": "Ivanshigo Send email sending",
+    "version": 1,
+    "logoUrl": "https://send.ivanshigo.com/logo.svg",
+    "description": "Lets Ivanshigo Send deliver email for this domain: a DKIM signing key, an SPF entry and a bounce-handling MX record on a dedicated send subdomain.",
+    "variableDescription": "dkimselector: DKIM selector label unique to this domain (e.g. ivs5ca9). dkimkey: base64 DKIM RSA public key.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "ivanshigo.com",
+    "syncRedirectDomain": "send.ivanshigo.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "TXT",
+            "host": "%dkimselector%._domainkey",
+            "ttl": 3600,
+            "data": "v=DKIM1; k=rsa; p=%dkimkey%"
+        },
+        {
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "ip4:161.97.86.178"
+        },
+        {
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "smtp.ivanshigo.com",
+            "ttl": 3600,
+            "priority": 10
+        }
+    ]
+}
