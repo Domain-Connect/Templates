@@ -1,0 +1,17 @@
+{
+  "providerId": "massivemail.io",
+  "providerName": "Massive Mail",
+  "serviceId": "verify",
+  "serviceName": "Verify domain ownership",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.massivemail.io",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_massivemail",
+      "data": "massivemail-verification=%token%",
+      "ttl": 3600
+    }
+  ]
+}
