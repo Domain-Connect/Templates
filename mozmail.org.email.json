@@ -3,10 +3,10 @@
   "providerName": "MozMail",
   "serviceId": "email",
   "serviceName": "MozMail email for your domain",
-  "version": 1,
+  "version": 2,
   "logoUrl": "https://mail.mozmail.org/m/icons/icon-512.png",
-  "description": "Receive and send email on your own domain with MozMail (inbound MX and sending authentication on Amazon SES).",
-  "variableDescription": "verifyToken: MozMail domain ownership token; sesRegion: AWS region of the SES inbound endpoint (e.g. us-east-1); dkim1..dkim3: SES Easy DKIM tokens; dmarcPolicy: none, quarantine or reject",
+  "description": "Receive and send email on your own domain with MozMail (inbound MX on MozMail's own mail exchanger, sending authentication on Amazon SES).",
+  "variableDescription": "verifyToken: MozMail domain ownership token; dkim1..dkim3: SES Easy DKIM tokens; dmarcPolicy: none, quarantine or reject",
   "syncPubKeyDomain": "mozmail.org",
   "syncRedirectDomain": "mail.mozmail.org",
   "records": [
@@ -14,16 +14,16 @@
       "groupId": "verify",
       "type": "TXT",
       "host": "_mozmail",
-      "data": "mozmail-verification=%verifyToken%",
+      "data": "mozmail-verify=%verifyToken%",
       "ttl": 3600,
       "txtConflictMatchingMode": "Prefix",
-      "txtConflictMatchingPrefix": "mozmail-verification="
+      "txtConflictMatchingPrefix": "mozmail-verify="
     },
     {
       "groupId": "inbound",
       "type": "MX",
       "host": "@",
-      "pointsTo": "inbound-smtp.%sesRegion%.amazonaws.com",
+      "pointsTo": "mx.mozmail.org",
       "priority": 10,
       "ttl": 3600
     },
