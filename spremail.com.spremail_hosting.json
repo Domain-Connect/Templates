@@ -3,9 +3,9 @@
     "providerName": "Spremail",
     "serviceId": "spremail_hosting",
     "serviceName": "Spremail Mail Hosting",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://mailadmin.spremail.com/cpanel/mailimage?filename=spremail-logo.png",
-    "description": "Enables custom domain email hosting with Spremail (domain ownership verification, MX, SPF, DKIM, and DMARC).",
+    "description": "Enables custom domain email hosting with Spremail (domain ownership verification, primary and backup MX, SPF, DKIM, and optional DMARC).",
     "variableDescription": "%verifytxt%: Domain ownership verification token placed in _smtp-verify TXT record; %dkim_selector%: DKIM selector prefix (e.g. s1); %dkim_public_key%: Base64-encoded RSA DKIM public key.",
     "syncBlock": false,
     "hostRequired": false,
@@ -31,6 +31,22 @@
         },
         {
             "groupId": "mail",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx2.spremail.com",
+            "priority": 20,
+            "ttl": 600
+        },
+        {
+            "groupId": "mail",
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx3.spremail.com",
+            "priority": 30,
+            "ttl": 600
+        },
+        {
+            "groupId": "mail",
             "type": "SPFM",
             "host": "@",
             "spfRules": "include:spf.spremail.com"
@@ -44,7 +60,7 @@
             "ttl": 600
         },
         {
-            "groupId": "mail",
+            "groupId": "dmarc",
             "type": "TXT",
             "host": "_dmarc",
             "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%",
