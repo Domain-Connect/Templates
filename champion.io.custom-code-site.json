@@ -1,0 +1,16 @@
+{
+  "providerId": "champion.io",
+  "providerName": "Champion",
+  "serviceId": "custom-code-site",
+  "serviceName": "Champion Custom Code site",
+  "version": 1,
+  "logoUrl": "https://champion.io/logo.svg",
+  "description": "Points a domain at a Custom Code site Champion hosts on Vercel: A record on the apex to 76.76.21.21, and a CNAME for www to cname.vercel-dns.com. No AAAA records. Does not change email, pay, or sign records.",
+  "syncPubKeyDomain": "dc.champion.io",
+  "syncRedirectDomain": "studio.champion.io",
+  "hostRequired": false,
+  "records": [
+    { "groupId": "website", "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600 },
+    { "groupId": "website", "type": "CNAME", "host": "www", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 }
+  ]
+}
