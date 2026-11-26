@@ -4,7 +4,7 @@
   "serviceId": "subdomain",
   "serviceName": "Subdomain for your server",
   "version": 1,
-  "logoUrl": "https://venoxhosting.com/vh_logo.png",
+  "logoUrl": "https://venoxhosting.com/vh_logo.svg",
   "description": "Points a subdomain (for example play.example.com) at a game server or website. Groups: a (IPv4), aaaa (IPv6), cname (hostname) and srv (Minecraft Java on a non-default port). The apply link always passes groupId and only the variables of those groups.",
   "variableDescription": "ip: IPv4 address of the server; ip6: IPv6 address of the server; target: hostname of the server; port: TCP port of the Minecraft server",
   "syncBlock": false,
