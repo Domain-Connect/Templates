@@ -1,0 +1,29 @@
+{
+  "providerId": "kastana.co",
+  "providerName": "Kastana",
+  "version": 1,
+  "logoUrl": "https://kastana.co/brand/kastana-icon.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "kastana.co",
+  "syncRedirectDomain": "app.kastana.co",
+  "serviceId": "website-root",
+  "serviceName": "Kastana website and booking page on your own domain",
+  "description": "Points your own domain at your Kastana website and booking page. Adds two records: one that proves the domain is yours, and one that sends visitors to your shop. Use it without a host to connect the whole domain (the www address).",
+  "variableDescription": "verify is the one-off value that proves the domain belongs to the shop (letters and numbers, made by Kastana for each domain).",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_kastana-verify",
+      "data": "kastana-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "shops.kastana.co",
+      "ttl": 3600
+    }
+  ]
+}
