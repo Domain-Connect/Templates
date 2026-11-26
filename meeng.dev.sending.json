@@ -1,0 +1,36 @@
+{
+    "providerId": "meeng.dev",
+    "providerName": "Meeng.dev",
+    "serviceId": "sending",
+    "serviceName": "Envio de e-mails pela Meeng.dev",
+    "version": 3,
+    "logoUrl": "https://meeng.dev/favicon.svg",
+    "description": "Publica o CNAME do retorno (o MX e o SPF do endereço de retorno ficam em return.meeng.dev) e a chave DKIM para enviar e-mails pela Meeng.dev. O grupo tracking, opcional, publica o CNAME links que leva os links de rastreamento ao track.meeng.dev. O DMARC recomendado não faz parte do modelo: ele fica na raiz do domínio e o cliente decide.",
+    "variableDescription": "dkim é a chave pública DKIM do domínio (RSA), sem o prefixo p=.",
+    "syncPubKeyDomain": "meeng.dev",
+    "syncRedirectDomain": "meeng.dev",
+    "records": [
+        {
+            "type": "CNAME",
+            "groupId": "sending",
+            "host": "mail",
+            "pointsTo": "return.meeng.dev",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "groupId": "sending",
+            "host": "meeng._domainkey",
+            "data": "p=%dkim%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "CNAME",
+            "groupId": "tracking",
+            "host": "links",
+            "pointsTo": "track.meeng.dev",
+            "ttl": 3600
+        }
+    ]
+}
