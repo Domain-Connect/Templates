@@ -1,0 +1,39 @@
+{
+  "providerId": "socketcloud.co.il",
+  "providerName": "Socket Cloud",
+  "serviceId": "mail",
+  "serviceName": "Socket Cloud site mail",
+  "version": 1,
+  "logoUrl": "https://socketcloud.co.il/logo.png",
+  "description": "Lets a Socket Cloud hosted website send mail as its own domain (SPF, DKIM and DMARC).",
+  "variableDescription": "dkimkey: the DKIM public key Socket Cloud made for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "socketcloud.co.il",
+  "syncRedirectDomain": "socketcloud.co.il",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "spf",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.socketcloud.co.il"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "dkim._domainkey",
+      "data": "v=DKIM1;k=rsa;p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}

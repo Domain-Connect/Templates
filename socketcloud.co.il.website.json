@@ -1,0 +1,38 @@
+{
+  "providerId": "socketcloud.co.il",
+  "providerName": "Socket Cloud",
+  "serviceId": "website",
+  "serviceName": "Socket Cloud web hosting",
+  "version": 1,
+  "logoUrl": "https://socketcloud.co.il/logo.png",
+  "description": "Points a domain at a Socket Cloud hosted website and proves it is yours.",
+  "variableDescription": "token: the ownership token Socket Cloud shows for this hostname",
+  "syncBlock": false,
+  "syncPubKeyDomain": "socketcloud.co.il",
+  "syncRedirectDomain": "socketcloud.co.il",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "main",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "46.232.235.1",
+      "ttl": 3600
+    },
+    {
+      "groupId": "main",
+      "type": "TXT",
+      "host": "_socketcloud",
+      "data": "socketcloud-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "www",
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "edge.socketcloud.co.il",
+      "ttl": 3600
+    }
+  ]
+}
