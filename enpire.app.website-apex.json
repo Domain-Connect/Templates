@@ -1,0 +1,41 @@
+{
+    "providerId": "enpire.app",
+    "providerName": "Enpire",
+    "serviceId": "website-apex",
+    "serviceName": "Enpire website on your bare domain and www",
+    "version": 1,
+    "logoUrl": "https://enpire.app/brand/basely-logo.svg",
+    "description": "Points your bare domain (for example yourbrand.com) and its www at the website you built: an A record on the bare domain, a CNAME on www, and the TXT records that prove the domain is yours. Mail records at the bare domain (MX, SPF, DKIM, DMARC) and its other TXT records are not touched.",
+    "variableDescription": "%token%: the ownership value shown for this domain in the domain settings; it is unique per domain and proves who added it.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "enpire.app",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "51.68.166.114",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "domains.enpire.app",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_basely-verify",
+            "data": "%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        },
+        {
+            "type": "TXT",
+            "host": "_basely-verify.www",
+            "data": "%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}
