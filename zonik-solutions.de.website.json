@@ -1,0 +1,28 @@
+{
+  "providerId": "zonik-solutions.de",
+  "providerName": "ZONIK",
+  "serviceId": "website",
+  "serviceName": "ZONIK Website",
+  "version": 1,
+  "logoUrl": "https://zonik-solutions.de/logo-512.png",
+  "description": "Connects your domain to your website hosted by ZONIK (apex and www).",
+  "syncBlock": false,
+  "syncPubKeyDomain": "zonik-solutions.de",
+  "sharedProviderName": false,
+  "syncRedirectDomain": "zonik-solutions.de",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.24.57.1",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}
