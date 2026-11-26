@@ -1,0 +1,32 @@
+{
+  "providerId": "sellalog.com",
+  "providerName": "Sellalog",
+  "serviceId": "catalog",
+  "serviceName": "Sellalog catalog",
+  "version": 1,
+  "logoUrl": "https://sellalog.com/icon-512.png",
+  "description": "Publishes a Sellalog wholesale catalog on a subdomain of the customer's own domain (Cloudflare for SaaS custom hostname).",
+  "variableDescription": "cfverify: Cloudflare for SaaS ownership token for the custom hostname (TXT _cf-custom-hostname), only with group verify.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "dck.sellalog.com",
+  "syncRedirectDomain": "app.sellalog.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "routing",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.sellalog.com",
+      "ttl": 3600
+    },
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cfverify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    }
+  ]
+}
