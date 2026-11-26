@@ -1,0 +1,59 @@
+{
+  "providerId": "necezaria.com",
+  "providerName": "neceZaria",
+  "serviceId": "email",
+  "serviceName": "Email sending",
+  "version": 1,
+  "logoUrl": "https://necezaria.com/necezaria-wordmark.png",
+  "description": "Lets a business send email from its own domain through neceZaria (SendGrid): the return-path and DKIM CNAME records, the click-tracking CNAME records, and a baseline DMARC policy.",
+  "variableDescription": "mailid: return-path label number; sguser: sending account number; sgwl: sending pool number; linkid: tracking label number",
+  "syncBlock": false,
+  "syncPubKeyDomain": "necezaria.com",
+  "records": [
+    {
+      "groupId": "auth",
+      "type": "CNAME",
+      "host": "em%mailid%",
+      "pointsTo": "u%sguser%.wl%sgwl%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "auth",
+      "type": "CNAME",
+      "host": "s1._domainkey",
+      "pointsTo": "s1.domainkey.u%sguser%.wl%sgwl%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "auth",
+      "type": "CNAME",
+      "host": "s2._domainkey",
+      "pointsTo": "s2.domainkey.u%sguser%.wl%sgwl%.sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "links",
+      "type": "CNAME",
+      "host": "url%linkid%",
+      "pointsTo": "sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "links",
+      "type": "CNAME",
+      "host": "%sguser%",
+      "pointsTo": "sendgrid.net",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
