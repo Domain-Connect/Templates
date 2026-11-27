@@ -1,0 +1,22 @@
+{
+  "providerId": "decima.systems",
+  "providerName": "Decima Systems",
+  "serviceId": "domain-verification",
+  "serviceName": "Decima domain control verification",
+  "version": 1,
+  "syncPubKeyDomain": "decima.systems",
+  "syncRedirectDomain": "decima.systems",
+  "logoUrl": "https://decima.systems/favicon.svg",
+  "description": "Publishes a single TXT record so Decima can confirm you control this domain before any authorized security assessment. It adds nothing else and starts no testing.",
+  "variableDescription": "token: a one-time verification value generated for this domain in your Decima workspace.",
+  "syncBlock": false,
+  "shared": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_decima-verify",
+      "data": "decima-verify=%token%",
+      "ttl": 300
+    }
+  ]
+}
