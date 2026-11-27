@@ -1,0 +1,28 @@
+{
+  "providerId": "doorsat10.com",
+  "providerName": "Doors at 10",
+  "serviceId": "customdomain",
+  "serviceName": "Custom domain",
+  "version": 1,
+  "logoUrl": "https://doorsat10.com/icon.svg",
+  "description": "Points a subdomain of your domain at your Doors at 10 storefront and proves you own it.",
+  "variableDescription": "challenge is the ownership code shown in your Doors at 10 dashboard. The apply request also carries host (the subdomain, for example tickets) and domain.",
+  "syncPubKeyDomain": "doorsat10.com",
+  "syncRedirectDomain": "doorsat10.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.doorsat10.com",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_da10-verify",
+      "data": "da10-verify=%challenge%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
