@@ -1,0 +1,32 @@
+{
+    "providerId": "nuestra.ai",
+    "providerName": "Nuestra AI",
+    "serviceId": "customdomain",
+    "serviceName": "Nuestra AI custom domain",
+    "version": 1,
+    "logoUrl": "https://platform.nuestra.ai/domain-connect/nuestra.svg",
+    "description": "Points a subdomain, passed as host (for example chat), at the agency's white-label Nuestra AI dashboard hosted on Vercel. Group route sets the CNAME. Group vercel adds Vercel's ownership TXT at the zone apex, only when Vercel asks for one; it is OnApply, so removing it later leaves the CNAME in place.",
+    "variableDescription": "target: the CNAME target Vercel recommends for the subdomain (per project, for example b57c493806cd0fc8.vercel-dns-016.com). vercelverification: Vercel's TXT value after vc-domain-verify= (the full host name, a comma, then Vercel's code).",
+    "syncBlock": false,
+    "syncPubKeyDomain": "nuestra.ai",
+    "syncRedirectDomain": "platform.nuestra.ai,agentplatform.nuestra.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "groupId": "route",
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "%target%",
+            "ttl": 600
+        },
+        {
+            "groupId": "vercel",
+            "type": "TXT",
+            "host": "_vercel.%domain%.",
+            "data": "vc-domain-verify=%vercelverification%",
+            "ttl": 600,
+            "txtConflictMatchingMode": "None",
+            "essential": "OnApply"
+        }
+    ]
+}
