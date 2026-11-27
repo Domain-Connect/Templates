@@ -1,0 +1,35 @@
+{
+  "providerId": "ionixcore.com",
+  "providerName": "IonixCore",
+  "serviceId": "webhost",
+  "serviceName": "IonixCore WebHost",
+  "version": 1,
+  "logoUrl": "https://ionixcore.com/assets/favicon.svg",
+  "description": "Connects a domain or subdomain to an IonixCore web hosting project",
+  "variableDescription": "%token%: IonixCore domain ownership verification token",
+  "syncBlock": false,
+  "syncPubKeyDomain": "ionixcore.com",
+  "syncRedirectDomain": "ionixcore.com",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "195.201.87.220",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_ionix-verify",
+      "data": "ionix-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "ionix-verify="
+    }
+  ]
+}
