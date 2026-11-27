@@ -14,13 +14,13 @@
     {
       "type": "CNAME",
       "host": "@",
-      "pointsTo": "cname.vercel-dns.com",
+      "pointsTo": "domains.doorsat10.com",
       "ttl": 3600
     },
     {
       "type": "TXT",
-      "host": "_encore-challenge",
-      "data": "encore-verify=%challenge%",
+      "host": "_da10-verify",
+      "data": "da10-verify=%challenge%",
       "ttl": 3600,
       "txtConflictMatchingMode": "All"
     }
