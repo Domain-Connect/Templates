@@ -1,0 +1,21 @@
+{
+  "providerId": "smart360.com.tr",
+  "providerName": "Smart360",
+  "version": 1,
+  "logoUrl": "https://smart360.com.tr/icon-512.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "smart360.com.tr",
+  "syncRedirectDomain": "tenant.smart360.com.tr,yonetim.smart360.com.tr,tenant.dblinx.net,app.dblinx.net",
+  "serviceId": "panel",
+  "serviceName": "Smart360 panel adresi",
+  "description": "Smart360 ürün panelinize kendi alt alan adınızdan (ör. panel.firmaniz.com) girmeniz için CNAME kaydı ekler.",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "baglanti.smart360.com.tr",
+      "ttl": 3600
+    }
+  ]
+}
