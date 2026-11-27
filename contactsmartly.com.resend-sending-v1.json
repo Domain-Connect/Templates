@@ -1,0 +1,67 @@
+{
+  "providerId": "contactsmartly.com",
+  "providerName": "ContactSmartly",
+  "serviceId": "resend-sending-v1",
+  "serviceName": "ContactSmartly sending with Resend",
+  "version": 1,
+  "description": "Configure the mail authentication records returned by Resend for this sending domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.contactsmartly.com",
+  "syncRedirectDomain": "contactsmartly.com",
+  "hostRequired": false,
+  "variableDescription": "Only signed, explicitly selected groups are applied. The standard domain/host parameters scope each sending identity; record host variables are relative to that scope, never used to carry the sending subdomain. Exact TXT values, CNAME targets, MX targets/priorities and SPF include rules come from the selected sending provider. Unselected groups are omitted.",
+  "records": [
+    {
+      "groupId": "txt1",
+      "type": "TXT",
+      "host": "%txt1Host%",
+      "data": "%txt1Value%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "txt2",
+      "type": "TXT",
+      "host": "%txt2Host%",
+      "data": "%txt2Value%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "groupId": "cname1",
+      "type": "CNAME",
+      "host": "%cname1Host%",
+      "pointsTo": "%cname1Target%",
+      "ttl": 300
+    },
+    {
+      "groupId": "cname2",
+      "type": "CNAME",
+      "host": "%cname2Host%",
+      "pointsTo": "%cname2Target%",
+      "ttl": 300
+    },
+    {
+      "groupId": "cname3",
+      "type": "CNAME",
+      "host": "%cname3Host%",
+      "pointsTo": "%cname3Target%",
+      "ttl": 300
+    },
+    {
+      "groupId": "mx1",
+      "type": "MX",
+      "host": "%mx1Host%",
+      "pointsTo": "%mx1Target%",
+      "priority": "%mxPriority%",
+      "ttl": 300
+    },
+    {
+      "groupId": "spf1",
+      "type": "SPFM",
+      "host": "%spf1Host%",
+      "spfRules": "%spf1Rules%",
+      "ttl": 300
+    }
+  ]
+}
