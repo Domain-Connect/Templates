@@ -3,9 +3,9 @@
 	"providerName": "Synno",
 	"serviceId": "domain",
 	"serviceName": "Your domain's address and mail",
-	"version": 3,
+	"version": 4,
 	"logoUrl": "https://synno.app/favicon.svg",
-	"description": "Proves the domain is the organization's, points its address at the platform, and publishes the records its mail needs. Only the groups the organization turns on are applied.",
+	"description": "Proves the domain is the organization's, points its address at the platform, and publishes the records its mail needs. Only the groups the organization turns on are applied, and only those whose records are not in place yet.",
 	"variableDescription": "verification: the ownership TXT value; hostlabel: the address's label, pointed at the platform; spfinclude: what SPF includes; dkimselector, dkimkey: the active DKIM key and its record; dmarc: the DMARC record; feedbackmx, bouncespf: the bounce subdomain's MX at the delivery service and what its SPF includes; mx, webhost, submission: the mail server, the host serving autoconfig, autodiscover and MTA-STS, and the submission host; mtasts, tlsrpt: the MTA-STS and TLS-RPT TXT values.",
 	"syncBlock": false,
 	"syncPubKeyDomain": "synno.app",
@@ -33,14 +33,14 @@
 			"spfRules": "include:%spfinclude%"
 		},
 		{
-			"groupId": "sending",
+			"groupId": "dkim",
 			"type": "TXT",
 			"host": "%dkimselector%._domainkey",
 			"data": "%dkimkey%",
 			"ttl": 3600
 		},
 		{
-			"groupId": "sending",
+			"groupId": "dmarc",
 			"type": "TXT",
 			"host": "_dmarc",
 			"data": "%dmarc%",
@@ -92,7 +92,7 @@
 			"ttl": 3600
 		},
 		{
-			"groupId": "hosted_mail",
+			"groupId": "mta_sts",
 			"type": "TXT",
 			"host": "_mta-sts",
 			"data": "%mtasts%",
@@ -100,7 +100,7 @@
 			"txtConflictMatchingMode": "All"
 		},
 		{
-			"groupId": "hosted_mail",
+			"groupId": "tls_rpt",
 			"type": "TXT",
 			"host": "_smtp._tls",
 			"data": "%tlsrpt%",
