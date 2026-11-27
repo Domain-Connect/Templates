@@ -1,0 +1,30 @@
+{
+    "providerId": "sheasuru.com",
+    "providerName": "Sheasuru",
+    "serviceId": "customdomain",
+    "serviceName": "Sheasuru custom domain",
+    "version": 1,
+    "logoUrl": "https://sheasuru.com/favicon.svg",
+    "description": "Connects an apex domain to a Sheasuru creator profile: ownership verification TXT plus the A record to Sheasuru hosting.",
+    "variableDescription": "%proof%: per-domain ownership token issued by Sheasuru",
+    "syncPubKeyDomain": "sheasuru.com",
+    "syncRedirectDomain": "sheasuru.com,www.sheasuru.com",
+    "records": [
+        {
+            "groupId": "verify",
+            "type": "TXT",
+            "host": "_sheasuru-verification",
+            "data": "sheasuru-verification=%proof%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "sheasuru-verification="
+        },
+        {
+            "groupId": "apex",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "216.24.57.1",
+            "ttl": 3600
+        }
+    ]
+}
