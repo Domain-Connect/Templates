@@ -1,0 +1,72 @@
+{
+  "providerId": "venmail.io",
+  "providerName": "Venmail",
+  "serviceId": "email",
+  "serviceName": "Venmail Email",
+  "version": 1,
+  "logoUrl": "https://venmail.io/favicon.ico",
+  "description": "Configures a domain for sending and receiving mail with Venmail: SPF, DKIM, DMARC, ownership verification, MX, and the Venmail web host.",
+  "variableDescription": "%spf_rules% is the complete merged SPF record for the domain. %dkim_name% is the per-domain DKIM selector and %dkim_data% is its full DKIM TXT value. %verification_data% is the Venmail ownership token. %dmarc_data% is the full DMARC policy, preserving any existing policy. %mx_points% and %mx2_points% are the two Venmail MX hosts. %host% (optional) applies records under a subdomain instead of the zone apex.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "venmail.io",
+  "syncRedirectDomain": "m.venmail.io",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%spf_rules%",
+      "ttl": 3600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1"
+    },
+    {
+      "type": "TXT",
+      "host": "%dkim_name%._domainkey",
+      "data": "%dkim_data%",
+      "ttl": 3600,
+      "essential": "Always",
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "%verification_data%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "%dmarc_data%",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx_points%",
+      "priority": 10,
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "%mx2_points%",
+      "priority": 20,
+      "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "mail",
+      "pointsTo": "m.venmail.io",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
