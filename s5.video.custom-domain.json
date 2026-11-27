@@ -1,0 +1,28 @@
+{
+  "providerId": "s5.video",
+  "providerName": "S5",
+  "serviceId": "custom-domain",
+  "serviceName": "S5 custom domain",
+  "version": 1,
+  "logoUrl": "https://s5.video/favicon.svg",
+  "description": "Points a subdomain at an S5 video site and proves ownership of it to Cloudflare, which serves the site on it with its own certificate.",
+  "variableDescription": "target: the site's s5.video hostname, e.g. acme.s5.video. token: the ownership value Cloudflare issued for this hostname.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "s5.video",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
