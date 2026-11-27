@@ -6,7 +6,7 @@
   "version": 1,
   "logoUrl": "https://files.channext.com/static/channext-mainlogo-dark.png",
   "description": "Adds the three CNAME records that authenticate this domain for emails Channext sends on the domain owner's behalf (SPF and DKIM).",
-  "variableDescription": "mailhost is the return-path label issued for this domain (for example em1234); mailtarget, dkim1target and dkim2target are the exact CNAME targets issued for this domain.",
+  "variableDescription": "mailid is the number of the return-path label issued for this domain (1234 for em1234); sendgridhost is the account part of the CNAME targets issued for this domain (u1234567.wl123 for u1234567.wl123.sendgrid.net).",
   "syncBlock": false,
   "syncPubKeyDomain": "channext.com",
   "syncRedirectDomain": "app.channext.com,channext.com,channext.eu",
@@ -14,20 +14,20 @@
   "records": [
     {
       "type": "CNAME",
-      "host": "%mailhost%",
-      "pointsTo": "%mailtarget%",
+      "host": "em%mailid%",
+      "pointsTo": "%sendgridhost%.sendgrid.net",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "cxp._domainkey",
-      "pointsTo": "%dkim1target%",
+      "pointsTo": "cxp.domainkey.%sendgridhost%.sendgrid.net",
       "ttl": 3600
     },
     {
       "type": "CNAME",
       "host": "cxp2._domainkey",
-      "pointsTo": "%dkim2target%",
+      "pointsTo": "cxp2.domainkey.%sendgridhost%.sendgrid.net",
       "ttl": 3600
     }
   ]
