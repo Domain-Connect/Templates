@@ -1,0 +1,30 @@
+{
+  "providerId": "deployvera.com",
+  "providerName": "DeployVera",
+  "serviceId": "hosting-subdomain",
+  "serviceName": "DeployVera barındırma (alt alan adı)",
+  "version": 1,
+  "logoUrl": "https://deployvera.com/favicon.svg",
+  "description": "Alt alan adını DeployVera projesine bağlar: sahiplik TXT kaydı ve CNAME.",
+  "variableDescription": "token: sahiplik doğrulama değeri; target: yönlendirme hedefi; ip: çıplak alan adı IPv4 adresi",
+  "syncPubKeyDomain": "deployvera.com",
+  "syncRedirectDomain": "deployvera.com",
+  "records": [
+    {
+      "groupId": "ownership",
+      "type": "TXT",
+      "host": "_deployvera",
+      "data": "%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "groupId": "subdomain",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 300
+    }
+  ],
+  "hostRequired": true
+}
