@@ -1,0 +1,19 @@
+{
+  "providerId": "dreamapp.ai",
+  "providerName": "dreamapp",
+  "serviceId": "custom-domain",
+  "serviceName": "dreamapp custom domain",
+  "version": 1,
+  "logoUrl": "https://dreamapp.ai/logos/dreamapp-simge.svg",
+  "description": "Points your domain or subdomain to your project on dreamapp. Adds one CNAME record; the HTTPS certificate is issued automatically.",
+  "syncPubKeyDomain": "dreamapp.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "domains.dreamapp.ai",
+      "ttl": 3600
+    }
+  ]
+}
