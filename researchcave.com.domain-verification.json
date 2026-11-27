@@ -1,0 +1,23 @@
+{
+  "providerId": "researchcave.com",
+  "providerName": "ResearchCave Domains",
+  "serviceId": "domain-verification",
+  "serviceName": "Domain Verification",
+  "version": 1,
+  "logoUrl": "https://domains.researchcave.com/images/domain-mark.svg",
+  "description": "Verify ownership of your domain in ResearchCave Ecosystem by adding a single TXT record at the selected domain. Existing DNS records are not changed.",
+  "variableDescription": "%verificationToken%: the unique domain verification challenge issued by ResearchCave Domains for the current domain association.",
+  "syncPubKeyDomain": "domainconnect.domains.researchcave.com",
+  "syncRedirectDomain": "domains.researchcave.com",
+  "multiInstance": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "ttl": "300",
+      "data": "researchcave-domain-verification=%verificationToken%",
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply"
+    }
+  ]
+}
