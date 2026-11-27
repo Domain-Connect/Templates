@@ -1,0 +1,28 @@
+{
+  "providerId": "vision4uai.com",
+  "providerName": "Vision4U AI",
+  "serviceId": "website",
+  "serviceName": "Customer website hosting",
+  "version": 1,
+  "logoUrl": "https://vision4uai.com/favicon.png",
+  "description": "Connect the domain apex and www to the customer's published Vision4U AI website. Existing website records may conflict; the customer must review and approve changes. Email and nameserver records are not included.",
+  "variableDescription": "IPV4: IPv4 address of the customer's Vision4U AI hosting; CNAME: hosting hostname for www",
+  "syncBlock": false,
+  "syncPubKeyDomain": "vision4uai.com",
+  "syncRedirectDomain": "vision4uai.com,visionforu.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%IPV4%",
+      "ttl": 300
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%CNAME%",
+      "ttl": 300
+    }
+  ]
+}
