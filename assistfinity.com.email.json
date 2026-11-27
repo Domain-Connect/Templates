@@ -1,0 +1,41 @@
+{
+  "providerId": "assistfinity.com",
+  "providerName": "Assistfinity",
+  "serviceId": "email",
+  "serviceName": "Assistfinity Email",
+  "version": 3,
+  "logoUrl": "https://assistfinity.com/favicon.png",
+  "description": "Adds email authentication and tracking DNS records for your Assistfinity sending domain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "assistfinity.com",
+  "syncRedirectDomain": "assistfinity.com",
+  "variableDescription": "%dkim_selector%: DKIM selector. %dkim_data%: DKIM public key. %mail_prefix%: Mail subdomain. %track_to%: Tracking destination. %env_to%: Envelope destination. %dmarc_to%: DMARC destination.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "%dkim_selector%._domainkey",
+      "data": "%dkim_data%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "CNAME",
+      "host": "tracking.%mail_prefix%",
+      "pointsTo": "%track_to%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%mail_prefix%",
+      "pointsTo": "%env_to%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_dmarc",
+      "pointsTo": "%dmarc_to%",
+      "ttl": 3600,
+      "essential": "OnApply"
+    }
+  ]
+}
