@@ -1,0 +1,30 @@
+{
+  "providerId": "joylum.com",
+  "providerName": "Joylum",
+  "serviceId": "website-host",
+  "serviceName": "Joylum website (sub-address)",
+  "version": 1,
+  "logoUrl": "https://joylum.com/images/logo.svg",
+  "description": "Points a sub-address of your domain (such as book.example.com) at your Joylum website and proves you own it.",
+  "variableDescription": "token: the domain check code from the Joylum dashboard",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.joylum.com",
+  "syncRedirectDomain": "app.joylum.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_joylum",
+      "data": "joylum-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "joylum-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.joylum.com",
+      "ttl": 3600
+    }
+  ]
+}

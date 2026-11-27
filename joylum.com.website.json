@@ -1,0 +1,36 @@
+{
+  "providerId": "joylum.com",
+  "providerName": "Joylum",
+  "serviceId": "website",
+  "serviceName": "Joylum website",
+  "version": 1,
+  "logoUrl": "https://joylum.com/images/logo.svg",
+  "description": "Points your domain at your Joylum website and proves you own it.",
+  "variableDescription": "token: the domain check code from the Joylum dashboard; ip1: the Joylum sites address for the domain apex",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.joylum.com",
+  "syncRedirectDomain": "app.joylum.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_joylum",
+      "data": "joylum-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "joylum-verify="
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.joylum.com",
+      "ttl": 3600
+    }
+  ]
+}
