@@ -10,7 +10,6 @@
   "syncBlock": false,
   "syncPubKeyDomain": "vision4uai.com",
   "syncRedirectDomain": "vision4uai.com,visionforu.com",
-  "warnPhishing": true,
   "hostRequired": false,
   "records": [
     {
