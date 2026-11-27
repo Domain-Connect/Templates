@@ -1,0 +1,55 @@
+{
+  "providerId": "sntid.com",
+  "providerName": "Sntid",
+  "serviceId": "mail-sending",
+  "serviceName": "Set up Sntid email sending",
+  "version": 1,
+  "logoUrl": "https://sntid.com/icon.png",
+  "description": "Verifies the domain and configures email sending with dedicated return-path records.",
+  "variableDescription": "%ownership% is the Sntid domain verification value. %sesSelector% and %sesPublicKey% identify the first sending key. %postalSelector% and %postalPublicKey% identify the second sending key. %sesRegion% is the region for the dedicated bounce hostname.",
+  "syncPubKeyDomain": "dc-keys.sntid.com",
+  "syncRedirectDomain": "sntid.com",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_sntid-verification",
+      "data": "sntid-verification=%ownership%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "sntid-verification="
+    },
+    {
+      "type": "TXT",
+      "host": "%sesSelector%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%sesPublicKey%",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "sntid-mail-%postalSelector%._domainkey",
+      "data": "v=DKIM1; t=s; h=sha256; p=%postalPublicKey%;",
+      "ttl": 600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "sntid-bounce",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 600
+    },
+    {
+      "type": "SPFM",
+      "host": "sntid-bounce",
+      "spfRules": "include:amazonses.com",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "sntid-return",
+      "pointsTo": "returns.delivery.sntid.com",
+      "ttl": 600
+    }
+  ]
+}
