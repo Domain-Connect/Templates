@@ -3,14 +3,15 @@
   "providerName": "Waymail",
   "serviceId": "email",
   "serviceName": "Email sending",
-  "version": 1,
+  "version": 3,
   "logoUrl": "https://waymail.app/icon-192.png",
-  "description": "Lets Waymail send email from this domain: DKIM signing keys, and a MAIL FROM domain with its SPF record.",
+  "description": "Verifies a sending domain, sets up DKIM and a MAIL FROM domain, and offers separate DMARC and receiving setup when requested.",
   "syncBlock": false,
   "syncPubKeyDomain": "waymail.app",
   "syncRedirectDomain": "console.waymail.app",
   "hostRequired": false,
-  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three DKIM selectors Amazon SES issued for this domain. %sesRegion%: the AWS region Waymail sends from, e.g. eu-central-1.",
+  "multiInstance": true,
+  "variableDescription": "%dkim1%, %dkim2%, %dkim3%: SES-issued DKIM selectors. %sesRegion%: the AWS region, e.g. eu-central-1. %waymailDkimSuffix%: the 20-digit hexadecimal workspace and domain selector suffix. %mailFromHost%: the MAIL FROM label. %ownershipToken%: the Waymail workspace ownership challenge.",
   "records": [
     {
       "type": "CNAME",
@@ -34,6 +35,20 @@
       "groupId": "dkim"
     },
     {
+      "type": "CNAME",
+      "host": "waymail1._domainkey",
+      "pointsTo": "waymail1.dkim.waymail.app",
+      "ttl": 1800,
+      "groupId": "branded_dkim"
+    },
+    {
+      "type": "CNAME",
+      "host": "waymail2._domainkey",
+      "pointsTo": "waymail2.dkim.waymail.app",
+      "ttl": 1800,
+      "groupId": "branded_dkim"
+    },
+    {
       "type": "MX",
       "host": "mail",
       "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
@@ -46,6 +61,76 @@
       "host": "mail",
       "spfRules": "include:amazonses.com",
       "groupId": "mail_from"
+    },
+    {
+      "type": "MX",
+      "host": "mail",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 1800,
+      "groupId": "branded_mail_from"
+    },
+    {
+      "type": "SPFM",
+      "host": "mail",
+      "spfRules": "include:_spf.waymail.app",
+      "groupId": "branded_mail_from"
+    },
+    {
+      "type": "CNAME",
+      "host": "waymail1%waymailDkimSuffix%._domainkey",
+      "pointsTo": "waymail1.dkim.waymail.app",
+      "ttl": 1800,
+      "groupId": "workspace_dkim"
+    },
+    {
+      "type": "CNAME",
+      "host": "waymail2%waymailDkimSuffix%._domainkey",
+      "pointsTo": "waymail2.dkim.waymail.app",
+      "ttl": 1800,
+      "groupId": "workspace_dkim"
+    },
+    {
+      "type": "MX",
+      "host": "%mailFromHost%",
+      "pointsTo": "feedback-smtp.%sesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 1800,
+      "groupId": "return_path_mx"
+    },
+    {
+      "type": "SPFM",
+      "host": "%mailFromHost%",
+      "spfRules": "include:amazonses.com",
+      "groupId": "ses_return_path_spf"
+    },
+    {
+      "type": "SPFM",
+      "host": "%mailFromHost%",
+      "spfRules": "include:_spf.waymail.app",
+      "groupId": "branded_return_path_spf"
+    },
+    {
+      "type": "TXT",
+      "host": "_waymail",
+      "data": "waymail-domain-verification=%ownershipToken%",
+      "ttl": 1800,
+      "groupId": "ownership"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%fqdn%",
+      "ttl": 1800,
+      "groupId": "dmarc"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.%sesRegion%.amazonaws.com",
+      "priority": 10,
+      "ttl": 1800,
+      "groupId": "receiving"
     }
   ]
 }
