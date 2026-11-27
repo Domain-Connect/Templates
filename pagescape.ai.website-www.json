@@ -1,0 +1,16 @@
+{
+  "providerId": "pagescape.ai",
+  "providerName": "Pagescape",
+  "serviceId": "website-www",
+  "serviceName": "Pagescape Sites (www and bare domain)",
+  "version": 1,
+  "logoUrl": "https://pagescape.ai/pagescape-mark.png",
+  "description": "Connects a domain to a website built with Pagescape Sites: points www at connect.pagescape.site (served through Cloudflare for SaaS, which issues the certificate) and forwards the bare domain to https://www. with a 301. Email (MX) and other records are not touched. For a subdomain use pagescape.ai/website.",
+  "variableDescription": "No variables.",
+  "syncPubKeyDomain": "domainconnect.pagescape.ai",
+  "syncRedirectDomain": "pagescape.ai",
+  "records": [
+    { "type": "CNAME", "host": "www", "pointsTo": "connect.pagescape.site", "ttl": 3600 },
+    { "type": "REDIR301", "host": "@", "target": "https://www.%fqdn%" }
+  ]
+}
