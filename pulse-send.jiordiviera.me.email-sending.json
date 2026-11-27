@@ -3,12 +3,12 @@
     "providerName": "PulseSend",
     "serviceId": "email-sending",
     "serviceName": "PulseSend Email Sending",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://pulse-send.jiordiviera.me/mark.png",
     "description": "Lets PulseSend send transactional email for your domain, with DKIM, SPF (return path) and DMARC.",
     "syncBlock": false,
     "syncPubKeyDomain": "pulse-send.jiordiviera.me",
-    "syncRedirectDomain": "pulse-send.jiordiviera.me",
+    "syncRedirectDomain": "pulse-send.jiordiviera.me,send.noburi.space",
     "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three DKIM selectors Amazon SES issued for this domain; %region%: the Amazon SES sending region (e.g. eu-west-3)",
     "records": [
         {
