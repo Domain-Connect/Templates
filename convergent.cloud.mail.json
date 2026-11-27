@@ -125,5 +125,6 @@
             "type": "CNAME",
             "pointsTo": "webmail.smail.tn"
         }
-    ]
+    ],
+    "logoUrl": "https://cdn.convergent.tn/CONVERGENT/images/domainconnect/convergent.svg"
 }
