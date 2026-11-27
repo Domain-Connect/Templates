@@ -1,0 +1,38 @@
+{
+    "providerId": "sweettech.ai",
+    "providerName": "SweetTech",
+    "serviceId": "custom-domain-saas-sweetcore",
+    "serviceName": "Custom domain for SweetCore",
+    "version": 1,
+    "logoUrl": "https://sweettech.ai/brand/sweet-mark-fintech.svg",
+    "description": "Points a subdomain you own at SweetCore (served through Cloudflare for SaaS at customers.sweetcore.ai) and adds Cloudflare's hostname ownership and certificate validation records.",
+    "variableDescription": "sub: the subdomain label(s), e.g. backoffice; ownershipValue: the value of Cloudflare's _cf-custom-hostname ownership record; dcvValue: the value of Cloudflare's _acme-challenge certificate validation record.",
+    "syncBlock": false,
+    "sharedProviderName": false,
+    "hostRequired": false,
+    "syncPubKeyDomain": "dck.sweettech.ai",
+    "syncRedirectDomain": "sweettech.ai",
+    "records": [
+        {
+            "groupId": "routing",
+            "type": "CNAME",
+            "host": "%sub%",
+            "pointsTo": "customers.sweetcore.ai",
+            "ttl": 3600
+        },
+        {
+            "groupId": "ownership",
+            "type": "TXT",
+            "host": "_cf-custom-hostname.%sub%",
+            "data": "%ownershipValue%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "tls",
+            "type": "TXT",
+            "host": "_acme-challenge.%sub%",
+            "data": "%dcvValue%",
+            "ttl": 3600
+        }
+    ]
+}
