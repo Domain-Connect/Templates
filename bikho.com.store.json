@@ -1,0 +1,16 @@
+{
+  "providerId": "bikho.com",
+  "providerName": "Bikho",
+  "serviceId": "store",
+  "serviceName": "Bikho online store",
+  "version": 1,
+  "logoUrl": "https://www.bikho.com/brand/bikho-mark.png",
+  "description": "Points your domain at your Bikho online store.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "bikho.com",
+  "syncRedirectDomain": "bikho.com",
+  "hostRequired": false,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "76.76.21.21", "ttl": 3600 }
+  ]
+}

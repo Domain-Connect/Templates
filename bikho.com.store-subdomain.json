@@ -1,0 +1,16 @@
+{
+  "providerId": "bikho.com",
+  "providerName": "Bikho",
+  "serviceId": "store-subdomain",
+  "serviceName": "Bikho online store (subdomain)",
+  "version": 1,
+  "logoUrl": "https://www.bikho.com/brand/bikho-mark.png",
+  "description": "Points a subdomain (like shop.yourbrand.com) at your Bikho online store.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "bikho.com",
+  "syncRedirectDomain": "bikho.com",
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "cname.vercel-dns.com", "ttl": 3600 }
+  ]
+}
