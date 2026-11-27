@@ -37,10 +37,9 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "bounce",
-      "data": "v=spf1 include:amazonses.com ~all",
-      "ttl": 3600
+      "spfRules": "include:amazonses.com"
     }
   ]
 }

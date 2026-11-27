@@ -34,7 +34,9 @@
       "host": "_dmarc",
       "data": "%dmarc%",
       "ttl": 3600,
-      "essential": "OnApply"
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
     },
     {
       "type": "MX",
@@ -44,10 +46,9 @@
       "ttl": 3600
     },
     {
-      "type": "TXT",
+      "type": "SPFM",
       "host": "bounce",
-      "data": "v=spf1 include:amazonses.com ~all",
-      "ttl": 3600
+      "spfRules": "include:amazonses.com"
     }
   ]
 }
