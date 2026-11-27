@@ -1,0 +1,22 @@
+{
+  "providerId": "sbcommerce.cloud",
+  "providerName": "SB Commerce",
+  "serviceId": "tienda-virtual",
+  "serviceName": "Tienda virtual",
+  "version": 1,
+  "logoUrl": "https://sbcommerce.cloud/static/marca/sb-commerce-icono-512.png",
+  "description": "Connects a subdomain (e.g. tienda.yourbrand.com) to your SB Commerce online store.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "sbcommerce.cloud",
+  "syncRedirectDomain": "sbcommerce.cloud,mx.sbcommerce.cloud,us.sbcommerce.cloud",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "tiendas.sbcommerce.cloud",
+      "ttl": 3600
+    }
+  ]
+}
