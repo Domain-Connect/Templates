@@ -1,0 +1,25 @@
+{
+  "providerId": "buddys.vip",
+  "providerName": "Buddy's Branding",
+  "serviceId": "website",
+  "serviceName": "Website hosting",
+  "version": 1,
+  "logoUrl": "https://buddys.vip/static/logo.svg",
+  "description": "Points the domain and www at Buddy's Branding website hosting. Email and other records are not changed.",
+  "syncPubKeyDomain": "buddys.vip",
+  "syncRedirectDomain": "buddys.vip",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "128.140.93.218",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    }
+  ]
+}
