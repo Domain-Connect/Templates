@@ -1,0 +1,32 @@
+{
+  "providerId": "growlocal.site",
+  "providerName": "GrowLocal",
+  "serviceId": "website-host-v2",
+  "serviceName": "GrowLocal website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://app.growlocal.site/branding/v2/emblem.svg",
+  "description": "Shows your GrowLocal website at one name under your domain, such as shop.example.com, and proves to GrowLocal that this name is yours. Nothing else on your domain is changed. Same records as growlocal.site/website-host; its variable is named verification instead of token, for DNS providers that reserve the token parameter name.",
+  "variableDescription": "verification: the ownership code GrowLocal made for this domain (a UUID)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "growlocal.site",
+  "syncRedirectDomain": "app.growlocal.site",
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_growlocal-verification",
+      "data": "growlocal-domain-verification=%verification%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "growlocal-domain-verification="
+    },
+    {
+      "groupId": "site",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.growlocal.site",
+      "ttl": 3600
+    }
+  ]
+}
