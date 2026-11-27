@@ -1,0 +1,28 @@
+{
+  "providerId": "beretailer.com",
+  "providerName": "Beretailer",
+  "serviceId": "storesetup",
+  "serviceName": "Beretailer store",
+  "version": 1,
+  "logoUrl": "https://business.beretailer.com/brand/icon-512.png",
+  "description": "Connects your domain to your Beretailer online store, and optionally your admin panel on admin.<your domain>.",
+  "variableDescription": "verifytoken: ownership token shown in Beretailer when you connect your domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.beretailer.com",
+  "syncRedirectDomain": "business.beretailer.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_beretailer",
+      "data": "bret-verify=%verifytoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "bret-verify="
+    },
+    { "groupId": "site", "type": "A", "host": "@", "pointsTo": "194.233.65.199", "ttl": 3600 },
+    { "groupId": "site", "type": "CNAME", "host": "www", "pointsTo": "edge.beretailer.com", "ttl": 3600 },
+    { "groupId": "admin", "type": "CNAME", "host": "admin", "pointsTo": "edge.beretailer.com", "ttl": 3600 }
+  ]
+}
