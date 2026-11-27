@@ -1,0 +1,75 @@
+{
+  "providerId": "adelin.io",
+  "providerName": "Adelin",
+  "serviceId": "email-pair",
+  "serviceName": "Account emails and newsletters",
+  "version": 1,
+  "logoUrl": "https://adelin.io/favicon.svg",
+  "description": "Sets up both Amazon SES sending domains for an Adelin app: account emails and newsletters, each with DKIM signing, custom MAIL FROM and SPF.",
+  "variableDescription": "accountDkim1/2/3 and campaignDkim1/2/3: Amazon SES DKIM selector tokens. accountSesRegion and campaignSesRegion: Amazon SES regions.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.adelin.io",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%accountDkim1%._domainkey.accounts",
+      "pointsTo": "%accountDkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%accountDkim2%._domainkey.accounts",
+      "pointsTo": "%accountDkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%accountDkim3%._domainkey.accounts",
+      "pointsTo": "%accountDkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send.accounts",
+      "pointsTo": "feedback-smtp.%accountSesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send.accounts",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "CNAME",
+      "host": "%campaignDkim1%._domainkey.news",
+      "pointsTo": "%campaignDkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%campaignDkim2%._domainkey.news",
+      "pointsTo": "%campaignDkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%campaignDkim3%._domainkey.news",
+      "pointsTo": "%campaignDkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send.news",
+      "pointsTo": "feedback-smtp.%campaignSesRegion%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send.news",
+      "spfRules": "include:amazonses.com"
+    }
+  ],
+  "hostRequired": false
+}
