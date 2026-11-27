@@ -1,0 +1,20 @@
+{
+  "providerId": "getblasius.ai",
+  "providerName": "Blasius",
+  "serviceId": "envio-correo",
+  "serviceName": "Blasius email sending",
+  "version": 1,
+  "logoUrl": "https://app.getblasius.ai/favicon.svg",
+  "description": "Lets Blasius send your sales team's email from a dedicated subdomain (for example ventas.yourcompany.com) with SPF and DKIM, and receive replies on it. Your main domain, website and existing mailboxes are not changed.",
+  "variableDescription": "%dkimkey%: DKIM public key issued for the subdomain (without the p= prefix); %region%: sending region of the subdomain (for example us-east-1); %recepcion%: inbound mail host label issued for the subdomain (receive or receive-<region>). Applied with host=<subdomain>, so every record lands under that subdomain.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "getblasius.ai",
+  "syncRedirectDomain": "app.getblasius.ai,pilotoveri.getblasius.ai",
+  "records": [
+    { "groupId": "envio", "type": "TXT", "host": "resend._domainkey", "data": "p=%dkimkey%", "ttl": 3600, "txtConflictMatchingMode": "All" },
+    { "groupId": "envio", "type": "MX", "host": "send", "pointsTo": "feedback-smtp.%region%.amazonses.com", "priority": 10, "ttl": 3600 },
+    { "groupId": "envio", "type": "SPFM", "host": "send", "spfRules": "include:amazonses.com" },
+    { "groupId": "recepcionses", "type": "MX", "host": "@", "pointsTo": "inbound-smtp.%region%.amazonaws.com", "priority": 10, "ttl": 3600 },
+    { "groupId": "recepcionforge", "type": "MX", "host": "@", "pointsTo": "%recepcion%.forge.rmta.net", "priority": 10, "ttl": 3600 }
+  ]
+}
