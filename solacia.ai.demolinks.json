@@ -1,0 +1,22 @@
+{
+    "providerId": "solacia.ai",
+    "providerName": "Solacia",
+    "serviceId": "demolinks",
+    "serviceName": "Demo links on your own address",
+    "version": 1,
+    "logoUrl": "https://www.solacia.ai/favicon.svg",
+    "description": "Points one address on your domain at Solacia, so the demo links you send open on your own address.",
+    "variableDescription": "No variables. The address is the host the template is applied to.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "solacia.ai",
+    "syncRedirectDomain": "app.solacia.ai,dev.solacia.ai",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cname.vercel-dns.com",
+            "ttl": 3600
+        }
+    ]
+}
