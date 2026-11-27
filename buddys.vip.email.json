@@ -1,0 +1,40 @@
+{
+  "providerId": "buddys.vip",
+  "providerName": "Buddy's Branding",
+  "serviceId": "email",
+  "serviceName": "Email hosting",
+  "description": "Step 1 of Buddy's Branding email hosting (MXroute): domain verification TXT, MX records and SPF. The DKIM key is created by MXroute after verification and added with the emaildkim template. Website records are not changed.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_da-verify-fde81b215e301836757cd6e7d3024896",
+      "data": "domain-verified",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "fusion.mxrouting.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "fusion-relay.mxrouting.net",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mxroute.com",
+      "ttl": 3600
+    }
+  ],
+  "version": 1,
+  "logoUrl": "https://buddys.vip/static/logo.svg",
+  "syncPubKeyDomain": "buddys.vip",
+  "syncRedirectDomain": "buddys.vip"
+}

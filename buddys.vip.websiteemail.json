@@ -1,0 +1,52 @@
+{
+  "providerId": "buddys.vip",
+  "providerName": "Buddy's Branding",
+  "serviceId": "websiteemail",
+  "serviceName": "Website and email hosting",
+  "description": "Points the domain and www at Buddy's Branding website hosting and sets up email hosting (MXroute): verification TXT, MX and SPF. DKIM follows with the emaildkim template.",
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "128.140.93.218",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "@",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_da-verify-fde81b215e301836757cd6e7d3024896",
+      "data": "domain-verified",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "fusion.mxrouting.net",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "fusion-relay.mxrouting.net",
+      "priority": 20,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:mxroute.com",
+      "ttl": 3600
+    }
+  ],
+  "version": 1,
+  "logoUrl": "https://buddys.vip/static/logo.svg",
+  "syncPubKeyDomain": "buddys.vip",
+  "syncRedirectDomain": "buddys.vip"
+}
