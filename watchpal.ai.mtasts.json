@@ -1,0 +1,26 @@
+{
+  "providerId": "watchpal.ai",
+  "providerName": "WatchPal",
+  "serviceId": "mtasts",
+  "serviceName": "Email encryption policy (MTA-STS)",
+  "version": 1,
+  "logoUrl": "https://watchpal.ai/static/favicon.svg",
+  "description": "Points a domain's MTA-STS policy address and its policy record to WatchPal, which serves the policy for it (with its own certificate) and keeps it in step with the domain's mail servers.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "watchpal.ai",
+  "syncRedirectDomain": "watchpal.ai",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "mta-sts",
+      "pointsTo": "policy.watchpal.ai",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "_mta-sts",
+      "pointsTo": "_mta-sts.policy.watchpal.ai",
+      "ttl": 3600
+    }
+  ]
+}
