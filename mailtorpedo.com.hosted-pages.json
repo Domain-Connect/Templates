@@ -1,0 +1,20 @@
+{
+  "providerId": "mailtorpedo.com",
+  "providerName": "Mail Torpedo",
+  "logoUrl": "https://raw.githubusercontent.com/hpwray/mailtorpedo-brand/main/mailtorpedo-logo.svg",
+  "serviceId": "hosted-pages",
+  "serviceName": "Hosted forms and landing pages",
+  "version": 1,
+  "description": "Points a subdomain of the customer's domain (for example pages.example.com) at Mail Torpedo so their forms and landing pages are served from their own address.",
+  "syncPubKeyDomain": "mailtorpedo.com",
+  "syncRedirectDomain": "app.mailtorpedo.com,mailtorpedo.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "pages.mailtorpedo.com",
+      "ttl": 3600
+    }
+  ]
+}
