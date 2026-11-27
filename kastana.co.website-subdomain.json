@@ -1,0 +1,29 @@
+{
+  "providerId": "kastana.co",
+  "providerName": "Kastana",
+  "version": 1,
+  "logoUrl": "https://kastana.co/brand/kastana-icon.svg",
+  "syncBlock": false,
+  "syncPubKeyDomain": "kastana.co",
+  "syncRedirectDomain": "app.kastana.co",
+  "serviceId": "website-subdomain",
+  "serviceName": "Kastana booking page on a sub-address of your own domain",
+  "description": "Points a sub-address of your own domain, such as book.yourshop.co.uk, at your Kastana booking page. Use it with the host set to the sub-address. Adds two records: one that proves the domain is yours, and one that sends visitors to your shop.",
+  "variableDescription": "verify is the one-off value that proves the domain belongs to the shop (letters and numbers, made by Kastana for each domain).",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_kastana-verify",
+      "data": "kastana-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "shops.kastana.co",
+      "ttl": 3600
+    }
+  ]
+}
