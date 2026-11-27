@@ -1,0 +1,23 @@
+{
+  "providerId": "shlha.io",
+  "providerName": "Shlha",
+  "serviceId": "store-ownership",
+  "serviceName": "Shlha Store Ownership Verification",
+  "version": 1,
+  "description": "Adds one TXT record that proves you own this domain, so Shlha can move your online store with its logo, images and products.",
+  "logoUrl": "https://admin.shlha.io/app_icon.png",
+  "syncPubKeyDomain": "shlha.io",
+  "syncRedirectDomain": "admin.shlha.io",
+  "syncBlock": false,
+  "variableDescription": "token is the verification code Shlha shows for this store.",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_shlha-verify",
+      "ttl": 3600,
+      "data": "shlha-site-verification=%token%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "shlha-site-verification="
+    }
+  ]
+}
