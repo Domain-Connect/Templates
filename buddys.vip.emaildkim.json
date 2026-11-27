@@ -1,0 +1,21 @@
+{
+  "providerId": "buddys.vip",
+  "providerName": "Buddy's Branding",
+  "serviceId": "emaildkim",
+  "serviceName": "Email signing key (DKIM)",
+  "description": "Step 2 of Buddy's Branding email hosting: the DKIM key MXroute issues for the domain once it is verified.",
+  "variableDescription": "dkimkey: the base64 public key MXroute issues for this domain (the p= value).",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "x._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    }
+  ],
+  "version": 1,
+  "logoUrl": "https://buddys.vip/static/logo.svg",
+  "syncPubKeyDomain": "buddys.vip",
+  "syncRedirectDomain": "buddys.vip"
+}
