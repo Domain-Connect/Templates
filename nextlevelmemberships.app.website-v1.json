@@ -1,0 +1,45 @@
+{
+  "providerId": "nextlevelmemberships.app",
+  "providerName": "Next Level Memberships",
+  "version": 1,
+  "hostRequired": true,
+  "syncPubKeyDomain": "nextlevelmemberships.app",
+  "syncRedirectDomain": "nextlevelmemberships.app",
+  "description": "Connect a customer-owned domain to Next Level Memberships.",
+  "serviceId": "website-v1",
+  "serviceName": "Website",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "sites.nextlevelmemberships.app",
+      "ttl": 3600,
+      "groupId": "routing"
+    },
+    {
+      "type": "TXT",
+      "host": "_nlm-verify",
+      "data": "%ownership%",
+      "ttl": 3600,
+      "groupId": "ownership",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "nlm-"
+    },
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%cfOwnership%",
+      "ttl": 3600,
+      "groupId": "cloudflare",
+      "txtConflictMatchingMode": "None"
+    },
+    {
+      "type": "TXT",
+      "host": "_acme-challenge",
+      "data": "%certificate%",
+      "ttl": 3600,
+      "groupId": "certificate",
+      "txtConflictMatchingMode": "None"
+    }
+  ]
+}
