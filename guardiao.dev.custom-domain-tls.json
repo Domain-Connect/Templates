@@ -1,0 +1,31 @@
+{
+  "providerId": "guardiao.dev",
+  "providerName": "Guardião IAM",
+  "serviceId": "custom-domain-tls",
+  "serviceName": "Custom Authentication Domain",
+  "version": 1,
+  "logoUrl": "https://guardiao.dev/app/assets/icone.svg",
+  "description": "Configures the CNAME and TLS validation TXT record for a custom authentication domain in Guardião.",
+  "variableDescription": "TARGET is the Guardião CNAME target and TOKEN is the TLS validation TXT value. The subdomain is supplied via the standard Domain Connect host parameter.",
+  "syncPubKeyDomain": "guardiao.dev",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "groupId": "custom-domain",
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%TARGET%.guardiao.dev",
+      "ttl": 300
+    },
+    {
+      "groupId": "custom-domain",
+      "type": "TXT",
+      "host": "_cf-custom-hostname",
+      "data": "%TOKEN%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "All"
+    }
+  ]
+}
