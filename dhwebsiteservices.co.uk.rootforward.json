@@ -1,0 +1,22 @@
+{
+  "providerId": "dhwebsiteservices.co.uk",
+  "providerName": "DH Website Services",
+  "serviceId": "rootforward",
+  "serviceName": "DH Website Services: forward the bare domain to www",
+  "version": 1,
+  "logoUrl": "https://www.dhwebsiteservices.co.uk/dh-logo-square.png",
+  "description": "Permanently redirects the bare domain (example.com) to https://www.example.com, where DH Website Services hosts your website. Use together with the DH Website Services website template.",
+  "variableDescription": "None: the redirect target is always https://www.<name the template is applied to>.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dhwebsiteservices.co.uk",
+  "syncRedirectDomain": "connect.dhwebsiteservices.co.uk",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}
