@@ -1,0 +1,54 @@
+{
+  "providerId": "epom.com",
+  "providerName": "Epom",
+  "serviceId": "mail-sending",
+  "serviceName": "Ad server mail",
+  "version": 1,
+  "logoUrl": "https://epom.com/resources/img/logo.svg",
+  "description": "Lets the ad server send the network's system e-mail from this domain: DKIM signing and a bounce subdomain at Amazon SES, and a record that names the network the domain belongs to.",
+  "variableDescription": "dkim1, dkim2, dkim3: the Amazon SES Easy DKIM tokens of the domain; region: the Amazon SES region, e.g. us-east-1; token: the network's verification token",
+  "syncBlock": false,
+  "syncPubKeyDomain": "mail.epom.com",
+  "syncRedirectDomain": "epom.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_epom-verify",
+      "data": "domain-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "domain-verification="
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
+    }
+  ]
+}
