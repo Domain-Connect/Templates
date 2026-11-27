@@ -1,0 +1,22 @@
+{
+  "providerId": "lucidbooking.cz",
+  "providerName": "BookMark",
+  "serviceId": "custom-domain",
+  "serviceName": "BookMark custom domain",
+  "version": 1,
+  "logoUrl": "https://lucidbooking.cz/domain-connect/logo.svg",
+  "description": "Points a subdomain of the customer's domain (for example rezervace.example.cz) to their BookMark booking site. The subdomain is supplied by the caller in the host parameter. The CNAME target also proves domain control, no other record is needed.",
+  "variableDescription": "token: identifier of the domain connection issued by BookMark. The CNAME target is always <token>.domeny.lucidbooking.cz, so the variable is limited to a single label.",
+  "syncPubKeyDomain": "lucidbooking.cz",
+  "syncRedirectDomain": "lucidbooking.cz",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%token%.domeny.lucidbooking.cz",
+      "ttl": 3600
+    }
+  ]
+}
