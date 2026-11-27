@@ -1,0 +1,39 @@
+{
+  "providerId": "responde.app",
+  "providerName": "responde.app",
+  "serviceId": "dominio-sub",
+  "serviceName": "Website and email on responde.app (subdomain)",
+  "version": 1,
+  "logoUrl": "https://responde.app/favicon.svg",
+  "description": "Points a subdomain to your responde.app website and enables sending email from it (Amazon SES DKIM).",
+  "variableDescription": "connect: host the subdomain points to · dkim1-3: the three Amazon SES DKIM tokens of this domain",
+  "syncPubKeyDomain": "responde.app",
+  "syncRedirectDomain": "responde.app",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%connect%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}

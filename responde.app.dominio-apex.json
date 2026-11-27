@@ -1,0 +1,45 @@
+{
+  "providerId": "responde.app",
+  "providerName": "responde.app",
+  "serviceId": "dominio-apex",
+  "serviceName": "Website and email on responde.app (root domain)",
+  "version": 1,
+  "logoUrl": "https://responde.app/favicon.svg",
+  "description": "Points your domain to your responde.app website and enables sending email from your domain (Amazon SES DKIM).",
+  "variableDescription": "ip: IP of the responde.app web server · connect: host a subdomain points to · dkim1-3: the three Amazon SES DKIM tokens of this domain",
+  "syncPubKeyDomain": "responde.app",
+  "syncRedirectDomain": "responde.app",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "A",
+      "host": "www",
+      "pointsTo": "%ip%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%dkim1%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%dkim2%.dkim.amazonses.com",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%dkim3%.dkim.amazonses.com",
+      "ttl": 3600
+    }
+  ]
+}
