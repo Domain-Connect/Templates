@@ -1,0 +1,23 @@
+{
+  "providerId": "dhwebsiteservices.co.uk",
+  "providerName": "DH Website Services",
+  "serviceId": "website",
+  "serviceName": "DH Website Services: connect your website",
+  "version": 1,
+  "logoUrl": "https://www.dhwebsiteservices.co.uk/dh-logo-square.png",
+  "description": "Points the www name at the website DH Website Services hosts for you on Cloudflare Pages. Email and all other records are left untouched.",
+  "variableDescription": "site: the Cloudflare Pages project name of your website (the part before .pages.dev).",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dhwebsiteservices.co.uk",
+  "syncRedirectDomain": "connect.dhwebsiteservices.co.uk",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "%site%.pages.dev",
+      "ttl": 3600
+    }
+  ]
+}
