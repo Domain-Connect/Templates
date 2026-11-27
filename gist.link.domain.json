@@ -3,20 +3,55 @@
   "providerName": "GistLink",
   "serviceId": "domain",
   "serviceName": "GistLink email",
-  "version": 2,
-  "logoUrl": "https://cdn.gist.link/logo/gistlink.svg",
+  "version": 1,
+  "logoUrl": "https://cdn.gist.link/images/logo/logo_single.svg",
   "description": "Sets up a domain for GistLink email: ownership, DKIM, SPF, DMARC and inbound MX. Every record points at GistLink names only.",
   "variableDescription": "verify: GistLink ownership token; dkimlabel: the domain's GistLink DKIM key label",
   "syncBlock": false,
-  "sharedProviderName": true,
+  "syncPubKeyDomain": "dckey.gist.link",
   "hostRequired": false,
   "syncRedirectDomain": "settings.gist.link",
   "records": [
-    { "type": "TXT", "host": "_gistlink", "data": "gistlink-verify=%verify%", "ttl": 3600 },
-    { "type": "CNAME", "host": "gl1._domainkey", "pointsTo": "gl1.%dkimlabel%.dkim.gist.link", "ttl": 3600 },
-    { "type": "SPFM", "host": "@", "spfRules": "include:_spf.gist.link" },
-    { "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%", "ttl": 3600, "txtConflictMatchingMode": "All" },
-    { "type": "MX", "host": "@", "pointsTo": "mx1.gist.link", "priority": 10, "ttl": 3600 },
-    { "type": "MX", "host": "@", "pointsTo": "mx2.gist.link", "priority": 20, "ttl": 3600 }
+    {
+      "type": "TXT",
+      "host": "_gistlink",
+      "data": "gistlink-verify=%verify%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "gistlink-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "gl1._domainkey",
+      "pointsTo": "gl1.%dkimlabel%.dkim.gist.link",
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:_spf.gist.link"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:postmaster@%domain%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.gist.link",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.gist.link",
+      "priority": 20,
+      "ttl": 3600
+    }
   ]
 }
