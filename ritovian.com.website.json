@@ -1,0 +1,18 @@
+{
+  "providerId": "ritovian.com",
+  "providerName": "Ritovian",
+  "serviceId": "website",
+  "serviceName": "Ritovian site",
+  "version": 1,
+  "logoUrl": "https://ritovian.com/domain-connect/logo.svg",
+  "description": "Points this address (for example www.yourchurch.org.uk) at the site your organisation runs on Ritovian, and adds the record that proves to Ritovian the address is yours. Email and other records are not changed.",
+  "variableDescription": "%organisation%: the identifier Ritovian gives your organisation, published after a fixed prefix in the verification record",
+  "syncPubKeyDomain": "ritovian.com",
+  "syncRedirectDomain": "ritovian.com",
+  "syncBlock": false,
+  "hostRequired": true,
+  "records": [
+    { "type": "CNAME", "host": "@", "pointsTo": "sites.ritovian.com", "ttl": 3600 },
+    { "type": "TXT", "host": "_ritovian-verify", "data": "ritovian-site=%organisation%", "ttl": 3600, "txtConflictMatchingMode": "All" }
+  ]
+}
