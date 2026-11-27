@@ -1,0 +1,51 @@
+{
+  "providerId": "postrail.cloud",
+  "providerName": "Postrail",
+  "serviceId": "mail-routing",
+  "serviceName": "Postrail Inbound Mail Routing",
+  "version": 1,
+  "logoUrl": "https://app.postrail.cloud/brand/postrail-icon.svg",
+  "description": "Connects your domain to Postrail for ownership verification, inbound mail failover routing (MX), and outbound DKIM signing.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.postrail.cloud",
+  "syncRedirectDomain": "app.postrail.cloud",
+  "records": [
+    {
+      "groupId": "verify",
+      "type": "TXT",
+      "host": "_postrail-verify",
+      "data": "postrail-verify=%verifyToken%",
+      "ttl": 300
+    },
+    {
+      "groupId": "cutover",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx1.postrail.cloud",
+      "priority": 10,
+      "ttl": 300
+    },
+    {
+      "groupId": "cutover",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mx2.postrail.cloud",
+      "priority": 20,
+      "ttl": 300
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "pr1._domainkey",
+      "pointsTo": "pr1.%domainSlug%.dkim.postrail.cloud",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim",
+      "type": "CNAME",
+      "host": "pr2._domainkey",
+      "pointsTo": "pr2.%domainSlug%.dkim.postrail.cloud",
+      "ttl": 3600
+    }
+  ]
+}
