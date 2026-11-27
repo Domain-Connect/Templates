@@ -3,18 +3,18 @@
     "providerName": "builtbymeli",
     "serviceId": "website",
     "serviceName": "builtbymeli website",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://builtbymeli.com/assets/brand/builtbymeli-logo.svg",
     "syncPubKeyDomain": "builtbymeli.com",
     "syncRedirectDomain": "edit.builtbymeli.com",
     "description": "Connects a domain to a website hosted by builtbymeli",
-    "variableDescription": "token: the value that shows the domain belongs to the site's owner",
+    "variableDescription": "verifycode: the value that shows the domain belongs to the site's owner",
     "records": [
         {
             "type": "TXT",
             "host": "_builtbymeli",
             "ttl": 3600,
-            "data": "builtbymeli-verify=%token%",
+            "data": "builtbymeli-verify=%verifycode%",
             "txtConflictMatchingMode": "Prefix",
             "txtConflictMatchingPrefix": "builtbymeli-verify="
         },
