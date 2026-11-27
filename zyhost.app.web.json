@@ -3,7 +3,7 @@
     "providerName": "Zyhost",
     "serviceId": "web",
     "serviceName": "Zyhost Web",
-    "version": 1,
+    "version": 2,
     "logoUrl": "https://zyhost.dev/bimi.svg",
     "description": "Points a customer domain to a Zyhost-hosted web app (Cloudflare for SaaS custom hostname).",
     "variableDescription": "No variables. The host parameter selects the subdomain.",
@@ -15,7 +15,7 @@
         {
             "type": "CNAME",
             "host": "@",
-            "pointsTo": "domains.zyhost.app",
+            "pointsTo": "edge.zyhost.app",
             "ttl": 3600
         }
     ]
