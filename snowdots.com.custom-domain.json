@@ -1,0 +1,29 @@
+{
+    "providerId": "snowdots.com",
+    "providerName": "SnowDots",
+    "serviceId": "custom-domain",
+    "serviceName": "Client portal on your own domain",
+    "version": 1,
+    "logoUrl": "https://snowdots.com/favicon.svg",
+    "description": "Serves an agency's SnowDots client portal and share links on a subdomain it owns: a CNAME to SnowDots and a TXT record proving ownership.",
+    "variableDescription": "token: the ownership token SnowDots shows the agency",
+    "syncBlock": false,
+    "syncPubKeyDomain": "snowdots.com",
+    "syncRedirectDomain": "app.snowdots.com",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "cname.snowdots.com",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_snowdots",
+            "data": "%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "All"
+        }
+    ]
+}
