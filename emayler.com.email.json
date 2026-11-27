@@ -1,0 +1,48 @@
+{
+    "providerId": "emayler.com",
+    "providerName": "Emayler",
+    "serviceId": "email",
+    "serviceName": "Emayler email",
+    "version": 1,
+    "logoUrl": "https://emayler.com/icon.svg",
+    "description": "Connects a domain to Emayler email hosting: receives mail, authorises Emayler to send as the domain (SPF and DKIM) and proves ownership.",
+    "variableDescription": "dkimselector: DKIM key selector issued by Emayler, for example e202611. verifytoken: random domain ownership token issued by Emayler.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "domainconnect.emayler.com",
+    "syncRedirectDomain": "app.emayler.com",
+    "hostRequired": false,
+    "records": [
+        {
+            "type": "MX",
+            "host": "@",
+            "pointsTo": "mx1.emayler.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:spf.emayler.com"
+        },
+        {
+            "type": "CNAME",
+            "host": "bounce",
+            "pointsTo": "bounces.emayler.com",
+            "ttl": 3600
+        },
+        {
+            "type": "CNAME",
+            "host": "%dkimselector%._domainkey",
+            "pointsTo": "%dkimselector%._domainkey.%fqdn%.dkim.emayler.net",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "emayler-verify",
+            "data": "emayler-verify=%verifytoken%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "emayler-verify="
+        }
+    ]
+}
