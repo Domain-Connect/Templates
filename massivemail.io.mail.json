@@ -1,0 +1,50 @@
+{
+  "providerId": "massivemail.io",
+  "providerName": "Massive Mail",
+  "serviceId": "mail",
+  "serviceName": "Set up email and verify domain ownership",
+  "description": "Verify domain ownership, authorize Massive Mail sending, and route incoming email to Massive Mail.",
+  "variableDescription": "%token%: Massive Mail ownership verification token; %dkim_public_key%: Domain-specific RSA public key in Base64",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.massivemail.io",
+  "syncBlock": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_massivemail",
+      "data": "massivemail-verification=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "massivemail-verification="
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.massivemail.io.",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "ip4:159.195.238.56",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "setup1._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkim_public_key%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none",
+      "ttl": 3600,
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    }
+  ]
+}
