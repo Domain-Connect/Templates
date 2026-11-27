@@ -1,0 +1,91 @@
+{
+  "providerId": "esys.email",
+  "providerName": "esys.email",
+  "serviceId": "mail",
+  "serviceName": "esys.email Mail",
+  "version": 1,
+  "logoUrl": "https://esys.email/favicon.svg",
+  "description": "Corporate email hosted by esys.email: MX, SPF, DKIM (Ed25519 and RSA), DMARC, IMAP/SMTP SRV and mail client autoconfiguration records.",
+  "variableDescription": "dkimselector/dkimkey: Ed25519 DKIM selector and public key; dkimselector2/dkimkey2: RSA DKIM selector and public key. Both pairs are generated per domain by the esys.email mail server and shown in the esys.email panel.",
+  "syncBlock": false,
+  "syncPubKeyDomain": "esys.email",
+  "syncRedirectDomain": "app.esys.email",
+  "records": [
+    {
+      "groupId": "mail",
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "mail.esys.email",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "groupId": "mail",
+      "type": "SPFM",
+      "host": "@",
+      "spfRules": "include:esys.email"
+    },
+    {
+      "groupId": "dmarc",
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:dmarc@%fqdn%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "dkim",
+      "type": "TXT",
+      "host": "%dkimselector%._domainkey",
+      "data": "v=DKIM1; k=ed25519; p=%dkimkey%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "dkim2",
+      "type": "TXT",
+      "host": "%dkimselector2%._domainkey",
+      "data": "v=DKIM1; k=rsa; p=%dkimkey2%",
+      "ttl": 3600
+    },
+    {
+      "groupId": "clients",
+      "type": "CNAME",
+      "host": "autoconfig",
+      "pointsTo": "autoconfig.esys.email",
+      "ttl": 3600
+    },
+    {
+      "groupId": "clients",
+      "type": "CNAME",
+      "host": "autodiscover",
+      "pointsTo": "autoconfig.esys.email",
+      "ttl": 3600
+    },
+    {
+      "groupId": "clients",
+      "type": "SRV",
+      "name": "@",
+      "service": "_imaps",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 993,
+      "target": "mail.esys.email",
+      "ttl": 3600
+    },
+    {
+      "groupId": "clients",
+      "type": "SRV",
+      "name": "@",
+      "service": "_submissions",
+      "protocol": "_tcp",
+      "priority": 0,
+      "weight": 1,
+      "port": 465,
+      "target": "mail.esys.email",
+      "ttl": 3600
+    }
+  ]
+}
