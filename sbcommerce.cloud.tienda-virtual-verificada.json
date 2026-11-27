@@ -1,0 +1,20 @@
+{
+  "providerId": "sbcommerce.cloud",
+  "providerName": "SB Commerce",
+  "serviceId": "tienda-virtual-verificada",
+  "serviceName": "Tienda virtual (con verificación)",
+  "version": 1,
+  "logoUrl": "https://sbcommerce.cloud/static/marca/sb-commerce-icono-512.png",
+  "description": "Connects a subdomain to your SB Commerce online store and adds the ownership verification record.",
+  "variableDescription": "target: hostname the store is served from; verifyhost: verification record name relative to the subdomain; verify: verification token",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "hostRequired": true,
+  "syncPubKeyDomain": "sbcommerce.cloud",
+  "syncRedirectDomain": "sbcommerce.cloud,mx.sbcommerce.cloud,us.sbcommerce.cloud",
+  "warnPhishing": true,
+  "records": [
+    {"type": "CNAME", "host": "@", "pointsTo": "%target%", "ttl": 3600},
+    {"type": "TXT", "host": "%verifyhost%", "data": "%verify%", "ttl": 3600, "txtConflictMatchingMode": "All"}
+  ]
+}
