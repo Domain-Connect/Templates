@@ -1,0 +1,129 @@
+{
+    "providerId": "convergent.cloud",
+    "providerName": "Convergent",
+    "serviceId": "mail",
+    "serviceName": "Sovereign Mail",
+    "version": 1,
+    "syncBlock": false,
+    "syncPubKeyDomain": "dc.convergent.cloud",
+    "hostRequired": false,
+    "description": "Hosted mail: MX, SPF, DKIM, DMARC, TLS-RPT, MTA-STS, BIMI, client autoconfiguration, and an optional webmail name.",
+    "variableDescription": "label: the random label that carries this customer in our relay zone (DKIM, DMARC, TLS-RPT, MTA-STS and BIMI are CNAMEs to <name>.<label>.<relay zone>, where we rotate the values).",
+    "records": [
+        {
+            "groupId": "mx",
+            "host": "@",
+            "ttl": 3600,
+            "type": "MX",
+            "priority": 10,
+            "pointsTo": "fsb.convergent.cc"
+        },
+        {
+            "groupId": "spf",
+            "type": "SPFM",
+            "host": "@",
+            "spfRules": "include:convergent.tn"
+        },
+        {
+            "groupId": "dkim",
+            "host": "cv2026._domainkey",
+            "ttl": 3600,
+            "type": "CNAME",
+            "pointsTo": "cv2026._domainkey.%label%.r.convergent.cloud"
+        },
+        {
+            "groupId": "dmarc",
+            "host": "_dmarc",
+            "ttl": 60,
+            "essential": "OnApply",
+            "type": "CNAME",
+            "pointsTo": "_dmarc.%label%.r.convergent.cloud"
+        },
+        {
+            "groupId": "tlsrpt",
+            "host": "_smtp._tls",
+            "ttl": 3600,
+            "type": "CNAME",
+            "pointsTo": "_smtp._tls.%label%.r.convergent.cloud"
+        },
+        {
+            "groupId": "bimi",
+            "host": "default._bimi",
+            "ttl": 3600,
+            "essential": "OnApply",
+            "type": "CNAME",
+            "pointsTo": "default._bimi.%label%.r.convergent.cloud"
+        },
+        {
+            "groupId": "mta-sts",
+            "host": "mta-sts",
+            "ttl": 3600,
+            "type": "CNAME",
+            "pointsTo": "web.r.convergent.cloud"
+        },
+        {
+            "groupId": "mta-sts",
+            "host": "_mta-sts",
+            "ttl": 300,
+            "type": "CNAME",
+            "pointsTo": "_mta-sts.%label%.r.convergent.cloud"
+        },
+        {
+            "groupId": "autoconfig",
+            "host": "autoconfig",
+            "ttl": 3600,
+            "type": "CNAME",
+            "pointsTo": "web.r.convergent.cloud"
+        },
+        {
+            "groupId": "autoconfig",
+            "host": "autodiscover",
+            "ttl": 3600,
+            "type": "CNAME",
+            "pointsTo": "web.r.convergent.cloud"
+        },
+        {
+            "groupId": "autoconfig",
+            "type": "SRV",
+            "service": "_autodiscover",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 0,
+            "port": 443,
+            "target": "web.r.convergent.cloud",
+            "name": "@",
+            "ttl": 3600
+        },
+        {
+            "groupId": "autoconfig",
+            "type": "SRV",
+            "service": "_imaps",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 100,
+            "port": 993,
+            "target": "fsb.convergent.cc",
+            "name": "@",
+            "ttl": 3600
+        },
+        {
+            "groupId": "autoconfig",
+            "type": "SRV",
+            "service": "_submissions",
+            "protocol": "_tcp",
+            "priority": 0,
+            "weight": 100,
+            "port": 465,
+            "target": "fsb.convergent.cc",
+            "name": "@",
+            "ttl": 3600
+        },
+        {
+            "groupId": "webmail",
+            "host": "webmail",
+            "ttl": 3600,
+            "type": "CNAME",
+            "pointsTo": "webmail.smail.tn"
+        }
+    ]
+}
