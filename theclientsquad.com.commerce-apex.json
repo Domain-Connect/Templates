@@ -1,0 +1,35 @@
+{
+  "providerId": "theclientsquad.com",
+  "providerName": "Client Squad",
+  "version": 1,
+  "logoUrl": "https://commerce.theclientsquad.com/assets/client-squad-commerce-logo.svg",
+  "syncPubKeyDomain": "domainconnect.theclientsquad.com",
+  "syncRedirectDomain": "commerce.theclientsquad.com",
+  "variableDescription": "verification: 48-character hexadecimal store-specific ownership challenge. Signed by Client Squad; no variable destination or redirect host.",
+  "serviceId": "commerce-apex",
+  "serviceName": "Commerce store domain",
+  "description": "Connect this domain to your Client Squad Commerce store, verify ownership, and preserve existing email records.",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_commerce-verify",
+      "data": "commerce-%verification%",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "commerce-",
+      "ttl": 600
+    },
+    {
+      "type": "A",
+      "host": "@",
+      "pointsTo": "216.24.57.1",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "commerce-platform-staging.onrender.com",
+      "ttl": 600
+    }
+  ]
+}
