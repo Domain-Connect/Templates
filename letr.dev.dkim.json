@@ -1,0 +1,21 @@
+{
+    "providerId": "letr.dev",
+    "providerName": "letr.dev",
+    "serviceId": "dkim",
+    "serviceName": "DKIM for your own letr.dev account",
+    "version": 1,
+    "logoUrl": "https://letr.dev/favicon.svg",
+    "description": "Publishes the DKIM key a letr.dev account signs the domain's email with, at the selector letr.dev gives the domain.",
+    "variableDescription": "%dkimSelector%: the domain's own DKIM selector, e.g. letr-k3x9q2m7; %dkimKey%: the domain's DKIM public key, base64",
+    "syncPubKeyDomain": "letr.dev",
+    "syncRedirectDomain": "app.letr.dev",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "%dkimSelector%._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "None"
+        }
+    ]
+}

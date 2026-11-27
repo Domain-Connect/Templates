@@ -1,0 +1,27 @@
+{
+    "providerId": "letr.dev",
+    "providerName": "letr.dev",
+    "serviceId": "dkim-return-path",
+    "serviceName": "DKIM and return path for your own letr.dev account",
+    "version": 1,
+    "logoUrl": "https://letr.dev/favicon.svg",
+    "description": "Publishes the DKIM key a letr.dev account signs the domain's email with, at the selector letr.dev gives the domain, and the return-path CNAME send that sends bounces to letr.dev. letr.dev uses it only while send under the domain holds no record.",
+    "variableDescription": "%dkimSelector%: the domain's own DKIM selector, e.g. letr-k3x9q2m7; %dkimKey%: the domain's DKIM public key, base64",
+    "syncPubKeyDomain": "letr.dev",
+    "syncRedirectDomain": "app.letr.dev",
+    "records": [
+        {
+            "type": "TXT",
+            "host": "%dkimSelector%._domainkey",
+            "data": "v=DKIM1; k=rsa; p=%dkimKey%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "None"
+        },
+        {
+            "type": "CNAME",
+            "host": "send",
+            "pointsTo": "send.letr.dev",
+            "ttl": 3600
+        }
+    ]
+}
