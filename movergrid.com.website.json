@@ -1,0 +1,26 @@
+{
+    "providerId": "movergrid.com",
+    "providerName": "MoverGrid",
+    "serviceId": "website",
+    "serviceName": "Website hosting",
+    "version": 1,
+    "logoUrl": "https://movergrid.com/wp-content/themes/listinghive-child/crm/assets/favicon/apple-touch-icon.png",
+    "description": "Points the domain apex and www at the MoverGrid website host. Only A records on @ and www change. Nameservers, MX and other email records are not touched.",
+    "variableDescription": "%ip%: IPv4 address of the MoverGrid web server that hosts the site.",
+    "syncPubKeyDomain": "movergrid.com",
+    "syncRedirectDomain": "movergrid.com",
+    "records": [
+        {
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 600
+        },
+        {
+            "type": "A",
+            "host": "www",
+            "pointsTo": "%ip%",
+            "ttl": 600
+        }
+    ]
+}
