@@ -1,0 +1,17 @@
+{
+  "providerId": "referrio.co.uk",
+  "providerName": "Referrio",
+  "serviceId": "portal",
+  "serviceName": "Referrio branded referral portal",
+  "version": 1,
+  "logoUrl": "https://referrio.co.uk/favicon.ico",
+  "description": "Points your referral portal subdomain (e.g. rewards.yourcompany.co.uk) at Referrio.",
+  "variableDescription": "ip: Referrio proxy IPv4 address",
+  "syncBlock": false,
+  "syncPubKeyDomain": "referrio.co.uk",
+  "syncRedirectDomain": "referrio.co.uk,www.referrio.co.uk,referrio.lovable.app",
+  "hostRequired": true,
+  "records": [
+    { "type": "A", "host": "@", "pointsTo": "%ip%", "ttl": 3600 }
+  ]
+}

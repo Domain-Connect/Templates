@@ -1,0 +1,21 @@
+{
+  "providerId": "referrio.co.uk",
+  "providerName": "Referrio",
+  "serviceId": "email",
+  "serviceName": "Referrio email sending domain",
+  "version": 1,
+  "logoUrl": "https://referrio.co.uk/favicon.ico",
+  "description": "Adds the records that let Referrio send referral emails from your refer. subdomain via Mailgun.",
+  "variableDescription": "dkimhost: DKIM selector host; dkimvalue: DKIM public key; mx1/mx2: Mailgun MX hosts; trackinghost/tracking: click-tracking CNAME",
+  "syncBlock": false,
+  "syncPubKeyDomain": "referrio.co.uk",
+  "syncRedirectDomain": "referrio.co.uk,www.referrio.co.uk,referrio.lovable.app",
+  "hostRequired": true,
+  "records": [
+    { "type": "SPFM", "host": "@", "spfRules": "include:mailgun.org" },
+    { "type": "TXT", "host": "%dkimhost%", "data": "%dkimvalue%", "ttl": 3600, "txtConflictMatchingMode": "None" },
+    { "type": "MX", "host": "@", "pointsTo": "%mx1%", "priority": 10, "ttl": 3600 },
+    { "type": "MX", "host": "@", "pointsTo": "%mx2%", "priority": 10, "ttl": 3600 },
+    { "type": "CNAME", "host": "%trackinghost%", "pointsTo": "%tracking%", "ttl": 3600 }
+  ]
+}
