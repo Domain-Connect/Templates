@@ -1,0 +1,22 @@
+{
+    "providerId": "zyhost.app",
+    "providerName": "Zyhost",
+    "serviceId": "web",
+    "serviceName": "Zyhost Web",
+    "version": 1,
+    "logoUrl": "https://zyhost.dev/bimi.svg",
+    "description": "Points a customer domain to a Zyhost-hosted web app (Cloudflare for SaaS custom hostname).",
+    "variableDescription": "No variables. The host parameter selects the subdomain.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "zyhost.app",
+    "syncRedirectDomain": "client.zyhost.dev",
+    "hostRequired": true,
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "@",
+            "pointsTo": "domains.zyhost.app",
+            "ttl": 3600
+        }
+    ]
+}
