@@ -1,0 +1,61 @@
+{
+    "providerId": "noburi.space",
+    "providerName": "Noburi",
+    "serviceId": "email-sending",
+    "serviceName": "Noburi Send",
+    "version": 1,
+    "logoUrl": "https://send.noburi.space/mark.png",
+    "description": "Lets Noburi Send send transactional email for your domain, with DKIM, SPF (return path) and DMARC. The DMARC record is its own group, left out when the domain already has one.",
+    "syncBlock": false,
+    "syncPubKeyDomain": "noburi.space",
+    "syncRedirectDomain": "send.noburi.space",
+    "variableDescription": "%dkim1%, %dkim2%, %dkim3%: the three DKIM selectors Amazon SES issued for this domain; %region%: the Amazon SES sending region (e.g. eu-west-3)",
+    "records": [
+        {
+            "groupId": "sending",
+            "type": "CNAME",
+            "host": "%dkim1%._domainkey",
+            "pointsTo": "%dkim1%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sending",
+            "type": "CNAME",
+            "host": "%dkim2%._domainkey",
+            "pointsTo": "%dkim2%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sending",
+            "type": "CNAME",
+            "host": "%dkim3%._domainkey",
+            "pointsTo": "%dkim3%.dkim.amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "sending",
+            "type": "MX",
+            "host": "send",
+            "pointsTo": "feedback-smtp.%region%.amazonses.com",
+            "priority": 10,
+            "ttl": 3600
+        },
+        {
+            "groupId": "sending",
+            "type": "SPFM",
+            "host": "send",
+            "spfRules": "include:amazonses.com",
+            "ttl": 3600
+        },
+        {
+            "groupId": "dmarc",
+            "type": "TXT",
+            "host": "_dmarc",
+            "data": "v=DMARC1; p=none;",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "v=DMARC1",
+            "essential": "OnApply"
+        }
+    ]
+}
