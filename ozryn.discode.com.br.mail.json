@@ -3,10 +3,10 @@
   "providerName": "Ozryn",
   "serviceId": "mail",
   "serviceName": "E-mail do Ozryn",
-  "version": 1,
-  "logoUrl": "https://ozryn.discode.com.br/brand/ozryn-email.png",
+  "version": 3,
+  "logoUrl": "https://ozryn.discode.com.br/brand/ozryn-email-quadrado.svg",
   "description": "Lets a company send e-mail from its own domain through the Ozryn (SPF, DKIM, DMARC) and, optionally, receive it (MX).",
-  "variableDescription": "dkimkey: DKIM selector (e.g. ozryn1); dkimp: the base64 DKIM public key; mxhost: the Ozryn inbound mail host",
+  "variableDescription": "dkimkey: DKIM selector (e.g. ozryn1); dkimp: the base64 DKIM public key; mxhost: the Ozryn inbound mail host; sestoken: the Amazon SES verification token of the receiving domain",
   "syncPubKeyDomain": "ozryn.discode.com.br",
   "syncRedirectDomain": "ozryn.discode.com.br",
   "hostRequired": false,
@@ -15,7 +15,7 @@
       "groupId": "spf",
       "type": "SPFM",
       "host": "@",
-      "spfRules": "ip4:179.197.78.109"
+      "spfRules": "include:_spf.ozryn.discode.com.br"
     },
     {
       "groupId": "dkim",
@@ -42,6 +42,15 @@
       "pointsTo": "%mxhost%",
       "priority": 10,
       "ttl": 3600,
+      "essential": "OnApply"
+    },
+    {
+      "groupId": "mx",
+      "type": "TXT",
+      "host": "_amazonses",
+      "data": "%sestoken%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "None",
       "essential": "OnApply"
     }
   ]
