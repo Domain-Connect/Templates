@@ -1,0 +1,26 @@
+{
+  "providerId": "deliverit.io",
+  "providerName": "DeliverIT",
+  "serviceId": "website",
+  "serviceName": "Published website",
+  "version": 2,
+  "hostRequired": true,
+  "description": "Connect a subdomain to your published DeliverIT website and validate its HTTPS certificate. Existing website records at that subdomain may be replaced. Root-domain forwarding is not included.",
+  "syncPubKeyDomain": "keys.domainconnect.deliverit.io",
+  "syncRedirectDomain": "deliverit.io",
+  "variableDescription": "acmToken: the 32-character AWS certificate validation token without its leading underscore. acmTarget: the AWS-provided validation target before .acm-validations.aws, including its leading underscore. The standard host parameter selects the website subdomain.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.apps.deliverit.io",
+      "ttl": 600
+    },
+    {
+      "type": "CNAME",
+      "host": "_%acmToken%",
+      "pointsTo": "%acmTarget%.acm-validations.aws",
+      "ttl": 600
+    }
+  ]
+}
