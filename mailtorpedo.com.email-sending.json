@@ -4,9 +4,9 @@
   "logoUrl": "https://raw.githubusercontent.com/hpwray/mailtorpedo-brand/main/mailtorpedo-logo.svg",
   "serviceId": "email-sending",
   "serviceName": "Email sending setup",
-  "version": 2,
-  "description": "Adds the DKIM signing records and a starter DMARC record so email sent from the customer's domain through Mail Torpedo is authenticated.",
-  "variableDescription": "dkim1, dkim2, dkim3: the unique token of each of the three DKIM keys (the part before ._domainkey). dmarc: the full DMARC TXT value, e.g. v=DMARC1; p=none; fo=1",
+  "version": 3,
+  "description": "Adds the DKIM signing records, a starter DMARC record, and the two records for the bounce address (bounce.<domain>) so email sent from the customer's domain through Mail Torpedo is fully authenticated.",
+  "variableDescription": "dkim1, dkim2, dkim3: the unique token of each of the three DKIM keys (the part before ._domainkey). dmarc: the full DMARC TXT value, e.g. v=DMARC1; p=none; fo=1. region: the region part of the bounce mail server name, e.g. us-east-1 (feedback-smtp.<region>.amazonses.com).",
   "syncPubKeyDomain": "mailtorpedo.com",
   "syncRedirectDomain": "app.mailtorpedo.com,mailtorpedo.com",
   "hostRequired": false,
@@ -34,7 +34,21 @@
       "host": "_dmarc",
       "data": "%dmarc%",
       "ttl": 3600,
-      "essential": "OnApply"
+      "essential": "OnApply",
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1"
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
     }
   ]
 }

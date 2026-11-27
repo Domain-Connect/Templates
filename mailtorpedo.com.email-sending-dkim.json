@@ -4,9 +4,9 @@
   "logoUrl": "https://raw.githubusercontent.com/hpwray/mailtorpedo-brand/main/mailtorpedo-logo.svg",
   "serviceId": "email-sending-dkim",
   "serviceName": "Email sending setup (signing records only)",
-  "version": 2,
-  "description": "Adds only the three DKIM signing records. Used when the customer's domain already has a DMARC record, which is left untouched.",
-  "variableDescription": "dkim1, dkim2, dkim3: the unique token of each of the three DKIM keys (the part before ._domainkey).",
+  "version": 3,
+  "description": "Adds the three DKIM signing records and the two records for the bounce address (bounce.<domain>). Used when the customer's domain already has a DMARC record, which is left untouched.",
+  "variableDescription": "dkim1, dkim2, dkim3: the unique token of each of the three DKIM keys (the part before ._domainkey). region: the region part of the bounce mail server name, e.g. us-east-1 (feedback-smtp.<region>.amazonses.com).",
   "syncPubKeyDomain": "mailtorpedo.com",
   "syncRedirectDomain": "app.mailtorpedo.com,mailtorpedo.com",
   "hostRequired": false,
@@ -28,6 +28,18 @@
       "host": "%dkim3%._domainkey",
       "pointsTo": "%dkim3%.dkim.amazonses.com",
       "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "bounce",
+      "pointsTo": "feedback-smtp.%region%.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "bounce",
+      "spfRules": "include:amazonses.com"
     }
   ]
 }
