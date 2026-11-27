@@ -1,0 +1,23 @@
+{
+  "providerId": "gethubi.ai",
+  "providerName": "Hubi",
+  "serviceId": "website-subdomain",
+  "serviceName": "Hubi website on a subdomain",
+  "version": 1,
+  "logoUrl": "https://gethubi.ai/logo.png",
+  "description": "Puts the website Hubi built and hosts for you on a subdomain of your domain.",
+  "variableDescription": "target: the alias the subdomain points at",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "domainconnect.gethubi.ai",
+  "syncRedirectDomain": "app.gethubi.ai,app.hubapp.dev",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%target%",
+      "ttl": 600
+    }
+  ]
+}
