@@ -1,0 +1,20 @@
+{
+  "providerId": "pagescape.ai",
+  "providerName": "Pagescape",
+  "serviceId": "website",
+  "serviceName": "Pagescape Sites",
+  "version": 1,
+  "logoUrl": "https://pagescape.ai/pagescape-mark.png",
+  "description": "Connects a domain to a website built with Pagescape Sites. One CNAME on the host (www or a subdomain) pointing at connect.pagescape.site, served through Cloudflare for SaaS, which issues the certificate. The bare domain is never changed, and nor are MX or other records.",
+  "syncPubKeyDomain": "domainconnect.pagescape.ai",
+  "syncRedirectDomain": "pagescape.ai",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.pagescape.site",
+      "ttl": 3600
+    }
+  ]
+}
