@@ -1,0 +1,33 @@
+{
+  "providerId": "whilesmart.com",
+  "providerName": "Whilesmart",
+  "serviceId": "mail",
+  "serviceName": "Workspace Mail",
+  "version": 1,
+  "logoUrl": "https://assets.whilesmart.com/brand/whilesmart-icon.svg",
+  "description": "Receive, send and sign mail for your domain with Whilesmart Workspace Mail, and let mail and calendar apps find their settings.",
+  "variableDescription": "server: the mail server's label under whilesmart.com, such as mx1. dkimEd/dkimRsa: DKIM selectors. dkimEdKey/dkimRsaKey: DKIM public keys. stsId: MTA-STS policy id. autoConfig: auto-config digest.",
+  "syncPubKeyDomain": "whilesmart.com",
+  "syncRedirectDomain": "console.whilesmart.com",
+  "hostRequired": false,
+  "records": [
+    { "groupId": "receive", "type": "MX", "host": "@", "pointsTo": "%server%.whilesmart.com", "priority": 10, "ttl": 3600 },
+    { "groupId": "send", "type": "SPFM", "host": "@", "spfRules": "mx", "ttl": 3600 },
+    { "groupId": "sign", "type": "TXT", "host": "%dkimEd%._domainkey", "data": "v=DKIM1; k=ed25519; h=sha256; p=%dkimEdKey%", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DKIM1", "ttl": 3600 },
+    { "groupId": "sign", "type": "TXT", "host": "%dkimRsa%._domainkey", "data": "v=DKIM1; k=rsa; h=sha256; p=%dkimRsaKey%", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DKIM1", "ttl": 3600 },
+    { "groupId": "policy", "type": "TXT", "host": "_dmarc", "data": "v=DMARC1; p=reject; rua=mailto:postmaster@%fqdn%", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=DMARC1", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "policy", "type": "CNAME", "host": "mta-sts", "pointsTo": "%server%.whilesmart.com", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "policy", "type": "TXT", "host": "_mta-sts", "data": "v=STSv1; id=%stsId%", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=STSv1", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "policy", "type": "TXT", "host": "_smtp._tls", "data": "v=TLSRPTv1; rua=mailto:postmaster@%fqdn%", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=TLSRPTv1", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "discovery", "type": "SRV", "name": "@", "service": "_imaps", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 993, "target": "%server%.whilesmart.com", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "discovery", "type": "SRV", "name": "@", "service": "_pop3s", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 995, "target": "%server%.whilesmart.com", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "discovery", "type": "SRV", "name": "@", "service": "_submissions", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 465, "target": "%server%.whilesmart.com", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "discovery", "type": "SRV", "name": "@", "service": "_jmap", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 443, "target": "%server%.whilesmart.com", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "discovery", "type": "SRV", "name": "@", "service": "_caldavs", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 443, "target": "%server%.whilesmart.com", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "discovery", "type": "SRV", "name": "@", "service": "_carddavs", "protocol": "_tcp", "priority": 0, "weight": 1, "port": 443, "target": "%server%.whilesmart.com", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "discovery", "type": "CNAME", "host": "autoconfig", "pointsTo": "%server%.whilesmart.com", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "discovery", "type": "CNAME", "host": "autodiscover", "pointsTo": "%server%.whilesmart.com", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "discovery", "type": "CNAME", "host": "ua-auto-config", "pointsTo": "%server%.whilesmart.com", "essential": "OnApply", "ttl": 3600 },
+    { "groupId": "discovery", "type": "TXT", "host": "_ua-auto-config", "data": "v=UAAC1; a=sha256; d=%autoConfig%", "txtConflictMatchingMode": "Prefix", "txtConflictMatchingPrefix": "v=UAAC1", "essential": "OnApply", "ttl": 3600 }
+  ]
+}
