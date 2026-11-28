@@ -1,0 +1,20 @@
+{
+  "providerId": "flysport.cc",
+  "providerName": "FlySport",
+  "version": 1,
+  "logoUrl": "https://flysport.cc/static/icons/android-chrome-192x192.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "flysport.cc",
+  "syncRedirectDomain": "flysport.cc",
+  "hostRequired": false,
+  "serviceId": "teamsite-bare",
+  "serviceName": "Team website (final step: the bare domain)",
+  "description": "Sends visitors who leave off the www to your FlySport team website at www.",
+  "records": [
+    {
+      "type": "REDIR301",
+      "host": "@",
+      "target": "https://www.%fqdn%"
+    }
+  ]
+}
