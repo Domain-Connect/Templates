@@ -1,0 +1,30 @@
+{
+  "providerId": "overtcms.com",
+  "providerName": "OvertCMS Cloud",
+  "serviceId": "custom-domain",
+  "serviceName": "OvertCMS Cloud Custom Domain",
+  "version": 1,
+  "logoUrl": "https://overtcms.com/icon.svg",
+  "description": "Connects a custom subdomain to an OvertCMS Cloud project with ownership verification and automatic HTTPS.",
+  "variableDescription": "%token%: unique hex domain ownership verification token",
+  "syncBlock": false,
+  "syncPubKeyDomain": "overtcms.com",
+  "syncRedirectDomain": "app.overtcms.com",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_overtcms-verify",
+      "data": "overtcms-verify=%token%",
+      "ttl": 300,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "overtcms-verify="
+    },
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "cname.overtcms.app",
+      "ttl": 300
+    }
+  ]
+}
