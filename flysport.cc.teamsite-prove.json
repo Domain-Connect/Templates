@@ -1,0 +1,30 @@
+{
+  "providerId": "flysport.cc",
+  "providerName": "FlySport",
+  "version": 1,
+  "logoUrl": "https://flysport.cc/static/icons/android-chrome-192x192.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "flysport.cc",
+  "syncRedirectDomain": "flysport.cc",
+  "hostRequired": false,
+  "serviceId": "teamsite-prove",
+  "serviceName": "Team website (step 1: prove the domain)",
+  "description": "Proves you own this domain and lets Cloudflare issue its certificate for your FlySport team website at www. Your current website keeps working.",
+  "variableDescription": "own: the ownership code Cloudflare for SaaS issues for www (a UUID)",
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_cf-custom-hostname.www",
+      "data": "%own%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All",
+      "essential": "OnApply"
+    },
+    {
+      "type": "CNAME",
+      "host": "_acme-challenge.www",
+      "pointsTo": "www.%fqdn%.40998ba8e32edcdc.dcv.cloudflare.com",
+      "ttl": 3600
+    }
+  ]
+}

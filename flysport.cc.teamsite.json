@@ -1,0 +1,21 @@
+{
+  "providerId": "flysport.cc",
+  "providerName": "FlySport",
+  "version": 1,
+  "logoUrl": "https://flysport.cc/static/icons/android-chrome-192x192.png",
+  "syncBlock": false,
+  "syncPubKeyDomain": "flysport.cc",
+  "syncRedirectDomain": "flysport.cc",
+  "hostRequired": false,
+  "serviceId": "teamsite",
+  "serviceName": "Team website (step 2: switch)",
+  "description": "Points www at your FlySport team website.",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "www",
+      "pointsTo": "sites.flysport.cc",
+      "ttl": 3600
+    }
+  ]
+}
