@@ -1,0 +1,21 @@
+{
+  "providerId": "tasmin.ai",
+  "providerName": "Tasmin",
+  "serviceId": "email",
+  "serviceName": "Email sending",
+  "version": 2,
+  "logoUrl": "https://tasmin.ai/favicon.svg",
+  "description": "Points a store's sending domain at Tasmin so its emails are signed and sent from its own domain: two DKIM keys, the MAIL FROM subdomain, the link-tracking subdomain and the subdomain that receives shoppers' replies.",
+  "variableDescription": "%label%: the store's 16-character label in Tasmin's DNS zone; %env%: Tasmin's environment subtree (e.g. prod.dns); %click%: Tasmin's click host (e.g. click.prod.dns)",
+  "syncBlock": false,
+  "syncPubKeyDomain": "tasmin.ai",
+  "syncRedirectDomain": "app.tasmin.ai",
+  "hostRequired": false,
+  "records": [
+    { "groupId": "sending", "type": "CNAME", "host": "tasmin._domainkey", "pointsTo": "dkim.%label%.%env%.tasmin.ai", "ttl": 3600 },
+    { "groupId": "sending", "type": "CNAME", "host": "tasmin2._domainkey", "pointsTo": "dkim2.%label%.%env%.tasmin.ai", "ttl": 3600 },
+    { "groupId": "sending", "type": "CNAME", "host": "ses", "pointsTo": "mf.%label%.%env%.tasmin.ai", "ttl": 3600 },
+    { "groupId": "links", "type": "CNAME", "host": "click", "pointsTo": "%click%.tasmin.ai", "ttl": 3600 },
+    { "groupId": "replies", "type": "MX", "host": "reply", "pointsTo": "inbound-smtp.eu-west-1.amazonaws.com", "priority": 10, "ttl": 3600 }
+  ]
+}
