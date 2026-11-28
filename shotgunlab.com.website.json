@@ -1,0 +1,28 @@
+{
+  "providerId": "shotgunlab.com",
+  "providerName": "Shotgun Lab",
+  "serviceId": "website",
+  "serviceName": "Shotgun Lab storefront",
+  "version": 1,
+  "logoUrl": "https://shotgunlab.com/shotgun-lab.svg",
+  "description": "Connect a domain to a storefront hosted for a Shotgun Lab brand.",
+  "variableDescription": "ipv4: primary storefront IPv4 address; ipv4two: secondary storefront IPv4 address when supplied by hosting.",
+  "syncPubKeyDomain": "domainconnect.shotgunlab.com",
+  "syncRedirectDomain": "admin.shotgunlab.com",
+  "records": [
+    {
+      "groupId": "apex",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4%",
+      "ttl": 600
+    },
+    {
+      "groupId": "apex2",
+      "type": "A",
+      "host": "@",
+      "pointsTo": "%ipv4two%",
+      "ttl": 600
+    }
+  ]
+}
