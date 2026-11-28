@@ -1,0 +1,21 @@
+{
+  "providerId": "shotgunlab.com",
+  "providerName": "Shotgun Lab",
+  "serviceId": "website-subdomain",
+  "serviceName": "Shotgun Lab storefront subdomain",
+  "version": 1,
+  "logoUrl": "https://shotgunlab.com/shotgun-lab.svg",
+  "description": "Connect a subdomain to a storefront hosted for a Shotgun Lab brand.",
+  "variableDescription": "cname: hosting target recommended for this storefront subdomain.",
+  "syncPubKeyDomain": "domainconnect.shotgunlab.com",
+  "syncRedirectDomain": "admin.shotgunlab.com",
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "%cname%",
+      "ttl": 600
+    }
+  ],
+  "hostRequired": true
+}
