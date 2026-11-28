@@ -1,0 +1,24 @@
+{
+  "providerId": "kuroblk.com",
+  "providerName": "Kuroblk",
+  "serviceId": "website",
+  "serviceName": "Driver booking website",
+  "description": "Connects the root domain to a Kuroblk driver booking site",
+  "logoUrl": "https://kuroblk.com/icon",
+  "version": 1,
+  "syncPubKeyDomain": "domainconnect.kuroblk.com",
+  "syncRedirectDomain": "kuroblk.com",
+  "records": [
+    { "type": "A", "groupId": "apex", "host": "@", "pointsTo": "%ipv4%", "ttl": 600 },
+    { "type": "A", "groupId": "apex-secondary", "host": "@", "pointsTo": "%ipv4Secondary%", "ttl": 600 },
+    {
+      "type": "TXT",
+      "groupId": "verification",
+      "host": "_vercel",
+      "data": "vc-domain-verify=%verification%",
+      "txtConflictMatchingMode": "None",
+      "essential": "OnApply",
+      "ttl": 600
+    }
+  ]
+}
