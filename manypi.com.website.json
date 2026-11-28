@@ -1,0 +1,35 @@
+{
+    "providerId": "manypi.com",
+    "providerName": "ManyPI",
+    "version": 1,
+    "logoUrl": "https://app.manypi.com/manypi-icon.svg",
+    "variableDescription": "token: the verification code of the ManyPI workspace the website belongs to",
+    "syncBlock": false,
+    "syncPubKeyDomain": "manypi.com",
+    "syncRedirectDomain": "app.manypi.com",
+    "hostRequired": false,
+    "serviceId": "website",
+    "serviceName": "ManyPI Website",
+    "description": "Connects your domain to your website on ManyPI: www opens your website, your domain forwards to it, and a TXT record proves the domain is yours.",
+    "records": [
+        {
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "domains.usemanypi.eu",
+            "ttl": 3600
+        },
+        {
+            "type": "TXT",
+            "host": "_manypi",
+            "data": "manypi-verify=%token%",
+            "ttl": 3600,
+            "txtConflictMatchingMode": "Prefix",
+            "txtConflictMatchingPrefix": "manypi-verify="
+        },
+        {
+            "type": "REDIR301",
+            "host": "@",
+            "target": "https://www.%fqdn%"
+        }
+    ]
+}
