@@ -1,0 +1,30 @@
+{
+  "providerId": "omah.co",
+  "providerName": "OMAH",
+  "serviceId": "web-address",
+  "serviceName": "Your web address",
+  "version": 1,
+  "logoUrl": "https://omah.co/assets/omah-tile.svg",
+  "description": "Connects a studio's own web address, like www.yourstudio.com, to its registration site on OMAH.",
+  "variableDescription": "token: the claim's ownership token, shown in OMAH's Settings, Your web address",
+  "syncBlock": false,
+  "syncPubKeyDomain": "omah.co",
+  "syncRedirectDomain": "omah.me",
+  "hostRequired": true,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "@",
+      "pointsTo": "connect.omah.app",
+      "ttl": 3600
+    },
+    {
+      "type": "TXT",
+      "host": "_omah",
+      "data": "omah-verify=%token%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "omah-verify="
+    }
+  ]
+}
